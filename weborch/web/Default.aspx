@@ -116,7 +116,7 @@
 
 
     </div>
-
+     <hr size="30"> 
     <div class="row">
         <h3>Instrument data</h3>
 
@@ -227,7 +227,7 @@
         </asp:UpdatePanel>
 
     </div>
-
+     <hr size="30"> 
     <div class="row">
         <h3>Artist data</h3>
 
