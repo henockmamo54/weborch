@@ -43,7 +43,7 @@ namespace web
                 orch.TelNO = txt_orchtelno.Text;
                 orch.FaxNo = txt_orchfaxno.Text;
                 orch.ConductorName = txt_orchcondactername.Text;
-                orch.Since = int.Parse(txt_orchname.Text);
+                orch.Since = int.Parse(txt_orchsince.Text);
 
                 if (orl.addOrchestra(orch))
                 {

@@ -99,8 +99,7 @@
                                 </div>
                                 <br />
                             </div>
-                            <div class="col-md-12 offset-4">
-                                <br />
+                            <div class="col-md-12">
                                 <asp:Button ID="btn_orchadd" CssClass="btn btn-primary " runat="server" Text="Add" OnClick="btn_orchadd_Click" />
                             </div>
                         </div>
@@ -116,7 +115,7 @@
 
 
     </div>
-
+     <hr size="30"> 
     <div class="row">
         <h3>Instrument data</h3>
 
@@ -227,7 +226,7 @@
         </asp:UpdatePanel>
 
     </div>
-
+     <hr size="30"> 
     <div class="row">
         <h3>Artist data</h3>
 
