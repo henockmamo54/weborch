@@ -182,6 +182,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ArtistPage.aspx" />
     <Content Include="Orchestra.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
@@ -366,6 +367,13 @@
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="ArtistPage.aspx.cs">
+      <DependentUpon>ArtistPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ArtistPage.aspx.designer.cs">
+      <DependentUpon>ArtistPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Orchestra.aspx.cs">
       <DependentUpon>Orchestra.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
