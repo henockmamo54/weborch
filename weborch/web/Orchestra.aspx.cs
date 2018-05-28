@@ -40,6 +40,7 @@ namespace web
                     GridView1.DataSource = orl.getAllOrchestra();
                     GridView1.DataBind();
                     showMsg("Data inserted succssfuly");
+                    cleanTextBox();
                 }
                 else showMsg("Please check your inputs");
             }
@@ -58,6 +59,18 @@ namespace web
             //                      "ServerControlScript", msg, true);
         }
 
+        public void cleanTextBox()
+        {
+            txt_orchname.Text = "";
+            txt_orchaliasname.Text = "";
+            txt_orchurl.Text = "";
+            txt_orchaddress.Text = "";
+            txt_orchzipcode.Text = "";
+            txt_orchtelno.Text = "";
+            txt_orchfaxno.Text = "";
+            txt_orchcondactername.Text = "";
+            txt_orchsince.Text = "";
+        }
 
     }
 }

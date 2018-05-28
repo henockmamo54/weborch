@@ -11,9 +11,9 @@ namespace web
 {
     public partial class _Default : Page
     {
-            OrchestraLogic orl = new OrchestraLogic();
-            InstrumentLogic insl = new InstrumentLogic();
-            ArtistLogic artl = new ArtistLogic();
+        OrchestraLogic orl = new OrchestraLogic();
+        InstrumentLogic insl = new InstrumentLogic();
+        ArtistLogic artl = new ArtistLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -51,10 +51,12 @@ namespace web
                     GridView1.DataSource = orl.getAllOrchestra();
                     GridView1.DataBind();
                     showMsg("Data inserted succssfuly");
+                    cleanOrchTextBoxs();
                 }
                 else showMsg("Please check your inputs");
             }
-            catch (Exception ee) {
+            catch (Exception ee)
+            {
                 showMsg("Please check your inputs");
             }
         }
@@ -81,17 +83,19 @@ namespace web
                     GridView2.DataSource = insl.getAllInstruments();
                     GridView2.DataBind();
                     showMsg("Data inserted succssfuly");
+                    cleanInstTextBoxs();
                 }
                 else showMsg("Please check your inputs");
             }
-            catch (Exception ee) {
+            catch (Exception ee)
+            {
                 showMsg("Please check your inputs");
             }
         }
 
         public void showMsg(string msg)
         {
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('"+msg+"')", true);
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + msg + "')", true);
 
             //string script = "alert(\"Hello\");";
             //ScriptManager.RegisterStartupScript(this, GetType(),
@@ -109,7 +113,7 @@ namespace web
                 artist.BirthDate = DateTime.Parse(txt_artist_birthdate.Text);
                 artist.Address = txt_artist_address.Text;
                 artist.ZipCode = txt_artist_zipcode.Text;
-                artist.TelNO = txt_artist_zipcode.Text;
+                artist.TelNO = txt_artist_teleno.Text;
                 artist.MobileNO = txt_artist_mobileno.Text;
                 artist.FaxNo = txt_aritist_faxno.Text;
                 artist.Remar = txt_artist_remark.Text;
@@ -120,12 +124,55 @@ namespace web
                     GridView3.DataSource = artl.getAllArtists();
                     GridView3.DataBind();
                     showMsg("Data inserted succssfuly");
+                    cleanArtistTextBoxs();
                 }
                 else showMsg("Please check your inputs");
             }
-            catch (Exception ee) {
+            catch (Exception ee)
+            {
                 showMsg("Please check your inputs");
             }
+        }
+
+        public void cleanOrchTextBoxs()
+        {
+            txt_orchname.Text = "";
+            txt_orchaliasname.Text = "";
+            txt_orchurl.Text = "";
+            txt_orchaddress.Text = "";
+            txt_orchzipcode.Text = "";
+            txt_orchtelno.Text = "";
+            txt_orchfaxno.Text = "";
+            txt_orchcondactername.Text = "";
+            txt_orchsince.Text = "";
+        }
+
+        public void cleanInstTextBoxs()
+        {
+            txt_inst_engname.Text = ""; ;
+            txt_inst_korean_name.Text = "";
+            txt_inst_alias.Text = "";
+            txt_inst_player.Text = "";
+            txt_inst_group.Text = "";
+            txt_inst_explanation.Text = "";
+            txt_inst_soundcliplocation.Text = "";
+            txt_inst_videocliplocation.Text = "";
+            txt_inst_photolocation.Text = "";
+            txt_inst_remarks.Text = "";
+        }
+
+        public void cleanArtistTextBoxs()
+        {
+            txt_artist_firstname.Text = "";
+            txt_artist_middlename.Text = "";
+            txt_artist_familyname.Text = "";
+            txt_artist_birthdate.Text = "";
+            txt_artist_address.Text = "";
+            txt_artist_zipcode.Text = "";
+            txt_artist_zipcode.Text = "";
+            txt_artist_mobileno.Text = "";
+            txt_aritist_faxno.Text = "";
+            txt_artist_remark.Text = "";
         }
     }
 }

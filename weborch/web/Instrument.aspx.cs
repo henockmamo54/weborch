@@ -38,6 +38,7 @@ namespace web
                     GridView2.DataSource = insl.getAllInstruments();
                     GridView2.DataBind();
                     showMsg("Data inserted succssfuly");
+                    cleanInstTextBoxs();
                 }
                 else showMsg("Please check your inputs");
             }
@@ -54,6 +55,21 @@ namespace web
             //string script = "alert(\"Hello\");";
             //ScriptManager.RegisterStartupScript(this, GetType(),
             //                      "ServerControlScript", msg, true);
+        }
+
+
+        public void cleanInstTextBoxs()
+        {
+            txt_inst_engname.Text = ""; ;
+            txt_inst_korean_name.Text = "";
+            txt_inst_alias.Text = "";
+            txt_inst_player.Text = "";
+            txt_inst_group.Text = "";
+            txt_inst_explanation.Text = "";
+            txt_inst_soundcliplocation.Text = "";
+            txt_inst_videocliplocation.Text = "";
+            txt_inst_photolocation.Text = "";
+            txt_inst_remarks.Text = "";
         }
 
     }

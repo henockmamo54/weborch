@@ -41,7 +41,7 @@ namespace web
                 artist.BirthDate = DateTime.Parse(txt_artist_birthdate.Text);
                 artist.Address = txt_artist_address.Text;
                 artist.ZipCode = txt_artist_zipcode.Text;
-                artist.TelNO = txt_artist_zipcode.Text;
+                artist.TelNO = txt_artist_teleno.Text;
                 artist.MobileNO = txt_artist_mobileno.Text;
                 artist.FaxNo = txt_aritist_faxno.Text;
                 artist.Remar = txt_artist_remark.Text;
@@ -52,6 +52,7 @@ namespace web
                     GridView3.DataSource = artl.getAllArtists();
                     GridView3.DataBind();
                     showMsg("Data inserted succssfuly");
+                    cleanArtistTextBoxs();
                 }
                 else showMsg("Please check your inputs");
             }
@@ -59,6 +60,21 @@ namespace web
             {
                 showMsg("Please check your inputs");
             }
+        }
+
+
+        public void cleanArtistTextBoxs()
+        {
+            txt_artist_firstname.Text = "";
+            txt_artist_middlename.Text = "";
+            txt_artist_familyname.Text = "";
+            txt_artist_birthdate.Text = "";
+            txt_artist_address.Text = "";
+            txt_artist_zipcode.Text = "";
+            txt_artist_teleno.Text = "";
+            txt_artist_mobileno.Text = "";
+            txt_aritist_faxno.Text = "";
+            txt_artist_remark.Text = "";
         }
     }
 }
