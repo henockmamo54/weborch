@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OrchestraDBModelStoreContainer" CdmEntityContainer="OrchestraDBEntities">
+    <EntitySetMapping Name="Artists">
+      <EntityTypeMapping TypeName="OrchestraDBModel.Artist">
+        <MappingFragment StoreEntitySet="Artist">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="FamilyName" ColumnName="FamilyName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="TelNO" ColumnName="TelNO" />
+          <ScalarProperty Name="MobileNO" ColumnName="MobileNO" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="Remar" ColumnName="Remar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Instruments">
+      <EntityTypeMapping TypeName="OrchestraDBModel.Instrument">
+        <MappingFragment StoreEntitySet="Instrument">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+          <ScalarProperty Name="KoreanName" ColumnName="KoreanName" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Player" ColumnName="Player" />
+          <ScalarProperty Name="Group" ColumnName="Group" />
+          <ScalarProperty Name="Explanation" ColumnName="Explanation" />
+          <ScalarProperty Name="SoundClipLocation" ColumnName="SoundClipLocation" />
+          <ScalarProperty Name="VideoClipLocation" ColumnName="VideoClipLocation" />
+          <ScalarProperty Name="PhotoLocation" ColumnName="PhotoLocation" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orchestras">
+      <EntityTypeMapping TypeName="OrchestraDBModel.Orchestra">
+        <MappingFragment StoreEntitySet="Orchestra">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="OfficialName" ColumnName="OfficialName" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="TelNO" ColumnName="TelNO" />
+          <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+          <ScalarProperty Name="ConductorName" ColumnName="ConductorName" />
+          <ScalarProperty Name="Since" ColumnName="Since" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

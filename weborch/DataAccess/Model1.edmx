@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OrchestraDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="FamilyName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="200" />
+          <Property Name="BirthDate" Type="date" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="TelNO" Type="nvarchar" MaxLength="50" />
+          <Property Name="MobileNO" Type="nvarchar" MaxLength="50" />
+          <Property Name="FaxNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Remar" Type="nvarchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="Instrument">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnglishName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="KoreanName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Alias" Type="nvarchar" MaxLength="200" />
+          <Property Name="Player" Type="nvarchar" MaxLength="200" />
+          <Property Name="Group" Type="nvarchar" MaxLength="200" />
+          <Property Name="Explanation" Type="nvarchar" MaxLength="1000" />
+          <Property Name="SoundClipLocation" Type="nvarchar" MaxLength="200" />
+          <Property Name="VideoClipLocation" Type="nvarchar" MaxLength="200" />
+          <Property Name="PhotoLocation" Type="nvarchar" MaxLength="200" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Orchestra">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OfficialName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Alias" Type="nvarchar" MaxLength="200" />
+          <Property Name="URL" Type="nvarchar" MaxLength="200" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="TelNO" Type="nvarchar" MaxLength="50" />
+          <Property Name="FaxNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="ConductorName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Since" Type="int" />
+        </EntityType>
+        <EntityContainer Name="OrchestraDBModelStoreContainer">
+          <EntitySet Name="Artist" EntityType="Self.Artist" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="Instrument" EntityType="Self.Instrument" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="Orchestra" EntityType="Self.Orchestra" Schema="Core" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OrchestraDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Artist">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FamilyName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TelNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FaxNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Remar" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Instrument">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnglishName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KoreanName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Alias" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Player" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Group" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Explanation" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="SoundClipLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="VideoClipLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PhotoLocation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Orchestra">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OfficialName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Alias" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="URL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TelNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FaxNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ConductorName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Since" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="OrchestraDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Artists" EntityType="Self.Artist" />
+          <EntitySet Name="Instruments" EntityType="Self.Instrument" />
+          <EntitySet Name="Orchestras" EntityType="Self.Orchestra" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OrchestraDBModelStoreContainer" CdmEntityContainer="OrchestraDBEntities">
+          <EntitySetMapping Name="Artists">
+            <EntityTypeMapping TypeName="OrchestraDBModel.Artist">
+              <MappingFragment StoreEntitySet="Artist">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="FamilyName" ColumnName="FamilyName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="TelNO" ColumnName="TelNO" />
+                <ScalarProperty Name="MobileNO" ColumnName="MobileNO" />
+                <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+                <ScalarProperty Name="Remar" ColumnName="Remar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Instruments">
+            <EntityTypeMapping TypeName="OrchestraDBModel.Instrument">
+              <MappingFragment StoreEntitySet="Instrument">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+                <ScalarProperty Name="KoreanName" ColumnName="KoreanName" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="Player" ColumnName="Player" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="Explanation" ColumnName="Explanation" />
+                <ScalarProperty Name="SoundClipLocation" ColumnName="SoundClipLocation" />
+                <ScalarProperty Name="VideoClipLocation" ColumnName="VideoClipLocation" />
+                <ScalarProperty Name="PhotoLocation" ColumnName="PhotoLocation" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orchestras">
+            <EntityTypeMapping TypeName="OrchestraDBModel.Orchestra">
+              <MappingFragment StoreEntitySet="Orchestra">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="OfficialName" ColumnName="OfficialName" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="TelNO" ColumnName="TelNO" />
+                <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
+                <ScalarProperty Name="ConductorName" ColumnName="ConductorName" />
+                <ScalarProperty Name="Since" ColumnName="Since" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
