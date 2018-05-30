@@ -28,6 +28,7 @@ namespace web
                 user.Email = txt_useremail.Text;
                 user.Address = txt_useraddress.Text;
                 user.ZipCode = txt_userzipcode.Text;
+                user.Password = txt_userPassword.Text;
 
                 if (ul.addUser(user)) {
                     usergridview.DataSource = ul.getAllUser();

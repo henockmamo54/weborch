@@ -67,12 +67,13 @@
 
 --drop table Core.[User]
 
---create table Core.[User](
---ID int not null primary key IDENTITY(1,1),
---EnglishName varchar(200) null,
---KoreanName nvarchar(200) null,
---UserID nvarchar(200) not null,
---Email nvarchar(100) not null,
---Address nvarchar(100) not null,
---ZipCode nvarchar(10) null,
---)
+create table Core.[User](
+ID int not null primary key IDENTITY(1,1),
+EnglishName varchar(200) null,
+KoreanName nvarchar(200) null,
+UserID nvarchar(200) not null UNIQUE,
+[Password] nvarchar(200) not null,
+Email nvarchar(100) not null,
+Address nvarchar(100) not null,
+ZipCode nvarchar(10) null,
+)

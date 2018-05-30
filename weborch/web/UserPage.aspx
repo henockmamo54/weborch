@@ -35,9 +35,18 @@
                             </div>
                             <div class="col-md-12">
                                 <br />
+                                <div class="col-md-4">Password:</div>
+                                <div class="col-md-6">
+                                    <asp:TextBox ID="txt_userPassword" textmode="Password" runat="server"></asp:TextBox>
+                                </div>
+                                <br />
+
+                            </div>
+                            <div class="col-md-12">
+                                <br />
                                 <div class="col-md-4">Email:</div>
                                 <div class="col-md-6">
-                                    <asp:TextBox ID="txt_useremail" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txt_useremail" TextMode="Email" runat="server"></asp:TextBox>
                                 </div>
                                 <br />
 
