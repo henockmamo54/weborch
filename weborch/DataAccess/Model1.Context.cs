@@ -28,5 +28,6 @@ namespace DataAccess
         public virtual DbSet<Artist> Artists { get; set; }
         public virtual DbSet<Instrument> Instruments { get; set; }
         public virtual DbSet<Orchestra> Orchestras { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

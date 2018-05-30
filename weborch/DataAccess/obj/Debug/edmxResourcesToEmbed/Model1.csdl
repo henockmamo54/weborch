@@ -51,5 +51,18 @@
     <EntitySet Name="Artists" EntityType="Self.Artist" />
     <EntitySet Name="Instruments" EntityType="Self.Instrument" />
     <EntitySet Name="Orchestras" EntityType="Self.Orchestra" />
+    <EntitySet Name="Users" EntityType="OrchestraDBModel.User" />
   </EntityContainer>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EnglishName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="KoreanName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UserID" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

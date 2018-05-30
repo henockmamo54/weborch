@@ -52,10 +52,23 @@
           <Property Name="ConductorName" Type="nvarchar" MaxLength="100" />
           <Property Name="Since" Type="int" />
         </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnglishName" Type="varchar" MaxLength="200" />
+          <Property Name="KoreanName" Type="nvarchar" MaxLength="200" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ZipCode" Type="nvarchar" MaxLength="10" />
+        </EntityType>
         <EntityContainer Name="OrchestraDBModelStoreContainer">
           <EntitySet Name="Artist" EntityType="Self.Artist" Schema="Core" store:Type="Tables" />
           <EntitySet Name="Instrument" EntityType="Self.Instrument" Schema="Core" store:Type="Tables" />
           <EntitySet Name="Orchestra" EntityType="Self.Orchestra" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="Core" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -112,7 +125,20 @@
           <EntitySet Name="Artists" EntityType="Self.Artist" />
           <EntitySet Name="Instruments" EntityType="Self.Instrument" />
           <EntitySet Name="Orchestras" EntityType="Self.Orchestra" />
+          <EntitySet Name="Users" EntityType="OrchestraDBModel.User" />
         </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnglishName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="KoreanName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -166,6 +192,19 @@
                 <ScalarProperty Name="FaxNo" ColumnName="FaxNo" />
                 <ScalarProperty Name="ConductorName" ColumnName="ConductorName" />
                 <ScalarProperty Name="Since" ColumnName="Since" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="OrchestraDBModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="KoreanName" ColumnName="KoreanName" />
+                <ScalarProperty Name="EnglishName" ColumnName="EnglishName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
