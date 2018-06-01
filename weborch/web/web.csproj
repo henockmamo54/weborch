@@ -183,6 +183,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ArtistPage.aspx" />
+    <Content Include="BulletinPage.aspx" />
     <Content Include="Orchestra.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
@@ -374,6 +375,13 @@
     </Compile>
     <Compile Include="ArtistPage.aspx.designer.cs">
       <DependentUpon>ArtistPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BulletinPage.aspx.cs">
+      <DependentUpon>BulletinPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BulletinPage.aspx.designer.cs">
+      <DependentUpon>BulletinPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Orchestra.aspx.cs">
       <DependentUpon>Orchestra.aspx</DependentUpon>
