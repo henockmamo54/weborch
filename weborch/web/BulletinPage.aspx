@@ -8,26 +8,31 @@
                 <div class="col-md-7">
                     <asp:Repeater ID="Repeater1" runat="server">
                         <ItemTemplate>
-                            <div class="rptr">
-                                <table>
-                                    <tr>
-                                        <th colspan="2">ID <%#Eval("ID") %>" </th>
-                                    </tr>
-                                    <tr>
-                                        <td>MSG</td>
-                                        <td><%#Eval("MSG") %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>URL</td>
-                                        <td><%#Eval("URL") %></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Image</td>
-                                        <td><%#Eval("ImageUrl") %></td>
-                                    </tr>
-                                    <%--<tr><td>Date of Examination</td><td><%#Eval("D_O_E") %></td></tr>
+                            <div class="rptr" style="width:40em" >
+                                <div class="panel panel-default">
+                                    <table>
+                                        <tr>
+                                                <img src="Document/<%#Eval("ImageUrl") %>" style="width:100%" />
+                                        </tr>
+                                        <tr>
+                                            <th colspan="2">ID <%#Eval("ID") %> </th>
+                                        </tr>
+                                        <tr>
+                                            <td>MSG</td>
+                                            <td><%#Eval("MSG") %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>URL</td>
+                                            <td><%#Eval("URL") %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Image</td>
+                                            <td><%#Eval("ImageUrl") %></td>
+                                        </tr>
+                                        <%--<tr><td>Date of Examination</td><td><%#Eval("D_O_E") %></td></tr>
           <tr><td>Department</td><td><%#Eval("Department") %></td></tr>--%>
-                                </table>
+                                    </table>
+                                </div>
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
@@ -39,7 +44,7 @@
                             </td>
                             <td>
 
-                                <asp:TextBox ID="txt_bulmsg" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txt_bulmsg" runat="server" TextMode="MultiLine"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -51,15 +56,21 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Image:                        
+                            <td>Image:                     
+                                
                             </td>
                             <td>
-
-                                <asp:TextBox ID="txtbulimage" runat="server"></asp:TextBox>
+                                <asp:Button ID="addPost" CssClass="btn btn-primary pull-right" runat="server" Text="Add" OnClick="Button1_Click" />
+                                <%--<asp:TextBox ID="txtbulimage" runat="server"></asp:TextBox>
+                                <asp:Button ID="btn_browsdir" CssClass="btn btn-primary pull-right" runat="server" Text="Browse" OnClick="btn_browsdir_Click"/>--%>
                             </td>
                         </tr>
+                        <tr>
+                            <td>
+                                <asp:FileUpload ID="FileUpload1" runat="server" /></td>
+                        </tr>
                     </table>
-                    <asp:Button ID="addPost" CssClass="btn btn-primary pull-right" runat="server" Text="Button" OnClick="Button1_Click" />
+
                     <%--<div>
                 Msg: 
             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
@@ -75,5 +86,11 @@
                 </div>
             </div>
         </ContentTemplate>
+
+
+        <Triggers>
+            <asp:PostBackTrigger ControlID="addPost" />
+        </Triggers>
+
     </asp:UpdatePanel>
 </asp:Content>

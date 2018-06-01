@@ -77,3 +77,16 @@
 --Address nvarchar(100) not null,
 --ZipCode nvarchar(10) null,
 --)
+
+--drop table Core.Bulletin
+
+--create table Core.Bulletin(
+--ID int not null primary key IDENTITY(1,1),
+--MSG varchar(200) null,
+--URL varchar(200) null,
+--ImageUrl varchar(200) null,
+--TimeStamp datetime DEFAULT GETDATE()
+--)
+
+insert into Core.bulletin(MSG,URL,ImageUrl)
+values( 'test','test','test')
