@@ -29,6 +29,7 @@
           <Property Name="MSG" Type="varchar" MaxLength="200" />
           <Property Name="URL" Type="varchar" MaxLength="200" />
           <Property Name="ImageUrl" Type="varchar" MaxLength="200" />
+          <Property Name="TimeStamp" Type="datetime" />
         </EntityType>
         <EntityType Name="Instrument">
           <Key>
@@ -160,6 +161,7 @@
           <Property Name="MSG" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="URL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="ImageUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TimeStamp" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -234,6 +236,7 @@
           <EntitySetMapping Name="Bulletins">
             <EntityTypeMapping TypeName="OrchestraDBModel.Bulletin">
               <MappingFragment StoreEntitySet="Bulletin">
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
                 <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
                 <ScalarProperty Name="URL" ColumnName="URL" />
                 <ScalarProperty Name="MSG" ColumnName="MSG" />

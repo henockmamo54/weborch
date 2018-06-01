@@ -75,5 +75,6 @@
     <Property Name="MSG" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="URL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="ImageUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="TimeStamp" Type="DateTime" Precision="3" />
   </EntityType>
 </Schema>

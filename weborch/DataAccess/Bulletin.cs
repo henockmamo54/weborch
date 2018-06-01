@@ -18,5 +18,6 @@ namespace DataAccess
         public string MSG { get; set; }
         public string URL { get; set; }
         public string ImageUrl { get; set; }
+        public Nullable<System.DateTime> TimeStamp { get; set; }
     }
 }

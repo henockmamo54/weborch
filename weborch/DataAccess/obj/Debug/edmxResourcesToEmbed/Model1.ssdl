@@ -24,6 +24,7 @@
     <Property Name="MSG" Type="varchar" MaxLength="200" />
     <Property Name="URL" Type="varchar" MaxLength="200" />
     <Property Name="ImageUrl" Type="varchar" MaxLength="200" />
+    <Property Name="TimeStamp" Type="datetime" />
   </EntityType>
   <EntityType Name="Instrument">
     <Key>

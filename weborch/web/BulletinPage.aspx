@@ -37,7 +37,7 @@
                         </ItemTemplate>
                     </asp:Repeater>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 pull-right">
                     <table>
                         <tr>
                             <td>Msg:
@@ -59,7 +59,7 @@
                             <td>Image:                     
                                 
                             </td>
-                            <td>
+                            <td><asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline" />
                                 <asp:Button ID="addPost" CssClass="btn btn-primary pull-right" runat="server" Text="Add" OnClick="Button1_Click" />
                                 <%--<asp:TextBox ID="txtbulimage" runat="server"></asp:TextBox>
                                 <asp:Button ID="btn_browsdir" CssClass="btn btn-primary pull-right" runat="server" Text="Browse" OnClick="btn_browsdir_Click"/>--%>
@@ -67,7 +67,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:FileUpload ID="FileUpload1" runat="server" /></td>
+                                </td>
                         </tr>
                     </table>
 

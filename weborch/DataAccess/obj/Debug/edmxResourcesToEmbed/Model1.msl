@@ -68,6 +68,7 @@
     <EntitySetMapping Name="Bulletins">
       <EntityTypeMapping TypeName="OrchestraDBModel.Bulletin">
         <MappingFragment StoreEntitySet="Bulletin">
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
           <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
           <ScalarProperty Name="URL" ColumnName="URL" />
           <ScalarProperty Name="MSG" ColumnName="MSG" />
