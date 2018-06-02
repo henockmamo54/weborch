@@ -12,5 +12,22 @@ namespace BusinessLogic
         public List<ParentCommentTable> getAllParentComments() {
             return entity.ParentCommentTables.ToList();
         }
+
+        public bool addParentComment(ParentCommentTable pt) {
+            try
+            {
+                entity.ParentCommentTables.Add(pt);
+                entity.SaveChanges();
+                return true;
+            }
+            catch (Exception ee) {
+                return false;
+            }
+        }
+
+        public List<ParentCommentTable> getChildCommentByParentID(int ID)
+        {
+            return entity.ParentCommentTables.Where(x => x.PostID == ID).ToList();
+        }
     }
 }

@@ -6,7 +6,7 @@
             <div class="row">
                 <br />
                 <div class="col-md-7">
-                    <asp:Repeater ID="Repeater1" runat="server">
+                    <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand" OnItemDataBound="Repeater1_ItemDataBound">
                         <ItemTemplate>
                             <div class="rptr" style="width: 40em; box-shadow: 2px 2px 2px 2px #f5f5f5;">
                                 <div class="panel panel-default">
@@ -39,10 +39,81 @@
                                         <asp:Image ID="Image1" runat="server"
                                             ImageUrl="https://myspace.com/common/images/user.png"
                                             Style="width: 30px; height: 30px; border-radius: 50%; margin-top: 0.2em;" />
-                                        <asp:Button ID="btnComment" Text="Comment" runat="server"
-                                            Style="background-color: #4a90ce; border: 1px solid #4a90ce; padding: 7px 25px; border-radius: 5px; color: #fff; float: right; margin-top: 0.2em;"
-                                            OnClick="btnComment_Click" />
+                                        <asp:Button ID="btnComment" Text="Comment" runat="server" OnCommand="btnComment_Click" CommandName="MyUpdate" CommandArgument='<%#Eval("ID") %>'
+                                            Style="background-color: #4a90ce; border: 1px solid #4a90ce; padding: 7px 25px; border-radius: 5px; color: #fff; float: right; margin-top: 0.2em;" />
                                     </div>
+
+
+
+                                    <%--=============================================================================--%>
+
+
+
+                                    <div class="row">
+                                        <asp:Repeater ID="Repeater2" runat="server" OnDataBinding="Repeater2_DataBinding" OnItemDataBound="Repeater2_ItemDataBound">
+                                            <ItemTemplate>
+                                                <div class="col-md-7">
+                                                    <hr style="margin: 1em;" />
+                                                    <table style="margin: 3px 5px; width: 100%;">
+                                                        <tr>
+                                                            <td style="width: 55px; vertical-align: text-top;">
+                                                                <asp:Image ID="ImageParent" runat="server" Style="width: 50px; height: 50px;" ImageUrl="https://storage.designcrowd.com/common/images/v3/no-profile-pic-tiny.png" />
+                                                            </td>
+                                                            <td style="padding: 0px 5px; text-align: left; vertical-align: top;">
+                                                                <asp:Label ID="lblCommentID" runat="server" Visible="false" Text='<%#Eval("ID") %>'></asp:Label>
+                                                                <asp:Label ID="lblCommentMessage" runat="server" Text='<% #Eval("CommentMessage") %>'></asp:Label><br />
+                                                                <a class="link" id='lnkReplyParent<%# Eval("ID") %>' href="javascript:void(0)" onclick="showReply(<%# Eval("ID") %>); return false;">Reply</a>&nbsp;
+       <a class="link" id="lnkCancel" href="javascript:void(0)" onclick="closeReply(<%# Eval("ID") %>); return false;">Cancel</a>
+
+                                                                <%--  <asp:Repeater ID="Repeater3" runat="server" DataSource="<%# GetDetail(Container.DataItem) %>">--%>
+                                                                <asp:Repeater ID="detailRepeater" runat="server">
+                                                                    <%--<ItemTemplate>
+                                                <asp:Label ID="lblCommentMessage" runat="server" Text='<% #Eval("CommentMessage") %>'/>
+                                            </ItemTemplate>--%>
+
+
+                                                                    <ItemTemplate>
+                                                                        <div class="row">
+                                                                            <hr style="margin: 1em;" />
+                                                                            <table style="margin: 3px 5px; width: 100%;">
+                                                                                <tr>
+                                                                                    <td style="width: 55px; vertical-align: text-top;">
+                                                                                        <asp:Image ID="ImageParent" runat="server" Style="width: 50px; height: 50px;" ImageUrl="https://storage.designcrowd.com/common/images/v3/no-profile-pic-tiny.png" />
+                                                                                    </td>
+                                                                                    <td style="padding: 0px 5px; text-align: left; vertical-align: top;">
+                                                                                        <asp:Label ID="lblCommentID" runat="server" Visible="false" Text='<%#Eval("ID") %>'></asp:Label>
+                                                                                        <asp:Label ID="lblCommentMessage" runat="server" Text='<% #Eval("CommentMessage") %>'></asp:Label><br />
+                                                                                        <a class="link" id='lnkReplyParent<%# Eval("ID") %>' href="javascript:void(0)" onclick="showReply(<%# Eval("ID") %>+'c'); return false;">Reply</a>
+                                                                                        <a class="link" id="lnkCancel" href="javascript:void(0)" onclick="closeReply(<%# Eval("ID") %>+'c'); return false;">Cancel</a>
+
+                                                                                        <div id='divReply<%# Eval("ID") %>c' style="display: none; margin-top: 5px;">
+                                                                                            <asp:TextBox ID="txtCommentReplyParent" runat="server" TextMode="MultiLine" Width="560px" Height="60px"></asp:TextBox>
+                                                                                            <asp:Button ID="btnReplyParent" runat="server" Text="Reply" Style="float: right; margin: 5px;" />
+                                                                                        </div>
+                                                                                    </td>
+                                                                                </tr>
+                                                                            </table>
+                                                                        </div>
+                                                                    </ItemTemplate>
+
+
+
+                                                                </asp:Repeater>
+
+                                                                <div id='divReply<%# Eval("ID") %>' style="display: none; margin-top: 5px;">
+                                                                    <asp:TextBox ID="txtCommentReplyParent" runat="server" TextMode="MultiLine" Width="560px" Height="60px"></asp:TextBox>
+                                                                    <asp:Button ID="btnReplyParent" runat="server" Text="Reply" Style="float: right; margin: 5px;" />
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                    </div>
+
+
+                                    <%--=============================================================================--%>
                                 </div>
 
                             </div>
@@ -98,97 +169,7 @@
                 </div>
             </div>
 
-            <div class="row">
-                <asp:Repeater ID="Repeater2" runat="server" OnDataBinding="Repeater2_DataBinding" OnItemDataBound="Repeater2_ItemDataBound">
-                    <ItemTemplate>
-                        <div class="col-md-7">
-                            <hr style="margin: 1em;" />
-                            <table style="margin: 3px 5px; width: 100%;">
-                                <tr>
-                                    <td style="width: 55px; vertical-align: text-top;">
-                                        <asp:Image ID="ImageParent" runat="server" Style="width: 50px; height: 50px;" ImageUrl="https://storage.designcrowd.com/common/images/v3/no-profile-pic-tiny.png" />
-                                    </td>
-                                    <td style="padding: 0px 5px; text-align: left; vertical-align: top;">
-                                        <asp:Label ID="lblCommentID" runat="server" Visible="false" Text='<%#Eval("ID") %>'></asp:Label>
-                                        <asp:Label ID="lblCommentMessage" runat="server" Text='<% #Eval("CommentMessage") %>'></asp:Label><br />
-                                        <a class="link" id='lnkReplyParent<%# Eval("ID") %>' href="javascript:void(0)" onclick="showReply(<%# Eval("ID") %>); return false;">Reply</a>&nbsp;
-       <a class="link" id="lnkCancel" href="javascript:void(0)" onclick="closeReply(<%# Eval("ID") %>); return false;">Cancel</a>
 
-                                        <%--  <asp:Repeater ID="Repeater3" runat="server" DataSource="<%# GetDetail(Container.DataItem) %>">--%>
-                                        <asp:Repeater ID="detailRepeater" runat="server">
-                                            <%--<ItemTemplate>
-                                                <asp:Label ID="lblCommentMessage" runat="server" Text='<% #Eval("CommentMessage") %>'/>
-                                            </ItemTemplate>--%>
-
-
-                                            <ItemTemplate>
-                                                <div class="row">
-                                                    <hr style="margin: 1em;" />
-                                                    <table style="margin: 3px 5px; width: 100%;">
-                                                        <tr>
-                                                            <td style="width: 55px; vertical-align: text-top;">
-                                                                <asp:Image ID="ImageParent" runat="server" Style="width: 50px; height: 50px;" ImageUrl="https://storage.designcrowd.com/common/images/v3/no-profile-pic-tiny.png" />
-                                                            </td>
-                                                            <td style="padding: 0px 5px; text-align: left; vertical-align: top;">
-                                                                <asp:Label ID="lblCommentID" runat="server" Visible="false" Text='<%#Eval("ID") %>'></asp:Label>
-                                                                <asp:Label ID="lblCommentMessage" runat="server" Text='<% #Eval("CommentMessage") %>'></asp:Label><br />
-                                                                <a class="link" id='lnkReplyParent<%# Eval("ID") %>' href="javascript:void(0)" onclick="showReply(<%# Eval("ID") %>+'c'); return false;">Reply</a>
-       <a class="link" id="lnkCancel" href="javascript:void(0)" onclick="closeReply(<%# Eval("ID") %>+'c'); return false;">Cancel</a>
-                                                                
-                                                                <div id='divReply<%# Eval("ID") %>c' style="display: none; margin-top: 5px;">
-                                                                    <asp:TextBox ID="txtCommentReplyParent" runat="server" TextMode="MultiLine" Width="560px" Height="60px"></asp:TextBox>
-                                                                    <asp:Button ID="btnReplyParent" runat="server" Text="Reply" Style="float: right; margin: 5px;" />
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </div>
-                                            </ItemTemplate>
-
-
-
-                                        </asp:Repeater>
-
-                                        <div id='divReply<%# Eval("ID") %>' style="display: none; margin-top: 5px;">
-                                            <asp:TextBox ID="txtCommentReplyParent" runat="server" TextMode="MultiLine" Width="560px" Height="60px"></asp:TextBox>
-                                            <asp:Button ID="btnReplyParent" runat="server" Text="Reply" Style="float: right; margin: 5px;" />
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </ItemTemplate>
-                </asp:Repeater>
-            </div>
-            <%--            <asp:GridView ID="GridViewComment" runat="server" AutoGenerateColumns="false" BorderWidth="0" Width="50%">
-                <Columns>
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                            <div style="width: 100%;">
-                                <table style="margin: 3px 5px; width: 100%;">
-                                    <tr>
-                                        <td style="width: 55px; vertical-align: text-top;">
-                                            <asp:Image ID="ImageParent" runat="server" Style="width: 50px; height: 50px;" ImageUrl="https://storage.designcrowd.com/common/images/v3/no-profile-pic-tiny.png" />
-                                        </td>
-                                        <td style="padding: 0px 5px; text-align: left; vertical-align: top;">
-                                            <asp:Label ID="lblCommentID" runat="server" Visible="false" Text='<%#Eval("ID") %>'></asp:Label>
-                                            <asp:Label ID="lblCommentMessage" runat="server" Text='<% #Eval("CommentMessage") %>'></asp:Label><br />
-                                            <a class="link" id='lnkReplyParent<%# Eval("ID") %>' href="javascript:void(0)" onclick="showReply(<%# Eval("ID") %>); return false;">Reply</a>&nbsp;
-       <a class="link" id="lnkCancel" href="javascript:void(0)" onclick="closeReply(<%# Eval("ID") %>); return false;">Cancel</a>
-
-
-                                            <div id='divReply<%# Eval("ID") %>' style="display: none; margin-top: 5px;">
-                                                <asp:TextBox ID="txtCommentReplyParent" runat="server" TextMode="MultiLine" Width="560px" Height="60px"></asp:TextBox>
-                                                <asp:Button ID="btnReplyParent" runat="server" Text="Reply" Style="float: right; margin: 5px;" />
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-            </asp:GridView>--%>
         </ContentTemplate>
 
         <Triggers>

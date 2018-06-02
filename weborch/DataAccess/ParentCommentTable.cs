@@ -18,5 +18,6 @@ namespace DataAccess
         public string Username { get; set; }
         public string CommentMessage { get; set; }
         public Nullable<System.DateTime> CommentDate { get; set; }
+        public Nullable<int> PostID { get; set; }
     }
 }

@@ -88,5 +88,35 @@
 --TimeStamp datetime DEFAULT GETDATE()
 --)
 
-insert into Core.bulletin(MSG,URL,ImageUrl)
-values( 'test','test','test')
+--insert into Core.bulletin(MSG,URL,ImageUrl)
+--values( 'test','test','test')
+
+--drop table core.ParentCommentTable
+
+--create table core.ParentCommentTable(
+-- ID int not null primary key IDENTITY(1,1),
+-- Username varchar(25),
+-- CommentMessage varchar(300),
+-- CommentDate date default getdate(),
+-- PostID int null
+-- )
+
+--insert into Core.ParentCommentTable(
+--Username,CommentMessage
+--) values ('test','test')
+
+--drop table core.ChildCommentTable
+
+--create table core.ChildCommentTable(
+-- ID int not null primary key IDENTITY(1,1),
+-- Username varchar(25),
+-- CommentMessage varchar(300),
+-- CommentDate date default getdate(),
+-- ParentCommentID int
+-- ) 
+
+insert into Core.ChildCommentTable(
+Username,CommentMessage,ParentCommentID)
+values('test4','test4',4)
+
+select * from Core.ChildCommentTable

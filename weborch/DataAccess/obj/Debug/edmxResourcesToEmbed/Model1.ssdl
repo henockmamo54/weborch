@@ -75,6 +75,7 @@
     <Property Name="Username" Type="varchar" MaxLength="25" />
     <Property Name="CommentMessage" Type="varchar" MaxLength="300" />
     <Property Name="CommentDate" Type="date" />
+    <Property Name="PostID" Type="int" />
   </EntityType>
   <EntityType Name="User">
     <Key>

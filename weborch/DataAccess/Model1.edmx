@@ -80,6 +80,7 @@
           <Property Name="Username" Type="varchar" MaxLength="25" />
           <Property Name="CommentMessage" Type="varchar" MaxLength="300" />
           <Property Name="CommentDate" Type="date" />
+          <Property Name="PostID" Type="int" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -204,6 +205,7 @@
           <Property Name="Username" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="CommentMessage" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="CommentDate" Type="DateTime" Precision="0" />
+          <Property Name="PostID" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -300,6 +302,7 @@
           <EntitySetMapping Name="ParentCommentTables">
             <EntityTypeMapping TypeName="OrchestraDBModel.ParentCommentTable">
               <MappingFragment StoreEntitySet="ParentCommentTable">
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
                 <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
                 <ScalarProperty Name="CommentMessage" ColumnName="CommentMessage" />
                 <ScalarProperty Name="Username" ColumnName="Username" />

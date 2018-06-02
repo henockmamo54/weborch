@@ -97,5 +97,6 @@
     <Property Name="Username" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
     <Property Name="CommentMessage" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
     <Property Name="CommentDate" Type="DateTime" Precision="0" />
+    <Property Name="PostID" Type="Int32" />
   </EntityType>
 </Schema>

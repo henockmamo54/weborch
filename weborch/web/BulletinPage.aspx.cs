@@ -17,15 +17,17 @@ namespace web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Repeater1.DataSource = bl.getAllMsg();
-            Repeater1.DataBind();
+            if (!IsPostBack)
+            {
+                Repeater1.DataSource = bl.getAllMsg();
+                Repeater1.DataBind();
 
-            //GridViewComment.DataSource = pc.getAllParentComments();
-            //GridViewComment.DataBind();
+                //GridViewComment.DataSource = pc.getAllParentComments();
+                //GridViewComment.DataBind();
 
-            Repeater2.DataSource = pc.getAllParentComments();
-            Repeater2.DataBind();
-
+                //Repeater2.DataSource = pc.getAllParentComments();
+                //Repeater2.DataBind();
+            }
 
         }
         
@@ -96,8 +98,22 @@ namespace web
 
         }
 
-        protected void btnComment_Click(object sender, EventArgs e)
+        protected void btnComment_Click(object sender, CommandEventArgs e)
         {
+            RepeaterItem item = (sender as Button).NamingContainer as RepeaterItem;            
+            string message = (item.FindControl("txtComment") as TextBox).Text;
+
+
+            ParentCommentTable pt = new ParentCommentTable();
+            pt.Username = "anonymous";
+            pt.CommentMessage = message;
+            pt.PostID = int.Parse(e.CommandArgument.ToString());
+
+            pc.addParentComment(pt);
+
+            var value = e.CommandArgument;
+
+            System.Console.WriteLine("on btn click");
 
         }
 
@@ -125,6 +141,26 @@ namespace web
 
                 string msg = ((ParentCommentTable)e.Item.DataItem).CommentMessage;
                 System.Console.WriteLine(msg);
+            }
+        }
+
+        protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            
+        }
+
+        protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            RepeaterItem item = e.Item;
+            if ((item.ItemType == ListItemType.Item) ||
+                (item.ItemType == ListItemType.AlternatingItem))
+            {
+                var repeater2 = (Repeater)item.FindControl("Repeater2");
+                var x = pc.getChildCommentByParentID(((Bulletin)e.Item.DataItem).ID);
+
+                repeater2.DataSource = x;
+                repeater2.DataBind();
+
             }
         }
     }
