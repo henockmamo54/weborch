@@ -13,13 +13,27 @@ namespace web
     {
         BulletinLogic bl = new BulletinLogic();
         ParentCommentLogic pc = new ParentCommentLogic();
+        ChildCommentLogic cl = new ChildCommentLogic();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             Repeater1.DataSource = bl.getAllMsg();
             Repeater1.DataBind();
 
-            GridViewComment.DataSource = pc.getAllParentComments();
-            GridViewComment.DataBind();
+            //GridViewComment.DataSource = pc.getAllParentComments();
+            //GridViewComment.DataBind();
+
+            Repeater2.DataSource = pc.getAllParentComments();
+            Repeater2.DataBind();
+
+
+        }
+        
+        protected List<ParentCommentTable> GetDetail(object item)
+        {
+            //var dept = (ParentCommentTable)item;
+            // then do whatever is necessary to get the employees from dept
+            return pc.getAllParentComments().Take(2).ToList();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -85,6 +99,33 @@ namespace web
         protected void btnComment_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void Repeater2_DataBinding(object sender, System.Web.UI.WebControls.RepeaterItemEventArgs e)
+        {
+        }
+
+        protected void Repeater2_DataBinding(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Repeater2_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            RepeaterItem item = e.Item;
+            if ((item.ItemType == ListItemType.Item) ||
+                (item.ItemType == ListItemType.AlternatingItem))
+            {
+                var detail = (Repeater)item.FindControl("detailRepeater");
+
+                //pc.getAllParentComments().Take(2).ToList()
+                var x = cl.getChildCommentByParentID(((ParentCommentTable)e.Item.DataItem).ID);
+                detail.DataSource = x;
+                detail.DataBind();
+
+                string msg = ((ParentCommentTable)e.Item.DataItem).CommentMessage;
+                System.Console.WriteLine(msg);
+            }
         }
     }
 }

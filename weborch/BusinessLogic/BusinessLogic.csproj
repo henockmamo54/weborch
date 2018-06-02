@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="ArtistLogic.cs" />
     <Compile Include="BulletinLogic.cs" />
+    <Compile Include="ChildCommentLogic.cs" />
     <Compile Include="InstrumentLogic.cs" />
     <Compile Include="OrchestraLogic.cs" />
     <Compile Include="Form1.cs">

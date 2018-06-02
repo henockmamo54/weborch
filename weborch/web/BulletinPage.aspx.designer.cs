@@ -67,12 +67,12 @@ namespace web {
         protected global::System.Web.UI.WebControls.Button addPost;
         
         /// <summary>
-        /// GridViewComment control.
+        /// Repeater2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewComment;
+        protected global::System.Web.UI.WebControls.Repeater Repeater2;
     }
 }
