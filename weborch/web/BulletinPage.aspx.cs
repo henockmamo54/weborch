@@ -12,10 +12,14 @@ namespace web
     public partial class BulletinPage : System.Web.UI.Page
     {
         BulletinLogic bl = new BulletinLogic();
+        ParentCommentLogic pc = new ParentCommentLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
             Repeater1.DataSource = bl.getAllMsg();
             Repeater1.DataBind();
+
+            GridViewComment.DataSource = pc.getAllParentComments();
+            GridViewComment.DataBind();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
