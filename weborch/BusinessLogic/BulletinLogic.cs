@@ -12,7 +12,7 @@ namespace BusinessLogic
         OrchestraDBEntities entity = new OrchestraDBEntities();
         public List<Bulletin> getAllMsg()
         {
-            return entity.Bulletins.OrderByDescending(x=>x.TimeStamp).ToList();
+            return entity.Bulletins.OrderByDescending(x => x.TimeStamp).ToList();
         }
         public bool addBulletin(Bulletin bulletin)
         {

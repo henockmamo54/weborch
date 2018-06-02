@@ -20,17 +20,6 @@ namespace web
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //if (FileUpload1.HasFiles) {
-            //    string ext = System.IO.Path.GetExtension(FileUpload1.FileName);
-            //    if (ext == ".jpg" || ext == ".png" || ext == ".gif" || ext == ".jpeg")
-            //    {
-            //        string path = Server.MapPath("Document//");
-            //        FileUpload1.SaveAs(path + FileUpload1.FileName);
-            //    }
-            //    else {
-            //        Response.Write("<h3>you can upload only jpeg,jpg,png,gif file formats</h3>");
-            //    }
-            //}
             try
             {
                 if (FileUpload1.HasFiles)
@@ -85,6 +74,11 @@ namespace web
         }
 
         protected void btn_browsdir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnComment_Click(object sender, EventArgs e)
         {
 
         }
