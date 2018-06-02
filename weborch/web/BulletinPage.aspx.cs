@@ -30,7 +30,7 @@ namespace web
             }
 
         }
-        
+
         protected List<ParentCommentTable> GetDetail(object item)
         {
             //var dept = (ParentCommentTable)item;
@@ -62,18 +62,18 @@ namespace web
                 }
 
                 Bulletin bulletin = new Bulletin();
-                    bulletin.MSG = txt_bulmsg.Text;
-                    bulletin.URL = txt_bulurl.Text;
-                    bulletin.ImageUrl = FileUpload1.FileName;
-                    if (bl.addBulletin(bulletin))
-                    {
-                        Repeater1.DataSource = bl.getAllMsg();
-                        Repeater1.DataBind();
-                        showMsg("Data inserted succssfuly");
-                        cleanPostText();
-                    }
-                    else showMsg("Please check your inputs");
+                bulletin.MSG = txt_bulmsg.Text;
+                bulletin.URL = txt_bulurl.Text;
+                bulletin.ImageUrl = FileUpload1.FileName;
+                if (bl.addBulletin(bulletin))
+                {
+                    Repeater1.DataSource = bl.getAllMsg();
+                    Repeater1.DataBind();
+                    showMsg("Data inserted succssfuly");
+                    cleanPostText();
                 }
+                else showMsg("Please check your inputs");
+            }
             catch (Exception ee)
             {
                 showMsg("Please check your inputs");
@@ -100,7 +100,7 @@ namespace web
 
         protected void btnComment_Click(object sender, CommandEventArgs e)
         {
-            RepeaterItem item = (sender as Button).NamingContainer as RepeaterItem;            
+            RepeaterItem item = (sender as Button).NamingContainer as RepeaterItem;
             string message = (item.FindControl("txtComment") as TextBox).Text;
 
 
@@ -146,7 +146,7 @@ namespace web
 
         protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            
+
         }
 
         protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
@@ -163,5 +163,21 @@ namespace web
 
             }
         }
+
+        protected void btnAddDetailComment_Click(object sender, CommandEventArgs e)
+        {
+            RepeaterItem item = (sender as Button).NamingContainer as RepeaterItem;
+            string message = (item.FindControl("txtCommentReplyParent") as TextBox).Text;
+
+
+            ChildCommentTable ct = new ChildCommentTable();
+            ct.Username = "anonymous";
+            ct.CommentMessage = message;
+            ct.ParentCommentID = int.Parse(e.CommandArgument.ToString());
+
+            cl.addChildComment(ct);
+            
+        }
+
     }
 }

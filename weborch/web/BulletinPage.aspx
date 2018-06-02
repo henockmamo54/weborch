@@ -52,7 +52,7 @@
                                     <div class="row">
                                         <asp:Repeater ID="Repeater2" runat="server" OnDataBinding="Repeater2_DataBinding" OnItemDataBound="Repeater2_ItemDataBound">
                                             <ItemTemplate>
-                                                <div class="col-md-7">
+                                                <div class="col-md-10">
                                                     <hr style="margin: 1em;" />
                                                     <table style="margin: 3px 5px; width: 100%;">
                                                         <tr>
@@ -101,8 +101,9 @@
                                                                 </asp:Repeater>
 
                                                                 <div id='divReply<%# Eval("ID") %>' style="display: none; margin-top: 5px;">
-                                                                    <asp:TextBox ID="txtCommentReplyParent" runat="server" TextMode="MultiLine" Width="560px" Height="60px"></asp:TextBox>
-                                                                    <asp:Button ID="btnReplyParent" runat="server" Text="Reply" Style="float: right; margin: 5px;" />
+                                                                    <asp:TextBox ID="txtCommentReplyParent" runat="server" TextMode="MultiLine" Width="100%" Height="60px"></asp:TextBox>
+                                                                    <asp:Button ID="btnReplyParent" runat="server" Text="Reply" Style="float: right; margin: 5px;"
+                                                                        OnCommand="btnAddDetailComment_Click" CommandName="MyUpdate" CommandArgument='<%#Eval("ID") %>' />
                                                                 </div>
                                                             </td>
                                                         </tr>
