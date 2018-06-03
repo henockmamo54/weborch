@@ -115,8 +115,8 @@
 -- ParentCommentID int
 -- ) 
 
-insert into Core.ChildCommentTable(
-Username,CommentMessage,ParentCommentID)
-values('test4','test4',4)
+--insert into Core.ChildCommentTable(
+--Username,CommentMessage,ParentCommentID)
+--values('test4','test4',4)
 
-select * from Core.ChildCommentTable
+select * from Core.Bulletin

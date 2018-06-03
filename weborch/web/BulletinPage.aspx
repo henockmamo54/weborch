@@ -10,7 +10,7 @@
                         <ItemTemplate>
                             <div class="rptr" style="width: 40em; box-shadow: 2px 2px 2px 2px #f5f5f5;">
                                 <div class="panel panel-default">
-                                    <table>
+                                    <table style="margin-left: 0.2em;">
                                         <tr>
                                             <img src="Document/<%#Eval("ImageUrl") %>" style="width: 100%" />
                                         </tr>
@@ -28,6 +28,10 @@
                                         <tr>
                                             <td>Image</td>
                                             <td><%#Eval("ImageUrl") %></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Date</td>
+                                            <td><%#Eval("TimeStamp") %></td>
                                         </tr>
                                         <%--<tr><td>Date of Examination</td><td><%#Eval("D_O_E") %></td></tr>
           <tr><td>Department</td><td><%#Eval("Department") %></td></tr>--%>
@@ -52,7 +56,7 @@
                                     <div class="row">
                                         <asp:Repeater ID="Repeater2" runat="server" OnDataBinding="Repeater2_DataBinding" OnItemDataBound="Repeater2_ItemDataBound">
                                             <ItemTemplate>
-                                                <div class="col-md-10">
+                                                <div class="col-md-11">
                                                     <hr style="margin: 1em;" />
                                                     <table style="margin: 3px 5px; width: 100%;">
                                                         <tr>
@@ -61,16 +65,13 @@
                                                             </td>
                                                             <td style="padding: 0px 5px; text-align: left; vertical-align: top;">
                                                                 <asp:Label ID="lblCommentID" runat="server" Visible="false" Text='<%#Eval("ID") %>'></asp:Label>
-                                                                <asp:Label ID="lblCommentMessage" runat="server" Text='<% #Eval("CommentMessage") %>'></asp:Label><br />
+                                                                <asp:Label ID="lblCommentMessage" runat="server" Text='<% #Eval("Username") %>'></asp:Label><br />
+                                                                <asp:Label ID="Label1" runat="server" Text='<% #Eval("CommentMessage") %>'></asp:Label><br />
+                                                                <asp:Label ID="lbldatetime" runat="server" Text='<% #Eval("CommentDate") %>'> date</asp:Label><br />
                                                                 <a class="link" id='lnkReplyParent<%# Eval("ID") %>' href="javascript:void(0)" onclick="showReply(<%# Eval("ID") %>); return false;">Reply</a>&nbsp;
        <a class="link" id="lnkCancel" href="javascript:void(0)" onclick="closeReply(<%# Eval("ID") %>); return false;">Cancel</a>
 
-                                                                <%--  <asp:Repeater ID="Repeater3" runat="server" DataSource="<%# GetDetail(Container.DataItem) %>">--%>
                                                                 <asp:Repeater ID="detailRepeater" runat="server">
-                                                                    <%--<ItemTemplate>
-                                                <asp:Label ID="lblCommentMessage" runat="server" Text='<% #Eval("CommentMessage") %>'/>
-                                            </ItemTemplate>--%>
-
 
                                                                     <ItemTemplate>
                                                                         <div class="row">
@@ -82,13 +83,16 @@
                                                                                     </td>
                                                                                     <td style="padding: 0px 5px; text-align: left; vertical-align: top;">
                                                                                         <asp:Label ID="lblCommentID" runat="server" Visible="false" Text='<%#Eval("ID") %>'></asp:Label>
+                                                                                        <asp:Label ID="Label2" runat="server" Text='<% #Eval("Username") %>'></asp:Label><br />
                                                                                         <asp:Label ID="lblCommentMessage" runat="server" Text='<% #Eval("CommentMessage") %>'></asp:Label><br />
+                                                                                        <asp:Label ID="lbldatetime" runat="server" Text='<% #Eval("CommentDate") %>'> date</asp:Label><br />
                                                                                         <a class="link" id='lnkReplyParent<%# Eval("ID") %>' href="javascript:void(0)" onclick="showReply(<%# Eval("ID") %>+'c'); return false;">Reply</a>
                                                                                         <a class="link" id="lnkCancel" href="javascript:void(0)" onclick="closeReply(<%# Eval("ID") %>+'c'); return false;">Cancel</a>
 
                                                                                         <div id='divReply<%# Eval("ID") %>c' style="display: none; margin-top: 5px;">
-                                                                                            <asp:TextBox ID="txtCommentReplyParent" runat="server" TextMode="MultiLine" Width="560px" Height="60px"></asp:TextBox>
-                                                                                            <asp:Button ID="btnReplyParent" runat="server" Text="Reply" Style="float: right; margin: 5px;" />
+                                                                                            <asp:TextBox ID="txtCommentReplyParent" runat="server" TextMode="MultiLine" Width="100%" Height="60px"></asp:TextBox>
+                                                                                            <asp:Button ID="btnReplyParent" runat="server" Text="Reply" Style="float: right; margin: 5px;"
+                                                                                                OnCommand="btnAddDetailComment_Click" CommandName="MyUpdate" CommandArgument='<%# DataBinder.Eval(Container.Parent.Parent, "DataItem.ID") %>' />
                                                                                         </div>
                                                                                     </td>
                                                                                 </tr>

@@ -115,6 +115,9 @@ namespace web
 
             System.Console.WriteLine("on btn click");
 
+            Repeater1.DataSource = bl.getAllMsg();
+            Repeater1.DataBind();
+
         }
 
         protected void Repeater2_DataBinding(object sender, System.Web.UI.WebControls.RepeaterItemEventArgs e)
@@ -176,7 +179,10 @@ namespace web
             ct.ParentCommentID = int.Parse(e.CommandArgument.ToString());
 
             cl.addChildComment(ct);
-            
+
+            Repeater1.DataSource = bl.getAllMsg();
+            Repeater1.DataBind();
+
         }
 
     }

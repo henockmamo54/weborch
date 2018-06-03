@@ -17,6 +17,7 @@ namespace BusinessLogic
         {
             try
             {
+                ct.CommentDate = DateTime.UtcNow;
                 entity.ChildCommentTables.Add(ct);
                 entity.SaveChanges();
                 return true;

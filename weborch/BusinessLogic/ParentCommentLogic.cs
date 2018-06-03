@@ -16,6 +16,7 @@ namespace BusinessLogic
         public bool addParentComment(ParentCommentTable pt) {
             try
             {
+                pt.CommentDate = DateTime.UtcNow;
                 entity.ParentCommentTables.Add(pt);
                 entity.SaveChanges();
                 return true;
