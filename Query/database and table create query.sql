@@ -97,7 +97,7 @@
 -- ID int not null primary key IDENTITY(1,1),
 -- Username varchar(25),
 -- CommentMessage varchar(300),
--- CommentDate date default getdate(),
+-- CommentDate datetime default getdate() not null,
 -- PostID int null
 -- )
 
@@ -111,7 +111,7 @@
 -- ID int not null primary key IDENTITY(1,1),
 -- Username varchar(25),
 -- CommentMessage varchar(300),
--- CommentDate date default getdate(),
+-- CommentDate datetime default getdate() not null,
 -- ParentCommentID int
 -- ) 
 
@@ -120,3 +120,8 @@
 --values('test4','test4',4)
 
 select * from Core.Bulletin
+
+
+--truncate table core.bulletin
+--truncate table core.ParentCommentTable
+--truncate table core.ChildCommentTable

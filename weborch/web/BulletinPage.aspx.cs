@@ -64,6 +64,7 @@ namespace web
                 Bulletin bulletin = new Bulletin();
                 bulletin.MSG = txt_bulmsg.Text;
                 bulletin.URL = txt_bulurl.Text;
+                bulletin.TimeStamp = DateTime.Now;
                 bulletin.ImageUrl = FileUpload1.FileName;
                 if (bl.addBulletin(bulletin))
                 {
@@ -72,11 +73,11 @@ namespace web
                     showMsg("Data inserted succssfuly");
                     cleanPostText();
                 }
-                else showMsg("Please check your inputs");
+                else showMsg("Please check your inputs. can't insert the info properly");
             }
             catch (Exception ee)
             {
-                showMsg("Please check your inputs");
+                showMsg("Please check your inputs. related the server problem");
             }
 
         }
