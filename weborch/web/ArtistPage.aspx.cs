@@ -17,7 +17,7 @@ namespace web
             //artist grid
             GridView3.DataSource = artl.getAllArtists();
             GridView3.DataBind();
-                       
+                                   
         }
 
 

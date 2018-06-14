@@ -426,6 +426,14 @@ Where ID=@ID">
                         </div>
                     </div>
                 </div>
+                <hr />
+                <div class="row">
+                    <asp:Label runat="server"><h3>Instruments Played By an Artist</h3></asp:Label>
+                    <asp:SqlDataSource ID="artistList" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>"
+                         SelectCommand="SELECT        ID ,  Name=FamilyName +'  '+FirstName+'  '+ MiddleName FROM            Core.Artist"></asp:SqlDataSource>
+                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="artistList" DataTextField="Name" DataValueField="ID" >
+                    </asp:DropDownList>
+                    </div>
             </ContentTemplate>
         </asp:UpdatePanel>
 
