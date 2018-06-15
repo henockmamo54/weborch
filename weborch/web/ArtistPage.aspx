@@ -450,23 +450,41 @@ Where ID=@ID">
                             </div>
                             <br />
                             <div class="row shadowedbox" style="margin-top: 1em;">
-                                <asp:ListView ID="ListView_instrumentsplayedbyartist" runat="server" DataSourceID="Artistinstumentsqldatasource">
+                                <asp:ListView ID="ListView_instrumentsplayedbyartist" runat="server" DataSourceID="Artistinstumentsqldatasource" DataKeyNames="ID">
                                     <AlternatingItemTemplate>
-                                        <li style="background-color: #FFF8DC;">EnglishName:
-                                    <asp:Label ID="EnglishNameLabel" runat="server" Text='<%# Eval("EnglishName") %>' />
+                                        <li style="background-color: #FFF8DC;">ID:
+                                            <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
+                                            <br />
+                                            EnglishName:
+                                            <asp:Label ID="EnglishNameLabel" runat="server" Text='<%# Eval("EnglishName") %>' />
+                                            <br />
+                                            ArtistID:
+                                            <asp:Label ID="ArtistIDLabel" runat="server" Text='<%# Eval("ArtistID") %>' />
                                             <br />
                                             Group:
-                                    <asp:Label ID="GroupLabel" runat="server" Text='<%# Eval("Group") %>' />
+                                            <asp:Label ID="GroupLabel" runat="server" Text='<%# Eval("Group") %>' />
+                                            <br />
+                                            KoreanName:
+                                            <asp:Label ID="KoreanNameLabel" runat="server" Text='<%# Eval("KoreanName") %>' />
                                             <br />
                                             <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                         </li>
                                     </AlternatingItemTemplate>
                                     <EditItemTemplate>
-                                        <li style="background-color: #008A8C; color: #FFFFFF;">EnglishName:
-                                    <asp:TextBox ID="EnglishNameTextBox" runat="server" Text='<%# Bind("EnglishName") %>' />
+                                        <li style="background-color: #008A8C;color: #FFFFFF;">ID:
+                                            <asp:Label ID="IDLabel1" runat="server" Text='<%# Eval("ID") %>' />
+                                            <br />
+                                            EnglishName:
+                                            <asp:TextBox ID="EnglishNameTextBox" runat="server" Text='<%# Bind("EnglishName") %>' />
+                                            <br />
+                                            ArtistID:
+                                            <asp:TextBox ID="ArtistIDTextBox" runat="server" Text='<%# Bind("ArtistID") %>' />
                                             <br />
                                             Group:
                                             <asp:TextBox ID="GroupTextBox" runat="server" Text='<%# Bind("Group") %>' />
+                                            <br />
+                                            KoreanName:
+                                            <asp:TextBox ID="KoreanNameTextBox" runat="server" Text='<%# Bind("KoreanName") %>' />
                                             <br />
                                             <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
                                             <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
@@ -477,10 +495,16 @@ Where ID=@ID">
                                     </EmptyDataTemplate>
                                     <InsertItemTemplate>
                                         <li style="">EnglishName:
-                                    <asp:TextBox ID="EnglishNameTextBox" runat="server" Text='<%# Bind("EnglishName") %>' />
+                                            <asp:TextBox ID="EnglishNameTextBox" runat="server" Text='<%# Bind("EnglishName") %>' />
+                                            <br />
+                                            ArtistID:
+                                            <asp:TextBox ID="ArtistIDTextBox" runat="server" Text='<%# Bind("ArtistID") %>' />
                                             <br />
                                             Group:
                                             <asp:TextBox ID="GroupTextBox" runat="server" Text='<%# Bind("Group") %>' />
+                                            <br />
+                                            KoreanName:
+                                            <asp:TextBox ID="KoreanNameTextBox" runat="server" Text='<%# Bind("KoreanName") %>' />
                                             <br />
                                             <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
                                             <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
@@ -490,11 +514,20 @@ Where ID=@ID">
                                         <br />
                                     </ItemSeparatorTemplate>
                                     <ItemTemplate>
-                                        <li style="background-color: #DCDCDC; color: #000000;">EnglishName:
-                                    <asp:Label ID="EnglishNameLabel" runat="server" Text='<%# Eval("EnglishName") %>' />
+                                        <li style="background-color: #DCDCDC;color: #000000;">ID:
+                                            <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
+                                            <br />
+                                            EnglishName:
+                                            <asp:Label ID="EnglishNameLabel" runat="server" Text='<%# Eval("EnglishName") %>' />
+                                            <br />
+                                            ArtistID:
+                                            <asp:Label ID="ArtistIDLabel" runat="server" Text='<%# Eval("ArtistID") %>' />
                                             <br />
                                             Group:
-                                    <asp:Label ID="GroupLabel" runat="server" Text='<%# Eval("Group") %>' />
+                                            <asp:Label ID="GroupLabel" runat="server" Text='<%# Eval("Group") %>' />
+                                            <br />
+                                            KoreanName:
+                                            <asp:Label ID="KoreanNameLabel" runat="server" Text='<%# Eval("KoreanName") %>' />
                                             <br />
                                             <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                         </li>
@@ -503,15 +536,24 @@ Where ID=@ID">
                                         <ul id="itemPlaceholderContainer" runat="server" style="font-family: Verdana, Arial, Helvetica, sans-serif;">
                                             <li runat="server" id="itemPlaceholder" />
                                         </ul>
-                                        <div style="text-align: center; background-color: #CCCCCC; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;">
+                                        <div style="text-align: center;background-color: #CCCCCC;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;">
                                         </div>
                                     </LayoutTemplate>
                                     <SelectedItemTemplate>
-                                        <li style="background-color: #008A8C; font-weight: bold; color: #FFFFFF;">EnglishName:
-                                    <asp:Label ID="EnglishNameLabel" runat="server" Text='<%# Eval("EnglishName") %>' />
+                                        <li style="background-color: #008A8C;font-weight: bold;color: #FFFFFF;">ID:
+                                            <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
+                                            <br />
+                                            EnglishName:
+                                            <asp:Label ID="EnglishNameLabel" runat="server" Text='<%# Eval("EnglishName") %>' />
+                                            <br />
+                                            ArtistID:
+                                            <asp:Label ID="ArtistIDLabel" runat="server" Text='<%# Eval("ArtistID") %>' />
                                             <br />
                                             Group:
-                                    <asp:Label ID="GroupLabel" runat="server" Text='<%# Eval("Group") %>' />
+                                            <asp:Label ID="GroupLabel" runat="server" Text='<%# Eval("Group") %>' />
+                                            <br />
+                                            KoreanName:
+                                            <asp:Label ID="KoreanNameLabel" runat="server" Text='<%# Eval("KoreanName") %>' />
                                             <br />
                                             <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                         </li>
@@ -520,14 +562,7 @@ Where ID=@ID">
                                 <asp:SqlDataSource ID="Artistinstumentsqldatasource" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" DeleteCommand="
 delete Drived.Artist_Instrument
 where id=@ID"
-                                    FilterExpression="ArtistID={0}" SelectCommand="
-select 
-ai.ID, 
-i.EnglishName,
-ArtistID, 
-i.[Group] 
-From Drived.Artist_Instrument ai
-Join Core.Instrument i on i.ID=ai.InstrumentID">
+                                    FilterExpression="ArtistID={0}" SelectCommand="SELECT ai.ID, i.EnglishName, ai.ArtistID, i.[Group], i.KoreanName FROM Drived.Artist_Instrument AS ai INNER JOIN Core.Instrument AS i ON i.ID = ai.InstrumentID">
                                     <DeleteParameters>
                                         <asp:Parameter Name="ID" />
                                     </DeleteParameters>
