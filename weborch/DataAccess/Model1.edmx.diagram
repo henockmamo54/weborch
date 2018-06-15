@@ -12,6 +12,9 @@
         <EntityTypeShape EntityType="OrchestraDBModel.Bulletin" Width="1.5" PointX="3.375" PointY="4.75" />
         <EntityTypeShape EntityType="OrchestraDBModel.ChildCommentTable" Width="1.5" PointX="5.375" PointY="4.75" />
         <EntityTypeShape EntityType="OrchestraDBModel.ParentCommentTable" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="OrchestraDBModel.Artist_Instrument" Width="1.5" PointX="8" PointY="4.375" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Artist_In__Artis__10566F31" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Artist_In__Instr__114A936A" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

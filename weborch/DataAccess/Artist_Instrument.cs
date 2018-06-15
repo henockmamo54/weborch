@@ -12,12 +12,13 @@ namespace DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class ParentCommentTable
+    public partial class Artist_Instrument
     {
         public int ID { get; set; }
-        public string Username { get; set; }
-        public string CommentMessage { get; set; }
-        public System.DateTime CommentDate { get; set; }
-        public Nullable<int> PostID { get; set; }
+        public Nullable<int> ArtistID { get; set; }
+        public Nullable<int> InstrumentID { get; set; }
+    
+        public virtual Artist Artist { get; set; }
+        public virtual Instrument Instrument { get; set; }
     }
 }

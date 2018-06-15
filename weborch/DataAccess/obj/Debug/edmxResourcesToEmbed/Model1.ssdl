@@ -33,7 +33,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Username" Type="varchar" MaxLength="25" />
     <Property Name="CommentMessage" Type="varchar" MaxLength="300" />
-    <Property Name="CommentDate" Type="date" />
+    <Property Name="CommentDate" Type="datetime" Nullable="false" />
     <Property Name="ParentCommentID" Type="int" />
   </EntityType>
   <EntityType Name="Instrument">
@@ -74,7 +74,7 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Username" Type="varchar" MaxLength="25" />
     <Property Name="CommentMessage" Type="varchar" MaxLength="300" />
-    <Property Name="CommentDate" Type="date" />
+    <Property Name="CommentDate" Type="datetime" Nullable="false" />
     <Property Name="PostID" Type="int" />
   </EntityType>
   <EntityType Name="User">
@@ -90,6 +90,38 @@
     <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="ZipCode" Type="nvarchar" MaxLength="10" />
   </EntityType>
+  <EntityType Name="Artist_Instrument">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ArtistID" Type="int" />
+    <Property Name="InstrumentID" Type="int" />
+  </EntityType>
+  <Association Name="FK__Artist_In__Artis__10566F31">
+    <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+    <End Role="Artist_Instrument" Type="Self.Artist_Instrument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Artist_Instrument">
+        <PropertyRef Name="ArtistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Artist_In__Instr__114A936A">
+    <End Role="Instrument" Type="Self.Instrument" Multiplicity="0..1" />
+    <End Role="Artist_Instrument" Type="Self.Artist_Instrument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instrument">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Artist_Instrument">
+        <PropertyRef Name="InstrumentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="OrchestraDBModelStoreContainer">
     <EntitySet Name="Artist" EntityType="Self.Artist" Schema="Core" store:Type="Tables" />
     <EntitySet Name="Bulletin" EntityType="Self.Bulletin" Schema="Core" store:Type="Tables" />
@@ -98,5 +130,14 @@
     <EntitySet Name="Orchestra" EntityType="Self.Orchestra" Schema="Core" store:Type="Tables" />
     <EntitySet Name="ParentCommentTable" EntityType="Self.ParentCommentTable" Schema="Core" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="Core" store:Type="Tables" />
+    <EntitySet Name="Artist_Instrument" EntityType="Self.Artist_Instrument" Schema="Drived" store:Type="Tables" />
+    <AssociationSet Name="FK__Artist_In__Artis__10566F31" Association="Self.FK__Artist_In__Artis__10566F31">
+      <End Role="Artist" EntitySet="Artist" />
+      <End Role="Artist_Instrument" EntitySet="Artist_Instrument" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Artist_In__Instr__114A936A" Association="Self.FK__Artist_In__Instr__114A936A">
+      <End Role="Instrument" EntitySet="Instrument" />
+      <End Role="Artist_Instrument" EntitySet="Artist_Instrument" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

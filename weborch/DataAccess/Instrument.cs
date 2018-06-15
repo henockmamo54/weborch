@@ -14,6 +14,12 @@ namespace DataAccess
     
     public partial class Instrument
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Instrument()
+        {
+            this.Artist_Instrument = new HashSet<Artist_Instrument>();
+        }
+    
         public int ID { get; set; }
         public string EnglishName { get; set; }
         public string KoreanName { get; set; }
@@ -25,5 +31,8 @@ namespace DataAccess
         public string VideoClipLocation { get; set; }
         public string PhotoLocation { get; set; }
         public string Remarks { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Artist_Instrument> Artist_Instrument { get; set; }
     }
 }

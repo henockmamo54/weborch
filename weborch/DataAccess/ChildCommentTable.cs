@@ -17,7 +17,7 @@ namespace DataAccess
         public int ID { get; set; }
         public string Username { get; set; }
         public string CommentMessage { get; set; }
-        public Nullable<System.DateTime> CommentDate { get; set; }
+        public System.DateTime CommentDate { get; set; }
         public Nullable<int> ParentCommentID { get; set; }
     }
 }

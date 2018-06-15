@@ -32,5 +32,6 @@ namespace DataAccess
         public virtual DbSet<Bulletin> Bulletins { get; set; }
         public virtual DbSet<ChildCommentTable> ChildCommentTables { get; set; }
         public virtual DbSet<ParentCommentTable> ParentCommentTables { get; set; }
+        public virtual DbSet<Artist_Instrument> Artist_Instrument { get; set; }
     }
 }

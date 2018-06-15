@@ -12,6 +12,8 @@ namespace web
     public partial class ArtistPage : System.Web.UI.Page
     {
         ArtistLogic artl = new ArtistLogic();
+        ArtistInstrumentLogic artInstLogic = new ArtistInstrumentLogic();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //artist grid
@@ -75,6 +77,22 @@ namespace web
             txt_artist_mobileno.Text = "";
             txt_aritist_faxno.Text = "";
             txt_artist_remark.Text = "";
+        }
+
+        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //showMsg(DropDownList1.SelectedValue);
+        }
+
+        protected void btn_addInstrument_Click(object sender, EventArgs e)
+        {
+            Artist_Instrument artistInst = new Artist_Instrument();
+            artistInst.ArtistID = int.Parse(DropDownList1_artistList.SelectedValue);
+            artistInst.InstrumentID = int.Parse(DropDownList1_Instrument.SelectedValue);
+
+            if (artInstLogic.addArtistInstrument(artistInst)) {
+                ListView_instrumentsplayedbyartist.DataBind();
+            }
         }
     }
 }

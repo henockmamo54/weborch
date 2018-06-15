@@ -66,6 +66,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArtistInstrumentLogic.cs" />
     <Compile Include="ArtistLogic.cs" />
     <Compile Include="BulletinLogic.cs" />
     <Compile Include="ChildCommentLogic.cs" />

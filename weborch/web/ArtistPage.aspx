@@ -113,7 +113,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 shadowedbox">
                             <asp:GridView ID="GridView3" runat="server" Width="745px">
                             </asp:GridView>
                         </div>
@@ -123,7 +123,7 @@
                 <hr />
                 <div class="row">
                     <div class="row listviewwithedit">
-                        <div class="col-md-12">
+                        <div class="col-md-12 shadowedbox">
                             <div class="col-md-7">
                                 <asp:ListView ID="ListView1" runat="server" class="col-md-7" DataKeyNames="ID" DataSourceID="SqlDataSource1" InsertItemPosition="FirstItem">
                                     <AlternatingItemTemplate>
@@ -429,11 +429,116 @@ Where ID=@ID">
                 <hr />
                 <div class="row">
                     <asp:Label runat="server"><h3>Instruments Played By an Artist</h3></asp:Label>
-                    <asp:SqlDataSource ID="artistList" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>"
-                         SelectCommand="SELECT        ID ,  Name=FamilyName +'  '+FirstName+'  '+ MiddleName FROM            Core.Artist"></asp:SqlDataSource>
-                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="artistList" DataTextField="Name" DataValueField="ID" >
-                    </asp:DropDownList>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <asp:SqlDataSource ID="artistList" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>"
+                                SelectCommand="SELECT        ID ,  Name=FamilyName +'  '+FirstName+'  '+ MiddleName FROM            Core.Artist"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT ID, EnglishName, KoreanName FROM Core.Instrument"></asp:SqlDataSource>
+                            <asp:DropDownList ID="DropDownList1_artistList" runat="server" DataSourceID="artistList" DataTextField="Name" DataValueField="ID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                            </asp:DropDownList>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row pull-right ">
+                                <div class="col-md-12">
+                                    <asp:SqlDataSource ID="SqlDataSource3_instrumentlist" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataSource>
+                                    <label>Instrument:</label>
+                                    <asp:DropDownList ID="DropDownList1_Instrument" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource3_instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
+                                    <asp:Button ID="btn_addInstrument" runat="server" Text="Add" OnClick="btn_addInstrument_Click" />
+
+                                    <br />
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row shadowedbox" style="margin-top: 1em;">
+                                <asp:ListView ID="ListView_instrumentsplayedbyartist" runat="server" DataSourceID="Artistinstumentsqldatasource">
+                                    <AlternatingItemTemplate>
+                                        <li style="background-color: #FFF8DC;">EnglishName:
+                                    <asp:Label ID="EnglishNameLabel" runat="server" Text='<%# Eval("EnglishName") %>' />
+                                            <br />
+                                            Group:
+                                    <asp:Label ID="GroupLabel" runat="server" Text='<%# Eval("Group") %>' />
+                                            <br />
+                                            <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
+                                        </li>
+                                    </AlternatingItemTemplate>
+                                    <EditItemTemplate>
+                                        <li style="background-color: #008A8C; color: #FFFFFF;">EnglishName:
+                                    <asp:TextBox ID="EnglishNameTextBox" runat="server" Text='<%# Bind("EnglishName") %>' />
+                                            <br />
+                                            Group:
+                                            <asp:TextBox ID="GroupTextBox" runat="server" Text='<%# Bind("Group") %>' />
+                                            <br />
+                                            <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
+                                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
+                                        </li>
+                                    </EditItemTemplate>
+                                    <EmptyDataTemplate>
+                                        No data was returned.
+                                    </EmptyDataTemplate>
+                                    <InsertItemTemplate>
+                                        <li style="">EnglishName:
+                                    <asp:TextBox ID="EnglishNameTextBox" runat="server" Text='<%# Bind("EnglishName") %>' />
+                                            <br />
+                                            Group:
+                                            <asp:TextBox ID="GroupTextBox" runat="server" Text='<%# Bind("Group") %>' />
+                                            <br />
+                                            <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
+                                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
+                                        </li>
+                                    </InsertItemTemplate>
+                                    <ItemSeparatorTemplate>
+                                        <br />
+                                    </ItemSeparatorTemplate>
+                                    <ItemTemplate>
+                                        <li style="background-color: #DCDCDC; color: #000000;">EnglishName:
+                                    <asp:Label ID="EnglishNameLabel" runat="server" Text='<%# Eval("EnglishName") %>' />
+                                            <br />
+                                            Group:
+                                    <asp:Label ID="GroupLabel" runat="server" Text='<%# Eval("Group") %>' />
+                                            <br />
+                                            <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
+                                        </li>
+                                    </ItemTemplate>
+                                    <LayoutTemplate>
+                                        <ul id="itemPlaceholderContainer" runat="server" style="font-family: Verdana, Arial, Helvetica, sans-serif;">
+                                            <li runat="server" id="itemPlaceholder" />
+                                        </ul>
+                                        <div style="text-align: center; background-color: #CCCCCC; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;">
+                                        </div>
+                                    </LayoutTemplate>
+                                    <SelectedItemTemplate>
+                                        <li style="background-color: #008A8C; font-weight: bold; color: #FFFFFF;">EnglishName:
+                                    <asp:Label ID="EnglishNameLabel" runat="server" Text='<%# Eval("EnglishName") %>' />
+                                            <br />
+                                            Group:
+                                    <asp:Label ID="GroupLabel" runat="server" Text='<%# Eval("Group") %>' />
+                                            <br />
+                                            <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
+                                        </li>
+                                    </SelectedItemTemplate>
+                                </asp:ListView>
+                                <asp:SqlDataSource ID="Artistinstumentsqldatasource" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" DeleteCommand="
+delete Drived.Artist_Instrument
+where id=@ID"
+                                    FilterExpression="ArtistID={0}" SelectCommand="
+select 
+ai.ID, 
+i.EnglishName,
+ArtistID, 
+i.[Group] 
+From Drived.Artist_Instrument ai
+Join Core.Instrument i on i.ID=ai.InstrumentID">
+                                    <DeleteParameters>
+                                        <asp:Parameter Name="ID" />
+                                    </DeleteParameters>
+                                    <FilterParameters>
+                                        <asp:ControlParameter ControlID="DropDownList1_artistList" DefaultValue="1" Name="ArtistID" PropertyName="SelectedValue" />
+                                    </FilterParameters>
+                                </asp:SqlDataSource>
+                            </div>
+                        </div>
                     </div>
+                </div>
             </ContentTemplate>
         </asp:UpdatePanel>
 
@@ -452,6 +557,12 @@ Where ID=@ID">
         .listviewwithedit tr td input {
             /*width: 10px;*/
             max-width: 7em !important;
+        }
+
+        .shadowedbox {
+            padding:0.5em;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+            border-color: #dddddd;
         }
     </style>
 

@@ -14,6 +14,12 @@ namespace DataAccess
     
     public partial class Artist
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Artist()
+        {
+            this.Artist_Instrument = new HashSet<Artist_Instrument>();
+        }
+    
         public int ID { get; set; }
         public string FirstName { get; set; }
         public string FamilyName { get; set; }
@@ -25,5 +31,8 @@ namespace DataAccess
         public string MobileNO { get; set; }
         public string FaxNo { get; set; }
         public string Remar { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Artist_Instrument> Artist_Instrument { get; set; }
     }
 }
