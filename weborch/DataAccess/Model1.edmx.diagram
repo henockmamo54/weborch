@@ -15,6 +15,10 @@
         <EntityTypeShape EntityType="OrchestraDBModel.Artist_Instrument" Width="1.5" PointX="8" PointY="4.375" />
         <AssociationConnector Association="OrchestraDBModel.FK__Artist_In__Artis__10566F31" />
         <AssociationConnector Association="OrchestraDBModel.FK__Artist_In__Instr__114A936A" />
+        <EntityTypeShape EntityType="OrchestraDBModel.Orchestra_Instrument_Artist" Width="1.5" PointX="10" PointY="0.75" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Orchestra__Artis__160F4887" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Orchestra__Instr__17036CC0" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Orchestra__Orche__151B244E" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

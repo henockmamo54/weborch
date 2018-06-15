@@ -119,9 +119,35 @@
 --Username,CommentMessage,ParentCommentID)
 --values('test4','test4',4)
 
-select * from Core.Bulletin
+--select * from Core.Bulletin
 
 
 --truncate table core.bulletin
 --truncate table core.ParentCommentTable
 --truncate table core.ChildCommentTable
+
+--create schema Drived
+
+--create Table Drived.Artist_Instrument(
+--ID int not null primary key IDENTITY(1,1),
+--ArtistID int FOREIGN KEY REFERENCES Core.Artist(ID),
+--InstrumentID int FOREIGN KEY REFERENCES Core.Instrument(ID)
+--)
+
+--select ai.ID, i.EnglishName,ArtistID 
+--From Drived.Artist_Instrument ai
+--Join Core.Instrument i on i.ID=ai.InstrumentID
+
+
+--insert into  Drived.artist_instrument(ArtistID,InstrumentID) values(2,3)
+
+--select * from Core.Orchestra
+
+--create Table Drived.Orchestra_Instrument_Artist(
+--ID int not null primary key IDENTITY(1,1),
+--OrchestraID int FOREIGN KEY REFERENCES Core.Orchestra(ID),
+--ArtistID int FOREIGN KEY REFERENCES Core.Artist(ID),
+--InstrumentID int FOREIGN KEY REFERENCES Core.Instrument(ID)
+--)
+
+select * from Drived.Orchestra_Instrument_Artist

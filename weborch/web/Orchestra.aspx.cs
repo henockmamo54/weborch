@@ -12,6 +12,7 @@ namespace web
     public partial class About : Page
     {
         OrchestraLogic orl = new OrchestraLogic();
+        OrchestraInstrumentArtistLogic oial = new OrchestraInstrumentArtistLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
             //orchestra grid
@@ -72,5 +73,14 @@ namespace web
             txt_orchsince.Text = "";
         }
 
+        protected void Button1_addorchestraDetail_Click(object sender, EventArgs e)
+        {
+            Orchestra_Instrument_Artist obj = new Orchestra_Instrument_Artist();
+            obj.OrchestraID = int.Parse( DropDownList1_orchestralist.SelectedValue);
+            obj.InstrumentID = int.Parse(DropDownList3_instrumentlist.SelectedValue);
+            obj.ArtistID = int.Parse(DropDownList2_artistlist.SelectedValue);
+
+            if (oial.AddOrchestraInstrumentArtist(obj)) ListView2_orchestraInstrumentArtist.DataBind();
+        }
     }
 }

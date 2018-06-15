@@ -107,5 +107,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Orchestra_Instrument_Artist">
+      <EntityTypeMapping TypeName="OrchestraDBModel.Orchestra_Instrument_Artist">
+        <MappingFragment StoreEntitySet="Orchestra_Instrument_Artist">
+          <ScalarProperty Name="InstrumentID" ColumnName="InstrumentID" />
+          <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
+          <ScalarProperty Name="OrchestraID" ColumnName="OrchestraID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

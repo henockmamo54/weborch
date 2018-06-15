@@ -33,5 +33,6 @@ namespace DataAccess
         public virtual DbSet<ChildCommentTable> ChildCommentTables { get; set; }
         public virtual DbSet<ParentCommentTable> ParentCommentTables { get; set; }
         public virtual DbSet<Artist_Instrument> Artist_Instrument { get; set; }
+        public virtual DbSet<Orchestra_Instrument_Artist> Orchestra_Instrument_Artist { get; set; }
     }
 }

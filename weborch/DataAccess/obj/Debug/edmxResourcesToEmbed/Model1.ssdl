@@ -98,6 +98,15 @@
     <Property Name="ArtistID" Type="int" />
     <Property Name="InstrumentID" Type="int" />
   </EntityType>
+  <EntityType Name="Orchestra_Instrument_Artist">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrchestraID" Type="int" />
+    <Property Name="ArtistID" Type="int" />
+    <Property Name="InstrumentID" Type="int" />
+  </EntityType>
   <Association Name="FK__Artist_In__Artis__10566F31">
     <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
     <End Role="Artist_Instrument" Type="Self.Artist_Instrument" Multiplicity="*" />
@@ -122,6 +131,42 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__Orchestra__Artis__160F4887">
+    <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+    <End Role="Orchestra_Instrument_Artist" Type="Self.Orchestra_Instrument_Artist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orchestra_Instrument_Artist">
+        <PropertyRef Name="ArtistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orchestra__Instr__17036CC0">
+    <End Role="Instrument" Type="Self.Instrument" Multiplicity="0..1" />
+    <End Role="Orchestra_Instrument_Artist" Type="Self.Orchestra_Instrument_Artist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instrument">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orchestra_Instrument_Artist">
+        <PropertyRef Name="InstrumentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orchestra__Orche__151B244E">
+    <End Role="Orchestra" Type="Self.Orchestra" Multiplicity="0..1" />
+    <End Role="Orchestra_Instrument_Artist" Type="Self.Orchestra_Instrument_Artist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orchestra">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orchestra_Instrument_Artist">
+        <PropertyRef Name="OrchestraID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="OrchestraDBModelStoreContainer">
     <EntitySet Name="Artist" EntityType="Self.Artist" Schema="Core" store:Type="Tables" />
     <EntitySet Name="Bulletin" EntityType="Self.Bulletin" Schema="Core" store:Type="Tables" />
@@ -131,6 +176,7 @@
     <EntitySet Name="ParentCommentTable" EntityType="Self.ParentCommentTable" Schema="Core" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="Core" store:Type="Tables" />
     <EntitySet Name="Artist_Instrument" EntityType="Self.Artist_Instrument" Schema="Drived" store:Type="Tables" />
+    <EntitySet Name="Orchestra_Instrument_Artist" EntityType="Self.Orchestra_Instrument_Artist" Schema="Drived" store:Type="Tables" />
     <AssociationSet Name="FK__Artist_In__Artis__10566F31" Association="Self.FK__Artist_In__Artis__10566F31">
       <End Role="Artist" EntitySet="Artist" />
       <End Role="Artist_Instrument" EntitySet="Artist_Instrument" />
@@ -138,6 +184,18 @@
     <AssociationSet Name="FK__Artist_In__Instr__114A936A" Association="Self.FK__Artist_In__Instr__114A936A">
       <End Role="Instrument" EntitySet="Instrument" />
       <End Role="Artist_Instrument" EntitySet="Artist_Instrument" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orchestra__Artis__160F4887" Association="Self.FK__Orchestra__Artis__160F4887">
+      <End Role="Artist" EntitySet="Artist" />
+      <End Role="Orchestra_Instrument_Artist" EntitySet="Orchestra_Instrument_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orchestra__Instr__17036CC0" Association="Self.FK__Orchestra__Instr__17036CC0">
+      <End Role="Instrument" EntitySet="Instrument" />
+      <End Role="Orchestra_Instrument_Artist" EntitySet="Orchestra_Instrument_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orchestra__Orche__151B244E" Association="Self.FK__Orchestra__Orche__151B244E">
+      <End Role="Orchestra" EntitySet="Orchestra" />
+      <End Role="Orchestra_Instrument_Artist" EntitySet="Orchestra_Instrument_Artist" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

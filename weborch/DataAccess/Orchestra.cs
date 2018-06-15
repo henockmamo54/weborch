@@ -14,6 +14,12 @@ namespace DataAccess
     
     public partial class Orchestra
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Orchestra()
+        {
+            this.Orchestra_Instrument_Artist = new HashSet<Orchestra_Instrument_Artist>();
+        }
+    
         public int ID { get; set; }
         public string OfficialName { get; set; }
         public string Alias { get; set; }
@@ -24,5 +30,8 @@ namespace DataAccess
         public string FaxNo { get; set; }
         public string ConductorName { get; set; }
         public Nullable<int> Since { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Orchestra_Instrument_Artist> Orchestra_Instrument_Artist { get; set; }
     }
 }

@@ -449,7 +449,7 @@ Where ID=@ID">
                                 </div>
                             </div>
                             <br />
-                            <div class="row shadowedbox" style="margin-top: 1em;">
+                            <div class="row shadowedbox instrumentplayedByartist" style="margin-top: 1em;">
                                 <asp:ListView ID="ListView_instrumentsplayedbyartist" runat="server" DataSourceID="Artistinstumentsqldatasource" DataKeyNames="ID">
                                     <AlternatingItemTemplate>
                                         <li style="background-color: #FFF8DC;">ID:
@@ -598,6 +598,8 @@ where id=@ID"
             padding:0.5em;
             box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
             border-color: #dddddd;
+        }
+        .instrumentplayedByartist ul li {
         }
     </style>
 

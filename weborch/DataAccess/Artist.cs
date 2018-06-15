@@ -18,6 +18,7 @@ namespace DataAccess
         public Artist()
         {
             this.Artist_Instrument = new HashSet<Artist_Instrument>();
+            this.Orchestra_Instrument_Artist = new HashSet<Orchestra_Instrument_Artist>();
         }
     
         public int ID { get; set; }
@@ -34,5 +35,7 @@ namespace DataAccess
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Artist_Instrument> Artist_Instrument { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Orchestra_Instrument_Artist> Orchestra_Instrument_Artist { get; set; }
     }
 }
