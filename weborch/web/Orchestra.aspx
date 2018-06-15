@@ -406,7 +406,7 @@ FROM Core.Artist"></asp:SqlDataSource>
                         </div>
                         <div class="col-md-3 pull-right">
                             <label>Orchestra:</label>
-                            <asp:DropDownList ID="DropDownList1_orchestralist" runat="server" DataSourceID="SqlDataSource1_allOrchestraInfo" DataTextField="OfficialName" DataValueField="ID"></asp:DropDownList>
+                            <asp:DropDownList ID="DropDownList1_orchestralist" runat="server" DataSourceID="SqlDataSource1_allOrchestraInfo" DataTextField="OfficialName" DataValueField="ID" OnSelectedIndexChanged="DropDownList1_orchestralist_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
                         </div>
                     </div>
                     <div class="row mylistview">
@@ -515,7 +515,9 @@ FROM Core.Artist"></asp:SqlDataSource>
                                         <td runat="server" style="text-align: center; background-color: #CCCCCC; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;">
                                             <asp:DataPager ID="DataPager1" runat="server">
                                                 <Fields>
-                                                    <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
+                                                    <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                                                    <asp:NumericPagerField />
+                                                    <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
                                                 </Fields>
                                             </asp:DataPager>
                                         </td>
@@ -546,13 +548,17 @@ FROM Core.Artist"></asp:SqlDataSource>
 from Drived.Orchestra_Instrument_Artist
 where ID=@ID"
                             SelectCommand="select a.ID,o.OfficialName,Instrument=i.EnglishName,Artist=aa.FamilyName+' '+aa.FirstName+' '+aa.MiddleName
+,OrchestraID
 from Drived.Orchestra_Instrument_Artist a
 join Core.Orchestra o on o.ID= a.OrchestraID
 join Core.Instrument i on i.ID= a.InstrumentID
-join.Core.Artist aa on aa.ID=a.ArtistID">
+join.Core.Artist aa on aa.ID=a.ArtistID" FilterExpression="OrchestraID={0}">
                             <DeleteParameters>
                                 <asp:Parameter Name="ID" />
                             </DeleteParameters>
+                            <FilterParameters>
+                                <asp:ControlParameter ControlID="DropDownList1_orchestralist" DefaultValue="0" Name="OrchestraID" PropertyName="SelectedValue" />
+                            </FilterParameters>
                         </asp:SqlDataSource>
                     </div>
                 </div>

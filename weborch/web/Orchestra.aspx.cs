@@ -82,5 +82,11 @@ namespace web
 
             if (oial.AddOrchestraInstrumentArtist(obj)) ListView2_orchestraInstrumentArtist.DataBind();
         }
+
+        protected void DropDownList1_orchestralist_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //SqlDataSource1_orchestraInstrumentArtist.DataBind();
+            //ListView2_orchestraInstrumentArtist.DataBind();
+        }
     }
 }
