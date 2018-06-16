@@ -27,5 +27,18 @@ namespace BusinessLogic
                 return false;
             }
         }
+
+        public bool checkUserLoginInfo(string username, string password) {
+
+            try {
+                var user = entity.Users.Where(x => x.UserID == username.Trim() && x.Password == password.Trim()).ToList();
+                
+                if (user.Count == 0) return false;
+                else return true;
+            }
+            catch (Exception ee) {
+                return false;
+            }
+        }
     }
 }
