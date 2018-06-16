@@ -30,7 +30,7 @@
                     </form>
                     <!-- /form -->
                     <a href="#" class="forgot-password">Forgot the password?
-                <asp:LinkButton ID="LinkButton1" runat="server">Sign Up</asp:LinkButton>
+                <asp:LinkButton ID="LinkButton1" runat="server" onclientclick='redirect()'>Sign Up</asp:LinkButton>
                     </a>
                 </div>
                 <!-- /card-container -->
@@ -61,6 +61,10 @@
             var backlen = history.length;
             history.go(-backlen);
         }, false);
+
+        function redirect() {
+            location.href = 'UserPage.aspx';
+        }
 
     </script>
 
