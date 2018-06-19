@@ -77,7 +77,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <asp:GridView ID="usergridview" runat="server" Width="745px">
+                        <asp:GridView ID="usergridview" CssClass="table-striped" runat="server" Width="745px">
                         </asp:GridView>
                     </div>
                 </div>
@@ -192,7 +192,7 @@
                  </tr>
              </InsertItemTemplate>
              <ItemTemplate>
-                 <tr style="background-color: #E0FFFF;color: #333333;">
+                 <tr style="background-color: #F9F9F9;color: #333333;">
                      <td>
                          <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                          <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
@@ -228,7 +228,7 @@
                      <tr runat="server">
                          <td runat="server">
                              <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
-                                 <tr runat="server" style="background-color: #E0FFFF;color: #333333;">
+                                 <tr runat="server" style="background-color: #F9F9F9;color: #333333;">
                                      <th runat="server"></th>
                                      <th runat="server">ID</th>
                                      <th runat="server">EnglishName</th>
@@ -245,7 +245,7 @@
                          </td>
                      </tr>
                      <tr runat="server">
-                         <td runat="server" style="text-align: center;background-color: #5D7B9D;font-family: Verdana, Arial, Helvetica, sans-serif;color: #FFFFFF">
+                         <td runat="server" style="text-align: center;background-color: lightgray;font-family: Verdana, Arial, Helvetica, sans-serif;color: #FFFFFF">
                              <asp:DataPager ID="DataPager1" runat="server">
                                  <Fields>
                                      <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
@@ -329,4 +329,11 @@ where ID=@ID">
          </asp:SqlDataSource>
 
          </div>
+
+    <style>
+        .table-striped td, tr, th {
+            border-color: lightgray;
+            padding: 2px;
+        }
+    </style>
 </asp:Content>

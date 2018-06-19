@@ -114,7 +114,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 shadowedbox">
-                            <asp:GridView ID="GridView3" runat="server" Width="745px">
+                            <asp:GridView ID="GridView3" CssClass="table-striped" runat="server" Width="745px">
                             </asp:GridView>
                         </div>
                     </div>
@@ -127,7 +127,7 @@
                             <div class="col-md-7">
                                 <asp:ListView ID="ListView1" runat="server" class="col-md-7" DataKeyNames="ID" DataSourceID="SqlDataSource1" InsertItemPosition="FirstItem">
                                     <AlternatingItemTemplate>
-                                        <tr style="background-color: #FFF8DC;">
+                                        <tr style="background-color: #F9F9F9;">
                                             <td>
                                                 <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                                 <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
@@ -255,7 +255,7 @@
                                         </tr>
                                     </InsertItemTemplate>
                                     <ItemTemplate>
-                                        <tr style="background-color: #DCDCDC; color: #000000;">
+                                        <tr style="/*background-color: #DCDCDC;*/ color: #000000;">
                                             <td>
                                                 <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                                 <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
@@ -300,7 +300,7 @@
                                             <tr runat="server">
                                                 <td runat="server">
                                                     <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px; font-family: Verdana, Arial, Helvetica, sans-serif;">
-                                                        <tr runat="server" style="background-color: #DCDCDC; color: #000000;">
+                                                        <tr runat="server" style="/*background-color: #DCDCDC;*/ color: #000000;">
                                                             <th runat="server"></th>
                                                             <th runat="server">ID</th>
                                                             <th runat="server">FirstName</th>
@@ -453,7 +453,7 @@ Where ID=@ID">
                             <div class="row shadowedbox instrumentplayedByartist" style="margin-top: 1em;">
                                 <asp:ListView ID="ListView_instrumentsplayedbyartist" runat="server" DataSourceID="Artistinstumentsqldatasource" DataKeyNames="ID">
                                     <AlternatingItemTemplate>
-                                        <li style="background-color: #FFF8DC;">ID:
+                                        <li style="background-color: #F9F9F9;">ID:
                                             <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
                                             <br />
                                             ArtistID:
@@ -515,7 +515,7 @@ Where ID=@ID">
                                         <br />
                                     </ItemSeparatorTemplate>
                                     <ItemTemplate>
-                                        <li style="background-color: #DCDCDC;color: #000000;">ID:
+                                        <li style="/*background-color: #DCDCDC;*/color: #000000;">ID:
                                             <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
                                             <br />
                                             ArtistID:
@@ -606,6 +606,10 @@ where id=@ID"
             border-color: #dddddd;
         }
         .instrumentplayedByartist ul li {
+        }
+        .table-striped td, tr, th {
+            border-color: lightgray;
+            padding: 2px;
         }
     </style>
 

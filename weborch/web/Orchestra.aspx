@@ -98,8 +98,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <asp:GridView ID="GridView1" runat="server" Height="174px" Width="743px">
+                        <div class="col-md-6 ">
+                            <asp:GridView ID="GridView1" CssClass="table-striped" runat="server" Height="174px" Width="743px">
                             </asp:GridView>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
                     <div class="row listviewwithedit">
                         <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource1_allOrchestraInfo" InsertItemPosition="FirstItem">
                             <AlternatingItemTemplate>
-                                <tr style="background-color: #FFF8DC;">
+                                <tr style="background-color: #F9F9F9;">
                                     <td>
                                         <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                         <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
@@ -147,7 +147,7 @@
                                 </tr>
                             </AlternatingItemTemplate>
                             <EditItemTemplate>
-                                <tr style="background-color: #008A8C; color: #FFFFFF;">
+                                <tr style="/*background-color: #008A8C;*/ color: #FFFFFF;">
                                     <td>
                                         <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
                                         <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
@@ -228,7 +228,7 @@
                                 </tr>
                             </InsertItemTemplate>
                             <ItemTemplate>
-                                <tr style="background-color: #DCDCDC; color: #000000;">
+                                <tr style="/*background-color: #DCDCDC;*/ color: #000000;">
                                     <td>
                                         <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                         <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
@@ -270,7 +270,7 @@
                                     <tr runat="server">
                                         <td runat="server">
                                             <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px; font-family: Verdana, Arial, Helvetica, sans-serif;">
-                                                <tr runat="server" style="background-color: #DCDCDC; color: #000000;">
+                                                <tr runat="server" style="/*background-color: #DCDCDC;*/ color: #000000;">
                                                     <th runat="server"></th>
                                                     <th runat="server">ID</th>
                                                     <th runat="server">OfficialName</th>
@@ -289,7 +289,7 @@
                                         </td>
                                     </tr>
                                     <tr runat="server">
-                                        <td runat="server" style="text-align: center; background-color: #CCCCCC; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;">
+                                        <td runat="server" style="text-align: center; background-color: lightgray; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;">
                                             <asp:DataPager ID="DataPager1" runat="server">
                                                 <Fields>
                                                     <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
@@ -300,7 +300,7 @@
                                 </table>
                             </LayoutTemplate>
                             <SelectedItemTemplate>
-                                <tr style="background-color: #008A8C; font-weight: bold; color: #FFFFFF;">
+                                <tr style="/*background-color: #008A8C;*/ font-weight: bold; color: #FFFFFF;">
                                     <td>
                                         <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                         <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
@@ -387,7 +387,8 @@ ID=@ID">
                 </div>
                 <div class="row">
                     <hr />
-                    <h3>Instruments and Members of the Orchestra</h3><br />
+                    <h3>Instruments and Members of the Orchestra</h3>
+                    <br />
 
                     <div class="row ">
                         <div class="col-md-3 pull-right">
@@ -412,7 +413,7 @@ FROM Core.Artist"></asp:SqlDataSource>
                     <div class="row mylistview">
                         <asp:ListView ID="ListView2_orchestraInstrumentArtist" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource1_orchestraInstrumentArtist">
                             <AlternatingItemTemplate>
-                                <tr style="background-color: #FFF8DC;">
+                                <tr style="background-color: #F9F9F9;">
                                     <td>
                                         <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                     </td>
@@ -431,7 +432,7 @@ FROM Core.Artist"></asp:SqlDataSource>
                                 </tr>
                             </AlternatingItemTemplate>
                             <EditItemTemplate>
-                                <tr style="background-color: #008A8C; color: #FFFFFF;">
+                                <tr style="/*background-color: #008A8C;*/ color: #FFFFFF;">
                                     <td>
                                         <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
                                         <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
@@ -476,7 +477,7 @@ FROM Core.Artist"></asp:SqlDataSource>
                                 </tr>
                             </InsertItemTemplate>
                             <ItemTemplate>
-                                <tr style="background-color: #DCDCDC; color: #000000;">
+                                <tr style="/*background-color: #DCDCDC;*/ color: #000000;">
                                     <td>
                                         <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                     </td>
@@ -499,7 +500,7 @@ FROM Core.Artist"></asp:SqlDataSource>
                                     <tr runat="server">
                                         <td runat="server">
                                             <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px; font-family: Verdana, Arial, Helvetica, sans-serif;">
-                                                <tr runat="server" style="background-color: #DCDCDC; color: #000000;">
+                                                <tr runat="server" style="/*background-color: #DCDCDC;*/ color: #000000;">
                                                     <th runat="server"></th>
                                                     <th runat="server">ID</th>
                                                     <th runat="server">OfficialName</th>
@@ -512,7 +513,7 @@ FROM Core.Artist"></asp:SqlDataSource>
                                         </td>
                                     </tr>
                                     <tr runat="server">
-                                        <td runat="server" style="text-align: center; background-color: #CCCCCC; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;">
+                                        <td runat="server" style="text-align: center; background-color: lightgray; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;">
                                             <asp:DataPager ID="DataPager1" runat="server">
                                                 <Fields>
                                                     <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
@@ -525,7 +526,7 @@ FROM Core.Artist"></asp:SqlDataSource>
                                 </table>
                             </LayoutTemplate>
                             <SelectedItemTemplate>
-                                <tr style="background-color: #008A8C; font-weight: bold; color: #FFFFFF;">
+                                <tr style="/*background-color: #008A8C;*/ font-weight: bold; color: #FFFFFF;">
                                     <td>
                                         <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                     </td>
@@ -552,7 +553,8 @@ where ID=@ID"
 from Drived.Orchestra_Instrument_Artist a
 join Core.Orchestra o on o.ID= a.OrchestraID
 join Core.Instrument i on i.ID= a.InstrumentID
-join.Core.Artist aa on aa.ID=a.ArtistID" FilterExpression="OrchestraID={0}">
+join.Core.Artist aa on aa.ID=a.ArtistID"
+                            FilterExpression="OrchestraID={0}">
                             <DeleteParameters>
                                 <asp:Parameter Name="ID" />
                             </DeleteParameters>
@@ -593,6 +595,11 @@ join.Core.Artist aa on aa.ID=a.ArtistID" FilterExpression="OrchestraID={0}">
         .mylistview tr td :not(#listviewpager) {
             word-wrap: break-word;
             padding: 0.2em;
+        }
+
+        .table-striped td, tr, th {
+            border-color: lightgray;
+            padding: 2px;
         }
     </style>
 </asp:Content>

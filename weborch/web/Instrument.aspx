@@ -117,7 +117,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <asp:GridView ID="GridView2" runat="server" Width="745px">
+                            <asp:GridView ID="GridView2" CssClass="table-striped" runat="server" Width="745px">
                             </asp:GridView>
                         </div>
                     </div>
@@ -127,7 +127,7 @@
                     <hr />
                     <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource1_Instrumentlist" InsertItemPosition="FirstItem">
                         <AlternatingItemTemplate>
-                            <tr style="background-color:#FFF8DC;">
+                            <tr style="background-color:#F9F9F9;">
                                 <td>
                                     <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                     <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
@@ -168,7 +168,7 @@
                             </tr>
                         </AlternatingItemTemplate>
                         <EditItemTemplate>
-                            <tr style="background-color:#008A8C;color: #FFFFFF;">
+                            <tr style="/*background-color:#008A8C;*/color: #FFFFFF;">
                                 <td>
                                     <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
                                     <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
@@ -255,7 +255,7 @@
                             </tr>
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            <tr style="background-color:#DCDCDC;color: #000000;">
+                            <tr style="/*background-color:#DCDCDC;*/color: #000000;">
                                 <td>
                                     <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                     <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
@@ -300,7 +300,7 @@
                                 <tr runat="server">
                                     <td runat="server">
                                         <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
-                                            <tr runat="server" style="background-color:#DCDCDC;color: #000000;">
+                                            <tr runat="server" style="/*background-color:#DCDCDC;*/color: #000000;">
                                                 <th runat="server"></th>
                                                 <th runat="server">ID</th>
                                                 <th runat="server">EnglishName</th>
@@ -331,7 +331,7 @@
                             </table>
                         </LayoutTemplate>
                         <SelectedItemTemplate>
-                            <tr style="background-color:#008A8C;font-weight: bold;color: #FFFFFF;">
+                            <tr style="/*background-color:#008A8C;*/font-weight: bold;color: #FFFFFF;">
                                 <td>
                                     <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                     <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
@@ -454,6 +454,10 @@ where ID=@ID
         .mylistview tr td :not(#listviewpager) {
             word-wrap: break-word;
             padding: 0.2em;
+        }
+        .table-striped td, tr, th {
+            border-color: lightgray;
+            padding: 2px;
         }
     </style>
 </asp:Content>
