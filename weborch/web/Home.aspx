@@ -5,7 +5,7 @@
 
         <ContentTemplate>
 
-            <div class="row" style="width: 115%;">
+            <div class="row" style="width: 115%; padding-top:1em;">
                 <div style="height: 500px;" class="col-md-8">
 
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">

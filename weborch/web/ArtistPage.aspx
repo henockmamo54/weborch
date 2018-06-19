@@ -255,7 +255,7 @@
                                         </tr>
                                     </InsertItemTemplate>
                                     <ItemTemplate>
-                                        <tr style="/*background-color: #DCDCDC;*/ color: #000000;">
+                                        <tr style="/*background-color: #DCDCDC; */ color: #000000;">
                                             <td>
                                                 <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                                 <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
@@ -300,7 +300,7 @@
                                             <tr runat="server">
                                                 <td runat="server">
                                                     <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px; font-family: Verdana, Arial, Helvetica, sans-serif;">
-                                                        <tr runat="server" style="/*background-color: #DCDCDC;*/ color: #000000;">
+                                                        <tr runat="server" style="/*background-color: #DCDCDC; */ color: #000000;">
                                                             <th runat="server"></th>
                                                             <th runat="server">ID</th>
                                                             <th runat="server">FirstName</th>
@@ -427,7 +427,7 @@ Where ID=@ID">
                     </div>
                 </div>
                 <hr />
-                <div class="row">
+                <div class="row shadowedbox2">
                     <asp:Label runat="server"><h3>Instruments Played By an Artist</h3></asp:Label>
                     <div class="row">
                         <div class="col-md-3">
@@ -450,7 +450,7 @@ Where ID=@ID">
                                 </div>
                             </div>
                             <br />
-                            <div class="row shadowedbox instrumentplayedByartist" style="margin-top: 1em;">
+                            <div class="row shadowedbox instrumentplayedByartist shadowedbox2" style="margin-top: 1em;">
                                 <asp:ListView ID="ListView_instrumentsplayedbyartist" runat="server" DataSourceID="Artistinstumentsqldatasource" DataKeyNames="ID">
                                     <AlternatingItemTemplate>
                                         <li style="background-color: #F9F9F9;">ID:
@@ -472,7 +472,7 @@ Where ID=@ID">
                                         </li>
                                     </AlternatingItemTemplate>
                                     <EditItemTemplate>
-                                        <li style="background-color: #008A8C;color: #FFFFFF;">ID:
+                                        <li style="background-color: #008A8C; color: #FFFFFF;">ID:
                                             <asp:Label ID="IDLabel1" runat="server" Text='<%# Eval("ID") %>' />
                                             <br />
                                             ArtistID:
@@ -515,7 +515,7 @@ Where ID=@ID">
                                         <br />
                                     </ItemSeparatorTemplate>
                                     <ItemTemplate>
-                                        <li style="/*background-color: #DCDCDC;*/color: #000000;">ID:
+                                        <li style="background-color: #DCDCDC; color: #000000;">ID:
                                             <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
                                             <br />
                                             ArtistID:
@@ -537,7 +537,7 @@ Where ID=@ID">
                                         <ul id="itemPlaceholderContainer" runat="server" style="font-family: Verdana, Arial, Helvetica, sans-serif;">
                                             <li runat="server" id="itemPlaceholder" />
                                         </ul>
-                                        <div style="text-align: center;background-color: #CCCCCC;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;">
+                                        <div style="text-align: center; background-color: #CCCCCC; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;">
                                             <asp:DataPager ID="DataPager1" runat="server">
                                                 <Fields>
                                                     <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
@@ -546,7 +546,7 @@ Where ID=@ID">
                                         </div>
                                     </LayoutTemplate>
                                     <SelectedItemTemplate>
-                                        <li style="background-color: #008A8C;font-weight: bold;color: #FFFFFF;">ID:
+                                        <li style="background-color: #008A8C; font-weight: bold; color: #FFFFFF;">ID:
                                             <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
                                             <br />
                                             ArtistID:
@@ -601,12 +601,24 @@ where id=@ID"
         }
 
         .shadowedbox {
-            padding:0.5em;
+            padding: 0.5em;
             box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
             border-color: #dddddd;
         }
+
+        .shadowedbox2 {
+            margin-top: 1em;
+            box-shadow: 2px 2px 2px 2px #f5f5f5;
+            border-style: solid;
+            border-width: 1px;
+            border-width: 1px;
+            border-color: lightgray;
+            padding: 5px;
+        }
+
         .instrumentplayedByartist ul li {
         }
+
         .table-striped td, tr, th {
             border-color: lightgray;
             padding: 2px;
