@@ -55,6 +55,7 @@
                         <li><a runat="server" href="~/Instrument">Instrument </a></li>
                         <li><a runat="server" href="~/ArtistPage">Artist </a></li>
                         <li><a runat="server" href="~/UserPage">User </a></li>
+                        <li><a runat="server" href="~/LoginPage">Login </a></li>
                         <li><a runat="server" href="~/BulletinPage">Bulletin</a></li>
                         <li><a runat="server" href="~/Default">Default</a></li>
                     </ul>
