@@ -5,8 +5,8 @@
 
         <ContentTemplate>
 
-            <div class="row" style="width:115%;">
-                <div style="height: 400px;" class="col-md-8">
+            <div class="row" style="width: 115%;">
+                <div style="height: 500px;" class="col-md-8">
 
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
@@ -43,17 +43,17 @@
                     </div>
 
                 </div>
-                <div style="height: 400px;" class="col-md-4">
+                <div style="height: 500px;" class="col-md-4">
                     <div class="container" style="padding: 0; padding-top: 1em;">
                         <div class="panel panel-default">
                             <%--<div class="panel-heading">Panel Heading</div>--%>
                             <%--<div class="panel-body">Panel Content</div>--%>
                             <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1_bulletininfo">
                                 <HeaderTemplate>
-                                    <table style="margin:3px;" class="table-striped">
+                                    <table style="margin: 3px;" class="table-striped">
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <tr style="/*margin: 1px; border-style: solid; border-width: 0 0 1px 0; border-color: darkgray; padding: 5px; margin: 5px;*/">
+                                    <tr style="/*margin: 1px; border-style: solid; border-width: 0 0 1px 0; border-color: darkgray; padding: 5px; margin: 5px; */">
 
                                         <td style="width: 20%">
                                             <asp:Label runat="server" ID="Label2"
@@ -75,7 +75,26 @@
                     </div>
                 </div>
             </div>
-
+            <div class="row" style="width: 115%;">
+                <div class="col-md-4">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">Classic Appreciation</div>
+                        <div class="panel-body">Panel Content</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">Classic in our life</div>
+                        <div class="panel-body">Panel Content</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">Free Board</div>
+                        <div class="panel-body">Panel Content</div>
+                    </div>
+                </div>
+            </div>
         </ContentTemplate>
 
     </asp:UpdatePanel>
