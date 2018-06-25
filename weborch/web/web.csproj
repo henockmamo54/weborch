@@ -184,6 +184,7 @@
   <ItemGroup>
     <Content Include="ArtistPage.aspx" />
     <Content Include="BulletinPage.aspx" />
+    <Content Include="Content\img\010_trash-2-512.png" />
     <Content Include="Document\1.jpg" />
     <Content Include="Document\2.jpg" />
     <Content Include="Document\3.jpg" />

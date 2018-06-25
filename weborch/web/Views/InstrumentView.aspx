@@ -132,10 +132,10 @@
                     </div>
                     <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource1_Instrumentlist" InsertItemPosition="FirstItem">
                         <AlternatingItemTemplate>
-                            <tr style="background-color: #F9F9F9;">
+                            <tr style="background-color: #eeeeee;">
                                 <td>
-                                    <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-                                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
+                                    <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete"> </asp:Button>
+                                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" ></asp:Button>
                                 </td>
                                 <td>
                                     <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
@@ -156,7 +156,7 @@
                                     <asp:Label ID="GroupLabel" runat="server" Text='<%# Eval("Group") %>' />
                                 </td>
                                 <td>
-                                    <asp:Label ID="ExplanationLabel" runat="server" Text='<%# Eval("Explanation") %>' />
+                                    <asp:Label ID="ExplanationLabel" runat="server" title='<%# Eval("Explanation")%>' Text='<%# Eval("Explanation").ToString().Take(20).Aggregate("", (x,y) => x + y)  %>' />
                                 </td>
                                 <td>
                                     <asp:Label ID="SoundClipLocationLabel" runat="server" Text='<%# Eval("SoundClipLocation") %>' />
@@ -284,7 +284,7 @@
                                     <asp:Label ID="GroupLabel" runat="server" Text='<%# Eval("Group") %>' />
                                 </td>
                                 <td>
-                                    <asp:Label ID="ExplanationLabel" runat="server" Text='<%# Eval("Explanation") %>' />
+                                    <asp:Label ID="ExplanationLabel" runat="server" title='<%# Eval("Explanation")%>' Text='<%# Eval("Explanation").ToString().Take(20).Aggregate("", (x,y) => x + y)  %>' />
                                 </td>
                                 <td>
                                     <asp:Label ID="SoundClipLocationLabel" runat="server" Text='<%# Eval("SoundClipLocation") %>' />
@@ -445,6 +445,12 @@ where ID=@ID
 
     </div>
 
+    <script type="text/javascript">
+        function myfunc(n) {
+            return false;
+        }
+    </script>
+
     <style>
         .listviewwithedit tr td :not(#listviewpager) {
             word-wrap: break-word;
@@ -472,8 +478,9 @@ where ID=@ID
         }
 
         .table-striped td, tr, th {
-            border-color: lightgray;
-            padding: 2px;
+            /*border-color: lightgray;
+            padding: 2px;*/
+            border:none;
         }
 
         .shadowedPanel {
