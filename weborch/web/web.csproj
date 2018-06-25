@@ -254,6 +254,7 @@
     <Content Include="Site.Master" />
     <Content Include="UserPage.aspx" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\UserPageView.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
@@ -459,6 +460,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserPageView.aspx.cs">
+      <DependentUpon>UserPageView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UserPageView.aspx.designer.cs">
+      <DependentUpon>UserPageView.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
