@@ -26,5 +26,18 @@ namespace BusinessLogic
                 return false;
             }
         }
+
+        public int addArtistReturnNewID(Artist artist) {
+            try
+            {
+                entity.Artists.Add(artist);
+                entity.SaveChanges();
+                return artist.ID;
+            }
+            catch (Exception e)
+            {
+                return -1;
+            }
+        }
     }
 }

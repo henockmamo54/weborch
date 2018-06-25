@@ -164,7 +164,6 @@ E:\workspace\weborch\weborch\web\bin\Microsoft.Owin.Security.OAuth.xml
 E:\workspace\weborch\weborch\web\obj\Debug\web.csprojResolveAssemblyReference.cache
 E:\workspace\weborch\weborch\web\obj\Debug\web.dll
 E:\workspace\weborch\weborch\web\obj\Debug\web.pdb
-E:\workspace\weborch_git\weborch\web\obj\Debug\web.csprojResolveAssemblyReference.cache
 E:\workspace\weborch_git\weborch\web\bin\ApplicationInsights.config
 E:\workspace\weborch_git\weborch\web\bin\roslyn\csc.exe
 E:\workspace\weborch_git\weborch\web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -245,5 +244,6 @@ E:\workspace\weborch_git\weborch\web\bin\Microsoft.Owin.Security.Google.xml
 E:\workspace\weborch_git\weborch\web\bin\Microsoft.Owin.Security.Twitter.xml
 E:\workspace\weborch_git\weborch\web\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 E:\workspace\weborch_git\weborch\web\bin\Microsoft.Owin.Security.OAuth.xml
+E:\workspace\weborch_git\weborch\web\obj\Debug\web.csprojResolveAssemblyReference.cache
 E:\workspace\weborch_git\weborch\web\obj\Debug\web.dll
 E:\workspace\weborch_git\weborch\web\obj\Debug\web.pdb
