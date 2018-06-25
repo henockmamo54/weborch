@@ -160,6 +160,11 @@ namespace web
                 Session["myinstlist"] = mylist;
             }
         }
-        
+
+        public void serachTextValueChanged(object sender, EventArgs e) {
+            ListView1.DataBind();
+        }
+
+
     }
 }

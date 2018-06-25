@@ -163,7 +163,7 @@
                         <%--<span class="glyphicon glyphicon-search pull-right" style="padding: 5px;"></span>--%>
                         <span class='input-group-addon'>
                             <i class='glyphicon glyphicon-search pull-right' style="padding: 5px;"></i>
-                            <asp:TextBox CssClass="pull-right" ID="TextBox1_serachinstrument" runat="server"  AutoPostBack="True"></asp:TextBox>
+                            <asp:TextBox CssClass="pull-right" ID="TextBox1_serach" runat="server"  AutoPostBack="True" OnTextChanged="serachTextValueChanged"></asp:TextBox>
                             <asp:Label runat="server" CssClass="pull-right" Style="padding: 5px;">Name:</asp:Label>
                         </span>
 
@@ -441,10 +441,13 @@ TelNO=@TelNO,
 FaxNo=@FaxNo, 
 Remar =@Remar 
 
-Where ID=@ID">
+Where ID=@ID" FilterExpression="( '{0}'='') or (FirstName like '{0}')">
                                 <DeleteParameters>
                                     <asp:Parameter Name="ID" />
                                 </DeleteParameters>
+                                <FilterParameters>
+                                    <asp:ControlParameter ControlID="TextBox1_serach" Name="TextBox1_serach" PropertyName="Text" />
+                                </FilterParameters>
                                 <InsertParameters>
                                     <asp:Parameter Name="FirstName" />
                                     <asp:Parameter Name="FamilyName" />
