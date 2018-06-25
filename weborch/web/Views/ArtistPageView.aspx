@@ -119,22 +119,36 @@
                                 </div>
                             </div>
                             <div class="row col-md-12">
-                                <asp:Label runat="server">Instrument</asp:Label>
-                                <asp:DropDownList runat="server" ID="DropDownList1_InstrumentInTheMain" AutoPostBack="True" DataSourceID="SqlDataSource3_instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
-                                <asp:Button ID="btn_add_Inst" CssClass="btn btn-info" runat="server" Text="Add" OnClick="btn_add_Inst_Click"  />
-                                <br />
-                                <asp:Repeater runat="server" ID="myinstrepeater" >
-                                    <ItemTemplate>
-                                        <tr>
-                                            <%--<span class="glyphicon glyphicon-trash" style="color:dodgerblue;padding:2px;"></span--%>
-                                            <asp:Button runat="server" AutoPostBack="True" OnClick="removeinstrumentfrommyMainList" Text="Delete"></asp:Button>
-                                            <td>
-                                                <asp:Label runat="server" ID="Label1" Text='<%# Eval("EnglishName") %>' />
-                                            </td>
-                                        </tr>
+                                <div class="row">
+                                    <div class="col-md-4">
                                         <br />
-                                    </ItemTemplate>
-                                </asp:Repeater>
+                                        <div class="col-md-4">
+                                            <asp:Label runat="server">Instrument</asp:Label>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <asp:DropDownList runat="server" ID="DropDownList1_InstrumentInTheMain" AutoPostBack="True" DataSourceID="SqlDataSource3_instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <asp:Button ID="btn_add_Inst" CssClass="btn btn-sm btn-info" runat="server" Text="Add" OnClick="btn_add_Inst_Click" />
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row col-md-12 pull-right">
+                                    <asp:Repeater runat="server" ID="myinstrepeater">
+                                        <ItemTemplate>
+                                            <tr style="margin-bottom:3px;">
+                                                <%--<span class="glyphicon glyphicon-trash" style="color:dodgerblue;padding:2px;"></span--%>
+                                                <asp:Button runat="server" AutoPostBack="True" CommandArgument='<%#Eval("ID")%>' OnClick="removeinstrumentfrommyMainList" Text="Delete"></asp:Button>
+                                                <td>
+                                                    <asp:Label runat="server" ID="Label1" Text='<%# Eval("EnglishName") %>' />
+                                                </td>                                                
+                                            </tr>
+                                            <br />
+                                        </ItemTemplate>
+                                    </asp:Repeater>
+                                </div>
                             </div>
                             <div class="row col-md-12">
                                 <asp:Button ID="btn_artist_add" CssClass="btn btn-primary pull-right" runat="server" Text="Register" OnClick="btn_artistadd_Click" />

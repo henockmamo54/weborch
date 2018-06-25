@@ -74,6 +74,7 @@ namespace web
                         }
                     }
 
+                    DropDownList1_artistList.DataBind();
                     showMsg("Data inserted succssfuly");
                     cleanArtistTextBoxs();
                 }
