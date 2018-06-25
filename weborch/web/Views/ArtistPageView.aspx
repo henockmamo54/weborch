@@ -157,9 +157,21 @@
                     </div>
 
                 </div>
+                <hr />
                 <div class="row">
-                    <div class="row listviewwithedit">
-                        <hr />
+                    <div class="row " style="margin: 5px;">
+                        <%--<span class="glyphicon glyphicon-search pull-right" style="padding: 5px;"></span>--%>
+                        <span class='input-group-addon'>
+                            <i class='glyphicon glyphicon-search pull-right' style="padding: 5px;"></i>
+                            <asp:TextBox CssClass="pull-right" ID="TextBox1_serachinstrument" runat="server"  AutoPostBack="True"></asp:TextBox>
+                            <asp:Label runat="server" CssClass="pull-right" Style="padding: 5px;">Name:</asp:Label>
+                        </span>
+
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="row listviewwithedit">                        
                         <div class="col-md-12">
                             <div class="col-md-12">
                                 <asp:ListView ID="ListView1" runat="server" class="col-md-7" DataKeyNames="ID" DataSourceID="SqlDataSource1" InsertItemPosition="FirstItem">
