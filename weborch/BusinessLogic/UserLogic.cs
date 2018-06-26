@@ -31,7 +31,7 @@ namespace BusinessLogic
         public bool checkUserLoginInfo(string username, string password) {
 
             try {
-                var user = entity.Users.Where(x => x.UserID == username.Trim() && x.Password == password.Trim()).ToList();
+                var user = entity.Users.Where(x => x.Email == username.Trim() && x.Password == password.Trim()).ToList();
                 
                 if (user.Count == 0) return false;
                 else return true;

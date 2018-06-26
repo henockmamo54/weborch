@@ -100,13 +100,13 @@
                             <div class="panel-body" style="padding-top: 0px;">
                                 <div class="row">
                                     <div class="wrapper_musictag_sle_list">
-                                        <ul class="list-group list-group-flush">                                           
-                                            <li class="list-group-item" runat="server" onclick="changeMusicTo('Tracy Chapman - 02 - Fast Car')"><span class="glyphicon glyphicon-music" /> Tracy Chapman- Fast Car</li>                                       
-                                            <li class="list-group-item" onclick="changeMusicTo('Tracy Chapman - 03 - Across the Lines')"><span class="glyphicon glyphicon-music" /> Tracy Chapman- Across the Lines</li>                                       
-                                            <li class="list-group-item" onclick="changeMusicTo('Tracy Chapman - 04 - Behind the Wall')"><span class="glyphicon glyphicon-music" /> Tracy Chapman- Behind the Wall</li>                                       
-                                            <li class="list-group-item" onclick="changeMusicTo('Tracy Chapman - 05 - Baby Can I Hold You')"><span class="glyphicon glyphicon-music" /> Tracy Chapman- Baby Can I Hold You</li>                                       
-                                            <li class="list-group-item" onclick="changeMusicTo('Tracy Chapman - 06 - Mountain O Things')"><span class="glyphicon glyphicon-music" /> Tracy Chapman- Mountain O' Things</li>                                       
-                                            <li class="list-group-item" onclick="changeMusicTo('Tracy Chapman - 07 - Shes Got Her Ticket')"><span class="glyphicon glyphicon-music" /> Tracy Chapman- She's Got Her Ticket</li>                                       
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item" runat="server" onclick="changeMusicTo('Tracy Chapman - 02 - Fast Car')"><span class="glyphicon glyphicon-music" />Tracy Chapman- Fast Car</li>
+                                            <li class="list-group-item" onclick="changeMusicTo('Tracy Chapman - 03 - Across the Lines')"><span class="glyphicon glyphicon-music" />Tracy Chapman- Across the Lines</li>
+                                            <li class="list-group-item" onclick="changeMusicTo('Tracy Chapman - 04 - Behind the Wall')"><span class="glyphicon glyphicon-music" />Tracy Chapman- Behind the Wall</li>
+                                            <li class="list-group-item" onclick="changeMusicTo('Tracy Chapman - 05 - Baby Can I Hold You')"><span class="glyphicon glyphicon-music" />Tracy Chapman- Baby Can I Hold You</li>
+                                            <li class="list-group-item" onclick="changeMusicTo('Tracy Chapman - 06 - Mountain O Things')"><span class="glyphicon glyphicon-music" />Tracy Chapman- Mountain O' Things</li>
+                                            <li class="list-group-item" onclick="changeMusicTo('Tracy Chapman - 07 - Shes Got Her Ticket')"><span class="glyphicon glyphicon-music" />Tracy Chapman- She's Got Her Ticket</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -130,7 +130,9 @@
                     <div class="col-md-4">
                         <div class="panel panel-success">
                             <div class="panel-heading">Free Board</div>
-                            <div class="panel-body">Panel Content</div>
+                            <div class="panel-body">
+                                <img src="../Content/img/er.jpg" style="width:90%; height:320px;"/>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -156,14 +158,15 @@
         }
         function changeMusicTo(n) {
             console.log('change' + n);
-            document.getElementById('MainContent_playeraudio').src ="../Content/audio/"+ n+".mp3";
+            document.getElementById('MainContent_playeraudio').src = "../Content/audio/" + n + ".mp3";
             document.getElementById('MainContent_playeraudio').play()
         }
     </script>
     <style>
         .list-group-item {
-        border:none;
+            border: none;
         }
+
         ::-webkit-scrollbar {
             width: 3px;
         }
