@@ -18,7 +18,7 @@ namespace web
 
             if (ul.checkUserLoginInfo(username, password))
             {
-                Response.Redirect("Home.aspx");
+                Response.Redirect("~/Views/HomeView");
             }
             else Label1_warnningmessage.Visible = true;
 
