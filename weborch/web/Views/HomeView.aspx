@@ -5,8 +5,8 @@
 
         <ContentTemplate>
 
-            <div class="row" style="width: 100%; padding-top:1em;">
-                <div style="height: 500px;" class="col-md-8">
+            <div class="row" style="width: 100%; padding-top: 1em; height: 380px;">
+                <div style="" class="col-md-8">
 
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
@@ -43,11 +43,13 @@
                     </div>
 
                 </div>
-                <div style="height: 500px;" class="col-md-4">
+                <div style="" class="col-md-4">
                     <div class="container" style="padding: 0; padding-top: 1em;">
-                        <div class="panel panel-default">
+                        <div class="panel panel-default" style="overflow-y: scroll; height: 360px;">
                             <%--<div class="panel-heading">Panel Heading</div>--%>
                             <%--<div class="panel-body">Panel Content</div>--%>
+                            <%--<div class="btn-info pull-right">Notice</div>
+                            <br />--%>
                             <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1_bulletininfo">
                                 <HeaderTemplate>
                                     <table style="margin: 3px;" class="table-striped">
@@ -55,11 +57,16 @@
                                 <ItemTemplate>
                                     <tr style="/*margin: 1px; border-style: solid; border-width: 0 0 1px 0; border-color: darkgray; padding: 5px; margin: 5px; */">
 
-                                        <td style="width: 20%">
+                                        <td style="width: 30%">
+                                            <img src="../Document/<%#Eval("ImageUrl") %>" style="width: 100%" />
                                             <asp:Label runat="server" ID="Label2"
                                                 Text='<%# DataBinder.Eval(Container.DataItem,"TimeStamp","{0:d/M/yyyy}") %>' />
                                         </td>
-                                        <td style="width: 80%">
+                                        <%--<td style="width: 20%">
+                                            <asp:Label runat="server" ID="Label3"
+                                                Text='<%# DataBinder.Eval(Container.DataItem,"TimeStamp","{0:d/M/yyyy}") %>' />
+                                        </td>--%>
+                                        <td style="width: 70%">
                                             <asp:Label runat="server" ID="Label1"
                                                 Text='<%# Eval("MSG") %>' />
                                         </td>
@@ -75,11 +82,15 @@
                     </div>
                 </div>
             </div>
-            <div class="row" style="width: 100%;">
+            <div class="row" style="width: 100%; padding-top: 1em;">
                 <div class="col-md-4">
                     <div class="panel panel-success">
                         <div class="panel-heading">Classic Appreciation</div>
-                        <div class="panel-body">Panel Content</div>
+                        <div class="panel-body">
+                            <%--Panel Content--%>
+                            <%--<iframe width="100%" height="315" src="https://www.youtube.com/embed/t9lxe5I-yFE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>--%>
+                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/WnL4Hq050is" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -98,4 +109,26 @@
         </ContentTemplate>
 
     </asp:UpdatePanel>
+    <style>
+        ::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 10px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #eeeeee;
+            border-radius: 10px;
+        }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d5d5d5;
+            }
+    </style>
 </asp:Content>
