@@ -257,6 +257,7 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\ArtistPageView.aspx" />
     <Content Include="Views\InstrumentView.aspx" />
+    <Content Include="Views\OrchestraView.aspx" />
     <Content Include="Views\UserPageView.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -477,6 +478,13 @@
     </Compile>
     <Compile Include="Views\InstrumentView.aspx.designer.cs">
       <DependentUpon>InstrumentView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrchestraView.aspx.cs">
+      <DependentUpon>OrchestraView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OrchestraView.aspx.designer.cs">
+      <DependentUpon>OrchestraView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\UserPageView.aspx.cs">
       <DependentUpon>UserPageView.aspx</DependentUpon>
