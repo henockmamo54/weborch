@@ -138,12 +138,12 @@
                                 <div class="row col-md-12 pull-right">
                                     <asp:Repeater runat="server" ID="myinstrepeater">
                                         <ItemTemplate>
-                                            <tr style="margin-bottom:3px;">
+                                            <tr style="margin-bottom: 3px;">
                                                 <%--<span class="glyphicon glyphicon-trash" style="color:dodgerblue;padding:2px;"></span--%>
                                                 <asp:Button runat="server" AutoPostBack="True" CommandArgument='<%#Eval("ID")%>' OnClick="removeinstrumentfrommyMainList" Text="Delete"></asp:Button>
                                                 <td>
                                                     <asp:Label runat="server" ID="Label1" Text='<%# Eval("EnglishName") %>' />
-                                                </td>                                                
+                                                </td>
                                             </tr>
                                             <br />
                                         </ItemTemplate>
@@ -163,20 +163,20 @@
                         <%--<span class="glyphicon glyphicon-search pull-right" style="padding: 5px;"></span>--%>
                         <span class='input-group-addon'>
                             <i class='glyphicon glyphicon-search pull-right' style="padding: 5px;"></i>
-                            <asp:TextBox CssClass="pull-right" ID="TextBox1_serach" runat="server"  AutoPostBack="True" OnTextChanged="serachTextValueChanged"></asp:TextBox>
+                            <asp:TextBox CssClass="pull-right" ID="TextBox1_serach" runat="server" AutoPostBack="True" OnTextChanged="serachTextValueChanged"></asp:TextBox>
                             <asp:Label runat="server" CssClass="pull-right" Style="padding: 5px;">Name:</asp:Label>
                         </span>
 
                     </div>
                 </div>
-                
+
                 <div class="row">
-                    <div class="row listviewwithedit">                        
+                    <div class="row listviewwithedit">
                         <div class="col-md-12">
                             <div class="col-md-12">
                                 <asp:ListView ID="ListView1" runat="server" class="col-md-7" DataKeyNames="ID" DataSourceID="SqlDataSource1" InsertItemPosition="FirstItem">
                                     <AlternatingItemTemplate>
-                                        <tr style="background-color: #F9F9F9;">
+                                        <tr style="background-color: #eeeeee;">
                                             <td>
                                                 <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                                 <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
@@ -441,7 +441,8 @@ TelNO=@TelNO,
 FaxNo=@FaxNo, 
 Remar =@Remar 
 
-Where ID=@ID" FilterExpression="( '{0}'='') or (FirstName like '{0}')">
+Where ID=@ID"
+                                FilterExpression="( '{0}'='') or (FirstName like '{0}') or (FamilyName like '{0}') or (MiddleName like '{0}')">
                                 <DeleteParameters>
                                     <asp:Parameter Name="ID" />
                                 </DeleteParameters>
@@ -484,7 +485,11 @@ Where ID=@ID" FilterExpression="( '{0}'='') or (FirstName like '{0}')">
                     <div class="row">
                         <div class="col-md-3">
                             <asp:SqlDataSource ID="artistList" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>"
-                                SelectCommand="SELECT        ID ,  Name=FamilyName +'  '+FirstName+'  '+ MiddleName FROM            Core.Artist"></asp:SqlDataSource>
+                                SelectCommand="SELECT        ID ,  Name=FamilyName +'  '+FirstName+'  '+ MiddleName FROM            Core.Artist order by ID desc" FilterExpression="( '{0}'='') or (Name like '%{0}%')">
+                                <FilterParameters>
+                                    <asp:ControlParameter ControlID="TextBox1_serach" Name="EnglishName" PropertyName="Text" />
+                                </FilterParameters>
+                            </asp:SqlDataSource>
                             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT ID, EnglishName, KoreanName FROM Core.Instrument"></asp:SqlDataSource>
                             <label>Artist:</label>
                             <asp:DropDownList ID="DropDownList1_artistList" runat="server" DataSourceID="artistList" DataTextField="Name" DataValueField="ID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
@@ -505,7 +510,7 @@ Where ID=@ID" FilterExpression="( '{0}'='') or (FirstName like '{0}')">
                             <div class="row shadowedbox instrumentplayedByartist shadowedbox2" style="margin-top: 1em;">
                                 <asp:ListView ID="ListView_instrumentsplayedbyartist" runat="server" DataSourceID="Artistinstumentsqldatasource" DataKeyNames="ID">
                                     <AlternatingItemTemplate>
-                                        <li style="background-color: #F9F9F9;">ID:
+                                        <li style="background-color: #eeeeee;" class="backgroundforartistinstul">ID:
                                             <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
                                             <br />
                                             ArtistID:
@@ -567,7 +572,7 @@ Where ID=@ID" FilterExpression="( '{0}'='') or (FirstName like '{0}')">
                                         <br />
                                     </ItemSeparatorTemplate>
                                     <ItemTemplate>
-                                        <li style="background-color: #DCDCDC; color: #000000;">ID:
+                                        <li style="background-color: #DCDCDC; color: #000000;" class="backgroundforartistinstul">ID:
                                             <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
                                             <br />
                                             ArtistID:
@@ -682,6 +687,14 @@ where id=@ID"
             border-color: #dddddd;
             padding: 1em;
             box-shadow: 2px 2px 2px 2px #f5f5f5;
+        }
+
+        .backgroundforartistinstul {
+            background-color: #DCDCDC;
+            color: #000000;
+            margin: 1px;
+            padding: 0.5em;
+            border-radius: 0.7em;
         }
     </style>
 

@@ -163,6 +163,8 @@ namespace web
 
         public void serachTextValueChanged(object sender, EventArgs e) {
             ListView1.DataBind();
+            DropDownList1_artistList.DataBind();
+            ListView_instrumentsplayedbyartist.DataBind();
         }
 
 
