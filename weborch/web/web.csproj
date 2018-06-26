@@ -184,7 +184,14 @@
   <ItemGroup>
     <Content Include="ArtistPage.aspx" />
     <Content Include="BulletinPage.aspx" />
+    <Content Include="Content\audio\Tracy Chapman - 02 - Fast Car.mp3" />
+    <Content Include="Content\audio\Tracy Chapman - 03 - Across the Lines.mp3" />
+    <Content Include="Content\audio\Tracy Chapman - 04 - Behind the Wall.mp3" />
+    <Content Include="Content\audio\Tracy Chapman - 05 - Baby Can I Hold You.mp3" />
+    <Content Include="Content\audio\Tracy Chapman - 06 - Mountain O Things.mp3" />
+    <Content Include="Content\audio\Tracy Chapman - 07 - Shes Got Her Ticket.mp3" />
     <Content Include="Content\img\010_trash-2-512.png" />
+    <Content Include="Content\img\er.jpg" />
     <Content Include="Document\1.jpg" />
     <Content Include="Document\2.jpg" />
     <Content Include="Document\3.jpg" />
