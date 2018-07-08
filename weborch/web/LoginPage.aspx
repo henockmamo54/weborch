@@ -45,8 +45,11 @@
     <script type="text/javascript">
         var x = document.getElementById("masterNavigationBar");
         x.style.display = "none";
-        var x = document.getElementById("masterFooter");
-        x.style.display = "none";
+        //var x = document.getElementById("masterFooter");
+        //x.style.display = "none";
+
+        var serachbar = document.getElementById("masterserachbar");
+        serachbar.style.display = "none";
 
         window.onbeforeunload = function () {
             alert("closing");

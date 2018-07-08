@@ -85,7 +85,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" id="masterserachbar">
            
             <div class="col-md-4 pull-right" style="margin-top: 1em;">
                 <asp:TextBox runat="server"></asp:TextBox>
