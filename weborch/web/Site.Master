@@ -38,7 +38,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-default navbar-fixed-top" id="masterNavigationBar">
+        <div class="navbar navbar-default navbar-fixed-top" id="masterNavigationBar" style="border-color: white; background-color: white;">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -86,12 +86,10 @@
         </div>
 
         <div class="row" id="masterserachbar">
-           
             <div class="col-md-4 pull-right" style="margin-top: 1em;">
-                <asp:TextBox runat="server"></asp:TextBox>
-                <asp:Button runat="server" text="search"/>
+                <asp:TextBox runat="server" class="form-control" Style="display: inline;"></asp:TextBox>
+                <asp:Button runat="server" Text="search" class="btn btn-primary" />
             </div>
-
         </div>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">

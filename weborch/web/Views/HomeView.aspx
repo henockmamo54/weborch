@@ -5,8 +5,25 @@
 
         <ContentTemplate>
 
+            <div style="margin-top:1em;">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <%--<div class="navbar-header">
+                            <a class="navbar-brand" href="#">WebSiteName</a>
+                        </div>--%>
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="">Introduction</a></li>
+                            <li><a href="">Classic in our life</a></li>
+                            <li><a href="">Listen to classic music</a></li>
+                            <li><a href=""> Performance/Ticket </a></li>
+                            <li><a href=""> Information Space </a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
             <div>
-                <div class="row" style="width: 100%; padding-top: 1em; height: 380px;">
+                <div class="row" style="width: 100%; padding-top: 0em; height: 380px;">
                     <div style="" class="col-md-8">
 
                         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -45,7 +62,7 @@
 
                     </div>
                     <div style="" class="col-md-4">
-                        <div class="container" style="padding: 0; padding-top: 1em;">
+                        <div class="container" style="padding: 0; padding-top: 0em;">
                             <div class="panel panel-default" style="overflow-y: scroll; height: 360px;">
                                 <%--<div class="panel-heading">Panel Heading</div>--%>
                                 <%--<div class="panel-body">Panel Content</div>--%>
@@ -131,7 +148,7 @@
                         <div class="panel panel-success">
                             <div class="panel-heading">Free Board</div>
                             <div class="panel-body">
-                                <img src="../Content/img/er.jpg" style="width:90%; height:320px;"/>
+                                <img src="../Content/img/er.jpg" style="width: 90%; height: 320px;" />
                             </div>
                         </div>
                     </div>
