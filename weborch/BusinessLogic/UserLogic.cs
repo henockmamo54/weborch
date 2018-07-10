@@ -47,5 +47,26 @@ namespace BusinessLogic
         {
             return entity.Users.Where(x => x.Email == username.Trim() && x.Password == password.Trim()).ToList();
         }
+
+        public bool updateUser(User user) {
+            try
+            {
+                User u = entity.Users.Where(x => x.UserID == user.UserID).First();
+                u.EnglishName = user.EnglishName;
+                u.KoreanName = user.KoreanName;
+                u.UserID = user.KoreanName;
+                u.Password = user.Password;
+                u.Email = user.Email;
+                u.Address = user.Address;
+                u.ZipCode = user.ZipCode;
+
+                entity.SaveChanges();
+
+                return true;
+            }
+            catch (Exception e) {
+                return false;
+            }
+        }
     }
 }

@@ -58,7 +58,7 @@
                             <br />
                             <div class="col-md-4">Password:</div>
                             <div class="col-md-6">
-                                <asp:TextBox ID="txt_userPassword" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txt_userPassword" runat="server" AutoPostBack="True"></asp:TextBox>
                             </div>
                             <br />
 
@@ -94,7 +94,7 @@
 
                         <div class="col-md-12 pull-right" style="text-align: center;">
                             <%--<asp:Button ID="btn_cancel" CssClass="btn btn-danger " runat="server" Text="Cancel"  />--%>
-                            <asp:Button ID="txt_addInstrument" CssClass="btn btn-success " runat="server" Text="Update" />
+                            <asp:Button ID="txt_addInstrument" CssClass="btn btn-success " runat="server" Text="Update" OnClick="txt_addInstrument_click" />
                         </div>
 
                     </div>
