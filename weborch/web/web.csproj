@@ -194,6 +194,8 @@
     <Content Include="Document\1.jpg" />
     <Content Include="Document\2.jpg" />
     <Content Include="Document\3.jpg" />
+    <Content Include="Document\4.jpeg" />
+    <Content Include="Document\5.jpg" />
     <Content Include="Home.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="Orchestra.aspx" />
