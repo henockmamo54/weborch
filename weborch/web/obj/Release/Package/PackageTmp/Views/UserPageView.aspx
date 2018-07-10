@@ -70,9 +70,11 @@
                                 <br />
 
                             </div>
+                            <br />
 
-                            <div class="col-md-12">
-                                <asp:Button ID="txt_addInstrument" CssClass="btn btn-primary " runat="server" Text="Add" OnClick="btn_useradd_Click" />
+                            <div class="col-md-12 pull-right" style="text-align:center;">
+                                <asp:Button ID="btn_cancel" CssClass="btn btn-danger " runat="server" Text="Cancel" OnClick="btn_cancel_click" />
+                                <asp:Button ID="txt_addInstrument" CssClass="btn btn-success " runat="server" Text="Add" OnClick="btn_useradd_Click" />
                             </div>
 
                         </div>

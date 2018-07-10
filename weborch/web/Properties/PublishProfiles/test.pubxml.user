@@ -79,10 +79,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/16/2013 20:06:22</publishTime>
     </File>
     <File Include="bin/BusinessLogic.exe">
-      <publishTime>07/02/2018 17:44:26</publishTime>
+      <publishTime>07/10/2018 21:42:53</publishTime>
     </File>
     <File Include="bin/DataAccess.exe">
-      <publishTime>07/02/2018 17:44:24</publishTime>
+      <publishTime>07/10/2018 21:42:52</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>03/02/2015 09:32:26</publishTime>
@@ -214,7 +214,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/22/2013 10:21:56</publishTime>
     </File>
     <File Include="bin/web.dll">
-      <publishTime>07/02/2018 18:00:13</publishTime>
+      <publishTime>07/10/2018 21:42:58</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>09/10/2013 17:28:38</publishTime>
@@ -229,22 +229,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/28/2018 21:34:11</publishTime>
     </File>
     <File Include="Content/audio/Tracy Chapman - 02 - Fast Car.mp3">
-      <publishTime>06/26/2018 22:36:19</publishTime>
+      <publishTime>07/08/2018 14:16:47</publishTime>
     </File>
     <File Include="Content/audio/Tracy Chapman - 03 - Across the Lines.mp3">
-      <publishTime>06/27/2018 00:07:07</publishTime>
+      <publishTime>07/08/2018 14:16:47</publishTime>
     </File>
     <File Include="Content/audio/Tracy Chapman - 04 - Behind the Wall.mp3">
-      <publishTime>06/27/2018 00:07:07</publishTime>
+      <publishTime>07/08/2018 14:16:47</publishTime>
     </File>
     <File Include="Content/audio/Tracy Chapman - 05 - Baby Can I Hold You.mp3">
-      <publishTime>06/27/2018 00:07:07</publishTime>
+      <publishTime>07/08/2018 14:16:47</publishTime>
     </File>
     <File Include="Content/audio/Tracy Chapman - 06 - Mountain O Things.mp3">
-      <publishTime>06/27/2018 00:07:08</publishTime>
+      <publishTime>07/08/2018 14:16:47</publishTime>
     </File>
     <File Include="Content/audio/Tracy Chapman - 07 - Shes Got Her Ticket.mp3">
-      <publishTime>06/27/2018 00:07:07</publishTime>
+      <publishTime>07/08/2018 14:16:47</publishTime>
     </File>
     <File Include="Content/bootstrap.css">
       <publishTime>05/28/2018 21:34:34</publishTime>
@@ -253,10 +253,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/28/2018 21:34:34</publishTime>
     </File>
     <File Include="Content/img/er.jpg">
-      <publishTime>06/27/2018 00:42:53</publishTime>
+      <publishTime>07/08/2018 14:16:47</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>06/15/2018 17:31:04</publishTime>
+      <publishTime>07/10/2018 11:23:22</publishTime>
     </File>
     <File Include="Default.aspx">
       <publishTime>05/29/2018 01:45:41</publishTime>
@@ -269,6 +269,15 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Document/3.jpg">
       <publishTime>06/19/2018 15:55:43</publishTime>
+    </File>
+    <File Include="Document/4.jpeg">
+      <publishTime>07/10/2018 13:11:41</publishTime>
+    </File>
+    <File Include="Document/5.jpg">
+      <publishTime>07/10/2018 13:11:56</publishTime>
+    </File>
+    <File Include="Document/9.jpg">
+      <publishTime>07/10/2018 17:06:29</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>05/28/2018 21:34:11</publishTime>
@@ -295,7 +304,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/19/2018 22:33:07</publishTime>
     </File>
     <File Include="LoginPage.aspx">
-      <publishTime>06/16/2018 23:32:59</publishTime>
+      <publishTime>07/10/2018 14:57:15</publishTime>
     </File>
     <File Include="Orchestra.aspx">
       <publishTime>06/19/2018 22:26:52</publishTime>
@@ -394,7 +403,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/28/2018 21:34:33</publishTime>
     </File>
     <File Include="Site.Master">
-      <publishTime>06/26/2018 22:03:14</publishTime>
+      <publishTime>07/10/2018 17:25:55</publishTime>
     </File>
     <File Include="Site.Mobile.Master">
       <publishTime>05/28/2018 21:34:37</publishTime>
@@ -403,19 +412,37 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/19/2018 22:54:54</publishTime>
     </File>
     <File Include="Views/ArtistPageView.aspx">
-      <publishTime>06/27/2018 00:56:09</publishTime>
+      <publishTime>07/08/2018 14:16:47</publishTime>
+    </File>
+    <File Include="Views/ClassicCoinPage.aspx">
+      <publishTime>07/10/2018 17:14:31</publishTime>
+    </File>
+    <File Include="Views/ClassicPerformanceArchive.aspx">
+      <publishTime>07/10/2018 21:00:33</publishTime>
     </File>
     <File Include="Views/HomeView.aspx">
-      <publishTime>06/27/2018 00:47:22</publishTime>
+      <publishTime>07/10/2018 21:30:06</publishTime>
+    </File>
+    <File Include="Views/InformationOfPerformances.aspx">
+      <publishTime>07/10/2018 20:53:30</publishTime>
+    </File>
+    <File Include="Views/InformationSpace.aspx">
+      <publishTime>07/10/2018 21:30:52</publishTime>
     </File>
     <File Include="Views/InstrumentView.aspx">
-      <publishTime>06/27/2018 00:55:52</publishTime>
+      <publishTime>07/08/2018 14:16:47</publishTime>
+    </File>
+    <File Include="Views/IntroductionPage.aspx">
+      <publishTime>07/10/2018 21:30:52</publishTime>
+    </File>
+    <File Include="Views/MyPage.aspx">
+      <publishTime>07/10/2018 21:41:17</publishTime>
     </File>
     <File Include="Views/OrchestraView.aspx">
-      <publishTime>06/27/2018 00:55:14</publishTime>
+      <publishTime>07/08/2018 14:16:47</publishTime>
     </File>
     <File Include="Views/UserPageView.aspx">
-      <publishTime>06/25/2018 11:47:40</publishTime>
+      <publishTime>07/10/2018 14:01:28</publishTime>
     </File>
     <File Include="ViewSwitcher.ascx">
       <publishTime>05/28/2018 21:34:37</publishTime>

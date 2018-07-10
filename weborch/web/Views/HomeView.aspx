@@ -12,10 +12,11 @@
                             <a class="navbar-brand" href="#">WebSiteName</a>
                         </div>--%>
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="">Information of Performance</a></li>
-                            <li><a href="">Classic Performance Archive</a></li>
-                            <li><a href="">Information Space</a></li>
-                            <li><a href="">Introduction </a></li>
+                            <%--<li class="active"><a href="">Information of Performance</a></li>--%>
+                            <li><a href="InformationOfPerformances.aspx">Information of Performance</a></li>
+                            <li><a href="ClassicPerformanceArchive.aspx">Classic Performance Archive</a></li>
+                            <li><a href="InformationSpace.aspx">Information Space</a></li>
+                            <li><a href="IntroductionPage.aspx">Introduction </a></li>
                         </ul>
                     </div>
                 </nav>

@@ -11,13 +11,13 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    <link href="Content/Site.css" rel="stylesheet" />
 </head>
 <body>
     <form runat="server">
-        <asp:ScriptManager runat="server" EnablePageMethods="true" >
+        <asp:ScriptManager runat="server" EnablePageMethods="true">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
@@ -38,7 +38,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top" id="masterNavigationBar">
+        <div class="navbar navbar-default navbar-fixed-top" id="masterNavigationBar" style="border-color: white; background-color: white;">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -46,7 +46,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/Views/HomeView">Application name</a>
+                    <a class="navbar-brand" runat="server" href="~/Views/HomeView">AllClassic Korea</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -54,11 +54,19 @@
                         <li><a runat="server" href="~/Views/OrchestraView">Orchestra</a></li>
                         <li><a runat="server" href="~/Views/InstrumentView">Instrument </a></li>
                         <li><a runat="server" href="~/Views/ArtistPageView">Artist </a></li>
-                        <li><a runat="server" href="~/Views/UserPageView">User </a></li>
-                        <li><a runat="server" href="~/LoginPage">Login </a></li>
+                        <li><%--<a runat="server" href="~/Views/UserPageView">User </a>--%></li>
+                        <li><%--<a runat="server" href="~/LoginPage">Login </a>--%></li>
                         <li><a runat="server" href="~/BulletinPage">Bulletin</a></li>
                         <li><a runat="server" href="~/Default">Default</a></li>
                     </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a runat="server" href="~/Views/UserPageView"><span class="">Sign Up</span></a></li>
+                        <li><a runat="server" href="~/LoginPage"><span class="">Sign In</span></a></li>
+                        <li><a runat="server" href="" onServerClick="signoutClicked">Sign Out</a></li>
+                        <li><a runat="server" href="~/Views/MyPage"><span class="">My Page</span></a></li>
+                        <li><a runat="server" href="~/Views/ClassicCoinPage"><span class="">classic coin</span></a></li>
+                    </ul>
+
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <%--<ul class="nav navbar-nav navbar-right">
@@ -78,7 +86,14 @@
                 </div>
             </div>
         </div>
-        <div class="container body-content" >
+
+        <div class="container" id="masterserachbar">
+            <div style="text-align: right; margin-top: 1em;">
+                <asp:TextBox runat="server" class="form-control" Style="display: inline;"></asp:TextBox>
+                <asp:Button runat="server" Text="search" class="btn btn-primary" />
+            </div>
+        </div>
+        <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
@@ -89,3 +104,13 @@
     </form>
 </body>
 </html>
+
+<style>
+    .headerIcons {
+        background-color: #5bc0de;
+        border-color: #46b8da;
+        color: white;
+        padding: 0.5em;
+        border-radius: 0.3em;
+    }
+</style>

@@ -5,9 +5,26 @@
 
         <ContentTemplate>
 
+            <div style="margin-top: 1em;">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <%--<div class="navbar-header">
+                            <a class="navbar-brand" href="#">WebSiteName</a>
+                        </div>--%>
+                        <ul class="nav navbar-nav">
+                            <%--<li class="active"><a href="">Information of Performance</a></li>--%>
+                            <li><a href="InformationOfPerformances.aspx">Information of Performance</a></li>
+                            <li><a href="ClassicPerformanceArchive.aspx">Classic Performance Archive</a></li>
+                            <li><a href="InformationSpace.aspx">Information Space</a></li>
+                            <li><a href="IntroductionPage.aspx">Introduction </a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
             <div>
-                <div class="row" style="width: 100%; padding-top: 1em; height: 380px;">
-                    <div style="" class="col-md-8">
+                <div class="row " style="width: 100%; padding: 0; margin: 0; padding-top: 0em; height: 380px;">
+                    <div class="col-md-8" style="padding-left: 0;">
 
                         <div id="myCarousel" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
@@ -44,10 +61,10 @@
                         </div>
 
                     </div>
-                    <div style="" class="col-md-4">
-                        <div class="container" style="padding: 0; padding-top: 1em;">
-                            <div class="panel panel-default" style="overflow-y: scroll; height: 360px;">
-                                <%--<div class="panel-heading">Panel Heading</div>--%>
+                    <div class="col-md-4" style="padding-right: 0; padding-left: 0;">
+                        <div class="container" style="padding: 0; padding-top: 0em;">
+                            <div class="panel panel-default" style="overflow-y: scroll; height: 380px;">
+                                <div class="panel-heading">Notice</div>
                                 <%--<div class="panel-body">Panel Content</div>--%>
                                 <%--<div class="btn-info pull-right">Notice</div>
                             <br />--%>
@@ -83,13 +100,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" style="width: 100%; padding-top: 1em;">
-                    <div class="col-md-4">
+                <div class="" style="width: 100%; padding-top: 1em;">
+
+                    <%--                     <div class="col-md-4">
                         <div class="panel panel-success">
                             <div class="panel-heading">Classic Appreciation</div>
                             <div class="panel-body">
-                                <%--Panel Content--%>
-                                <%--<iframe width="100%" height="315" src="https://www.youtube.com/embed/t9lxe5I-yFE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>--%>
                                 <iframe width="100%" height="315" src="https://www.youtube.com/embed/WnL4Hq050is" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                             </div>
                         </div>
@@ -131,7 +147,58 @@
                         <div class="panel panel-success">
                             <div class="panel-heading">Free Board</div>
                             <div class="panel-body">
-                                <img src="../Content/img/er.jpg" style="width:90%; height:320px;"/>
+                                <img src="../Content/img/er.jpg" style="width: 90%; height: 320px;" />
+                            </div>
+                        </div>
+                    </div>--%>
+
+                    <%--     <div class="shadowedPanel" style="padding-bottom: 1em; height: 400px;">
+
+                        <div class="col-md-12">
+                            <h4>A Classical Performance Archives</h4>
+                        </div>
+                        
+                        <hr />
+
+                        <div class="card shadowedbox col-md-4" style="width: 300px;">
+                            <img class="card-img-top" src="../Document/4.jpeg" alt="Card image" height="200" width="200">
+                            <div class="card-body">
+                                <h4 class="card-title">Beethoven - Heroic Symphony</h4>
+                                <p class="card-text"> (Orchestra is Seoul Symphony)</p>
+                                <a href="#" class="btn btn-primary">See Profile</a>
+                            </div>
+                        </div>
+
+                        <div class="card shadowedbox col-md-4" style="width: 300px;">
+                            <img class="card-img-top" src="../Document/5.jpg" alt="Card image" height="200" width="200">
+                            <div class="card-body">
+                                <h4 class="card-title">Vivaldi - the four seasons </h4>
+                                <p class="card-text"> (Orchestra is 'l MUSIC)</p>
+                                <a href="#" class="btn btn-primary">See Profile</a>
+                            </div>
+                        </div>
+                    </div>--%>
+
+                    <div class="shadowedPanel" style="padding-bottom: 1em; height: 300px;">
+
+                        <div class="col-md-12">
+                            <h4>A Classical Performance Archives</h4>
+                        </div>
+
+                        <hr />
+
+                        <div class="col-md-6">
+                            <div class="col-md-5">
+                                <img src="../Document/4.jpeg" class="shadowedPanel" height="200" width="200" style="padding: 0" />
+                            </div>
+                            <div class="col-md-6" style="padding: 0px;">Beethoven - Heroic Symphony (Orchestra is Seoul Symphony)</div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-5">
+                                <img src="../Document/5.jpg" class="shadowedPanel" height="200" width="200" style="padding: 0" />
+                            </div>
+                            <div class="bottom-align-text col-md-6" style="padding: 0px; height: 200px; ">
+                                Vivaldi - the four seasons (Orchestra is 'l MUSIC)
                             </div>
                         </div>
                     </div>
@@ -163,6 +230,31 @@
         }
     </script>
     <style>
+        
+        .shadowedbox {
+            padding: 0.5em;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+            border-color: #dddddd;
+        }
+
+        .shadowedbox2 {
+            margin-top: 1em;
+            box-shadow: 2px 2px 2px 2px #f5f5f5;
+            border-style: solid;
+            border-width: 1px;
+            border-width: 1px;
+            border-color: lightgray;
+            padding: 5px;
+        }
+
+        .shadowedPanel {
+            border: 1px solid transparent;
+            border-radius: 4px;
+            border-color: #dddddd;
+            padding: 1em;
+            box-shadow: 2px 2px 2px 2px #f5f5f5;
+        }
+
         .list-group-item {
             border: none;
         }

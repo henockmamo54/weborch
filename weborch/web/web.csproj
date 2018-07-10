@@ -266,8 +266,12 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\ArtistPageView.aspx" />
     <Content Include="Views\ClassicCoinPage.aspx" />
+    <Content Include="Views\ClassicPerformanceArchive.aspx" />
     <Content Include="Views\HomeView.aspx" />
+    <Content Include="Views\InformationOfPerformances.aspx" />
+    <Content Include="Views\InformationSpace.aspx" />
     <Content Include="Views\InstrumentView.aspx" />
+    <Content Include="Views\IntroductionPage.aspx" />
     <Content Include="Views\MyPage.aspx" />
     <Content Include="Views\OrchestraView.aspx" />
     <Content Include="Views\UserPageView.aspx" />
@@ -491,6 +495,13 @@
     <Compile Include="Views\ClassicCoinPage.aspx.designer.cs">
       <DependentUpon>ClassicCoinPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\ClassicPerformanceArchive.aspx.cs">
+      <DependentUpon>ClassicPerformanceArchive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ClassicPerformanceArchive.aspx.designer.cs">
+      <DependentUpon>ClassicPerformanceArchive.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\HomeView.aspx.cs">
       <DependentUpon>HomeView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -498,12 +509,33 @@
     <Compile Include="Views\HomeView.aspx.designer.cs">
       <DependentUpon>HomeView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\InformationOfPerformances.aspx.cs">
+      <DependentUpon>InformationOfPerformances.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\InformationOfPerformances.aspx.designer.cs">
+      <DependentUpon>InformationOfPerformances.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InformationSpace.aspx.cs">
+      <DependentUpon>InformationSpace.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\InformationSpace.aspx.designer.cs">
+      <DependentUpon>InformationSpace.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\InstrumentView.aspx.cs">
       <DependentUpon>InstrumentView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\InstrumentView.aspx.designer.cs">
       <DependentUpon>InstrumentView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\IntroductionPage.aspx.cs">
+      <DependentUpon>IntroductionPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\IntroductionPage.aspx.designer.cs">
+      <DependentUpon>IntroductionPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\MyPage.aspx.cs">
       <DependentUpon>MyPage.aspx</DependentUpon>
