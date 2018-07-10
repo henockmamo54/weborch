@@ -196,6 +196,7 @@
     <Content Include="Document\3.jpg" />
     <Content Include="Document\4.jpeg" />
     <Content Include="Document\5.jpg" />
+    <Content Include="Document\9.jpg" />
     <Content Include="Home.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="Orchestra.aspx" />
@@ -264,6 +265,7 @@
     <Content Include="UserPage.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\ArtistPageView.aspx" />
+    <Content Include="Views\ClassicCoinPage.aspx" />
     <Content Include="Views\HomeView.aspx" />
     <Content Include="Views\InstrumentView.aspx" />
     <Content Include="Views\MyPage.aspx" />
@@ -481,6 +483,13 @@
     </Compile>
     <Compile Include="Views\ArtistPageView.aspx.designer.cs">
       <DependentUpon>ArtistPageView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ClassicCoinPage.aspx.cs">
+      <DependentUpon>ClassicCoinPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ClassicCoinPage.aspx.designer.cs">
+      <DependentUpon>ClassicCoinPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\HomeView.aspx.cs">
       <DependentUpon>HomeView.aspx</DependentUpon>
