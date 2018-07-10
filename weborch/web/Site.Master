@@ -63,7 +63,7 @@
                         <li><a runat="server" href="~/Views/UserPageView"><span class="">Sign Up</span></a></li>
                         <li><a runat="server" href="~/LoginPage"><span class="">Sign In</span></a></li>
                         <li><a runat="server" href=""><span class="">Sign Out</span></a></li>
-                        <li><a runat="server" href=""><span class="">My Page</span></a></li>
+                        <li><a runat="server" href="~/Views/MyPage"><span class="">My Page</span></a></li>
                         <li><a runat="server" href=""><span class="">classic coin</span></a></li>
                     </ul>
 
