@@ -151,7 +151,7 @@
                         </div>
                     </div>--%>
 
-               <%--     <div class="shadowedPanel" style="padding-bottom: 1em; height: 400px;">
+                    <%--     <div class="shadowedPanel" style="padding-bottom: 1em; height: 400px;">
 
                         <div class="col-md-12">
                             <h4>A Classical Performance Archives</h4>
@@ -185,18 +185,20 @@
                         </div>
 
                         <hr />
-                        
+
                         <div class="col-md-6">
-                            <div class="col-md-6">
-                                <img src="../Document/4.jpeg" height="200" width="200" />
+                            <div class="col-md-5">
+                                <img src="../Document/4.jpeg" class="shadowedPanel" height="200" width="200" style="padding: 0" />
                             </div>
-                            <div class="col-md-6">Beethoven - Heroic Symphony (Orchestra is Seoul Symphony)</div>
+                            <div class="col-md-6" style="padding: 0px;">Beethoven - Heroic Symphony (Orchestra is Seoul Symphony)</div>
                         </div>
                         <div class="col-md-6">
-                            <div class="col-md-6">
-                                <img src="../Document/5.jpg" height="200" width="200" />
+                            <div class="col-md-5">
+                                <img src="../Document/5.jpg" class="shadowedPanel" height="200" width="200" style="padding: 0" />
                             </div>
-                            <div class="col-md-6">Vivaldi - the four seasons (Orchestra is 'l MUSIC)</div>
+                            <div class="bottom-align-text col-md-6" style="padding: 0px; height: 200px; ">
+                                Vivaldi - the four seasons (Orchestra is 'l MUSIC)
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -227,6 +229,7 @@
         }
     </script>
     <style>
+        
         .shadowedbox {
             padding: 0.5em;
             box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
