@@ -71,6 +71,11 @@ namespace web
         {
            var user= Session["User"];
         }
+        protected void signoutClicked(object sender, EventArgs e) {
+            Session.Clear();
+            Response.Redirect("~/Views/HomeView.aspx");
+        }
+        
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {

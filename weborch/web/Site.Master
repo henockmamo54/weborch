@@ -46,7 +46,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/Views/HomeView">Application name</a>
+                    <a class="navbar-brand" runat="server" href="~/Views/HomeView">AllClassic Korea</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -62,7 +62,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a runat="server" href="~/Views/UserPageView"><span class="">Sign Up</span></a></li>
                         <li><a runat="server" href="~/LoginPage"><span class="">Sign In</span></a></li>
-                        <li><a runat="server" href=""><span class="">Sign Out</span></a></li>
+                        <li><a runat="server" href="" onServerClick="signoutClicked">Sign Out</a></li>
                         <li><a runat="server" href="~/Views/MyPage"><span class="">My Page</span></a></li>
                         <li><a runat="server" href="~/Views/ClassicCoinPage"><span class="">classic coin</span></a></li>
                     </ul>
