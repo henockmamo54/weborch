@@ -42,3 +42,11 @@ input[type="select"] {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     border-color: #dddddd;
 }
+
+.headerIcons {
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    color: white;
+    padding: 0.5em;
+    border-radius: 0.3em;
+}

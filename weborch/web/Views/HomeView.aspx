@@ -12,11 +12,10 @@
                             <a class="navbar-brand" href="#">WebSiteName</a>
                         </div>--%>
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="">Introduction</a></li>
-                            <li><a href="">Classic in our life</a></li>
-                            <li><a href="">Listen to classic music</a></li>
-                            <li><a href=""> Performance/Ticket </a></li>
-                            <li><a href=""> Information Space </a></li>
+                            <li class="active"><a href="">Information of Performance</a></li>
+                            <li><a href="">Classic Performance Archive</a></li>
+                            <li><a href="">Information Space</a></li>
+                            <li><a href=""> Introduction </a></li>
                         </ul>
                     </div>
                 </nav>
@@ -64,7 +63,7 @@
                     <div style="" class="col-md-4">
                         <div class="container" style="padding: 0; padding-top: 0em;">
                             <div class="panel panel-default" style="overflow-y: scroll; height: 360px;">
-                                <%--<div class="panel-heading">Panel Heading</div>--%>
+                                <div class="panel-heading">Notice</div>
                                 <%--<div class="panel-body">Panel Content</div>--%>
                                 <%--<div class="btn-info pull-right">Notice</div>
                             <br />--%>

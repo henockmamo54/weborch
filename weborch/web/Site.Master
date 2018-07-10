@@ -13,7 +13,7 @@
     </asp:PlaceHolder>
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    <link href="Content/Site.css" rel="stylesheet" />
 </head>
 <body>
     <form runat="server">
@@ -54,15 +54,17 @@
                         <li><a runat="server" href="~/Views/OrchestraView">Orchestra</a></li>
                         <li><a runat="server" href="~/Views/InstrumentView">Instrument </a></li>
                         <li><a runat="server" href="~/Views/ArtistPageView">Artist </a></li>
-                        <li><a runat="server" href="~/Views/UserPageView">User </a></li>
-                        <li><a runat="server" href="~/LoginPage">Login </a></li>
+                        <li><%--<a runat="server" href="~/Views/UserPageView">User </a>--%></li>
+                        <li><%--<a runat="server" href="~/LoginPage">Login </a>--%></li>
                         <li><a runat="server" href="~/BulletinPage">Bulletin</a></li>
                         <li><a runat="server" href="~/Default">Default</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a runat="server" href="">My Page</a></li>
-                        <li><a runat="server" href="">Customer service</a></li>
-                        <li><a runat="server" href="~/LoginPage">Log in</a></li>
+                        <li><a runat="server" href="~/Views/UserPageView"><span class="">Sign Up</span></a></li>
+                        <li><a runat="server" href="~/LoginPage"><span class="">Sign In</span></a></li>
+                        <li><a runat="server" href=""><span class="">Sign Out</span></a></li>
+                        <li><a runat="server" href=""><span class="">My Page</span></a></li>
+                        <li><a runat="server" href=""><span class="">classic coin</span></a></li>
                     </ul>
 
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
@@ -85,8 +87,8 @@
             </div>
         </div>
 
-        <div class="row" id="masterserachbar">
-            <div class="col-md-4 pull-right" style="margin-top: 1em;">
+        <div class="container" id="masterserachbar">
+            <div style="text-align: right; margin-top: 1em;">
                 <asp:TextBox runat="server" class="form-control" Style="display: inline;"></asp:TextBox>
                 <asp:Button runat="server" Text="search" class="btn btn-primary" />
             </div>
@@ -102,3 +104,13 @@
     </form>
 </body>
 </html>
+
+<style>
+    .headerIcons {
+        background-color: #5bc0de;
+        border-color: #46b8da;
+        color: white;
+        padding: 0.5em;
+        border-radius: 0.3em;
+    }
+</style>
