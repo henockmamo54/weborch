@@ -178,7 +178,7 @@
                         </div>
                     </div>--%>
 
-                    <div class="shadowedPanel" style="padding-bottom: 1em; height: 400px;">
+                    <div class="shadowedPanel" style="padding-bottom: 1em; height: 300px;">
 
                         <div class="col-md-12">
                             <h4>A Classical Performance Archives</h4>

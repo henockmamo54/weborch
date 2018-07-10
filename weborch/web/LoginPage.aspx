@@ -10,12 +10,12 @@
                     <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
                     <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
                     <p id="profile-name" class="profile-name-card"></p>
-                    <form class="form-signin">
+                    <form class="form-signin" defaultbutton="Button1_signin">
                         <span id="reauth-email" class="reauth-email"></span>
                         <asp:TextBox type="text" ID="inputEmail" class="form-control" placeholder="User Name" required autofocus Style="margin-bottom: 0.7em;" runat="server"></asp:TextBox>
                         <asp:TextBox type="password" ID="inputPassword" class="form-control" placeholder="Password" required Style="margin-bottom: 0.7em;" runat="server"></asp:TextBox>
-                        
-                        <asp:Label style="color:red" ID="Label1_warnningmessage" runat="server" Text="Label" Visible ="false">Login not successful. please check your login information.</asp:Label>
+
+                        <asp:Label Style="color: red" ID="Label1_warnningmessage" runat="server" Text="Label" Visible="false">Login not successful. please check your login information.</asp:Label>
                         <div id="remember" class="checkbox">
                             <label>
                                 <input type="checkbox">
@@ -30,7 +30,7 @@
                     </form>
                     <!-- /form -->
                     <a href="#" class="forgot-password">Forgot the password?
-                <asp:LinkButton ID="LinkButton1" runat="server" onclientclick='redirect()'>Sign Up</asp:LinkButton>
+                <asp:LinkButton ID="LinkButton1" runat="server" OnClientClick='redirect()'>Sign Up</asp:LinkButton>
                     </a>
                 </div>
                 <!-- /card-container -->
@@ -51,19 +51,19 @@
         var serachbar = document.getElementById("masterserachbar");
         serachbar.style.display = "none";
 
-        window.onbeforeunload = function () {
-            alert("closing");
-            console.log("halhaha");
-            var backlen = history.length;
-            history.go(-backlen);
-        }
+        //window.onbeforeunload = function () {
+        //    alert("closing");
+        //    console.log("halhaha");
+        //    var backlen = history.length;
+        //    history.go(-backlen);
+        //}
 
-        window.addEventListener("beforeunload", function (e) {
-            alert("closing");
-            console.log("halhaha");
-            var backlen = history.length;
-            history.go(-backlen);
-        }, false);
+        //window.addEventListener("beforeunload", function (e) {
+        //    alert("closing");
+        //    console.log("halhaha");
+        //    var backlen = history.length;
+        //    history.go(-backlen);
+        //}, false);
 
         function redirect() {
             location.href = 'UserPage.aspx';

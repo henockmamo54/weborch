@@ -28,17 +28,24 @@ namespace BusinessLogic
             }
         }
 
-        public bool checkUserLoginInfo(string username, string password) {
+        public bool checkUserLoginInfo(string username, string password)
+        {
 
-            try {
+            try
+            {
                 var user = entity.Users.Where(x => x.Email == username.Trim() && x.Password == password.Trim()).ToList();
-                
+
                 if (user.Count == 0) return false;
                 else return true;
             }
-            catch (Exception ee) {
+            catch (Exception ee)
+            {
                 return false;
             }
+        }
+        public List<User> checkUserLoginInfo2(string username, string password)
+        {
+            return entity.Users.Where(x => x.Email == username.Trim() && x.Password == password.Trim()).ToList();
         }
     }
 }

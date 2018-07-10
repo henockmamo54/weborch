@@ -15,9 +15,10 @@ namespace web
         {
             string username = inputEmail.Text;
             string password = inputPassword.Text;
-
-            if (ul.checkUserLoginInfo(username, password))
+            var users = ul.checkUserLoginInfo2(username, password);
+            if (users.Count>0)
             {
+                Session["User"] = users[0];
                 Response.Redirect("~/Views/HomeView");
             }
             else Label1_warnningmessage.Visible = true;

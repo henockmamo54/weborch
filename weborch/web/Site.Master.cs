@@ -69,7 +69,7 @@ namespace web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           var user= Session["User"];
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

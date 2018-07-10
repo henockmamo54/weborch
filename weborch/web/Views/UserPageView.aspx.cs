@@ -18,6 +18,10 @@ namespace web
             //usergridview.DataBind();
         }
 
+        protected void btn_cancel_click(object sender, EventArgs e) {
+            Response.Redirect("~/Views/HomeView.aspx");
+        }
+
         protected void btn_useradd_Click(object sender, EventArgs e)
         {
             try {
@@ -35,7 +39,7 @@ namespace web
                     //usergridview.DataBind();
                     showMsg("Data inserted succssfuly");
                     cleanUserTextBoxs();
-                    Response.Redirect("~/Home.aspx");
+                    Response.Redirect("~/Views/HomeView.aspx");
                 }
                 else showMsg("Please check your inputs");
 
