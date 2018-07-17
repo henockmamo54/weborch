@@ -60,7 +60,7 @@
                         <li><a runat="server" href="~/Default">Default</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a runat="server" href="~/Views/UserPageView"><span class="">Sign Up</span></a></li>
+                        <li><a runat="server" href="~/Views/signupPages/TermsOfUsePage.aspx"><span class="">Sign Up</span></a></li>
                         <li><a runat="server" href="~/LoginPage"><span class="">Sign In</span></a></li>
                         <li><a runat="server" href="" onServerClick="signoutClicked">Sign Out</a></li>
                         <li><a runat="server" href="~/Views/MyPage"><span class="">My Page</span></a></li>

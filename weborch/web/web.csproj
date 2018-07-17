@@ -278,6 +278,8 @@
     <Content Include="Views\IntroductionPage.aspx" />
     <Content Include="Views\MyPage.aspx" />
     <Content Include="Views\OrchestraView.aspx" />
+    <Content Include="Views\signupPages\TermsOfUsePage.aspx" />
+    <Content Include="Views\signupPages\UserInformationRegistrationPage.aspx" />
     <Content Include="Views\UserPageView.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -582,6 +584,20 @@
     </Compile>
     <Compile Include="Views\OrchestraView.aspx.designer.cs">
       <DependentUpon>OrchestraView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\signupPages\TermsOfUsePage.aspx.cs">
+      <DependentUpon>TermsOfUsePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\signupPages\TermsOfUsePage.aspx.designer.cs">
+      <DependentUpon>TermsOfUsePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\signupPages\UserInformationRegistrationPage.aspx.cs">
+      <DependentUpon>UserInformationRegistrationPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\signupPages\UserInformationRegistrationPage.aspx.designer.cs">
+      <DependentUpon>UserInformationRegistrationPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\UserPageView.aspx.cs">
       <DependentUpon>UserPageView.aspx</DependentUpon>
