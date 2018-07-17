@@ -10,7 +10,7 @@
                     <ul class="list-group">
                         <a class="list-group-item list-group-item-action" href="../InformationSpace.aspx" >Review</a>
                         <a class="list-group-item list-group-item-action active">Market</a>
-                        <a class="list-group-item list-group-item-action">Free Board</a>
+                        <a class="list-group-item list-group-item-action" href="informationSpacePages/FreeBoardPage.aspx" >Free Board</a>
                         <a class="list-group-item list-group-item-action">Recruitment/Promotion</a>
                         <a class="list-group-item list-group-item-action">Notice</a>
                     </ul>

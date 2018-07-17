@@ -270,6 +270,7 @@
     <Content Include="Views\HomeView.aspx" />
     <Content Include="Views\InformationOfPerformances.aspx" />
     <Content Include="Views\InformationSpace.aspx" />
+    <Content Include="Views\informationSpacePages\FreeBoardPage.aspx" />
     <Content Include="Views\informationSpacePages\MarketPageView.aspx" />
     <Content Include="Views\InstrumentView.aspx" />
     <Content Include="Views\IntroductionPage.aspx" />
@@ -523,6 +524,13 @@
     </Compile>
     <Compile Include="Views\InformationSpace.aspx.designer.cs">
       <DependentUpon>InformationSpace.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\informationSpacePages\FreeBoardPage.aspx.cs">
+      <DependentUpon>FreeBoardPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\informationSpacePages\FreeBoardPage.aspx.designer.cs">
+      <DependentUpon>FreeBoardPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\informationSpacePages\MarketPageView.aspx.cs">
       <DependentUpon>MarketPageView.aspx</DependentUpon>
