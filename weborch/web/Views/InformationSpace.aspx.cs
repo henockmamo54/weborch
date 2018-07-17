@@ -26,7 +26,7 @@ namespace web.Views
             r.Comment = FormControlTextarea1_comment.Text;
             r.Writer = FormControlInput1_writer.Text;
 
-            var x= rl.insertReview(r);
+            if (rl.insertReview(r)) GridView1.DataBind();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
             
         }
