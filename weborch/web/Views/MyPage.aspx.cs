@@ -29,7 +29,16 @@ namespace web.Views
                     txt_userZipCode.Text = user.ZipCode;
                     txt_useraddress.Text = user.Address;
                     txt_userPhoneNumber.Text = user.PhoneNumber;
-                    
+                    switch (user.Category.ToString().Trim()) {
+                        case "Player": radioOcupation.SelectedIndex = 0; break;
+                        case "Composer": radioOcupation.SelectedIndex = 1; break;
+                        case "Researcher": radioOcupation.SelectedIndex =2; break;
+                        case "Conductor": radioOcupation.SelectedIndex = 3; break;
+                        case "Promotor": radioOcupation.SelectedIndex = 4; break;
+                        case "Audience": radioOcupation.SelectedIndex = 5; break;
+                        case "Other": radioOcupation.SelectedIndex = 6; break;
+                        default: { radioOcupation.SelectedIndex = 6; break; }
+                    }
                 }
             }
         }
@@ -46,6 +55,7 @@ namespace web.Views
             user.ZipCode = txt_userZipCode.Text;
             user.Address = txt_useraddress.Text;
             user.PhoneNumber = txt_userPhoneNumber.Text;
+            user.Category = radioOcupation.SelectedValue.ToString();
 
             UserLogic ul = new UserLogic();
 

@@ -61,6 +61,7 @@ namespace BusinessLogic
                 u.ZipCode = user.ZipCode;
                 u.Address = user.Address;
                 u.PhoneNumber = user.PhoneNumber;
+                u.Category = user.Category;
                 entity.SaveChanges();
 
                 return true;

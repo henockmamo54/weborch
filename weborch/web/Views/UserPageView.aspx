@@ -95,6 +95,25 @@
                                 <br />
 
                             </div>
+                            
+                            <div class="col-md-12">
+                                <br />
+                                <div class="col-md-4">occupation:</div>
+                                <div class="col-md-6">
+                                    <%--<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>--%>
+                                    <asp:RadioButtonList ID="radioOcupation" runat="server" CssClass="radio">
+                                        <asp:ListItem>Player </asp:ListItem>
+                                        <asp:ListItem>Composer </asp:ListItem>
+                                        <asp:ListItem>Researcher </asp:ListItem>
+                                        <asp:ListItem>Conductor </asp:ListItem>
+                                        <asp:ListItem>Promotor </asp:ListItem>
+                                        <asp:ListItem>Audience </asp:ListItem>
+                                        <asp:ListItem>Other </asp:ListItem>
+                                    </asp:RadioButtonList>
+                                </div>
+                                <br />
+
+                            </div>
                             <br />
 
                             <div class="col-md-12 pull-right" style="text-align:center;">

@@ -103,6 +103,15 @@ namespace web {
         protected global::System.Web.UI.WebControls.TextBox txt_userPhoneNumber;
         
         /// <summary>
+        /// radioOcupation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList radioOcupation;
+        
+        /// <summary>
         /// btn_cancel control.
         /// </summary>
         /// <remarks>

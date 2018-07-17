@@ -38,6 +38,8 @@ namespace web
                 user.ZipCode = txt_userZipCode.Text;
                 user.Address = txt_useraddress.Text;
                 user.PhoneNumber = txt_userPhoneNumber.Text;
+                user.Category = radioOcupation.SelectedValue.ToString();
+                
 
                 if (ul.addUser(user))
                 {
