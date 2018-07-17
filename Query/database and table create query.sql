@@ -205,3 +205,16 @@
 --Writer nvarchar(50),
 --timestamp datetime default getdate() not null,
 --)
+
+
+--alter table core.[User]
+--add sex nvarchar(10)
+--add PhoneNumber nvarchar(20)
+--add Birthday datetime
+--add Category nvarchar(50)
+
+--alter table core.[user]
+----drop constraint UQ__User__1788CCAD53AA8101
+--alter column userid nvarchar(100)
+
+select * from core.[User]

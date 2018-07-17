@@ -22,31 +22,13 @@ namespace web {
         protected global::System.Web.UI.UpdatePanel UpdatePanel2;
         
         /// <summary>
-        /// txt_userenglishname control.
+        /// txt_useremail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_userenglishname;
-        
-        /// <summary>
-        /// txt_userkoreanname control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_userkoreanname;
-        
-        /// <summary>
-        /// txt_user_userid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_user_userid;
+        protected global::System.Web.UI.WebControls.TextBox txt_useremail;
         
         /// <summary>
         /// txt_userPassword control.
@@ -58,13 +40,49 @@ namespace web {
         protected global::System.Web.UI.WebControls.TextBox txt_userPassword;
         
         /// <summary>
-        /// txt_useremail control.
+        /// txt_userkoreanname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_useremail;
+        protected global::System.Web.UI.WebControls.TextBox txt_userkoreanname;
+        
+        /// <summary>
+        /// txt_userenglishname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_userenglishname;
+        
+        /// <summary>
+        /// txt_usersex control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_usersex;
+        
+        /// <summary>
+        /// txt_userBirthDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_userBirthDate;
+        
+        /// <summary>
+        /// txt_userZipCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_userZipCode;
         
         /// <summary>
         /// txt_useraddress control.
@@ -76,13 +94,13 @@ namespace web {
         protected global::System.Web.UI.WebControls.TextBox txt_useraddress;
         
         /// <summary>
-        /// txt_userzipcode control.
+        /// txt_userPhoneNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_userzipcode;
+        protected global::System.Web.UI.WebControls.TextBox txt_userPhoneNumber;
         
         /// <summary>
         /// btn_cancel control.

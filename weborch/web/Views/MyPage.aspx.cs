@@ -22,11 +22,11 @@ namespace web.Views
                     mynameholder.Text = user.EnglishName;
                     txt_userenglishname.Text = user.EnglishName;
                     txt_userkoreanname.Text = user.KoreanName;
-                    txt_user_userid.Text = user.UserID;
+                    //txt_user_userid.Text = user.UserID;
                     txt_userPassword.Text = user.Password;
                     txt_useremail.Text = user.Email;
                     txt_useraddress.Text = user.Address;
-                    txt_userzipcode.Text = user.ZipCode;
+                    txt_userZipCode.Text = user.ZipCode;
                 }
             }
         }
@@ -36,11 +36,11 @@ namespace web.Views
             var user = new User();
             user.EnglishName = txt_userenglishname.Text;
             user.KoreanName = txt_userkoreanname.Text;
-            user.UserID = txt_user_userid.Text;
+            //user.UserID = txt_user_userid.Text;
             user.Password = txt_userPassword.Text;
             user.Email = txt_useremail.Text;
             user.Address = txt_useraddress.Text;
-            user.ZipCode = txt_userzipcode.Text;
+            user.ZipCode = txt_userZipCode.Text;
 
             UserLogic ul = new UserLogic();
 

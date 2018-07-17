@@ -54,6 +54,10 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="OrchestraDBModel.User">
         <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />

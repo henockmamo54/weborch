@@ -9,27 +9,20 @@
                 <div class="col-md-12">
                     <div class="col-md-5">
                         <div>
-                            <div class="col-md-12">
-                                <div class="col-md-4">EnglishName:</div>
-                                <div class="col-md-6">
-                                    <asp:TextBox ID="txt_userenglishname" runat="server"></asp:TextBox>
-                                </div>
-                                <br />
-
-                            </div>
-                            <div class="col-md-12">
-                                <br />
-                                <div class="col-md-4">KoreanName:</div>
-                                <div class="col-md-6">
-                                    <asp:TextBox ID="txt_userkoreanname" runat="server"></asp:TextBox>
-                                </div>
-                                <br />
-                            </div>
-                            <div class="col-md-12">
+                            <%--<div class="col-md-12">
                                 <br />
                                 <div class="col-md-4">User ID:</div>
                                 <div class="col-md-6">
                                     <asp:TextBox ID="txt_user_userid" runat="server"></asp:TextBox>
+                                </div>
+                                <br />
+
+                            </div>--%>
+                            <div class="col-md-12">
+                                <br />
+                                <div class="col-md-4">Email:</div>
+                                <div class="col-md-6">
+                                    <asp:TextBox ID="txt_useremail" TextMode="Email" runat="server"></asp:TextBox>
                                 </div>
                                 <br />
 
@@ -45,12 +38,44 @@
                             </div>
                             <div class="col-md-12">
                                 <br />
-                                <div class="col-md-4">Email:</div>
+                                <div class="col-md-4">KoreanName:</div>
                                 <div class="col-md-6">
-                                    <asp:TextBox ID="txt_useremail" TextMode="Email" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txt_userkoreanname" runat="server"></asp:TextBox>
+                                </div>
+                                <br />
+                            </div>
+                            <div class="col-md-12">
+                                <br />
+                                <div class="col-md-4">EnglishName:</div>
+                                <div class="col-md-6">
+                                    <asp:TextBox ID="txt_userenglishname" runat="server"></asp:TextBox>
                                 </div>
                                 <br />
 
+                            </div>
+                            <div class="col-md-12">
+                                <br />
+                                <div class="col-md-4">Sex:</div>
+                                <div class="col-md-6">
+                                    <asp:TextBox ID="txt_usersex" runat="server"></asp:TextBox>
+                                </div>
+                                <br />
+                            </div>
+                            <div class="col-md-12">
+                                <br />
+                                <div class="col-md-4">Birth date:</div>
+                                <div class="col-md-6">
+                                    <asp:TextBox ID="txt_userBirthDate" runat="server" ToolTip="dd/mm/yyyy"></asp:TextBox>
+                                </div>
+                                <br />
+                            </div>
+                            <div class="col-md-12">
+                                <br />
+                                <div class="col-md-4">Zip Code:</div>
+                                <div class="col-md-6">
+                                    <asp:TextBox ID="txt_userZipCode" runat="server"></asp:TextBox>
+                                </div>
+                                <br />
                             </div>
                             <div class="col-md-12">
                                 <br />
@@ -63,9 +88,9 @@
                             </div>
                             <div class="col-md-12">
                                 <br />
-                                <div class="col-md-4">ZipCode:</div>
+                                <div class="col-md-4">Phone Num.:</div>
                                 <div class="col-md-6">
-                                    <asp:TextBox ID="txt_userzipcode" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txt_userPhoneNumber" runat="server"></asp:TextBox>
                                 </div>
                                 <br />
 
