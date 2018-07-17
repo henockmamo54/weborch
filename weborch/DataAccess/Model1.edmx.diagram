@@ -19,6 +19,11 @@
         <AssociationConnector Association="OrchestraDBModel.FK__Orchestra__Artis__160F4887" />
         <AssociationConnector Association="OrchestraDBModel.FK__Orchestra__Instr__17036CC0" />
         <AssociationConnector Association="OrchestraDBModel.FK__Orchestra__Orche__151B244E" />
+        <EntityTypeShape EntityType="OrchestraDBModel.FreeBoard" Width="1.5" PointX="3.75" PointY="7.75" />
+        <EntityTypeShape EntityType="OrchestraDBModel.Market" Width="1.5" PointX="5.75" PointY="7.75" />
+        <EntityTypeShape EntityType="OrchestraDBModel.NoticeTable" Width="1.5" PointX="7.75" PointY="7.75" />
+        <EntityTypeShape EntityType="OrchestraDBModel.PromotionAndRecruitment" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="OrchestraDBModel.Review" Width="1.5" PointX="9.75" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

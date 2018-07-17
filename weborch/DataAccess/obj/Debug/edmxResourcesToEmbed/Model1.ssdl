@@ -36,6 +36,18 @@
     <Property Name="CommentDate" Type="datetime" Nullable="false" />
     <Property Name="ParentCommentID" Type="int" />
   </EntityType>
+  <EntityType Name="FreeBoard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="128" />
+    <Property Name="Content" Type="nvarchar" MaxLength="512" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="128" />
+    <Property Name="Lookup" Type="int" />
+    <Property Name="Writer" Type="nvarchar" MaxLength="50" />
+    <Property Name="timestamp" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="Instrument">
     <Key>
       <PropertyRef Name="ID" />
@@ -51,6 +63,30 @@
     <Property Name="VideoClipLocation" Type="nvarchar" MaxLength="200" />
     <Property Name="PhotoLocation" Type="nvarchar" MaxLength="200" />
     <Property Name="Remarks" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Market">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="128" />
+    <Property Name="Content" Type="nvarchar" MaxLength="512" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="128" />
+    <Property Name="Lookup" Type="int" />
+    <Property Name="Writer" Type="nvarchar" MaxLength="50" />
+    <Property Name="timestamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NoticeTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="128" />
+    <Property Name="Content" Type="nvarchar" MaxLength="512" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="128" />
+    <Property Name="Lookup" Type="int" />
+    <Property Name="Writer" Type="nvarchar" MaxLength="50" />
+    <Property Name="timestamp" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Orchestra">
     <Key>
@@ -76,6 +112,30 @@
     <Property Name="CommentMessage" Type="varchar" MaxLength="300" />
     <Property Name="CommentDate" Type="datetime" Nullable="false" />
     <Property Name="PostID" Type="int" />
+  </EntityType>
+  <EntityType Name="PromotionAndRecruitment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="128" />
+    <Property Name="Content" Type="nvarchar" MaxLength="512" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="128" />
+    <Property Name="Lookup" Type="int" />
+    <Property Name="Writer" Type="nvarchar" MaxLength="50" />
+    <Property Name="timestamp" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="128" />
+    <Property Name="Content" Type="nvarchar" MaxLength="512" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="128" />
+    <Property Name="Lookup" Type="int" />
+    <Property Name="Writer" Type="nvarchar" MaxLength="50" />
+    <Property Name="timestamp" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="User">
     <Key>
@@ -171,9 +231,14 @@
     <EntitySet Name="Artist" EntityType="Self.Artist" Schema="Core" store:Type="Tables" />
     <EntitySet Name="Bulletin" EntityType="Self.Bulletin" Schema="Core" store:Type="Tables" />
     <EntitySet Name="ChildCommentTable" EntityType="Self.ChildCommentTable" Schema="Core" store:Type="Tables" />
+    <EntitySet Name="FreeBoard" EntityType="Self.FreeBoard" Schema="Core" store:Type="Tables" />
     <EntitySet Name="Instrument" EntityType="Self.Instrument" Schema="Core" store:Type="Tables" />
+    <EntitySet Name="Market" EntityType="Self.Market" Schema="Core" store:Type="Tables" />
+    <EntitySet Name="NoticeTable" EntityType="Self.NoticeTable" Schema="Core" store:Type="Tables" />
     <EntitySet Name="Orchestra" EntityType="Self.Orchestra" Schema="Core" store:Type="Tables" />
     <EntitySet Name="ParentCommentTable" EntityType="Self.ParentCommentTable" Schema="Core" store:Type="Tables" />
+    <EntitySet Name="PromotionAndRecruitment" EntityType="Self.PromotionAndRecruitment" Schema="Core" store:Type="Tables" />
+    <EntitySet Name="Review" EntityType="Self.Review" Schema="Core" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="Core" store:Type="Tables" />
     <EntitySet Name="Artist_Instrument" EntityType="Self.Artist_Instrument" Schema="Drived" store:Type="Tables" />
     <EntitySet Name="Orchestra_Instrument_Artist" EntityType="Self.Orchestra_Instrument_Artist" Schema="Drived" store:Type="Tables" />

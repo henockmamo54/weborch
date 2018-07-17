@@ -82,6 +82,11 @@
       <End Role="Orchestra" EntitySet="Orchestras" />
       <End Role="Orchestra_Instrument_Artist" EntitySet="Orchestra_Instrument_Artist" />
     </AssociationSet>
+    <EntitySet Name="FreeBoards" EntityType="OrchestraDBModel.FreeBoard" />
+    <EntitySet Name="Markets" EntityType="OrchestraDBModel.Market" />
+    <EntitySet Name="NoticeTables" EntityType="OrchestraDBModel.NoticeTable" />
+    <EntitySet Name="PromotionAndRecruitments" EntityType="OrchestraDBModel.PromotionAndRecruitment" />
+    <EntitySet Name="Reviews" EntityType="OrchestraDBModel.Review" />
   </EntityContainer>
   <EntityType Name="User">
     <Key>
@@ -208,4 +213,64 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="FreeBoard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Lookup" Type="Int32" />
+    <Property Name="Writer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Market">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Lookup" Type="Int32" />
+    <Property Name="Writer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="NoticeTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Lookup" Type="Int32" />
+    <Property Name="Writer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="PromotionAndRecruitment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Lookup" Type="Int32" />
+    <Property Name="Writer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+    <Property Name="Comment" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Lookup" Type="Int32" />
+    <Property Name="Writer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
 </Schema>

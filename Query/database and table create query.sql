@@ -150,8 +150,58 @@
 --InstrumentID int FOREIGN KEY REFERENCES Core.Instrument(ID)
 --)
 
-select a.ID,o.OfficialName,i.EnglishName,Name=aa.FamilyName+' '+aa.FirstName+' '+aa.MiddleName,OrchestraID
-from Drived.Orchestra_Instrument_Artist a
-join Core.Orchestra o on o.ID= a.OrchestraID
-join Core.Instrument i on i.ID= a.InstrumentID
-join.Core.Artist aa on aa.ID=a.ArtistID
+--select a.ID,o.OfficialName,i.EnglishName,Name=aa.FamilyName+' '+aa.FirstName+' '+aa.MiddleName,OrchestraID
+--from Drived.Orchestra_Instrument_Artist a
+--join Core.Orchestra o on o.ID= a.OrchestraID
+--join Core.Instrument i on i.ID= a.InstrumentID
+--join.Core.Artist aa on aa.ID=a.ArtistID
+
+--create table core.Review(
+--ID int not null primary key IDENTITY(1,1),
+--Title nvarchar(128),
+--Content nvarchar(512),
+--Comment nvarchar(128),
+--Lookup int,
+--Writer nvarchar(50),
+--timestamp datetime default getdate() not null,
+--)
+
+--create table core.FreeBoard(
+--ID int not null primary key IDENTITY(1,1),
+--Title nvarchar(128),
+--Content nvarchar(512),
+--Comment nvarchar(128),
+--Lookup int,
+--Writer nvarchar(50),
+--timestamp datetime default getdate() not null,
+--)
+
+--create table core.NoticeTable(
+--ID int not null primary key IDENTITY(1,1),
+--Title nvarchar(128),
+--Content nvarchar(512),
+--Comment nvarchar(128),
+--Lookup int,
+--Writer nvarchar(50),
+--timestamp datetime default getdate() not null,
+--)
+
+--create table core.PromotionAndRecruitment(
+--ID int not null primary key IDENTITY(1,1),
+--Title nvarchar(128),
+--Content nvarchar(512),
+--Comment nvarchar(128),
+--Lookup int,
+--Writer nvarchar(50),
+--timestamp datetime default getdate() not null,
+--)
+
+--create table core.Market(
+--ID int not null primary key IDENTITY(1,1),
+--Title nvarchar(128),
+--Content nvarchar(512),
+--Comment nvarchar(128),
+--Lookup int,
+--Writer nvarchar(50),
+--timestamp datetime default getdate() not null,
+--)
