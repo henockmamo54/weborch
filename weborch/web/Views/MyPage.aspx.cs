@@ -20,13 +20,16 @@ namespace web.Views
                 else
                 {
                     mynameholder.Text = user.EnglishName;
-                    txt_userenglishname.Text = user.EnglishName;
-                    txt_userkoreanname.Text = user.KoreanName;
-                    //txt_user_userid.Text = user.UserID;
-                    txt_userPassword.Text = user.Password;
                     txt_useremail.Text = user.Email;
-                    txt_useraddress.Text = user.Address;
+                    txt_userPassword.Text = user.Password;
+                    txt_userkoreanname.Text = user.KoreanName;
+                    txt_userenglishname.Text = user.EnglishName;
+                    txt_usersex.Text = user.sex;
+                    txt_userBirthDate.Text = user.Birthday.ToString();
                     txt_userZipCode.Text = user.ZipCode;
+                    txt_useraddress.Text = user.Address;
+                    txt_userPhoneNumber.Text = user.PhoneNumber;
+                    
                 }
             }
         }
@@ -34,13 +37,15 @@ namespace web.Views
         protected void txt_addInstrument_click(object sender, EventArgs e)
         {
             var user = new User();
-            user.EnglishName = txt_userenglishname.Text;
-            user.KoreanName = txt_userkoreanname.Text;
-            //user.UserID = txt_user_userid.Text;
-            user.Password = txt_userPassword.Text;
             user.Email = txt_useremail.Text;
-            user.Address = txt_useraddress.Text;
+            user.Password = txt_userPassword.Text;
+            user.KoreanName = txt_userkoreanname.Text;
+            user.EnglishName = txt_userenglishname.Text;
+            user.sex = txt_usersex.Text;
+            user.Birthday = DateTime.Parse(txt_userBirthDate.Text);
             user.ZipCode = txt_userZipCode.Text;
+            user.Address = txt_useraddress.Text;
+            user.PhoneNumber = txt_userPhoneNumber.Text;
 
             UserLogic ul = new UserLogic();
 

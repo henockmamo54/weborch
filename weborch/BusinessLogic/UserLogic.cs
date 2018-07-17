@@ -51,15 +51,16 @@ namespace BusinessLogic
         public bool updateUser(User user) {
             try
             {
-                User u = entity.Users.Where(x => x.UserID == user.UserID).First();
-                u.EnglishName = user.EnglishName;
-                u.KoreanName = user.KoreanName;
-                u.UserID = user.KoreanName;
-                u.Password = user.Password;
+                User u = entity.Users.Where(x => x.Email == user.Email).First();
                 u.Email = user.Email;
-                u.Address = user.Address;
+                u.Password = user.Password;
+                u.KoreanName = user.KoreanName;
+                u.EnglishName = user.EnglishName;
+                u.sex = user.sex;
+                u.Birthday = user.Birthday;
                 u.ZipCode = user.ZipCode;
-
+                u.Address = user.Address;
+                u.PhoneNumber = user.PhoneNumber;
                 entity.SaveChanges();
 
                 return true;

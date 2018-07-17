@@ -65,7 +65,7 @@
                                 <br />
                                 <div class="col-md-4">Birth date:</div>
                                 <div class="col-md-6">
-                                    <asp:TextBox ID="txt_userBirthDate" runat="server" ToolTip="dd/mm/yyyy"></asp:TextBox>
+                                    <asp:TextBox ID="txt_userBirthDate" runat="server"  placeholder="dd/mm/yyyy"  ToolTip="dd/mm/yyyy"></asp:TextBox>
                                 </div>
                                 <br />
                             </div>
