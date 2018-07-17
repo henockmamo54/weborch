@@ -8,10 +8,10 @@
                 <div class="col-md-2">
                     <ul class="list-group">
                         <a class="list-group-item list-group-item-action" href="../InformationSpace.aspx">Review</a>
-                        <a class="list-group-item list-group-item-action" href="informationSpacePages/MarketPageView.aspx" >Market</a>
+                        <a class="list-group-item list-group-item-action" href="MarketPageView.aspx" >Market</a>
                         <a class="list-group-item list-group-item-action active">Free Board</a>
                         <a class="list-group-item list-group-item-action">Recruitment/Promotion</a>
-                        <a class="list-group-item list-group-item-action">Notice</a>
+                        <a class="list-group-item list-group-item-action" href="NoticePageView.aspx" >Notice</a>
                     </ul>
                 </div>
                 <div class="col-md-10 shadowedPanel" style="height: 500px;">
