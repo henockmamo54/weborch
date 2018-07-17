@@ -1,17 +1,17 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MarketPageView.aspx.cs" Inherits="web.Views.informationSpacePages.MarketPageView" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PromotionAndRecruitmentPageView.aspx.cs" Inherits="web.Views.informationSpacePages.PromotionAndRecruitmentPageView" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-       <asp:UpdatePanel runat="server" ID="updatepanel1">
+     <asp:UpdatePanel runat="server" ID="updatepanel1">
         <ContentTemplate>
 
             <h4>Information Space</h4>
             <div class="row">
                 <div class="col-md-2">
                     <ul class="list-group">
-                        <a class="list-group-item list-group-item-action" href="../InformationSpace.aspx" >Review</a>
-                        <a class="list-group-item list-group-item-action active">Market</a>
+                        <a class="list-group-item list-group-item-action" href="../InformationSpace.aspx">Review</a>
+                        <a class="list-group-item list-group-item-action" href="MarketPageView.aspx" >Market</a>
                         <a class="list-group-item list-group-item-action" href="FreeBoardPage.aspx" >Free Board</a>
-                        <a class="list-group-item list-group-item-action" href="PromotionAndRecruitmentPageView.aspx">Recruitment/Promotion</a>
+                        <a class="list-group-item list-group-item-action active">Recruitment/Promotion</a>
                         <a class="list-group-item list-group-item-action" href="NoticePageView.aspx">Notice</a>
                     </ul>
                 </div>
@@ -38,7 +38,7 @@
                             <SortedDescendingCellStyle BackColor="#FFFDF8" />
                             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                         </asp:GridView>
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [ID], [Title], [Content], [Comment], [Writer], [timestamp] FROM core.Market"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [ID], [Title], [Content], [Comment], [Writer], [timestamp] FROM core.PromotionAndRecruitment"></asp:SqlDataSource>
                     </div>
                     <hr />
                     <div style="height: 40px;">
@@ -52,7 +52,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Market</h5>
+                            <h5 class="modal-title" id="exampleModalLongTitle">Review</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>

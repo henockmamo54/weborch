@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="ParentCommentLogic.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="PromotionAndRecruitmentLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReviewLogic.cs" />
     <Compile Include="UserLogic.cs" />

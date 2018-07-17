@@ -11,7 +11,7 @@
                         <a class="list-group-item list-group-item-action active">Review</a>
                         <a class="list-group-item list-group-item-action" href="informationSpacePages/MarketPageView.aspx" >Market</a>
                         <a class="list-group-item list-group-item-action" href="informationSpacePages/FreeBoardPage.aspx" >Free Board</a>
-                        <a class="list-group-item list-group-item-action" >Recruitment/Promotion</a>
+                        <a class="list-group-item list-group-item-action" href="informationSpacePages/PromotionAndRecruitmentPageView.aspx" >Recruitment/Promotion</a>
                         <a class="list-group-item list-group-item-action" href="informationSpacePages/NoticePageView.aspx">Notice</a>
                     </ul>
                 </div>
