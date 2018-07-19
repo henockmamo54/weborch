@@ -11,18 +11,49 @@
                         <a class="list-group-item list-group-item-action active">User Info.</a>
                     </ul>
                 </div>
-                <div class="col-md-10 shadowedPanel" style="height: 700px;">
+                <div class="col-md-10">
+
+                <div class="col-md-12 shadowedPanel" style="height: 220px;">
+                    <div class="rwo">
+                        <label>What kind Of User Are you?</label>
+                        <div class="col-md-12 form-group">
+                            <br />
+                            Individual
+                            <asp:CheckBox runat="server" ID="chk_Composer" Text="Composer" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                            <asp:CheckBox runat="server" ID="chk_Conductor" Text="Conductor" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true"/>
+                            <asp:CheckBox runat="server" ID="chk_tp" Text="Teacher/Professor" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                            <asp:CheckBox runat="server" ID="chk_Student" Text="Student" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                            <asp:CheckBox runat="server" ID="chk_Audience" Text="Audience" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                            <asp:CheckBox runat="server" ID="chk_userOther" Text="Other" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                            <br />  <br />
+                            Company
+                            <asp:CheckBox runat="server" ID="chk_Orchestra" Text="Orchestra" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                            <asp:CheckBox runat="server" ID="chk_Promoter" Text="Promoter" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                            <asp:CheckBox runat="server" ID="chk_Agent" Text="Agent" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                            <asp:CheckBox runat="server" ID="chk_shopOwner" Text="Shop Owner" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                            <asp:CheckBox runat="server" ID="chk_companyOther" Text="Other" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                        </div>
+                        <div>
+                            <hr />
+                            <asp:Button runat="server" ID="proccedButton" CssClass="btn btn-info pull-right" Text="Continue" OnClick="btn_continueClicked" />
+                            <br />
+                        </div>
+                    </div>
+
+                </div>
+                                <br />
+                <div runat="server" id="PersonInfoFormContainer" visible="false" class="col-md-12 shadowedPanel">
                     <div class="row">
                         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                             <ContentTemplate>
-                                <div class="col-md-12">
-                                    <div class="col-md-5">
+                                <div class="col-md-12" style="padding:0;">
+                                    <div class="col-md-6 form-group" style="padding:0;">
                                         <div>
                                             <div class="col-md-12">
                                                 <br />
                                                 <div class="col-md-4">Email:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="txt_useremail" TextMode="Email" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="TextBox6" TextMode="Email" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
 
@@ -31,49 +62,33 @@
                                                 <br />
                                                 <div class="col-md-4">Password:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="txt_userPassword" TextMode="Password" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="TextBox9" TextMode="Password" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
 
                                             </div>
                                             <div class="col-md-12">
                                                 <br />
-                                                <div class="col-md-4">KoreanName:</div>
+                                                <div class="col-md-4">Name:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="txt_userkoreanname" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="TextBox10" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
                                             <div class="col-md-12">
                                                 <br />
-                                                <div class="col-md-4">EnglishName:</div>
+                                                <div class="col-md-4">Affiliation:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="txt_userenglishname" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="TextBox11" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
 
-                                            </div>
-                                            <div class="col-md-12">
-                                                <br />
-                                                <div class="col-md-4">Sex:</div>
-                                                <div class="col-md-6">
-                                                    <asp:TextBox ID="txt_usersex" runat="server"></asp:TextBox>
-                                                </div>
-                                                <br />
-                                            </div>
-                                            <div class="col-md-12">
-                                                <br />
-                                                <div class="col-md-4">Birth date:</div>
-                                                <div class="col-md-6">
-                                                    <asp:TextBox ID="txt_userBirthDate" runat="server" placeholder="dd/mm/yyyy" ToolTip="dd/mm/yyyy"></asp:TextBox>
-                                                </div>
-                                                <br />
                                             </div>
                                             <div class="col-md-12">
                                                 <br />
                                                 <div class="col-md-4">Zip Code:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="txt_userZipCode" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="TextBox13" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -81,46 +96,234 @@
                                                 <br />
                                                 <div class="col-md-4">Address:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="txt_useraddress" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="TextBox14" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
-
                                             </div>
                                             <div class="col-md-12">
                                                 <br />
-                                                <div class="col-md-4">Phone Num.:</div>
+                                                <div class="col-md-4">Mobile No.:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="txt_userPhoneNumber" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="TextBox12" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
-
                                             </div>
-
+                                            
                                             <div class="col-md-12">
                                                 <br />
-                                                <div class="col-md-4">occupation:</div>
+                                                <div class="col-md-4">Facebook Addr.:</div>
                                                 <div class="col-md-6">
-                                                    <asp:RadioButtonList ID="radioOcupation" runat="server" CssClass="radio">
-                                                        <asp:ListItem>Player </asp:ListItem>
-                                                        <asp:ListItem>Composer </asp:ListItem>
-                                                        <asp:ListItem>Researcher </asp:ListItem>
-                                                        <asp:ListItem>Conductor </asp:ListItem>
-                                                        <asp:ListItem>Promotor </asp:ListItem>
-                                                        <asp:ListItem>Audience </asp:ListItem>
-                                                        <asp:ListItem>Other </asp:ListItem>
-                                                    </asp:RadioButtonList>
+                                                    <asp:TextBox ID="TextBox15" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
-
                                             </div>
-                                            <br />
-
-                                            <div class="col-md-12 pull-right" style="text-align: center;">
-                                                <asp:Button ID="btn_cancel" CssClass="btn btn-danger " runat="server" Text="Cancel" OnClick="btn_cancel_click" />
-                                                <asp:Button ID="txt_addInstrument" CssClass="btn btn-success " runat="server" Text="Add" OnClick="btn_useradd_Click" />
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Twitter Addr.:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox16" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
                                             </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Kakao Talk ID:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox17" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Major Instrument 1:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox18" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Major Instrument 2:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox19" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Photo 1:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox20" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Photo 2:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox21" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Profile Page.:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox22" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Repertory.:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox31" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            
 
                                         </div>
+                                    </div>
+
+                                    <div class="col-md-6 form-group" id="endorserdiv" style="padding:0;">
+                                        
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Endorsor Email ID 1:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox32" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Endorsor Name 1:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox33" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Endorsor Comments 1:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox34" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+
+
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Endorsor Email ID 2:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox35" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Endorsor Name 2:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox36" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Endorsor Comments 2:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox37" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+
+                                            
+
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Endorsor Email ID 3:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox38" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Endorsor Name 3:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox39" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Endorsor Comments 3:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox40" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+
+                                            
+
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Endorsor Email ID 4:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox41" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Endorsor Name 4:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox42" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Endorsor Comments 4:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox43" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>                                            
+
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Endorsor Email ID 5:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox44" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Endorsor Name 5:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox45" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Endorsor Comments 5:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox46" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+
+                                    </div>
+
+
+                                    <div class="col-md-12 pull-right" style="text-align: center;">
+                                        <asp:Button ID="Button1" CssClass="btn btn-danger " runat="server" Text="Cancel" OnClick="btn_cancel_click" />
+                                        <asp:Button ID="Button2" CssClass="btn btn-success " runat="server" Text="Add" OnClick="btn_useradd_Click" />
                                     </div>
                                 </div>
                             </ContentTemplate>
@@ -128,6 +331,165 @@
 
                     </div>
                 </div>
+                <div runat="server" id="CompanyInfoFormContainer" visible="false" class="col-md-12 shadowedPanel">
+                    <div class="row">
+                        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                            <ContentTemplate>
+                                <div class="col-md-12">
+                                    <div class="col-md-6 form-group">
+                                        <div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Email:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox1" TextMode="Email" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Password:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox2" TextMode="Password" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Mobile No.:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox3" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Company Name:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox4" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Bussiness No:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox5" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Zip Code:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox7" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Address:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox8" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 form-group">
+                                        <div>
+
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Phone No.:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox23" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Fax No.:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox24" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">CEO Name:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox25" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Admin Email:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox26" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Admin Name:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox27" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Admin Mobile No:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox28" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Company Home Url:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox29" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Other Info.:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="TextBox30" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+
+                                            <br />
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 pull-right" style="text-align: center;">
+                                        <asp:Button ID="Button3" CssClass="btn btn-danger " runat="server" Text="Cancel" OnClick="btn_cancel_click" />
+                                        <asp:Button ID="Button4" CssClass="btn btn-success " runat="server" Text="Add" OnClick="btn_useradd_Click" />
+                                    </div>
+                                </div>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+
+                    </div>
+                </div>
+            </div>
+
             </div>
 
         </ContentTemplate>
@@ -140,6 +502,12 @@
             border-color: #dddddd;
             padding: 1em;
             box-shadow: 2px 2px 2px 2px #f5f5f5;
+        }
+        #endorserdiv .col-md-12 {
+        padding:0!important;        
+        }
+        #endorserdiv .col-md-4 {
+        padding:0!important;        
         }
     </style>
 

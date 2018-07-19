@@ -171,6 +171,90 @@
     <Property Name="ArtistID" Type="int" />
     <Property Name="InstrumentID" Type="int" />
   </EntityType>
+  <EntityType Name="User_UserType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="UserTypeID" Type="int" />
+    <Property Name="UserTypeName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Iscompany" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserCommonTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="MobileNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="isVerified" Type="bit" />
+    <Property Name="isActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="UserCompany">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="BussinessNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TelephoneNo" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="FaxNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="CEOName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="AdminEmail" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="AdminName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="AdminMobileNo" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="CompanyHomeUrl" Type="nvarchar" MaxLength="40" />
+    <Property Name="OtherInfo" Type="nvarchar" MaxLength="400" />
+  </EntityType>
+  <EntityType Name="UserPersonalInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Affiliation" Type="nvarchar" MaxLength="30" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Address" Type="nvarchar" MaxLength="40" />
+    <Property Name="MobileNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="FacebookAddress" Type="nvarchar" MaxLength="40" />
+    <Property Name="TwitterAddress" Type="nvarchar" MaxLength="40" />
+    <Property Name="KakaoTalkAddress" Type="nvarchar" MaxLength="40" />
+    <Property Name="MajorInstrument1" Type="nvarchar" MaxLength="40" />
+    <Property Name="MajorInstrument2" Type="nvarchar" MaxLength="40" />
+    <Property Name="Photo1" Type="nvarchar" MaxLength="80" />
+    <Property Name="Photo2" Type="nvarchar" MaxLength="80" />
+    <Property Name="ProfilePage" Type="nvarchar" MaxLength="400" />
+    <Property Name="Repertory" Type="nvarchar" MaxLength="200" />
+    <Property Name="EndorsorEmailID1" Type="nvarchar" MaxLength="30" />
+    <Property Name="EndorsorName1" Type="nvarchar" MaxLength="30" />
+    <Property Name="EndorsorComments1" Type="nvarchar" MaxLength="100" />
+    <Property Name="EndorsorEmailID2" Type="nvarchar" MaxLength="30" />
+    <Property Name="EndorsorName2" Type="nvarchar" MaxLength="30" />
+    <Property Name="EndorsorComments2" Type="nvarchar" MaxLength="100" />
+    <Property Name="EndorsorEmailID3" Type="nvarchar" MaxLength="30" />
+    <Property Name="EndorsorName3" Type="nvarchar" MaxLength="30" />
+    <Property Name="EndorsorComments3" Type="nvarchar" MaxLength="100" />
+    <Property Name="EndorsorEmailID4" Type="nvarchar" MaxLength="30" />
+    <Property Name="EndorsorName4" Type="nvarchar" MaxLength="30" />
+    <Property Name="EndorsorComments4" Type="nvarchar" MaxLength="100" />
+    <Property Name="EndorsorEmailID5" Type="nvarchar" MaxLength="30" />
+    <Property Name="EndorsorName5" Type="nvarchar" MaxLength="30" />
+    <Property Name="EndorsorComments5" Type="nvarchar" MaxLength="100" />
+  </EntityType>
   <Association Name="FK__Artist_In__Artis__10566F31">
     <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
     <End Role="Artist_Instrument" Type="Self.Artist_Instrument" Multiplicity="*" />
@@ -231,6 +315,54 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__User_User__UserI__395884C4">
+    <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
+    <End Role="User_UserType" Type="Self.User_UserType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserCommonTable">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User_UserType">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__User_User__UserT__3A4CA8FD">
+    <End Role="UserType" Type="Self.UserType" Multiplicity="0..1" />
+    <End Role="User_UserType" Type="Self.User_UserType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User_UserType">
+        <PropertyRef Name="UserTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserCompa__UserI__45BE5BA9">
+    <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
+    <End Role="UserCompany" Type="Self.UserCompany" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserCommonTable">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserCompany">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserPerso__UserI__41EDCAC5">
+    <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
+    <End Role="UserPersonalInfo" Type="Self.UserPersonalInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserCommonTable">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserPersonalInfo">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="OrchestraDBModelStoreContainer">
     <EntitySet Name="Artist" EntityType="Self.Artist" Schema="Core" store:Type="Tables" />
     <EntitySet Name="Bulletin" EntityType="Self.Bulletin" Schema="Core" store:Type="Tables" />
@@ -246,6 +378,11 @@
     <EntitySet Name="User" EntityType="Self.User" Schema="Core" store:Type="Tables" />
     <EntitySet Name="Artist_Instrument" EntityType="Self.Artist_Instrument" Schema="Drived" store:Type="Tables" />
     <EntitySet Name="Orchestra_Instrument_Artist" EntityType="Self.Orchestra_Instrument_Artist" Schema="Drived" store:Type="Tables" />
+    <EntitySet Name="User_UserType" EntityType="Self.User_UserType" Schema="Drived" store:Type="Tables" />
+    <EntitySet Name="UserType" EntityType="Self.UserType" Schema="Lookup" store:Type="Tables" />
+    <EntitySet Name="UserCommonTable" EntityType="Self.UserCommonTable" Schema="Main" store:Type="Tables" />
+    <EntitySet Name="UserCompany" EntityType="Self.UserCompany" Schema="Main" store:Type="Tables" />
+    <EntitySet Name="UserPersonalInfo" EntityType="Self.UserPersonalInfo" Schema="Main" store:Type="Tables" />
     <AssociationSet Name="FK__Artist_In__Artis__10566F31" Association="Self.FK__Artist_In__Artis__10566F31">
       <End Role="Artist" EntitySet="Artist" />
       <End Role="Artist_Instrument" EntitySet="Artist_Instrument" />
@@ -265,6 +402,22 @@
     <AssociationSet Name="FK__Orchestra__Orche__151B244E" Association="Self.FK__Orchestra__Orche__151B244E">
       <End Role="Orchestra" EntitySet="Orchestra" />
       <End Role="Orchestra_Instrument_Artist" EntitySet="Orchestra_Instrument_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User_User__UserI__395884C4" Association="Self.FK__User_User__UserI__395884C4">
+      <End Role="UserCommonTable" EntitySet="UserCommonTable" />
+      <End Role="User_UserType" EntitySet="User_UserType" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User_User__UserT__3A4CA8FD" Association="Self.FK__User_User__UserT__3A4CA8FD">
+      <End Role="UserType" EntitySet="UserType" />
+      <End Role="User_UserType" EntitySet="User_UserType" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserCompa__UserI__45BE5BA9" Association="Self.FK__UserCompa__UserI__45BE5BA9">
+      <End Role="UserCommonTable" EntitySet="UserCommonTable" />
+      <End Role="UserCompany" EntitySet="UserCompany" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserPerso__UserI__41EDCAC5" Association="Self.FK__UserPerso__UserI__41EDCAC5">
+      <End Role="UserCommonTable" EntitySet="UserCommonTable" />
+      <End Role="UserPersonalInfo" EntitySet="UserPersonalInfo" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -39,5 +39,10 @@ namespace DataAccess
         public virtual DbSet<NoticeTable> NoticeTables { get; set; }
         public virtual DbSet<PromotionAndRecruitment> PromotionAndRecruitments { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
+        public virtual DbSet<User_UserType> User_UserType { get; set; }
+        public virtual DbSet<UserType> UserTypes { get; set; }
+        public virtual DbSet<UserCommonTable> UserCommonTables { get; set; }
+        public virtual DbSet<UserCompany> UserCompanies { get; set; }
+        public virtual DbSet<UserPersonalInfo> UserPersonalInfoes { get; set; }
     }
 }
