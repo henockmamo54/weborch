@@ -1,18 +1,18 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="InformationSpace.aspx.cs" Inherits="web.Views.InformationSpace" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PromotionAndRecruitmentPageView.aspx.cs" Inherits="web.Views.informationSpacePages.PromotionAndRecruitmentPageView" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:UpdatePanel runat="server" ID="updatepanel1">
+
+     <asp:UpdatePanel runat="server" ID="updatepanel1">
         <ContentTemplate>
 
             <h4>Information Space</h4>
             <div class="row">
                 <div class="col-md-2">
                     <ul class="list-group">
-                        <a class="list-group-item list-group-item-action active">Review</a>
-                        <a class="list-group-item list-group-item-action" href="informationSpacePages/MarketPageView.aspx" >Market</a>
-                        <a class="list-group-item list-group-item-action" href="informationSpacePages/FreeBoardPage.aspx" >Free Board</a>
-                        <a class="list-group-item list-group-item-action" href="informationSpacePages/PromotionAndRecruitmentPageView.aspx" >Recruitment/Promotion</a>
-                        <a class="list-group-item list-group-item-action" href="informationSpacePages/NoticePageView.aspx">Notice</a>
+                        <a class="list-group-item list-group-item-action" href="../InformationSpace.aspx">Review</a>
+                        <a class="list-group-item list-group-item-action" href="MarketPageView.aspx" >Market</a>
+                        <a class="list-group-item list-group-item-action" href="FreeBoardPage.aspx" >Free Board</a>
+                        <a class="list-group-item list-group-item-action active">Recruitment/Promotion</a>
+                        <a class="list-group-item list-group-item-action" href="NoticePageView.aspx">Notice</a>
                     </ul>
                 </div>
                 <div class="col-md-10 shadowedPanel" style="height: 500px;">
@@ -38,7 +38,7 @@
                             <SortedDescendingCellStyle BackColor="#FFFDF8" />
                             <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                         </asp:GridView>
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [ID], [Title], [Content], [Comment], [Writer], [timestamp] FROM core.[Review]"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [ID], [Title], [Content], [Comment], [Writer], [timestamp] FROM core.PromotionAndRecruitment"></asp:SqlDataSource>
                     </div>
                     <hr />
                     <div style="height: 40px;">
@@ -112,5 +112,6 @@
             box-shadow: 2px 2px 2px 2px #f5f5f5;
         }
     </style>
+
 
 </asp:Content>

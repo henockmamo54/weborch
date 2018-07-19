@@ -12,7 +12,7 @@
                     <p id="profile-name" class="profile-name-card"></p>
                     <form class="form-signin" defaultbutton="Button1_signin">
                         <span id="reauth-email" class="reauth-email"></span>
-                        <asp:TextBox type="text" ID="inputEmail" class="form-control" placeholder="User Name" required autofocus Style="margin-bottom: 0.7em;" runat="server"></asp:TextBox>
+                        <asp:TextBox type="text" ID="inputEmail" class="form-control" placeholder="Email" required autofocus Style="margin-bottom: 0.7em;" runat="server"></asp:TextBox>
                         <asp:TextBox type="password" ID="inputPassword" class="form-control" placeholder="Password" required Style="margin-bottom: 0.7em;" runat="server"></asp:TextBox>
 
                         <asp:Label Style="color: red" ID="Label1_warnningmessage" runat="server" Text="Label" Visible="false">Login not successful. please check your login information.</asp:Label>
