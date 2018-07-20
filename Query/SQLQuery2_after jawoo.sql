@@ -88,20 +88,47 @@
 
 
 
+--select * from lookup.UserType
+
+--Insert into lookup.userType(Name,isActive,Iscompany)
+--values('Composer',1,0),
+--('Conductor',1,0),
+--('Teacher/Professor',1,0),
+--('Student',1,0),
+--('Audience',1,0),
+--('Other Individual',1,0),
+--('Orchestra',1,1),
+--('Promoter',1,1),
+--('Agent',1,1),
+--('Shop Owner',1,1),
+--('Other - Company',1,1)
 
 
+select * from Core.Artist
 
-select * from lookup.UserType
-
-Insert into lookup.userType(Name,isActive,Iscompany)
-values('Composer',1,0),
-('Conductor',1,0),
-('Teacher/Professor',1,0),
-('Student',1,0),
-('Audience',1,0),
-('Other Individual',1,0),
-('Orchestra',1,1),
-('Promoter',1,1),
-('Agent',1,1),
-('Shop Owner',1,1),
-('Other - Company',1,1)
+--Alter table Core.Artist
+--add
+--FacebookAddress nvarchar(40) null,
+--TwitterAddress nvarchar(40) null,
+--KakaoTalkAddress nvarchar(40) null,
+----MajorInstrument1 nvarchar(40) null,
+----MajorInstrument2 nvarchar(40) null,
+--Photo1  nvarchar(80) null,
+--Photo2  nvarchar(80) null,
+--ProfilePage  nvarchar(400) null,
+--Repertory  nvarchar(200) null,
+--EndorsorEmailID1  nvarchar(30) null,
+--EndorsorName1  nvarchar(30) null,
+--EndorsorComments1  nvarchar(100) null,
+--EndorsorEmailID2  nvarchar(30) null,
+--EndorsorName2  nvarchar(30) null,
+--EndorsorComments2  nvarchar(100) null,
+--EndorsorEmailID3  nvarchar(30) null,
+--EndorsorName3  nvarchar(30) null,
+--EndorsorComments3  nvarchar(100) null,
+--EndorsorEmailID4  nvarchar(30) null,
+--EndorsorName4  nvarchar(30) null,
+--EndorsorComments4  nvarchar(100) null,
+--EndorsorEmailID5  nvarchar(30) null,
+--EndorsorName5  nvarchar(30) null,
+--EndorsorComments5  nvarchar(100) null

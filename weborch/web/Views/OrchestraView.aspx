@@ -1,11 +1,7 @@
 ﻿<%@ Page Title="Orchestra" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="OrchestraView.aspx.cs" Inherits="web.OrchestraView" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <%--<h2><%: Title %>.</h2>
-    <h3>Your application description page.</h3>
-    <p>Use this area to provide additional information.</p>--%>
-
-
+   
     <div class="row">
         <h3>Orchestra data</h3>
 
@@ -13,28 +9,28 @@
             <ContentTemplate>
                 <div class="row shadowedPanel">
                     <div class="col-md-12 ">
-                        <div class="col-md-12 ">
+                        <div class="col-md-12  form-group">
                             <div class="col-md-4">
                                 <br />
                                 <div class="col-md-4">Name:</div>
-                                <div class="col-md-6">
-                                    <asp:TextBox ID="txt_orchname" runat="server"></asp:TextBox>
+                                <div class="col-md-8">
+                                    <asp:TextBox ID="txt_orchname" runat="server" class="form-control"></asp:TextBox>
                                 </div>
                                 <br />
                             </div>
                             <div class="col-md-4">
                                 <br />
                                 <div class="col-md-4">Alias:</div>
-                                <div class="col-md-6">
-                                    <asp:TextBox ID="txt_orchaliasname" runat="server"></asp:TextBox>
+                                <div class="col-md-8">
+                                    <asp:TextBox ID="txt_orchaliasname" runat="server" class="form-control"></asp:TextBox>
                                 </div>
                                 <br />
                             </div>
                             <div class="col-md-4">
                                 <br />
                                 <div class="col-md-4">URL:</div>
-                                <div class="col-md-6">
-                                    <asp:TextBox ID="txt_orchurl" runat="server"></asp:TextBox>
+                                <div class="col-md-8">
+                                    <asp:TextBox ID="txt_orchurl" runat="server" class="form-control"></asp:TextBox>
                                 </div>
                                 <br />
 
@@ -42,8 +38,8 @@
                             <div class="col-md-4">
                                 <br />
                                 <div class="col-md-4">Address:</div>
-                                <div class="col-md-6">
-                                    <asp:TextBox ID="txt_orchaddress" runat="server"></asp:TextBox>
+                                <div class="col-md-8">
+                                    <asp:TextBox ID="txt_orchaddress" runat="server" class="form-control"></asp:TextBox>
                                 </div>
                                 <br />
 
@@ -51,8 +47,8 @@
                             <div class="col-md-4">
                                 <br />
                                 <div class="col-md-4">ZipCode:</div>
-                                <div class="col-md-6">
-                                    <asp:TextBox ID="txt_orchzipcode" runat="server"></asp:TextBox>
+                                <div class="col-md-8">
+                                    <asp:TextBox ID="txt_orchzipcode" runat="server" class="form-control"></asp:TextBox>
                                 </div>
                                 <br />
 
@@ -60,8 +56,8 @@
                             <div class="col-md-4">
                                 <br />
                                 <div class="col-md-4">TelNO:</div>
-                                <div class="col-md-6">
-                                    <asp:TextBox ID="txt_orchtelno" runat="server"></asp:TextBox>
+                                <div class="col-md-8">
+                                    <asp:TextBox ID="txt_orchtelno" runat="server" class="form-control"></asp:TextBox>
                                 </div>
                                 <br />
 
@@ -69,8 +65,8 @@
                             <div class="col-md-4">
                                 <br />
                                 <div class="col-md-4">FaxNo:</div>
-                                <div class="col-md-6">
-                                    <asp:TextBox ID="txt_orchfaxno" runat="server"></asp:TextBox>
+                                <div class="col-md-8">
+                                    <asp:TextBox ID="txt_orchfaxno" runat="server" class="form-control"></asp:TextBox>
                                 </div>
                                 <br />
 
@@ -78,8 +74,8 @@
                             <div class="col-md-4">
                                 <br />
                                 <div class="col-md-4">Conductor:</div>
-                                <div class="col-md-6">
-                                    <asp:TextBox ID="txt_orchcondactername" runat="server"></asp:TextBox>
+                                <div class="col-md-8">
+                                    <asp:TextBox ID="txt_orchcondactername" runat="server" class="form-control"></asp:TextBox>
                                 </div>
                                 <br />
 
@@ -87,15 +83,15 @@
                             <div class="col-md-4">
                                 <br />
                                 <div class="col-md-4">Since:</div>
-                                <div class="col-md-6">
-                                    <asp:TextBox ID="txt_orchsince" runat="server" OnClick="dummybtnclick"></asp:TextBox>
+                                <div class="col-md-8">
+                                    <asp:TextBox ID="txt_orchsince" runat="server" OnClick="dummybtnclick" class="form-control"></asp:TextBox>
                                 </div>
                                 <br />
                             </div>
                         </div>
-                        <br />
-                        <div class="col-md-12 ">
-                            <div class="col-md-12">
+                        <br /> 
+                        <div class="col-md-12"> 
+                            <div class="col-md-12">                               
                                 <asp:Button ID="btn_orchadd" CssClass="btn btn-primary pull-right" Style="margin: 1em;" runat="server" Text="Register" OnClick="btn_orchadd_Click" />
                             </div>
                         </div>
@@ -104,7 +100,6 @@
                     <hr />
                 <div class="row">
                     <div class="row " >
-                        <%--<span class="glyphicon glyphicon-search pull-right" style="padding: 5px;"></span>--%>
                         <span class='input-group-addon' style="    background: #DFF0D8;">
                             <i class='glyphicon glyphicon-search pull-right' style="padding: 5px;"></i>
                             <asp:TextBox CssClass="pull-right" ID="TextBox1_serach" runat="server" AutoPostBack="True" OnTextChanged="serachTextValueChanged"></asp:TextBox>

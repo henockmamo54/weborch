@@ -20,6 +20,28 @@
           <Property Name="MobileNO" Type="nvarchar" MaxLength="50" />
           <Property Name="FaxNo" Type="nvarchar" MaxLength="50" />
           <Property Name="Remar" Type="nvarchar" MaxLength="2000" />
+          <Property Name="FacebookAddress" Type="nvarchar" MaxLength="40" />
+          <Property Name="TwitterAddress" Type="nvarchar" MaxLength="40" />
+          <Property Name="KakaoTalkAddress" Type="nvarchar" MaxLength="40" />
+          <Property Name="Photo1" Type="nvarchar" MaxLength="80" />
+          <Property Name="Photo2" Type="nvarchar" MaxLength="80" />
+          <Property Name="ProfilePage" Type="nvarchar" MaxLength="400" />
+          <Property Name="Repertory" Type="nvarchar" MaxLength="200" />
+          <Property Name="EndorsorEmailID1" Type="nvarchar" MaxLength="30" />
+          <Property Name="EndorsorName1" Type="nvarchar" MaxLength="30" />
+          <Property Name="EndorsorComments1" Type="nvarchar" MaxLength="100" />
+          <Property Name="EndorsorEmailID2" Type="nvarchar" MaxLength="30" />
+          <Property Name="EndorsorName2" Type="nvarchar" MaxLength="30" />
+          <Property Name="EndorsorComments2" Type="nvarchar" MaxLength="100" />
+          <Property Name="EndorsorEmailID3" Type="nvarchar" MaxLength="30" />
+          <Property Name="EndorsorName3" Type="nvarchar" MaxLength="30" />
+          <Property Name="EndorsorComments3" Type="nvarchar" MaxLength="100" />
+          <Property Name="EndorsorEmailID4" Type="nvarchar" MaxLength="30" />
+          <Property Name="EndorsorName4" Type="nvarchar" MaxLength="30" />
+          <Property Name="EndorsorComments4" Type="nvarchar" MaxLength="100" />
+          <Property Name="EndorsorEmailID5" Type="nvarchar" MaxLength="30" />
+          <Property Name="EndorsorName5" Type="nvarchar" MaxLength="30" />
+          <Property Name="EndorsorComments5" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Bulletin">
           <Key>
@@ -446,6 +468,28 @@
           <Property Name="Remar" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Artist_Instrument" Relationship="OrchestraDBModel.FK__Artist_In__Artis__10566F31" FromRole="Artist" ToRole="Artist_Instrument" />
           <NavigationProperty Name="Orchestra_Instrument_Artist" Relationship="OrchestraDBModel.FK__Orchestra__Artis__160F4887" FromRole="Artist" ToRole="Orchestra_Instrument_Artist" />
+          <Property Name="FacebookAddress" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="TwitterAddress" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="KakaoTalkAddress" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Photo1" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Photo2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="ProfilePage" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="Repertory" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="EndorsorEmailID1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EndorsorName1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EndorsorComments1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EndorsorEmailID2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EndorsorName2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EndorsorComments2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EndorsorEmailID3" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EndorsorName3" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EndorsorComments3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EndorsorEmailID4" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EndorsorName4" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EndorsorComments4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EndorsorEmailID5" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EndorsorName5" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EndorsorComments5" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Instrument">
           <Key>
@@ -876,6 +920,28 @@
           <EntitySetMapping Name="Artists">
             <EntityTypeMapping TypeName="OrchestraDBModel.Artist">
               <MappingFragment StoreEntitySet="Artist">
+                <ScalarProperty Name="EndorsorComments5" ColumnName="EndorsorComments5" />
+                <ScalarProperty Name="EndorsorName5" ColumnName="EndorsorName5" />
+                <ScalarProperty Name="EndorsorEmailID5" ColumnName="EndorsorEmailID5" />
+                <ScalarProperty Name="EndorsorComments4" ColumnName="EndorsorComments4" />
+                <ScalarProperty Name="EndorsorName4" ColumnName="EndorsorName4" />
+                <ScalarProperty Name="EndorsorEmailID4" ColumnName="EndorsorEmailID4" />
+                <ScalarProperty Name="EndorsorComments3" ColumnName="EndorsorComments3" />
+                <ScalarProperty Name="EndorsorName3" ColumnName="EndorsorName3" />
+                <ScalarProperty Name="EndorsorEmailID3" ColumnName="EndorsorEmailID3" />
+                <ScalarProperty Name="EndorsorComments2" ColumnName="EndorsorComments2" />
+                <ScalarProperty Name="EndorsorName2" ColumnName="EndorsorName2" />
+                <ScalarProperty Name="EndorsorEmailID2" ColumnName="EndorsorEmailID2" />
+                <ScalarProperty Name="EndorsorComments1" ColumnName="EndorsorComments1" />
+                <ScalarProperty Name="EndorsorName1" ColumnName="EndorsorName1" />
+                <ScalarProperty Name="EndorsorEmailID1" ColumnName="EndorsorEmailID1" />
+                <ScalarProperty Name="Repertory" ColumnName="Repertory" />
+                <ScalarProperty Name="ProfilePage" ColumnName="ProfilePage" />
+                <ScalarProperty Name="Photo2" ColumnName="Photo2" />
+                <ScalarProperty Name="Photo1" ColumnName="Photo1" />
+                <ScalarProperty Name="KakaoTalkAddress" ColumnName="KakaoTalkAddress" />
+                <ScalarProperty Name="TwitterAddress" ColumnName="TwitterAddress" />
+                <ScalarProperty Name="FacebookAddress" ColumnName="FacebookAddress" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="FamilyName" ColumnName="FamilyName" />
