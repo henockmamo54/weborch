@@ -342,7 +342,7 @@
                                                 <br />
                                                 <div class="col-md-4">Email:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox1" TextMode="Email" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="oemail" TextMode="Email" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
 
@@ -351,7 +351,7 @@
                                                 <br />
                                                 <div class="col-md-4">Password:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox2" TextMode="Password" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="opassword" TextMode="Password" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
 
@@ -360,7 +360,7 @@
                                                 <br />
                                                 <div class="col-md-4">Mobile No.:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox3" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="omibile" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -368,7 +368,7 @@
                                                 <br />
                                                 <div class="col-md-4">Company Name:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox4" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="ocompanyname" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
 
@@ -377,7 +377,7 @@
                                                 <br />
                                                 <div class="col-md-4">Bussiness No:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox5" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="obussinessno" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -385,7 +385,7 @@
                                                 <br />
                                                 <div class="col-md-4">Zip Code:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox7" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="ozipcode" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -393,7 +393,7 @@
                                                 <br />
                                                 <div class="col-md-4">Address:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox8" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="oaddress" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
 
@@ -408,7 +408,7 @@
                                                 <br />
                                                 <div class="col-md-4">Phone No.:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox23" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="ophonenumber" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
 
@@ -418,7 +418,7 @@
                                                 <br />
                                                 <div class="col-md-4">Fax No.:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox24" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="ofaxnumber" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -427,7 +427,7 @@
                                                 <br />
                                                 <div class="col-md-4">CEO Name:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox25" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="oceoname" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -435,7 +435,7 @@
                                                 <br />
                                                 <div class="col-md-4">Admin Email:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox26" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="oadminemail" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -443,7 +443,7 @@
                                                 <br />
                                                 <div class="col-md-4">Admin Name:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox27" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="oadminname" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -451,7 +451,7 @@
                                                 <br />
                                                 <div class="col-md-4">Admin Mobile No:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox28" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="oadminmobno" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -459,7 +459,7 @@
                                                 <br />
                                                 <div class="col-md-4">Company Home Url:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox29" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="ocompanyurl" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -467,7 +467,7 @@
                                                 <br />
                                                 <div class="col-md-4">Other Info.:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox30" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="ootherinof" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -480,7 +480,7 @@
 
                                     <div class="col-md-12 pull-right" style="text-align: center;">
                                         <asp:Button ID="Button3" CssClass="btn btn-danger " runat="server" Text="Cancel" OnClick="btn_cancel_click" />
-                                        <asp:Button ID="Button4" CssClass="btn btn-success " runat="server" Text="Add" OnClick="btn_useradd_Click" />
+                                        <asp:Button ID="Button4" CssClass="btn btn-success " runat="server" Text="Add" OnClick="btn_regCoompany_click" />
                                     </div>
                                 </div>
                             </ContentTemplate>

@@ -70,6 +70,7 @@
     <Compile Include="ArtistLogic.cs" />
     <Compile Include="BulletinLogic.cs" />
     <Compile Include="ChildCommentLogic.cs" />
+    <Compile Include="CommonUserTableLogic.cs" />
     <Compile Include="FreeBoardLogic.cs" />
     <Compile Include="InstrumentLogic.cs" />
     <Compile Include="MarketLogic.cs" />

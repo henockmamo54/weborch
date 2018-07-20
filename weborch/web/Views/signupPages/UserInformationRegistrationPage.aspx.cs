@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using DataAccess;
 
 namespace web.Views.signupPages
 {
@@ -15,8 +16,11 @@ namespace web.Views.signupPages
         bool iscompany = false;
         protected void Page_Load(object sender, EventArgs e)
         {
-            CompanyInfoFormContainer.Visible = false;
-            PersonInfoFormContainer.Visible = false;
+            if (!IsPostBack)
+            {
+                CompanyInfoFormContainer.Visible = false;
+                PersonInfoFormContainer.Visible = false;
+            }
         }
         protected void btn_cancel_click(object sender, EventArgs e)
         {
@@ -121,6 +125,93 @@ namespace web.Views.signupPages
                 }
             }
             catch (Exception ee) { }
+        }
+
+        protected void btn_regCoompany_click(object sender, EventArgs e) {
+
+            if(Session["iscompany"]!=null)
+            iscompany = (bool)Session["iscompany"];
+
+            //get all user types
+            List<int> usertypes = new List<int>();
+            if (iscompany)
+            {
+                if(chk_Orchestra.Checked) usertypes.Add(18);
+                if (chk_Promoter.Checked) usertypes.Add(19);
+                if (chk_Agent.Checked) usertypes.Add(20);
+                if (chk_shopOwner.Checked) usertypes.Add(21);
+                if (chk_companyOther.Checked) usertypes.Add(22);
+            }
+            else {
+                if (chk_Composer.Checked) usertypes.Add(12);
+                if (chk_Conductor.Checked) usertypes.Add(13);
+                if (chk_tp.Checked) usertypes.Add(14);
+                if (chk_Student.Checked) usertypes.Add(15);
+                if (chk_Audience.Checked) usertypes.Add(16);
+                if (chk_userOther.Checked) usertypes.Add(17);                
+            }
+
+            /// first insert user email and password into user common table
+            /// insert user types into userusertable
+            /// finally insert company info
+            /// 
+
+            using (var context = new OrchestraDBEntities()) {
+                using (var dbContextTransaction = context.Database.BeginTransaction()) {
+                    try
+                    {
+                        //register user
+                        UserCommonTable user = new UserCommonTable();
+                        user.Email = oemail.Text;
+                        user.Password = oemail.Text;
+                        user.isActive = true;
+                        user.MobileNumber = omibile.Text;
+
+                        context.UserCommonTables.Add(user);
+                        context.SaveChanges();
+                        
+                        // register  user types
+                        foreach (int i in usertypes) {
+                            User_UserType type = new User_UserType();
+                            type.UserID = user.ID;
+                            type.UserTypeID = i;
+
+                            context.User_UserType.Add(type);
+                            context.SaveChanges();
+                        }
+
+                        // register company info
+                        UserCompany company = new UserCompany();
+                        company.UserID = user.ID;
+                        company.CompanyName = ocompanyname.Text;
+                        company.BussinessNo = obussinessno.Text;
+                        company.ZipCode = ozipcode.Text;
+                        company.Address = oaddress.Text;
+                        company.TelephoneNo = ophonenumber.Text;
+                        company.FaxNo = ofaxnumber.Text;
+                        company.CEOName = oceoname.Text;
+                        company.AdminEmail = oadminemail.Text;
+                        company.AdminName = oadminname.Text;
+                        company.AdminMobileNo = oadminmobno.Text;
+                        company.CompanyHomeUrl = ocompanyurl.Text;
+                        company.OtherInfo = ootherinof.Text;
+
+                        context.UserCompanies.Add(company);
+                        context.SaveChanges();
+
+                        dbContextTransaction.Commit();
+
+                        showMsg("Data inserted succssfuly");
+                        Response.Redirect("~/Views/HomeView.aspx");
+                    }
+                    catch (Exception)
+                    {
+                        dbContextTransaction.Rollback();
+                        showMsg("Please check your inputs");
+                    }
+                }
+            }
+
         }
     }
 }
