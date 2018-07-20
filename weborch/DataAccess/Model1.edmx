@@ -181,6 +181,14 @@
           <Property Name="Birthday" Type="datetime" />
           <Property Name="Category" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Artist_ArtistType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Artist" Type="int" />
+          <Property Name="ArtistTypeID" Type="int" />
+        </EntityType>
         <EntityType Name="Artist_Instrument">
           <Key>
             <PropertyRef Name="ID" />
@@ -206,6 +214,14 @@
           <Property Name="UserID" Type="int" />
           <Property Name="UserTypeID" Type="int" />
           <Property Name="UserTypeName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ArtistType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
         </EntityType>
         <EntityType Name="UserType">
           <Key>
@@ -282,6 +298,30 @@
           <Property Name="EndorsorName5" Type="nvarchar" MaxLength="30" />
           <Property Name="EndorsorComments5" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <Association Name="FK__Artist_Ar__Artis__4A8310C6">
+          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+          <End Role="Artist_ArtistType" Type="Self.Artist_ArtistType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Artist_ArtistType">
+              <PropertyRef Name="Artist" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Artist_Ar__Artis__4B7734FF">
+          <End Role="ArtistType" Type="Self.ArtistType" Multiplicity="0..1" />
+          <End Role="Artist_ArtistType" Type="Self.Artist_ArtistType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ArtistType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Artist_ArtistType">
+              <PropertyRef Name="ArtistTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Artist_In__Artis__10566F31">
           <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
           <End Role="Artist_Instrument" Type="Self.Artist_Instrument" Multiplicity="*" />
@@ -403,13 +443,23 @@
           <EntitySet Name="PromotionAndRecruitment" EntityType="Self.PromotionAndRecruitment" Schema="Core" store:Type="Tables" />
           <EntitySet Name="Review" EntityType="Self.Review" Schema="Core" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="Artist_ArtistType" EntityType="Self.Artist_ArtistType" Schema="Drived" store:Type="Tables" />
           <EntitySet Name="Artist_Instrument" EntityType="Self.Artist_Instrument" Schema="Drived" store:Type="Tables" />
           <EntitySet Name="Orchestra_Instrument_Artist" EntityType="Self.Orchestra_Instrument_Artist" Schema="Drived" store:Type="Tables" />
           <EntitySet Name="User_UserType" EntityType="Self.User_UserType" Schema="Drived" store:Type="Tables" />
+          <EntitySet Name="ArtistType" EntityType="Self.ArtistType" Schema="Lookup" store:Type="Tables" />
           <EntitySet Name="UserType" EntityType="Self.UserType" Schema="Lookup" store:Type="Tables" />
           <EntitySet Name="UserCommonTable" EntityType="Self.UserCommonTable" Schema="Main" store:Type="Tables" />
           <EntitySet Name="UserCompany" EntityType="Self.UserCompany" Schema="Main" store:Type="Tables" />
           <EntitySet Name="UserPersonalInfo" EntityType="Self.UserPersonalInfo" Schema="Main" store:Type="Tables" />
+          <AssociationSet Name="FK__Artist_Ar__Artis__4A8310C6" Association="Self.FK__Artist_Ar__Artis__4A8310C6">
+            <End Role="Artist" EntitySet="Artist" />
+            <End Role="Artist_ArtistType" EntitySet="Artist_ArtistType" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Artist_Ar__Artis__4B7734FF" Association="Self.FK__Artist_Ar__Artis__4B7734FF">
+            <End Role="ArtistType" EntitySet="ArtistType" />
+            <End Role="Artist_ArtistType" EntitySet="Artist_ArtistType" />
+          </AssociationSet>
           <AssociationSet Name="FK__Artist_In__Artis__10566F31" Association="Self.FK__Artist_In__Artis__10566F31">
             <End Role="Artist" EntitySet="Artist" />
             <End Role="Artist_Instrument" EntitySet="Artist_Instrument" />
@@ -490,6 +540,7 @@
           <Property Name="EndorsorEmailID5" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="EndorsorName5" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="EndorsorComments5" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Artist_ArtistType" Relationship="OrchestraDBModel.FK__Artist_Ar__Artis__4A8310C6" FromRole="Artist" ToRole="Artist_ArtistType" />
         </EntityType>
         <EntityType Name="Instrument">
           <Key>
@@ -580,6 +631,16 @@
           <AssociationSet Name="FK__UserPerso__UserI__41EDCAC5" Association="OrchestraDBModel.FK__UserPerso__UserI__41EDCAC5">
             <End Role="UserCommonTable" EntitySet="UserCommonTables" />
             <End Role="UserPersonalInfo" EntitySet="UserPersonalInfoes" />
+          </AssociationSet>
+          <EntitySet Name="Artist_ArtistType" EntityType="OrchestraDBModel.Artist_ArtistType" />
+          <EntitySet Name="ArtistTypes" EntityType="OrchestraDBModel.ArtistType" />
+          <AssociationSet Name="FK__Artist_Ar__Artis__4A8310C6" Association="OrchestraDBModel.FK__Artist_Ar__Artis__4A8310C6">
+            <End Role="Artist" EntitySet="Artists" />
+            <End Role="Artist_ArtistType" EntitySet="Artist_ArtistType" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Artist_Ar__Artis__4B7734FF" Association="OrchestraDBModel.FK__Artist_Ar__Artis__4B7734FF">
+            <End Role="ArtistType" EntitySet="ArtistTypes" />
+            <End Role="Artist_ArtistType" EntitySet="Artist_ArtistType" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="User">
@@ -911,6 +972,49 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Artist_ArtistType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Artist" Type="Int32" />
+          <Property Name="ArtistTypeID" Type="Int32" />
+          <NavigationProperty Name="Artist1" Relationship="OrchestraDBModel.FK__Artist_Ar__Artis__4A8310C6" FromRole="Artist_ArtistType" ToRole="Artist" />
+          <NavigationProperty Name="ArtistType" Relationship="OrchestraDBModel.FK__Artist_Ar__Artis__4B7734FF" FromRole="Artist_ArtistType" ToRole="ArtistType" />
+        </EntityType>
+        <EntityType Name="ArtistType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="Artist_ArtistType" Relationship="OrchestraDBModel.FK__Artist_Ar__Artis__4B7734FF" FromRole="ArtistType" ToRole="Artist_ArtistType" />
+        </EntityType>
+        <Association Name="FK__Artist_Ar__Artis__4A8310C6">
+          <End Type="OrchestraDBModel.Artist" Role="Artist" Multiplicity="0..1" />
+          <End Type="OrchestraDBModel.Artist_ArtistType" Role="Artist_ArtistType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Artist_ArtistType">
+              <PropertyRef Name="Artist" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Artist_Ar__Artis__4B7734FF">
+          <End Type="OrchestraDBModel.ArtistType" Role="ArtistType" Multiplicity="0..1" />
+          <End Type="OrchestraDBModel.Artist_ArtistType" Role="Artist_ArtistType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ArtistType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Artist_ArtistType">
+              <PropertyRef Name="ArtistTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1209,6 +1313,24 @@
                 <ScalarProperty Name="Affiliation" ColumnName="Affiliation" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Artist_ArtistType">
+            <EntityTypeMapping TypeName="OrchestraDBModel.Artist_ArtistType">
+              <MappingFragment StoreEntitySet="Artist_ArtistType">
+                <ScalarProperty Name="ArtistTypeID" ColumnName="ArtistTypeID" />
+                <ScalarProperty Name="Artist" ColumnName="Artist" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArtistTypes">
+            <EntityTypeMapping TypeName="OrchestraDBModel.ArtistType">
+              <MappingFragment StoreEntitySet="ArtistType">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

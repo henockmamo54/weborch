@@ -17,6 +17,29 @@
     <Property Name="Remar" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Artist_Instrument" Relationship="OrchestraDBModel.FK__Artist_In__Artis__10566F31" FromRole="Artist" ToRole="Artist_Instrument" />
     <NavigationProperty Name="Orchestra_Instrument_Artist" Relationship="OrchestraDBModel.FK__Orchestra__Artis__160F4887" FromRole="Artist" ToRole="Orchestra_Instrument_Artist" />
+    <Property Name="FacebookAddress" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="TwitterAddress" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="KakaoTalkAddress" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Photo1" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="Photo2" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="ProfilePage" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Repertory" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="EndorsorEmailID1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="EndorsorName1" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="EndorsorComments1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="EndorsorEmailID2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="EndorsorName2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="EndorsorComments2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="EndorsorEmailID3" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="EndorsorName3" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="EndorsorComments3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="EndorsorEmailID4" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="EndorsorName4" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="EndorsorComments4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="EndorsorEmailID5" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="EndorsorName5" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="EndorsorComments5" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Artist_ArtistType" Relationship="OrchestraDBModel.FK__Artist_Ar__Artis__4A8310C6" FromRole="Artist" ToRole="Artist_ArtistType" />
   </EntityType>
   <EntityType Name="Instrument">
     <Key>
@@ -107,6 +130,16 @@
     <AssociationSet Name="FK__UserPerso__UserI__41EDCAC5" Association="OrchestraDBModel.FK__UserPerso__UserI__41EDCAC5">
       <End Role="UserCommonTable" EntitySet="UserCommonTables" />
       <End Role="UserPersonalInfo" EntitySet="UserPersonalInfoes" />
+    </AssociationSet>
+    <EntitySet Name="Artist_ArtistType" EntityType="OrchestraDBModel.Artist_ArtistType" />
+    <EntitySet Name="ArtistTypes" EntityType="OrchestraDBModel.ArtistType" />
+    <AssociationSet Name="FK__Artist_Ar__Artis__4A8310C6" Association="OrchestraDBModel.FK__Artist_Ar__Artis__4A8310C6">
+      <End Role="Artist" EntitySet="Artists" />
+      <End Role="Artist_ArtistType" EntitySet="Artist_ArtistType" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Artist_Ar__Artis__4B7734FF" Association="OrchestraDBModel.FK__Artist_Ar__Artis__4B7734FF">
+      <End Role="ArtistType" EntitySet="ArtistTypes" />
+      <End Role="Artist_ArtistType" EntitySet="Artist_ArtistType" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="User">
@@ -435,6 +468,49 @@
       </Principal>
       <Dependent Role="UserPersonalInfo">
         <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Artist_ArtistType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Artist" Type="Int32" />
+    <Property Name="ArtistTypeID" Type="Int32" />
+    <NavigationProperty Name="Artist1" Relationship="OrchestraDBModel.FK__Artist_Ar__Artis__4A8310C6" FromRole="Artist_ArtistType" ToRole="Artist" />
+    <NavigationProperty Name="ArtistType" Relationship="OrchestraDBModel.FK__Artist_Ar__Artis__4B7734FF" FromRole="Artist_ArtistType" ToRole="ArtistType" />
+  </EntityType>
+  <EntityType Name="ArtistType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Artist_ArtistType" Relationship="OrchestraDBModel.FK__Artist_Ar__Artis__4B7734FF" FromRole="ArtistType" ToRole="Artist_ArtistType" />
+  </EntityType>
+  <Association Name="FK__Artist_Ar__Artis__4A8310C6">
+    <End Type="OrchestraDBModel.Artist" Role="Artist" Multiplicity="0..1" />
+    <End Type="OrchestraDBModel.Artist_ArtistType" Role="Artist_ArtistType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Artist_ArtistType">
+        <PropertyRef Name="Artist" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Artist_Ar__Artis__4B7734FF">
+    <End Type="OrchestraDBModel.ArtistType" Role="ArtistType" Multiplicity="0..1" />
+    <End Type="OrchestraDBModel.Artist_ArtistType" Role="Artist_ArtistType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ArtistType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Artist_ArtistType">
+        <PropertyRef Name="ArtistTypeID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

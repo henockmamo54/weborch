@@ -44,5 +44,7 @@ namespace DataAccess
         public virtual DbSet<UserCommonTable> UserCommonTables { get; set; }
         public virtual DbSet<UserCompany> UserCompanies { get; set; }
         public virtual DbSet<UserPersonalInfo> UserPersonalInfoes { get; set; }
+        public virtual DbSet<Artist_ArtistType> Artist_ArtistType { get; set; }
+        public virtual DbSet<ArtistType> ArtistTypes { get; set; }
     }
 }

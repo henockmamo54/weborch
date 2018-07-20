@@ -61,6 +61,12 @@
     <Compile Include="Artist.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ArtistType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Artist_ArtistType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Artist_Instrument.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

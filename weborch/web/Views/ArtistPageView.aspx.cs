@@ -56,6 +56,35 @@ namespace web
                 artist.MobileNO = txt_artist_mobileno.Text;
                 artist.FaxNo = txt_aritist_faxno.Text;
                 artist.Remar = txt_artist_remark.Text;
+
+                artist.FacebookAddress = ufacebookadd.Text;
+                artist.TwitterAddress = utwitter.Text;
+                artist.KakaoTalkAddress = ukakao.Text;
+                artist.Photo1 = uphoto1.Text;
+                artist.Photo2 = uphoto2.Text;
+                artist.ProfilePage = uprofilepage.Text;
+                artist.Repertory = urepertory.Text;
+                artist.EndorsorEmailID1 = uedoremail1.Text;
+                artist.EndorsorName1 = uendorname1.Text;
+                artist.EndorsorComments1 = uendorcomm1.Text;
+
+                artist.EndorsorEmailID2 = uedoremail2.Text;
+                artist.EndorsorName2 = uendorname2.Text;
+                artist.EndorsorComments2 = uendorcomm2.Text;
+
+                artist.EndorsorEmailID3 = uedoremail3.Text;
+                artist.EndorsorName3 = uendorname3.Text;
+                artist.EndorsorComments3 = uendorcomm3.Text;
+
+                artist.EndorsorEmailID4 = uedoremail4.Text;
+                artist.EndorsorName4 = uendorname4.Text;
+                artist.EndorsorComments4 = uendorcomm4.Text;
+
+                artist.EndorsorEmailID5 = uedoremail5.Text;
+                artist.EndorsorName5 = uendorname5.Text;
+                artist.EndorsorComments5 = uendorcomm5.Text;
+
+
                 var artistID = artl.addArtistReturnNewID(artist);
                 if (artistID != -1)
                 {
@@ -74,6 +103,27 @@ namespace web
                         }
                     }
 
+                    //get all Artist types
+                    List<int> usertypes = new List<int>();
+                    if (chk_Composer.Checked) usertypes.Add(1);
+                    if (chk_Conductor.Checked) usertypes.Add(2);
+                    if (chk_tp.Checked) usertypes.Add(3);
+                    if (chk_Student.Checked) usertypes.Add(4);
+                    if (chk_player.Checked) usertypes.Add(5);
+
+                    // register  user types
+                    foreach (int i in usertypes)
+                    {
+                        Artist_ArtistType type = new Artist_ArtistType();
+                        type.Artist = artistID;
+                        type.ArtistTypeID = i;
+
+                        OrchestraDBEntities entity = new OrchestraDBEntities();
+                        entity.Artist_ArtistType.Add(type);
+                        entity.SaveChanges();
+                    }
+
+
                     DropDownList1_artistList.DataBind();
                     showMsg("Data inserted succssfuly");
                     cleanArtistTextBoxs();
@@ -86,6 +136,9 @@ namespace web
             }
         }
 
+        public void chk_boxChanged(object sender, EventArgs e) {
+
+        }
 
         public void cleanArtistTextBoxs()
         {

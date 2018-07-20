@@ -33,6 +33,10 @@
         <AssociationConnector Association="OrchestraDBModel.FK__User_User__UserT__3A4CA8FD" />
         <AssociationConnector Association="OrchestraDBModel.FK__UserCompa__UserI__45BE5BA9" />
         <AssociationConnector Association="OrchestraDBModel.FK__UserPerso__UserI__41EDCAC5" />
+        <EntityTypeShape EntityType="OrchestraDBModel.Artist_ArtistType" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="OrchestraDBModel.ArtistType" Width="1.5" PointX="0.75" PointY="15.75" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Artist_Ar__Artis__4A8310C6" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Artist_Ar__Artis__4B7734FF" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

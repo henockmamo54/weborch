@@ -9,37 +9,29 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="col-md-12 shadowedPanel">
-                            <div class=" row col-md-12">
+                            <div class=" row col-md-12 form-group">
 
-                                <%--<div class="col-md-4">
-                                    <div class="col-md-4">First Name:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_artist_firstname" runat="server"></asp:TextBox>
-                                    </div>
-                                    <br />
-
-                                </div>--%>
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">First Name:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_artist_firstname" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_artist_firstname" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
                                 </div>
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Family Name:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_artist_familyname" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_artist_familyname" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
                                 </div>
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Middle Name:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_artist_middlename" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_artist_middlename" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
@@ -47,28 +39,17 @@
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Birth date:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_artist_birthdate" runat="server" ToolTip="dd/mm/yyyy"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_artist_birthdate" runat="server" class="form-control" ToolTip="dd/mm/yyyy"></asp:TextBox>
                                     </div>
                                     <br />
                                 </div>
 
-                                <%--<div class="col-md-12">
-                                        <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" OnSelectionChanged="Calendar1_SelectionChanged" Visible="True" Width="350px">
-                                            <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
-                                            <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
-                                            <OtherMonthDayStyle ForeColor="#999999" />
-                                            <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-                                            <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
-                                            <TodayDayStyle BackColor="#CCCCCC" />
-                                        </asp:Calendar>
-                                </div>--%>
-
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Address:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_artist_address" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_artist_address" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
@@ -76,8 +57,8 @@
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Zip Code:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_artist_zipcode" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_artist_zipcode" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
@@ -85,8 +66,8 @@
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Tel. No:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_artist_teleno" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_artist_teleno" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
@@ -94,8 +75,8 @@
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Mobile No:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_artist_mobileno" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_artist_mobileno" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
@@ -103,8 +84,8 @@
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Fax No:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_aritist_faxno" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_aritist_faxno" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
@@ -112,10 +93,213 @@
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Remarks:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_artist_remark" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_artist_remark" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
+                                </div>
+
+                                <%--=====================================================================================================================================================================================--%>
+
+
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Kakao Talk ID:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="ukakao" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Facebook Addr.:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="ufacebookadd" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Twitter Addr.:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="utwitter" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Photo 1:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uphoto1" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Photo 2:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uphoto2" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Profile Page.:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uprofilepage" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Repertory.:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="urepertory" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Email ID 1:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uedoremail1" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Name 1:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uendorname1" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Comments 1:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uendorcomm1" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+
+
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Email ID 2:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uedoremail2" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Name 2:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uendorname2" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Comments 2:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uendorcomm2" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+
+
+
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Email ID 3:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uedoremail3" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Name 3:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uendorname3" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Comments 3:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uendorcomm3" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+
+
+
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Email ID 4:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uedoremail4" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Name 4:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uendorname4" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Comments 4:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uendorcomm4" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Email ID 5:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uedoremail5" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Name 5:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uendorname5" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Comments 5:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uendorcomm5" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+
+                                <%--===========================================================================================================================================================--%>
+                            </div>
+                            <div class="rwo">
+                                <label>What kind Of Artist Are you?</label>
+                                <div class="col-md-12 form-group">
+                                    <br />
+                                    <asp:CheckBox runat="server" ID="chk_Composer" Text="Composer" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                                    <asp:CheckBox runat="server" ID="chk_Conductor" Text="Conductor" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                                    <asp:CheckBox runat="server" ID="chk_tp" Text="Teacher/Professor" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                                    <asp:CheckBox runat="server" ID="chk_Student" Text="Student" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                                    <asp:CheckBox runat="server" ID="chk_player" Text="Player" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
                                 </div>
                             </div>
                             <div class="row col-md-12">
@@ -126,7 +310,7 @@
                                             <asp:Label runat="server">Instrument</asp:Label>
                                         </div>
                                         <div class="col-md-4">
-                                            <asp:DropDownList runat="server" ID="DropDownList1_InstrumentInTheMain" AutoPostBack="True" DataSourceID="SqlDataSource3_instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
+                                            <asp:DropDownList class="form-control" runat="server" ID="DropDownList1_InstrumentInTheMain" AutoPostBack="True" DataSourceID="SqlDataSource3_instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
                                         </div>
                                         <div class="col-md-4">
                                             <asp:Button ID="btn_add_Inst" CssClass="btn btn-sm btn-info" runat="server" Text="Add" OnClick="btn_add_Inst_Click" />
@@ -139,7 +323,6 @@
                                     <asp:Repeater runat="server" ID="myinstrepeater">
                                         <ItemTemplate>
                                             <tr style="margin-bottom: 3px;">
-                                                <%--<span class="glyphicon glyphicon-trash" style="color:dodgerblue;padding:2px;"></span--%>
                                                 <asp:Button runat="server" AutoPostBack="True" CommandArgument='<%#Eval("ID")%>' OnClick="removeinstrumentfrommyMainList" Text="Delete"></asp:Button>
                                                 <td>
                                                     <asp:Label runat="server" ID="Label1" Text='<%# Eval("EnglishName") %>' />
@@ -160,8 +343,7 @@
                 <hr />
                 <div class="row">
                     <div class="row " style="margin: 5px;">
-                        <%--<span class="glyphicon glyphicon-search pull-right" style="padding: 5px;"></span>--%>
-                        <span class='input-group-addon' style="    background: #DFF0D8;">
+                        <span class='input-group-addon' style="background: #DFF0D8;">
                             <i class='glyphicon glyphicon-search pull-right' style="padding: 5px;"></i>
                             <asp:TextBox CssClass="pull-right" ID="TextBox1_serach" runat="server" AutoPostBack="True" OnTextChanged="serachTextValueChanged"></asp:TextBox>
                             <asp:Label runat="server" CssClass="pull-right" Style="padding: 5px;">Name:</asp:Label>
