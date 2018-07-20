@@ -278,6 +278,7 @@
     <Content Include="Views\IntroductionPage.aspx" />
     <Content Include="Views\MyPage.aspx" />
     <Content Include="Views\OrchestraView.aspx" />
+    <Content Include="Views\PerformancePage.aspx" />
     <Content Include="Views\signupPages\TermsOfUsePage.aspx" />
     <Content Include="Views\signupPages\UserInformationRegistrationPage.aspx" />
     <Content Include="Views\UserPageView.aspx" />
@@ -584,6 +585,13 @@
     </Compile>
     <Compile Include="Views\OrchestraView.aspx.designer.cs">
       <DependentUpon>OrchestraView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PerformancePage.aspx.cs">
+      <DependentUpon>PerformancePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\PerformancePage.aspx.designer.cs">
+      <DependentUpon>PerformancePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\signupPages\TermsOfUsePage.aspx.cs">
       <DependentUpon>TermsOfUsePage.aspx</DependentUpon>

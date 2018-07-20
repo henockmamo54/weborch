@@ -132,3 +132,58 @@ select * from Core.Artist
 --EndorsorEmailID5  nvarchar(30) null,
 --EndorsorName5  nvarchar(30) null,
 --EndorsorComments5  nvarchar(100) null
+
+
+--create table lookup.ArtistType(
+--ID int not null primary key IDENTITY(1,1),
+--Name Nvarchar(100) not null,
+--IsActive BIT null
+--)
+
+--Insert into lookup.ArtistType(Name)
+--values('Composer'),
+--('Conductor'),
+--('Teacher/Professor'),
+--('Student'),
+--('Player')
+
+--create table Drived.Artist_ArtistType(
+--ID int not null primary key IDENTITY(1,1),
+--Artist int FOREIGN KEY REFERENCES [Core].[Artist](ID),
+--ArtistTypeID int FOREIGN KEY REFERENCES lookup.ArtistType(ID)
+--)
+
+
+--create table Main.Performance
+--(
+--ID int not null primary key IDENTITY(1,1),
+--PerformanceDate datetime not null,
+--PerformanceDay Nvarchar(32) not null,
+--PerformanceTitle Nvarchar(64) not null,
+--Orchestra Nvarchar(32) not null,
+--Location Nvarchar(32) not null,
+--ConcertHall Nvarchar(32) not null
+--)
+
+--alter table Main.Performance
+--add
+----UserID int FOREIGN KEY REFERENCES Main.UserCommonTable(ID)
+----TimeStamp datetime DEFAULT GETDATE(),
+----UserID int FOREIGN KEY REFERENCES Main.UserCommonTable(ID),
+----ExpiryDate datetime null
+--OrchestraID int FOREIGN KEY REFERENCES [Core].[Orchestra](ID)
+
+--create table Main.PerformanceDetail
+--(
+--ID int not null primary key IDENTITY(1,1),
+--PerformanceID int FOREIGN KEY REFERENCES Main.Performance(ID),
+--Title Nvarchar(128) not null,
+--Orchestra Nvarchar(64) not null,
+--Instrument Nvarchar(64) not null,
+--Conductor Nvarchar(64) not null,
+--Player Nvarchar(64) not null,
+--Composer Nvarchar(64) not null
+--)
+
+
+select * from Main.Performance

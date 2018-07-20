@@ -227,6 +227,35 @@
     <Property Name="IsActive" Type="bit" />
     <Property Name="Iscompany" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="Performance">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PerformanceDate" Type="datetime" Nullable="false" />
+    <Property Name="PerformanceDay" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="PerformanceTitle" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="Orchestra" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="Location" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="ConcertHall" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="TimeStamp" Type="datetime" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="ExpiryDate" Type="datetime" />
+    <Property Name="OrchestraID" Type="int" />
+  </EntityType>
+  <EntityType Name="PerformanceDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PerformanceID" Type="int" />
+    <Property Name="Title" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Orchestra" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="Instrument" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="Conductor" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="Player" Type="nvarchar" MaxLength="64" Nullable="false" />
+    <Property Name="Composer" Type="nvarchar" MaxLength="64" Nullable="false" />
+  </EntityType>
   <EntityType Name="UserCommonTable">
     <Key>
       <PropertyRef Name="ID" />
@@ -377,6 +406,42 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__Performan__Orche__531856C7">
+    <End Role="Orchestra" Type="Self.Orchestra" Multiplicity="0..1" />
+    <End Role="Performance" Type="Self.Performance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orchestra">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Performance">
+        <PropertyRef Name="OrchestraID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Performan__Perfo__503BEA1C">
+    <End Role="Performance" Type="Self.Performance" Multiplicity="0..1" />
+    <End Role="PerformanceDetail" Type="Self.PerformanceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Performance">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PerformanceDetail">
+        <PropertyRef Name="PerformanceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Performan__UserI__5224328E">
+    <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
+    <End Role="Performance" Type="Self.Performance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserCommonTable">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Performance">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__User_User__UserI__395884C4">
     <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
     <End Role="User_UserType" Type="Self.User_UserType" Multiplicity="*" />
@@ -444,6 +509,8 @@
     <EntitySet Name="User_UserType" EntityType="Self.User_UserType" Schema="Drived" store:Type="Tables" />
     <EntitySet Name="ArtistType" EntityType="Self.ArtistType" Schema="Lookup" store:Type="Tables" />
     <EntitySet Name="UserType" EntityType="Self.UserType" Schema="Lookup" store:Type="Tables" />
+    <EntitySet Name="Performance" EntityType="Self.Performance" Schema="Main" store:Type="Tables" />
+    <EntitySet Name="PerformanceDetail" EntityType="Self.PerformanceDetail" Schema="Main" store:Type="Tables" />
     <EntitySet Name="UserCommonTable" EntityType="Self.UserCommonTable" Schema="Main" store:Type="Tables" />
     <EntitySet Name="UserCompany" EntityType="Self.UserCompany" Schema="Main" store:Type="Tables" />
     <EntitySet Name="UserPersonalInfo" EntityType="Self.UserPersonalInfo" Schema="Main" store:Type="Tables" />
@@ -474,6 +541,18 @@
     <AssociationSet Name="FK__Orchestra__Orche__151B244E" Association="Self.FK__Orchestra__Orche__151B244E">
       <End Role="Orchestra" EntitySet="Orchestra" />
       <End Role="Orchestra_Instrument_Artist" EntitySet="Orchestra_Instrument_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Performan__Orche__531856C7" Association="Self.FK__Performan__Orche__531856C7">
+      <End Role="Orchestra" EntitySet="Orchestra" />
+      <End Role="Performance" EntitySet="Performance" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Performan__Perfo__503BEA1C" Association="Self.FK__Performan__Perfo__503BEA1C">
+      <End Role="Performance" EntitySet="Performance" />
+      <End Role="PerformanceDetail" EntitySet="PerformanceDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Performan__UserI__5224328E" Association="Self.FK__Performan__UserI__5224328E">
+      <End Role="UserCommonTable" EntitySet="UserCommonTable" />
+      <End Role="Performance" EntitySet="Performance" />
     </AssociationSet>
     <AssociationSet Name="FK__User_User__UserI__395884C4" Association="Self.FK__User_User__UserI__395884C4">
       <End Role="UserCommonTable" EntitySet="UserCommonTable" />

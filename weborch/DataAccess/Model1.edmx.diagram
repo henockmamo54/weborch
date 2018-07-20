@@ -37,6 +37,11 @@
         <EntityTypeShape EntityType="OrchestraDBModel.ArtistType" Width="1.5" PointX="0.75" PointY="15.75" />
         <AssociationConnector Association="OrchestraDBModel.FK__Artist_Ar__Artis__4A8310C6" />
         <AssociationConnector Association="OrchestraDBModel.FK__Artist_Ar__Artis__4B7734FF" />
+        <EntityTypeShape EntityType="OrchestraDBModel.Performance" Width="1.5" PointX="6.375" PointY="12" />
+        <EntityTypeShape EntityType="OrchestraDBModel.PerformanceDetail" Width="1.5" PointX="8.625" PointY="12" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Performan__Perfo__503BEA1C" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Performan__UserI__5224328E" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Performan__Orche__531856C7" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
