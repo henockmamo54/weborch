@@ -94,6 +94,7 @@ namespace web.Views.signupPages
                 chk_Agent.Checked = iscompany;
                 chk_shopOwner.Checked = iscompany;
                 chk_companyOther.Checked = iscompany;
+                if (CompanyInfoFormContainer.Visible) CompanyInfoFormContainer.Visible = false;
             }
             else
             {
@@ -105,6 +106,7 @@ namespace web.Views.signupPages
                 chk_Student.Checked = !iscompany;
                 chk_Audience.Checked = !iscompany;
                 chk_userOther.Checked = !iscompany;
+                if (PersonInfoFormContainer.Visible) PersonInfoFormContainer.Visible = false;
             }
 
             Session["iscompany"] = iscompany;
@@ -127,51 +129,40 @@ namespace web.Views.signupPages
             catch (Exception ee) { }
         }
 
-        protected void btn_regCoompany_click(object sender, EventArgs e) {
-
-            if(Session["iscompany"]!=null)
-            iscompany = (bool)Session["iscompany"];
-
+        protected void btn_regCoompany_click(object sender, EventArgs e)
+        {
             //get all user types
             List<int> usertypes = new List<int>();
-            if (iscompany)
-            {
-                if(chk_Orchestra.Checked) usertypes.Add(18);
-                if (chk_Promoter.Checked) usertypes.Add(19);
-                if (chk_Agent.Checked) usertypes.Add(20);
-                if (chk_shopOwner.Checked) usertypes.Add(21);
-                if (chk_companyOther.Checked) usertypes.Add(22);
-            }
-            else {
-                if (chk_Composer.Checked) usertypes.Add(12);
-                if (chk_Conductor.Checked) usertypes.Add(13);
-                if (chk_tp.Checked) usertypes.Add(14);
-                if (chk_Student.Checked) usertypes.Add(15);
-                if (chk_Audience.Checked) usertypes.Add(16);
-                if (chk_userOther.Checked) usertypes.Add(17);                
-            }
+            if (chk_Orchestra.Checked) usertypes.Add(18);
+            if (chk_Promoter.Checked) usertypes.Add(19);
+            if (chk_Agent.Checked) usertypes.Add(20);
+            if (chk_shopOwner.Checked) usertypes.Add(21);
+            if (chk_companyOther.Checked) usertypes.Add(22);
 
             /// first insert user email and password into user common table
             /// insert user types into userusertable
             /// finally insert company info
             /// 
-
-            using (var context = new OrchestraDBEntities()) {
-                using (var dbContextTransaction = context.Database.BeginTransaction()) {
+            bool isSuccess = false;
+            using (var context = new OrchestraDBEntities())
+            {
+                using (var dbContextTransaction = context.Database.BeginTransaction())
+                {
                     try
                     {
                         //register user
                         UserCommonTable user = new UserCommonTable();
                         user.Email = oemail.Text;
-                        user.Password = oemail.Text;
+                        user.Password = opassword.Text;
                         user.isActive = true;
                         user.MobileNumber = omibile.Text;
 
                         context.UserCommonTables.Add(user);
                         context.SaveChanges();
-                        
+
                         // register  user types
-                        foreach (int i in usertypes) {
+                        foreach (int i in usertypes)
+                        {
                             User_UserType type = new User_UserType();
                             type.UserID = user.ID;
                             type.UserTypeID = i;
@@ -200,15 +191,128 @@ namespace web.Views.signupPages
                         context.SaveChanges();
 
                         dbContextTransaction.Commit();
+                        isSuccess = true;
+                    }
+                    catch (Exception ee)
+                    {
+                        dbContextTransaction.Rollback();
+                    }
+                }
 
+                if (isSuccess)
+                {
+                    showMsg("Data inserted succssfuly");
+                    Response.Redirect("~/Views/HomeView.aspx");
+                }
+                else showMsg("Please check your inputs");
+
+
+            }
+
+        }
+
+        protected void btn_regPersonalInfo_click(object sender, EventArgs e)
+        {
+
+            //get all user types
+            List<int> usertypes = new List<int>();
+            if (chk_Composer.Checked) usertypes.Add(12);
+            if (chk_Conductor.Checked) usertypes.Add(13);
+            if (chk_tp.Checked) usertypes.Add(14);
+            if (chk_Student.Checked) usertypes.Add(15);
+            if (chk_Audience.Checked) usertypes.Add(16);
+            if (chk_userOther.Checked) usertypes.Add(17);
+
+            /// first insert user email and password into user common table
+            /// insert user types into userusertable
+            /// finally insert company info
+            /// 
+
+            bool isSuccess = false;
+            using (var context = new OrchestraDBEntities())
+            {
+                using (var dbContextTransaction = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        //register user
+                        UserCommonTable user = new UserCommonTable();
+                        user.Email = uemail.Text;
+                        user.Password = upassword.Text;
+                        user.isActive = true;
+                        user.MobileNumber = umobileno.Text;
+
+                        context.UserCommonTables.Add(user);
+                        context.SaveChanges();
+
+                        // register  user types
+                        foreach (int i in usertypes)
+                        {
+                            User_UserType type = new User_UserType();
+                            type.UserID = user.ID;
+                            type.UserTypeID = i;
+
+                            context.User_UserType.Add(type);
+                            context.SaveChanges();
+                        }
+
+                        // register personal info
+                        UserPersonalInfo personalInfo = new UserPersonalInfo();
+                        personalInfo.UserID = user.ID;
+
+                        personalInfo.Name = uname.Text;
+                        personalInfo.Affiliation = uaffilation.Text;
+                        personalInfo.ZipCode = uzipcode.Text;
+                        personalInfo.Address = uaddress.Text;
+                        personalInfo.MobileNumber = umobileno.Text;
+                        personalInfo.FacebookAddress = ufacebookadd.Text;
+                        personalInfo.TwitterAddress = utwitter.Text;
+                        personalInfo.KakaoTalkAddress = ukakao.Text;
+                        personalInfo.MajorInstrument1 = umajorinst1.Text;
+                        personalInfo.MajorInstrument2 = umajorinst2.Text;
+                        personalInfo.Photo1 = uphoto1.Text;
+                        personalInfo.Photo2 = uphoto2.Text;
+                        personalInfo.ProfilePage = uprofilepage.Text;
+                        personalInfo.Repertory = urepertory.Text;
+                        personalInfo.EndorsorEmailID1 = uedoremail1.Text;
+                        personalInfo.EndorsorName1 = uendorname1.Text;
+                        personalInfo.EndorsorComments1 = uendorcomm1.Text;
+
+                        personalInfo.EndorsorEmailID2 = uedoremail2.Text;
+                        personalInfo.EndorsorName2 = uendorname2.Text;
+                        personalInfo.EndorsorComments2 = uendorcomm2.Text;
+
+                        personalInfo.EndorsorEmailID3 = uedoremail3.Text;
+                        personalInfo.EndorsorName3 = uendorname3.Text;
+                        personalInfo.EndorsorComments3 = uendorcomm3.Text;
+
+                        personalInfo.EndorsorEmailID4 = uedoremail4.Text;
+                        personalInfo.EndorsorName4 = uendorname4.Text;
+                        personalInfo.EndorsorComments4 = uendorcomm4.Text;
+
+                        personalInfo.EndorsorEmailID5 = uedoremail5.Text;
+                        personalInfo.EndorsorName5 = uendorname5.Text;
+                        personalInfo.EndorsorComments5 = uendorcomm5.Text;
+
+                        context.UserPersonalInfoes.Add(personalInfo);
+                        context.SaveChanges();
+
+                        dbContextTransaction.Commit();
+                        isSuccess = true;
+
+                    }
+                    catch (Exception ee)
+                    {
+                        dbContextTransaction.Rollback();
+
+                    }
+
+                    if (isSuccess)
+                    {
                         showMsg("Data inserted succssfuly");
                         Response.Redirect("~/Views/HomeView.aspx");
                     }
-                    catch (Exception)
-                    {
-                        dbContextTransaction.Rollback();
-                        showMsg("Please check your inputs");
-                    }
+                    else showMsg("Please check your inputs");
                 }
             }
 

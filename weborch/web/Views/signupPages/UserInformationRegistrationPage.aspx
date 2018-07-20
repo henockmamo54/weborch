@@ -53,7 +53,7 @@
                                                 <br />
                                                 <div class="col-md-4">Email:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox6" TextMode="Email" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uemail" TextMode="Email" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
 
@@ -62,7 +62,7 @@
                                                 <br />
                                                 <div class="col-md-4">Password:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox9" TextMode="Password" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="upassword" TextMode="Password" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
 
@@ -71,7 +71,7 @@
                                                 <br />
                                                 <div class="col-md-4">Name:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox10" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uname" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -79,7 +79,7 @@
                                                 <br />
                                                 <div class="col-md-4">Affiliation:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox11" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uaffilation" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
 
@@ -88,7 +88,7 @@
                                                 <br />
                                                 <div class="col-md-4">Zip Code:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox13" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uzipcode" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -96,7 +96,7 @@
                                                 <br />
                                                 <div class="col-md-4">Address:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox14" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uaddress" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -104,7 +104,7 @@
                                                 <br />
                                                 <div class="col-md-4">Mobile No.:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox12" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="umobileno" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -113,7 +113,7 @@
                                                 <br />
                                                 <div class="col-md-4">Facebook Addr.:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox15" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="ufacebookadd" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -121,7 +121,7 @@
                                                 <br />
                                                 <div class="col-md-4">Twitter Addr.:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox16" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="utwitter" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -129,7 +129,7 @@
                                                 <br />
                                                 <div class="col-md-4">Kakao Talk ID:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox17" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="ukakao" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -137,7 +137,7 @@
                                                 <br />
                                                 <div class="col-md-4">Major Instrument 1:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox18" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="umajorinst1" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -145,7 +145,7 @@
                                                 <br />
                                                 <div class="col-md-4">Major Instrument 2:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox19" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="umajorinst2" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -153,7 +153,7 @@
                                                 <br />
                                                 <div class="col-md-4">Photo 1:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox20" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uphoto1" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -161,7 +161,7 @@
                                                 <br />
                                                 <div class="col-md-4">Photo 2:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox21" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uphoto2" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -169,7 +169,7 @@
                                                 <br />
                                                 <div class="col-md-4">Profile Page.:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox22" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uprofilepage" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -177,7 +177,7 @@
                                                 <br />
                                                 <div class="col-md-4">Repertory.:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox31" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="urepertory" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -192,7 +192,7 @@
                                                 <br />
                                                 <div class="col-md-4">Endorsor Email ID 1:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox32" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uedoremail1" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -200,7 +200,7 @@
                                                 <br />
                                                 <div class="col-md-4">Endorsor Name 1:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox33" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uendorname1" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -208,7 +208,7 @@
                                                 <br />
                                                 <div class="col-md-4">Endorsor Comments 1:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox34" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uendorcomm1" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -218,7 +218,7 @@
                                                 <br />
                                                 <div class="col-md-4">Endorsor Email ID 2:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox35" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uedoremail2" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -226,7 +226,7 @@
                                                 <br />
                                                 <div class="col-md-4">Endorsor Name 2:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox36" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uendorname2" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -234,7 +234,7 @@
                                                 <br />
                                                 <div class="col-md-4">Endorsor Comments 2:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox37" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uendorcomm2" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -245,7 +245,7 @@
                                                 <br />
                                                 <div class="col-md-4">Endorsor Email ID 3:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox38" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uedoremail3" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -253,7 +253,7 @@
                                                 <br />
                                                 <div class="col-md-4">Endorsor Name 3:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox39" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uendorname3" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -261,7 +261,7 @@
                                                 <br />
                                                 <div class="col-md-4">Endorsor Comments 3:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox40" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uendorcomm3" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -272,7 +272,7 @@
                                                 <br />
                                                 <div class="col-md-4">Endorsor Email ID 4:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox41" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uedoremail4" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -280,7 +280,7 @@
                                                 <br />
                                                 <div class="col-md-4">Endorsor Name 4:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox42" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uendorname4" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -288,7 +288,7 @@
                                                 <br />
                                                 <div class="col-md-4">Endorsor Comments 4:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox43" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uendorcomm4" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>                                            
@@ -297,7 +297,7 @@
                                                 <br />
                                                 <div class="col-md-4">Endorsor Email ID 5:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox44" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uedoremail5" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -305,7 +305,7 @@
                                                 <br />
                                                 <div class="col-md-4">Endorsor Name 5:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox45" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uendorname5" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -313,7 +313,7 @@
                                                 <br />
                                                 <div class="col-md-4">Endorsor Comments 5:</div>
                                                 <div class="col-md-6">
-                                                    <asp:TextBox ID="TextBox46" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uendorcomm5" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
                                             </div>
@@ -323,7 +323,7 @@
 
                                     <div class="col-md-12 pull-right" style="text-align: center;">
                                         <asp:Button ID="Button1" CssClass="btn btn-danger " runat="server" Text="Cancel" OnClick="btn_cancel_click" />
-                                        <asp:Button ID="Button2" CssClass="btn btn-success " runat="server" Text="Add" OnClick="btn_useradd_Click" />
+                                        <asp:Button ID="Button2" CssClass="btn btn-success " runat="server" Text="Add" OnClick="btn_regPersonalInfo_click" />
                                     </div>
                                 </div>
                             </ContentTemplate>
