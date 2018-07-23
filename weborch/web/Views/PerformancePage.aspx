@@ -75,6 +75,9 @@
                     <AlternatingItemTemplate>
                         <tr style="background-color:#FFF8DC;">
                             <td>
+                                <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
+                            </td>
+                            <td>
                                 <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
                             </td>
                             <td>
@@ -199,6 +202,9 @@
                     <ItemTemplate>
                         <tr style="background-color:#DCDCDC;color: #000000;">
                             <td>
+                                <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
+                            </td>
+                            <td>
                                 <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
                             </td>
                             <td>
@@ -239,6 +245,7 @@
                                 <td runat="server">
                                     <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
                                         <tr runat="server" style="background-color:#DCDCDC;color: #000000;">
+                                            <th runat="server"></th>
                                             <th runat="server">ID</th>
                                             <th runat="server">PerformanceDate</th>
                                             <th runat="server">PerformanceDay</th>
@@ -269,6 +276,9 @@
                     </LayoutTemplate>
                     <SelectedItemTemplate>
                         <tr style="background-color:#008A8C;font-weight: bold;color: #FFFFFF;">
+                            <td>
+                                <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
+                            </td>
                             <td>
                                 <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
                             </td>
@@ -305,7 +315,12 @@
                         </tr>
                     </SelectedItemTemplate>
                 </asp:ListView>
-                <asp:SqlDataSource ID="SqlDataSource2_allPerformances" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT *  FROM Main.Performance"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource2_allPerformances" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT *  FROM Main.Performance" DeleteCommand="Delete Main.Performance
+where id = @ID">
+                    <DeleteParameters>
+                        <asp:Parameter Name="ID" />
+                    </DeleteParameters>
+                </asp:SqlDataSource>
             </div>
 
             <div class="row"></div>
