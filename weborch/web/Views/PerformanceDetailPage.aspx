@@ -313,10 +313,10 @@ where al.Name='Composer'
                     </tr>
                 </ItemTemplate>
                 <LayoutTemplate>
-                    <table runat="server">
+                    <table runat="server" style="width:100%;">
                         <tr runat="server">
                             <td runat="server">
-                                <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
+                                <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;width:100%;">
                                     <tr runat="server" style="background-color:#DCDCDC;color: #000000;">
                                         <th runat="server"></th>
                                         <th runat="server">ID</th>
@@ -350,7 +350,7 @@ where al.Name='Composer'
                     </table>
                 </LayoutTemplate>
                 <SelectedItemTemplate>
-                    <tr style="background-color:#008A8C;font-weight: bold;color: #FFFFFF;">
+                    <tr style="background-color:#008A8C;font-weight: bold;color: #FFFFFF; width:100%;">
                         <td>
                             <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                             <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
