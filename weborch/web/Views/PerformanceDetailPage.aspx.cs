@@ -32,7 +32,7 @@ namespace web.Views
 
                 entity.PerformanceDetails.Add(pd);
                 entity.SaveChanges();
-
+                ListView2.DataBind();
                 showMsg("Data inserted succssfuly");
             }
             catch (Exception ee) {
@@ -44,5 +44,6 @@ namespace web.Views
         {
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + msg + "')", true);            
         }
+        
     }
 }

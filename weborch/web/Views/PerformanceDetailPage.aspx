@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PerformanceDetailPage.aspx.cs" Inherits="web.Views.PerformanceDetailPage" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <asp:UpdatePanel runat="server">
@@ -11,7 +12,7 @@
                         <br />
                         <div class="col-md-4">Performance:</div>
                         <div class="col-md-8">
-                            <asp:DropDownList ID="dropdown_performance" runat="server" DataSourceID="SqlDataSource1_performanceList" DataTextField="PerformanceTitle" DataValueField="ID" class="form-control" ></asp:DropDownList>
+                            <asp:DropDownList ID="dropdown_performance" runat="server" DataSourceID="SqlDataSource1_performanceList" DataTextField="PerformanceTitle" DataValueField="ID" class="form-control" AutoPostBack="True"></asp:DropDownList>
                             <asp:SqlDataSource ID="SqlDataSource1_performanceList" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT ID, PerformanceTitle FROM Main.Performance"></asp:SqlDataSource>
                         </div>
                         <br />
@@ -34,7 +35,7 @@
                             <%--<asp:TextBox ID="txt_performanceday" runat="server" class="form-control"></asp:TextBox>--%>
                             <asp:DropDownList ID="DropDownList1_orchestra" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID"></asp:DropDownList>
                             <asp:SqlDataSource ID="SqlDataSource1_allOrchestra" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
-                        
+
                         </div>
                         <br />
                     </div>
@@ -47,7 +48,7 @@
                             <%--<asp:TextBox ID="txt_orchestra" runat="server" class="form-control"></asp:TextBox>--%>
                             <asp:DropDownList ID="DropDownList_instrumentlist" runat="server" DataSourceID="SqlDataSource2_instrumentlist" DataTextField="EnglishName" DataValueField="ID" class="form-control"></asp:DropDownList>
                             <asp:SqlDataSource ID="SqlDataSource2_instrumentlist" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT ID, EnglishName FROM Core.Instrument"></asp:SqlDataSource>
-                            </div>
+                        </div>
                         <br />
 
                     </div>
@@ -105,9 +106,263 @@ where al.Name='Composer'
                     <asp:Button ID="txt_addInstrument" CssClass="btn btn-primary pull-right" runat="server" Text="Register" OnClick="addDetailClicked" />
                 </div>
             </div>
+            
+            <hr />
+
+            <asp:ListView ID="ListView2" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource1_performanceDetailList">
+                <AlternatingItemTemplate>
+                    <tr style="background-color:#FFF8DC;">
+                        <td>
+                            <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
+                        </td>
+                        <td>
+                            <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="PerformanceIDLabel" runat="server" Text='<%# Eval("PerformanceID") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="PerformanceTitleLabel" runat="server" Text='<%# Eval("PerformanceTitle") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="OfficialNameLabel" runat="server" Text='<%# Eval("OfficialName") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="EnglishNameLabel" runat="server" Text='<%# Eval("EnglishName") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="ConductorLabel" runat="server" Text='<%# Eval("Conductor") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="ComposerLabel" runat="server" Text='<%# Eval("Composer") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="PlayerLabel" runat="server" Text='<%# Eval("Player") %>' />
+                        </td>
+                    </tr>
+                </AlternatingItemTemplate>
+                <EditItemTemplate>
+                    <tr style="background-color:#008A8C;color: #FFFFFF;">
+                        <td>
+                            <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
+                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
+                        </td>
+                        <td>
+                            <asp:Label ID="IDLabel1" runat="server" Text='<%# Eval("ID") %>' />
+                        </td>
+                        <td>
+                            <asp:TextBox ID="PerformanceIDTextBox" runat="server" Text='<%# Bind("PerformanceID") %>' />
+                        </td>
+                        <td>
+                            <asp:TextBox ID="PerformanceTitleTextBox" runat="server" Text='<%# Bind("PerformanceTitle") %>' />
+                        </td>
+                        <td>
+                            <asp:TextBox ID="TitleTextBox" runat="server" Text='<%# Bind("Title") %>' />
+                        </td>
+                        <td>
+                            <asp:TextBox ID="OfficialNameTextBox" runat="server" Text='<%# Bind("OfficialName") %>' />
+                        </td>
+                        <td>
+                            <asp:TextBox ID="EnglishNameTextBox" runat="server" Text='<%# Bind("EnglishName") %>' />
+                        </td>
+                        <td>
+                            <asp:TextBox ID="ConductorTextBox" runat="server" Text='<%# Bind("Conductor") %>' />
+                        </td>
+                        <td>
+                            <asp:TextBox ID="ComposerTextBox" runat="server" Text='<%# Bind("Composer") %>' />
+                        </td>
+                        <td>
+                            <asp:TextBox ID="PlayerTextBox" runat="server" Text='<%# Bind("Player") %>' />
+                        </td>
+                    </tr>
+                </EditItemTemplate>
+                <EmptyDataTemplate>
+                    <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
+                        <tr>
+                            <td>No data was returned.</td>
+                        </tr>
+                    </table>
+                </EmptyDataTemplate>
+                <InsertItemTemplate>
+                    <tr style="">
+                        <td>
+                            <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
+                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
+                        </td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <asp:TextBox ID="PerformanceIDTextBox" runat="server" Text='<%# Bind("PerformanceID") %>' />
+                        </td>
+                        <td>
+                            <asp:TextBox ID="PerformanceTitleTextBox" runat="server" Text='<%# Bind("PerformanceTitle") %>' />
+                        </td>
+                        <td>
+                            <asp:TextBox ID="TitleTextBox" runat="server" Text='<%# Bind("Title") %>' />
+                        </td>
+                        <td>
+                            <asp:TextBox ID="OfficialNameTextBox" runat="server" Text='<%# Bind("OfficialName") %>' />
+                        </td>
+                        <td>
+                            <asp:TextBox ID="EnglishNameTextBox" runat="server" Text='<%# Bind("EnglishName") %>' />
+                        </td>
+                        <td>
+                            <asp:TextBox ID="ConductorTextBox" runat="server" Text='<%# Bind("Conductor") %>' />
+                        </td>
+                        <td>
+                            <asp:TextBox ID="ComposerTextBox" runat="server" Text='<%# Bind("Composer") %>' />
+                        </td>
+                        <td>
+                            <asp:TextBox ID="PlayerTextBox" runat="server" Text='<%# Bind("Player") %>' />
+                        </td>
+                    </tr>
+                </InsertItemTemplate>
+                <ItemTemplate>
+                    <tr style="background-color:#DCDCDC;color: #000000;">
+                        <td>
+                            <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
+                        </td>
+                        <td>
+                            <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="PerformanceIDLabel" runat="server" Text='<%# Eval("PerformanceID") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="PerformanceTitleLabel" runat="server" Text='<%# Eval("PerformanceTitle") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="OfficialNameLabel" runat="server" Text='<%# Eval("OfficialName") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="EnglishNameLabel" runat="server" Text='<%# Eval("EnglishName") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="ConductorLabel" runat="server" Text='<%# Eval("Conductor") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="ComposerLabel" runat="server" Text='<%# Eval("Composer") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="PlayerLabel" runat="server" Text='<%# Eval("Player") %>' />
+                        </td>
+                    </tr>
+                </ItemTemplate>
+                <LayoutTemplate>
+                    <table runat="server">
+                        <tr runat="server">
+                            <td runat="server">
+                                <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
+                                    <tr runat="server" style="background-color:#DCDCDC;color: #000000;">
+                                        <th runat="server"></th>
+                                        <th runat="server">ID</th>
+                                        <th runat="server">PerformanceID</th>
+                                        <th runat="server">PerformanceTitle</th>
+                                        <th runat="server">Title</th>
+                                        <th runat="server">OfficialName</th>
+                                        <th runat="server">EnglishName</th>
+                                        <th runat="server">Conductor</th>
+                                        <th runat="server">Composer</th>
+                                        <th runat="server">Player</th>
+                                    </tr>
+                                    <tr id="itemPlaceholder" runat="server">
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr runat="server">
+                            <td runat="server" style="text-align: center;background-color: #CCCCCC;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;">
+                                <asp:DataPager ID="DataPager1" runat="server">
+                                    <Fields>
+                                        <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                                        <asp:NumericPagerField />
+                                        <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                                    </Fields>
+                                </asp:DataPager>
+                            </td>
+                        </tr>
+                    </table>
+                </LayoutTemplate>
+                <SelectedItemTemplate>
+                    <tr style="background-color:#008A8C;font-weight: bold;color: #FFFFFF;">
+                        <td>
+                            <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
+                        </td>
+                        <td>
+                            <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="PerformanceIDLabel" runat="server" Text='<%# Eval("PerformanceID") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="PerformanceTitleLabel" runat="server" Text='<%# Eval("PerformanceTitle") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="OfficialNameLabel" runat="server" Text='<%# Eval("OfficialName") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="EnglishNameLabel" runat="server" Text='<%# Eval("EnglishName") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="ConductorLabel" runat="server" Text='<%# Eval("Conductor") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="ComposerLabel" runat="server" Text='<%# Eval("Composer") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="PlayerLabel" runat="server" Text='<%# Eval("Player") %>' />
+                        </td>
+                    </tr>
+                </SelectedItemTemplate>
+            </asp:ListView>
+
             <br />
-        
-            <div class="row"></div>
+
+            <div class="row">
+                <asp:SqlDataSource ID="SqlDataSource1_performanceDetailList" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" DeleteCommand="
+delete  
+Main.PerformanceDetail 
+where ID= @ID"
+                    FilterExpression="PerformanceID={0}" SelectCommand="
+select  pd.ID, CAST(pr.PerformanceID as nvarchar) PerformanceID,
+ pr.PerformanceTitle ,pd.Title,o.OfficialName, i.EnglishName,  
+(c.FirstName + ' '+ c.MiddleName + ' '+ c.FamilyName) as Conductor,
+(co.FirstName + ' '+ co.MiddleName + ' '+ co.FamilyName) as Composer,
+(pl.FirstName + ' '+ pl.MiddleName + ' '+ pl.FamilyName) as Player
+
+from [Main].[PerformanceDetail] pd
+join  (select ID as PerformanceID, PerformanceTitle from Main.Performance) pr on pr.PerformanceID=pd.PerformanceID
+join Core.Orchestra o on pd.Orchestra=o.ID
+join  Core.Instrument i on pd.Instrument=i.ID
+join  (select a.* from Core.Artist a 
+		join Drived.Artist_ArtistType at on a.ID= at.Artist
+		join Lookup.ArtistType al  on at.ArtistTypeID = al.ID
+		where al.Name like '%Conductor%') c on c.ID= pd.Conductor
+join  (select a.* from Core.Artist a 
+		join Drived.Artist_ArtistType at on a.ID= at.Artist
+		join Lookup.ArtistType al  on at.ArtistTypeID = al.ID
+		where al.Name like '%Composer%') co on co.ID= pd.Composer
+join  (select a.* from Core.Artist a 
+		join Drived.Artist_ArtistType at on a.ID= at.Artist
+		join Lookup.ArtistType al  on at.ArtistTypeID = al.ID
+		where al.Name like '%Player%') pl on pl.ID= pd.Player">
+                    <DeleteParameters>
+                        <asp:Parameter Name="ID" />
+                    </DeleteParameters>
+                    <FilterParameters>
+                        <asp:ControlParameter ControlID="dropdown_performance" DefaultValue="-1" Name="performanceID" PropertyName="SelectedValue" />
+                    </FilterParameters>
+                </asp:SqlDataSource>
+
+            </div>
         </ContentTemplate>
     </asp:UpdatePanel>
     <style>

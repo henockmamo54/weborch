@@ -185,16 +185,25 @@ select * from Core.Artist
 --Composer Nvarchar(64) not null
 --)
 
-alter table [Main].[PerformanceDetail]
-drop column Instrument,Conductor,Player, Composer
---[Orchestra],
+--alter table [Main].[PerformanceDetail]
+--drop column 
+----Instrument
+----Conductor
+----Player 
+----Composer
+--[Orchestra]
 
 --alter table [Main].[PerformanceDetail]
 --add [Orchestra] int FOREIGN KEY REFERENCES Core.Orchestra(ID)
+--alter table [Main].[PerformanceDetail]
 --add Instrument int FOREIGN KEY REFERENCES Core.Instrument(ID)
+--alter table [Main].[PerformanceDetail]
 --add Conductor int FOREIGN KEY REFERENCES Core.Artist(ID)
+--alter table [Main].[PerformanceDetail]
 --add Player int FOREIGN KEY REFERENCES Core.Artist(ID)
+--alter table [Main].[PerformanceDetail]
 --add Composer int FOREIGN KEY REFERENCES Core.Artist(ID)
 
 
-select * from Main.Performance
+--alter table main.performanceDetail
+--drop constraint FK__Performan__Orche__55009F39
