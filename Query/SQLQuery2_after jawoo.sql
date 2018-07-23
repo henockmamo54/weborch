@@ -185,5 +185,16 @@ select * from Core.Artist
 --Composer Nvarchar(64) not null
 --)
 
+alter table [Main].[PerformanceDetail]
+drop column Instrument,Conductor,Player, Composer
+--[Orchestra],
+
+--alter table [Main].[PerformanceDetail]
+--add [Orchestra] int FOREIGN KEY REFERENCES Core.Orchestra(ID)
+--add Instrument int FOREIGN KEY REFERENCES Core.Instrument(ID)
+--add Conductor int FOREIGN KEY REFERENCES Core.Artist(ID)
+--add Player int FOREIGN KEY REFERENCES Core.Artist(ID)
+--add Composer int FOREIGN KEY REFERENCES Core.Artist(ID)
+
 
 select * from Main.Performance

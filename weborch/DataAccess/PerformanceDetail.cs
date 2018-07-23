@@ -17,12 +17,17 @@ namespace DataAccess
         public int ID { get; set; }
         public Nullable<int> PerformanceID { get; set; }
         public string Title { get; set; }
-        public string Orchestra { get; set; }
-        public string Instrument { get; set; }
-        public string Conductor { get; set; }
-        public string Player { get; set; }
-        public string Composer { get; set; }
+        public Nullable<int> Orchestra { get; set; }
+        public Nullable<int> Instrument { get; set; }
+        public Nullable<int> Conductor { get; set; }
+        public Nullable<int> Player { get; set; }
+        public Nullable<int> Composer { get; set; }
     
+        public virtual Artist Artist { get; set; }
+        public virtual Artist Artist1 { get; set; }
+        public virtual Artist Artist2 { get; set; }
+        public virtual Instrument Instrument1 { get; set; }
+        public virtual Orchestra Orchestra1 { get; set; }
         public virtual Performance Performance { get; set; }
     }
 }
