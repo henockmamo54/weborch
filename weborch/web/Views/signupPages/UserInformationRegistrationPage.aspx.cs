@@ -29,37 +29,7 @@ namespace web.Views.signupPages
 
         protected void btn_useradd_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    User user = new User();
-            //    //user.UserID = txt_user_userid.Text;
-            //    user.Email = txt_useremail.Text;
-            //    user.Password = txt_userPassword.Text;
-            //    user.KoreanName = txt_userkoreanname.Text;
-            //    user.EnglishName = txt_userenglishname.Text;
-            //    user.sex = txt_usersex.Text;
-            //    user.Birthday = DateTime.Parse(txt_userBirthDate.Text);
-            //    user.ZipCode = txt_userZipCode.Text;
-            //    user.Address = txt_useraddress.Text;
-            //    user.PhoneNumber = txt_userPhoneNumber.Text;
-            //    user.Category = radioOcupation.SelectedValue.ToString();
-
-
-            //    if (ul.addUser(user))
-            //    {
-            //        //usergridview.DataSource = ul.getAllUser();
-            //        //usergridview.DataBind();
-            //        showMsg("Data inserted succssfuly");
-            //        cleanUserTextBoxs();
-            //        Response.Redirect("~/Views/HomeView.aspx");
-            //    }
-            //    else showMsg("Please check your inputs");
-
-            //}
-            //catch (Exception ee)
-            //{
-            //    showMsg("Please check your inputs");
-            //}
+            
         }
 
         public void showMsg(string msg)
@@ -85,7 +55,7 @@ namespace web.Views.signupPages
 
             CheckBox chk = (CheckBox)sender;
 
-            if (chk.ClientID == "MainContent_chk_Composer" || chk.ClientID == "MainContent_chk_Conductor" || chk.ClientID == "MainContent_chk_tp" || chk.ClientID == "MainContent_chk_Student" || chk.ClientID == "MainContent_chk_Audience" || chk.ClientID == "MainContent_chk_userOther")
+            if (chk.ClientID == "MainContent_chk_Composer" || chk.ClientID == "MainContent_chk_Player" || chk.ClientID == "MainContent_chk_Conductor" || chk.ClientID == "MainContent_chk_tp" || chk.ClientID == "MainContent_chk_Student" || chk.ClientID == "MainContent_chk_Audience" || chk.ClientID == "MainContent_chk_userOther")
             //if (chk_Composer.Checked || chk_Conductor.Checked || chk_tp.Checked || chk_Student.Checked || chk_Audience.Checked || chk_userOther.Checked)
             {
                 iscompany = false;
@@ -106,6 +76,7 @@ namespace web.Views.signupPages
                 chk_Student.Checked = !iscompany;
                 chk_Audience.Checked = !iscompany;
                 chk_userOther.Checked = !iscompany;
+                chk_Player.Checked = !iscompany;
                 if (PersonInfoFormContainer.Visible) PersonInfoFormContainer.Visible = false;
             }
 

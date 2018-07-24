@@ -67,6 +67,15 @@ namespace web.Views.signupPages {
         protected global::System.Web.UI.WebControls.CheckBox chk_Audience;
         
         /// <summary>
+        /// chk_Player control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chk_Player;
+        
+        /// <summary>
         /// chk_userOther control.
         /// </summary>
         /// <remarks>
