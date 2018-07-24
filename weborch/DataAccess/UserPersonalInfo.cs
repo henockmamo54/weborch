@@ -45,6 +45,8 @@ namespace DataAccess
         public string EndorsorEmailID5 { get; set; }
         public string EndorsorName5 { get; set; }
         public string EndorsorComments5 { get; set; }
+        public string sex { get; set; }
+        public Nullable<System.DateTime> Birthday { get; set; }
     
         public virtual UserCommonTable UserCommonTable { get; set; }
     }

@@ -83,7 +83,22 @@
                                                     <asp:TextBox ID="uaffilation" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
-
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Sex:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="usersex" runat="server" class="form-control" ></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Birthday:</div>
+                                                <div class="col-md-6">
+                                                    <asp:TextBox ID="userBirthDate" runat="server" ToolTip="dd/mm/yyyy" class="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>
+                                                </div>
+                                                <br />
                                             </div>
                                             <div class="col-md-12">
                                                 <br />

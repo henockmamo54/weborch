@@ -233,6 +233,8 @@ namespace web.Views.signupPages
 
                         personalInfo.Name = uname.Text;
                         personalInfo.Affiliation = uaffilation.Text;
+                        personalInfo.sex = usersex.Text;
+                        personalInfo.Birthday=DateTime.Parse(userBirthDate.Text);
                         personalInfo.ZipCode = uzipcode.Text;
                         personalInfo.Address = uaddress.Text;
                         personalInfo.MobileNumber = umobileno.Text;
@@ -292,47 +294,47 @@ namespace web.Views.signupPages
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (FileUpload1.HasFiles)
-                {
-                    string ext = System.IO.Path.GetExtension(FileUpload1.FileName);
-                    if (ext == ".jpg" || ext == ".png" || ext == ".gif" || ext == ".jpeg")
-                    {
-                        string path = Server.MapPath("~//Document//");
-                        FileUpload1.SaveAs(path + FileUpload1.FileName);
-                    }
-                    else
-                    {
-                        showMsg("you can upload only jpeg,jpg,png,gif file formats");
-                    }
-                }
-                else
-                {
-                    showMsg("Please select an image to upload.");
-                    return;
-                }
+        //protected void Button1_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        if (FileUpload1.HasFiles)
+        //        {
+        //            string ext = System.IO.Path.GetExtension(FileUpload1.FileName);
+        //            if (ext == ".jpg" || ext == ".png" || ext == ".gif" || ext == ".jpeg")
+        //            {
+        //                string path = Server.MapPath("~//Document//");
+        //                FileUpload1.SaveAs(path + FileUpload1.FileName);
+        //            }
+        //            else
+        //            {
+        //                showMsg("you can upload only jpeg,jpg,png,gif file formats");
+        //            }
+        //        }
+        //        else
+        //        {
+        //            showMsg("Please select an image to upload.");
+        //            return;
+        //        }
 
-                BulletinLogic bl = new BulletinLogic();
-                Bulletin bulletin = new Bulletin();
-                bulletin.MSG = txt_bulmsg.Text;
-                bulletin.URL = txt_bulurl.Text;
-                bulletin.TimeStamp = DateTime.Now;
-                bulletin.ImageUrl = FileUpload1.FileName;
-                if (bl.addBulletin(bulletin))
-                {
-                    showMsg("Data inserted succssfuly");
-                }
-                else showMsg("Please check your inputs. can't insert the info properly");
-            }
-            catch (Exception ee)
-            {
-                showMsg("Please check your inputs. related the server problem");
-            }
+        //        BulletinLogic bl = new BulletinLogic();
+        //        Bulletin bulletin = new Bulletin();
+        //        bulletin.MSG = txt_bulmsg.Text;
+        //        bulletin.URL = txt_bulurl.Text;
+        //        bulletin.TimeStamp = DateTime.Now;
+        //        bulletin.ImageUrl = FileUpload1.FileName;
+        //        if (bl.addBulletin(bulletin))
+        //        {
+        //            showMsg("Data inserted succssfuly");
+        //        }
+        //        else showMsg("Please check your inputs. can't insert the info properly");
+        //    }
+        //    catch (Exception ee)
+        //    {
+        //        showMsg("Please check your inputs. related the server problem");
+        //    }
 
-        }
+        //}
 
         public void getPhoto(UserPersonalInfo info, int photonumber, FileUpload fileupload)
         {

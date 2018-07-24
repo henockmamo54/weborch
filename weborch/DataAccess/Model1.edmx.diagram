@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a6e3d000cd584187a98f6ee5e2d83436" Name="Diagram1" ZoomLevel="106">
+      <Diagram DiagramId="a6e3d000cd584187a98f6ee5e2d83436" Name="Diagram1" ZoomLevel="75">
         <EntityTypeShape EntityType="OrchestraDBModel.Artist" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OrchestraDBModel.Instrument" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OrchestraDBModel.Orchestra" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
@@ -37,16 +37,16 @@
         <EntityTypeShape EntityType="OrchestraDBModel.ArtistType" Width="1.5" PointX="0.75" PointY="15.75" />
         <AssociationConnector Association="OrchestraDBModel.FK__Artist_Ar__Artis__4A8310C6" />
         <AssociationConnector Association="OrchestraDBModel.FK__Artist_Ar__Artis__4B7734FF" />
-        <EntityTypeShape EntityType="OrchestraDBModel.Performance" Width="1.5" PointX="6.375" PointY="12" />
-        <AssociationConnector Association="OrchestraDBModel.FK__Performan__UserI__5224328E" />
-        <AssociationConnector Association="OrchestraDBModel.FK__Performan__Orche__531856C7" />
         <EntityTypeShape EntityType="OrchestraDBModel.PerformanceDetail" Width="1.5" PointX="12.625" PointY="5.375" />
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__Compo__5D95E53A" />
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__Condu__5BAD9CC8" />
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__Playe__5CA1C101" />
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__Instr__5AB9788F" />
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__Orche__59C55456" />
+        <EntityTypeShape EntityType="OrchestraDBModel.Performance" Width="1.5" PointX="7" PointY="11.125" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Performan__Orche__531856C7" />
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__Perfo__503BEA1C" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Performan__UserI__5224328E" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

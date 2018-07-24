@@ -46,7 +46,7 @@ namespace DataAccess
         public virtual DbSet<UserPersonalInfo> UserPersonalInfoes { get; set; }
         public virtual DbSet<Artist_ArtistType> Artist_ArtistType { get; set; }
         public virtual DbSet<ArtistType> ArtistTypes { get; set; }
-        public virtual DbSet<Performance> Performances { get; set; }
         public virtual DbSet<PerformanceDetail> PerformanceDetails { get; set; }
+        public virtual DbSet<Performance> Performances { get; set; }
     }
 }

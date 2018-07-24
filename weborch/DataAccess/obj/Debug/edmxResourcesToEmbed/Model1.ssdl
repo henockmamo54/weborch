@@ -235,7 +235,6 @@
     <Property Name="PerformanceDate" Type="datetime" Nullable="false" />
     <Property Name="PerformanceDay" Type="nvarchar" MaxLength="32" Nullable="false" />
     <Property Name="PerformanceTitle" Type="nvarchar" MaxLength="64" Nullable="false" />
-    <Property Name="Orchestra" Type="nvarchar" MaxLength="32" Nullable="false" />
     <Property Name="Location" Type="nvarchar" MaxLength="32" Nullable="false" />
     <Property Name="ConcertHall" Type="nvarchar" MaxLength="32" Nullable="false" />
     <Property Name="TimeStamp" Type="datetime" />
@@ -321,6 +320,8 @@
     <Property Name="EndorsorEmailID5" Type="nvarchar" MaxLength="30" />
     <Property Name="EndorsorName5" Type="nvarchar" MaxLength="30" />
     <Property Name="EndorsorComments5" Type="nvarchar" MaxLength="100" />
+    <Property Name="sex" Type="nvarchar" MaxLength="10" />
+    <Property Name="Birthday" Type="datetime" />
   </EntityType>
   <Association Name="FK__Artist_Ar__Artis__4A8310C6">
     <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />

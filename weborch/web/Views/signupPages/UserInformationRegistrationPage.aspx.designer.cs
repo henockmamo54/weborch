@@ -193,6 +193,24 @@ namespace web.Views.signupPages {
         protected global::System.Web.UI.WebControls.TextBox uaffilation;
         
         /// <summary>
+        /// usersex control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox usersex;
+        
+        /// <summary>
+        /// userBirthDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox userBirthDate;
+        
+        /// <summary>
         /// uzipcode control.
         /// </summary>
         /// <remarks>

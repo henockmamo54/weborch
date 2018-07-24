@@ -24,7 +24,6 @@ namespace DataAccess
         public System.DateTime PerformanceDate { get; set; }
         public string PerformanceDay { get; set; }
         public string PerformanceTitle { get; set; }
-        public string Orchestra { get; set; }
         public string Location { get; set; }
         public string ConcertHall { get; set; }
         public Nullable<System.DateTime> TimeStamp { get; set; }
@@ -32,9 +31,9 @@ namespace DataAccess
         public Nullable<System.DateTime> ExpiryDate { get; set; }
         public Nullable<int> OrchestraID { get; set; }
     
-        public virtual UserCommonTable UserCommonTable { get; set; }
-        public virtual Orchestra Orchestra1 { get; set; }
+        public virtual Orchestra Orchestra { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PerformanceDetail> PerformanceDetails { get; set; }
+        public virtual UserCommonTable UserCommonTable { get; set; }
     }
 }

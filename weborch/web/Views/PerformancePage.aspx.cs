@@ -27,7 +27,7 @@ namespace web.Views
                 p.PerformanceTitle = txt_title.Text;
                 p.PerformanceDate = DateTime.Parse(txt_performancedate.Text);
                 p.PerformanceDay = txt_performanceday.Text;
-                p.Orchestra = DropDownList1.SelectedItem.Text;
+                //p.Orchestra = DropDownList1.SelectedItem.Text;
                 p.Location = txt_location.Text;
                 p.ConcertHall = txt_ConcertHall.Text;
 
