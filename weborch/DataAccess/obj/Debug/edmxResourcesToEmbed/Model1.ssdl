@@ -37,6 +37,7 @@
     <Property Name="EndorsorEmailID5" Type="nvarchar" MaxLength="30" />
     <Property Name="EndorsorName5" Type="nvarchar" MaxLength="30" />
     <Property Name="EndorsorComments5" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserID" Type="int" />
   </EntityType>
   <EntityType Name="Bulletin">
     <Key>
@@ -299,8 +300,6 @@
     <Property Name="FacebookAddress" Type="nvarchar" MaxLength="40" />
     <Property Name="TwitterAddress" Type="nvarchar" MaxLength="40" />
     <Property Name="KakaoTalkAddress" Type="nvarchar" MaxLength="40" />
-    <Property Name="MajorInstrument1" Type="nvarchar" MaxLength="40" />
-    <Property Name="MajorInstrument2" Type="nvarchar" MaxLength="40" />
     <Property Name="Photo1" Type="nvarchar" MaxLength="80" />
     <Property Name="Photo2" Type="nvarchar" MaxLength="80" />
     <Property Name="ProfilePage" Type="nvarchar" MaxLength="400" />
@@ -322,7 +321,21 @@
     <Property Name="EndorsorComments5" Type="nvarchar" MaxLength="100" />
     <Property Name="sex" Type="nvarchar" MaxLength="10" />
     <Property Name="Birthday" Type="datetime" />
+    <Property Name="MajorInstrument1ID" Type="int" />
+    <Property Name="MajorInstrument2ID" Type="int" />
   </EntityType>
+  <Association Name="FK__Artist__UserID__690797E6">
+    <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
+    <End Role="Artist" Type="Self.Artist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserCommonTable">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Artist">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Artist_Ar__Artis__4A8310C6">
     <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
     <End Role="Artist_ArtistType" Type="Self.Artist_ArtistType" Multiplicity="*" />
@@ -539,6 +552,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__UserPerso__Major__69FBBC1F">
+    <End Role="Instrument" Type="Self.Instrument" Multiplicity="0..1" />
+    <End Role="UserPersonalInfo" Type="Self.UserPersonalInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instrument">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserPersonalInfo">
+        <PropertyRef Name="MajorInstrument1ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserPerso__Major__6AEFE058">
+    <End Role="Instrument" Type="Self.Instrument" Multiplicity="0..1" />
+    <End Role="UserPersonalInfo" Type="Self.UserPersonalInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instrument">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserPersonalInfo">
+        <PropertyRef Name="MajorInstrument2ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__UserPerso__UserI__41EDCAC5">
     <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
     <End Role="UserPersonalInfo" Type="Self.UserPersonalInfo" Multiplicity="*" />
@@ -575,6 +612,10 @@
     <EntitySet Name="UserCommonTable" EntityType="Self.UserCommonTable" Schema="Main" store:Type="Tables" />
     <EntitySet Name="UserCompany" EntityType="Self.UserCompany" Schema="Main" store:Type="Tables" />
     <EntitySet Name="UserPersonalInfo" EntityType="Self.UserPersonalInfo" Schema="Main" store:Type="Tables" />
+    <AssociationSet Name="FK__Artist__UserID__690797E6" Association="Self.FK__Artist__UserID__690797E6">
+      <End Role="UserCommonTable" EntitySet="UserCommonTable" />
+      <End Role="Artist" EntitySet="Artist" />
+    </AssociationSet>
     <AssociationSet Name="FK__Artist_Ar__Artis__4A8310C6" Association="Self.FK__Artist_Ar__Artis__4A8310C6">
       <End Role="Artist" EntitySet="Artist" />
       <End Role="Artist_ArtistType" EntitySet="Artist_ArtistType" />
@@ -646,6 +687,14 @@
     <AssociationSet Name="FK__UserCompa__UserI__45BE5BA9" Association="Self.FK__UserCompa__UserI__45BE5BA9">
       <End Role="UserCommonTable" EntitySet="UserCommonTable" />
       <End Role="UserCompany" EntitySet="UserCompany" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserPerso__Major__69FBBC1F" Association="Self.FK__UserPerso__Major__69FBBC1F">
+      <End Role="Instrument" EntitySet="Instrument" />
+      <End Role="UserPersonalInfo" EntitySet="UserPersonalInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserPerso__Major__6AEFE058" Association="Self.FK__UserPerso__Major__6AEFE058">
+      <End Role="Instrument" EntitySet="Instrument" />
+      <End Role="UserPersonalInfo" EntitySet="UserPersonalInfo" />
     </AssociationSet>
     <AssociationSet Name="FK__UserPerso__UserI__41EDCAC5" Association="Self.FK__UserPerso__UserI__41EDCAC5">
       <End Role="UserCommonTable" EntitySet="UserCommonTable" />

@@ -20,6 +20,8 @@ namespace web.Views.signupPages
             {
                 //CompanyInfoFormContainer.Visible = false;
                 //PersonInfoFormContainer.Visible = false;
+                DropDownList1_mjInst1.SelectedIndex = -1;
+                DropDownList1_mjInst2.SelectedIndex = -1;
             }
         }
         protected void btn_cancel_click(object sender, EventArgs e)
@@ -241,8 +243,8 @@ namespace web.Views.signupPages
                         personalInfo.FacebookAddress = ufacebookadd.Text;
                         personalInfo.TwitterAddress = utwitter.Text;
                         personalInfo.KakaoTalkAddress = ukakao.Text;
-                        personalInfo.MajorInstrument1 = umajorinst1.Text;
-                        personalInfo.MajorInstrument2 = umajorinst2.Text;
+                        if(int.Parse(DropDownList1_mjInst1.SelectedValue) != -1)personalInfo.MajorInstrument1ID = int.Parse( DropDownList1_mjInst1.SelectedValue); //umajorinst1.Text;
+                        if (int.Parse(DropDownList1_mjInst2.SelectedValue) != -1) personalInfo.MajorInstrument1ID = int.Parse(DropDownList1_mjInst2.SelectedValue); //umajorinst2.Text;
                         //personalInfo.Photo1 = uphoto1.Text;
                         //personalInfo.Photo2 = uphoto2.Text;
                         getPhoto(personalInfo, 1, FileUpload1);
@@ -311,6 +313,7 @@ namespace web.Views.signupPages
                         artist.EndorsorEmailID5 = uedoremail5.Text;
                         artist.EndorsorName5 = uendorname5.Text;
                         artist.EndorsorComments5 = uendorcomm5.Text;
+                        artist.UserID = personalInfo.UserID;
 
                         context.Artists.Add(artist);
                         context.SaveChanges();

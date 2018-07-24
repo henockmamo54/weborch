@@ -265,22 +265,31 @@ namespace web.Views.signupPages {
         protected global::System.Web.UI.WebControls.TextBox ukakao;
         
         /// <summary>
-        /// umajorinst1 control.
+        /// SqlDataSource3_instrumentlist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox umajorinst1;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3_instrumentlist;
         
         /// <summary>
-        /// umajorinst2 control.
+        /// DropDownList1_mjInst1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox umajorinst2;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1_mjInst1;
+        
+        /// <summary>
+        /// DropDownList1_mjInst2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1_mjInst2;
         
         /// <summary>
         /// FileUpload1 control.

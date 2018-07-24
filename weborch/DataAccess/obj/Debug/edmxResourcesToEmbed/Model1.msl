@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Artists">
       <EntityTypeMapping TypeName="OrchestraDBModel.Artist">
         <MappingFragment StoreEntitySet="Artist">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="EndorsorComments5" ColumnName="EndorsorComments5" />
           <ScalarProperty Name="EndorsorName5" ColumnName="EndorsorName5" />
           <ScalarProperty Name="EndorsorEmailID5" ColumnName="EndorsorEmailID5" />
@@ -260,45 +261,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UserPersonalInfoes">
-      <EntityTypeMapping TypeName="OrchestraDBModel.UserPersonalInfo">
-        <MappingFragment StoreEntitySet="UserPersonalInfo">
-          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-          <ScalarProperty Name="sex" ColumnName="sex" />
-          <ScalarProperty Name="EndorsorComments5" ColumnName="EndorsorComments5" />
-          <ScalarProperty Name="EndorsorName5" ColumnName="EndorsorName5" />
-          <ScalarProperty Name="EndorsorEmailID5" ColumnName="EndorsorEmailID5" />
-          <ScalarProperty Name="EndorsorComments4" ColumnName="EndorsorComments4" />
-          <ScalarProperty Name="EndorsorName4" ColumnName="EndorsorName4" />
-          <ScalarProperty Name="EndorsorEmailID4" ColumnName="EndorsorEmailID4" />
-          <ScalarProperty Name="EndorsorComments3" ColumnName="EndorsorComments3" />
-          <ScalarProperty Name="EndorsorName3" ColumnName="EndorsorName3" />
-          <ScalarProperty Name="EndorsorEmailID3" ColumnName="EndorsorEmailID3" />
-          <ScalarProperty Name="EndorsorComments2" ColumnName="EndorsorComments2" />
-          <ScalarProperty Name="EndorsorName2" ColumnName="EndorsorName2" />
-          <ScalarProperty Name="EndorsorEmailID2" ColumnName="EndorsorEmailID2" />
-          <ScalarProperty Name="EndorsorComments1" ColumnName="EndorsorComments1" />
-          <ScalarProperty Name="EndorsorName1" ColumnName="EndorsorName1" />
-          <ScalarProperty Name="EndorsorEmailID1" ColumnName="EndorsorEmailID1" />
-          <ScalarProperty Name="Repertory" ColumnName="Repertory" />
-          <ScalarProperty Name="ProfilePage" ColumnName="ProfilePage" />
-          <ScalarProperty Name="Photo2" ColumnName="Photo2" />
-          <ScalarProperty Name="Photo1" ColumnName="Photo1" />
-          <ScalarProperty Name="MajorInstrument2" ColumnName="MajorInstrument2" />
-          <ScalarProperty Name="MajorInstrument1" ColumnName="MajorInstrument1" />
-          <ScalarProperty Name="KakaoTalkAddress" ColumnName="KakaoTalkAddress" />
-          <ScalarProperty Name="TwitterAddress" ColumnName="TwitterAddress" />
-          <ScalarProperty Name="FacebookAddress" ColumnName="FacebookAddress" />
-          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
-          <ScalarProperty Name="Affiliation" ColumnName="Affiliation" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Artist_ArtistType">
       <EntityTypeMapping TypeName="OrchestraDBModel.Artist_ArtistType">
         <MappingFragment StoreEntitySet="Artist_ArtistType">
@@ -343,6 +305,45 @@
           <ScalarProperty Name="PerformanceTitle" ColumnName="PerformanceTitle" />
           <ScalarProperty Name="PerformanceDay" ColumnName="PerformanceDay" />
           <ScalarProperty Name="PerformanceDate" ColumnName="PerformanceDate" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserPersonalInfoes">
+      <EntityTypeMapping TypeName="OrchestraDBModel.UserPersonalInfo">
+        <MappingFragment StoreEntitySet="UserPersonalInfo">
+          <ScalarProperty Name="MajorInstrument2ID" ColumnName="MajorInstrument2ID" />
+          <ScalarProperty Name="MajorInstrument1ID" ColumnName="MajorInstrument1ID" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="sex" ColumnName="sex" />
+          <ScalarProperty Name="EndorsorComments5" ColumnName="EndorsorComments5" />
+          <ScalarProperty Name="EndorsorName5" ColumnName="EndorsorName5" />
+          <ScalarProperty Name="EndorsorEmailID5" ColumnName="EndorsorEmailID5" />
+          <ScalarProperty Name="EndorsorComments4" ColumnName="EndorsorComments4" />
+          <ScalarProperty Name="EndorsorName4" ColumnName="EndorsorName4" />
+          <ScalarProperty Name="EndorsorEmailID4" ColumnName="EndorsorEmailID4" />
+          <ScalarProperty Name="EndorsorComments3" ColumnName="EndorsorComments3" />
+          <ScalarProperty Name="EndorsorName3" ColumnName="EndorsorName3" />
+          <ScalarProperty Name="EndorsorEmailID3" ColumnName="EndorsorEmailID3" />
+          <ScalarProperty Name="EndorsorComments2" ColumnName="EndorsorComments2" />
+          <ScalarProperty Name="EndorsorName2" ColumnName="EndorsorName2" />
+          <ScalarProperty Name="EndorsorEmailID2" ColumnName="EndorsorEmailID2" />
+          <ScalarProperty Name="EndorsorComments1" ColumnName="EndorsorComments1" />
+          <ScalarProperty Name="EndorsorName1" ColumnName="EndorsorName1" />
+          <ScalarProperty Name="EndorsorEmailID1" ColumnName="EndorsorEmailID1" />
+          <ScalarProperty Name="Repertory" ColumnName="Repertory" />
+          <ScalarProperty Name="ProfilePage" ColumnName="ProfilePage" />
+          <ScalarProperty Name="Photo2" ColumnName="Photo2" />
+          <ScalarProperty Name="Photo1" ColumnName="Photo1" />
+          <ScalarProperty Name="KakaoTalkAddress" ColumnName="KakaoTalkAddress" />
+          <ScalarProperty Name="TwitterAddress" ColumnName="TwitterAddress" />
+          <ScalarProperty Name="FacebookAddress" ColumnName="FacebookAddress" />
+          <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Affiliation" ColumnName="Affiliation" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -24,8 +24,6 @@ namespace DataAccess
         public string FacebookAddress { get; set; }
         public string TwitterAddress { get; set; }
         public string KakaoTalkAddress { get; set; }
-        public string MajorInstrument1 { get; set; }
-        public string MajorInstrument2 { get; set; }
         public string Photo1 { get; set; }
         public string Photo2 { get; set; }
         public string ProfilePage { get; set; }
@@ -47,7 +45,11 @@ namespace DataAccess
         public string EndorsorComments5 { get; set; }
         public string sex { get; set; }
         public Nullable<System.DateTime> Birthday { get; set; }
+        public Nullable<int> MajorInstrument1ID { get; set; }
+        public Nullable<int> MajorInstrument2ID { get; set; }
     
+        public virtual Instrument Instrument { get; set; }
+        public virtual Instrument Instrument1 { get; set; }
         public virtual UserCommonTable UserCommonTable { get; set; }
     }
 }

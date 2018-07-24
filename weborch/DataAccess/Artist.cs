@@ -58,6 +58,7 @@ namespace DataAccess
         public string EndorsorEmailID5 { get; set; }
         public string EndorsorName5 { get; set; }
         public string EndorsorComments5 { get; set; }
+        public Nullable<int> UserID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Artist_Instrument> Artist_Instrument { get; set; }
@@ -71,5 +72,6 @@ namespace DataAccess
         public virtual ICollection<PerformanceDetail> PerformanceDetails1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PerformanceDetail> PerformanceDetails2 { get; set; }
+        public virtual UserCommonTable UserCommonTable { get; set; }
     }
 }
