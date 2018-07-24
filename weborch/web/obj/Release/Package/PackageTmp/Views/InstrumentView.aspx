@@ -10,35 +10,29 @@
                 <div class="row shadowedPanel">
                     <div class="col-md-12">
                         <div class="col-md-12">
-                            <div class="row pull-rght">
-                                <%--<div class="col-md-4">
-                                    <div class="col-md-4">EnglishName:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_inst_engname" runat="server"></asp:TextBox>
-                                    </div>
-                                    <br />
-                                </div>--%>
+                            <div class="row pull-rght form-group" id="instrumentinfoInput">
+                               
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4" style="padding: 0;">English Name:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_inst_engname" runat="server"></asp:TextBox>
+                                    <div class="col-md-4">English Name:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_inst_engname" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4" style="padding: 0;">Korean Name:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_inst_korean_name" runat="server"></asp:TextBox>
+                                    <div class="col-md-4" >Korean Name:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_inst_korean_name" runat="server"  class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
                                 </div>
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Alias:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_inst_alias" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_inst_alias" runat="server"  class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
@@ -46,8 +40,8 @@
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Player:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_inst_player" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_inst_player" runat="server"  class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
@@ -55,8 +49,8 @@
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Group:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_inst_group" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_inst_group" runat="server"  class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
@@ -64,8 +58,8 @@
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Explanation:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_inst_explanation" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_inst_explanation" runat="server"  class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
@@ -73,8 +67,8 @@
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Sound Clip Location:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_inst_soundcliplocation" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_inst_soundcliplocation" runat="server"  class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
@@ -82,8 +76,8 @@
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Video Clip Location:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_inst_videocliplocation" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_inst_videocliplocation" runat="server"  class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
@@ -91,8 +85,8 @@
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Photo Location:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_inst_photolocation" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_inst_photolocation" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
@@ -100,8 +94,8 @@
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Remarks:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_inst_remarks" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_inst_remarks" runat="server"  class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
                                 </div>
@@ -111,18 +105,14 @@
                                 <asp:Button ID="txt_addInstrument" CssClass="btn btn-primary pull-right" runat="server" Text="Register" OnClick="btn_instadd_Click" />
                             </div>
                         </div>
-                        <%--<div class="col-md-6">
-                            <asp:GridView ID="GridView2" CssClass="table-striped" runat="server" Width="745px">
-                            </asp:GridView>
-                        </div>--%>
+
                     </div>
 
                 </div>
-                <div class="row listviewwithedit">
-                    <hr />
+                 <hr />
+                <div class="row listviewwithedit shadowedPanel">                 
 
                     <div class="row " style="margin: 5px;">
-                        <%--<span class="glyphicon glyphicon-search pull-right" style="padding: 5px;"></span>--%>
                         <span class='input-group-addon' style="    background: #DFF0D8;">
                             <i class='glyphicon glyphicon-search pull-right' style="padding: 5px;"></i>
                             <asp:TextBox CssClass="pull-right" ID="TextBox1_serachinstrument" runat="server" OnTextChanged="TextBox1_serachinstrument_TextChanged" AutoPostBack="True"></asp:TextBox>
@@ -452,6 +442,17 @@ where ID=@ID
     </script>
 
     <style>
+        
+        #instrumentinfoInput .col-md-12 {
+        padding:0!important;        
+        }
+        #instrumentinfoInput .col-md-4 {
+        padding:0!important;        
+        }
+        #instrumentinfoInput .col-md-6 {
+        padding:0!important;        
+        }
+
         .listviewwithedit tr td :not(#listviewpager) {
             word-wrap: break-word;
             max-width: 13em;

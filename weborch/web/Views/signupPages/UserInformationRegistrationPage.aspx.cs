@@ -18,8 +18,8 @@ namespace web.Views.signupPages
         {
             if (!IsPostBack)
             {
-                CompanyInfoFormContainer.Visible = false;
-                PersonInfoFormContainer.Visible = false;
+                //CompanyInfoFormContainer.Visible = false;
+                //PersonInfoFormContainer.Visible = false;
             }
         }
         protected void btn_cancel_click(object sender, EventArgs e)
@@ -29,7 +29,7 @@ namespace web.Views.signupPages
 
         protected void btn_useradd_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         public void showMsg(string msg)
@@ -241,8 +241,11 @@ namespace web.Views.signupPages
                         personalInfo.KakaoTalkAddress = ukakao.Text;
                         personalInfo.MajorInstrument1 = umajorinst1.Text;
                         personalInfo.MajorInstrument2 = umajorinst2.Text;
-                        personalInfo.Photo1 = uphoto1.Text;
-                        personalInfo.Photo2 = uphoto2.Text;
+                        //personalInfo.Photo1 = uphoto1.Text;
+                        //personalInfo.Photo2 = uphoto2.Text;
+                        getPhoto(personalInfo, 1, FileUpload1);
+                        getPhoto(personalInfo, 2, FileUpload2);
+
                         personalInfo.ProfilePage = uprofilepage.Text;
                         personalInfo.Repertory = urepertory.Text;
                         personalInfo.EndorsorEmailID1 = uedoremail1.Text;
@@ -286,6 +289,73 @@ namespace web.Views.signupPages
                     else showMsg("Please check your inputs");
                 }
             }
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (FileUpload1.HasFiles)
+                {
+                    string ext = System.IO.Path.GetExtension(FileUpload1.FileName);
+                    if (ext == ".jpg" || ext == ".png" || ext == ".gif" || ext == ".jpeg")
+                    {
+                        string path = Server.MapPath("~//Document//");
+                        FileUpload1.SaveAs(path + FileUpload1.FileName);
+                    }
+                    else
+                    {
+                        showMsg("you can upload only jpeg,jpg,png,gif file formats");
+                    }
+                }
+                else
+                {
+                    showMsg("Please select an image to upload.");
+                    return;
+                }
+
+                BulletinLogic bl = new BulletinLogic();
+                Bulletin bulletin = new Bulletin();
+                bulletin.MSG = txt_bulmsg.Text;
+                bulletin.URL = txt_bulurl.Text;
+                bulletin.TimeStamp = DateTime.Now;
+                bulletin.ImageUrl = FileUpload1.FileName;
+                if (bl.addBulletin(bulletin))
+                {
+                    showMsg("Data inserted succssfuly");
+                }
+                else showMsg("Please check your inputs. can't insert the info properly");
+            }
+            catch (Exception ee)
+            {
+                showMsg("Please check your inputs. related the server problem");
+            }
+
+        }
+
+        public void getPhoto(UserPersonalInfo info, int photonumber, FileUpload fileupload)
+        {
+
+            if (fileupload.HasFiles)
+            {
+                string ext = System.IO.Path.GetExtension(fileupload.FileName);
+                if (ext == ".jpg" || ext == ".png" || ext == ".gif" || ext == ".jpeg")
+                {
+                    string path = Server.MapPath("~//Document//");
+                    fileupload.SaveAs(path + fileupload.FileName);
+                }
+                else
+                {
+                    showMsg("you can upload only jpeg,jpg,png,gif file formats");
+                }
+            }
+
+            if (photonumber == 1)
+                info.Photo1 = fileupload.FileName;
+            else
+                info.Photo2 = fileupload.FileName;
+
 
         }
     }

@@ -22,6 +22,33 @@ namespace web.Views.signupPages {
         protected global::System.Web.UI.UpdatePanel updatepanel1;
         
         /// <summary>
+        /// txt_bulmsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_bulmsg;
+        
+        /// <summary>
+        /// txt_bulurl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_bulurl;
+        
+        /// <summary>
+        /// addPost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button addPost;
+        
+        /// <summary>
         /// chk_Composer control.
         /// </summary>
         /// <remarks>
@@ -265,22 +292,22 @@ namespace web.Views.signupPages {
         protected global::System.Web.UI.WebControls.TextBox umajorinst2;
         
         /// <summary>
-        /// uphoto1 control.
+        /// FileUpload1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uphoto1;
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
         
         /// <summary>
-        /// uphoto2 control.
+        /// FileUpload2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uphoto2;
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload2;
         
         /// <summary>
         /// uprofilepage control.

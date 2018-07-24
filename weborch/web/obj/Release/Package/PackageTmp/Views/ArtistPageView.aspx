@@ -9,37 +9,29 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="col-md-12 shadowedPanel">
-                            <div class=" row col-md-12">
+                            <div class=" row col-md-12 form-group">
 
-                                <%--<div class="col-md-4">
-                                    <div class="col-md-4">First Name:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_artist_firstname" runat="server"></asp:TextBox>
-                                    </div>
-                                    <br />
-
-                                </div>--%>
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">First Name:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_artist_firstname" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_artist_firstname" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
                                 </div>
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Family Name:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_artist_familyname" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_artist_familyname" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
                                 </div>
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Middle Name:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_artist_middlename" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_artist_middlename" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
@@ -47,28 +39,17 @@
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Birth date:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_artist_birthdate" runat="server" ToolTip="dd/mm/yyyy"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_artist_birthdate" runat="server" class="form-control" ToolTip="dd/mm/yyyy"></asp:TextBox>
                                     </div>
                                     <br />
                                 </div>
 
-                                <%--<div class="col-md-12">
-                                        <asp:Calendar ID="Calendar1" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" OnSelectionChanged="Calendar1_SelectionChanged" Visible="True" Width="350px">
-                                            <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
-                                            <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
-                                            <OtherMonthDayStyle ForeColor="#999999" />
-                                            <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-                                            <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
-                                            <TodayDayStyle BackColor="#CCCCCC" />
-                                        </asp:Calendar>
-                                </div>--%>
-
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Address:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_artist_address" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_artist_address" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
@@ -76,8 +57,8 @@
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Zip Code:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_artist_zipcode" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_artist_zipcode" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
@@ -85,8 +66,8 @@
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Tel. No:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_artist_teleno" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_artist_teleno" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
@@ -94,8 +75,8 @@
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Mobile No:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_artist_mobileno" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_artist_mobileno" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
@@ -103,8 +84,8 @@
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Fax No:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_aritist_faxno" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_aritist_faxno" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
@@ -112,10 +93,213 @@
                                 <div class="col-md-4">
                                     <br />
                                     <div class="col-md-4">Remarks:</div>
-                                    <div class="col-md-6">
-                                        <asp:TextBox ID="txt_artist_remark" runat="server"></asp:TextBox>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="txt_artist_remark" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
+                                </div>
+
+                                <%--=====================================================================================================================================================================================--%>
+
+
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Kakao Talk ID:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="ukakao" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Facebook Addr.:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="ufacebookadd" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Twitter Addr.:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="utwitter" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Photo 1:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uphoto1" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Photo 2:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uphoto2" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Profile Page.:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uprofilepage" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Repertory.:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="urepertory" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Email ID 1:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uedoremail1" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Name 1:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uendorname1" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Comments 1:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uendorcomm1" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+
+
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Email ID 2:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uedoremail2" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Name 2:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uendorname2" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Comments 2:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uendorcomm2" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+
+
+
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Email ID 3:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uedoremail3" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Name 3:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uendorname3" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Comments 3:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uendorcomm3" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+
+
+
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Email ID 4:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uedoremail4" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Name 4:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uendorname4" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Comments 4:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uendorcomm4" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Email ID 5:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uedoremail5" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Name 5:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uendorname5" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <br />
+                                    <div class="col-md-4">Endorsor Comments 5:</div>
+                                    <div class="col-md-8">
+                                        <asp:TextBox ID="uendorcomm5" runat="server" class="form-control"></asp:TextBox>
+                                    </div>
+                                    <br />
+                                </div>
+
+                                <%--===========================================================================================================================================================--%>
+                            </div>
+                            <div class="rwo">
+                                <label>What kind Of Artist Are you?</label>
+                                <div class="col-md-12 form-group">
+                                    <br />
+                                    <asp:CheckBox runat="server" ID="chk_Composer" Text="Composer" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                                    <asp:CheckBox runat="server" ID="chk_Conductor" Text="Conductor" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                                    <asp:CheckBox runat="server" ID="chk_tp" Text="Teacher/Professor" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                                    <asp:CheckBox runat="server" ID="chk_Student" Text="Student" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                                    <asp:CheckBox runat="server" ID="chk_player" Text="Player" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
                                 </div>
                             </div>
                             <div class="row col-md-12">
@@ -126,7 +310,7 @@
                                             <asp:Label runat="server">Instrument</asp:Label>
                                         </div>
                                         <div class="col-md-4">
-                                            <asp:DropDownList runat="server" ID="DropDownList1_InstrumentInTheMain" AutoPostBack="True" DataSourceID="SqlDataSource3_instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
+                                            <asp:DropDownList class="form-control" runat="server" ID="DropDownList1_InstrumentInTheMain" AutoPostBack="True" DataSourceID="SqlDataSource3_instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
                                         </div>
                                         <div class="col-md-4">
                                             <asp:Button ID="btn_add_Inst" CssClass="btn btn-sm btn-info" runat="server" Text="Add" OnClick="btn_add_Inst_Click" />
@@ -139,7 +323,6 @@
                                     <asp:Repeater runat="server" ID="myinstrepeater">
                                         <ItemTemplate>
                                             <tr style="margin-bottom: 3px;">
-                                                <%--<span class="glyphicon glyphicon-trash" style="color:dodgerblue;padding:2px;"></span--%>
                                                 <asp:Button runat="server" AutoPostBack="True" CommandArgument='<%#Eval("ID")%>' OnClick="removeinstrumentfrommyMainList" Text="Delete"></asp:Button>
                                                 <td>
                                                     <asp:Label runat="server" ID="Label1" Text='<%# Eval("EnglishName") %>' />
@@ -160,8 +343,7 @@
                 <hr />
                 <div class="row">
                     <div class="row " style="margin: 5px;">
-                        <%--<span class="glyphicon glyphicon-search pull-right" style="padding: 5px;"></span>--%>
-                        <span class='input-group-addon' style="    background: #DFF0D8;">
+                        <span class='input-group-addon' style="background: #DFF0D8;">
                             <i class='glyphicon glyphicon-search pull-right' style="padding: 5px;"></i>
                             <asp:TextBox CssClass="pull-right" ID="TextBox1_serach" runat="server" AutoPostBack="True" OnTextChanged="serachTextValueChanged"></asp:TextBox>
                             <asp:Label runat="server" CssClass="pull-right" Style="padding: 5px;">Name:</asp:Label>
@@ -174,9 +356,9 @@
                     <div class="row listviewwithedit">
                         <div class="col-md-12">
                             <div class="col-md-12">
-                                <asp:ListView ID="ListView1" runat="server" class="col-md-7" DataKeyNames="ID" DataSourceID="SqlDataSource1" InsertItemPosition="FirstItem">
+                                <asp:ListView ID="ListView1" runat="server" class="col-md-7" DataKeyNames="ID" DataSourceID="SqlDataSource1" InsertItemPosition="LastItem">
                                     <AlternatingItemTemplate>
-                                        <tr style="background-color: #eeeeee;">
+                                        <tr style="background-color: #FFF8DC;">
                                             <td>
                                                 <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                                 <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
@@ -213,6 +395,72 @@
                                             </td>
                                             <td>
                                                 <asp:Label ID="RemarLabel" runat="server" Text='<%# Eval("Remar") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="FacebookAddressLabel" runat="server" Text='<%# Eval("FacebookAddress") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="TwitterAddressLabel" runat="server" Text='<%# Eval("TwitterAddress") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="KakaoTalkAddressLabel" runat="server" Text='<%# Eval("KakaoTalkAddress") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="Photo1Label" runat="server" Text='<%# Eval("Photo1") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="Photo2Label" runat="server" Text='<%# Eval("Photo2") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="ProfilePageLabel" runat="server" Text='<%# Eval("ProfilePage") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="RepertoryLabel" runat="server" Text='<%# Eval("Repertory") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorEmailID1Label" runat="server" Text='<%# Eval("EndorsorEmailID1") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorName1Label" runat="server" Text='<%# Eval("EndorsorName1") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorComments1Label" runat="server" Text='<%# Eval("EndorsorComments1") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorEmailID2Label" runat="server" Text='<%# Eval("EndorsorEmailID2") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorName2Label" runat="server" Text='<%# Eval("EndorsorName2") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorComments2Label" runat="server" Text='<%# Eval("EndorsorComments2") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorEmailID3Label" runat="server" Text='<%# Eval("EndorsorEmailID3") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorName3Label" runat="server" Text='<%# Eval("EndorsorName3") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorComments3Label" runat="server" Text='<%# Eval("EndorsorComments3") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorEmailID4Label" runat="server" Text='<%# Eval("EndorsorEmailID4") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorName4Label" runat="server" Text='<%# Eval("EndorsorName4") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorComments4Label" runat="server" Text='<%# Eval("EndorsorComments4") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorEmailID5Label" runat="server" Text='<%# Eval("EndorsorEmailID5") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorName5Label" runat="server" Text='<%# Eval("EndorsorName5") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorComments5Label" runat="server" Text='<%# Eval("EndorsorComments5") %>' />
                                             </td>
                                         </tr>
                                     </AlternatingItemTemplate>
@@ -254,6 +502,72 @@
                                             </td>
                                             <td>
                                                 <asp:TextBox ID="RemarTextBox" runat="server" Text='<%# Bind("Remar") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="FacebookAddressTextBox" runat="server" Text='<%# Bind("FacebookAddress") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="TwitterAddressTextBox" runat="server" Text='<%# Bind("TwitterAddress") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="KakaoTalkAddressTextBox" runat="server" Text='<%# Bind("KakaoTalkAddress") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="Photo1TextBox" runat="server" Text='<%# Bind("Photo1") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="Photo2TextBox" runat="server" Text='<%# Bind("Photo2") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="ProfilePageTextBox" runat="server" Text='<%# Bind("ProfilePage") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="RepertoryTextBox" runat="server" Text='<%# Bind("Repertory") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorEmailID1TextBox" runat="server" Text='<%# Bind("EndorsorEmailID1") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorName1TextBox" runat="server" Text='<%# Bind("EndorsorName1") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorComments1TextBox" runat="server" Text='<%# Bind("EndorsorComments1") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorEmailID2TextBox" runat="server" Text='<%# Bind("EndorsorEmailID2") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorName2TextBox" runat="server" Text='<%# Bind("EndorsorName2") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorComments2TextBox" runat="server" Text='<%# Bind("EndorsorComments2") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorEmailID3TextBox" runat="server" Text='<%# Bind("EndorsorEmailID3") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorName3TextBox" runat="server" Text='<%# Bind("EndorsorName3") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorComments3TextBox" runat="server" Text='<%# Bind("EndorsorComments3") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorEmailID4TextBox" runat="server" Text='<%# Bind("EndorsorEmailID4") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorName4TextBox" runat="server" Text='<%# Bind("EndorsorName4") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorComments4TextBox" runat="server" Text='<%# Bind("EndorsorComments4") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorEmailID5TextBox" runat="server" Text='<%# Bind("EndorsorEmailID5") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorName5TextBox" runat="server" Text='<%# Bind("EndorsorName5") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorComments5TextBox" runat="server" Text='<%# Bind("EndorsorComments5") %>' />
                                             </td>
                                         </tr>
                                     </EditItemTemplate>
@@ -301,10 +615,76 @@
                                             <td>
                                                 <asp:TextBox ID="RemarTextBox" runat="server" Text='<%# Bind("Remar") %>' />
                                             </td>
+                                            <td>
+                                                <asp:TextBox ID="FacebookAddressTextBox" runat="server" Text='<%# Bind("FacebookAddress") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="TwitterAddressTextBox" runat="server" Text='<%# Bind("TwitterAddress") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="KakaoTalkAddressTextBox" runat="server" Text='<%# Bind("KakaoTalkAddress") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="Photo1TextBox" runat="server" Text='<%# Bind("Photo1") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="Photo2TextBox" runat="server" Text='<%# Bind("Photo2") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="ProfilePageTextBox" runat="server" Text='<%# Bind("ProfilePage") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="RepertoryTextBox" runat="server" Text='<%# Bind("Repertory") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorEmailID1TextBox" runat="server" Text='<%# Bind("EndorsorEmailID1") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorName1TextBox" runat="server" Text='<%# Bind("EndorsorName1") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorComments1TextBox" runat="server" Text='<%# Bind("EndorsorComments1") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorEmailID2TextBox" runat="server" Text='<%# Bind("EndorsorEmailID2") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorName2TextBox" runat="server" Text='<%# Bind("EndorsorName2") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorComments2TextBox" runat="server" Text='<%# Bind("EndorsorComments2") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorEmailID3TextBox" runat="server" Text='<%# Bind("EndorsorEmailID3") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorName3TextBox" runat="server" Text='<%# Bind("EndorsorName3") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorComments3TextBox" runat="server" Text='<%# Bind("EndorsorComments3") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorEmailID4TextBox" runat="server" Text='<%# Bind("EndorsorEmailID4") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorName4TextBox" runat="server" Text='<%# Bind("EndorsorName4") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorComments4TextBox" runat="server" Text='<%# Bind("EndorsorComments4") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorEmailID5TextBox" runat="server" Text='<%# Bind("EndorsorEmailID5") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorName5TextBox" runat="server" Text='<%# Bind("EndorsorName5") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:TextBox ID="EndorsorComments5TextBox" runat="server" Text='<%# Bind("EndorsorComments5") %>' />
+                                            </td>
                                         </tr>
                                     </InsertItemTemplate>
                                     <ItemTemplate>
-                                        <tr style="/*background-color: #DCDCDC; */ color: #000000;">
+                                        <tr style="/*background-color: #DCDCDC; */ color: #000000; background-color: #DCDCDC;">
                                             <td>
                                                 <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                                 <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
@@ -342,6 +722,72 @@
                                             <td>
                                                 <asp:Label ID="RemarLabel" runat="server" Text='<%# Eval("Remar") %>' />
                                             </td>
+                                            <td>
+                                                <asp:Label ID="FacebookAddressLabel" runat="server" Text='<%# Eval("FacebookAddress") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="TwitterAddressLabel" runat="server" Text='<%# Eval("TwitterAddress") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="KakaoTalkAddressLabel" runat="server" Text='<%# Eval("KakaoTalkAddress") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="Photo1Label" runat="server" Text='<%# Eval("Photo1") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="Photo2Label" runat="server" Text='<%# Eval("Photo2") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="ProfilePageLabel" runat="server" Text='<%# Eval("ProfilePage") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="RepertoryLabel" runat="server" Text='<%# Eval("Repertory") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorEmailID1Label" runat="server" Text='<%# Eval("EndorsorEmailID1") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorName1Label" runat="server" Text='<%# Eval("EndorsorName1") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorComments1Label" runat="server" Text='<%# Eval("EndorsorComments1") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorEmailID2Label" runat="server" Text='<%# Eval("EndorsorEmailID2") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorName2Label" runat="server" Text='<%# Eval("EndorsorName2") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorComments2Label" runat="server" Text='<%# Eval("EndorsorComments2") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorEmailID3Label" runat="server" Text='<%# Eval("EndorsorEmailID3") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorName3Label" runat="server" Text='<%# Eval("EndorsorName3") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorComments3Label" runat="server" Text='<%# Eval("EndorsorComments3") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorEmailID4Label" runat="server" Text='<%# Eval("EndorsorEmailID4") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorName4Label" runat="server" Text='<%# Eval("EndorsorName4") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorComments4Label" runat="server" Text='<%# Eval("EndorsorComments4") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorEmailID5Label" runat="server" Text='<%# Eval("EndorsorEmailID5") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorName5Label" runat="server" Text='<%# Eval("EndorsorName5") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorComments5Label" runat="server" Text='<%# Eval("EndorsorComments5") %>' />
+                                            </td>
                                         </tr>
                                     </ItemTemplate>
                                     <LayoutTemplate>
@@ -349,7 +795,7 @@
                                             <tr runat="server">
                                                 <td runat="server">
                                                     <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px; font-family: Verdana, Arial, Helvetica, sans-serif;">
-                                                        <tr runat="server" style="/*background-color: #DCDCDC; */ color: #000000;">
+                                                        <tr runat="server" style="/*background-color: #DCDCDC; */ color: #000000; background-color: #DCDCDC;">
                                                             <th runat="server"></th>
                                                             <th runat="server">ID</th>
                                                             <th runat="server">FirstName</th>
@@ -362,6 +808,28 @@
                                                             <th runat="server">MobileNO</th>
                                                             <th runat="server">FaxNo</th>
                                                             <th runat="server">Remar</th>
+                                                            <th runat="server">FacebookAddress</th>
+                                                            <th runat="server">TwitterAddress</th>
+                                                            <th runat="server">KakaoTalkAddress</th>
+                                                            <th runat="server">Photo1</th>
+                                                            <th runat="server">Photo2</th>
+                                                            <th runat="server">ProfilePage</th>
+                                                            <th runat="server">Repertory</th>
+                                                            <th runat="server">EndorsorEmailID1</th>
+                                                            <th runat="server">EndorsorName1</th>
+                                                            <th runat="server">EndorsorComments1</th>
+                                                            <th runat="server">EndorsorEmailID2</th>
+                                                            <th runat="server">EndorsorName2</th>
+                                                            <th runat="server">EndorsorComments2</th>
+                                                            <th runat="server">EndorsorEmailID3</th>
+                                                            <th runat="server">EndorsorName3</th>
+                                                            <th runat="server">EndorsorComments3</th>
+                                                            <th runat="server">EndorsorEmailID4</th>
+                                                            <th runat="server">EndorsorName4</th>
+                                                            <th runat="server">EndorsorComments4</th>
+                                                            <th runat="server">EndorsorEmailID5</th>
+                                                            <th runat="server">EndorsorName5</th>
+                                                            <th runat="server">EndorsorComments5</th>
                                                         </tr>
                                                         <tr id="itemPlaceholder" runat="server">
                                                         </tr>
@@ -420,15 +888,82 @@
                                             <td>
                                                 <asp:Label ID="RemarLabel" runat="server" Text='<%# Eval("Remar") %>' />
                                             </td>
+                                            <td>
+                                                <asp:Label ID="FacebookAddressLabel" runat="server" Text='<%# Eval("FacebookAddress") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="TwitterAddressLabel" runat="server" Text='<%# Eval("TwitterAddress") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="KakaoTalkAddressLabel" runat="server" Text='<%# Eval("KakaoTalkAddress") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="Photo1Label" runat="server" Text='<%# Eval("Photo1") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="Photo2Label" runat="server" Text='<%# Eval("Photo2") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="ProfilePageLabel" runat="server" Text='<%# Eval("ProfilePage") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="RepertoryLabel" runat="server" Text='<%# Eval("Repertory") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorEmailID1Label" runat="server" Text='<%# Eval("EndorsorEmailID1") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorName1Label" runat="server" Text='<%# Eval("EndorsorName1") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorComments1Label" runat="server" Text='<%# Eval("EndorsorComments1") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorEmailID2Label" runat="server" Text='<%# Eval("EndorsorEmailID2") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorName2Label" runat="server" Text='<%# Eval("EndorsorName2") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorComments2Label" runat="server" Text='<%# Eval("EndorsorComments2") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorEmailID3Label" runat="server" Text='<%# Eval("EndorsorEmailID3") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorName3Label" runat="server" Text='<%# Eval("EndorsorName3") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorComments3Label" runat="server" Text='<%# Eval("EndorsorComments3") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorEmailID4Label" runat="server" Text='<%# Eval("EndorsorEmailID4") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorName4Label" runat="server" Text='<%# Eval("EndorsorName4") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorComments4Label" runat="server" Text='<%# Eval("EndorsorComments4") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorEmailID5Label" runat="server" Text='<%# Eval("EndorsorEmailID5") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorName5Label" runat="server" Text='<%# Eval("EndorsorName5") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="EndorsorComments5Label" runat="server" Text='<%# Eval("EndorsorComments5") %>' />
+                                            </td>
                                         </tr>
                                     </SelectedItemTemplate>
                                 </asp:ListView>
                             </div>
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" DeleteCommand="Delete Core.Artist where ID=@ID" InsertCommand="Insert into Core.Artist (FirstName, FamilyName, MiddleName, BirthDate, Address, ZipCode, TelNO, MobileNO, FaxNo, Remar)
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" DeleteCommand="Delete 
+Core.Artist
+where ID=@ID" InsertCommand="Insert into Core.Artist (FirstName, FamilyName, MiddleName, BirthDate, Address, ZipCode, TelNO, MobileNO, FaxNo, Remar)
 values (@FirstName, @FamilyName, @MiddleName, @BirthDate, @Address, @ZipCode, @TelNO, @MobileNO, @FaxNo, @Remar)"
-                                SelectCommand="SELECT ID, FirstName, FamilyName, MiddleName, BirthDate, Address, ZipCode, TelNO, MobileNO, FaxNo, Remar FROM Core.Artist
-order by ID desc"
-                                UpdateCommand="Update Core.Artsit
+                                SelectCommand="SELECT ID, FirstName, FamilyName, MiddleName, BirthDate, Address, ZipCode, TelNO, MobileNO, FaxNo, Remar, FacebookAddress, TwitterAddress, KakaoTalkAddress, Photo1, Photo2, ProfilePage, Repertory, EndorsorEmailID1, EndorsorName1, EndorsorComments1, EndorsorEmailID2, EndorsorName2, EndorsorComments2, EndorsorEmailID3, EndorsorName3, EndorsorComments3, EndorsorEmailID4, EndorsorName4, EndorsorComments4, EndorsorEmailID5, EndorsorName5, EndorsorComments5 FROM Core.Artist"
+                                UpdateCommand="Update Core.Artist
 set
 FirstName= @FirstName,
 FamilyName=@FamilyName,
