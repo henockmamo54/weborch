@@ -96,7 +96,7 @@
                             <td>
                                 <asp:Label ID="ConcertHallLabel" runat="server" Text='<%# Eval("ConcertHall") %>' />
                             </td>
-                            <td>
+                            <%--<td>
                                 <asp:Label ID="TimeStampLabel" runat="server" Text='<%# Eval("TimeStamp") %>' />
                             </td>
                             <td>
@@ -107,7 +107,7 @@
                             </td>
                             <td>
                                 <asp:Label ID="OrchestraIDLabel" runat="server" Text='<%# Eval("OrchestraID") %>' />
-                            </td>
+                            </td>--%>
                             <td>
                                 <asp:Label ID="OfficialNameLabel" runat="server" Text='<%# Eval("OfficialName") %>' />
                             </td>
@@ -137,7 +137,7 @@
                             <td>
                                 <asp:TextBox ID="ConcertHallTextBox" runat="server" Text='<%# Bind("ConcertHall") %>' />
                             </td>
-                            <td>
+                            <%--<td>
                                 <asp:TextBox ID="TimeStampTextBox" runat="server" Text='<%# Bind("TimeStamp") %>' />
                             </td>
                             <td>
@@ -148,7 +148,7 @@
                             </td>
                             <td>
                                 <asp:TextBox ID="OrchestraIDTextBox" runat="server" Text='<%# Bind("OrchestraID") %>' />
-                            </td>
+                            </td>--%>
                             <td>
                                 <asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID" selectedvalue='<%#Bind("OrchestraID")%>'></asp:DropDownList>
 
@@ -186,7 +186,7 @@
                             <td>
                                 <asp:TextBox ID="ConcertHallTextBox" runat="server" Text='<%# Bind("ConcertHall") %>' />
                             </td>
-                            <td>
+                            <%--<td>
                                 <asp:TextBox ID="TimeStampTextBox" runat="server" Text='<%# Bind("TimeStamp") %>' />
                             </td>
                             <td>
@@ -197,7 +197,7 @@
                             </td>
                             <td>
                                 <asp:TextBox ID="OrchestraIDTextBox" runat="server" Text='<%# Bind("OrchestraID") %>' />
-                            </td>
+                            </td>--%>
                             <td>
                                 <asp:TextBox ID="OfficialNameTextBox" runat="server" Text='<%# Bind("OfficialName") %>' />
                             </td>
@@ -227,7 +227,7 @@
                             <td>
                                 <asp:Label ID="ConcertHallLabel" runat="server" Text='<%# Eval("ConcertHall") %>' />
                             </td>
-                            <td>
+                            <%--<td>
                                 <asp:Label ID="TimeStampLabel" runat="server" Text='<%# Eval("TimeStamp") %>' />
                             </td>
                             <td>
@@ -238,17 +238,17 @@
                             </td>
                             <td>
                                 <asp:Label ID="OrchestraIDLabel" runat="server" Text='<%# Eval("OrchestraID") %>' />
-                            </td>
+                            </td>--%>
                             <td>
                                 <asp:Label ID="OfficialNameLabel" runat="server" Text='<%# Eval("OfficialName") %>' />
                             </td>
                         </tr>
                     </ItemTemplate>
                     <LayoutTemplate>
-                        <table runat="server">
+                        <table runat="server" style="width:100%;">
                             <tr runat="server">
                                 <td runat="server">
-                                    <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
+                                    <table id="itemPlaceholderContainer" runat="server" border="1" style="width:100%;background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
                                         <tr runat="server" style="background-color:#DCDCDC;color: #000000;">
                                             <th runat="server"></th>
                                             <th runat="server">ID</th>
@@ -257,10 +257,10 @@
                                             <th runat="server">PerformanceTitle</th>
                                             <th runat="server">Location</th>
                                             <th runat="server">ConcertHall</th>
-                                            <th runat="server">TimeStamp</th>
+                                            <%--<th runat="server">TimeStamp</th>
                                             <th runat="server">UserID</th>
                                             <th runat="server">ExpiryDate</th>
-                                            <th runat="server">OrchestraID</th>
+                                            <th runat="server">OrchestraID</th>--%>
                                             <th runat="server">OfficialName</th>
                                         </tr>
                                         <tr id="itemPlaceholder" runat="server">
@@ -303,7 +303,7 @@
                             <td>
                                 <asp:Label ID="ConcertHallLabel" runat="server" Text='<%# Eval("ConcertHall") %>' />
                             </td>
-                            <td>
+                            <%--<td>
                                 <asp:Label ID="TimeStampLabel" runat="server" Text='<%# Eval("TimeStamp") %>' />
                             </td>
                             <td>
@@ -314,7 +314,7 @@
                             </td>
                             <td>
                                 <asp:Label ID="OrchestraIDLabel" runat="server" Text='<%# Eval("OrchestraID") %>' />
-                            </td>
+                            </td>--%>
                             <td>
                                 <asp:Label ID="OfficialNameLabel" runat="server" Text='<%# Eval("OfficialName") %>' />
                             </td>
