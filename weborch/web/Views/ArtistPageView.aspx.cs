@@ -60,8 +60,11 @@ namespace web
                 artist.FacebookAddress = ufacebookadd.Text;
                 artist.TwitterAddress = utwitter.Text;
                 artist.KakaoTalkAddress = ukakao.Text;
-                artist.Photo1 = uphoto1.Text;
-                artist.Photo2 = uphoto2.Text;
+                //artist.Photo1 = uphoto1.Text;
+                //artist.Photo2 = uphoto2.Text;
+                getPhoto(artist, 1, FileUpload1);
+                getPhoto(artist, 2, FileUpload2);
+
                 artist.ProfilePage = uprofilepage.Text;
                 artist.Repertory = urepertory.Text;
                 artist.EndorsorEmailID1 = uedoremail1.Text;
@@ -134,6 +137,32 @@ namespace web
             {
                 showMsg("Please check your inputs");
             }
+        }
+
+
+        public void getPhoto(Artist info, int photonumber, FileUpload fileupload)
+        {
+
+            if (fileupload.HasFiles)
+            {
+                string ext = System.IO.Path.GetExtension(fileupload.FileName);
+                if (ext == ".jpg" || ext == ".png" || ext == ".gif" || ext == ".jpeg")
+                {
+                    string path = Server.MapPath("~//Document//");
+                    fileupload.SaveAs(path + fileupload.FileName);
+                }
+                else
+                {
+                    showMsg("you can upload only jpeg,jpg,png,gif file formats");
+                }
+            }
+
+            if (photonumber == 1)
+                info.Photo1 = fileupload.FileName;
+            else
+                info.Photo2 = fileupload.FileName;
+
+
         }
 
         public void chk_boxChanged(object sender, EventArgs e) {
