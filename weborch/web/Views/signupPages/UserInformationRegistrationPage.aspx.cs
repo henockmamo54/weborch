@@ -234,7 +234,7 @@ namespace web.Views.signupPages
                         personalInfo.Name = uname.Text;
                         personalInfo.Affiliation = uaffilation.Text;
                         personalInfo.sex = usersex.Text;
-                        personalInfo.Birthday=DateTime.Parse(userBirthDate.Text);
+                        personalInfo.Birthday = DateTime.Parse(userBirthDate.Text);
                         personalInfo.ZipCode = uzipcode.Text;
                         personalInfo.Address = uaddress.Text;
                         personalInfo.MobileNumber = umobileno.Text;
@@ -272,6 +272,80 @@ namespace web.Views.signupPages
 
                         context.UserPersonalInfoes.Add(personalInfo);
                         context.SaveChanges();
+
+                        #region insert user as an arits ==============================================================>
+
+                        Artist artist = new Artist();
+                        artist.FirstName = uname.Text;
+                        artist.FamilyName = " ";                       
+                        artist.BirthDate = DateTime.Parse(userBirthDate.Text);
+                        artist.Address = personalInfo.Address;
+                        artist.ZipCode = personalInfo.ZipCode;
+                        artist.TelNO = personalInfo.MobileNumber;
+                        artist.MobileNO = personalInfo.MobileNumber;
+                        
+
+                        artist.FacebookAddress = ufacebookadd.Text;
+                        artist.TwitterAddress = utwitter.Text;
+                        artist.KakaoTalkAddress = ukakao.Text;
+                        artist.Photo1 = personalInfo.Photo1;
+                        artist.Photo2 = personalInfo.Photo2;
+                        artist.ProfilePage = uprofilepage.Text;
+                        artist.Repertory = urepertory.Text;
+                        artist.EndorsorEmailID1 = uedoremail1.Text;
+                        artist.EndorsorName1 = uendorname1.Text;
+                        artist.EndorsorComments1 = uendorcomm1.Text;
+
+                        artist.EndorsorEmailID2 = uedoremail2.Text;
+                        artist.EndorsorName2 = uendorname2.Text;
+                        artist.EndorsorComments2 = uendorcomm2.Text;
+
+                        artist.EndorsorEmailID3 = uedoremail3.Text;
+                        artist.EndorsorName3 = uendorname3.Text;
+                        artist.EndorsorComments3 = uendorcomm3.Text;
+
+                        artist.EndorsorEmailID4 = uedoremail4.Text;
+                        artist.EndorsorName4 = uendorname4.Text;
+                        artist.EndorsorComments4 = uendorcomm4.Text;
+
+                        artist.EndorsorEmailID5 = uedoremail5.Text;
+                        artist.EndorsorName5 = uendorname5.Text;
+                        artist.EndorsorComments5 = uendorcomm5.Text;
+
+                        context.Artists.Add(artist);
+                        context.SaveChanges();
+                        
+                        //if (Session["myinstlist"] != null)
+                        //{
+                        //    List<Instrument> mylist = (List<Instrument>)Session["myinstlist"];
+                        //    foreach (Instrument i in mylist)
+                        //    {
+                        //        Artist_Instrument artistInst = new Artist_Instrument();
+                        //        artistInst.ArtistID = artistID;
+                        //        artistInst.InstrumentID = i.ID;
+                        //        artInstLogic.addArtistInstrument(artistInst);
+                        //    }
+                        //}
+
+                        //get all Artist types
+                        List<int> artisttypes = new List<int>();
+                        if (chk_Composer.Checked) usertypes.Add(1);
+                        if (chk_Conductor.Checked) usertypes.Add(2);
+                        if (chk_tp.Checked) usertypes.Add(3);
+                        if (chk_Student.Checked) usertypes.Add(4);
+                        if (chk_Player.Checked) usertypes.Add(5);
+
+                        // register  user types
+                        foreach (int i in artisttypes)
+                        {
+                            Artist_ArtistType type = new Artist_ArtistType();
+                            type.Artist = artist.ID;
+                            type.ArtistTypeID = i;
+
+                            context.Artist_ArtistType.Add(type);
+                            context.SaveChanges();
+                        }
+                        #endregion
 
                         dbContextTransaction.Commit();
                         isSuccess = true;
