@@ -76,6 +76,7 @@
                         <tr style="background-color:#FFF8DC;">
                             <td>
                                 <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
+                                <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
                             </td>
                             <td>
                                 <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
@@ -88,9 +89,6 @@
                             </td>
                             <td>
                                 <asp:Label ID="PerformanceTitleLabel" runat="server" Text='<%# Eval("PerformanceTitle") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="OrchestraLabel" runat="server" Text='<%# Eval("Orchestra") %>' />
                             </td>
                             <td>
                                 <asp:Label ID="LocationLabel" runat="server" Text='<%# Eval("Location") %>' />
@@ -109,6 +107,9 @@
                             </td>
                             <td>
                                 <asp:Label ID="OrchestraIDLabel" runat="server" Text='<%# Eval("OrchestraID") %>' />
+                            </td>
+                            <td>
+                                <asp:Label ID="OfficialNameLabel" runat="server" Text='<%# Eval("OfficialName") %>' />
                             </td>
                         </tr>
                     </AlternatingItemTemplate>
@@ -131,9 +132,6 @@
                                 <asp:TextBox ID="PerformanceTitleTextBox" runat="server" Text='<%# Bind("PerformanceTitle") %>' />
                             </td>
                             <td>
-                                <asp:TextBox ID="OrchestraTextBox" runat="server" Text='<%# Bind("Orchestra") %>' />
-                            </td>
-                            <td>
                                 <asp:TextBox ID="LocationTextBox" runat="server" Text='<%# Bind("Location") %>' />
                             </td>
                             <td>
@@ -150,6 +148,12 @@
                             </td>
                             <td>
                                 <asp:TextBox ID="OrchestraIDTextBox" runat="server" Text='<%# Bind("OrchestraID") %>' />
+                            </td>
+                            <td>
+                                <asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID" selectedvalue='<%#Bind("OrchestraID")%>'></asp:DropDownList>
+
+                                <%--<asp:TextBox ID="OfficialNameTextBox" runat="server" Text='<%# Bind("OfficialName") %>' />--%>
+
                             </td>
                         </tr>
                     </EditItemTemplate>
@@ -177,9 +181,6 @@
                                 <asp:TextBox ID="PerformanceTitleTextBox" runat="server" Text='<%# Bind("PerformanceTitle") %>' />
                             </td>
                             <td>
-                                <asp:TextBox ID="OrchestraTextBox" runat="server" Text='<%# Bind("Orchestra") %>' />
-                            </td>
-                            <td>
                                 <asp:TextBox ID="LocationTextBox" runat="server" Text='<%# Bind("Location") %>' />
                             </td>
                             <td>
@@ -197,12 +198,16 @@
                             <td>
                                 <asp:TextBox ID="OrchestraIDTextBox" runat="server" Text='<%# Bind("OrchestraID") %>' />
                             </td>
+                            <td>
+                                <asp:TextBox ID="OfficialNameTextBox" runat="server" Text='<%# Bind("OfficialName") %>' />
+                            </td>
                         </tr>
                     </InsertItemTemplate>
                     <ItemTemplate>
                         <tr style="background-color:#DCDCDC;color: #000000;">
                             <td>
                                 <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
+                                <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
                             </td>
                             <td>
                                 <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
@@ -215,9 +220,6 @@
                             </td>
                             <td>
                                 <asp:Label ID="PerformanceTitleLabel" runat="server" Text='<%# Eval("PerformanceTitle") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="OrchestraLabel" runat="server" Text='<%# Eval("Orchestra") %>' />
                             </td>
                             <td>
                                 <asp:Label ID="LocationLabel" runat="server" Text='<%# Eval("Location") %>' />
@@ -237,6 +239,9 @@
                             <td>
                                 <asp:Label ID="OrchestraIDLabel" runat="server" Text='<%# Eval("OrchestraID") %>' />
                             </td>
+                            <td>
+                                <asp:Label ID="OfficialNameLabel" runat="server" Text='<%# Eval("OfficialName") %>' />
+                            </td>
                         </tr>
                     </ItemTemplate>
                     <LayoutTemplate>
@@ -250,13 +255,13 @@
                                             <th runat="server">PerformanceDate</th>
                                             <th runat="server">PerformanceDay</th>
                                             <th runat="server">PerformanceTitle</th>
-                                            <th runat="server">Orchestra</th>
                                             <th runat="server">Location</th>
                                             <th runat="server">ConcertHall</th>
                                             <th runat="server">TimeStamp</th>
                                             <th runat="server">UserID</th>
                                             <th runat="server">ExpiryDate</th>
                                             <th runat="server">OrchestraID</th>
+                                            <th runat="server">OfficialName</th>
                                         </tr>
                                         <tr id="itemPlaceholder" runat="server">
                                         </tr>
@@ -278,6 +283,7 @@
                         <tr style="background-color:#008A8C;font-weight: bold;color: #FFFFFF;">
                             <td>
                                 <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
+                                <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
                             </td>
                             <td>
                                 <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
@@ -290,9 +296,6 @@
                             </td>
                             <td>
                                 <asp:Label ID="PerformanceTitleLabel" runat="server" Text='<%# Eval("PerformanceTitle") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="OrchestraLabel" runat="server" Text='<%# Eval("Orchestra") %>' />
                             </td>
                             <td>
                                 <asp:Label ID="LocationLabel" runat="server" Text='<%# Eval("Location") %>' />
@@ -312,14 +315,35 @@
                             <td>
                                 <asp:Label ID="OrchestraIDLabel" runat="server" Text='<%# Eval("OrchestraID") %>' />
                             </td>
+                            <td>
+                                <asp:Label ID="OfficialNameLabel" runat="server" Text='<%# Eval("OfficialName") %>' />
+                            </td>
                         </tr>
                     </SelectedItemTemplate>
                 </asp:ListView>
-                <asp:SqlDataSource ID="SqlDataSource2_allPerformances" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT *  FROM Main.Performance" DeleteCommand="Delete Main.Performance
-where id = @ID">
+                <asp:SqlDataSource ID="SqlDataSource2_allPerformances" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
+SELECT p.*, OfficialName  FROM Main.Performance p
+join Core.Orchestra o on p.OrchestraID=o.ID" DeleteCommand="Delete Main.Performance
+where id = @ID" UpdateCommand="update Main.Performance
+set OrchestraID=@OrchestraID,
+PerformanceDate=@PerformanceDate,
+PerformanceDay=@PerformanceDay,
+PerformanceTitle=@PerformanceTitle,
+Location=@Location,
+ConcertHall=@ConcertHall
+where ID=@ID">
                     <DeleteParameters>
                         <asp:Parameter Name="ID" />
                     </DeleteParameters>
+                    <UpdateParameters>
+                        <asp:Parameter Name="OrchestraID" />
+                        <asp:Parameter Name="PerformanceDate" />
+                        <asp:Parameter Name="PerformanceDay" />
+                        <asp:Parameter Name="PerformanceTitle" />
+                        <asp:Parameter Name="Location" />
+                        <asp:Parameter Name="ConcertHall" />
+                        <asp:Parameter Name="ID" />
+                    </UpdateParameters>
                 </asp:SqlDataSource>
             </div>
 
