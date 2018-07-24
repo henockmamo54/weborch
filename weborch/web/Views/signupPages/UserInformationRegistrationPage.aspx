@@ -12,41 +12,6 @@
                     </ul>
                 </div>
 
-                  <div class="col-md-4 pull-right panel panel-default" style="padding: 1em; box-shadow: 2px 2px 2px 2px #f5f5f5;">
-                    <table>
-                        <tr>
-                            <td>Msg:
-                            </td>
-                            <td>
-
-                                <asp:TextBox ID="txt_bulmsg" runat="server" TextMode="MultiLine"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>URL:
-                            </td>
-                            <td>
-
-                                <asp:TextBox ID="txt_bulurl" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Image:                     
-                                
-                            </td>
-                            <td>
-                                <%--<asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline" />--%>
-                                <asp:Button ID="addPost" CssClass="btn btn-primary pull-right" runat="server" Text="Add" OnClick="Button1_Click" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                        </tr>
-                    </table>
-
-                </div>
-
-
                 <div class="col-md-10">
                 <div class="col-md-12 shadowedPanel" style="height: 220px;">
                     <div class="rwo">
@@ -533,7 +498,6 @@
         </ContentTemplate>
         
         <Triggers>
-            <asp:PostBackTrigger ControlID="addPost" />
             <asp:PostBackTrigger ControlID="proccedButton" />        
             <asp:PostBackTrigger ControlID="Button2" />    
         </Triggers>
