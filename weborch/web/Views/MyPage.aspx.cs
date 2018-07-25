@@ -15,30 +15,30 @@ namespace web.Views
         {
             if (!IsPostBack)
             {
-                var user = (User)Session["User"];
+                var user = (UserCommonTable)Session["User"];
                 if (user == null) Response.Redirect("~/LoginPage.aspx");
                 else
                 {
-                    mynameholder.Text = user.EnglishName;
+                    mynameholder.Text = user.UserPersonalInfoes.FirstOrDefault().Name;
                     txt_useremail.Text = user.Email;
                     txt_userPassword.Text = user.Password;
-                    txt_userkoreanname.Text = user.KoreanName;
-                    txt_userenglishname.Text = user.EnglishName;
-                    txt_usersex.Text = user.sex;
-                    txt_userBirthDate.Text = user.Birthday.ToString();
-                    txt_userZipCode.Text = user.ZipCode;
-                    txt_useraddress.Text = user.Address;
-                    txt_userPhoneNumber.Text = user.PhoneNumber;
-                    switch (user.Category.ToString().Trim()) {
-                        case "Player": radioOcupation.SelectedIndex = 0; break;
-                        case "Composer": radioOcupation.SelectedIndex = 1; break;
-                        case "Researcher": radioOcupation.SelectedIndex =2; break;
-                        case "Conductor": radioOcupation.SelectedIndex = 3; break;
-                        case "Promotor": radioOcupation.SelectedIndex = 4; break;
-                        case "Audience": radioOcupation.SelectedIndex = 5; break;
-                        case "Other": radioOcupation.SelectedIndex = 6; break;
-                        default: { radioOcupation.SelectedIndex = 6; break; }
-                    }
+                    //txt_userkoreanname.Text = user.KoreanName;
+                    //txt_userenglishname.Text = user.EnglishName;
+                    txt_usersex.Text = user.UserPersonalInfoes.FirstOrDefault().sex;
+                    txt_userBirthDate.Text = user.UserPersonalInfoes.FirstOrDefault().Birthday.ToString();
+                    txt_userZipCode.Text = user.UserPersonalInfoes.FirstOrDefault().ZipCode;
+                    txt_useraddress.Text = user.UserPersonalInfoes.FirstOrDefault().Address;
+                    txt_userPhoneNumber.Text = user.UserPersonalInfoes.FirstOrDefault().MobileNumber;
+                    //switch (user.Category.ToString().Trim()) {
+                    //    case "Player": radioOcupation.SelectedIndex = 0; break;
+                    //    case "Composer": radioOcupation.SelectedIndex = 1; break;
+                    //    case "Researcher": radioOcupation.SelectedIndex =2; break;
+                    //    case "Conductor": radioOcupation.SelectedIndex = 3; break;
+                    //    case "Promotor": radioOcupation.SelectedIndex = 4; break;
+                    //    case "Audience": radioOcupation.SelectedIndex = 5; break;
+                    //    case "Other": radioOcupation.SelectedIndex = 6; break;
+                    //    default: { radioOcupation.SelectedIndex = 6; break; }
+                    //}
                 }
             }
         }
