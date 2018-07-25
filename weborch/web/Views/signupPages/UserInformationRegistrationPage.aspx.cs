@@ -80,6 +80,8 @@ namespace web.Views.signupPages
                 chk_userOther.Checked = !iscompany;
                 chk_Player.Checked = !iscompany;
                 if (PersonInfoFormContainer.Visible) PersonInfoFormContainer.Visible = false;
+                if (chk_Orchestra.Checked) divforOrchestrainfo.Visible = true;
+                else divforOrchestrainfo.Visible = false;
             }
 
             Session["iscompany"] = iscompany;
@@ -93,6 +95,8 @@ namespace web.Views.signupPages
                 if (iscompany)
                 {
                     CompanyInfoFormContainer.Visible = true; PersonInfoFormContainer.Visible = false;
+                    if (chk_Orchestra.Checked) divforOrchestrainfo.Visible = true;
+                    else divforOrchestrainfo.Visible = false;
                 }
                 else
                 {
@@ -162,6 +166,23 @@ namespace web.Views.signupPages
 
                         context.UserCompanies.Add(company);
                         context.SaveChanges();
+
+                        // register orchestra info
+                        if (chk_Orchestra.Checked) {
+                            Orchestra orch = new Orchestra();
+                            orch.OfficialName = txt_orchname.Text;
+                            orch.Alias = txt_orchaliasname.Text;
+                            orch.URL = txt_orchurl.Text;
+                            orch.Address = company.Address;
+                            orch.ZipCode = company.ZipCode;
+                            orch.TelNO = company.TelephoneNo;
+                            orch.FaxNo = company.FaxNo;
+                            orch.ConductorName = txt_orchcondactername.Text;
+                            orch.Since = int.Parse(txt_orchsince.Text);
+
+                            context.Orchestras.Add(orch);
+                            context.SaveChanges();
+                        }
 
                         dbContextTransaction.Commit();
                         isSuccess = true;
@@ -370,48 +391,6 @@ namespace web.Views.signupPages
             }
 
         }
-
-        //protected void Button1_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (FileUpload1.HasFiles)
-        //        {
-        //            string ext = System.IO.Path.GetExtension(FileUpload1.FileName);
-        //            if (ext == ".jpg" || ext == ".png" || ext == ".gif" || ext == ".jpeg")
-        //            {
-        //                string path = Server.MapPath("~//Document//");
-        //                FileUpload1.SaveAs(path + FileUpload1.FileName);
-        //            }
-        //            else
-        //            {
-        //                showMsg("you can upload only jpeg,jpg,png,gif file formats");
-        //            }
-        //        }
-        //        else
-        //        {
-        //            showMsg("Please select an image to upload.");
-        //            return;
-        //        }
-
-        //        BulletinLogic bl = new BulletinLogic();
-        //        Bulletin bulletin = new Bulletin();
-        //        bulletin.MSG = txt_bulmsg.Text;
-        //        bulletin.URL = txt_bulurl.Text;
-        //        bulletin.TimeStamp = DateTime.Now;
-        //        bulletin.ImageUrl = FileUpload1.FileName;
-        //        if (bl.addBulletin(bulletin))
-        //        {
-        //            showMsg("Data inserted succssfuly");
-        //        }
-        //        else showMsg("Please check your inputs. can't insert the info properly");
-        //    }
-        //    catch (Exception ee)
-        //    {
-        //        showMsg("Please check your inputs. related the server problem");
-        //    }
-
-        //}
 
         public void getPhoto(UserPersonalInfo info, int photonumber, FileUpload fileupload)
         {
