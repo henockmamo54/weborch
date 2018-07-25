@@ -179,6 +179,7 @@ namespace web.Views.signupPages
                             orch.FaxNo = company.FaxNo;
                             orch.ConductorName = txt_orchcondactername.Text;
                             orch.Since = int.Parse(txt_orchsince.Text);
+                            orch.UserID = user.ID;
 
                             context.Orchestras.Add(orch);
                             context.SaveChanges();

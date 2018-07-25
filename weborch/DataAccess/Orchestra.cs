@@ -32,6 +32,7 @@ namespace DataAccess
         public string FaxNo { get; set; }
         public string ConductorName { get; set; }
         public Nullable<int> Since { get; set; }
+        public Nullable<int> UserID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orchestra_Instrument_Artist> Orchestra_Instrument_Artist { get; set; }
@@ -39,5 +40,6 @@ namespace DataAccess
         public virtual ICollection<PerformanceDetail> PerformanceDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Performance> Performances { get; set; }
+        public virtual UserCommonTable UserCommonTable { get; set; }
     }
 }

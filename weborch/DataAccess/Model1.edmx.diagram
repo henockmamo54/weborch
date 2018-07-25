@@ -50,6 +50,7 @@
         <AssociationConnector Association="OrchestraDBModel.FK__UserPerso__Major__69FBBC1F" />
         <AssociationConnector Association="OrchestraDBModel.FK__UserPerso__Major__6AEFE058" />
         <AssociationConnector Association="OrchestraDBModel.FK__UserPerso__UserI__41EDCAC5" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Orchestra__UserI__6BE40491" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -84,6 +84,8 @@
     <NavigationProperty Name="Orchestra_Instrument_Artist" Relationship="OrchestraDBModel.FK__Orchestra__Orche__151B244E" FromRole="Orchestra" ToRole="Orchestra_Instrument_Artist" />
     <NavigationProperty Name="PerformanceDetails" Relationship="OrchestraDBModel.FK__Performan__Orche__59C55456" FromRole="Orchestra" ToRole="PerformanceDetail" />
     <NavigationProperty Name="Performances" Relationship="OrchestraDBModel.FK__Performan__Orche__531856C7" FromRole="Orchestra" ToRole="Performance" />
+    <Property Name="UserID" Type="Int32" />
+    <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__Orchestra__UserI__6BE40491" FromRole="Orchestra" ToRole="UserCommonTable" />
   </EntityType>
   <EntityContainer Name="OrchestraDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Artists" EntityType="Self.Artist" />
@@ -196,6 +198,10 @@
     <AssociationSet Name="FK__UserPerso__UserI__41EDCAC5" Association="OrchestraDBModel.FK__UserPerso__UserI__41EDCAC5">
       <End Role="UserCommonTable" EntitySet="UserCommonTables" />
       <End Role="UserPersonalInfo" EntitySet="UserPersonalInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orchestra__UserI__6BE40491" Association="OrchestraDBModel.FK__Orchestra__UserI__6BE40491">
+      <End Role="UserCommonTable" EntitySet="UserCommonTables" />
+      <End Role="Orchestra" EntitySet="Orchestras" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="User">
@@ -423,6 +429,7 @@
     <NavigationProperty Name="Performances" Relationship="OrchestraDBModel.FK__Performan__UserI__5224328E" FromRole="UserCommonTable" ToRole="Performance" />
     <NavigationProperty Name="Artists" Relationship="OrchestraDBModel.FK__Artist__UserID__690797E6" FromRole="UserCommonTable" ToRole="Artist" />
     <NavigationProperty Name="UserPersonalInfoes" Relationship="OrchestraDBModel.FK__UserPerso__UserI__41EDCAC5" FromRole="UserCommonTable" ToRole="UserPersonalInfo" />
+    <NavigationProperty Name="Orchestras" Relationship="OrchestraDBModel.FK__Orchestra__UserI__6BE40491" FromRole="UserCommonTable" ToRole="Orchestra" />
   </EntityType>
   <EntityType Name="UserCompany">
     <Key>
@@ -741,6 +748,18 @@
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="UserPersonalInfo">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orchestra__UserI__6BE40491">
+    <End Type="OrchestraDBModel.UserCommonTable" Role="UserCommonTable" Multiplicity="0..1" />
+    <End Type="OrchestraDBModel.Orchestra" Role="Orchestra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserCommonTable">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orchestra">
         <PropertyRef Name="UserID" />
       </Dependent>
     </ReferentialConstraint>

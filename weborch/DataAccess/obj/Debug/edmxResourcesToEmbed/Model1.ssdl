@@ -125,6 +125,7 @@
     <Property Name="FaxNo" Type="nvarchar" MaxLength="50" />
     <Property Name="ConductorName" Type="nvarchar" MaxLength="100" />
     <Property Name="Since" Type="int" />
+    <Property Name="UserID" Type="int" />
   </EntityType>
   <EntityType Name="ParentCommentTable">
     <Key>
@@ -420,6 +421,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__Orchestra__UserI__6BE40491">
+    <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
+    <End Role="Orchestra" Type="Self.Orchestra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserCommonTable">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orchestra">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Performan__Compo__5D95E53A">
     <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
     <End Role="PerformanceDetail" Type="Self.PerformanceDetail" Multiplicity="*" />
@@ -643,6 +656,10 @@
     <AssociationSet Name="FK__Orchestra__Orche__151B244E" Association="Self.FK__Orchestra__Orche__151B244E">
       <End Role="Orchestra" EntitySet="Orchestra" />
       <End Role="Orchestra_Instrument_Artist" EntitySet="Orchestra_Instrument_Artist" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orchestra__UserI__6BE40491" Association="Self.FK__Orchestra__UserI__6BE40491">
+      <End Role="UserCommonTable" EntitySet="UserCommonTable" />
+      <End Role="Orchestra" EntitySet="Orchestra" />
     </AssociationSet>
     <AssociationSet Name="FK__Performan__Compo__5D95E53A" Association="Self.FK__Performan__Compo__5D95E53A">
       <End Role="Artist" EntitySet="Artist" />

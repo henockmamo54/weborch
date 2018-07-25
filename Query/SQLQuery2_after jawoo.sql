@@ -207,3 +207,8 @@ select * from Core.Artist
 
 --alter table main.performanceDetail
 --drop constraint FK__Performan__Orche__55009F39
+
+
+--alter table Core.Orchestra
+--add
+--UserID int FOREIGN KEY REFERENCES Main.UserCommonTable(ID)
