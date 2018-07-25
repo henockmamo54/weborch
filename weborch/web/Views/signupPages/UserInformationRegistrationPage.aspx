@@ -162,7 +162,7 @@
 select -1 as ID, 'None' as EnglishName, 'None' as KoreanName, 'None' as [Group] 
 union
 SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataSource>
-                                                        <asp:DropDownList ID="DropDownList1_mjInst1" class="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource3_instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
+                                                        <asp:DropDownList ID="DropDownList1_mjInst1" class="form-control" runat="server" DataSourceID="SqlDataSource3_instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
 
                                                         <%--<asp:TextBox ID="umajorinst1" runat="server" class="form-control"></asp:TextBox>--%>
                                                     </div>
@@ -172,7 +172,7 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
                                                     <br />
                                                     <div class="col-md-4">Major Instrument 2:</div>
                                                     <div class="col-md-6">
-                                                        <asp:DropDownList ID="DropDownList1_mjInst2" class="form-control" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource3_instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
+                                                        <asp:DropDownList ID="DropDownList1_mjInst2" class="form-control" runat="server"  DataSourceID="SqlDataSource3_instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
 
                                                         <%--<asp:TextBox ID="umajorinst2" runat="server" class="form-control"></asp:TextBox>--%>
                                                     </div>

@@ -361,11 +361,11 @@ namespace web.Views.signupPages
 
                         //get all Artist types
                         List<int> artisttypes = new List<int>();
-                        if (chk_Composer.Checked) usertypes.Add(1);
-                        if (chk_Conductor.Checked) usertypes.Add(2);
-                        if (chk_tp.Checked) usertypes.Add(3);
-                        if (chk_Student.Checked) usertypes.Add(4);
-                        if (chk_Player.Checked) usertypes.Add(5);
+                        if (chk_Composer.Checked) { artisttypes.Add(1); }
+                        if (chk_Conductor.Checked) { artisttypes.Add(2); }
+                        if (chk_tp.Checked) { artisttypes.Add(3); }
+                        if (chk_Student.Checked) { artisttypes.Add(4); }
+                        if (chk_Player.Checked) { artisttypes.Add(5); }
 
                         // register  user types
                         foreach (int i in artisttypes)
