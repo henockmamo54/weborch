@@ -22,13 +22,7 @@ namespace web
                 Response.Redirect("~/Views/HomeView");
             }
             else Label1_warnningmessage.Visible = true;
-
-            Page.Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            Response.ClearHeaders();
-            Response.AddHeader("Cache-Control", "no-cache, no-store, max-age=0, must-revalidate");
-            Response.AddHeader("Pragma", "no-cache");
-
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "clearHistory", "ClearHistory();", true);
+            
 
         }
     }

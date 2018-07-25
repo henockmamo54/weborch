@@ -43,9 +43,9 @@ namespace BusinessLogic
                 return false;
             }
         }
-        public List<User> checkUserLoginInfo2(string username, string password)
+        public List<UserCommonTable> checkUserLoginInfo2(string username, string password)
         {
-            return entity.Users.Where(x => x.Email == username.Trim() && x.Password == password.Trim()).ToList();
+            return entity.UserCommonTables.Where(x => x.Email == username.Trim() && x.Password == password.Trim()).ToList();
         }
 
         public bool updateUser(User user) {

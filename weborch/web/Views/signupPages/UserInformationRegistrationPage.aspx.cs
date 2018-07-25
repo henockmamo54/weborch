@@ -168,7 +168,8 @@ namespace web.Views.signupPages
                         context.SaveChanges();
 
                         // register orchestra info
-                        if (chk_Orchestra.Checked) {
+                        if (chk_Orchestra.Checked)
+                        {
                             Orchestra orch = new Orchestra();
                             orch.OfficialName = txt_orchname.Text;
                             orch.Alias = txt_orchaliasname.Text;
@@ -265,7 +266,7 @@ namespace web.Views.signupPages
                         personalInfo.FacebookAddress = ufacebookadd.Text;
                         personalInfo.TwitterAddress = utwitter.Text;
                         personalInfo.KakaoTalkAddress = ukakao.Text;
-                        if(int.Parse(DropDownList1_mjInst1.SelectedValue) != -1)personalInfo.MajorInstrument1ID = int.Parse( DropDownList1_mjInst1.SelectedValue); //umajorinst1.Text;
+                        if (int.Parse(DropDownList1_mjInst1.SelectedValue) != -1) personalInfo.MajorInstrument1ID = int.Parse(DropDownList1_mjInst1.SelectedValue); //umajorinst1.Text;
                         if (int.Parse(DropDownList1_mjInst2.SelectedValue) != -1) personalInfo.MajorInstrument1ID = int.Parse(DropDownList1_mjInst2.SelectedValue); //umajorinst2.Text;
                         //personalInfo.Photo1 = uphoto1.Text;
                         //personalInfo.Photo2 = uphoto2.Text;
@@ -301,13 +302,13 @@ namespace web.Views.signupPages
 
                         Artist artist = new Artist();
                         artist.FirstName = uname.Text;
-                        artist.FamilyName = " ";                       
+                        artist.FamilyName = " ";
                         artist.BirthDate = DateTime.Parse(userBirthDate.Text);
                         artist.Address = personalInfo.Address;
                         artist.ZipCode = personalInfo.ZipCode;
                         artist.TelNO = personalInfo.MobileNumber;
                         artist.MobileNO = personalInfo.MobileNumber;
-                        
+
 
                         artist.FacebookAddress = ufacebookadd.Text;
                         artist.TwitterAddress = utwitter.Text;
@@ -339,18 +340,24 @@ namespace web.Views.signupPages
 
                         context.Artists.Add(artist);
                         context.SaveChanges();
-                        
-                        //if (Session["myinstlist"] != null)
-                        //{
-                        //    List<Instrument> mylist = (List<Instrument>)Session["myinstlist"];
-                        //    foreach (Instrument i in mylist)
-                        //    {
-                        //        Artist_Instrument artistInst = new Artist_Instrument();
-                        //        artistInst.ArtistID = artistID;
-                        //        artistInst.InstrumentID = i.ID;
-                        //        artInstLogic.addArtistInstrument(artistInst);
-                        //    }
-                        //}
+
+                        if (DropDownList1_mjInst1.SelectedIndex > 0)
+                        {
+                            Artist_Instrument artistInst = new Artist_Instrument();
+                            artistInst.ArtistID = artist.ID;
+                            artistInst.InstrumentID = int.Parse(DropDownList1_mjInst1.SelectedValue);
+                            context.Artist_Instrument.Add(artistInst);
+                            context.SaveChanges();
+                        }
+                        if (DropDownList1_mjInst2.SelectedIndex > 0)
+                        {
+                            Artist_Instrument artistInst = new Artist_Instrument();
+                            artistInst.ArtistID = artist.ID;
+                            artistInst.InstrumentID = int.Parse(DropDownList1_mjInst2.SelectedValue);
+                            context.Artist_Instrument.Add(artistInst);
+                            context.SaveChanges();
+                        }
+
 
                         //get all Artist types
                         List<int> artisttypes = new List<int>();
