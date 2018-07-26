@@ -130,7 +130,9 @@
                                     <br />
                                     <div class="col-md-4">Photo 1:</div>
                                     <div class="col-md-8">
-                                        <asp:TextBox ID="uphoto1" runat="server" class="form-control"></asp:TextBox>
+                                        <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline; display: inline; padding-left: 0; padding-right: 0; border: none; box-shadow: none;"
+                                            class="form-control" />
+                                        <%--<asp:TextBox ID="uphoto1" runat="server" class="form-control"></asp:TextBox>--%>
                                     </div>
                                     <br />
                                 </div>
@@ -138,7 +140,9 @@
                                     <br />
                                     <div class="col-md-4">Photo 2:</div>
                                     <div class="col-md-8">
-                                        <asp:TextBox ID="uphoto2" runat="server" class="form-control"></asp:TextBox>
+                                        <asp:FileUpload ID="FileUpload2" runat="server" Style="display: inline; display: inline; padding-left: 0; padding-right: 0; border: none; box-shadow: none;"
+                                            class="form-control" />
+                                        <%--<asp:TextBox ID="uphoto2" runat="server" class="form-control"></asp:TextBox>--%>
                                     </div>
                                     <br />
                                 </div>
@@ -960,7 +964,8 @@
                             </div>
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" DeleteCommand="Delete 
 Core.Artist
-where ID=@ID" InsertCommand="Insert into Core.Artist (FirstName, FamilyName, MiddleName, BirthDate, Address, ZipCode, TelNO, MobileNO, FaxNo, Remar)
+where ID=@ID"
+                                InsertCommand="Insert into Core.Artist (FirstName, FamilyName, MiddleName, BirthDate, Address, ZipCode, TelNO, MobileNO, FaxNo, Remar)
 values (@FirstName, @FamilyName, @MiddleName, @BirthDate, @Address, @ZipCode, @TelNO, @MobileNO, @FaxNo, @Remar)"
                                 SelectCommand="SELECT ID, FirstName, FamilyName, MiddleName, BirthDate, Address, ZipCode, TelNO, MobileNO, FaxNo, Remar, FacebookAddress, TwitterAddress, KakaoTalkAddress, Photo1, Photo2, ProfilePage, Repertory, EndorsorEmailID1, EndorsorName1, EndorsorComments1, EndorsorEmailID2, EndorsorName2, EndorsorComments2, EndorsorEmailID3, EndorsorName3, EndorsorComments3, EndorsorEmailID4, EndorsorName4, EndorsorComments4, EndorsorEmailID5, EndorsorName5, EndorsorComments5 FROM Core.Artist"
                                 UpdateCommand="Update Core.Artist
@@ -1173,6 +1178,11 @@ where id=@ID"
                     </div>
                 </div>
             </ContentTemplate>
+
+            <Triggers>
+                <asp:PostBackTrigger ControlID="btn_artist_add" />
+            </Triggers>
+
         </asp:UpdatePanel>
 
     </div>
