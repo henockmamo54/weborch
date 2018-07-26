@@ -11,7 +11,6 @@
                         <a class="list-group-item list-group-item-action active">User Info.</a>
                     </ul>
                 </div>
-
                 <div class="col-md-10">
                     <div class="col-md-12 shadowedPanel" style="height: 220px;">
                         <div class="rwo">
