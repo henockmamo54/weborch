@@ -626,6 +626,10 @@
     <NavigationProperty Name="Orchestra" Relationship="OrchestraDBModel.FK__Performan__Orche__531856C7" FromRole="Performance" ToRole="Orchestra" />
     <NavigationProperty Name="PerformanceDetails" Relationship="OrchestraDBModel.FK__Performan__Perfo__503BEA1C" FromRole="Performance" ToRole="PerformanceDetail" />
     <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__Performan__UserI__5224328E" FromRole="Performance" ToRole="UserCommonTable" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <Property Name="PhotoAddLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="VideoLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK__Performan__Orche__531856C7">
     <End Type="OrchestraDBModel.Orchestra" Role="Orchestra" Multiplicity="0..1" />

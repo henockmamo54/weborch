@@ -30,6 +30,10 @@ namespace DataAccess
         public Nullable<int> UserID { get; set; }
         public Nullable<System.DateTime> ExpiryDate { get; set; }
         public Nullable<int> OrchestraID { get; set; }
+        public Nullable<System.DateTime> StartDate { get; set; }
+        public Nullable<System.DateTime> EndDate { get; set; }
+        public string PhotoAddLocation { get; set; }
+        public string VideoLocation { get; set; }
     
         public virtual Orchestra Orchestra { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

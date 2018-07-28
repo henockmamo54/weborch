@@ -1,9 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PerformancePage.aspx.cs" Inherits="web.Views.PerformancePage" %>
 
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             <br />
+                       
 
             <div class="row shadowedPanel">
                 <div class="row">
@@ -19,21 +22,52 @@
 
                     <div class="col-md-4">
                         <br />
-                        <div class="col-md-4">Performance date:</div>
+                        <div class="col-md-4">Start date:</div>
                         <div class="col-md-8">
-                            <asp:TextBox ID="txt_performancedate" runat="server" class="form-control"></asp:TextBox>
+                            <asp:TextBox ID="txt_performancedate" runat="server" class="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>
                         </div>
                         <br />
                     </div>
 
                     <div class="col-md-4">
                         <br />
+                        <div class="col-md-4">End date:</div>
+                        <div class="col-md-8">
+                            <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>
+                        </div>
+                        <br />
+                    </div>
+
+                    <div class="col-md-4">
+                        <br />
+                        <div class="col-md-4">Photo Ad.:</div>
+                        <div class="col-md-8">
+                            <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline" />
+                            <%--<asp:TextBox ID="TextBox2" runat="server" class="form-control"></asp:TextBox>--%>
+                        </div>
+                        <br />
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <br />
+                        <div class="col-md-4">Video Ad.:</div>
+                        <div class="col-md-8">
+                            <asp:TextBox ID="TextBox3" runat="server" class="form-control"></asp:TextBox>
+                        </div>
+                        <br />
+                    </div>
+
+
+
+                    <%--<div class="col-md-4">
+                        <br />
                         <div class="col-md-4">Performance day:</div>
                         <div class="col-md-8">
                             <asp:TextBox ID="txt_performanceday" runat="server" class="form-control"></asp:TextBox>
                         </div>
                         <br />
-                    </div>
+                    </div>--%>
 
 
                     <div class="col-md-4">
@@ -66,14 +100,14 @@
                 </div>
                 <div class="row col-md-12">
                     <br />
-                    <asp:Button ID="txt_addInstrument" CssClass="btn btn-primary pull-right" runat="server" Text="Register" OnClick="btn_instadd_Click" />
+                    <asp:Button ID="btn_addPerformance" CssClass="btn btn-primary pull-right" runat="server" Text="Register" OnClick="btn_performance_Click" />
                 </div>
             </div>
             <br />
-            <div class="row ">                
+            <div class="row ">
                 <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource2_allPerformances">
                     <AlternatingItemTemplate>
-                        <tr style="background-color:#FFF8DC;">
+                        <tr style="background-color: #FFF8DC;">
                             <td>
                                 <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                 <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
@@ -114,7 +148,7 @@
                         </tr>
                     </AlternatingItemTemplate>
                     <EditItemTemplate>
-                        <tr style="background-color:#008A8C;color: #FFFFFF;">
+                        <tr style="background-color: #008A8C; color: #FFFFFF;">
                             <td>
                                 <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
                                 <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
@@ -150,7 +184,7 @@
                                 <asp:TextBox ID="OrchestraIDTextBox" runat="server" Text='<%# Bind("OrchestraID") %>' />
                             </td>--%>
                             <td>
-                                <asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID" selectedvalue='<%#Bind("OrchestraID")%>'></asp:DropDownList>
+                                <asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID" SelectedValue='<%#Bind("OrchestraID")%>'></asp:DropDownList>
 
                                 <%--<asp:TextBox ID="OfficialNameTextBox" runat="server" Text='<%# Bind("OfficialName") %>' />--%>
 
@@ -158,7 +192,7 @@
                         </tr>
                     </EditItemTemplate>
                     <EmptyDataTemplate>
-                        <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
+                        <table runat="server" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px;">
                             <tr>
                                 <td>No data was returned.</td>
                             </tr>
@@ -204,7 +238,7 @@
                         </tr>
                     </InsertItemTemplate>
                     <ItemTemplate>
-                        <tr style="background-color:#DCDCDC;color: #000000;">
+                        <tr style="background-color: #DCDCDC; color: #000000;">
                             <td>
                                 <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                 <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
@@ -245,11 +279,11 @@
                         </tr>
                     </ItemTemplate>
                     <LayoutTemplate>
-                        <table runat="server" style="width:100%;">
+                        <table runat="server" style="width: 100%;">
                             <tr runat="server">
                                 <td runat="server">
-                                    <table id="itemPlaceholderContainer" runat="server" border="1" style="width:100%;background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
-                                        <tr runat="server" style="background-color:#DCDCDC;color: #000000;">
+                                    <table id="itemPlaceholderContainer" runat="server" border="1" style="width: 100%; background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px; font-family: Verdana, Arial, Helvetica, sans-serif;">
+                                        <tr runat="server" style="background-color: #DCDCDC; color: #000000;">
                                             <th runat="server"></th>
                                             <th runat="server">ID</th>
                                             <th runat="server">PerformanceDate</th>
@@ -269,7 +303,7 @@
                                 </td>
                             </tr>
                             <tr runat="server">
-                                <td runat="server" style="text-align: center;background-color: #CCCCCC;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;">
+                                <td runat="server" style="text-align: center; background-color: #CCCCCC; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;">
                                     <asp:DataPager ID="DataPager1" runat="server">
                                         <Fields>
                                             <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
@@ -280,7 +314,7 @@
                         </table>
                     </LayoutTemplate>
                     <SelectedItemTemplate>
-                        <tr style="background-color:#008A8C;font-weight: bold;color: #FFFFFF;">
+                        <tr style="background-color: #008A8C; font-weight: bold; color: #FFFFFF;">
                             <td>
                                 <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
                                 <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
@@ -323,8 +357,10 @@
                 </asp:ListView>
                 <asp:SqlDataSource ID="SqlDataSource2_allPerformances" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
 SELECT p.*, OfficialName  FROM Main.Performance p
-join Core.Orchestra o on p.OrchestraID=o.ID" DeleteCommand="Delete Main.Performance
-where id = @ID" UpdateCommand="update Main.Performance
+join Core.Orchestra o on p.OrchestraID=o.ID"
+                    DeleteCommand="Delete Main.Performance
+where id = @ID"
+                    UpdateCommand="update Main.Performance
 set OrchestraID=@OrchestraID,
 PerformanceDate=@PerformanceDate,
 PerformanceDay=@PerformanceDay,
@@ -349,7 +385,20 @@ where ID=@ID">
 
             <div class="row"></div>
         </ContentTemplate>
+
+        
+        <Triggers>
+            <asp:PostBackTrigger ControlID="btn_addPerformance" />
+        </Triggers>
+
     </asp:UpdatePanel>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker1').datetimepicker();
+        });
+    </script>
+
     <style>
         .shadowedPanel {
             border: 1px solid transparent;

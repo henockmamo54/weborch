@@ -243,6 +243,10 @@
     <Property Name="UserID" Type="int" />
     <Property Name="ExpiryDate" Type="datetime" />
     <Property Name="OrchestraID" Type="int" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="PhotoAddLocation" Type="nvarchar" MaxLength="100" />
+    <Property Name="VideoLocation" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="PerformanceDetail">
     <Key>

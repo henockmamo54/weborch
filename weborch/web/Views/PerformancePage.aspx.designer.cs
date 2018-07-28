@@ -31,13 +31,31 @@ namespace web.Views {
         protected global::System.Web.UI.WebControls.TextBox txt_performancedate;
         
         /// <summary>
-        /// txt_performanceday control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_performanceday;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        
+        /// <summary>
+        /// FileUpload1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        
+        /// <summary>
+        /// TextBox3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox3;
         
         /// <summary>
         /// DropDownList1 control.
@@ -76,13 +94,13 @@ namespace web.Views {
         protected global::System.Web.UI.WebControls.TextBox txt_ConcertHall;
         
         /// <summary>
-        /// txt_addInstrument control.
+        /// btn_addPerformance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button txt_addInstrument;
+        protected global::System.Web.UI.WebControls.Button btn_addPerformance;
         
         /// <summary>
         /// ListView1 control.

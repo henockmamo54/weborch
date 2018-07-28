@@ -248,6 +248,10 @@
           <Property Name="UserID" Type="int" />
           <Property Name="ExpiryDate" Type="datetime" />
           <Property Name="OrchestraID" Type="int" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="PhotoAddLocation" Type="nvarchar" MaxLength="100" />
+          <Property Name="VideoLocation" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="PerformanceDetail">
           <Key>
@@ -1353,6 +1357,10 @@
           <NavigationProperty Name="Orchestra" Relationship="OrchestraDBModel.FK__Performan__Orche__531856C7" FromRole="Performance" ToRole="Orchestra" />
           <NavigationProperty Name="PerformanceDetails" Relationship="OrchestraDBModel.FK__Performan__Perfo__503BEA1C" FromRole="Performance" ToRole="PerformanceDetail" />
           <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__Performan__UserI__5224328E" FromRole="Performance" ToRole="UserCommonTable" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="PhotoAddLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VideoLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK__Performan__Orche__531856C7">
           <End Type="OrchestraDBModel.Orchestra" Role="Orchestra" Multiplicity="0..1" />
@@ -1793,6 +1801,10 @@
           <EntitySetMapping Name="Performances">
             <EntityTypeMapping TypeName="OrchestraDBModel.Performance">
               <MappingFragment StoreEntitySet="Performance">
+                <ScalarProperty Name="VideoLocation" ColumnName="VideoLocation" />
+                <ScalarProperty Name="PhotoAddLocation" ColumnName="PhotoAddLocation" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
                 <ScalarProperty Name="OrchestraID" ColumnName="OrchestraID" />
                 <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />

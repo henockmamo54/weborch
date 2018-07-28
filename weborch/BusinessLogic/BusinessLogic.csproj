@@ -84,6 +84,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="ParentCommentLogic.cs" />
+    <Compile Include="PerformanceLogic.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="PromotionAndRecruitmentLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
