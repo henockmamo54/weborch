@@ -229,6 +229,15 @@
     <Property Name="IsActive" Type="bit" />
     <Property Name="Iscompany" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="Endorser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="isActive" Type="bit" />
+  </EntityType>
   <EntityType Name="Performance">
     <Key>
       <PropertyRef Name="ID" />
@@ -624,6 +633,7 @@
     <EntitySet Name="User_UserType" EntityType="Self.User_UserType" Schema="Drived" store:Type="Tables" />
     <EntitySet Name="ArtistType" EntityType="Self.ArtistType" Schema="Lookup" store:Type="Tables" />
     <EntitySet Name="UserType" EntityType="Self.UserType" Schema="Lookup" store:Type="Tables" />
+    <EntitySet Name="Endorser" EntityType="Self.Endorser" Schema="Main" store:Type="Tables" />
     <EntitySet Name="Performance" EntityType="Self.Performance" Schema="Main" store:Type="Tables" />
     <EntitySet Name="PerformanceDetail" EntityType="Self.PerformanceDetail" Schema="Main" store:Type="Tables" />
     <EntitySet Name="UserCommonTable" EntityType="Self.UserCommonTable" Schema="Main" store:Type="Tables" />

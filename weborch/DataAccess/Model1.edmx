@@ -234,6 +234,15 @@
           <Property Name="IsActive" Type="bit" />
           <Property Name="Iscompany" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="Endorser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="isActive" Type="bit" />
+        </EntityType>
         <EntityType Name="Performance">
           <Key>
             <PropertyRef Name="ID" />
@@ -629,6 +638,7 @@
           <EntitySet Name="User_UserType" EntityType="Self.User_UserType" Schema="Drived" store:Type="Tables" />
           <EntitySet Name="ArtistType" EntityType="Self.ArtistType" Schema="Lookup" store:Type="Tables" />
           <EntitySet Name="UserType" EntityType="Self.UserType" Schema="Lookup" store:Type="Tables" />
+          <EntitySet Name="Endorser" EntityType="Self.Endorser" Schema="Main" store:Type="Tables" />
           <EntitySet Name="Performance" EntityType="Self.Performance" Schema="Main" store:Type="Tables" />
           <EntitySet Name="PerformanceDetail" EntityType="Self.PerformanceDetail" Schema="Main" store:Type="Tables" />
           <EntitySet Name="UserCommonTable" EntityType="Self.UserCommonTable" Schema="Main" store:Type="Tables" />
@@ -934,6 +944,7 @@
             <End Role="UserCommonTable" EntitySet="UserCommonTables" />
             <End Role="Orchestra" EntitySet="Orchestras" />
           </AssociationSet>
+          <EntitySet Name="Endorsers" EntityType="OrchestraDBModel.Endorser" />
           </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -1499,6 +1510,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Endorser">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isActive" Type="Boolean" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1853,6 +1873,16 @@
                 <ScalarProperty Name="Affiliation" ColumnName="Affiliation" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Endorsers">
+            <EntityTypeMapping TypeName="OrchestraDBModel.Endorser">
+              <MappingFragment StoreEntitySet="Endorser">
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

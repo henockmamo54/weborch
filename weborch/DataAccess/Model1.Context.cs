@@ -48,5 +48,6 @@ namespace DataAccess
         public virtual DbSet<PerformanceDetail> PerformanceDetails { get; set; }
         public virtual DbSet<Performance> Performances { get; set; }
         public virtual DbSet<UserPersonalInfo> UserPersonalInfoes { get; set; }
+        public virtual DbSet<Endorser> Endorsers { get; set; }
     }
 }

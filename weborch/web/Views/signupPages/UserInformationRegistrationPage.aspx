@@ -171,7 +171,7 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
                                                     <br />
                                                     <div class="col-md-4">Major Instrument 2:</div>
                                                     <div class="col-md-6">
-                                                        <asp:DropDownList ID="DropDownList1_mjInst2" class="form-control" runat="server"  DataSourceID="SqlDataSource3_instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
+                                                        <asp:DropDownList ID="DropDownList1_mjInst2" class="form-control" runat="server" DataSourceID="SqlDataSource3_instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
 
                                                         <%--<asp:TextBox ID="umajorinst2" runat="server" class="form-control"></asp:TextBox>--%>
                                                     </div>
@@ -219,6 +219,41 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
                                         <div class="col-md-6 form-group" id="endorserdiv" style="padding: 0;">
 
                                             <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-3">
+                                                    <asp:Label runat="server">Endorser:</asp:Label>
+                                                </div>
+                                                <div class="col-md-4">
+
+                                                    <asp:DropDownList class="form-control" ID="DropDownList1_endorserlist" runat="server" DataSourceID="SqlDataSource1_endorserList" DataTextField="Name" DataValueField="ID"></asp:DropDownList>
+                                                    <asp:SqlDataSource ID="SqlDataSource1_endorserList" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [Name], [Email],  [ID] FROM Main.[Endorser]"></asp:SqlDataSource>
+
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <asp:Button ID="Button5" CssClass="btn btn-sm btn-info" Style="margin-left: 3px !important;" runat="server" Text="Add" OnClick="btn_add_endorser_tolist" />
+                                                    <asp:Button ID="btn_add_Inst" CssClass="btn btn-sm btn-info" Style="margin-left: 3px !important;" runat="server" Text="New" />
+                                                </div>
+
+                                            </div>
+
+                                            <br />
+
+                                            <div class="row col-md-12 pull-right">
+                                                <asp:Repeater runat="server" ID="myendorsmentlist">
+                                                    <ItemTemplate>
+                                                        <tr style="margin-bottom: 3px;">
+                                                            <asp:Button runat="server" AutoPostBack="True" CommandArgument='<%#Eval("ID")%>' OnClick="btn_remove_endorser_tolist" Text="Delete"></asp:Button>
+                                                            <td>
+                                                                <asp:Label runat="server" ID="Label1" Text='<%# Eval("Name") %>' />
+                                                            </td>
+                                                        </tr>
+                                                        <br />
+                                                    </ItemTemplate>
+                                                </asp:Repeater>
+                                            </div>
+
+
+                                            <%--<div class="col-md-12">
                                                 <br />
                                                 <div class="col-md-4">Endorsor Email ID 1:</div>
                                                 <div class="col-md-6">
@@ -346,8 +381,7 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
                                                     <asp:TextBox ID="uendorcomm5" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
-                                            </div>
-
+                                            </div>--%>
                                         </div>
 
 

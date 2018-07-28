@@ -203,6 +203,7 @@
       <End Role="UserCommonTable" EntitySet="UserCommonTables" />
       <End Role="Orchestra" EntitySet="Orchestras" />
     </AssociationSet>
+    <EntitySet Name="Endorsers" EntityType="OrchestraDBModel.Endorser" />
   </EntityContainer>
   <EntityType Name="User">
     <Key>
@@ -768,4 +769,13 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Endorser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="isActive" Type="Boolean" />
+  </EntityType>
 </Schema>

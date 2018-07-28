@@ -51,6 +51,7 @@
         <AssociationConnector Association="OrchestraDBModel.FK__UserPerso__Major__6AEFE058" />
         <AssociationConnector Association="OrchestraDBModel.FK__UserPerso__UserI__41EDCAC5" />
         <AssociationConnector Association="OrchestraDBModel.FK__Orchestra__UserI__6BE40491" />
+        <EntityTypeShape EntityType="OrchestraDBModel.Endorser" Width="1.5" PointX="3.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
