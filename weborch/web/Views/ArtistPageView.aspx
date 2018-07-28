@@ -277,7 +277,7 @@
                     <div class="row listviewwithedit">
                         <div class="col-md-12">
                             <div class="col-md-12">
-                                <asp:ListView ID="ListView1" runat="server" class="col-md-7" DataKeyNames="ID" DataSourceID="SqlDataSource1" InsertItemPosition="LastItem">
+                                <asp:ListView ID="ListView1" runat="server" class="col-md-7" DataKeyNames="ID" DataSourceID="SqlDataSource1">
                                     <AlternatingItemTemplate>
                                         <tr style="background-color: #FFF8DC;">
                                             <td>
@@ -337,51 +337,6 @@
                                             </td>
                                             <td>
                                                 <asp:Label ID="RepertoryLabel" runat="server" Text='<%# Eval("Repertory") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorEmailID1Label" runat="server" Text='<%# Eval("EndorsorEmailID1") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorName1Label" runat="server" Text='<%# Eval("EndorsorName1") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorComments1Label" runat="server" Text='<%# Eval("EndorsorComments1") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorEmailID2Label" runat="server" Text='<%# Eval("EndorsorEmailID2") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorName2Label" runat="server" Text='<%# Eval("EndorsorName2") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorComments2Label" runat="server" Text='<%# Eval("EndorsorComments2") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorEmailID3Label" runat="server" Text='<%# Eval("EndorsorEmailID3") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorName3Label" runat="server" Text='<%# Eval("EndorsorName3") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorComments3Label" runat="server" Text='<%# Eval("EndorsorComments3") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorEmailID4Label" runat="server" Text='<%# Eval("EndorsorEmailID4") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorName4Label" runat="server" Text='<%# Eval("EndorsorName4") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorComments4Label" runat="server" Text='<%# Eval("EndorsorComments4") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorEmailID5Label" runat="server" Text='<%# Eval("EndorsorEmailID5") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorName5Label" runat="server" Text='<%# Eval("EndorsorName5") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorComments5Label" runat="server" Text='<%# Eval("EndorsorComments5") %>' />
                                             </td>
                                         </tr>
                                     </AlternatingItemTemplate>
@@ -444,51 +399,6 @@
                                             </td>
                                             <td>
                                                 <asp:TextBox ID="RepertoryTextBox" runat="server" Text='<%# Bind("Repertory") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorEmailID1TextBox" runat="server" Text='<%# Bind("EndorsorEmailID1") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorName1TextBox" runat="server" Text='<%# Bind("EndorsorName1") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorComments1TextBox" runat="server" Text='<%# Bind("EndorsorComments1") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorEmailID2TextBox" runat="server" Text='<%# Bind("EndorsorEmailID2") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorName2TextBox" runat="server" Text='<%# Bind("EndorsorName2") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorComments2TextBox" runat="server" Text='<%# Bind("EndorsorComments2") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorEmailID3TextBox" runat="server" Text='<%# Bind("EndorsorEmailID3") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorName3TextBox" runat="server" Text='<%# Bind("EndorsorName3") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorComments3TextBox" runat="server" Text='<%# Bind("EndorsorComments3") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorEmailID4TextBox" runat="server" Text='<%# Bind("EndorsorEmailID4") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorName4TextBox" runat="server" Text='<%# Bind("EndorsorName4") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorComments4TextBox" runat="server" Text='<%# Bind("EndorsorComments4") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorEmailID5TextBox" runat="server" Text='<%# Bind("EndorsorEmailID5") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorName5TextBox" runat="server" Text='<%# Bind("EndorsorName5") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorComments5TextBox" runat="server" Text='<%# Bind("EndorsorComments5") %>' />
                                             </td>
                                         </tr>
                                     </EditItemTemplate>
@@ -557,51 +467,6 @@
                                             <td>
                                                 <asp:TextBox ID="RepertoryTextBox" runat="server" Text='<%# Bind("Repertory") %>' />
                                             </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorEmailID1TextBox" runat="server" Text='<%# Bind("EndorsorEmailID1") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorName1TextBox" runat="server" Text='<%# Bind("EndorsorName1") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorComments1TextBox" runat="server" Text='<%# Bind("EndorsorComments1") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorEmailID2TextBox" runat="server" Text='<%# Bind("EndorsorEmailID2") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorName2TextBox" runat="server" Text='<%# Bind("EndorsorName2") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorComments2TextBox" runat="server" Text='<%# Bind("EndorsorComments2") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorEmailID3TextBox" runat="server" Text='<%# Bind("EndorsorEmailID3") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorName3TextBox" runat="server" Text='<%# Bind("EndorsorName3") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorComments3TextBox" runat="server" Text='<%# Bind("EndorsorComments3") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorEmailID4TextBox" runat="server" Text='<%# Bind("EndorsorEmailID4") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorName4TextBox" runat="server" Text='<%# Bind("EndorsorName4") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorComments4TextBox" runat="server" Text='<%# Bind("EndorsorComments4") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorEmailID5TextBox" runat="server" Text='<%# Bind("EndorsorEmailID5") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorName5TextBox" runat="server" Text='<%# Bind("EndorsorName5") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="EndorsorComments5TextBox" runat="server" Text='<%# Bind("EndorsorComments5") %>' />
-                                            </td>
                                         </tr>
                                     </InsertItemTemplate>
                                     <ItemTemplate>
@@ -664,51 +529,6 @@
                                             <td>
                                                 <asp:Label ID="RepertoryLabel" runat="server" Text='<%# Eval("Repertory") %>' />
                                             </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorEmailID1Label" runat="server" Text='<%# Eval("EndorsorEmailID1") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorName1Label" runat="server" Text='<%# Eval("EndorsorName1") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorComments1Label" runat="server" Text='<%# Eval("EndorsorComments1") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorEmailID2Label" runat="server" Text='<%# Eval("EndorsorEmailID2") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorName2Label" runat="server" Text='<%# Eval("EndorsorName2") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorComments2Label" runat="server" Text='<%# Eval("EndorsorComments2") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorEmailID3Label" runat="server" Text='<%# Eval("EndorsorEmailID3") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorName3Label" runat="server" Text='<%# Eval("EndorsorName3") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorComments3Label" runat="server" Text='<%# Eval("EndorsorComments3") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorEmailID4Label" runat="server" Text='<%# Eval("EndorsorEmailID4") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorName4Label" runat="server" Text='<%# Eval("EndorsorName4") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorComments4Label" runat="server" Text='<%# Eval("EndorsorComments4") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorEmailID5Label" runat="server" Text='<%# Eval("EndorsorEmailID5") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorName5Label" runat="server" Text='<%# Eval("EndorsorName5") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorComments5Label" runat="server" Text='<%# Eval("EndorsorComments5") %>' />
-                                            </td>
                                         </tr>
                                     </ItemTemplate>
                                     <LayoutTemplate>
@@ -736,21 +556,6 @@
                                                             <th runat="server">Photo2</th>
                                                             <th runat="server">ProfilePage</th>
                                                             <th runat="server">Repertory</th>
-                                                            <th runat="server">EndorsorEmailID1</th>
-                                                            <th runat="server">EndorsorName1</th>
-                                                            <th runat="server">EndorsorComments1</th>
-                                                            <th runat="server">EndorsorEmailID2</th>
-                                                            <th runat="server">EndorsorName2</th>
-                                                            <th runat="server">EndorsorComments2</th>
-                                                            <th runat="server">EndorsorEmailID3</th>
-                                                            <th runat="server">EndorsorName3</th>
-                                                            <th runat="server">EndorsorComments3</th>
-                                                            <th runat="server">EndorsorEmailID4</th>
-                                                            <th runat="server">EndorsorName4</th>
-                                                            <th runat="server">EndorsorComments4</th>
-                                                            <th runat="server">EndorsorEmailID5</th>
-                                                            <th runat="server">EndorsorName5</th>
-                                                            <th runat="server">EndorsorComments5</th>
                                                         </tr>
                                                         <tr id="itemPlaceholder" runat="server">
                                                         </tr>
@@ -830,51 +635,6 @@
                                             <td>
                                                 <asp:Label ID="RepertoryLabel" runat="server" Text='<%# Eval("Repertory") %>' />
                                             </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorEmailID1Label" runat="server" Text='<%# Eval("EndorsorEmailID1") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorName1Label" runat="server" Text='<%# Eval("EndorsorName1") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorComments1Label" runat="server" Text='<%# Eval("EndorsorComments1") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorEmailID2Label" runat="server" Text='<%# Eval("EndorsorEmailID2") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorName2Label" runat="server" Text='<%# Eval("EndorsorName2") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorComments2Label" runat="server" Text='<%# Eval("EndorsorComments2") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorEmailID3Label" runat="server" Text='<%# Eval("EndorsorEmailID3") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorName3Label" runat="server" Text='<%# Eval("EndorsorName3") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorComments3Label" runat="server" Text='<%# Eval("EndorsorComments3") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorEmailID4Label" runat="server" Text='<%# Eval("EndorsorEmailID4") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorName4Label" runat="server" Text='<%# Eval("EndorsorName4") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorComments4Label" runat="server" Text='<%# Eval("EndorsorComments4") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorEmailID5Label" runat="server" Text='<%# Eval("EndorsorEmailID5") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorName5Label" runat="server" Text='<%# Eval("EndorsorName5") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="EndorsorComments5Label" runat="server" Text='<%# Eval("EndorsorComments5") %>' />
-                                            </td>
                                         </tr>
                                     </SelectedItemTemplate>
                                 </asp:ListView>
@@ -884,7 +644,10 @@ Core.Artist
 where ID=@ID"
                                 InsertCommand="Insert into Core.Artist (FirstName, FamilyName, MiddleName, BirthDate, Address, ZipCode, TelNO, MobileNO, FaxNo, Remar)
 values (@FirstName, @FamilyName, @MiddleName, @BirthDate, @Address, @ZipCode, @TelNO, @MobileNO, @FaxNo, @Remar)"
-                                SelectCommand="SELECT ID, FirstName, FamilyName, MiddleName, BirthDate, Address, ZipCode, TelNO, MobileNO, FaxNo, Remar, FacebookAddress, TwitterAddress, KakaoTalkAddress, Photo1, Photo2, ProfilePage, Repertory, EndorsorEmailID1, EndorsorName1, EndorsorComments1, EndorsorEmailID2, EndorsorName2, EndorsorComments2, EndorsorEmailID3, EndorsorName3, EndorsorComments3, EndorsorEmailID4, EndorsorName4, EndorsorComments4, EndorsorEmailID5, EndorsorName5, EndorsorComments5 FROM Core.Artist"
+                                SelectCommand="SELECT ID, FirstName, FamilyName, MiddleName, BirthDate, Address, ZipCode, TelNO, MobileNO, FaxNo, Remar, FacebookAddress, TwitterAddress, KakaoTalkAddress, Photo1, Photo2, ProfilePage,
+ Repertory
+
+ FROM Core.Artist"
                                 UpdateCommand="Update Core.Artist
 set
 FirstName= @FirstName,
