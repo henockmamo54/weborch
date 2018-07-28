@@ -276,26 +276,7 @@ namespace web.Views.signupPages
 
                         personalInfo.ProfilePage = uprofilepage.Text;
                         personalInfo.Repertory = urepertory.Text;
-                        //personalInfo.EndorsorEmailID1 = uedoremail1.Text;
-                        //personalInfo.EndorsorName1 = uendorname1.Text;
-                        //personalInfo.EndorsorComments1 = uendorcomm1.Text;
-
-                        //personalInfo.EndorsorEmailID2 = uedoremail2.Text;
-                        //personalInfo.EndorsorName2 = uendorname2.Text;
-                        //personalInfo.EndorsorComments2 = uendorcomm2.Text;
-
-                        //personalInfo.EndorsorEmailID3 = uedoremail3.Text;
-                        //personalInfo.EndorsorName3 = uendorname3.Text;
-                        //personalInfo.EndorsorComments3 = uendorcomm3.Text;
-
-                        //personalInfo.EndorsorEmailID4 = uedoremail4.Text;
-                        //personalInfo.EndorsorName4 = uendorname4.Text;
-                        //personalInfo.EndorsorComments4 = uendorcomm4.Text;
-
-                        //personalInfo.EndorsorEmailID5 = uedoremail5.Text;
-                        //personalInfo.EndorsorName5 = uendorname5.Text;
-                        //personalInfo.EndorsorComments5 = uendorcomm5.Text;
-
+                        
                         context.UserPersonalInfoes.Add(personalInfo);
                         context.SaveChanges();
 
@@ -318,25 +299,7 @@ namespace web.Views.signupPages
                         artist.Photo2 = personalInfo.Photo2;
                         artist.ProfilePage = uprofilepage.Text;
                         artist.Repertory = urepertory.Text;
-                        //artist.EndorsorEmailID1 = uedoremail1.Text;
-                        //artist.EndorsorName1 = uendorname1.Text;
-                        //artist.EndorsorComments1 = uendorcomm1.Text;
-
-                        //artist.EndorsorEmailID2 = uedoremail2.Text;
-                        //artist.EndorsorName2 = uendorname2.Text;
-                        //artist.EndorsorComments2 = uendorcomm2.Text;
-
-                        //artist.EndorsorEmailID3 = uedoremail3.Text;
-                        //artist.EndorsorName3 = uendorname3.Text;
-                        //artist.EndorsorComments3 = uendorcomm3.Text;
-
-                        //artist.EndorsorEmailID4 = uedoremail4.Text;
-                        //artist.EndorsorName4 = uendorname4.Text;
-                        //artist.EndorsorComments4 = uendorcomm4.Text;
-
-                        //artist.EndorsorEmailID5 = uedoremail5.Text;
-                        //artist.EndorsorName5 = uendorname5.Text;
-                        //artist.EndorsorComments5 = uendorcomm5.Text;
+                        
                         artist.UserID = personalInfo.UserID;
 
                         context.Artists.Add(artist);
@@ -378,6 +341,21 @@ namespace web.Views.signupPages
                             context.Artist_ArtistType.Add(type);
                             context.SaveChanges();
                         }
+
+                        //register endorsers
+                        if (Session["myendorsmentlist"] != null)
+                        {
+                            List<Endorser> mylist = (List<Endorser>)Session["myendorsmentlist"];
+                            foreach (Endorser x in mylist) {
+                                Artist_Endorser endorser = new Artist_Endorser();
+                                endorser.ArtistID = artist.ID;
+                                endorser.EndorserID = x.ID;
+                                context.Artist_Endorser.Add(endorser);
+                                context.SaveChanges();
+                            }
+                        }
+
+
                         #endregion
 
                         dbContextTransaction.Commit();

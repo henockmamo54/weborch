@@ -45,6 +45,7 @@
     <NavigationProperty Name="PerformanceDetails2" Relationship="OrchestraDBModel.FK__Performan__Playe__5CA1C101" FromRole="Artist" ToRole="PerformanceDetail" />
     <Property Name="UserID" Type="Int32" />
     <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__Artist__UserID__690797E6" FromRole="Artist" ToRole="UserCommonTable" />
+    <NavigationProperty Name="Artist_Endorser" Relationship="OrchestraDBModel.FK__Artist_En__Artis__756D6ECB" FromRole="Artist" ToRole="Artist_Endorser" />
   </EntityType>
   <EntityType Name="Instrument">
     <Key>
@@ -204,6 +205,24 @@
       <End Role="Orchestra" EntitySet="Orchestras" />
     </AssociationSet>
     <EntitySet Name="Endorsers" EntityType="OrchestraDBModel.Endorser" />
+    <EntitySet Name="User_Endorser" EntityType="OrchestraDBModel.User_Endorser" />
+    <AssociationSet Name="FK__User_Endo__Endor__719CDDE7" Association="OrchestraDBModel.FK__User_Endo__Endor__719CDDE7">
+      <End Role="Endorser" EntitySet="Endorsers" />
+      <End Role="User_Endorser" EntitySet="User_Endorser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User_Endo__UserI__70A8B9AE" Association="OrchestraDBModel.FK__User_Endo__UserI__70A8B9AE">
+      <End Role="UserCommonTable" EntitySet="UserCommonTables" />
+      <End Role="User_Endorser" EntitySet="User_Endorser" />
+    </AssociationSet>
+    <EntitySet Name="Artist_Endorser" EntityType="OrchestraDBModel.Artist_Endorser" />
+    <AssociationSet Name="FK__Artist_En__Artis__756D6ECB" Association="OrchestraDBModel.FK__Artist_En__Artis__756D6ECB">
+      <End Role="Artist" EntitySet="Artists" />
+      <End Role="Artist_Endorser" EntitySet="Artist_Endorser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Artist_En__Endor__74794A92" Association="OrchestraDBModel.FK__Artist_En__Endor__74794A92">
+      <End Role="Endorser" EntitySet="Endorsers" />
+      <End Role="Artist_Endorser" EntitySet="Artist_Endorser" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="User">
     <Key>
@@ -431,6 +450,7 @@
     <NavigationProperty Name="Artists" Relationship="OrchestraDBModel.FK__Artist__UserID__690797E6" FromRole="UserCommonTable" ToRole="Artist" />
     <NavigationProperty Name="UserPersonalInfoes" Relationship="OrchestraDBModel.FK__UserPerso__UserI__41EDCAC5" FromRole="UserCommonTable" ToRole="UserPersonalInfo" />
     <NavigationProperty Name="Orchestras" Relationship="OrchestraDBModel.FK__Orchestra__UserI__6BE40491" FromRole="UserCommonTable" ToRole="Orchestra" />
+    <NavigationProperty Name="User_Endorser" Relationship="OrchestraDBModel.FK__User_Endo__UserI__70A8B9AE" FromRole="UserCommonTable" ToRole="User_Endorser" />
   </EntityType>
   <EntityType Name="UserCompany">
     <Key>
@@ -777,5 +797,77 @@
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="isActive" Type="Boolean" />
+    <NavigationProperty Name="User_Endorser" Relationship="OrchestraDBModel.FK__User_Endo__Endor__719CDDE7" FromRole="Endorser" ToRole="User_Endorser" />
+    <NavigationProperty Name="Artist_Endorser" Relationship="OrchestraDBModel.FK__Artist_En__Endor__74794A92" FromRole="Endorser" ToRole="Artist_Endorser" />
   </EntityType>
+  <EntityType Name="User_Endorser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="EndorserID" Type="Int32" />
+    <NavigationProperty Name="Endorser" Relationship="OrchestraDBModel.FK__User_Endo__Endor__719CDDE7" FromRole="User_Endorser" ToRole="Endorser" />
+    <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__User_Endo__UserI__70A8B9AE" FromRole="User_Endorser" ToRole="UserCommonTable" />
+    <Property Name="Comment" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK__User_Endo__Endor__719CDDE7">
+    <End Type="OrchestraDBModel.Endorser" Role="Endorser" Multiplicity="0..1" />
+    <End Type="OrchestraDBModel.User_Endorser" Role="User_Endorser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Endorser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User_Endorser">
+        <PropertyRef Name="EndorserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__User_Endo__UserI__70A8B9AE">
+    <End Type="OrchestraDBModel.UserCommonTable" Role="UserCommonTable" Multiplicity="0..1" />
+    <End Type="OrchestraDBModel.User_Endorser" Role="User_Endorser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserCommonTable">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User_Endorser">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Artist_Endorser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EndorserID" Type="Int32" />
+    <Property Name="ArtistID" Type="Int32" />
+    <Property Name="Comment" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Artist" Relationship="OrchestraDBModel.FK__Artist_En__Artis__756D6ECB" FromRole="Artist_Endorser" ToRole="Artist" />
+    <NavigationProperty Name="Endorser" Relationship="OrchestraDBModel.FK__Artist_En__Endor__74794A92" FromRole="Artist_Endorser" ToRole="Endorser" />
+  </EntityType>
+  <Association Name="FK__Artist_En__Artis__756D6ECB">
+    <End Type="OrchestraDBModel.Artist" Role="Artist" Multiplicity="0..1" />
+    <End Type="OrchestraDBModel.Artist_Endorser" Role="Artist_Endorser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Artist_Endorser">
+        <PropertyRef Name="ArtistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Artist_En__Endor__74794A92">
+    <End Type="OrchestraDBModel.Endorser" Role="Endorser" Multiplicity="0..1" />
+    <End Type="OrchestraDBModel.Artist_Endorser" Role="Artist_Endorser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Endorser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Artist_Endorser">
+        <PropertyRef Name="EndorserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

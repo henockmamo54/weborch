@@ -14,9 +14,21 @@ namespace DataAccess
     
     public partial class Endorser
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Endorser()
+        {
+            this.User_Endorser = new HashSet<User_Endorser>();
+            this.Artist_Endorser = new HashSet<Artist_Endorser>();
+        }
+    
         public int ID { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public Nullable<bool> isActive { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User_Endorser> User_Endorser { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Artist_Endorser> Artist_Endorser { get; set; }
     }
 }

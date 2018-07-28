@@ -67,6 +67,9 @@
     <Compile Include="Artist_ArtistType.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Artist_Endorser.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Artist_Instrument.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -148,6 +151,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="UserType.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User_Endorser.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="User_UserType.cs">

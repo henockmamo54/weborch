@@ -186,6 +186,15 @@
     <Property Name="Artist" Type="int" />
     <Property Name="ArtistTypeID" Type="int" />
   </EntityType>
+  <EntityType Name="Artist_Endorser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EndorserID" Type="int" />
+    <Property Name="ArtistID" Type="int" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="400" />
+  </EntityType>
   <EntityType Name="Artist_Instrument">
     <Key>
       <PropertyRef Name="ID" />
@@ -202,6 +211,15 @@
     <Property Name="OrchestraID" Type="int" />
     <Property Name="ArtistID" Type="int" />
     <Property Name="InstrumentID" Type="int" />
+  </EntityType>
+  <EntityType Name="User_Endorser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="EndorserID" Type="int" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="400" />
   </EntityType>
   <EntityType Name="User_UserType">
     <Key>
@@ -374,6 +392,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__Artist_En__Artis__756D6ECB">
+    <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+    <End Role="Artist_Endorser" Type="Self.Artist_Endorser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Artist_Endorser">
+        <PropertyRef Name="ArtistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Artist_En__Endor__74794A92">
+    <End Role="Endorser" Type="Self.Endorser" Multiplicity="0..1" />
+    <End Role="Artist_Endorser" Type="Self.Artist_Endorser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Endorser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Artist_Endorser">
+        <PropertyRef Name="EndorserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Artist_In__Artis__10566F31">
     <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
     <End Role="Artist_Instrument" Type="Self.Artist_Instrument" Multiplicity="*" />
@@ -542,6 +584,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__User_Endo__Endor__719CDDE7">
+    <End Role="Endorser" Type="Self.Endorser" Multiplicity="0..1" />
+    <End Role="User_Endorser" Type="Self.User_Endorser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Endorser">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User_Endorser">
+        <PropertyRef Name="EndorserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__User_Endo__UserI__70A8B9AE">
+    <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
+    <End Role="User_Endorser" Type="Self.User_Endorser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserCommonTable">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User_Endorser">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__User_User__UserI__395884C4">
     <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
     <End Role="User_UserType" Type="Self.User_UserType" Multiplicity="*" />
@@ -628,8 +694,10 @@
     <EntitySet Name="Review" EntityType="Self.Review" Schema="Core" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="Core" store:Type="Tables" />
     <EntitySet Name="Artist_ArtistType" EntityType="Self.Artist_ArtistType" Schema="Drived" store:Type="Tables" />
+    <EntitySet Name="Artist_Endorser" EntityType="Self.Artist_Endorser" Schema="Drived" store:Type="Tables" />
     <EntitySet Name="Artist_Instrument" EntityType="Self.Artist_Instrument" Schema="Drived" store:Type="Tables" />
     <EntitySet Name="Orchestra_Instrument_Artist" EntityType="Self.Orchestra_Instrument_Artist" Schema="Drived" store:Type="Tables" />
+    <EntitySet Name="User_Endorser" EntityType="Self.User_Endorser" Schema="Drived" store:Type="Tables" />
     <EntitySet Name="User_UserType" EntityType="Self.User_UserType" Schema="Drived" store:Type="Tables" />
     <EntitySet Name="ArtistType" EntityType="Self.ArtistType" Schema="Lookup" store:Type="Tables" />
     <EntitySet Name="UserType" EntityType="Self.UserType" Schema="Lookup" store:Type="Tables" />
@@ -650,6 +718,14 @@
     <AssociationSet Name="FK__Artist_Ar__Artis__4B7734FF" Association="Self.FK__Artist_Ar__Artis__4B7734FF">
       <End Role="ArtistType" EntitySet="ArtistType" />
       <End Role="Artist_ArtistType" EntitySet="Artist_ArtistType" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Artist_En__Artis__756D6ECB" Association="Self.FK__Artist_En__Artis__756D6ECB">
+      <End Role="Artist" EntitySet="Artist" />
+      <End Role="Artist_Endorser" EntitySet="Artist_Endorser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Artist_En__Endor__74794A92" Association="Self.FK__Artist_En__Endor__74794A92">
+      <End Role="Endorser" EntitySet="Endorser" />
+      <End Role="Artist_Endorser" EntitySet="Artist_Endorser" />
     </AssociationSet>
     <AssociationSet Name="FK__Artist_In__Artis__10566F31" Association="Self.FK__Artist_In__Artis__10566F31">
       <End Role="Artist" EntitySet="Artist" />
@@ -706,6 +782,14 @@
     <AssociationSet Name="FK__Performan__UserI__5224328E" Association="Self.FK__Performan__UserI__5224328E">
       <End Role="UserCommonTable" EntitySet="UserCommonTable" />
       <End Role="Performance" EntitySet="Performance" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User_Endo__Endor__719CDDE7" Association="Self.FK__User_Endo__Endor__719CDDE7">
+      <End Role="Endorser" EntitySet="Endorser" />
+      <End Role="User_Endorser" EntitySet="User_Endorser" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User_Endo__UserI__70A8B9AE" Association="Self.FK__User_Endo__UserI__70A8B9AE">
+      <End Role="UserCommonTable" EntitySet="UserCommonTable" />
+      <End Role="User_Endorser" EntitySet="User_Endorser" />
     </AssociationSet>
     <AssociationSet Name="FK__User_User__UserI__395884C4" Association="Self.FK__User_User__UserI__395884C4">
       <End Role="UserCommonTable" EntitySet="UserCommonTable" />

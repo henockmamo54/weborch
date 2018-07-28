@@ -52,6 +52,12 @@
         <AssociationConnector Association="OrchestraDBModel.FK__UserPerso__UserI__41EDCAC5" />
         <AssociationConnector Association="OrchestraDBModel.FK__Orchestra__UserI__6BE40491" />
         <EntityTypeShape EntityType="OrchestraDBModel.Endorser" Width="1.5" PointX="3.375" PointY="11.75" />
+        <EntityTypeShape EntityType="OrchestraDBModel.User_Endorser" Width="1.5" PointX="9.625" PointY="19.75" />
+        <AssociationConnector Association="OrchestraDBModel.FK__User_Endo__Endor__719CDDE7" />
+        <AssociationConnector Association="OrchestraDBModel.FK__User_Endo__UserI__70A8B9AE" />
+        <EntityTypeShape EntityType="OrchestraDBModel.Artist_Endorser" Width="1.5" PointX="12.625" PointY="10.25" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Artist_En__Artis__756D6ECB" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Artist_En__Endor__74794A92" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
