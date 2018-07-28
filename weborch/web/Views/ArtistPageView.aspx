@@ -6,9 +6,10 @@
 
         <asp:UpdatePanel ID="UpdatePanel3" runat="server">
             <ContentTemplate>
-                <div class="row">
+                <div class="row shadowedPanel">
                     <div class="col-md-12">
-                        <div class="col-md-12 shadowedPanel">
+                        <div class="col-md-12">
+
                             <div class=" row col-md-12 form-group">
 
                                 <div class="col-md-4">
@@ -148,16 +149,16 @@
                                 </div>
                                 <div class="col-md-6">
                                     <br />
-                                    <div class="col-md-4">Profile Page.:</div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-3">Profile Page.:</div>
+                                    <div class="col-md-9">
                                         <asp:TextBox ID="uprofilepage" runat="server" class="form-control" TextMode="MultiLine" Rows="3"></asp:TextBox>
                                     </div>
                                     <br />
                                 </div>
                                 <div class="col-md-6">
                                     <br />
-                                    <div class="col-md-4">Repertory.:</div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-3">Repertory.:</div>
+                                    <div class="col-md-9">
                                         <asp:TextBox ID="urepertory" runat="server" class="form-control" TextMode="MultiLine" Rows="3"></asp:TextBox>
                                     </div>
                                     <br />
@@ -255,6 +256,7 @@
                             <div class="row col-md-12">
                                 <asp:Button ID="btn_artist_add" CssClass="btn btn-primary pull-right" runat="server" Text="Register" OnClick="btn_artistadd_Click" />
                             </div>
+
                         </div>
                     </div>
 
@@ -1180,13 +1182,18 @@ where id=@ID"
 
     </script>
     
+    <style>        
+        .shadowedPanel {
+            border: 1px solid transparent;
+            border-radius: 4px;
+            border-color: #dddddd;
+            padding: 1em;
+            box-shadow: 2px 2px 2px 2px #f5f5f5;
+        }
+    </style>
 
     <style>
       
-        wwithedit tr td :ot#lstvie p
-                   /*width:        /*m x-w dth: 8em;*/
-    /*}*/
-
     #MainContent L iewpager {
         width: 100%;
     }
