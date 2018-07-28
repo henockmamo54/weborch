@@ -14,5 +14,17 @@ namespace BusinessLogic
         public List<Endorser> getAllEndorser() {
             return entity.Endorsers.ToList();
         }
+
+        public bool insertEndorser(Endorser e) {
+            try
+            {
+                entity.Endorsers.Add(e);
+                entity.SaveChanges();
+                return true;
+            }
+            catch (Exception exception) {
+                return false;
+            }
+        }
     }
 }

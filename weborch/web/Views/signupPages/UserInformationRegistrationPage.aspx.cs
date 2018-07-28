@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DataAccess;
+using System.Data;
 
 namespace web.Views.signupPages
 {
@@ -430,6 +431,7 @@ namespace web.Views.signupPages
             Endorser endorser = new Endorser();
             endorser.ID = int.Parse(DropDownList1_endorserlist.SelectedItem.Value);
             endorser.Name = DropDownList1_endorserlist.SelectedItem.Text;
+            endorser.Email = ((DataView)SqlDataSource1_endorserList.Select(new DataSourceSelectArguments())).ToTable().Rows[DropDownList1_endorserlist.SelectedIndex]["Email"].ToString();
 
             if (Session["myendorsmentlist"] != null)
             {
@@ -463,6 +465,24 @@ namespace web.Views.signupPages
                 myendorsmentlist.DataBind();
                 Session["myendorsmentlist"] = mylist;
             }
+        }
+
+
+        protected void btnAddEndorser_Click(object sender, EventArgs e)
+        {
+            EndorserLogic el = new EndorserLogic();
+            Endorser r = new Endorser();
+            r.Name = FormControlInput1_Name.Text;
+            r.Email = FormControlTextarea1_email.Text;
+
+
+            if (el.insertEndorser(r))
+            {
+                DropDownList1_endorserlist.DataBind();
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
+            }
+            else showMsg("Please check your inputs!!!");
+
         }
 
     }

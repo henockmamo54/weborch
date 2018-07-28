@@ -231,7 +231,7 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
                                                 </div>
                                                 <div class="col-md-4">
                                                     <asp:Button ID="Button5" CssClass="btn btn-sm btn-info" Style="margin-left: 3px !important;" runat="server" Text="Add" OnClick="btn_add_endorser_tolist" />
-                                                    <asp:Button ID="btn_add_Inst" CssClass="btn btn-sm btn-info" Style="margin-left: 3px !important;" runat="server" Text="New" />
+                                                    <asp:Button ID="btn_add_Inst" CssClass="btn btn-sm btn-info" Style="margin-left: 3px !important;" runat="server" Text="New" data-toggle="modal" data-target="#exampleModalLong"/>
                                                 </div>
 
                                             </div>
@@ -244,7 +244,10 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
                                                         <tr style="margin-bottom: 3px;">
                                                             <asp:Button runat="server" AutoPostBack="True" CommandArgument='<%#Eval("ID")%>' OnClick="btn_remove_endorser_tolist" Text="Delete"></asp:Button>
                                                             <td>
-                                                                <asp:Label runat="server" ID="Label1" Text='<%# Eval("Name") %>' />
+                                                                <asp:Label runat="server" ID="Label1" Text='<%# Eval("Name") %>' /> - 
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label runat="server" ID="Label2" Text='<%# Eval("Email") %>' />
                                                             </td>
                                                         </tr>
                                                         <br />
@@ -607,6 +610,38 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
 
             </div>
 
+               <!-- Modal -->
+            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Endorser</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Name</label>
+                                <asp:TextBox runat="server" type="text" class="form-control" ID="FormControlInput1_Name" placeholder="Title of the concert" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Email</label>
+                                <asp:TextBox runat="server" class="form-control" ID="FormControlTextarea1_email" TextMode="Email"/>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <asp:Button runat="server" type="button" class="btn btn-primary" Text="Save changes" ID="btnAddReview" OnClick="btnAddEndorser_Click"  />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </ContentTemplate>
 
         <Triggers>
@@ -615,6 +650,14 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
         </Triggers>
 
     </asp:UpdatePanel>
+
+    <script type="text/javascript">
+        function closeModal() {
+            $('#exampleModalLong').modal('hide');
+            $('.modal-backdrop').remove();
+            //alert('test');
+        }
+    </script>
 
     <style>
         .shadowedPanel {
