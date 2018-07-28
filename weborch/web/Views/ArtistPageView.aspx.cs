@@ -2,6 +2,7 @@
 using DataAccess;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -60,32 +61,12 @@ namespace web
                 artist.FacebookAddress = ufacebookadd.Text;
                 artist.TwitterAddress = utwitter.Text;
                 artist.KakaoTalkAddress = ukakao.Text;
-                //artist.Photo1 = uphoto1.Text;
-                //artist.Photo2 = uphoto2.Text;
                 getPhoto(artist, 1, FileUpload1);
                 getPhoto(artist, 2, FileUpload2);
 
                 artist.ProfilePage = uprofilepage.Text;
                 artist.Repertory = urepertory.Text;
-                artist.EndorsorEmailID1 = uedoremail1.Text;
-                artist.EndorsorName1 = uendorname1.Text;
-                artist.EndorsorComments1 = uendorcomm1.Text;
-
-                artist.EndorsorEmailID2 = uedoremail2.Text;
-                artist.EndorsorName2 = uendorname2.Text;
-                artist.EndorsorComments2 = uendorcomm2.Text;
-
-                artist.EndorsorEmailID3 = uedoremail3.Text;
-                artist.EndorsorName3 = uendorname3.Text;
-                artist.EndorsorComments3 = uendorcomm3.Text;
-
-                artist.EndorsorEmailID4 = uedoremail4.Text;
-                artist.EndorsorName4 = uendorname4.Text;
-                artist.EndorsorComments4 = uendorcomm4.Text;
-
-                artist.EndorsorEmailID5 = uedoremail5.Text;
-                artist.EndorsorName5 = uendorname5.Text;
-                artist.EndorsorComments5 = uendorcomm5.Text;
+                
 
 
                 var artistID = artl.addArtistReturnNewID(artist);
@@ -113,6 +94,8 @@ namespace web
                     if (chk_tp.Checked) usertypes.Add(3);
                     if (chk_Student.Checked) usertypes.Add(4);
                     if (chk_player.Checked) usertypes.Add(5);
+                    
+                    OrchestraDBEntities entity = new OrchestraDBEntities();
 
                     // register  user types
                     foreach (int i in usertypes)
@@ -121,9 +104,25 @@ namespace web
                         type.Artist = artistID;
                         type.ArtistTypeID = i;
 
-                        OrchestraDBEntities entity = new OrchestraDBEntities();
+                        
                         entity.Artist_ArtistType.Add(type);
                         entity.SaveChanges();
+                    }
+
+                    // register endorsers
+
+                    //register endorsers
+                    if (Session["myendorsmentlist"] != null)
+                    {
+                        List<Endorser> mylist = (List<Endorser>)Session["myendorsmentlist"];
+                        foreach (Endorser x in mylist)
+                        {
+                            Artist_Endorser endorser = new Artist_Endorser();
+                            endorser.ArtistID = artist.ID;
+                            endorser.EndorserID = x.ID;
+                            entity.Artist_Endorser.Add(endorser);
+                            entity.SaveChanges();
+                        }
                     }
 
 
@@ -247,6 +246,64 @@ namespace web
             ListView1.DataBind();
             DropDownList1_artistList.DataBind();
             ListView_instrumentsplayedbyartist.DataBind();
+        }
+
+        protected void btn_add_endorser_tolist(object sender, EventArgs e)
+        {
+            Endorser endorser = new Endorser();
+            endorser.ID = int.Parse(DropDownList1_endorserlist.SelectedItem.Value);
+            endorser.Name = DropDownList1_endorserlist.SelectedItem.Text;
+            endorser.Email = ((DataView)SqlDataSource1_endorserList.Select(new DataSourceSelectArguments())).ToTable().Rows[DropDownList1_endorserlist.SelectedIndex]["Email"].ToString();
+
+            if (Session["myendorsmentlist"] != null)
+            {
+                List<Endorser> mylist = (List<Endorser>)Session["myendorsmentlist"];
+                mylist.Add(endorser);
+                myendorsmentlist.DataSource = mylist;
+                myendorsmentlist.DataBind();
+                Session["myendorsmentlist"] = mylist;
+            }
+            else
+            {
+                List<Endorser> endorserList = new List<Endorser>();
+                endorserList.Add(endorser);
+
+                myendorsmentlist.DataSource = endorserList;
+                myendorsmentlist.DataBind();
+                Session["myendorsmentlist"] = endorserList;
+            }
+        }
+
+        public void btn_remove_endorser_tolist(object sender, EventArgs e)
+        {
+            if (Session["myendorsmentlist"] != null)
+            {
+                Button btn = (Button)sender;
+                int ID = int.Parse(btn.CommandArgument.ToString());
+                List<Endorser> mylist = (List<Endorser>)Session["myendorsmentlist"];
+
+                mylist.RemoveAll(x => x.ID == ID);
+                myendorsmentlist.DataSource = mylist;
+                myendorsmentlist.DataBind();
+                Session["myendorsmentlist"] = mylist;
+            }
+        }
+
+        protected void btnAddEndorser_Click(object sender, EventArgs e)
+        {
+            EndorserLogic el = new EndorserLogic();
+            Endorser r = new Endorser();
+            r.Name = FormControlInput1_Name.Text;
+            r.Email = FormControlTextarea1_email.Text;
+
+
+            if (el.insertEndorser(r))
+            {
+                DropDownList1_endorserlist.DataBind();
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
+            }
+            else showMsg("Please check your inputs!!!");
+
         }
 
 

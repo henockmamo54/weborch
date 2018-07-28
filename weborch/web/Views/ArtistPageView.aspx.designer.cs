@@ -175,139 +175,49 @@ namespace web {
         protected global::System.Web.UI.WebControls.TextBox urepertory;
         
         /// <summary>
-        /// uedoremail1 control.
+        /// DropDownList1_endorserlist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uedoremail1;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1_endorserlist;
         
         /// <summary>
-        /// uendorname1 control.
+        /// SqlDataSource1_endorserList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uendorname1;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1_endorserList;
         
         /// <summary>
-        /// uendorcomm1 control.
+        /// Button5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uendorcomm1;
+        protected global::System.Web.UI.WebControls.Button Button5;
         
         /// <summary>
-        /// uedoremail2 control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uedoremail2;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// uendorname2 control.
+        /// myendorsmentlist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uendorname2;
-        
-        /// <summary>
-        /// uendorcomm2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uendorcomm2;
-        
-        /// <summary>
-        /// uedoremail3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uedoremail3;
-        
-        /// <summary>
-        /// uendorname3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uendorname3;
-        
-        /// <summary>
-        /// uendorcomm3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uendorcomm3;
-        
-        /// <summary>
-        /// uedoremail4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uedoremail4;
-        
-        /// <summary>
-        /// uendorname4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uendorname4;
-        
-        /// <summary>
-        /// uendorcomm4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uendorcomm4;
-        
-        /// <summary>
-        /// uedoremail5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uedoremail5;
-        
-        /// <summary>
-        /// uendorname5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uendorname5;
-        
-        /// <summary>
-        /// uendorcomm5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uendorcomm5;
+        protected global::System.Web.UI.WebControls.Repeater myendorsmentlist;
         
         /// <summary>
         /// chk_Composer control.
@@ -488,5 +398,32 @@ namespace web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource Artistinstumentsqldatasource;
+        
+        /// <summary>
+        /// FormControlInput1_Name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox FormControlInput1_Name;
+        
+        /// <summary>
+        /// FormControlTextarea1_email control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox FormControlTextarea1_email;
+        
+        /// <summary>
+        /// btnAddReview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAddReview;
     }
 }
