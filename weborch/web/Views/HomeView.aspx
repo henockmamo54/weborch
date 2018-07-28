@@ -5,14 +5,10 @@
 
         <ContentTemplate>
 
-            <div style="margin-top: 1em;">
+            <%--<div style="margin-top: 1em;">
                 <nav class="navbar navbar-default">
                     <div class="container-fluid">
-                        <%--<div class="navbar-header">
-                            <a class="navbar-brand" href="#">WebSiteName</a>
-                        </div>--%>
                         <ul class="nav navbar-nav">
-                            <%--<li class="active"><a href="">Information of Performance</a></li>--%>
                             <li><a href="InformationOfPerformances.aspx">Information of Performance</a></li>
                             <li><a href="ClassicPerformanceArchive.aspx">Classic Performance Archive</a></li>
                             <li><a href="InformationSpace.aspx">Information Space</a></li>
@@ -20,7 +16,9 @@
                         </ul>
                     </div>
                 </nav>
-            </div>
+            </div>--%>
+
+            <br />
 
             <div>
                 <div class="row " style="width: 100%; padding: 0; margin: 0; padding-top: 0em; height: 380px;">

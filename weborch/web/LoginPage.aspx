@@ -66,7 +66,8 @@
         //}, false);
 
         function redirect() {
-            location.href = 'UserPage.aspx';
+            //location.href = 'UserPage.aspx';
+            location.href = 'Views/signupPages/TermsOfUsePage.aspx';
         }
 
     </script>

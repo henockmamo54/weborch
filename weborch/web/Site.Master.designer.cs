@@ -13,6 +13,24 @@ namespace web {
     public partial class SiteMaster {
         
         /// <summary>
+        /// signinLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor signinLink;
+        
+        /// <summary>
+        /// signoutLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor signoutLink;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

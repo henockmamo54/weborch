@@ -70,6 +70,8 @@ namespace web
         protected void Page_Load(object sender, EventArgs e)
         {
            var user= Session["User"];
+            if (user == null) { signinLink.Visible = true; signoutLink.Visible = false; }
+            if (user != null) { signinLink.Visible = false; signoutLink.Visible = true; }
         }
         protected void signoutClicked(object sender, EventArgs e) {
             Session.Clear();
