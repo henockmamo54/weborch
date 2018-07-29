@@ -33,19 +33,19 @@ namespace web.Views
                 p.UserID = user.ID;
                 p.OrchestraID = int.Parse(DropDownList1.SelectedValue.ToString());
                 p.PerformanceTitle = txt_title.Text;
-                p.PerformanceDate= DateTime.Parse(txt_performancedate.Text);
+                //p.PerformanceDate= DateTime.Parse(txt_performancedate.Text);
                 p.StartDate = DateTime.Parse(txt_performancedate.Text); //,"dd/mm/yyyy", new CultureInfo("en-US"));
                 p.EndDate = DateTime.Parse(txt_performancedate.Text); //,"dd/mm/yyyy", new CultureInfo("en-US"));
                 //p.PerformanceDay = txt_performanceday.Text;
                 p.OrchestraID = int.Parse(DropDownList1.SelectedItem.Value);
                 p.Location = txt_location.Text;
                 p.ConcertHall = txt_ConcertHall.Text;
-                p.PerformanceDay = "Sunday";
+                //p.PerformanceDay = "Sunday";
                 getPhoto(p, FileUpload1);
 
                 if (pl.insertPerformance(p))
                 {
-                    ListView1.DataBind();
+                    //ListView1.DataBind();
                     showMsg("Data inserted succssfuly");
                 }
                 else showMsg("Please check your inputs"); 

@@ -46,10 +46,10 @@ namespace DataAccess
         public virtual DbSet<Artist_ArtistType> Artist_ArtistType { get; set; }
         public virtual DbSet<ArtistType> ArtistTypes { get; set; }
         public virtual DbSet<PerformanceDetail> PerformanceDetails { get; set; }
-        public virtual DbSet<Performance> Performances { get; set; }
         public virtual DbSet<UserPersonalInfo> UserPersonalInfoes { get; set; }
         public virtual DbSet<Endorser> Endorsers { get; set; }
         public virtual DbSet<User_Endorser> User_Endorser { get; set; }
         public virtual DbSet<Artist_Endorser> Artist_Endorser { get; set; }
+        public virtual DbSet<Performance> Performances { get; set; }
     }
 }

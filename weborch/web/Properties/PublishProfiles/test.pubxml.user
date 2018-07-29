@@ -79,10 +79,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/16/2013 20:06:22</publishTime>
     </File>
     <File Include="bin/BusinessLogic.exe">
-      <publishTime>07/25/2018 22:36:17</publishTime>
+      <publishTime>07/28/2018 21:08:49</publishTime>
     </File>
     <File Include="bin/DataAccess.exe">
-      <publishTime>07/25/2018 22:36:16</publishTime>
+      <publishTime>07/28/2018 21:08:48</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>03/02/2015 09:32:26</publishTime>
@@ -214,7 +214,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/22/2013 10:21:56</publishTime>
     </File>
     <File Include="bin/web.dll">
-      <publishTime>07/26/2018 13:53:04</publishTime>
+      <publishTime>07/28/2018 21:08:59</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>09/10/2013 17:28:38</publishTime>
@@ -304,7 +304,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/19/2018 22:33:07</publishTime>
     </File>
     <File Include="LoginPage.aspx">
-      <publishTime>07/18/2018 00:46:12</publishTime>
+      <publishTime>07/28/2018 17:54:02</publishTime>
     </File>
     <File Include="Orchestra.aspx">
       <publishTime>06/19/2018 22:26:52</publishTime>
@@ -403,7 +403,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/28/2018 21:34:33</publishTime>
     </File>
     <File Include="Site.Master">
-      <publishTime>07/24/2018 17:33:37</publishTime>
+      <publishTime>07/28/2018 17:58:00</publishTime>
     </File>
     <File Include="Site.Mobile.Master">
       <publishTime>05/28/2018 21:34:37</publishTime>
@@ -412,7 +412,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/19/2018 22:54:54</publishTime>
     </File>
     <File Include="Views/ArtistPageView.aspx">
-      <publishTime>07/25/2018 01:30:08</publishTime>
+      <publishTime>07/28/2018 17:38:31</publishTime>
     </File>
     <File Include="Views/ClassicCoinPage.aspx">
       <publishTime>07/10/2018 17:14:31</publishTime>
@@ -421,7 +421,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/10/2018 21:00:33</publishTime>
     </File>
     <File Include="Views/HomeView.aspx">
-      <publishTime>07/10/2018 21:30:06</publishTime>
+      <publishTime>07/28/2018 17:47:40</publishTime>
     </File>
     <File Include="Views/InformationOfPerformances.aspx">
       <publishTime>07/10/2018 20:53:30</publishTime>
@@ -457,13 +457,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2018 00:42:14</publishTime>
     </File>
     <File Include="Views/PerformancePage.aspx">
-      <publishTime>07/24/2018 15:56:39</publishTime>
+      <publishTime>07/28/2018 21:05:15</publishTime>
     </File>
     <File Include="Views/signupPages/TermsOfUsePage.aspx">
       <publishTime>07/18/2018 00:33:06</publishTime>
     </File>
     <File Include="Views/signupPages/UserInformationRegistrationPage.aspx">
-      <publishTime>07/26/2018 13:27:53</publishTime>
+      <publishTime>07/28/2018 16:48:24</publishTime>
     </File>
     <File Include="Views/UserPageView.aspx">
       <publishTime>07/17/2018 23:34:15</publishTime>

@@ -21,8 +21,6 @@ namespace DataAccess
         }
     
         public int ID { get; set; }
-        public System.DateTime PerformanceDate { get; set; }
-        public string PerformanceDay { get; set; }
         public string PerformanceTitle { get; set; }
         public string Location { get; set; }
         public string ConcertHall { get; set; }

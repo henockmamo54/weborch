@@ -171,54 +171,97 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
                                                     <br />
                                                     <div class="col-md-4">Major Instrument 2:</div>
                                                     <div class="col-md-6">
-                                                        <asp:DropDownList ID="DropDownList1_mjInst2" class="form-control" runat="server"  DataSourceID="SqlDataSource3_instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
+                                                        <asp:DropDownList ID="DropDownList1_mjInst2" class="form-control" runat="server" DataSourceID="SqlDataSource3_instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
 
                                                         <%--<asp:TextBox ID="umajorinst2" runat="server" class="form-control"></asp:TextBox>--%>
                                                     </div>
                                                     <br />
                                                 </div>
-                                                <div class="col-md-12">
-                                                    <br />
-                                                    <div class="col-md-4">Photo 1:</div>
-                                                    <div class="col-md-6">
-                                                        <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline" />
-                                                        <%--<asp:TextBox ID="uphoto1" runat="server" class="form-control"></asp:TextBox>--%>
-                                                    </div>
-                                                    <br />
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <br />
-                                                    <div class="col-md-4">Photo 2:</div>
-                                                    <div class="col-md-6">
-                                                        <asp:FileUpload ID="FileUpload2" runat="server" Style="display: inline" />
-                                                        <%--<asp:TextBox ID="uphoto2" runat="server" class="form-control"></asp:TextBox>--%>
-                                                    </div>
-                                                    <br />
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <br />
-                                                    <div class="col-md-4">Profile Page.:</div>
-                                                    <div class="col-md-6">
-                                                        <asp:TextBox ID="uprofilepage" runat="server" class="form-control"></asp:TextBox>
-                                                    </div>
-                                                    <br />
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <br />
-                                                    <div class="col-md-4">Repertory.:</div>
-                                                    <div class="col-md-6">
-                                                        <asp:TextBox ID="urepertory" runat="server" class="form-control"></asp:TextBox>
-                                                    </div>
-                                                    <br />
-                                                </div>
-
 
                                             </div>
                                         </div>
 
                                         <div class="col-md-6 form-group" id="endorserdiv" style="padding: 0;">
 
+
                                             <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Photo 1:</div>
+                                                <div class="col-md-6">
+                                                    <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline" />
+                                                    <%--<asp:TextBox ID="uphoto1" runat="server" class="form-control"></asp:TextBox>--%>
+                                                </div>
+                                                <br />
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Photo 2:</div>
+                                                <div class="col-md-6">
+                                                    <asp:FileUpload ID="FileUpload2" runat="server" Style="display: inline" />
+                                                    <%--<asp:TextBox ID="uphoto2" runat="server" class="form-control"></asp:TextBox>--%>
+                                                </div>
+                                                <br />
+                                            </div>
+                                            
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Profile Page.:</div>
+                                                <div class="col-md-8">
+                                                    <asp:TextBox ID="uprofilepage"  TextMode="MultiLine" Rows="3" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br /><br /><br />
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <br />
+                                                <div class="col-md-4">Repertory.:</div>
+                                                <div class="col-md-8">
+                                                    <asp:TextBox TextMode="MultiLine" Rows="3" ID="urepertory" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br /> <br /> <br />
+                                            </div>
+
+                                            <br />
+                                            <hr />
+
+                                            <div class="col-md-12">
+                                                <div class="col-md-4">
+                                                    <asp:Label runat="server">Endorser:</asp:Label>
+                                                </div>
+                                                <div class="col-md-4">
+
+                                                    <asp:DropDownList class="form-control" ID="DropDownList1_endorserlist" runat="server" DataSourceID="SqlDataSource1_endorserList" DataTextField="Name" DataValueField="ID"></asp:DropDownList>
+                                                    <asp:SqlDataSource ID="SqlDataSource1_endorserList" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [Name], [Email],  [ID] FROM Main.[Endorser]"></asp:SqlDataSource>
+
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <asp:Button ID="Button5" CssClass="btn btn-sm btn-warning" Style="margin-left: 3px !important;" runat="server" Text="Add" OnClick="btn_add_endorser_tolist" />
+                                                    <asp:Button ID="btn_add_Inst" CssClass="btn btn-sm btn-success" Style="margin-left: 3px !important;" runat="server" Text="New" data-toggle="modal" data-target="#exampleModalLong" />
+                                                </div>
+
+                                            </div>
+                                            
+                                            <div class="row col-md-12 pull-right">
+                                                <asp:Repeater runat="server" ID="myendorsmentlist">
+                                                    <ItemTemplate>
+                                                        <tr style="margin-bottom: 3px;">
+                                                            <asp:Button runat="server" AutoPostBack="True" CommandArgument='<%#Eval("ID")%>' OnClick="btn_remove_endorser_tolist" Text="Delete"></asp:Button>
+                                                            <td>
+                                                                <asp:Label runat="server" ID="Label1" Text='<%# Eval("Name") %>' />
+                                                                - 
+                                                            </td>
+                                                            <td>
+                                                                <asp:Label runat="server" ID="Label2" Text='<%# Eval("Email") %>' />
+                                                            </td>
+                                                        </tr>
+                                                        <br />
+                                                        <br />
+                                                    </ItemTemplate>
+                                                </asp:Repeater>
+                                            </div>
+                                            
+                                            <%--<div class="col-md-12">
                                                 <br />
                                                 <div class="col-md-4">Endorsor Email ID 1:</div>
                                                 <div class="col-md-6">
@@ -346,8 +389,7 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
                                                     <asp:TextBox ID="uendorcomm5" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
-                                            </div>
-
+                                            </div>--%>
                                         </div>
 
 
@@ -573,6 +615,38 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
 
             </div>
 
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Endorser</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Name</label>
+                                <asp:TextBox runat="server" type="text" class="form-control" ID="FormControlInput1_Name" placeholder="Name of the Endorser" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Email</label>
+                                <asp:TextBox runat="server" class="form-control" ID="FormControlTextarea1_email" TextMode="Email" placeholder="Email Address of the Endorser" />
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <asp:Button runat="server" type="button" class="btn btn-primary" Text="Save changes" ID="btnAddReview" OnClick="btnAddEndorser_Click" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </ContentTemplate>
 
         <Triggers>
@@ -581,6 +655,14 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
         </Triggers>
 
     </asp:UpdatePanel>
+
+    <script type="text/javascript">
+        function closeModal() {
+            $('#exampleModalLong').modal('hide');
+            $('.modal-backdrop').remove();
+            //alert('test');
+        }
+    </script>
 
     <style>
         .shadowedPanel {
