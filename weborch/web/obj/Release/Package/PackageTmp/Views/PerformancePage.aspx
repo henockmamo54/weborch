@@ -100,356 +100,83 @@
                 </div>
                 <div class="row col-md-12">
                     <br />
-                    <asp:Button ID="btn_addPerformance" CssClass="btn btn-primary pull-right" runat="server" Text="Register" OnClick="btn_performance_Click" />
+                    <asp:Button ID="btn_addPerformance" CssClass="btn btn-success pull-right" runat="server" Text="Register" OnClick="btn_performance_Click" />
                 </div>
             </div>
             <br />
             <div class="row ">
-                <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource2_allPerformances" style="width:100%;">
-                    <AlternatingItemTemplate>
-                        <tr style="background-color: #FFF8DC; width:100%;">
-                            <td>
-                                <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-                                <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-                            </td>
-                            <td>
-                                <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
-                            </td>
-                            <%--<td>
-                                <asp:Label ID="PerformanceDateLabel" runat="server" Text='<%# Eval("PerformanceDate") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="PerformanceDayLabel" runat="server" Text='<%# Eval("PerformanceDay") %>' />
-                            </td>--%>
-                            <td>
-                                <asp:Label ID="PerformanceTitleLabel" runat="server" Text='<%# Eval("PerformanceTitle") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="LocationLabel" runat="server" Text='<%# Eval("Location") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="ConcertHallLabel" runat="server" Text='<%# Eval("ConcertHall") %>' />
-                            </td>
-                            <%--<td>
-                                <asp:Label ID="TimeStampLabel" runat="server" Text='<%# Eval("TimeStamp") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="UserIDLabel" runat="server" Text='<%# Eval("UserID") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="ExpiryDateLabel" runat="server" Text='<%# Eval("ExpiryDate") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="OrchestraIDLabel" runat="server" Text='<%# Eval("OrchestraID") %>' />
-                            </td>--%>
-                            <td>
-                                <asp:Label ID="StartDateLabel" runat="server" Text='<%# Eval("StartDate") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="EndDateLabel" runat="server" Text='<%# Eval("EndDate") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="PhotoAddLocationLabel" runat="server" Text='<%# Eval("PhotoAddLocation") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="VideoLocationLabel" runat="server" Text='<%# Eval("VideoLocation") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="OfficialNameLabel" runat="server" Text='<%# Eval("OfficialName") %>' />
-                            </td>
-                        </tr>
-                    </AlternatingItemTemplate>
-                    <EditItemTemplate>
-                        <tr style="background-color: #008A8C; color: #FFFFFF; width:100%;">
-                            <td>
-                                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
-                            </td>
-                            <td>
-                                <asp:Label ID="IDLabel1" runat="server" Text='<%# Eval("ID") %>' />
-                            </td>
-                            <td style="display:none;">
-                                <asp:TextBox ID="PerformanceDateTextBox" runat="server" Text='<%# Bind("PerformanceDate") %>' />
-                            </td>
-                            <td style="display:none;">
-                                <asp:TextBox ID="PerformanceDayTextBox" runat="server" Text='<%# Bind("PerformanceDay") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="PerformanceTitleTextBox" runat="server" Text='<%# Bind("PerformanceTitle") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="LocationTextBox" runat="server" Text='<%# Bind("Location") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="ConcertHallTextBox" runat="server" Text='<%# Bind("ConcertHall") %>' />
-                            </td>
-                            <%--<td>
-                                <asp:TextBox ID="TimeStampTextBox" runat="server" Text='<%# Bind("TimeStamp") %>' />
-
-                            </td>
-                            <td>
-                                <asp:TextBox ID="UserIDTextBox" runat="server" Text='<%# Bind("UserID") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="ExpiryDateTextBox" runat="server" Text='<%# Bind("ExpiryDate") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="OrchestraIDTextBox" runat="server" Text='<%# Bind("OrchestraID") %>' />
-                            </td>--%>
-                            <td>
-                                <asp:TextBox ID="StartDateTextBox" runat="server" Text='<%# Bind("StartDate") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="EndDateTextBox" runat="server" Text='<%# Bind("EndDate") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="PhotoAddLocationTextBox" runat="server" Text='<%# Bind("PhotoAddLocation") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="VideoLocationTextBox" runat="server" Text='<%# Bind("VideoLocation") %>' />
-                            </td>
-                            <td>
-                                <%--<asp:TextBox ID="OfficialNameTextBox" runat="server" Text='<%# Bind("OfficialName") %>' />--%>
-                                <asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID" SelectedValue='<%#Bind("OrchestraID")%>'></asp:DropDownList>
-
-                            </td>
-                        </tr>
-                    </EditItemTemplate>
-                    <EmptyDataTemplate>
-                        <table runat="server" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px; width:100%;">
-                            <tr>
-                                <td>No data was returned.</td>
-                            </tr>
-                        </table>
-                    </EmptyDataTemplate>
-                    <InsertItemTemplate>
-                        <tr style="width:100%;">
-                            <td>
-                                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
-                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-                            </td>
-                            <td>&nbsp;</td>
-                            <td>
-                                <asp:TextBox ID="PerformanceDateTextBox" runat="server" Text='<%# Bind("PerformanceDate") %>' />
-                            </td>
-                            <%--<td>
-                                <asp:TextBox ID="PerformanceDayTextBox" runat="server" Text='<%# Bind("PerformanceDay") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="PerformanceTitleTextBox" runat="server" Text='<%# Bind("PerformanceTitle") %>' />
-                            </td>--%>
-                            <td>
-                                <asp:TextBox ID="LocationTextBox" runat="server" Text='<%# Bind("Location") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="ConcertHallTextBox" runat="server" Text='<%# Bind("ConcertHall") %>' />
-                            </td>
-                            <%--<td>
-                                <asp:TextBox ID="TimeStampTextBox" runat="server" Text='<%# Bind("TimeStamp") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="UserIDTextBox" runat="server" Text='<%# Bind("UserID") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="ExpiryDateTextBox" runat="server" Text='<%# Bind("ExpiryDate") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="OrchestraIDTextBox" runat="server" Text='<%# Bind("OrchestraID") %>' />
-                            </td>--%>
-                            <td>
-                                <asp:TextBox ID="StartDateTextBox" runat="server" Text='<%# Bind("StartDate") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="EndDateTextBox" runat="server" Text='<%# Bind("EndDate") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="PhotoAddLocationTextBox" runat="server" Text='<%# Bind("PhotoAddLocation") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="VideoLocationTextBox" runat="server" Text='<%# Bind("VideoLocation") %>' />
-                            </td>
-                            <td>
-                                <asp:TextBox ID="OfficialNameTextBox" runat="server" Text='<%# Bind("OfficialName") %>' />
-                            </td>
-                        </tr>
-                    </InsertItemTemplate>
-                    <ItemTemplate >
-                        <tr style="background-color: #DCDCDC; color: #000000; width:100%;">
-                            <td>
-                                <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-                                <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-                            </td>
-                            <td>
-                                <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
-                            </td>
-                            <%--<td>
-                                <asp:Label ID="PerformanceDateLabel" runat="server" Text='<%# Eval("PerformanceDate") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="PerformanceDayLabel" runat="server" Text='<%# Eval("PerformanceDay") %>' />
-                            </td>--%>
-                            <td>
-                                <asp:Label ID="PerformanceTitleLabel" runat="server" Text='<%# Eval("PerformanceTitle") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="LocationLabel" runat="server" Text='<%# Eval("Location") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="ConcertHallLabel" runat="server" Text='<%# Eval("ConcertHall") %>' />
-                            </td>
-                            <%--<td>
-                                <asp:Label ID="TimeStampLabel" runat="server" Text='<%# Eval("TimeStamp") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="UserIDLabel" runat="server" Text='<%# Eval("UserID") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="ExpiryDateLabel" runat="server" Text='<%# Eval("ExpiryDate") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="OrchestraIDLabel" runat="server" Text='<%# Eval("OrchestraID") %>' />
-                            </td>--%>
-                            <td>
-                                <asp:Label ID="StartDateLabel" runat="server" Text='<%# Eval("StartDate") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="EndDateLabel" runat="server" Text='<%# Eval("EndDate") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="PhotoAddLocationLabel" runat="server" Text='<%# Eval("PhotoAddLocation") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="VideoLocationLabel" runat="server" Text='<%# Eval("VideoLocation") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="OfficialNameLabel" runat="server" Text='<%# Eval("OfficialName") %>' />
-                            </td>
-                        </tr>
-                    </ItemTemplate>
-                    <LayoutTemplate>
-                        <table runat="server" style="width:100%;">
-                            <tr runat="server">
-                                <td runat="server">
-                                    <table id="itemPlaceholderContainer" runat="server" border="1" style="width:100%; background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px; font-family: Verdana, Arial, Helvetica, sans-serif;">
-                                        <tr runat="server" style="background-color: #DCDCDC; color: #000000; width:100%;">
-                                            <th runat="server"></th>
-                                            <th runat="server">ID</th>
-                                            <%--<th runat="server">PerformanceDate</th>
-                                            <th runat="server">PerformanceDay</th>--%>
-                                            <th runat="server">Performance Title</th>
-                                            <th runat="server">Location</th>
-                                            <th runat="server">Concert Hall</th>
-                                            <%--<th runat="server">TimeStamp</th>
-                                            <th runat="server">UserID</th>
-                                            <th runat="server">ExpiryDate</th>
-                                            <th runat="server">OrchestraID</th>--%>
-                                            <th runat="server">StartDate</th>
-                                            <th runat="server">EndDate</th>
-                                            <th runat="server">Photo Add Location</th>
-                                            <th runat="server">Video Location</th>
-                                            <th runat="server">Orchestra</th>
-                                        </tr>
-                                        <tr id="itemPlaceholder" runat="server">
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr>
-                            <tr runat="server">
-                                <td runat="server" style="text-align: center; background-color: #CCCCCC; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;">
-                                    <asp:DataPager ID="DataPager1" runat="server">
-                                        <Fields>
-                                            <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                            <asp:NumericPagerField />
-                                            <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                        </Fields>
-                                    </asp:DataPager>
-                                </td>
-                            </tr>
-                        </table>
-                    </LayoutTemplate>
-                    <SelectedItemTemplate>
-                        <tr style="background-color: #008A8C; font-weight: bold; color: #FFFFFF; width:100%;">
-                            <td>
-                                <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-                                <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-                            </td>
-                            <td>
-                                <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
-                            </td>
-                            <%--<td>
-                                <asp:Label ID="PerformanceDateLabel" runat="server" Text='<%# Eval("PerformanceDate") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="PerformanceDayLabel" runat="server" Text='<%# Eval("PerformanceDay") %>' />
-                            </td>--%>
-                            <td>
-                                <asp:Label ID="PerformanceTitleLabel" runat="server" Text='<%# Eval("PerformanceTitle") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="LocationLabel" runat="server" Text='<%# Eval("Location") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="ConcertHallLabel" runat="server" Text='<%# Eval("ConcertHall") %>' />
-                            </td>
-                           <%-- <td>
-                                <asp:Label ID="TimeStampLabel" runat="server" Text='<%# Eval("TimeStamp") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="UserIDLabel" runat="server" Text='<%# Eval("UserID") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="ExpiryDateLabel" runat="server" Text='<%# Eval("ExpiryDate") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="OrchestraIDLabel" runat="server" Text='<%# Eval("OrchestraID") %>' />
-                            </td>--%>
-                            <td>
-                                <asp:Label ID="StartDateLabel" runat="server" Text='<%# Eval("StartDate") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="EndDateLabel" runat="server" Text='<%# Eval("EndDate") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="PhotoAddLocationLabel" runat="server" Text='<%# Eval("PhotoAddLocation") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="VideoLocationLabel" runat="server" Text='<%# Eval("VideoLocation") %>' />
-                            </td>
-                            <td>
-                                <asp:Label ID="OfficialNameLabel" runat="server" Text='<%# Eval("OfficialName") %>' />
-                            </td>
-                        </tr>
-                    </SelectedItemTemplate>
-                </asp:ListView>
+           
                 <asp:SqlDataSource ID="SqlDataSource2_allPerformances" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
 SELECT p.*, OfficialName  FROM Main.Performance p
 join Core.Orchestra o on p.OrchestraID=o.ID"
                     DeleteCommand="Delete Main.Performance
 where id = @ID"
                     UpdateCommand="update Main.Performance
+
 set OrchestraID=@OrchestraID,
-PerformanceDate=@PerformanceDate,
-PerformanceDay=@PerformanceDay,
+StartDate=@StartDate,
+EndDate=@EndDate,
 PerformanceTitle=@PerformanceTitle,
 Location=@Location,
+PhotoAddLocation=@PhotoAddLocation,
+VideoLocation=@VideoLocation,
 ConcertHall=@ConcertHall
+
 where ID=@ID">
                     <DeleteParameters>
                         <asp:Parameter Name="ID" />
                     </DeleteParameters>
                     <UpdateParameters>
                         <asp:Parameter Name="OrchestraID" />
-                        <asp:Parameter Name="PerformanceDate" />
-                        <asp:Parameter Name="PerformanceDay" />
+                        <asp:Parameter Name="StartDate" />
+                        <asp:Parameter Name="EndDate" />
                         <asp:Parameter Name="PerformanceTitle" />
                         <asp:Parameter Name="Location" />
+                        <asp:Parameter Name="PhotoAddLocation" />
+                        <asp:Parameter Name="VideoLocation" />
                         <asp:Parameter Name="ConcertHall" />
                         <asp:Parameter Name="ID" />
                     </UpdateParameters>
                 </asp:SqlDataSource>
             </div>
 
-            <div class="row"></div>
+            <div class="row">
+                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource2_allPerformances" ForeColor="#333333" GridLines="None">
+                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <Columns>
+                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
+                        <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+                        <asp:BoundField DataField="PerformanceTitle" HeaderText="Performance Title" SortExpression="PerformanceTitle" />
+                        <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location" />
+                        <asp:BoundField DataField="ConcertHall" HeaderText="Concert Hall" SortExpression="ConcertHall" />
+                        <asp:BoundField DataField="StartDate" HeaderText="Start Date" SortExpression="StartDate" />
+                        <asp:BoundField DataField="EndDate" HeaderText="End Date" SortExpression="EndDate" />
+                        <asp:BoundField DataField="PhotoAddLocation" HeaderText="Photo Ad Location" SortExpression="PhotoAddLocation" />
+                        <asp:BoundField DataField="VideoLocation" HeaderText="Video Location" SortExpression="VideoLocation" />
+                        <asp:TemplateField HeaderText="Orchestra" SortExpression="OfficialName">
+                            <EditItemTemplate>
+                                <asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID" SelectedValue='<%#Bind("OrchestraID")%>'></asp:DropDownList>
+
+                                <%--<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("OfficialName") %>'></asp:TextBox>--%>
+
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="Label1" runat="server" Text='<%# Bind("OfficialName") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                    <EditRowStyle BackColor="#999999" />
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                </asp:GridView>
+            </div>
         </ContentTemplate>
 
         

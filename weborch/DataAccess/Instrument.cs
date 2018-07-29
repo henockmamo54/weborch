@@ -22,6 +22,7 @@ namespace DataAccess
             this.PerformanceDetails = new HashSet<PerformanceDetail>();
             this.UserPersonalInfoes = new HashSet<UserPersonalInfo>();
             this.UserPersonalInfoes1 = new HashSet<UserPersonalInfo>();
+            this.PerformanceDetail_Instrument_Artist = new HashSet<PerformanceDetail_Instrument_Artist>();
         }
     
         public int ID { get; set; }
@@ -46,5 +47,7 @@ namespace DataAccess
         public virtual ICollection<UserPersonalInfo> UserPersonalInfoes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserPersonalInfo> UserPersonalInfoes1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PerformanceDetail_Instrument_Artist> PerformanceDetail_Instrument_Artist { get; set; }
     }
 }

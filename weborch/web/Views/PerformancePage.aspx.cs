@@ -84,6 +84,12 @@ namespace web.Views
             
         }
 
-
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //GridViewRow row = GridView1.SelectedRow;
+            //var x = row.Cells[1].Text;
+            Session["PerformanceDetailID"] = GridView1.SelectedRow.Cells[1].Text;
+            Response.Redirect("PerformanceDetailPage.aspx");
+        }
     }
 }

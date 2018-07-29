@@ -14,6 +14,12 @@ namespace DataAccess
     
     public partial class PerformanceDetail
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PerformanceDetail()
+        {
+            this.PerformanceDetail_Instrument_Artist = new HashSet<PerformanceDetail_Instrument_Artist>();
+        }
+    
         public int ID { get; set; }
         public Nullable<int> PerformanceID { get; set; }
         public string Title { get; set; }
@@ -29,5 +35,7 @@ namespace DataAccess
         public virtual Instrument Instrument1 { get; set; }
         public virtual Orchestra Orchestra1 { get; set; }
         public virtual Performance Performance { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PerformanceDetail_Instrument_Artist> PerformanceDetail_Instrument_Artist { get; set; }
     }
 }

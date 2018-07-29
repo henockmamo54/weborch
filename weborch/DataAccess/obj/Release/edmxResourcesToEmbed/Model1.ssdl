@@ -261,8 +261,6 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="PerformanceDate" Type="datetime" Nullable="false" />
-    <Property Name="PerformanceDay" Type="nvarchar" MaxLength="32" Nullable="false" />
     <Property Name="PerformanceTitle" Type="nvarchar" MaxLength="64" Nullable="false" />
     <Property Name="Location" Type="nvarchar" MaxLength="32" Nullable="false" />
     <Property Name="ConcertHall" Type="nvarchar" MaxLength="32" Nullable="false" />

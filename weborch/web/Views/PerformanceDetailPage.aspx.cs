@@ -10,9 +10,14 @@ namespace web.Views
 {
     public partial class PerformanceDetailPage : System.Web.UI.Page
     {
+        int PDID=0;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["PerformanceDetailID"] != null)
+            {
+                int PDID = int.Parse(Session["PerformanceDetailID"].ToString());
+                dropdown_performance.SelectedValue = PDID.ToString();
+            }
         }
 
         public void addDetailClicked(object sender, EventArgs e) {
