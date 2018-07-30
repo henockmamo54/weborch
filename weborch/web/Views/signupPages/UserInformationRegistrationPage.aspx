@@ -80,10 +80,28 @@
                                                     <br />
                                                     <div class="col-md-4">Affiliation:</div>
                                                     <div class="col-md-6">
-                                                        <asp:TextBox ID="uaffilation" runat="server" class="form-control"></asp:TextBox>
+
+                                                        <asp:DropDownList ID="DropDownList1_Affilation" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_Affilation_SelectedIndexChanged"></asp:DropDownList>
+                                                        <asp:SqlDataSource ID="SqlDataSource1_allOrchestra" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [OfficialName]='Other', [ID]=-1 FROM  core.[Orchestra]
+union
+SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
+
                                                     </div>
                                                     <br />
                                                 </div>
+                                                
+
+                                                <div class="col-md-12">
+                                                    <br />
+                                                    <div class="col-md-4"></div>
+                                                    <div class="col-md-6">
+
+                                                        <asp:TextBox ID="uaffilation" runat="server" placeholder="Your Affilation" class="form-control"></asp:TextBox>
+                                                    </div>
+                                                    <br />
+                                                </div>
+
+
                                                 <div class="col-md-12">
                                                     <br />
                                                     <div class="col-md-4">Sex:</div>
@@ -203,14 +221,16 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
                                                 </div>
                                                 <br />
                                             </div>
-                                            
+
                                             <div class="col-md-12">
                                                 <br />
                                                 <div class="col-md-4">Profile Page.:</div>
                                                 <div class="col-md-8">
-                                                    <asp:TextBox ID="uprofilepage"  TextMode="MultiLine" Rows="3" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="uprofilepage" TextMode="MultiLine" Rows="3" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
-                                                <br /><br /><br />
+                                                <br />
+                                                <br />
+                                                <br />
                                             </div>
 
                                             <div class="col-md-12">
@@ -219,7 +239,9 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
                                                 <div class="col-md-8">
                                                     <asp:TextBox TextMode="MultiLine" Rows="3" ID="urepertory" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
-                                                <br /> <br /> <br />
+                                                <br />
+                                                <br />
+                                                <br />
                                             </div>
 
                                             <br />
@@ -241,7 +263,7 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
                                                 </div>
 
                                             </div>
-                                            
+
                                             <div class="row col-md-12 pull-right">
                                                 <asp:Repeater runat="server" ID="myendorsmentlist">
                                                     <ItemTemplate>
@@ -260,7 +282,7 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
                                                     </ItemTemplate>
                                                 </asp:Repeater>
                                             </div>
-                                            
+
                                             <%--<div class="col-md-12">
                                                 <br />
                                                 <div class="col-md-4">Endorsor Email ID 1:</div>

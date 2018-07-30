@@ -17,6 +17,9 @@ namespace web.Views.signupPages
         bool iscompany = false;
         protected void Page_Load(object sender, EventArgs e)
         {
+            string pwd = upassword.Text;
+            upassword.Attributes.Add("value", pwd);
+
             if (!IsPostBack)
             {
                 //CompanyInfoFormContainer.Visible = false;
@@ -258,7 +261,9 @@ namespace web.Views.signupPages
                         personalInfo.UserID = user.ID;
 
                         personalInfo.Name = uname.Text;
-                        personalInfo.Affiliation = uaffilation.Text;
+                        if (int.Parse(DropDownList1_Affilation.SelectedValue) == -1)
+                            personalInfo.Affiliation = uaffilation.Text;
+                        else personalInfo.Affiliation = DropDownList1_Affilation.SelectedItem.Text;
                         personalInfo.sex = usersex.Text;
                         personalInfo.Birthday = DateTime.Parse(userBirthDate.Text);
                         personalInfo.ZipCode = uzipcode.Text;
@@ -461,6 +466,12 @@ namespace web.Views.signupPages
             }
             else showMsg("Please check your inputs!!!");
 
+        }
+
+        protected void DropDownList1_Affilation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (int.Parse(DropDownList1_Affilation.SelectedValue) == -1) uaffilation.Visible = true;
+            else uaffilation.Visible = false;
         }
 
     }
