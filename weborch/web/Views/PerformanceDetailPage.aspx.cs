@@ -68,7 +68,7 @@ namespace web.Views
                     }
 
                     if (isSuccess) {
-                        ListView2.DataBind();
+                        GridView1.DataBind();
                         showMsg("Data inserted succssfuly");
                     }
                     else showMsg("Please check your inputs");

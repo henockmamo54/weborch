@@ -171,207 +171,30 @@ FROM Core.Artist"></asp:SqlDataSource>
 
             <hr />
 
-            <asp:ListView ID="ListView2" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource1_performanceDetailList" Style="width: 100%;">
-                <AlternatingItemTemplate>
-                    <tr style="background-color: #FFF8DC;">
-                        <td>
-                            <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-                        </td>
-                        <td>
-                            <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="PerformanceTitleLabel" runat="server" Text='<%# Eval("PerformanceTitle") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="ConductorLabel" runat="server" Text='<%# Eval("Conductor") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="ComposerLabel" runat="server" Text='<%# Eval("Composer") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="ArtistsLabel" runat="server" Text='<%# Eval("Artists") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="InstrumentsLabel" runat="server" Text='<%# Eval("Instruments") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="TimeLabel" runat="server" Text='<%# Eval("Time") %>' />
-                        </td>
-                    </tr>
-                </AlternatingItemTemplate>
-                <EditItemTemplate>
-                    <tr style="background-color: #008A8C; color: #FFFFFF;">
-                        <td>
-                            <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
-                        </td>
-                        <td>
-                            <asp:Label ID="IDLabel1" runat="server" Text='<%# Eval("ID") %>' />
-                        </td>
-                        <td>
-                            <asp:TextBox ID="PerformanceTitleTextBox" runat="server" Text='<%# Bind("PerformanceTitle") %>' />
-                        </td>
-                        <td>
-                            <asp:TextBox ID="TitleTextBox" runat="server" Text='<%# Bind("Title") %>' />
-                        </td>
-                        <td>
-                            <asp:TextBox ID="ConductorTextBox" runat="server" Text='<%# Bind("Conductor") %>' />
-                        </td>
-                        <td>
-                            <asp:TextBox ID="ComposerTextBox" runat="server" Text='<%# Bind("Composer") %>' />
-
-                        </td>
-                        <td>
-                            <asp:TextBox ID="ArtistsTextBox" runat="server" Text='<%# Bind("Artists") %>' />
-
-                        </td>
-                        <td>
-                            <asp:TextBox ID="InstrumentsTextBox" runat="server" Text='<%# Bind("Instruments") %>' />
-
-                        </td>
-                        <td>
-                            <asp:TextBox ID="TimeTextBox" runat="server" Text='<%# Bind("Time") %>' />
-                        </td>
-                    </tr>
-                </EditItemTemplate>
-                <EmptyDataTemplate>
-                    <table runat="server" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px;">
-                        <tr>
-                            <td>No data was returned.</td>
-                        </tr>
-                    </table>
-                </EmptyDataTemplate>
-                <InsertItemTemplate>
-                    <tr style="">
-                        <td>
-                            <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
-                            <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-                        </td>
-                        <td>&nbsp;</td>
-                        <td>
-                            <asp:TextBox ID="PerformanceTitleTextBox" runat="server" Text='<%# Bind("PerformanceTitle") %>' />
-                        </td>
-                        <td>
-                            <asp:TextBox ID="TitleTextBox" runat="server" Text='<%# Bind("Title") %>' />
-                        </td>
-                        <td>
-                            <asp:TextBox ID="ConductorTextBox" runat="server" Text='<%# Bind("Conductor") %>' />
-                        </td>
-                        <td>
-                            <asp:TextBox ID="ComposerTextBox" runat="server" Text='<%# Bind("Composer") %>' />
-                        </td>
-                        <td>
-                            <asp:TextBox ID="ArtistsTextBox" runat="server" Text='<%# Bind("Artists") %>' />
-                        </td>
-                        <td>
-                            <asp:TextBox ID="InstrumentsTextBox" runat="server" Text='<%# Bind("Instruments") %>' />
-                        </td>
-                        <td>
-                            <asp:TextBox ID="TimeTextBox" runat="server" Text='<%# Bind("Time") %>' />
-                        </td>
-                    </tr>
-                </InsertItemTemplate>
-                <ItemTemplate>
-                    <tr style="background-color: #DCDCDC; color: #000000;">
-                        <td>
-                            <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-                        </td>
-                        <td>
-                            <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="PerformanceTitleLabel" runat="server" Text='<%# Eval("PerformanceTitle") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="ConductorLabel" runat="server" Text='<%# Eval("Conductor") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="ComposerLabel" runat="server" Text='<%# Eval("Composer") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="ArtistsLabel" runat="server" Text='<%# Eval("Artists") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="InstrumentsLabel" runat="server" Text='<%# Eval("Instruments") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="TimeLabel" runat="server" Text='<%# Eval("Time") %>' />
-                        </td>
-                    </tr>
-                </ItemTemplate>
-                <LayoutTemplate>
-                    <table runat="server">
-                        <tr runat="server">
-                            <td runat="server">
-                                <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px; font-family: Verdana, Arial, Helvetica, sans-serif; ">
-                                    <tr runat="server" style="background-color: #DCDCDC; color: #000000;">
-                                        <th runat="server"></th>
-                                        <th runat="server">ID</th>
-                                        <th runat="server">PerformanceTitle</th>
-                                        <th runat="server">Title</th>
-                                        <th runat="server">Conductor</th>
-                                        <th runat="server">Composer</th>
-                                        <th runat="server">Artists</th>
-                                        <th runat="server">Instruments</th>
-                                        <th runat="server">Time</th>
-                                    </tr>
-                                    <tr id="itemPlaceholder" runat="server">
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr runat="server">
-                            <td runat="server" style="text-align: center; background-color: #CCCCCC; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;">
-                                <asp:DataPager ID="DataPager1" runat="server">
-                                    <Fields>
-                                        <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                        <asp:NumericPagerField />
-                                        <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                    </Fields>
-                                </asp:DataPager>
-                            </td>
-                        </tr>
-                    </table>
-                </LayoutTemplate>
-                <SelectedItemTemplate>
-                    <tr style="background-color: #008A8C; font-weight: bold; color: #FFFFFF; ">
-                        <td>
-                            <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-                        </td>
-                        <td>
-                            <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="PerformanceTitleLabel" runat="server" Text='<%# Eval("PerformanceTitle") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="TitleLabel" runat="server" Text='<%# Eval("Title") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="ConductorLabel" runat="server" Text='<%# Eval("Conductor") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="ComposerLabel" runat="server" Text='<%# Eval("Composer") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="ArtistsLabel" runat="server" Text='<%# Eval("Artists") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="InstrumentsLabel" runat="server" Text='<%# Eval("Instruments") %>' />
-                        </td>
-                        <td>
-                            <asp:Label ID="TimeLabel" runat="server" Text='<%# Eval("Time") %>' />
-                        </td>
-                    </tr>
-                </SelectedItemTemplate>
-            </asp:ListView>
+            <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource1_performanceDetailList" ForeColor="#333333" GridLines="None">
+                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                <Columns>
+                    <asp:CommandField ShowDeleteButton="True" ShowSelectButton="True" />
+                    <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+                    <asp:BoundField DataField="PerformanceTitle" HeaderText="PerformanceTitle" SortExpression="PerformanceTitle" />
+                    <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
+                    <asp:BoundField DataField="Conductor" HeaderText="Conductor" ReadOnly="True" SortExpression="Conductor" />
+                    <asp:BoundField DataField="Composer" HeaderText="Composer" ReadOnly="True" SortExpression="Composer" />
+                    <asp:BoundField DataField="Artists" HeaderText="Artists" ReadOnly="True" SortExpression="Artists" />
+                    <asp:BoundField DataField="Instruments" HeaderText="Instruments" ReadOnly="True" SortExpression="Instruments" />
+                    <asp:BoundField DataField="Time" HeaderText="Time" SortExpression="Time" />
+                </Columns>
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+            </asp:GridView>
 
             <br />
 
@@ -401,7 +224,7 @@ join(
 			 STUFF(
 				 (SELECT ',' + Name
 				  FROM (
-		select pia.PerformanceDetailID, i.EnglishName as instrument,a.FirstName + ' '+ a.MiddleName + ' '+ a.FamilyName as Name
+		select distinct pia.PerformanceDetailID, i.EnglishName as instrument,a.FirstName + ' '+ a.MiddleName + ' '+ a.FamilyName as Name
 		 from Drived.PerformanceDetail_Instrument_Artist pia 
 		join Core.Artist a on a.ID = pia.ArtistID
 		join Core.Instrument i on i.ID = pia.InstrumentID
@@ -413,7 +236,7 @@ join(
 			 STUFF(
 				 (SELECT ','+ instrument
 				  FROM (
-		select pia.PerformanceDetailID, i.EnglishName as instrument,a.FirstName + ' '+ a.MiddleName + ' '+ a.FamilyName as Name
+		select distinct  pia.PerformanceDetailID, i.EnglishName as instrument,a.FirstName + ' '+ a.MiddleName + ' '+ a.FamilyName as Name
 		 from Drived.PerformanceDetail_Instrument_Artist pia 
 		join Core.Artist a on a.ID = pia.ArtistID
 		join Core.Instrument i on i.ID = pia.InstrumentID
