@@ -264,7 +264,7 @@ namespace web.Views.signupPages
                         if (int.Parse(DropDownList1_Affilation.SelectedValue) == -1)
                             personalInfo.Affiliation = uaffilation.Text;
                         else personalInfo.Affiliation = DropDownList1_Affilation.SelectedItem.Text;
-                        personalInfo.sex = usersex.Text;
+                        personalInfo.sex = DropDownList1_sex.SelectedItem.Text;
                         personalInfo.Birthday = DateTime.Parse(userBirthDate.Text);
                         personalInfo.ZipCode = uzipcode.Text;
                         personalInfo.Address = uaddress.Text;

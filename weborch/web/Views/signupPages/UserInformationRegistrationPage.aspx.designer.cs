@@ -211,13 +211,13 @@ namespace web.Views.signupPages {
         protected global::System.Web.UI.WebControls.TextBox uaffilation;
         
         /// <summary>
-        /// usersex control.
+        /// DropDownList1_sex control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox usersex;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1_sex;
         
         /// <summary>
         /// userBirthDate control.

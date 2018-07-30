@@ -106,7 +106,13 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                     <br />
                                                     <div class="col-md-4">Sex:</div>
                                                     <div class="col-md-6">
-                                                        <asp:TextBox ID="usersex" runat="server" class="form-control"></asp:TextBox>
+
+                                                        <asp:DropDownList ID="DropDownList1_sex" runat="server" class="form-control">
+                                                            <asp:ListItem>Male</asp:ListItem>
+                                                            <asp:ListItem>Female</asp:ListItem>
+                                                        </asp:DropDownList>
+
+                                                        <%--<asp:TextBox ID="usersex" runat="server" class="form-control"></asp:TextBox>--%>
                                                     </div>
                                                     <br />
                                                 </div>
