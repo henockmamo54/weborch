@@ -70,10 +70,21 @@ namespace web.Views
                     if (isSuccess) {
                         GridView1.DataBind();
                         showMsg("Data inserted succssfuly");
+
+                        showandhidebtnforthepanel.Visible = true;
+                        AddNewEntryPanel.Visible = false;
+
                     }
                     else showMsg("Please check your inputs");
                 }
             }
+        }
+
+
+        public void btn_ADD_ONClick_showAndHideTheDataEntryPanel(object sender, EventArgs e)
+        {
+            showandhidebtnforthepanel.Visible = false;
+            AddNewEntryPanel.Visible = true;
         }
 
         public void showMsg(string msg)
