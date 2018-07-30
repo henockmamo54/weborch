@@ -84,6 +84,8 @@ namespace web.Views
         public void btn_ADD_ONClick_showAndHideTheDataEntryPanel(object sender, EventArgs e)
         {
             showandhidebtnforthepanel.Visible = false;
+            btn_update.Visible = false;
+            btn_register.Visible = true;
             AddNewEntryPanel.Visible = true;
         }
 
@@ -145,8 +147,46 @@ namespace web.Views
             }
         }
 
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            OrchestraDBEntities entity = new OrchestraDBEntities();
+
+            showandhidebtnforthepanel.Visible = false;
+            AddNewEntryPanel.Visible = true;
+            btn_update.Visible = true;
+            btn_register.Visible = false;
+
+            var cell = GridView1.SelectedRow.Cells[1];
+            var mystring = cell.Text.ToString();
+            int detailID= int.Parse(mystring);
+            PerformanceDetail pd = entity.PerformanceDetails.Where(x => x.ID == detailID).FirstOrDefault();
+
+            if (pd != null) {
+                dropdown_performance.SelectedValue = pd.PerformanceID.ToString();
+                txt_performancetitle.Text=pd.Title;
+                DropDownList1_orchestra.SelectedValue = pd.Orchestra.ToString();
+                DropDownList2_conductor.SelectedValue = pd.Conductor.ToString();
+                DropDownList4_composer.SelectedValue = pd.Composer.ToString();
+                txt_time.Text = pd.Time.ToString();               
+            }
 
 
+            List<PerformanceDetail_Instrument_Artist> mylist = entity.PerformanceDetail_Instrument_Artist.Where(x => x.PerformanceDetailID == detailID).ToList();
+            myPerformanceDetailArtistInstrumentlist.DataSource = mylist;
+            myPerformanceDetailArtistInstrumentlist.DataBind();
+            Session["myPerformanceDetailArtistInstrumentlist"] = mylist;
+        }
+
+        public void cancelDetailClicked(object sender, EventArgs e)
+        {
+            AddNewEntryPanel.Visible = false;
+            showandhidebtnforthepanel.Visible = true;
+        }
+        public void saveDetailClicked(object sender, EventArgs e)
+        {
+            AddNewEntryPanel.Visible = false;
+            showandhidebtnforthepanel.Visible = true;
+        }
 
     }
 }

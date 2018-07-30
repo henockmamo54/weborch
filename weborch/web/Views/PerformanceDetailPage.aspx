@@ -7,7 +7,7 @@
             <br />
 
             
-            <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource1_performanceDetailList" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource1_performanceDetailList" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowSelectButton="True" />
@@ -245,7 +245,9 @@ FROM Core.Artist"></asp:SqlDataSource>
 
                 <div class="row col-md-12">
                     <br />
-                    <asp:Button ID="txt_addInstrument" CssClass="btn btn-primary pull-right" runat="server" Text="Register" OnClick="addDetailClicked" />
+                    <asp:Button ID="btn_cancel" CssClass="btn btn-danger pull-right" runat="server" Text="Cancel" OnClick="cancelDetailClicked" />
+                    <asp:Button ID="btn_update" CssClass="btn btn-success pull-right" runat="server" Text="Save" OnClick="saveDetailClicked" />
+                    <asp:Button ID="btn_register" CssClass="btn btn-primary pull-right" runat="server" Text="Register" OnClick="addDetailClicked" />
                 </div>
 
             </div>
