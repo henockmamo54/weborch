@@ -265,6 +265,7 @@
     <Content Include="UserPage.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\ArtistPageView.aspx" />
+    <Content Include="Views\BulletinViewPage.aspx" />
     <Content Include="Views\ClassicCoinPage.aspx" />
     <Content Include="Views\ClassicPerformanceArchive.aspx" />
     <Content Include="Views\HomeView.aspx" />
@@ -495,6 +496,13 @@
     </Compile>
     <Compile Include="Views\ArtistPageView.aspx.designer.cs">
       <DependentUpon>ArtistPageView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BulletinViewPage.aspx.cs">
+      <DependentUpon>BulletinViewPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\BulletinViewPage.aspx.designer.cs">
+      <DependentUpon>BulletinViewPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ClassicCoinPage.aspx.cs">
       <DependentUpon>ClassicCoinPage.aspx</DependentUpon>
