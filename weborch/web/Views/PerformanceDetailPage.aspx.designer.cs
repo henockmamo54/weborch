@@ -58,24 +58,6 @@ namespace web.Views {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1_allOrchestra;
         
         /// <summary>
-        /// DropDownList_instrumentlist control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList_instrumentlist;
-        
-        /// <summary>
-        /// SqlDataSource2_instrumentlist control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2_instrumentlist;
-        
-        /// <summary>
         /// DropDownList2_conductor control.
         /// </summary>
         /// <remarks>
@@ -94,24 +76,6 @@ namespace web.Views {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3_conductor;
         
         /// <summary>
-        /// DropDownList3_player control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList3_player;
-        
-        /// <summary>
-        /// SqlDataSource4_player control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource4_player;
-        
-        /// <summary>
         /// DropDownList4_composer control.
         /// </summary>
         /// <remarks>
@@ -128,6 +92,69 @@ namespace web.Views {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource5_composer;
+        
+        /// <summary>
+        /// txt_time control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_time;
+        
+        /// <summary>
+        /// DropDownList3_instrumentlist control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList3_instrumentlist;
+        
+        /// <summary>
+        /// SqlDataSource1_Instrumentlist control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1_Instrumentlist;
+        
+        /// <summary>
+        /// DropDownList2_artistlist control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList2_artistlist;
+        
+        /// <summary>
+        /// SqlDataSource1_artistlist control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1_artistlist;
+        
+        /// <summary>
+        /// Button1_addorchestraDetail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1_addorchestraDetail;
+        
+        /// <summary>
+        /// myPerformanceDetailArtistInstrumentlist control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater myPerformanceDetailArtistInstrumentlist;
         
         /// <summary>
         /// txt_addInstrument control.

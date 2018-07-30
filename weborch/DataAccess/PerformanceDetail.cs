@@ -28,6 +28,7 @@ namespace DataAccess
         public Nullable<int> Conductor { get; set; }
         public Nullable<int> Player { get; set; }
         public Nullable<int> Composer { get; set; }
+        public Nullable<System.DateTime> Time { get; set; }
     
         public virtual Artist Artist { get; set; }
         public virtual Artist Artist1 { get; set; }

@@ -294,6 +294,7 @@
     <Property Name="Conductor" Type="int" />
     <Property Name="Player" Type="int" />
     <Property Name="Composer" Type="int" />
+    <Property Name="Time" Type="datetime" />
   </EntityType>
   <EntityType Name="UserCommonTable">
     <Key>

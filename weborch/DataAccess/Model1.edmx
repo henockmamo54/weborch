@@ -299,6 +299,7 @@
           <Property Name="Conductor" Type="int" />
           <Property Name="Player" Type="int" />
           <Property Name="Composer" Type="int" />
+          <Property Name="Time" Type="datetime" />
         </EntityType>
         <EntityType Name="UserCommonTable">
           <Key>
@@ -1466,6 +1467,7 @@
           <NavigationProperty Name="Orchestra1" Relationship="OrchestraDBModel.FK__Performan__Orche__59C55456" FromRole="PerformanceDetail" ToRole="Orchestra" />
           <NavigationProperty Name="Performance" Relationship="OrchestraDBModel.FK__Performan__Perfo__503BEA1C" FromRole="PerformanceDetail" ToRole="Performance" />
           <NavigationProperty Name="PerformanceDetail_Instrument_Artist" Relationship="OrchestraDBModel.FK__Performan__Perfo__7849DB76" FromRole="PerformanceDetail" ToRole="PerformanceDetail_Instrument_Artist" />
+          <Property Name="Time" Type="DateTime" Precision="3" />
         </EntityType>
         <Association Name="FK__Performan__Compo__5D95E53A">
           <End Type="OrchestraDBModel.Artist" Role="Artist" Multiplicity="0..1" />
@@ -2101,6 +2103,7 @@
           <EntitySetMapping Name="PerformanceDetails">
             <EntityTypeMapping TypeName="OrchestraDBModel.PerformanceDetail">
               <MappingFragment StoreEntitySet="PerformanceDetail">
+                <ScalarProperty Name="Time" ColumnName="Time" />
                 <ScalarProperty Name="Composer" ColumnName="Composer" />
                 <ScalarProperty Name="Player" ColumnName="Player" />
                 <ScalarProperty Name="Conductor" ColumnName="Conductor" />
