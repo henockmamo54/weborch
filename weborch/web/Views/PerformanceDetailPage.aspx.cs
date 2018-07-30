@@ -79,8 +79,7 @@ namespace web.Views
                 }
             }
         }
-
-
+        
         public void btn_ADD_ONClick_showAndHideTheDataEntryPanel(object sender, EventArgs e)
         {
             showandhidebtnforthepanel.Visible = false;
@@ -94,7 +93,6 @@ namespace web.Views
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + msg + "')", true);            
         }
         
-
         protected void btn_add_ArtistInstrument_tolist(object sender, EventArgs e)
         {
             PerformanceDetail_Instrument_Artist detail = new PerformanceDetail_Instrument_Artist();
@@ -159,6 +157,7 @@ namespace web.Views
             var cell = GridView1.SelectedRow.Cells[1];
             var mystring = cell.Text.ToString();
             int detailID= int.Parse(mystring);
+
             PerformanceDetail pd = entity.PerformanceDetails.Where(x => x.ID == detailID).FirstOrDefault();
 
             if (pd != null) {
@@ -184,8 +183,73 @@ namespace web.Views
         }
         public void saveDetailClicked(object sender, EventArgs e)
         {
-            AddNewEntryPanel.Visible = false;
-            showandhidebtnforthepanel.Visible = true;
+            bool isSuccess = false;
+            using (var context = new OrchestraDBEntities())
+            {
+                using (var dbContextTransaction = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        var cell = GridView1.SelectedRow.Cells[1];
+                        var mystring = cell.Text.ToString();
+                        int detailID = int.Parse(mystring);
+                        PerformanceDetail pd = context.PerformanceDetails.Where(x => x.ID == detailID).FirstOrDefault();
+
+                        pd.PerformanceID = int.Parse(dropdown_performance.SelectedValue);
+                        pd.Title = txt_performancetitle.Text;
+                        pd.Orchestra = int.Parse(DropDownList1_orchestra.SelectedValue);
+                        pd.Conductor = int.Parse(DropDownList2_conductor.SelectedValue);
+                        pd.Composer = int.Parse(DropDownList4_composer.SelectedValue);
+                        pd.Time = DateTime.Now;
+
+                        context.PerformanceDetails.Add(pd);
+                        context.SaveChanges();
+
+                        // remove the previous artist and instrument
+                        context.PerformanceDetail_Instrument_Artist.RemoveRange(context.PerformanceDetail_Instrument_Artist.Where(x => x.PerformanceDetailID == detailID).ToList());
+
+                        // register artist and instrument
+                        if (Session["myPerformanceDetailArtistInstrumentlist"] != null)
+                        {
+                            List<PerformanceDetail_Instrument_Artist> mylist = (List<PerformanceDetail_Instrument_Artist>)Session["myPerformanceDetailArtistInstrumentlist"];
+                            foreach (PerformanceDetail_Instrument_Artist x in mylist)
+                            {
+                                PerformanceDetail_Instrument_Artist detail = new PerformanceDetail_Instrument_Artist();
+                                detail.PerformanceDetailID = pd.ID;
+                                detail.ArtistID = x.ArtistID;
+                                detail.InstrumentID = x.InstrumentID;
+
+                                context.PerformanceDetail_Instrument_Artist.Add(detail);
+                                context.SaveChanges();
+                            }
+                        }
+
+                        dbContextTransaction.Commit();
+                        isSuccess = true;
+                    }
+                    catch (Exception ee)
+                    {
+                        dbContextTransaction.Rollback();
+                    }
+
+                    if (isSuccess)
+                    {
+                        GridView1.DataBind();
+                        showMsg("Data inserted succssfuly");
+
+                        showandhidebtnforthepanel.Visible = true;
+                        AddNewEntryPanel.Visible = false;
+                        AddNewEntryPanel.Visible = false;
+
+                    }
+                    else showMsg("Please check your inputs");
+                }
+            }
+
+
+           
+
+
         }
 
     }
