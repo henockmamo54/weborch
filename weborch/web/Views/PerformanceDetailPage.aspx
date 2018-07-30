@@ -32,7 +32,7 @@
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
             
-            <div class="row">
+            <div class="row" style="text-align: center !important;" >
                 <asp:Button runat="server" AutoPostBack="True" CssClass="btn btn-warning" ID="showandhidebtnforthepanel"  Text="ADD" OnClick="btn_ADD_ONClick_showAndHideTheDataEntryPanel"></asp:Button>
             </div>
 
@@ -245,9 +245,9 @@ FROM Core.Artist"></asp:SqlDataSource>
 
                 <div class="row col-md-12">
                     <br />
-                    <asp:Button ID="btn_cancel" CssClass="btn btn-danger pull-right" runat="server" Text="Cancel" OnClick="cancelDetailClicked" />
-                    <asp:Button ID="btn_update" CssClass="btn btn-success pull-right" runat="server" Text="Save" OnClick="saveDetailClicked" />
-                    <asp:Button ID="btn_register" CssClass="btn btn-primary pull-right" runat="server" Text="Register" OnClick="addDetailClicked" />
+                    <asp:Button ID="btn_cancel" CssClass="btn btn-danger pull-right" style="margin-right: 5px;" runat="server" Text="Cancel" OnClick="cancelDetailClicked" />
+                    <asp:Button ID="btn_update" CssClass="btn btn-success pull-right" style="margin-right: 5px;" runat="server" Text="Save" OnClick="saveDetailClicked" />
+                    <asp:Button ID="btn_register" CssClass="btn btn-primary pull-right" style="margin-right: 5px;" runat="server" Text="Register" OnClick="addDetailClicked" />
                 </div>
 
             </div>
