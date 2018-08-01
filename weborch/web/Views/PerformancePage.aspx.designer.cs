@@ -13,6 +13,15 @@ namespace web.Views {
     public partial class PerformancePage {
         
         /// <summary>
+        /// PanelPerformanceRegiter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl PanelPerformanceRegiter;
+        
+        /// <summary>
         /// txt_title control.
         /// </summary>
         /// <remarks>

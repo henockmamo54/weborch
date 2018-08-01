@@ -11,6 +11,8 @@ namespace web.Views
     public partial class PerformanceDetailPage : System.Web.UI.Page
     {
         int PDID=0;
+        UserCommonTable user;
+        bool isUserCompany = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["PerformanceDetailID"] != null)
@@ -18,6 +20,15 @@ namespace web.Views
                 int PDID = int.Parse(Session["PerformanceDetailID"].ToString());
                 dropdown_performance.SelectedValue = PDID.ToString();
             }
+
+            user = (UserCommonTable)Session["User"];
+            if (user != null) {
+                OrchestraDBEntities entity = new OrchestraDBEntities();
+                var val = user.User_UserType.FirstOrDefault().UserTypeID.Value;
+                isUserCompany = entity.UserTypes.Where(x => x.ID == val).FirstOrDefault().Iscompany;
+            }
+
+            showandhidebtnforthepanel.Visible = isUserCompany;
         }
 
         public void addDetailClicked(object sender, EventArgs e) {
@@ -252,5 +263,14 @@ namespace web.Views
 
         }
 
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+
+            if (!isUserCompany)
+            {
+                e.Row.Cells[0].Visible = false;
+            }
+
+        }
     }
 }

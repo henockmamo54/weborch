@@ -13,13 +13,24 @@ namespace web.Views
     public partial class PerformancePage : System.Web.UI.Page
     {
         PerformanceLogic pl = new PerformanceLogic();
+        UserCommonTable user;
+        bool isUserCompany = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                var user = (UserCommonTable)Session["User"];
-                if (user == null) Response.Redirect("~/LoginPage.aspx");
+                //var user = (UserCommonTable)Session["User"];
+                //if (user == null) Response.Redirect("~/LoginPage.aspx");
             }
+
+            user = (UserCommonTable)Session["User"];
+            if (user != null)
+            {
+                OrchestraDBEntities entity = new OrchestraDBEntities();
+                var val = user.User_UserType.FirstOrDefault().UserTypeID.Value;
+                isUserCompany = entity.UserTypes.Where(x => x.ID == val).FirstOrDefault().Iscompany;
+            }
+            PanelPerformanceRegiter.Visible = isUserCompany;
         }
 
         public void btn_performance_Click(object sender, EventArgs e)
@@ -46,6 +57,7 @@ namespace web.Views
                 if (pl.insertPerformance(p))
                 {
                     //ListView1.DataBind();
+                    GridView1.DataBind();
                     showMsg("Data inserted succssfuly");
                 }
                 else showMsg("Please check your inputs"); 
@@ -90,6 +102,26 @@ namespace web.Views
             //var x = row.Cells[1].Text;
             Session["PerformanceDetailID"] = GridView1.SelectedRow.Cells[1].Text;
             Response.Redirect("PerformanceDetailPage.aspx");
+        }
+
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+
+            if (!isUserCompany)
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    {
+                        Button btnEdit = (Button)e.Row.FindControl("btnEdit");
+                        ((CommandField)((DataControlFieldCell) (e.Row.Cells[0])).ContainingField).ShowEditButton=false;
+                        ((CommandField)((DataControlFieldCell) (e.Row.Cells[0])).ContainingField).ShowDeleteButton=false;
+                        
+                    }
+                }
+
+
+
+            }
         }
     }
 }

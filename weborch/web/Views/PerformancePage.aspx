@@ -8,7 +8,7 @@
             <br />
 
 
-            <div class="row shadowedPanel">
+            <div class="row shadowedPanel" runat="server" id="PanelPerformanceRegiter">
                 <div class="row">
                     <div class="col-md-4">
                         <br />
@@ -141,7 +141,7 @@ where ID=@ID">
             </div>
 
             <div class="row">
-                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource2_allPerformances" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource2_allPerformances" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
                         <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True"
