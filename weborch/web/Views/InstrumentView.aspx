@@ -110,7 +110,7 @@
 
                 </div>
                  <hr />
-                <div class="row listviewwithedit shadowedPanel">                 
+                <div class="row listviewwithedit">                 
 
                     <div class="row " style="margin: 5px;">
                         <span class='input-group-addon' style="    background: #DFF0D8;">
