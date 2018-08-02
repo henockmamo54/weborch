@@ -31,22 +31,22 @@ namespace web.Views {
         protected global::System.Web.UI.WebControls.TextBox txt_title;
         
         /// <summary>
-        /// txt_performancedate control.
+        /// txt_performancestartdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_performancedate;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_performancestartdate;
         
         /// <summary>
-        /// TextBox1 control.
+        /// txt_performanceenddate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_performanceenddate;
         
         /// <summary>
         /// FileUpload1 control.

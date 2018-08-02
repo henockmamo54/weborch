@@ -7,6 +7,12 @@
         <ContentTemplate>
             <br />
 
+            <link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css" rel="stylesheet" />
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
 
             <div class="row shadowedPanel" runat="server" id="PanelPerformanceRegiter">
                 <div class="row">
@@ -24,7 +30,13 @@
                         <br />
                         <div class="col-md-4">Start date:</div>
                         <div class="col-md-8">
-                            <asp:TextBox ID="txt_performancedate" runat="server" class="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>
+                            <%--<asp:TextBox ID="txt_performancedate" runat="server" class="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>--%>
+                            <div class='input-group date' id='datetimepicker2' style="display: inline-flex;">
+                                <input type='text' class="form-control" runat="server" id="txt_performancestartdate" style="display: inline-block; border-right-width: 0px;" />
+                                <span class="input-group-addon" style="flex-wrap: wrap; width: auto; display: inline-block; padding-left: 12px; margin-left: -5px; padding-top: 9px; padding-bottom: 7px;">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
                         </div>
                         <br />
                     </div>
@@ -33,7 +45,13 @@
                         <br />
                         <div class="col-md-4">End date:</div>
                         <div class="col-md-8">
-                            <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>
+                            <%--<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>--%>
+                            <div class='input-group date' id='datetimepicker3' style="display: inline-flex;">
+                                <input type='text' class="form-control" runat="server" id="txt_performanceenddate" style="display: inline-block; border-right-width: 0px;" />
+                                <span class="input-group-addon" style="flex-wrap: wrap; width: auto; display: inline-block; padding-left: 12px; margin-left: -5px; padding-top: 9px; padding-bottom: 7px;">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
                         </div>
                         <br />
                     </div>
@@ -191,7 +209,8 @@ where ID=@ID">
 
     <script type="text/javascript">
         $(function () {
-            $('#datetimepicker1').datetimepicker();
+            $('#datetimepicker2').datetimepicker();
+            $('#datetimepicker3').datetimepicker();
         });
     </script>
 

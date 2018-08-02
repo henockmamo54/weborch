@@ -49,7 +49,7 @@ namespace web.Views
                         pd.Conductor = int.Parse(DropDownList2_conductor.SelectedValue);
                         //pd.Player = int.Parse(DropDownList3_player.SelectedValue);
                         pd.Composer = int.Parse(DropDownList4_composer.SelectedValue);
-                        pd.Time = DateTime.Now;
+                        pd.Time = DateTime.Parse( txt_time.Value);
 
                         context.PerformanceDetails.Add(pd);
                         context.SaveChanges();
@@ -97,6 +97,7 @@ namespace web.Views
             btn_update.Visible = false;
             btn_register.Visible = true;
             AddNewEntryPanel.Visible = true;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "ToggleScript", "showdattime();", true);
         }
 
         public void showMsg(string msg)
@@ -159,6 +160,7 @@ namespace web.Views
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             OrchestraDBEntities entity = new OrchestraDBEntities();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "ToggleScript", "showdattime();", true);
 
             showandhidebtnforthepanel.Visible = false;
             AddNewEntryPanel.Visible = true;
@@ -177,7 +179,7 @@ namespace web.Views
                 DropDownList1_orchestra.SelectedValue = pd.Orchestra.ToString();
                 DropDownList2_conductor.SelectedValue = pd.Conductor.ToString();
                 DropDownList4_composer.SelectedValue = pd.Composer.ToString();
-                txt_time.Text = pd.Time.ToString();               
+                txt_time.Value = pd.Time.ToString();               
             }
 
 

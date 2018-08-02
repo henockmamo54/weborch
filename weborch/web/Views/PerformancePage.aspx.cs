@@ -45,8 +45,8 @@ namespace web.Views
                 p.OrchestraID = int.Parse(DropDownList1.SelectedValue.ToString());
                 p.PerformanceTitle = txt_title.Text;
                 //p.PerformanceDate= DateTime.Parse(txt_performancedate.Text);
-                p.StartDate = DateTime.Parse(txt_performancedate.Text); //,"dd/mm/yyyy", new CultureInfo("en-US"));
-                p.EndDate = DateTime.Parse(txt_performancedate.Text); //,"dd/mm/yyyy", new CultureInfo("en-US"));
+                p.StartDate = DateTime.Parse(txt_performancestartdate.Value); //,"dd/mm/yyyy", new CultureInfo("en-US"));
+                p.EndDate = DateTime.Parse(txt_performanceenddate.Value); //,"dd/mm/yyyy", new CultureInfo("en-US"));
                 //p.PerformanceDay = txt_performanceday.Text;
                 p.OrchestraID = int.Parse(DropDownList1.SelectedItem.Value);
                 p.Location = txt_location.Text;

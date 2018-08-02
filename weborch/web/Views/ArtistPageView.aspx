@@ -2,10 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css" rel="stylesheet" />
-            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
     <div class="row">
         <h3>Artist data</h3>
@@ -49,11 +49,11 @@
                                     <div class="col-md-8">
                                         <%--<asp:TextBox ID="txt_artist_birthdate" runat="server" class="form-control" ToolTip="dd/mm/yyyy"></asp:TextBox>--%>
                                         <div class='input-group date' id='datetimepicker2' style="display: flex;">
-                                                            <input type='text' class="form-control" runat="server" ID="txt_artist_birthdate" style="display: inline-block; border-right-width: 0px;" />
-                                                            <span class="input-group-addon" style="flex-wrap: wrap; width: auto; display: inline-block; padding-left: 12px; margin-left: -5px; padding-top: 9px; padding-bottom: 6px;">
-                                                                <span class="glyphicon glyphicon-calendar"></span>
-                                                            </span>
-                                                        </div>
+                                            <input type='text' class="form-control" runat="server" id="txt_artist_birthdate" style="display: inline-block; border-right-width: 0px;" />
+                                            <span class="input-group-addon" style="flex-wrap: wrap; width: auto; display: inline-block; padding-left: 12px; margin-left: -5px; padding-top: 9px; padding-bottom: 6px;">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
 
                                     </div>
                                     <br />
@@ -275,8 +275,8 @@
 
                 </div>
                 <hr />
-                <div class="row" style="margin-right:-15px;margin-left:-15px;">
-                    <div class="col-md-12 form-group" style="margin-bottom: 0px; padding:0px;">
+                <div class="row" style="margin-right: -15px; margin-left: -15px;">
+                    <div class="col-md-12 form-group" style="margin-bottom: 0px; padding: 0px;">
                         <span class='input-group-addon'>
                             <asp:Label runat="server" Style="padding: 5px;">Name:</asp:Label>
                             <asp:TextBox ID="TextBox1_serach" class="form-control" runat="server" Style="display: inline;" AutoPostBack="True" OnTextChanged="serachTextValueChanged"></asp:TextBox>
@@ -285,7 +285,7 @@
 
                     </div>
 
-                    <div class="col-md-12" style="margin-bottom: 0px; padding:0px;">
+                    <div class="col-md-12" style="margin-bottom: 0px; padding: 0px;">
 
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" DeleteCommand="Delete 
 Core.Artist
