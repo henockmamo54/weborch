@@ -37,7 +37,7 @@ namespace web
 
                     //GridView2.DataSource = insl.getAllInstruments();
                     //GridView2.DataBind();
-                    ListView1.DataBind();
+                    GridView1.DataBind();
                     showMsg("Data inserted succssfuly");
                     cleanInstTextBoxs();
                 }
@@ -75,7 +75,7 @@ namespace web
 
         protected void TextBox1_serachinstrument_TextChanged(object sender, EventArgs e)
         {
-            if (TextBox1_serachinstrument.Text.Length == 0) ListView1.DataBind();
+            if (TextBox1_serachinstrument.Text.Length == 0) GridView1.DataBind();
 
         }
     }
