@@ -211,7 +211,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/22/2013 10:21:56</publishTime>
     </File>
     <File Include="bin/web.dll">
-      <publishTime>08/02/2018 16:49:19</publishTime>
+      <publishTime>08/02/2018 18:11:25</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>09/10/2013 17:28:38</publishTime>
@@ -295,7 +295,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/19/2018 23:58:49</publishTime>
     </File>
     <File Include="Instrument.aspx">
-      <publishTime>06/19/2018 22:33:07</publishTime>
+      <publishTime>08/02/2018 17:44:20</publishTime>
     </File>
     <File Include="LoginPage.aspx">
       <publishTime>07/28/2018 17:54:02</publishTime>
@@ -406,7 +406,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/19/2018 22:54:54</publishTime>
     </File>
     <File Include="Views/ArtistPageView.aspx">
-      <publishTime>08/02/2018 15:57:29</publishTime>
+      <publishTime>08/02/2018 17:10:33</publishTime>
     </File>
     <File Include="Views/BulletinViewPage.aspx">
       <publishTime>07/30/2018 23:57:55</publishTime>
@@ -439,7 +439,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/17/2018 18:05:36</publishTime>
     </File>
     <File Include="Views/InstrumentView.aspx">
-      <publishTime>08/01/2018 22:55:38</publishTime>
+      <publishTime>08/02/2018 18:07:15</publishTime>
     </File>
     <File Include="Views/IntroductionPage.aspx">
       <publishTime>07/10/2018 21:30:52</publishTime>

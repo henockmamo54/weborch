@@ -265,7 +265,7 @@ namespace web.Views.signupPages
                             personalInfo.Affiliation = uaffilation.Text;
                         else personalInfo.Affiliation = DropDownList1_Affilation.SelectedItem.Text;
                         personalInfo.sex = DropDownList1_sex.SelectedItem.Text;
-                        personalInfo.Birthday = DateTime.Parse(userBirthDate.Text);
+                        personalInfo.Birthday = DateTime.Parse(userBirthDate.Value);
                         personalInfo.ZipCode = uzipcode.Text;
                         personalInfo.Address = uaddress.Text;
                         personalInfo.MobileNumber = umobileno.Text;
@@ -290,7 +290,7 @@ namespace web.Views.signupPages
                         Artist artist = new Artist();
                         artist.FirstName = uname.Text;
                         artist.FamilyName = " ";
-                        artist.BirthDate = DateTime.Parse(userBirthDate.Text);
+                        artist.BirthDate = DateTime.Parse(userBirthDate.Value);
                         artist.Address = personalInfo.Address;
                         artist.ZipCode = personalInfo.ZipCode;
                         artist.TelNO = personalInfo.MobileNumber;
