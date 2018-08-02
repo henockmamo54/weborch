@@ -269,6 +269,7 @@
     <Content Include="Views\BulletinViewPage.aspx" />
     <Content Include="Views\ClassicCoinPage.aspx" />
     <Content Include="Views\ClassicPerformanceArchive.aspx" />
+    <Content Include="Views\FullEndorsementPage.aspx" />
     <Content Include="Views\HomeView.aspx" />
     <Content Include="Views\InformationOfPerformances.aspx" />
     <Content Include="Views\InformationSpace.aspx" />
@@ -518,6 +519,13 @@
     </Compile>
     <Compile Include="Views\ClassicPerformanceArchive.aspx.designer.cs">
       <DependentUpon>ClassicPerformanceArchive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FullEndorsementPage.aspx.cs">
+      <DependentUpon>FullEndorsementPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\FullEndorsementPage.aspx.designer.cs">
+      <DependentUpon>FullEndorsementPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\HomeView.aspx.cs">
       <DependentUpon>HomeView.aspx</DependentUpon>
