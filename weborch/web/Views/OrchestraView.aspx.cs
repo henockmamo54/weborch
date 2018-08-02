@@ -42,6 +42,7 @@ namespace web
                     //GridView1.DataBind();
                     showMsg("Data inserted succssfuly");
                     cleanTextBox();
+                    GridView1.DataBind();
                 }
                 else showMsg("Please check your inputs");
             }

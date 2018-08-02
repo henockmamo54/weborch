@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Orchestra" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="OrchestraView.aspx.cs" Inherits="web.OrchestraView" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-   
+
     <div class="row">
         <h3>Orchestra data</h3>
 
@@ -89,265 +89,34 @@
                                 <br />
                             </div>
                         </div>
-                        <br /> 
-                        <div class="col-md-12"> 
-                            <div class="col-md-12">                               
+                        <br />
+                        <div class="col-md-12">
+                            <div class="col-md-12">
                                 <asp:Button ID="btn_orchadd" CssClass="btn btn-primary pull-right" Style="margin: 1em;" runat="server" Text="Register" OnClick="btn_orchadd_Click" />
                             </div>
                         </div>
                     </div>
                 </div>
-                    <hr />
+                <hr />
                 <div class="row">
-                    <div class="row " >
-                        <span class='input-group-addon' style="    background: #DFF0D8;">
-                            <i class='glyphicon glyphicon-search pull-right' style="padding: 5px;"></i>
-                            <asp:TextBox CssClass="pull-right" ID="TextBox1_serach" runat="server" AutoPostBack="True" OnTextChanged="serachTextValueChanged"></asp:TextBox>
-                            <asp:Label runat="server" CssClass="pull-right" Style="padding: 5px;">Name:</asp:Label>
-                        </span>
 
-                    </div>
-                </div>
+                    <div class="row">
+                        <div class="col-md-12 form-group" style="margin-bottom:0px;">
+                            <span class='input-group-addon'>
+                                <asp:Label runat="server" Style="padding: 5px;">Name:</asp:Label>
+                                <asp:TextBox ID="TextBox1_serach" class="form-control" Style="display: inline;" runat="server" AutoPostBack="True" OnTextChanged="serachTextValueChanged"></asp:TextBox>
+                                <i class='glyphicon glyphicon-search' style="padding: 5px;"></i>
+                            </span>
 
-                <div class="row">
-                    <div class="row listviewwithedit">
-                        <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID" DataSourceID="SqlDataSource1_allOrchestraInfo" InsertItemPosition="FirstItem">
-                            <AlternatingItemTemplate>
-                                <tr style="background-color: #F9F9F9;">
-                                    <td>
-                                        <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-                                        <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="OfficialNameLabel" runat="server" Text='<%# Eval("OfficialName") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="AliasLabel" runat="server" Text='<%# Eval("Alias") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="URLLabel" runat="server" Text='<%# Eval("URL") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="ZipCodeLabel" runat="server" Text='<%# Eval("ZipCode") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="TelNOLabel" runat="server" Text='<%# Eval("TelNO") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="FaxNoLabel" runat="server" Text='<%# Eval("FaxNo") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="ConductorNameLabel" runat="server" Text='<%# Eval("ConductorName") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="SinceLabel" runat="server" Text='<%# Eval("Since") %>' />
-                                    </td>
-                                </tr>
-                            </AlternatingItemTemplate>
-                            <EditItemTemplate>
-                                <tr style="/*background-color: #008A8C; */ color: #FFFFFF;">
-                                    <td>
-                                        <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="IDLabel1" runat="server" Text='<%# Eval("ID") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="OfficialNameTextBox" runat="server" Text='<%# Bind("OfficialName") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="AliasTextBox" runat="server" Text='<%# Bind("Alias") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="URLTextBox" runat="server" Text='<%# Bind("URL") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="AddressTextBox" runat="server" Text='<%# Bind("Address") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="ZipCodeTextBox" runat="server" Text='<%# Bind("ZipCode") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="TelNOTextBox" runat="server" Text='<%# Bind("TelNO") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="FaxNoTextBox" runat="server" Text='<%# Bind("FaxNo") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="ConductorNameTextBox" runat="server" Text='<%# Bind("ConductorName") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="SinceTextBox" runat="server" Text='<%# Bind("Since") %>' />
-                                    </td>
-                                </tr>
-                            </EditItemTemplate>
-                            <EmptyDataTemplate>
-                                <table runat="server" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px;">
-                                    <tr>
-                                        <td>No data was returned.</td>
-                                    </tr>
-                                </table>
-                            </EmptyDataTemplate>
-                            <InsertItemTemplate>
-                                <tr style="">
-                                    <td>
-                                        <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
-                                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <asp:TextBox ID="OfficialNameTextBox" runat="server" Text='<%# Bind("OfficialName") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="AliasTextBox" runat="server" Text='<%# Bind("Alias") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="URLTextBox" runat="server" Text='<%# Bind("URL") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="AddressTextBox" runat="server" Text='<%# Bind("Address") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="ZipCodeTextBox" runat="server" Text='<%# Bind("ZipCode") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="TelNOTextBox" runat="server" Text='<%# Bind("TelNO") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="FaxNoTextBox" runat="server" Text='<%# Bind("FaxNo") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="ConductorNameTextBox" runat="server" Text='<%# Bind("ConductorName") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:TextBox ID="SinceTextBox" runat="server" Text='<%# Bind("Since") %>' />
-                                    </td>
-                                </tr>
-                            </InsertItemTemplate>
-                            <ItemTemplate>
-                                <tr style="/*background-color: #DCDCDC; */ color: #000000;">
-                                    <td>
-                                        <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-                                        <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="OfficialNameLabel" runat="server" Text='<%# Eval("OfficialName") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="AliasLabel" runat="server" Text='<%# Eval("Alias") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="URLLabel" runat="server" Text='<%# Eval("URL") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="ZipCodeLabel" runat="server" Text='<%# Eval("ZipCode") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="TelNOLabel" runat="server" Text='<%# Eval("TelNO") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="FaxNoLabel" runat="server" Text='<%# Eval("FaxNo") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="ConductorNameLabel" runat="server" Text='<%# Eval("ConductorName") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="SinceLabel" runat="server" Text='<%# Eval("Since") %>' />
-                                    </td>
-                                </tr>
-                            </ItemTemplate>
-                            <LayoutTemplate>
-                                <table runat="server">
-                                    <tr runat="server">
-                                        <td runat="server">
-                                            <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px; font-family: Verdana, Arial, Helvetica, sans-serif;">
-                                                <tr runat="server" style="/*background-color: #DCDCDC; */ color: #000000;">
-                                                    <th runat="server"></th>
-                                                    <th runat="server">ID</th>
-                                                    <th runat="server">OfficialName</th>
-                                                    <th runat="server">Alias</th>
-                                                    <th runat="server">URL</th>
-                                                    <th runat="server">Address</th>
-                                                    <th runat="server">ZipCode</th>
-                                                    <th runat="server">TelNO</th>
-                                                    <th runat="server">FaxNo</th>
-                                                    <th runat="server">ConductorName</th>
-                                                    <th runat="server">Since</th>
-                                                </tr>
-                                                <tr id="itemPlaceholder" runat="server">
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    <tr runat="server">
-                                        <td runat="server" style="text-align: center; background-color: lightgray; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;">
-                                            <asp:DataPager ID="DataPager1" runat="server">
-                                                <Fields>
-                                                    <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
-                                                </Fields>
-                                            </asp:DataPager>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </LayoutTemplate>
-                            <SelectedItemTemplate>
-                                <tr style="/*background-color: #008A8C; */ font-weight: bold; color: #FFFFFF;">
-                                    <td>
-                                        <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-                                        <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="OfficialNameLabel" runat="server" Text='<%# Eval("OfficialName") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="AliasLabel" runat="server" Text='<%# Eval("Alias") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="URLLabel" runat="server" Text='<%# Eval("URL") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="ZipCodeLabel" runat="server" Text='<%# Eval("ZipCode") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="TelNOLabel" runat="server" Text='<%# Eval("TelNO") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="FaxNoLabel" runat="server" Text='<%# Eval("FaxNo") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="ConductorNameLabel" runat="server" Text='<%# Eval("ConductorName") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="SinceLabel" runat="server" Text='<%# Eval("Since") %>' />
-                                    </td>
-                                </tr>
-                            </SelectedItemTemplate>
-                        </asp:ListView>
-                        <asp:SqlDataSource ID="SqlDataSource1_allOrchestraInfo" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" DeleteCommand="delete from Core.Orchestra
+                        </div>
+
+                        <div class="col-md-12">
+                            <asp:SqlDataSource ID="SqlDataSource1_allOrchestraInfo" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" DeleteCommand="delete from Core.Orchestra
 where ID=@ID"
-                            InsertCommand="insert into Core.Orchestra
+                                InsertCommand="insert into Core.Orchestra
 (OfficialName, Alias, URL, Address, ZipCode, TelNO, FaxNo, ConductorName, Since)
 values (@OfficialName, @Alias, @URL, @Address, @ZipCode, @TelNO, @FaxNo, @ConductorName, @Since)"
-                            SelectCommand="SELECT ID, OfficialName, Alias, URL, Address, ZipCode, TelNO, FaxNo, ConductorName, Since FROM Core.Orchestra" UpdateCommand="Update Core.Orchestra
+                                SelectCommand="SELECT ID, OfficialName, Alias, URL, Address, ZipCode, TelNO, FaxNo, ConductorName, Since FROM Core.Orchestra" UpdateCommand="Update Core.Orchestra
 set
 OfficialName=@OfficialName, 
 Alias=@Alias, 
@@ -359,39 +128,75 @@ FaxNo=@FaxNo,
 ConductorName=@ConductorName, 
 Since=@Since  
 where 
-ID=@ID" FilterExpression="( '{0}'='') or (OfficialName like '%{0}%')">
-                            <DeleteParameters>
-                                <asp:Parameter Name="ID" />
-                            </DeleteParameters>
-                            <FilterParameters>
-                                <asp:ControlParameter ControlID="TextBox1_serach" Name="name" PropertyName="Text" />
-                            </FilterParameters>
-                            <InsertParameters>
-                                <asp:Parameter Name="OfficialName" />
-                                <asp:Parameter Name="Alias" />
-                                <asp:Parameter Name="URL" />
-                                <asp:Parameter Name="Address" />
-                                <asp:Parameter Name="ZipCode" />
-                                <asp:Parameter Name="TelNO" />
-                                <asp:Parameter Name="FaxNo" />
-                                <asp:Parameter Name="ConductorName" />
-                                <asp:Parameter Name="Since" />
-                            </InsertParameters>
-                            <UpdateParameters>
-                                <asp:Parameter Name="OfficialName" />
-                                <asp:Parameter Name="Alias" />
-                                <asp:Parameter Name="URL" />
-                                <asp:Parameter Name="Address" />
-                                <asp:Parameter Name="ZipCode" />
-                                <asp:Parameter Name="TelNO" />
-                                <asp:Parameter Name="FaxNo" />
-                                <asp:Parameter Name="ConductorName" />
-                                <asp:Parameter Name="Since" />
-                                <asp:Parameter Name="ID" />
-                            </UpdateParameters>
-                        </asp:SqlDataSource>
+ID=@ID"
+                                FilterExpression="( '{0}'='') or (OfficialName like '%{0}%')">
+                                <DeleteParameters>
+                                    <asp:Parameter Name="ID" />
+                                </DeleteParameters>
+                                <FilterParameters>
+                                    <asp:ControlParameter ControlID="TextBox1_serach" Name="name" PropertyName="Text" />
+                                </FilterParameters>
+                                <InsertParameters>
+                                    <asp:Parameter Name="OfficialName" />
+                                    <asp:Parameter Name="Alias" />
+                                    <asp:Parameter Name="URL" />
+                                    <asp:Parameter Name="Address" />
+                                    <asp:Parameter Name="ZipCode" />
+                                    <asp:Parameter Name="TelNO" />
+                                    <asp:Parameter Name="FaxNo" />
+                                    <asp:Parameter Name="ConductorName" />
+                                    <asp:Parameter Name="Since" />
+                                </InsertParameters>
+                                <UpdateParameters>
+                                    <asp:Parameter Name="OfficialName" />
+                                    <asp:Parameter Name="Alias" />
+                                    <asp:Parameter Name="URL" />
+                                    <asp:Parameter Name="Address" />
+                                    <asp:Parameter Name="ZipCode" />
+                                    <asp:Parameter Name="TelNO" />
+                                    <asp:Parameter Name="FaxNo" />
+                                    <asp:Parameter Name="ConductorName" />
+                                    <asp:Parameter Name="Since" />
+                                    <asp:Parameter Name="ID" />
+                                </UpdateParameters>
+                            </asp:SqlDataSource>
+                            <asp:GridView ID="GridView1" runat="server" Width="100%" AllowPaging="True" AllowSorting="True" CellPadding="4" DataSourceID="SqlDataSource1_allOrchestraInfo" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="ID">
+                                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                <Columns>
+                                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True"
+                                        ButtonType="Image" ControlStyle-Height="20px" ControlStyle-Width="20px" DeleteImageUrl="http://icons.iconarchive.com/icons/everaldo/kids-icons/128/edit-delete-icon.png"
+                                        EditImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/128/edit-validated-icon.png"
+                                        SelectImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-arrow-right-icon.png"
+                                        CancelImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-edit-delete-icon.png"
+                                        UpdateImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/128/Save-icon.png">
+                                        <ItemStyle Wrap="False" />
+                                    </asp:CommandField>
+                                    <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+                                    <asp:BoundField DataField="OfficialName" HeaderText="OfficialName" SortExpression="OfficialName" />
+                                    <asp:BoundField DataField="Alias" HeaderText="Alias" SortExpression="Alias" />
+                                    <asp:BoundField DataField="URL" HeaderText="URL" SortExpression="URL" />
+                                    <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
+                                    <asp:BoundField DataField="ZipCode" HeaderText="ZipCode" SortExpression="ZipCode" />
+                                    <asp:BoundField DataField="TelNO" HeaderText="TelNO" SortExpression="TelNO" />
+                                    <asp:BoundField DataField="FaxNo" HeaderText="FaxNo" SortExpression="FaxNo" />
+                                    <asp:BoundField DataField="ConductorName" HeaderText="ConductorName" SortExpression="ConductorName" />
+                                    <asp:BoundField DataField="Since" HeaderText="Since" SortExpression="Since" />
+                                </Columns>
+                                <EditRowStyle BackColor="#e2e2e2" CssClass="GridViewEditRow" />
+                                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                            </asp:GridView>
+                        </div>
                     </div>
                 </div>
+
                 <div class="row">
                     <hr />
                     <h3>Instruments and Members of the Orchestra</h3>
@@ -616,5 +421,27 @@ join.Core.Artist aa on aa.ID=a.ArtistID"
             padding: 1em;
             box-shadow: 2px 2px 2px 2px #f5f5f5;
         }
+
+        .GridViewEditRow {
+            /*width: 200px;*/
+        }
+
+            .GridViewEditRow input[type=text] {
+                /*display: block;*/
+                width: 100%;
+                height: 34px;
+                padding: 6px 12px;
+                font-size: 14px;
+                line-height: 1.428571429;
+                color: #555555;
+                vertical-align: middle;
+                background-color: #ffffff;
+                border: 1px solid #cccccc;
+                border-radius: 4px;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+                transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+            }
     </style>
 </asp:Content>
