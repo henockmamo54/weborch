@@ -263,11 +263,11 @@
                 </div>
                 <hr />
                 <div class="row ">
-                    <div class="row " style="margin: 5px;">
-                        <span class='input-group-addon' style="background: #DFF0D8;">
-                            <i class='glyphicon glyphicon-search pull-right' style="padding: 5px;"></i>
-                            <asp:TextBox CssClass="pull-right" ID="TextBox1_serach" runat="server" AutoPostBack="True" OnTextChanged="serachTextValueChanged"></asp:TextBox>
-                            <asp:Label runat="server" CssClass="pull-right" Style="padding: 5px;">Name:</asp:Label>
+                    <div class="row form-group" style="margin: 5px;" >
+                        <span class='input-group-addon' >
+                            <asp:Label runat="server"  Style="padding: 5px;">Name:</asp:Label>
+                            <asp:TextBox  ID="TextBox1_serach" class="form-control" runat="server" style="display: inline;" AutoPostBack="True" OnTextChanged="serachTextValueChanged"></asp:TextBox>
+                            <i class='glyphicon glyphicon-search'   style="padding: 5px;"></i>
                         </span>
 
                     </div>
@@ -277,367 +277,6 @@
                     <div class="row listviewwithedit">
                         <div class="col-md-12">
                             <div class="col-md-12">
-                                <asp:ListView ID="ListView1" runat="server" class="col-md-7" DataKeyNames="ID" DataSourceID="SqlDataSource1">
-                                    <AlternatingItemTemplate>
-                                        <tr style="background-color: #FFF8DC;">
-                                            <td>
-                                                <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-                                                <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="FirstNameLabel" runat="server" Text='<%# Eval("FirstName") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="FamilyNameLabel" runat="server" Text='<%# Eval("FamilyName") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="MiddleNameLabel" runat="server" Text='<%# Eval("MiddleName") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="BirthDateLabel" runat="server" Text='<%# Eval("BirthDate") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="ZipCodeLabel" runat="server" Text='<%# Eval("ZipCode") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="TelNOLabel" runat="server" Text='<%# Eval("TelNO") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="MobileNOLabel" runat="server" Text='<%# Eval("MobileNO") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="FaxNoLabel" runat="server" Text='<%# Eval("FaxNo") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="RemarLabel" runat="server" Text='<%# Eval("Remar") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="FacebookAddressLabel" runat="server" Text='<%# Eval("FacebookAddress") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="TwitterAddressLabel" runat="server" Text='<%# Eval("TwitterAddress") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="KakaoTalkAddressLabel" runat="server" Text='<%# Eval("KakaoTalkAddress") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="Photo1Label" runat="server" Text='<%# Eval("Photo1") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="Photo2Label" runat="server" Text='<%# Eval("Photo2") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="ProfilePageLabel" runat="server" Text='<%# Eval("ProfilePage") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="RepertoryLabel" runat="server" Text='<%# Eval("Repertory") %>' />
-                                            </td>
-                                        </tr>
-                                    </AlternatingItemTemplate>
-                                    <EditItemTemplate>
-                                        <tr style="background-color: #008A8C; color: #FFFFFF;">
-                                            <td>
-                                                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="IDLabel1" runat="server" Text='<%# Eval("ID") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="FamilyNameTextBox" runat="server" Text='<%# Bind("FamilyName") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="MiddleNameTextBox" runat="server" Text='<%# Bind("MiddleName") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="BirthDateTextBox" runat="server" Text='<%# Bind("BirthDate") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="AddressTextBox" runat="server" Text='<%# Bind("Address") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="ZipCodeTextBox" runat="server" Text='<%# Bind("ZipCode") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="TelNOTextBox" runat="server" Text='<%# Bind("TelNO") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="MobileNOTextBox" runat="server" Text='<%# Bind("MobileNO") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="FaxNoTextBox" runat="server" Text='<%# Bind("FaxNo") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="RemarTextBox" runat="server" Text='<%# Bind("Remar") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="FacebookAddressTextBox" runat="server" Text='<%# Bind("FacebookAddress") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="TwitterAddressTextBox" runat="server" Text='<%# Bind("TwitterAddress") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="KakaoTalkAddressTextBox" runat="server" Text='<%# Bind("KakaoTalkAddress") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="Photo1TextBox" runat="server" Text='<%# Bind("Photo1") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="Photo2TextBox" runat="server" Text='<%# Bind("Photo2") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="ProfilePageTextBox" runat="server" Text='<%# Bind("ProfilePage") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="RepertoryTextBox" runat="server" Text='<%# Bind("Repertory") %>' />
-                                            </td>
-                                        </tr>
-                                    </EditItemTemplate>
-                                    <EmptyDataTemplate>
-                                        <table runat="server" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px;">
-                                            <tr>
-                                                <td>No data was returned.</td>
-                                            </tr>
-                                        </table>
-                                    </EmptyDataTemplate>
-                                    <InsertItemTemplate>
-                                        <tr style="">
-                                            <td>
-                                                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
-                                                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-                                            </td>
-                                            <td>&nbsp;</td>
-                                            <td>
-                                                <asp:TextBox ID="FirstNameTextBox" runat="server" Text='<%# Bind("FirstName") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="FamilyNameTextBox" runat="server" Text='<%# Bind("FamilyName") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="MiddleNameTextBox" runat="server" Text='<%# Bind("MiddleName") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="BirthDateTextBox" runat="server" Text='<%# Bind("BirthDate") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="AddressTextBox" runat="server" Text='<%# Bind("Address") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="ZipCodeTextBox" runat="server" Text='<%# Bind("ZipCode") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="TelNOTextBox" runat="server" Text='<%# Bind("TelNO") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="MobileNOTextBox" runat="server" Text='<%# Bind("MobileNO") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="FaxNoTextBox" runat="server" Text='<%# Bind("FaxNo") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="RemarTextBox" runat="server" Text='<%# Bind("Remar") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="FacebookAddressTextBox" runat="server" Text='<%# Bind("FacebookAddress") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="TwitterAddressTextBox" runat="server" Text='<%# Bind("TwitterAddress") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="KakaoTalkAddressTextBox" runat="server" Text='<%# Bind("KakaoTalkAddress") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="Photo1TextBox" runat="server" Text='<%# Bind("Photo1") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="Photo2TextBox" runat="server" Text='<%# Bind("Photo2") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="ProfilePageTextBox" runat="server" Text='<%# Bind("ProfilePage") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:TextBox ID="RepertoryTextBox" runat="server" Text='<%# Bind("Repertory") %>' />
-                                            </td>
-                                        </tr>
-                                    </InsertItemTemplate>
-                                    <ItemTemplate>
-                                        <tr style="/*background-color: #DCDCDC; */ color: #000000; background-color: #DCDCDC;">
-                                            <td>
-                                                <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-                                                <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="FirstNameLabel" runat="server" Text='<%# Eval("FirstName") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="FamilyNameLabel" runat="server" Text='<%# Eval("FamilyName") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="MiddleNameLabel" runat="server" Text='<%# Eval("MiddleName") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="BirthDateLabel" runat="server" Text='<%# Eval("BirthDate") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="ZipCodeLabel" runat="server" Text='<%# Eval("ZipCode") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="TelNOLabel" runat="server" Text='<%# Eval("TelNO") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="MobileNOLabel" runat="server" Text='<%# Eval("MobileNO") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="FaxNoLabel" runat="server" Text='<%# Eval("FaxNo") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="RemarLabel" runat="server" Text='<%# Eval("Remar") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="FacebookAddressLabel" runat="server" Text='<%# Eval("FacebookAddress") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="TwitterAddressLabel" runat="server" Text='<%# Eval("TwitterAddress") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="KakaoTalkAddressLabel" runat="server" Text='<%# Eval("KakaoTalkAddress") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="Photo1Label" runat="server" Text='<%# Eval("Photo1") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="Photo2Label" runat="server" Text='<%# Eval("Photo2") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="ProfilePageLabel" runat="server" Text='<%# Eval("ProfilePage") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="RepertoryLabel" runat="server" Text='<%# Eval("Repertory") %>' />
-                                            </td>
-                                        </tr>
-                                    </ItemTemplate>
-                                    <LayoutTemplate>
-                                        <table runat="server">
-                                            <tr runat="server">
-                                                <td runat="server">
-                                                    <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px; font-family: Verdana, Arial, Helvetica, sans-serif;">
-                                                        <tr runat="server" style="/*background-color: #DCDCDC; */ color: #000000; background-color: #DCDCDC;">
-                                                            <th runat="server"></th>
-                                                            <th runat="server">ID</th>
-                                                            <th runat="server">FirstName</th>
-                                                            <th runat="server">FamilyName</th>
-                                                            <th runat="server">MiddleName</th>
-                                                            <th runat="server">BirthDate</th>
-                                                            <th runat="server">Address</th>
-                                                            <th runat="server">ZipCode</th>
-                                                            <th runat="server">TelNO</th>
-                                                            <th runat="server">MobileNO</th>
-                                                            <th runat="server">FaxNo</th>
-                                                            <th runat="server">Remar</th>
-                                                            <th runat="server">FacebookAddress</th>
-                                                            <th runat="server">TwitterAddress</th>
-                                                            <th runat="server">KakaoTalkAddress</th>
-                                                            <th runat="server">Photo1</th>
-                                                            <th runat="server">Photo2</th>
-                                                            <th runat="server">ProfilePage</th>
-                                                            <th runat="server">Repertory</th>
-                                                        </tr>
-                                                        <tr id="itemPlaceholder" runat="server">
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                            <tr runat="server">
-                                                <td runat="server" style="text-align: center; background-color: #CCCCCC; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000">
-                                                    <asp:DataPager ID="DataPager1" runat="server">
-                                                        <Fields>
-                                                            <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                                            <asp:NumericPagerField />
-                                                            <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                                                        </Fields>
-                                                    </asp:DataPager>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </LayoutTemplate>
-                                    <SelectedItemTemplate>
-                                        <tr style="background-color: #008A8C; font-weight: bold; color: #FFFFFF;">
-                                            <td>
-                                                <asp:Button ID="DeleteButton" runat="server" CommandName="Delete" Text="Delete" />
-                                                <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="IDLabel" runat="server" Text='<%# Eval("ID") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="FirstNameLabel" runat="server" Text='<%# Eval("FirstName") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="FamilyNameLabel" runat="server" Text='<%# Eval("FamilyName") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="MiddleNameLabel" runat="server" Text='<%# Eval("MiddleName") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="BirthDateLabel" runat="server" Text='<%# Eval("BirthDate") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="AddressLabel" runat="server" Text='<%# Eval("Address") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="ZipCodeLabel" runat="server" Text='<%# Eval("ZipCode") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="TelNOLabel" runat="server" Text='<%# Eval("TelNO") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="MobileNOLabel" runat="server" Text='<%# Eval("MobileNO") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="FaxNoLabel" runat="server" Text='<%# Eval("FaxNo") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="RemarLabel" runat="server" Text='<%# Eval("Remar") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="FacebookAddressLabel" runat="server" Text='<%# Eval("FacebookAddress") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="TwitterAddressLabel" runat="server" Text='<%# Eval("TwitterAddress") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="KakaoTalkAddressLabel" runat="server" Text='<%# Eval("KakaoTalkAddress") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="Photo1Label" runat="server" Text='<%# Eval("Photo1") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="Photo2Label" runat="server" Text='<%# Eval("Photo2") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="ProfilePageLabel" runat="server" Text='<%# Eval("ProfilePage") %>' />
-                                            </td>
-                                            <td>
-                                                <asp:Label ID="RepertoryLabel" runat="server" Text='<%# Eval("Repertory") %>' />
-                                            </td>
-                                        </tr>
-                                    </SelectedItemTemplate>
-                                </asp:ListView>
                             </div>
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" DeleteCommand="Delete 
 Core.Artist
@@ -659,7 +298,8 @@ ZipCode=@ZipCode,
 TelNO=@TelNO,
  MobileNO=@MobileNO, 
 FaxNo=@FaxNo, 
-Remar =@Remar 
+Remar =@Remar, 
+FacebookAddress=@FacebookAddress 
 
 Where ID=@ID"
                                 FilterExpression="( '{0}'='') or (FirstName like '{0}') or (FamilyName like '{0}') or (MiddleName like '{0}')">
@@ -692,9 +332,55 @@ Where ID=@ID"
                                     <asp:Parameter Name="MobileNO" />
                                     <asp:Parameter Name="FaxNo" />
                                     <asp:Parameter Name="Remar" />
+                                    <asp:Parameter Name="FacebookAddress" />
                                     <asp:Parameter Name="ID" />
                                 </UpdateParameters>
                             </asp:SqlDataSource>
+
+                            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowSorting="True" DataKeyNames="ID">
+                                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                <Columns>
+                                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True"
+                            ButtonType="Image" ControlStyle-Height="20px" ControlStyle-Width="20px" DeleteImageUrl="http://icons.iconarchive.com/icons/everaldo/kids-icons/128/edit-delete-icon.png"
+                            EditImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/128/edit-validated-icon.png"
+                            SelectImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-arrow-right-icon.png"
+                            CancelImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-edit-delete-icon.png"
+                            UpdateImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/128/Save-icon.png"
+                            HeaderStyle-Width="90px" ItemStyle-Width="90px" >
+                                     <ControlStyle Height="20px" Width="20px" />
+                                     <HeaderStyle Width="90px" />
+                                     <ItemStyle Width="90px" Wrap="False" />
+                                     </asp:CommandField>
+                                    <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+                                    <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
+                                    <asp:BoundField DataField="FamilyName" HeaderText="FamilyName" SortExpression="FamilyName" />
+                                    <asp:BoundField DataField="MiddleName" HeaderText="MiddleName" SortExpression="MiddleName" />
+                                    <asp:BoundField DataField="BirthDate" HeaderText="BirthDate" SortExpression="BirthDate" />
+                                    <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
+                                    <asp:BoundField DataField="ZipCode" HeaderText="ZipCode" SortExpression="ZipCode" />
+                                    <asp:BoundField DataField="TelNO" HeaderText="TelNO" SortExpression="TelNO" />
+                                    <asp:BoundField DataField="MobileNO" HeaderText="MobileNO" SortExpression="MobileNO" />
+                                    <asp:BoundField DataField="FaxNo" HeaderText="FaxNo" SortExpression="FaxNo" />
+                                    <asp:BoundField DataField="Remar" HeaderText="Remar" SortExpression="Remar" />
+                                    <asp:BoundField DataField="FacebookAddress" HeaderText="FacebookAddress" SortExpression="FacebookAddress" />
+                                    <asp:BoundField DataField="TwitterAddress" HeaderText="TwitterAddress" SortExpression="TwitterAddress" />
+                                    <asp:BoundField DataField="KakaoTalkAddress" HeaderText="KakaoTalkAddress" SortExpression="KakaoTalkAddress" />
+                                    <asp:BoundField DataField="Photo1" HeaderText="Photo1" SortExpression="Photo1" />
+                                    <asp:BoundField DataField="Photo2" HeaderText="Photo2" SortExpression="Photo2" />
+                                    <asp:BoundField DataField="ProfilePage" HeaderText="ProfilePage" SortExpression="ProfilePage" />
+                                    <asp:BoundField DataField="Repertory" HeaderText="Repertory" SortExpression="Repertory" />
+                                </Columns>
+                                <EditRowStyle BackColor="#e2e2e2" CssClass="GridViewEditRow" />
+                                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                            </asp:GridView>
 
                         </div>
                     </div>
@@ -945,7 +631,30 @@ where id=@ID"
 
     </script>
     
-    <style>        
+    <style>    
+        
+         .GridViewEditRow {
+            width: 200px;
+        }
+
+            .GridViewEditRow input[type=text] {
+                display: block;
+                width: 100%;
+                height: 34px;
+                padding: 6px 12px;
+                font-size: 14px;
+                line-height: 1.428571429;
+                color: #555555;
+                vertical-align: middle;
+                background-color: #ffffff;
+                border: 1px solid #cccccc;
+                border-radius: 4px;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+                transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+            }
+                
         .shadowedPanel {
             border: 1px solid transparent;
             border-radius: 4px;

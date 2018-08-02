@@ -6,9 +6,9 @@
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             <br />
-                       
 
-            <div class="row shadowedPanel">
+
+            <div class="row shadowedPanel" runat="server" id="PanelPerformanceRegiter">
                 <div class="row">
                     <div class="col-md-4">
                         <br />
@@ -105,7 +105,7 @@
             </div>
             <br />
             <div class="row ">
-           
+
                 <asp:SqlDataSource ID="SqlDataSource2_allPerformances" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
 SELECT p.*, OfficialName  FROM Main.Performance p
 join Core.Orchestra o on p.OrchestraID=o.ID"
@@ -141,10 +141,16 @@ where ID=@ID">
             </div>
 
             <div class="row">
-                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource2_allPerformances" ForeColor="#333333" GridLines="None">
+                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource2_allPerformances" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
-                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
+                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True"
+                            ButtonType="Image" ControlStyle-Height="20px" ControlStyle-Width="20px" DeleteImageUrl="http://icons.iconarchive.com/icons/everaldo/kids-icons/128/edit-delete-icon.png"
+                            EditImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/128/edit-validated-icon.png"
+                            SelectImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-arrow-right-icon.png"
+                            CancelImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-edit-delete-icon.png"
+                            UpdateImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/128/Save-icon.png"
+                            HeaderStyle-Width="90px" ItemStyle-Width="90px" />
                         <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                         <asp:BoundField DataField="PerformanceTitle" HeaderText="Performance Title" SortExpression="PerformanceTitle" />
                         <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location" />
@@ -156,16 +162,13 @@ where ID=@ID">
                         <asp:TemplateField HeaderText="Orchestra" SortExpression="OfficialName">
                             <EditItemTemplate>
                                 <asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID" SelectedValue='<%#Bind("OrchestraID")%>'></asp:DropDownList>
-
-                                <%--<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("OfficialName") %>'></asp:TextBox>--%>
-
                             </EditItemTemplate>
                             <ItemTemplate>
                                 <asp:Label ID="Label1" runat="server" Text='<%# Bind("OfficialName") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
-                    <EditRowStyle BackColor="#999999" />
+                    <EditRowStyle BackColor="#e2e2e2" CssClass="GridViewEditRow" />
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                     <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
@@ -179,7 +182,7 @@ where ID=@ID">
             </div>
         </ContentTemplate>
 
-        
+
         <Triggers>
             <asp:PostBackTrigger ControlID="btn_addPerformance" />
         </Triggers>
@@ -193,6 +196,28 @@ where ID=@ID">
     </script>
 
     <style>
+        .GridViewEditRow {
+            width: 200px;
+        }
+
+            .GridViewEditRow input[type=text] {
+                display: block;
+                width: 100%;
+                height: 34px;
+                padding: 6px 12px;
+                font-size: 14px;
+                line-height: 1.428571429;
+                color: #555555;
+                vertical-align: middle;
+                background-color: #ffffff;
+                border: 1px solid #cccccc;
+                border-radius: 4px;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+                transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+            }
+
         .shadowedPanel {
             border: 1px solid transparent;
             border-radius: 4px;

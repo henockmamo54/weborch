@@ -75,7 +75,7 @@ namespace web
 
                     //GridView3.DataSource = artl.getAllArtists();
                     //GridView3.DataBind();
-                    ListView1.DataBind();
+                    GridView1.DataBind();
                     if (Session["myinstlist"] != null)
                     {                        
                         List<Instrument> mylist = (List<Instrument>)Session["myinstlist"];
@@ -243,7 +243,7 @@ namespace web
         }
 
         public void serachTextValueChanged(object sender, EventArgs e) {
-            ListView1.DataBind();
+            GridView1.DataBind();
             DropDownList1_artistList.DataBind();
             ListView_instrumentsplayedbyartist.DataBind();
         }
