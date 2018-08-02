@@ -50,7 +50,7 @@ namespace web
                 artist.FirstName = txt_artist_firstname.Text;
                 artist.MiddleName = txt_artist_middlename.Text;
                 artist.FamilyName = txt_artist_familyname.Text;
-                artist.BirthDate = DateTime.Parse(txt_artist_birthdate.Text);
+                artist.BirthDate = DateTime.Parse(txt_artist_birthdate.Value);
                 artist.Address = txt_artist_address.Text;
                 artist.ZipCode = txt_artist_zipcode.Text;
                 artist.TelNO = txt_artist_teleno.Text;
@@ -173,7 +173,7 @@ namespace web
             txt_artist_firstname.Text = "";
             txt_artist_middlename.Text = "";
             txt_artist_familyname.Text = "";
-            txt_artist_birthdate.Text = "";
+            txt_artist_birthdate.Value = "";
             txt_artist_address.Text = "";
             txt_artist_zipcode.Text = "";
             txt_artist_teleno.Text = "";
