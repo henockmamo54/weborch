@@ -262,32 +262,28 @@
 
                 </div>
                 <hr />
-                <div class="row ">
-                    <div class="row form-group" style="margin: 5px;" >
-                        <span class='input-group-addon' >
-                            <asp:Label runat="server"  Style="padding: 5px;">Name:</asp:Label>
-                            <asp:TextBox  ID="TextBox1_serach" class="form-control" runat="server" style="display: inline;" AutoPostBack="True" OnTextChanged="serachTextValueChanged"></asp:TextBox>
-                            <i class='glyphicon glyphicon-search'   style="padding: 5px;"></i>
+                <div class="row" style="margin-right:-15px;margin-left:-15px;">
+                    <div class="col-md-12 form-group" style="margin-bottom: 0px; padding:0px;">
+                        <span class='input-group-addon'>
+                            <asp:Label runat="server" Style="padding: 5px;">Name:</asp:Label>
+                            <asp:TextBox ID="TextBox1_serach" class="form-control" runat="server" Style="display: inline;" AutoPostBack="True" OnTextChanged="serachTextValueChanged"></asp:TextBox>
+                            <i class='glyphicon glyphicon-search' style="padding: 5px;"></i>
                         </span>
 
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="row listviewwithedit">
-                        <div class="col-md-12">
-                            <div class="col-md-12">
-                            </div>
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" DeleteCommand="Delete 
+                    <div class="col-md-12" style="margin-bottom: 0px; padding:0px;">
+
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" DeleteCommand="Delete 
 Core.Artist
 where ID=@ID"
-                                InsertCommand="Insert into Core.Artist (FirstName, FamilyName, MiddleName, BirthDate, Address, ZipCode, TelNO, MobileNO, FaxNo, Remar)
+                            InsertCommand="Insert into Core.Artist (FirstName, FamilyName, MiddleName, BirthDate, Address, ZipCode, TelNO, MobileNO, FaxNo, Remar)
 values (@FirstName, @FamilyName, @MiddleName, @BirthDate, @Address, @ZipCode, @TelNO, @MobileNO, @FaxNo, @Remar)"
-                                SelectCommand="SELECT ID, FirstName, FamilyName, MiddleName, BirthDate, Address, ZipCode, TelNO, MobileNO, FaxNo, Remar, FacebookAddress, TwitterAddress, KakaoTalkAddress, Photo1, Photo2, ProfilePage,
+                            SelectCommand="SELECT ID, FirstName, FamilyName, MiddleName, BirthDate, Address, ZipCode, TelNO, MobileNO, FaxNo, Remar, FacebookAddress, TwitterAddress, KakaoTalkAddress, Photo1, Photo2, ProfilePage,
  Repertory
 
  FROM Core.Artist"
-                                UpdateCommand="Update Core.Artist
+                            UpdateCommand="Update Core.Artist
 set
 FirstName= @FirstName,
 FamilyName=@FamilyName,
@@ -299,92 +295,105 @@ TelNO=@TelNO,
  MobileNO=@MobileNO, 
 FaxNo=@FaxNo, 
 Remar =@Remar, 
-FacebookAddress=@FacebookAddress 
+FacebookAddress=@FacebookAddress,
+TwitterAddress=@TwitterAddress, 
+KakaoTalkAddress = @KakaoTalkAddress,  
+Photo1 = @Photo1,  
+Photo2=@Photo2, 
+ProfilePage=@ProfilePage,
+Repertory =@Repertory 
 
 Where ID=@ID"
-                                FilterExpression="( '{0}'='') or (FirstName like '{0}') or (FamilyName like '{0}') or (MiddleName like '{0}')">
-                                <DeleteParameters>
-                                    <asp:Parameter Name="ID" />
-                                </DeleteParameters>
-                                <FilterParameters>
-                                    <asp:ControlParameter ControlID="TextBox1_serach" Name="TextBox1_serach" PropertyName="Text" />
-                                </FilterParameters>
-                                <InsertParameters>
-                                    <asp:Parameter Name="FirstName" />
-                                    <asp:Parameter Name="FamilyName" />
-                                    <asp:Parameter Name="MiddleName" />
-                                    <asp:Parameter Name="BirthDate" />
-                                    <asp:Parameter Name="Address" />
-                                    <asp:Parameter Name="ZipCode" />
-                                    <asp:Parameter Name="TelNO" />
-                                    <asp:Parameter Name="MobileNO" />
-                                    <asp:Parameter Name="FaxNo" />
-                                    <asp:Parameter Name="Remar" />
-                                </InsertParameters>
-                                <UpdateParameters>
-                                    <asp:Parameter Name="FirstName" />
-                                    <asp:Parameter Name="FamilyName" />
-                                    <asp:Parameter Name="MiddleName" />
-                                    <asp:Parameter Name="BirthDate" />
-                                    <asp:Parameter Name="Address" />
-                                    <asp:Parameter Name="ZipCode" />
-                                    <asp:Parameter Name="TelNO" />
-                                    <asp:Parameter Name="MobileNO" />
-                                    <asp:Parameter Name="FaxNo" />
-                                    <asp:Parameter Name="Remar" />
-                                    <asp:Parameter Name="FacebookAddress" />
-                                    <asp:Parameter Name="ID" />
-                                </UpdateParameters>
-                            </asp:SqlDataSource>
+                            FilterExpression="( '{0}'='') or (FirstName like '{0}') or (FamilyName like '{0}') or (MiddleName like '{0}')">
+                            <DeleteParameters>
+                                <asp:Parameter Name="ID" />
+                            </DeleteParameters>
+                            <FilterParameters>
+                                <asp:ControlParameter ControlID="TextBox1_serach" Name="TextBox1_serach" PropertyName="Text" />
+                            </FilterParameters>
+                            <InsertParameters>
+                                <asp:Parameter Name="FirstName" />
+                                <asp:Parameter Name="FamilyName" />
+                                <asp:Parameter Name="MiddleName" />
+                                <asp:Parameter Name="BirthDate" />
+                                <asp:Parameter Name="Address" />
+                                <asp:Parameter Name="ZipCode" />
+                                <asp:Parameter Name="TelNO" />
+                                <asp:Parameter Name="MobileNO" />
+                                <asp:Parameter Name="FaxNo" />
+                                <asp:Parameter Name="Remar" />
+                            </InsertParameters>
+                            <UpdateParameters>
+                                <asp:Parameter Name="FirstName" />
+                                <asp:Parameter Name="FamilyName" />
+                                <asp:Parameter Name="MiddleName" />
+                                <asp:Parameter Name="BirthDate" />
+                                <asp:Parameter Name="Address" />
+                                <asp:Parameter Name="ZipCode" />
+                                <asp:Parameter Name="TelNO" />
+                                <asp:Parameter Name="MobileNO" />
+                                <asp:Parameter Name="FaxNo" />
+                                <asp:Parameter Name="Remar" />
+                                <asp:Parameter Name="FacebookAddress" />
+                                <asp:Parameter Name="TwitterAddress" />
+                                <asp:Parameter Name="KakaoTalkAddress" />
+                                <asp:Parameter Name="Photo1" />
+                                <asp:Parameter Name="Photo2" />
+                                <asp:Parameter Name="ProfilePage" />
+                                <asp:Parameter Name="Repertory" />
+                                <asp:Parameter Name="ID" />
+                            </UpdateParameters>
+                        </asp:SqlDataSource>
 
-                            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowSorting="True" DataKeyNames="ID">
-                                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                                <Columns>
-                                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True"
-                            ButtonType="Image" ControlStyle-Height="20px" ControlStyle-Width="20px" DeleteImageUrl="http://icons.iconarchive.com/icons/everaldo/kids-icons/128/edit-delete-icon.png"
-                            EditImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/128/edit-validated-icon.png"
-                            SelectImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-arrow-right-icon.png"
-                            CancelImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-edit-delete-icon.png"
-                            UpdateImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/128/Save-icon.png"
-                            HeaderStyle-Width="90px" ItemStyle-Width="90px" >
-                                     <ControlStyle Height="20px" Width="20px" />
-                                     <HeaderStyle Width="90px" />
-                                     <ItemStyle Width="90px" Wrap="False" />
-                                     </asp:CommandField>
-                                    <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
-                                    <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
-                                    <asp:BoundField DataField="FamilyName" HeaderText="FamilyName" SortExpression="FamilyName" />
-                                    <asp:BoundField DataField="MiddleName" HeaderText="MiddleName" SortExpression="MiddleName" />
-                                    <asp:BoundField DataField="BirthDate" HeaderText="BirthDate" SortExpression="BirthDate" />
-                                    <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
-                                    <asp:BoundField DataField="ZipCode" HeaderText="ZipCode" SortExpression="ZipCode" />
-                                    <asp:BoundField DataField="TelNO" HeaderText="TelNO" SortExpression="TelNO" />
-                                    <asp:BoundField DataField="MobileNO" HeaderText="MobileNO" SortExpression="MobileNO" />
-                                    <asp:BoundField DataField="FaxNo" HeaderText="FaxNo" SortExpression="FaxNo" />
-                                    <asp:BoundField DataField="Remar" HeaderText="Remar" SortExpression="Remar" />
-                                    <asp:BoundField DataField="FacebookAddress" HeaderText="FacebookAddress" SortExpression="FacebookAddress" />
-                                    <asp:BoundField DataField="TwitterAddress" HeaderText="TwitterAddress" SortExpression="TwitterAddress" />
-                                    <asp:BoundField DataField="KakaoTalkAddress" HeaderText="KakaoTalkAddress" SortExpression="KakaoTalkAddress" />
-                                    <asp:BoundField DataField="Photo1" HeaderText="Photo1" SortExpression="Photo1" />
-                                    <asp:BoundField DataField="Photo2" HeaderText="Photo2" SortExpression="Photo2" />
-                                    <asp:BoundField DataField="ProfilePage" HeaderText="ProfilePage" SortExpression="ProfilePage" />
-                                    <asp:BoundField DataField="Repertory" HeaderText="Repertory" SortExpression="Repertory" />
-                                </Columns>
-                                <EditRowStyle BackColor="#e2e2e2" CssClass="GridViewEditRow" />
-                                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                                <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                                <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                                <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                            </asp:GridView>
+                        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowSorting="True" DataKeyNames="ID">
+                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                            <Columns>
+                                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True"
+                                    ButtonType="Image" ControlStyle-Height="20px" ControlStyle-Width="20px" DeleteImageUrl="http://icons.iconarchive.com/icons/everaldo/kids-icons/128/edit-delete-icon.png"
+                                    EditImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/128/edit-validated-icon.png"
+                                    SelectImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-arrow-right-icon.png"
+                                    CancelImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-edit-delete-icon.png"
+                                    UpdateImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/128/Save-icon.png"
+                                    HeaderStyle-Width="90px" ItemStyle-Width="90px">
+                                    <ControlStyle Height="20px" Width="20px" />
+                                    <HeaderStyle Width="90px" />
+                                    <ItemStyle Width="90px" Wrap="False" />
+                                </asp:CommandField>
+                                <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+                                <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
+                                <asp:BoundField DataField="FamilyName" HeaderText="FamilyName" SortExpression="FamilyName" />
+                                <asp:BoundField DataField="MiddleName" HeaderText="MiddleName" SortExpression="MiddleName" />
+                                <asp:BoundField DataField="BirthDate" HeaderText="BirthDate" SortExpression="BirthDate" />
+                                <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
+                                <asp:BoundField DataField="ZipCode" HeaderText="ZipCode" SortExpression="ZipCode" />
+                                <asp:BoundField DataField="TelNO" HeaderText="TelNO" SortExpression="TelNO" />
+                                <asp:BoundField DataField="MobileNO" HeaderText="MobileNO" SortExpression="MobileNO" />
+                                <asp:BoundField DataField="FaxNo" HeaderText="FaxNo" SortExpression="FaxNo" />
+                                <asp:BoundField DataField="Remar" HeaderText="Remar" SortExpression="Remar" />
+                                <asp:BoundField DataField="FacebookAddress" HeaderText="FacebookAddress" SortExpression="FacebookAddress" />
+                                <asp:BoundField DataField="TwitterAddress" HeaderText="TwitterAddress" SortExpression="TwitterAddress" />
+                                <asp:BoundField DataField="KakaoTalkAddress" HeaderText="KakaoTalkAddress" SortExpression="KakaoTalkAddress" />
+                                <asp:BoundField DataField="Photo1" HeaderText="Photo1" SortExpression="Photo1" />
+                                <asp:BoundField DataField="Photo2" HeaderText="Photo2" SortExpression="Photo2" />
+                                <asp:BoundField DataField="ProfilePage" HeaderText="ProfilePage" SortExpression="ProfilePage" />
+                                <asp:BoundField DataField="Repertory" HeaderText="Repertory" SortExpression="Repertory" />
+                            </Columns>
+                            <EditRowStyle BackColor="#e2e2e2" CssClass="GridViewEditRow" />
+                            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                        </asp:GridView>
 
-                        </div>
                     </div>
+
                 </div>
+
                 <hr />
                 <div class="row shadowedbox2">
                     <asp:Label runat="server"><h3>Instruments Played By an Artist</h3></asp:Label>
@@ -630,10 +639,9 @@ where id=@ID"
         }
 
     </script>
-    
-    <style>    
-        
-         .GridViewEditRow {
+
+    <style>
+        .GridViewEditRow {
             width: 200px;
         }
 
@@ -654,7 +662,7 @@ where id=@ID"
                 -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
                 transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
             }
-                
+
         .shadowedPanel {
             border: 1px solid transparent;
             border-radius: 4px;
@@ -665,41 +673,40 @@ where id=@ID"
     </style>
 
     <style>
-      
-    #MainContent L iewpager {
-        width: 100%;
-    }
+        #MainContent L iewpager {
+            width: 100%;
+        }
 
-    .istvie d input {
-        1 max-w d tant;
-    }
+        .istvie d input {
+            1 max-w d tant;
+        }
 
-    hadowedbox pdding: 0 box-shad w: 0 1 0, 0, 0.05); r-color: #ddd dd; .shad wedbox2 {
-        argin-to: 1e dow: 2px 2px 2px 2px #f5ff5 b solid;
-        b rd r b rder-width bo der- h paddin :;
-    }
+        hadowedbox pdding: 0 box-shad w: 0 1 0, 0, 0.05); r-color: #ddd dd; .shad wedbox2 {
+            argin-to: 1e dow: 2px 2px 2px 2px #f5ff5 b solid;
+            b rd r b rder-width bo der- h paddin :;
+        }
 
-    .intrumentplaye i {
-    }
+        .intrumentplaye i {
+        }
 
-    striped td, t, th {
-        rder-col r: l pa din: 2x;
-    }
+        striped td, t, th {
+            rder-col r: l pa din: 2x;
+        }
 
-    s {
-        border: 1p ent;
-        border-r bord ddd;
-        1em;
-        : 2px 2px 2px px #f5 .backgroundforartistinstul;
+        s {
+            border: 1p ent;
+            border-r bord ddd;
+            1em;
+            : 2px 2px 2px px #f5 .backgroundforartistinstul;
 
-    {
-        background-color: #DCDCDC;
-        color: #000000;
-        margin: 1px;
-        padding: 0.5em;
-        border-radius: 0.7em;
-    }
-</style>
+        {
+            background-color: #DCDCDC;
+            color: #000000;
+            margin: 1px;
+            padding: 0.5em;
+            border-radius: 0.7em;
+        }
+    </style>
 
 </asp:Content>
 
