@@ -393,35 +393,44 @@ namespace web.Views.signupPages
 
         public void sendEmailToEndorser(string to, Artist artist, Endorser e)
         {
-
-            var fromAddress = new MailAddress("iijbiijb14@gmail.com");
-            var fromPassword = "iijb@654321";
-            //var toAddress = new MailAddress("henockmamo54@gmail.com");
-            var toAddress = to;
-
-            string subject = "Endorsement Request";
-            string body = string.Format(@"<p><strong> Dear Mr. {0} we would like to request your endorsement in the behalf of Mr. {1}. please follow 
-                            <a href='http://13.125.250.101/Views/FullEndorsementPage?UserID={2}&amp;EndID={3}'>http://13.125.250.101/Views/FullEndorsementPage?UserID={2}&amp;EndID={3}
-                            </a> and fill the form <br /></strong></p> ", artist.FirstName, e.Name,artist.ID,e.ID);
-
-            System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
+            try
             {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                var fromAddress = new MailAddress("iijbiijb14@gmail.com");
+                var fromPassword = "*******";
+                //var toAddress = new MailAddress("henockmamo54@gmail.com");
+                var toAddress = to;
 
-            };
+                string subject = "Endorsement Request";
+                string body = string.Format(@"<p><strong> Dear Mr. {0} we would like to request your endorsement in the behalf of Mr. {1}. please follow 
+                            <a href='http://13.125.250.101/web/Views/FullEndorsementPage?UserID={2}&amp;EndID={3}'>http://13.125.250.101/web/Views/FullEndorsementPage?UserID={2}&amp;EndID={3}
+                            </a> and fill the form <br /></strong></p> ", artist.FirstName, e.Name, artist.ID, e.ID);
 
-            using (var message = new MailMessage(fromAddress.Address, toAddress)
+                System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+
+                };
+
+                using (var message = new MailMessage(fromAddress.Address, toAddress)
+                {
+                    Subject = subject,
+                    Body = body,
+                    IsBodyHtml = true
+                })
+                    smtp.Send(message);
+                Console.WriteLine("done");
+            }
+            catch (Exception eee)
             {
-                Subject = subject,
-                Body = body,
-                IsBodyHtml = true
-            })
-                smtp.Send(message);
+                //Response.Write(eee.Message + "\n" + eee.InnerException + "\n" + eee.StackTrace);
+                //showMsg(eee.Message);
+                Console.WriteLine(eee.Message);
+            }
         }
 
         public void getPhoto(UserPersonalInfo info, int photonumber, FileUpload fileupload)
