@@ -211,7 +211,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/22/2013 10:21:56</publishTime>
     </File>
     <File Include="bin/web.dll">
-      <publishTime>08/02/2018 18:11:25</publishTime>
+      <publishTime>08/03/2018 12:38:37</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>09/10/2013 17:28:38</publishTime>
@@ -220,7 +220,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/25/2018 20:30:37</publishTime>
     </File>
     <File Include="Bundle.config">
-      <publishTime>05/28/2018 21:34:11</publishTime>
+      <publishTime>08/02/2018 20:55:43</publishTime>
     </File>
     <File Include="Content/audio/Tracy Chapman - 02 - Fast Car.mp3">
       <publishTime>07/08/2018 14:16:46</publishTime>
@@ -397,7 +397,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/28/2018 21:34:33</publishTime>
     </File>
     <File Include="Site.Master">
-      <publishTime>07/30/2018 23:56:01</publishTime>
+      <publishTime>08/02/2018 20:56:26</publishTime>
     </File>
     <File Include="Site.Mobile.Master">
       <publishTime>05/28/2018 21:34:37</publishTime>
@@ -406,7 +406,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/19/2018 22:54:54</publishTime>
     </File>
     <File Include="Views/ArtistPageView.aspx">
-      <publishTime>08/02/2018 17:10:33</publishTime>
+      <publishTime>08/02/2018 22:36:07</publishTime>
     </File>
     <File Include="Views/BulletinViewPage.aspx">
       <publishTime>07/30/2018 23:57:55</publishTime>
@@ -416,6 +416,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/ClassicPerformanceArchive.aspx">
       <publishTime>07/10/2018 21:00:33</publishTime>
+    </File>
+    <File Include="Views/FullEndorsementPage.aspx">
+      <publishTime>08/03/2018 01:13:16</publishTime>
     </File>
     <File Include="Views/HomeView.aspx">
       <publishTime>07/30/2018 23:54:17</publishTime>
@@ -451,16 +454,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/02/2018 16:43:44</publishTime>
     </File>
     <File Include="Views/PerformanceDetailPage.aspx">
-      <publishTime>08/01/2018 14:52:12</publishTime>
+      <publishTime>08/02/2018 23:21:07</publishTime>
     </File>
     <File Include="Views/PerformancePage.aspx">
-      <publishTime>08/02/2018 15:10:57</publishTime>
+      <publishTime>08/02/2018 22:44:30</publishTime>
     </File>
     <File Include="Views/signupPages/TermsOfUsePage.aspx">
       <publishTime>07/18/2018 00:33:06</publishTime>
     </File>
     <File Include="Views/signupPages/UserInformationRegistrationPage.aspx">
-      <publishTime>07/30/2018 23:49:04</publishTime>
+      <publishTime>08/02/2018 22:24:02</publishTime>
     </File>
     <File Include="Views/UserPageView.aspx">
       <publishTime>07/17/2018 23:34:15</publishTime>

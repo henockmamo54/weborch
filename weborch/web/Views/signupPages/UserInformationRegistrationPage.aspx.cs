@@ -8,6 +8,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DataAccess;
 using System.Data;
+using System.Net;
+using System.Net.Mail;
 
 namespace web.Views.signupPages
 {
@@ -281,7 +283,7 @@ namespace web.Views.signupPages
 
                         personalInfo.ProfilePage = uprofilepage.Text;
                         personalInfo.Repertory = urepertory.Text;
-                        
+
                         context.UserPersonalInfoes.Add(personalInfo);
                         context.SaveChanges();
 
@@ -304,7 +306,7 @@ namespace web.Views.signupPages
                         artist.Photo2 = personalInfo.Photo2;
                         artist.ProfilePage = uprofilepage.Text;
                         artist.Repertory = urepertory.Text;
-                        
+
                         artist.UserID = personalInfo.UserID;
 
                         context.Artists.Add(artist);
@@ -351,14 +353,19 @@ namespace web.Views.signupPages
                         if (Session["myendorsmentlist"] != null)
                         {
                             List<Endorser> mylist = (List<Endorser>)Session["myendorsmentlist"];
-                            foreach (Endorser x in mylist) {
+                            foreach (Endorser x in mylist)
+                            {
                                 Artist_Endorser endorser = new Artist_Endorser();
                                 endorser.ArtistID = artist.ID;
                                 endorser.EndorserID = x.ID;
                                 context.Artist_Endorser.Add(endorser);
                                 context.SaveChanges();
+                                //sending message to endorsers
+                                sendEmailToEndorser(x.Email, artist, x);
                             }
                         }
+
+
 
 
                         #endregion
@@ -382,6 +389,39 @@ namespace web.Views.signupPages
                 }
             }
 
+        }
+
+        public void sendEmailToEndorser(string to, Artist artist, Endorser e)
+        {
+
+            var fromAddress = new MailAddress("iijbiijb14@gmail.com");
+            var fromPassword = "iijb@654321";
+            //var toAddress = new MailAddress("henockmamo54@gmail.com");
+            var toAddress = to;
+
+            string subject = "Endorsement Request";
+            string body = string.Format(@"<p><strong> Dear Mr. {0} we would like to request your endorsement in the behalf of Mr. {1}. please follow 
+                            <a href='http://13.125.250.101/Views/FullEndorsementPage?UserID={2}&amp;EndID={3}'>http://13.125.250.101/Views/FullEndorsementPage?UserID={2}&amp;EndID={3}
+                            </a> and fill the form <br /></strong></p> ", artist.FirstName, e.Name,artist.ID,e.ID);
+
+            System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+
+            };
+
+            using (var message = new MailMessage(fromAddress.Address, toAddress)
+            {
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            })
+                smtp.Send(message);
         }
 
         public void getPhoto(UserPersonalInfo info, int photonumber, FileUpload fileupload)
@@ -428,7 +468,7 @@ namespace web.Views.signupPages
             {
                 List<Endorser> endorserList = new List<Endorser>();
                 endorserList.Add(endorser);
-                
+
                 myendorsmentlist.DataSource = endorserList;
                 myendorsmentlist.DataBind();
                 Session["myendorsmentlist"] = endorserList;

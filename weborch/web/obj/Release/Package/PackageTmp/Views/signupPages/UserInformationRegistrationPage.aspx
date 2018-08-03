@@ -3,6 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel runat="server" ID="updatepanel1">
         <ContentTemplate>
+            <%--<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet" />--%>
+            <link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css" rel="stylesheet" />
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
             <h4>Sign Up</h4>
             <div class="row">
                 <div class="col-md-2">
@@ -12,6 +19,7 @@
                     </ul>
                 </div>
                 <div class="col-md-10">
+
                     <div class="col-md-12 shadowedPanel" style="height: 220px;">
                         <div class="rwo">
                             <label>What kind Of User Are you?</label>
@@ -89,7 +97,7 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                     </div>
                                                     <br />
                                                 </div>
-                                                
+
 
                                                 <div class="col-md-12">
                                                     <br />
@@ -120,7 +128,13 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                     <br />
                                                     <div class="col-md-4">Birthday:</div>
                                                     <div class="col-md-6">
-                                                        <asp:TextBox ID="userBirthDate" runat="server" ToolTip="dd/mm/yyyy" class="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>
+                                                        <%--<asp:TextBox ID="userBirthDate" runat="server" ToolTip="dd/mm/yyyy" class="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>--%>
+                                                        <div class='input-group date' id='datetimepicker2' style="display: flex;">
+                                                            <input type='text' class="form-control" runat="server" ID="userBirthDate" style="display: inline-block; border-right-width: 0px;" />
+                                                            <span class="input-group-addon" style="flex-wrap: wrap; width: auto; display: inline-block; padding-left: 12px; margin-left: -5px; padding-top: 9px; padding-bottom: 6px;">
+                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                            </span>
+                                                        </div>
                                                     </div>
                                                     <br />
                                                 </div>
@@ -690,6 +704,10 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
             $('.modal-backdrop').remove();
             //alert('test');
         }
+        $(function () {
+            $('#datetimepicker2').datetimepicker();
+        });
+
     </script>
 
     <style>
