@@ -75,7 +75,15 @@
                                 <br />
                                 <div class="col-md-4">Conductor:</div>
                                 <div class="col-md-8">
-                                    <asp:TextBox ID="txt_orchcondactername" runat="server" class="form-control"></asp:TextBox>
+                                    <%--<asp:TextBox ID="txt_orchcondactername" runat="server" class="form-control"></asp:TextBox>--%>
+                                    <asp:DropDownList ID="DropDownList2_conductor" runat="server" DataSourceID="SqlDataSource3_conductor" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
+                                    <asp:SqlDataSource ID="SqlDataSource3_conductor" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="select (FirstName + ' '+ MiddleName + ' '+ FamilyName) as Name, ID
+from(
+select a.ID,a.FirstName,a.MiddleName,a.FamilyName from Core.Artist a 
+join Drived.Artist_ArtistType at on a.ID= at.Artist
+join Lookup.ArtistType al  on at.ArtistTypeID = al.ID
+where al.Name='Conductor'
+) a"></asp:SqlDataSource>
                                 </div>
                                 <br />
 
@@ -101,7 +109,7 @@
                 <div class="row">
 
                     <div class="row">
-                        <div class="col-md-12 form-group" style="margin-bottom:0px;">
+                        <div class="col-md-12 form-group" style="margin-bottom: 0px;">
                             <span class='input-group-addon'>
                                 <asp:Label runat="server" Style="padding: 5px;">Name:</asp:Label>
                                 <asp:TextBox ID="TextBox1_serach" class="form-control" Style="display: inline;" runat="server" AutoPostBack="True" OnTextChanged="serachTextValueChanged"></asp:TextBox>
@@ -116,7 +124,9 @@ where ID=@ID"
                                 InsertCommand="insert into Core.Orchestra
 (OfficialName, Alias, URL, Address, ZipCode, TelNO, FaxNo, ConductorName, Since)
 values (@OfficialName, @Alias, @URL, @Address, @ZipCode, @TelNO, @FaxNo, @ConductorName, @Since)"
-                                SelectCommand="SELECT ID, OfficialName, Alias, URL, Address, ZipCode, TelNO, FaxNo, ConductorName, Since FROM Core.Orchestra" UpdateCommand="Update Core.Orchestra
+                                SelectCommand="SELECT o.ID, OfficialName, Alias, URL, o.Address, o.ZipCode, o.TelNO,o.FaxNo, ConductorID, Since,  ConductorName= FirstName + ' '+ MiddleName+ ' ' + FamilyName
+FROM Core.Orchestra o
+join core.artist a on o.ConductorID = a. ID" UpdateCommand="Update Core.Orchestra
 set
 OfficialName=@OfficialName, 
 Alias=@Alias, 
@@ -125,7 +135,7 @@ Address=@Address,
 ZipCode=@ZipCode, 
 TelNO=@TelNO, 
 FaxNo=@FaxNo, 
-ConductorName=@ConductorName, 
+ConductorID=@ConductorID, 
 Since=@Since  
 where 
 ID=@ID"
@@ -155,7 +165,7 @@ ID=@ID"
                                     <asp:Parameter Name="ZipCode" />
                                     <asp:Parameter Name="TelNO" />
                                     <asp:Parameter Name="FaxNo" />
-                                    <asp:Parameter Name="ConductorName" />
+                                    <asp:Parameter Name="ConductorID" />
                                     <asp:Parameter Name="Since" />
                                     <asp:Parameter Name="ID" />
                                 </UpdateParameters>
@@ -169,6 +179,7 @@ ID=@ID"
                                         SelectImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-arrow-right-icon.png"
                                         CancelImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-edit-delete-icon.png"
                                         UpdateImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/128/Save-icon.png">
+                                        <ControlStyle Height="20px" Width="20px" />
                                         <ItemStyle Wrap="False" />
                                     </asp:CommandField>
                                     <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
@@ -179,7 +190,23 @@ ID=@ID"
                                     <asp:BoundField DataField="ZipCode" HeaderText="ZipCode" SortExpression="ZipCode" />
                                     <asp:BoundField DataField="TelNO" HeaderText="TelNO" SortExpression="TelNO" />
                                     <asp:BoundField DataField="FaxNo" HeaderText="FaxNo" SortExpression="FaxNo" />
-                                    <asp:BoundField DataField="ConductorName" HeaderText="ConductorName" SortExpression="ConductorName" />
+                                    <asp:TemplateField HeaderText="ConductorName" SortExpression="ConductorName">
+                                        <EditItemTemplate>
+                                            <%--<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("ConductorName") %>'></asp:TextBox>--%>
+                                             <asp:DropDownList ID="DropDownList2_conductor" runat="server" DataSourceID="SqlDataSource3_conductor" DataTextField="Name" DataValueField="ID" class="form-control" SelectedValue='<%#Bind("ConductorID")%>'></asp:DropDownList>
+                                    <asp:SqlDataSource ID="SqlDataSource3_conductor" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="select (FirstName + ' '+ MiddleName + ' '+ FamilyName) as Name, ID
+from(
+select a.ID,a.FirstName,a.MiddleName,a.FamilyName from Core.Artist a 
+join Drived.Artist_ArtistType at on a.ID= at.Artist
+join Lookup.ArtistType al  on at.ArtistTypeID = al.ID
+where al.Name='Conductor'
+) a"></asp:SqlDataSource>
+
+                                        </EditItemTemplate>
+                                        <ItemTemplate>
+                                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("ConductorName") %>'></asp:Label>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                     <asp:BoundField DataField="Since" HeaderText="Since" SortExpression="Since" />
                                 </Columns>
                                 <EditRowStyle BackColor="#e2e2e2" CssClass="GridViewEditRow" />
