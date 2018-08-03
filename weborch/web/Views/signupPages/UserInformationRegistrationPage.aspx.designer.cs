@@ -589,13 +589,22 @@ namespace web.Views.signupPages {
         protected global::System.Web.UI.WebControls.TextBox txt_orchurl;
         
         /// <summary>
-        /// txt_orchcondactername control.
+        /// DropDownList2_conductor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_orchcondactername;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList2_conductor;
+        
+        /// <summary>
+        /// SqlDataSource3_conductor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3_conductor;
         
         /// <summary>
         /// txt_orchsince control.

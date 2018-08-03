@@ -130,7 +130,7 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                     <div class="col-md-6">
                                                         <%--<asp:TextBox ID="userBirthDate" runat="server" ToolTip="dd/mm/yyyy" class="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>--%>
                                                         <div class='input-group date' id='datetimepicker2' style="display: flex;">
-                                                            <input type='text' class="form-control" runat="server" ID="userBirthDate" style="display: inline-block; border-right-width: 0px;" />
+                                                            <input type='text' class="form-control" runat="server" id="userBirthDate" style="display: inline-block; border-right-width: 0px;" />
                                                             <span class="input-group-addon" style="flex-wrap: wrap; width: auto; display: inline-block; padding-left: 12px; margin-left: -5px; padding-top: 9px; padding-bottom: 6px;">
                                                                 <span class="glyphicon glyphicon-calendar"></span>
                                                             </span>
@@ -627,7 +627,15 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
                                     <br />
                                     <div class="col-md-4">Conductor:</div>
                                     <div class="col-md-8">
-                                        <asp:TextBox ID="txt_orchcondactername" runat="server" class="form-control"></asp:TextBox>
+                                        <%--<asp:TextBox ID="txt_orchcondactername" runat="server" class="form-control"></asp:TextBox>--%>
+                                        <asp:DropDownList ID="DropDownList2_conductor" runat="server" DataSourceID="SqlDataSource3_conductor" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
+                                        <asp:SqlDataSource ID="SqlDataSource3_conductor" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="select (FirstName + ' '+ MiddleName + ' '+ FamilyName) as Name, ID
+from(
+select a.ID,a.FirstName,a.MiddleName,a.FamilyName from Core.Artist a 
+join Drived.Artist_ArtistType at on a.ID= at.Artist
+join Lookup.ArtistType al  on at.ArtistTypeID = al.ID
+where al.Name='Conductor'
+) a"></asp:SqlDataSource>
                                     </div>
                                     <br />
 
