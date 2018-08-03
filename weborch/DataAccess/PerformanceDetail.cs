@@ -34,9 +34,9 @@ namespace DataAccess
         public virtual Artist Artist1 { get; set; }
         public virtual Artist Artist2 { get; set; }
         public virtual Instrument Instrument1 { get; set; }
-        public virtual Orchestra Orchestra1 { get; set; }
         public virtual Performance Performance { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PerformanceDetail_Instrument_Artist> PerformanceDetail_Instrument_Artist { get; set; }
+        public virtual Orchestra Orchestra1 { get; set; }
     }
 }

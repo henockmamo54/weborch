@@ -33,9 +33,9 @@ namespace DataAccess
         public string PhotoAddLocation { get; set; }
         public string VideoLocation { get; set; }
     
-        public virtual Orchestra Orchestra { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PerformanceDetail> PerformanceDetails { get; set; }
         public virtual UserCommonTable UserCommonTable { get; set; }
+        public virtual Orchestra Orchestra { get; set; }
     }
 }

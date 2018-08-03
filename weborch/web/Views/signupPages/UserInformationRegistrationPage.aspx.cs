@@ -184,7 +184,7 @@ namespace web.Views.signupPages
                             orch.ZipCode = company.ZipCode;
                             orch.TelNO = company.TelephoneNo;
                             orch.FaxNo = company.FaxNo;
-                            orch.ConductorName = txt_orchcondactername.Text;
+                            orch.ConductorID = 47; // txt_orchcondactername.Text;
                             orch.Since = int.Parse(txt_orchsince.Text);
                             orch.UserID = user.ID;
 

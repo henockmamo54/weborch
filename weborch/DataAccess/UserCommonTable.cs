@@ -21,9 +21,9 @@ namespace DataAccess
             this.UserCompanies = new HashSet<UserCompany>();
             this.Artists = new HashSet<Artist>();
             this.UserPersonalInfoes = new HashSet<UserPersonalInfo>();
-            this.Orchestras = new HashSet<Orchestra>();
             this.User_Endorser = new HashSet<User_Endorser>();
             this.Performances = new HashSet<Performance>();
+            this.Orchestras = new HashSet<Orchestra>();
         }
     
         public int ID { get; set; }
@@ -42,10 +42,10 @@ namespace DataAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserPersonalInfo> UserPersonalInfoes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Orchestra> Orchestras { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User_Endorser> User_Endorser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Performance> Performances { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Orchestra> Orchestras { get; set; }
     }
 }

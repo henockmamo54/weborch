@@ -32,7 +32,7 @@ namespace web
                 orch.ZipCode = txt_orchzipcode.Text;
                 orch.TelNO = txt_orchtelno.Text;
                 orch.FaxNo = txt_orchfaxno.Text;
-                orch.ConductorName = txt_orchcondactername.Text;
+                orch.ConductorID = int.Parse( DropDownList2_conductor.SelectedValue);
                 orch.Since = int.Parse(txt_orchsince.Text);
 
                 if (orl.addOrchestra(orch))
@@ -70,7 +70,7 @@ namespace web
             txt_orchzipcode.Text = "";
             txt_orchtelno.Text = "";
             txt_orchfaxno.Text = "";
-            txt_orchcondactername.Text = "";
+            //txt_orchcondactername.Text = "";
             txt_orchsince.Text = "";
         }
 

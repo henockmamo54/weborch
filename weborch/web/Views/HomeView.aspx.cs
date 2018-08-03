@@ -15,7 +15,7 @@ namespace web
         {
             
             //var fromAddress = new MailAddress("iijbiijb14@gmail.com");
-            //var fromPassword = "iijb@654321";
+            //var fromPassword = "";
             //var toAddress = new MailAddress("henockmamo54@gmail.com");
 
             //string subject = "subject";

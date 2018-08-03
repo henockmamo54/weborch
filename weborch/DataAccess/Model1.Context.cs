@@ -27,7 +27,6 @@ namespace DataAccess
     
         public virtual DbSet<Artist> Artists { get; set; }
         public virtual DbSet<Instrument> Instruments { get; set; }
-        public virtual DbSet<Orchestra> Orchestras { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Bulletin> Bulletins { get; set; }
         public virtual DbSet<ChildCommentTable> ChildCommentTables { get; set; }
@@ -52,5 +51,6 @@ namespace DataAccess
         public virtual DbSet<Artist_Endorser> Artist_Endorser { get; set; }
         public virtual DbSet<Performance> Performances { get; set; }
         public virtual DbSet<PerformanceDetail_Instrument_Artist> PerformanceDetail_Instrument_Artist { get; set; }
+        public virtual DbSet<Orchestra> Orchestras { get; set; }
     }
 }

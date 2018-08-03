@@ -42,7 +42,7 @@ namespace web
                 orch.ZipCode = txt_orchzipcode.Text;
                 orch.TelNO = txt_orchtelno.Text;
                 orch.FaxNo = txt_orchfaxno.Text;
-                orch.ConductorName = txt_orchcondactername.Text;
+                //orch.ConductorName = txt_orchcondactername.Text;
                 orch.Since = int.Parse(txt_orchsince.Text);
 
                 if (orl.addOrchestra(orch))
