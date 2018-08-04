@@ -311,8 +311,8 @@ Remar =@Remar,
 FacebookAddress=@FacebookAddress,
 TwitterAddress=@TwitterAddress, 
 KakaoTalkAddress = @KakaoTalkAddress,  
-Photo1 = @Photo1,  
-Photo2=@Photo2, 
+--Photo1 = @Photo1,  
+--Photo2=@Photo2, 
 ProfilePage=@ProfilePage,
 Repertory =@Repertory 
 
@@ -358,7 +358,7 @@ Where ID=@ID"
                             </UpdateParameters>
                         </asp:SqlDataSource>
 
-                        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowSorting="True" DataKeyNames="ID">
+                        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowSorting="True" DataKeyNames="ID" OnRowEditing="GridView1_RowEditing">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True"
@@ -386,8 +386,24 @@ Where ID=@ID"
                                 <asp:BoundField DataField="FacebookAddress" HeaderText="FacebookAddress" SortExpression="FacebookAddress" />
                                 <asp:BoundField DataField="TwitterAddress" HeaderText="TwitterAddress" SortExpression="TwitterAddress" />
                                 <asp:BoundField DataField="KakaoTalkAddress" HeaderText="KakaoTalkAddress" SortExpression="KakaoTalkAddress" />
-                                <asp:BoundField DataField="Photo1" HeaderText="Photo1" SortExpression="Photo1" />
-                                <asp:BoundField DataField="Photo2" HeaderText="Photo2" SortExpression="Photo2" />
+                                <asp:TemplateField HeaderText="Photo1" SortExpression="Photo1">
+                                    <EditItemTemplate>
+                                        <%--<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Photo1") %>'></asp:TextBox>--%>
+                                        <asp:Button ID="editButton" CssClass="btn btn-info" runat="server" Text='Change' data-toggle="modal" data-target="#photoModalLong" />
+                                    </EditItemTemplate>
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("Photo1") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Photo2" SortExpression="Photo2">
+                                    <EditItemTemplate>
+                                        <asp:Button ID="editButton2" CssClass="btn btn-info" runat="server" Text='Change' data-toggle="modal" data-target="#photoModalLong" />
+                                        <%--<asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Photo2") %>'></asp:TextBox>--%>
+                                    </EditItemTemplate>
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("Photo2") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:BoundField DataField="ProfilePage" HeaderText="ProfilePage" SortExpression="ProfilePage" />
                                 <asp:BoundField DataField="Repertory" HeaderText="Repertory" SortExpression="Repertory" />
                             </Columns>
@@ -395,7 +411,7 @@ Where ID=@ID"
                             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                             <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                             <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                            <RowStyle CssClass="mystyle" BackColor="#F7F6F3" ForeColor="#333333" />
                             <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
                             <SortedAscendingCellStyle BackColor="#E9E7E2" />
                             <SortedAscendingHeaderStyle BackColor="#506C8C" />
@@ -598,11 +614,50 @@ where id=@ID"
                     </div>
                 </div>
 
+                <!-- Modal -->
+                <div class="modal fade" id="photoModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="photoModalLongTitle">Photo</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="form-group" style="text-align: center;">
+                                    <asp:Image runat="server" ID="modalImageContainer" Width="18em" Height="18em"  />
+                                    <asp:Image runat="server" ID="modalImageContainer2" Width="18em" Height="18em" />
+                                </div>
+
+                                <div class="form-group">
+                                    <br />
+                                    <label for="exampleFormControlTextarea1">Change Photo #1</label>
+                                    <asp:FileUpload ID="FileUpload3" runat="server" Style="display: inline" />
+                                    <br />
+                                    <label for="exampleFormControlTextarea1">Change Photo #2</label>
+                                    <asp:FileUpload ID="FileUpload4" runat="server" Style="display: inline" />
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <asp:Button runat="server" type="button" class="btn btn-primary" Text="Save changes" OnClick="buttonChangeImage" ID="btnsaveimagechange" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
 
             </ContentTemplate>
 
             <Triggers>
                 <asp:PostBackTrigger ControlID="btn_artist_add" />
+                <asp:PostBackTrigger ControlID="btnsaveimagechange" />
             </Triggers>
 
         </asp:UpdatePanel>
@@ -611,6 +666,13 @@ where id=@ID"
 
 
     <script type="text/javascript">
+
+
+        function closeModal() {
+            $('#photoModalLong').modal('hide');
+            $('.modal-backdrop').remove();
+            //alert('test');
+        }
 
 
         $(function () {
@@ -663,6 +725,29 @@ where id=@ID"
         .GridViewEditRow {
             width: 200px;
         }
+        
+        .mystyle td {
+            /*width: 60px;*/
+            -ms-word-break: break-all;
+            word-break: break-all;
+            word-break: break-word;
+            -webkit-hyphens: auto;
+            -moz-hyphens: auto;
+            -ms-hyphens: auto;
+            hyphens: auto;
+        }
+
+        
+        .mystyle input[type=submit] {
+            /*width: 60px;*/
+            -ms-word-break: break-all;
+            word-break: break-all;
+            word-break: break-word;
+            -webkit-hyphens: auto;
+            -moz-hyphens: auto;
+            -ms-hyphens: auto;
+            hyphens: auto;
+        }
 
             .GridViewEditRow input[type=text] {
                 display: block;
@@ -680,6 +765,8 @@ where id=@ID"
                 box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
                 -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
                 transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+
+
             }
 
         .shadowedPanel {

@@ -15,7 +15,7 @@ namespace web
         ArtistLogic artl = new ArtistLogic();
         ArtistInstrumentLogic artInstLogic = new ArtistInstrumentLogic();
         List<Instrument> instrumentlist;
-
+        OrchestraDBEntities entity = new OrchestraDBEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
             ////artist grid
@@ -306,6 +306,72 @@ namespace web
 
         }
 
+        protected void buttonChangeImage(object sender, EventArgs e)
+        {
 
+
+
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
+            if (Session["SelectedArtistID"] != null)
+            {
+
+                int id = int.Parse(Session["SelectedArtistID"].ToString());
+
+                var x = entity.Artists.Where(inst => inst.ID == id).FirstOrDefault();
+                if (x != null)
+                {
+
+
+                    // photo #1
+                    if (FileUpload3.HasFiles)
+                    {
+                        string ext = System.IO.Path.GetExtension(FileUpload3.FileName);
+                        if (ext == ".jpg" || ext == ".png" || ext == ".gif" || ext == ".jpeg")
+                        {
+                            string path = Server.MapPath("~//Document//");
+                            FileUpload3.SaveAs(path + FileUpload3.FileName);
+                            x.Photo1 = FileUpload3.FileName;
+                        }
+                        else
+                        {
+                            showMsg("you can upload only jpeg,jpg,png,gif file formats, please check phot #2!");
+                            return;
+                        }
+                    }
+
+                    // photo #2
+                    if (FileUpload4.HasFiles)
+                    {
+                        string ext = System.IO.Path.GetExtension(FileUpload4.FileName);
+                        if (ext == ".jpg" || ext == ".png" || ext == ".gif" || ext == ".jpeg")
+                        {
+                            string path = Server.MapPath("~//Document//");
+                            FileUpload4.SaveAs(path + FileUpload4.FileName);
+                            x.Photo2 = FileUpload4.FileName;
+                        }
+                        else
+                        {
+                            showMsg("you can upload only jpeg,jpg,png,gif file formats, please check phot #2!");
+                            return;
+                        }
+                    }                    
+                    
+                    entity.SaveChanges();
+                    GridView1.DataBind();
+                }
+            }
+
+        }
+
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            int id = int.Parse(GridView1.Rows[e.NewEditIndex].Cells[1].Text);
+            Artist a = entity.Artists.Where(x => x.ID == id).FirstOrDefault();
+
+            modalImageContainer.ImageUrl = "~/Document/" + a.Photo1;
+            modalImageContainer2.ImageUrl = "~/Document/" + a.Photo2;
+            Session["SelectedArtistID"] = GridView1.Rows[e.NewEditIndex].Cells[1].Text;
+        }
     }
 }
