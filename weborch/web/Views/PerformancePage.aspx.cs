@@ -15,6 +15,7 @@ namespace web.Views
         PerformanceLogic pl = new PerformanceLogic();
         UserCommonTable user;
         bool isUserCompany = false;
+        OrchestraDBEntities entity = new OrchestraDBEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -123,5 +124,53 @@ namespace web.Views
 
             }
         }
+
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            int id = int.Parse(GridView1.Rows[e.NewEditIndex].Cells[1].Text);
+            Performance a = entity.Performances.Where(x => x.ID == id).FirstOrDefault();
+
+            modalImageContainer.ImageUrl = "~/Document/" + a.PhotoAddLocation;
+            Session["SelectedPerformanceID"] = id;
+        }
+
+        protected void buttonChangeImage(object sender, EventArgs e)
+        {
+            if (FileUpload2.HasFiles)
+            {
+                string ext = System.IO.Path.GetExtension(FileUpload2.FileName);
+                if (ext == ".jpg" || ext == ".png" || ext == ".gif" || ext == ".jpeg")
+                {
+                    string path = Server.MapPath("~//Document//");
+                    FileUpload2.SaveAs(path + FileUpload2.FileName);
+                }
+                else
+                {
+                    showMsg("you can upload only jpeg,jpg,png,gif file formats");
+                    return;
+                }
+            }
+
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
+            if (Session["SelectedPerformanceID"] != null)
+            {
+
+                int id = int.Parse(Session["SelectedPerformanceID"].ToString());
+                OrchestraDBEntities entity = new OrchestraDBEntities();
+
+                var x = entity.Performances.Where(inst => inst.ID == id).FirstOrDefault();
+                if (x != null)
+                {
+                    x.PhotoAddLocation = FileUpload2.FileName;
+                    entity.SaveChanges();
+                    GridView1.DataBind();
+                }
+            }
+
+        }
+
+
+
     }
 }

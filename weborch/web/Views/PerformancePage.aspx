@@ -136,7 +136,7 @@ StartDate=@StartDate,
 EndDate=@EndDate,
 PerformanceTitle=@PerformanceTitle,
 Location=@Location,
-PhotoAddLocation=@PhotoAddLocation,
+--PhotoAddLocation=@PhotoAddLocation,
 VideoLocation=@VideoLocation,
 ConcertHall=@ConcertHall
 
@@ -159,7 +159,7 @@ where ID=@ID">
             </div>
 
             <div class="row">
-                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource2_allPerformances" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound">
+                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource2_allPerformances" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound" OnRowEditing="GridView1_RowEditing">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
                         <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True"
@@ -168,14 +168,26 @@ where ID=@ID">
                             SelectImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-arrow-right-icon.png"
                             CancelImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-edit-delete-icon.png"
                             UpdateImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/128/Save-icon.png"
-                            HeaderStyle-Width="90px" ItemStyle-Width="90px" />
+                            HeaderStyle-Width="90px" ItemStyle-Width="90px" >
+                        <ControlStyle Height="20px" Width="20px" />
+                        <HeaderStyle Width="90px" />
+                        <ItemStyle Width="90px" />
+                        </asp:CommandField>
                         <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                         <asp:BoundField DataField="PerformanceTitle" HeaderText="Performance Title" SortExpression="PerformanceTitle" />
                         <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location" />
                         <asp:BoundField DataField="ConcertHall" HeaderText="Concert Hall" SortExpression="ConcertHall" />
                         <asp:BoundField DataField="StartDate" HeaderText="Start Date" SortExpression="StartDate" />
                         <asp:BoundField DataField="EndDate" HeaderText="End Date" SortExpression="EndDate" />
-                        <asp:BoundField DataField="PhotoAddLocation" HeaderText="Photo Ad Location" SortExpression="PhotoAddLocation" />
+                        <asp:TemplateField HeaderText="Photo Ad Location" SortExpression="PhotoAddLocation">
+                            <EditItemTemplate>
+                                <%--<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("PhotoAddLocation") %>'></asp:TextBox>--%>
+                                <asp:Button ID="editButton" CssClass="btn btn-info" runat="server" Text='Change' data-toggle="modal" data-target="#exampleModalLong" />
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="Label2" runat="server" Text='<%# Bind("PhotoAddLocation") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:BoundField DataField="VideoLocation" HeaderText="Video Location" SortExpression="VideoLocation" />
                         <asp:TemplateField HeaderText="Orchestra" SortExpression="OfficialName">
                             <EditItemTemplate>
@@ -198,11 +210,44 @@ where ID=@ID">
                     <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                 </asp:GridView>
             </div>
+
+            
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Photo</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="form-group" style="text-align: center;">
+                                    <asp:Image runat="server" ID="modalImageContainer" Width="20em" Height="20em" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Change</label>
+                                    <asp:FileUpload ID="FileUpload2" runat="server" Style="display: inline" />
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <asp:Button runat="server" type="button" class="btn btn-primary" Text="Save changes" OnClick="buttonChangeImage" ID="btnsaveimagechange" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
         </ContentTemplate>
 
 
         <Triggers>
             <asp:PostBackTrigger ControlID="btn_addPerformance" />
+            <asp:PostBackTrigger ControlID="btnsaveimagechange" />
         </Triggers>
 
     </asp:UpdatePanel>
@@ -212,6 +257,14 @@ where ID=@ID">
             $('#datetimepicker2').datetimepicker();
             $('#datetimepicker3').datetimepicker();
         });
+
+
+        function closeModal() {
+            $('#exampleModalLong').modal('hide');
+            $('.modal-backdrop').remove();
+            //alert('test');
+        }
+
     </script>
 
     <style>

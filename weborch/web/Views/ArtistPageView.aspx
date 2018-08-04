@@ -682,7 +682,6 @@ where id=@ID"
         function closeModal() {
             $('#exampleModalLong').modal('hide');
             $('.modal-backdrop').remove();
-            //alert('test');
         }
 
         function removeinstrumentfromList() {

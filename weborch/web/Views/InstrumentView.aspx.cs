@@ -143,17 +143,6 @@ namespace web
             modalImageContainer.ImageUrl = "~/Document/" + ((Label)GridView1.Rows[e.NewEditIndex].Cells[10].Controls[1]).Text;
             Session["SelectedInstrumentID"] = GridView1.Rows[e.NewEditIndex].Cells[1].Text;
         }
-
-        //protected void FileUpload2_Load(object sender, EventArgs e)
-        //{
-        //    modalImageContainer.ImageUrl = Server.MapPath(FileUpload1.FileName);
-        //}
-
-        //public void showimage(object sender, EventArgs e)
-        //{
-        //    modalImageContainer.ImageUrl = Server.MapPath(FileUpload2.FileName);
-        //}
-
-
+        
     }
 }
