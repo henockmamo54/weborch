@@ -1,0 +1,39 @@
+USE [OrchestraDB]
+GO
+
+/****** Object:  Table [Core].[Orchestra]    Script Date: 8/5/2018 9:34:26 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [Core].[Orchestra](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[OfficialName] [nvarchar](200) NOT NULL,
+	[Alias] [nvarchar](200) NULL,
+	[URL] [nvarchar](200) NULL,
+	[Address] [nvarchar](200) NULL,
+	[ZipCode] [nvarchar](10) NULL,
+	[TelNO] [nvarchar](50) NULL,
+	[FaxNo] [nvarchar](50) NULL,
+	[Since] [int] NULL,
+	[UserID] [int] NULL,
+	[ConductorID] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [Core].[Orchestra]  WITH CHECK ADD FOREIGN KEY([ConductorID])
+REFERENCES [Core].[Artist] ([ID])
+GO
+
+ALTER TABLE [Core].[Orchestra]  WITH CHECK ADD FOREIGN KEY([UserID])
+REFERENCES [Main].[UserCommonTable] ([ID])
+GO
+
+

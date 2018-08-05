@@ -1,0 +1,53 @@
+USE [OrchestraDB]
+GO
+
+/****** Object:  Table [Main].[PerformanceDetail]    Script Date: 8/5/2018 9:44:23 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [Main].[PerformanceDetail](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[PerformanceID] [int] NULL,
+	[Title] [nvarchar](128) NOT NULL,
+	[Orchestra] [int] NULL,
+	[Instrument] [int] NULL,
+	[Conductor] [int] NULL,
+	[Player] [int] NULL,
+	[Composer] [int] NULL,
+	[Time] [datetime] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [Main].[PerformanceDetail]  WITH CHECK ADD FOREIGN KEY([Composer])
+REFERENCES [Core].[Artist] ([ID])
+GO
+
+ALTER TABLE [Main].[PerformanceDetail]  WITH CHECK ADD FOREIGN KEY([Conductor])
+REFERENCES [Core].[Artist] ([ID])
+GO
+
+ALTER TABLE [Main].[PerformanceDetail]  WITH CHECK ADD FOREIGN KEY([Instrument])
+REFERENCES [Core].[Instrument] ([ID])
+GO
+
+ALTER TABLE [Main].[PerformanceDetail]  WITH CHECK ADD FOREIGN KEY([Orchestra])
+REFERENCES [Core].[Orchestra] ([ID])
+GO
+
+ALTER TABLE [Main].[PerformanceDetail]  WITH CHECK ADD FOREIGN KEY([PerformanceID])
+REFERENCES [Main].[Performance] ([ID])
+GO
+
+ALTER TABLE [Main].[PerformanceDetail]  WITH CHECK ADD FOREIGN KEY([Player])
+REFERENCES [Core].[Artist] ([ID])
+GO
+
+

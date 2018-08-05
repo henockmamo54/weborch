@@ -1,0 +1,32 @@
+USE [OrchestraDB]
+GO
+
+/****** Object:  Table [Drived].[User_UserType]    Script Date: 8/5/2018 9:42:33 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [Drived].[User_UserType](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[UserID] [int] NULL,
+	[UserTypeID] [int] NULL,
+	[UserTypeName] [nvarchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [Drived].[User_UserType]  WITH CHECK ADD FOREIGN KEY([UserID])
+REFERENCES [Main].[UserCommonTable] ([ID])
+GO
+
+ALTER TABLE [Drived].[User_UserType]  WITH CHECK ADD FOREIGN KEY([UserTypeID])
+REFERENCES [Lookup].[UserType] ([ID])
+GO
+
+

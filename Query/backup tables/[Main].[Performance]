@@ -1,0 +1,40 @@
+USE [OrchestraDB]
+GO
+
+/****** Object:  Table [Main].[Performance]    Script Date: 8/5/2018 9:44:05 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [Main].[Performance](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[PerformanceTitle] [nvarchar](64) NOT NULL,
+	[Location] [nvarchar](32) NOT NULL,
+	[ConcertHall] [nvarchar](32) NOT NULL,
+	[TimeStamp] [datetime] NULL DEFAULT (getdate()),
+	[UserID] [int] NULL,
+	[ExpiryDate] [datetime] NULL,
+	[OrchestraID] [int] NULL,
+	[StartDate] [date] NULL,
+	[EndDate] [date] NULL,
+	[PhotoAddLocation] [nvarchar](100) NULL,
+	[VideoLocation] [nvarchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [Main].[Performance]  WITH CHECK ADD FOREIGN KEY([OrchestraID])
+REFERENCES [Core].[Orchestra] ([ID])
+GO
+
+ALTER TABLE [Main].[Performance]  WITH CHECK ADD FOREIGN KEY([UserID])
+REFERENCES [Main].[UserCommonTable] ([ID])
+GO
+
+

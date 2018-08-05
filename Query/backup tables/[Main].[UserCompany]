@@ -1,0 +1,38 @@
+USE [OrchestraDB]
+GO
+
+/****** Object:  Table [Main].[UserCompany]    Script Date: 8/5/2018 9:45:19 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [Main].[UserCompany](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[UserID] [int] NULL,
+	[CompanyName] [nvarchar](50) NOT NULL,
+	[BussinessNo] [nvarchar](50) NOT NULL,
+	[ZipCode] [nvarchar](10) NOT NULL,
+	[Address] [nvarchar](50) NOT NULL,
+	[TelephoneNo] [nvarchar](20) NOT NULL,
+	[FaxNo] [nvarchar](20) NULL,
+	[CEOName] [nvarchar](20) NOT NULL,
+	[AdminEmail] [nvarchar](30) NOT NULL,
+	[AdminName] [nvarchar](20) NOT NULL,
+	[AdminMobileNo] [nvarchar](15) NOT NULL,
+	[CompanyHomeUrl] [nvarchar](40) NULL,
+	[OtherInfo] [nvarchar](400) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [Main].[UserCompany]  WITH CHECK ADD FOREIGN KEY([UserID])
+REFERENCES [Main].[UserCommonTable] ([ID])
+GO
+
+

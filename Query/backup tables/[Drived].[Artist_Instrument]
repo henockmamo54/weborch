@@ -1,0 +1,31 @@
+USE [OrchestraDB]
+GO
+
+/****** Object:  Table [Drived].[Artist_Instrument]    Script Date: 8/5/2018 9:39:24 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [Drived].[Artist_Instrument](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[ArtistID] [int] NULL,
+	[InstrumentID] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+ALTER TABLE [Drived].[Artist_Instrument]  WITH CHECK ADD FOREIGN KEY([ArtistID])
+REFERENCES [Core].[Artist] ([ID])
+GO
+
+ALTER TABLE [Drived].[Artist_Instrument]  WITH CHECK ADD FOREIGN KEY([InstrumentID])
+REFERENCES [Core].[Instrument] ([ID])
+GO
+
+

@@ -86,7 +86,8 @@
                                     <br />
                                     <div class="col-md-4">Photo Location:</div>
                                     <div class="col-md-8">
-                                        <asp:TextBox ID="txt_inst_photolocation" runat="server" class="form-control"></asp:TextBox>
+                                        <%--<asp:TextBox ID="txt_inst_photolocation" runat="server" class="form-control"></asp:TextBox>--%>
+                                        <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline; margin-bottom: 1em;" />
                                     </div>
                                     <br />
 
@@ -177,7 +178,7 @@ where ID=@ID
                                 <asp:Parameter Name="ID" />
                             </UpdateParameters>
                         </asp:SqlDataSource>
-                        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlDataSource1_Instrumentlist" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="ID">
+                        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlDataSource1_Instrumentlist" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="ID" OnRowEditing="GridView1_RowEditing">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True"
@@ -198,14 +199,22 @@ where ID=@ID
                                 <asp:BoundField DataField="Explanation" HeaderText="Explanation" SortExpression="Explanation" />
                                 <asp:BoundField DataField="SoundClipLocation" HeaderText="SoundClipLocation" SortExpression="SoundClipLocation" />
                                 <asp:BoundField DataField="VideoClipLocation" HeaderText="VideoClipLocation" SortExpression="VideoClipLocation" />
-                                <asp:BoundField DataField="PhotoLocation" HeaderText="PhotoLocation" SortExpression="PhotoLocation" />
+                                <asp:TemplateField HeaderText="PhotoLocation" SortExpression="PhotoLocation">
+                                    <EditItemTemplate>
+                                        <%--<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("PhotoLocation") %>'></asp:TextBox>--%>
+                                        <asp:Button ID="editButton" CssClass="btn btn-info" runat="server" Text='<%# Bind("PhotoLocation") %>' data-toggle="modal" data-target="#exampleModalLong" />
+                                    </EditItemTemplate>
+                                    <ItemTemplate>
+                                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("PhotoLocation") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:BoundField DataField="Remarks" HeaderText="Remarks" SortExpression="Remarks" />
                             </Columns>
                             <EditRowStyle BackColor="#e2e2e2" CssClass="GridViewEditRow" />
                             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                             <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                             <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                            <RowStyle CssClass="mystyle" BackColor="#F7F6F3" ForeColor="#333333" />
                             <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
                             <SortedAscendingCellStyle BackColor="#E9E7E2" />
                             <SortedAscendingHeaderStyle BackColor="#506C8C" />
@@ -214,10 +223,50 @@ where ID=@ID
                         </asp:GridView>
                     </div>
                 </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Photo</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="form-group" style="text-align: center;">
+                                    <%--<label for="exampleFormControlInput1">Current Image</label>--%>
+                                    <%--<asp:TextBox runat="server" type="text" class="form-control" ID="FormControlInput1_Name" placeholder="Name of the Endorser" />--%>
+                                    <asp:Image runat="server" ID="modalImageContainer" Width="20em" Height="20em" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Change</label>
+                                    <%--<asp:TextBox runat="server" class="form-control" ID="FormControlTextarea1_email" TextMode="Email" placeholder="Email Address of the Endorser" />--%>
+
+                                    <asp:FileUpload ID="FileUpload2" runat="server" Style="display: inline" />
+                                    <%--<asp:Button class="glyphicon glyphicon-refresh" runat="server" ID="refreshimagebtn" onclick="showimage"/>--%>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <asp:Button runat="server" type="button" class="btn btn-primary" Text="Save changes" OnClick="buttonChangeImage" ID="btnsaveimagechange" />
+                                <%--<asp:Button runat="server" type="button" class="btn btn-primary" Text="Save changes" ID="btnAddReview" OnClick="btnAddEndorser_Click" />--%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
             </ContentTemplate>
-            <%--<Triggers>
-                <asp:PostBackTrigger ControlID="TextBox1_serachinstrument" />
-            </Triggers>--%>
+            <Triggers>
+                <asp:PostBackTrigger ControlID="txt_addInstrument" />
+                <asp:PostBackTrigger ControlID="btnsaveimagechange" />
+            </Triggers>
         </asp:UpdatePanel>
 
 
@@ -226,6 +275,11 @@ where ID=@ID
     <script type="text/javascript">
         function myfunc(n) {
             return false;
+        }
+        function closeModal() {
+            $('#exampleModalLong').modal('hide');
+            $('.modal-backdrop').remove();
+            //alert('test');
         }
     </script>
 
@@ -281,9 +335,29 @@ where ID=@ID
             box-shadow: 2px 2px 2px 2px #f5f5f5;
         }
 
+
+        .mystyle td {
+            /*width: 60px;*/
+            -ms-word-break: break-all;
+            word-break: break-all;
+            word-break: break-word;
+            -webkit-hyphens: auto;
+            -moz-hyphens: auto;
+            -ms-hyphens: auto;
+            hyphens: auto;
+        }
+
+
+        /*@media all and (-ms-high-contrast:none) {
+            *::-ms-backdrop, textarea, div.WrapContainerDname {
+                white-space: pre-wrap !important;
+                color: #f00;
+            }
+        }*/
+
         .GridViewEditRow input[type=text] {
             /*display: block;*/
-            width: 100%;
+            /*width: 100%;*/
             height: 34px;
             padding: 6px 12px;
             font-size: 14px;

@@ -1,0 +1,37 @@
+USE [OrchestraDB]
+GO
+
+/****** Object:  Table [Core].[Instrument]    Script Date: 8/5/2018 9:33:23 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [Core].[Instrument](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[EnglishName] [varchar](200) NOT NULL,
+	[KoreanName] [nvarchar](200) NOT NULL,
+	[Alias] [nvarchar](200) NULL,
+	[Player] [nvarchar](200) NULL,
+	[Group] [nvarchar](200) NULL,
+	[Explanation] [nvarchar](1000) NULL,
+	[SoundClipLocation] [nvarchar](200) NULL,
+	[VideoClipLocation] [nvarchar](200) NULL,
+	[PhotoLocation] [nvarchar](200) NULL,
+	[Remarks] [nvarchar](200) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
