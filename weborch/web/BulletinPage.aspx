@@ -5,11 +5,12 @@
         <ContentTemplate>
             <div class="row">
                 <br />
-                <div class="col-md-7">
+                <div class="col-md-2"></div>
+                <div class="col-md-6">
                     <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand" OnItemDataBound="Repeater1_ItemDataBound">
                         <ItemTemplate>
                             <div class="rptr" style="width: 40em; box-shadow: 2px 2px 2px 2px #f5f5f5;">
-                                <div class="panel panel-default">
+                                <div class="panel panel-default" style="background-color:#f7f7f7;">
                                     <table style="margin-left: 0.2em;">
                                         <tr>
                                             <img src="Document/<%#Eval("ImageUrl") %>" style="width: 100%" />
@@ -36,10 +37,10 @@
                                         <%--<tr><td>Date of Examination</td><td><%#Eval("D_O_E") %></td></tr>
           <tr><td>Department</td><td><%#Eval("Department") %></td></tr>--%>
                                     </table>
-                                    <hr style="margin: 1em;" />
-                                    <div style="padding: 15px 20px; width: 100%;">
+                                    <hr style="margin: 0.5em;border-top: 1px solid #dedada;" />
+                                    <div style="padding-left: 20px; padding-right: 20px; width: 100%;">
                                         <asp:TextBox ID="txtComment" runat="server" TextMode="MultiLine"
-                                            Width="100%" Height="60px"></asp:TextBox>
+                                            Width="100%"  style="border-radius: 5px;margin-bottom: 0.5em;"></asp:TextBox> 
                                         <asp:Image ID="Image1" runat="server"
                                             ImageUrl="https://myspace.com/common/images/user.png"
                                             Style="width: 30px; height: 30px; border-radius: 50%; margin-top: 0.2em;" />
@@ -57,11 +58,11 @@
                                         <asp:Repeater ID="Repeater2" runat="server" OnDataBinding="Repeater2_DataBinding" OnItemDataBound="Repeater2_ItemDataBound">
                                             <ItemTemplate>
                                                 <div class="col-md-11">
-                                                    <hr style="margin: 1em;" />
+                                                    <hr style="margin: 1em;border-top: 1px solid #dedada;" />
                                                     <table style="margin: 3px 5px; width: 100%;">
                                                         <tr>
                                                             <td style="width: 55px; vertical-align: text-top;">
-                                                                <asp:Image ID="ImageParent" runat="server" Style="width: 50px; height: 50px;" ImageUrl="https://storage.designcrowd.com/common/images/v3/no-profile-pic-tiny.png" />
+                                                                <asp:Image ID="ImageParent" runat="server" Style="width: 50px; height: 50px; border-radius: 50%; margin-top: 0.2em;" ImageUrl="https://storage.designcrowd.com/common/images/v3/no-profile-pic-tiny.png" />
                                                             </td>
                                                             <td style="padding: 0px 5px; text-align: left; vertical-align: top;">
                                                                 <asp:Label ID="lblCommentID" runat="server" Visible="false" Text='<%#Eval("ID") %>'></asp:Label>
@@ -79,7 +80,7 @@
                                                                             <table style="margin: 3px 5px; width: 100%;">
                                                                                 <tr>
                                                                                     <td style="width: 55px; vertical-align: text-top;">
-                                                                                        <asp:Image ID="ImageParent" runat="server" Style="width: 50px; height: 50px;" ImageUrl="https://storage.designcrowd.com/common/images/v3/no-profile-pic-tiny.png" />
+                                                                                        <asp:Image ID="ImageParent" runat="server" Style="width: 50px; height: 50px; border-radius: 50%; margin-top: 0.2em;" ImageUrl="https://storage.designcrowd.com/common/images/v3/no-profile-pic-tiny.png" />
                                                                                     </td>
                                                                                     <td style="padding: 0px 5px; text-align: left; vertical-align: top;">
                                                                                         <asp:Label ID="lblCommentID" runat="server" Visible="false" Text='<%#Eval("ID") %>'></asp:Label>
