@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using DataAccess;
 using BusinessLogic;
 using BusinessLogic.Model;
+using System.Web.Services;
 
 namespace web
 {
@@ -182,6 +183,10 @@ namespace web
 
             Repeater1.DataSource = bl.getAllMsg();
             Repeater1.DataBind();
+
+        }
+        
+        public void LikeClicked(object sender, EventArgs e) {
 
         }
 

@@ -92,6 +92,7 @@
     <EntitySetMapping Name="ChildCommentTables">
       <EntityTypeMapping TypeName="OrchestraDBModel.ChildCommentTable">
         <MappingFragment StoreEntitySet="ChildCommentTable">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="ParentCommentID" ColumnName="ParentCommentID" />
           <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
           <ScalarProperty Name="CommentMessage" ColumnName="CommentMessage" />
@@ -103,6 +104,7 @@
     <EntitySetMapping Name="ParentCommentTables">
       <EntityTypeMapping TypeName="OrchestraDBModel.ParentCommentTable">
         <MappingFragment StoreEntitySet="ParentCommentTable">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="PostID" ColumnName="PostID" />
           <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
           <ScalarProperty Name="CommentMessage" ColumnName="CommentMessage" />
@@ -399,6 +401,16 @@
         <MappingFragment StoreEntitySet="BulletinType">
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BulletinLikeUnlikes">
+      <EntityTypeMapping TypeName="OrchestraDBModel.BulletinLikeUnlike">
+        <MappingFragment StoreEntitySet="BulletinLikeUnlike">
+          <ScalarProperty Name="IsLike" ColumnName="IsLike" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

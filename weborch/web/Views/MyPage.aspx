@@ -324,7 +324,7 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
                                 </div>
                             </div>
 
-                            <div class="col-md-6 form-group" id="endorserdiv" style="padding: 0;">
+<%--                            <div class="col-md-6 form-group" id="endorserdiv" style="padding: 0;">
 
                                 <div class="col-md-12">
                                     <br />
@@ -456,7 +456,7 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
                                     <br />
                                 </div>
 
-                            </div>
+                            </div>--%>
 
                         </div>
 

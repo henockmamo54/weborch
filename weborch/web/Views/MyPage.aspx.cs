@@ -41,25 +41,25 @@ namespace web.Views
                     uprofilepage.Text = user.UserPersonalInfoes.FirstOrDefault().ProfilePage;
                     urepertory.Text = user.UserPersonalInfoes.FirstOrDefault().Repertory;
 
-                    uedoremail1.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorEmailID1;
-                    uendorname1.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorName1;
-                    uendorcomm1.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorComments1;
+                    //uedoremail1.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorEmailID1;
+                    //uendorname1.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorName1;
+                    //uendorcomm1.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorComments1;
 
-                    uedoremail2.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorEmailID2;
-                    uendorname2.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorName2;
-                    uendorcomm2.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorComments2;
+                    //uedoremail2.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorEmailID2;
+                    //uendorname2.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorName2;
+                    //uendorcomm2.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorComments2;
 
-                    uedoremail3.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorEmailID3;
-                    uendorname3.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorName3;
-                    uendorcomm3.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorComments3;
+                    //uedoremail3.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorEmailID3;
+                    //uendorname3.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorName3;
+                    //uendorcomm3.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorComments3;
 
-                    uedoremail4.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorEmailID4;
-                    uendorname4.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorName4;
-                    uendorcomm4.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorComments4;
+                    //uedoremail4.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorEmailID4;
+                    //uendorname4.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorName4;
+                    //uendorcomm4.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorComments4;
 
-                    uedoremail5.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorEmailID5;
-                    uendorname5.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorName5;
-                    uendorcomm5.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorComments5;
+                    //uedoremail5.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorEmailID5;
+                    //uendorname5.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorName5;
+                    //uendorcomm5.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorComments5;
 
                     //txt_useremail.Text = user.Email;
                     //txt_userPassword.Text = user.Password;

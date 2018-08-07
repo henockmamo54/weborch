@@ -50,15 +50,15 @@
           <tr><td>Department</td><td><%#Eval("Department") %></td></tr>--%>
                                     </table>
                                     <%--<hr style="margin: 0.5em; border-top: 1px solid #dedada;" />--%>
-                                    <button class="social-like" style="margin-left: 0.3em;">
-                                        <span class="like" runat="server" onclick="LikeClicked"><i class="glyphicon glyphicon-thumbs-up"></i></span>
+                                    <%--<button class="social-like" style="margin-left: 0.3em;" runat="server"  onclick="LikeClicked">
+                                        <span class="like" ><i class="glyphicon glyphicon-thumbs-up"></i></span>
                                         <span class="count">15</span>
                                     </button>
                                     &nbsp;
                                     <button class="social-dislike">
                                         <span class="dislike">10</span>
                                         <span class="like"><i class="glyphicon glyphicon-thumbs-down"></i></span>
-                                    </button>
+                                    </button>--%>
 
                                     <div style="padding-left: 20px; padding-right: 20px; width: 100%;">
                                         <asp:TextBox ID="txtComment" runat="server" TextMode="MultiLine"
@@ -212,6 +212,11 @@
             $("#divReply" + n).hide();
             return false;
         }
+
+        //function LikeClicked() {
+        //    console.log('test');
+        //    alert('test');
+        //}
     </script>
 
     <style>
