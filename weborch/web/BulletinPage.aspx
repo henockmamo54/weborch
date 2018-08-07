@@ -49,7 +49,7 @@
                                         <%--<tr><td>Date of Examination</td><td><%#Eval("D_O_E") %></td></tr>
           <tr><td>Department</td><td><%#Eval("Department") %></td></tr>--%>
                                     </table>
-                                    <hr style="margin: 0.5em; border-top: 1px solid #dedada;" />
+                                    <%--<hr style="margin: 0.5em; border-top: 1px solid #dedada;" />--%>
                                     <div style="padding-left: 20px; padding-right: 20px; width: 100%;">
                                         <asp:TextBox ID="txtComment" runat="server" TextMode="MultiLine"
                                             Width="100%" Style="border-radius: 5px; margin-bottom: 0.5em;"></asp:TextBox>

@@ -95,7 +95,7 @@ SELECT [ID], [Name] FROM lookup.[BulletinType]"></asp:SqlDataSource>
                                                     Text='<%# Eval("MSG") %>' />
                                                 <a href="//<%#Eval("URL") %>" target="_blank">Read More</a>
                                                 <br />
-                                                <asp:Label Style="color: darkgrey;" runat="server" ID="Label3">Posted on:<%# DataBinder.Eval(Container.DataItem,"TimeStamp","{0:d/M/yyyy}") %></asp:Label>
+                                                <asp:Label Style="color: darkgrey;font-size: 0.8em;" runat="server" ID="Label3">Posted on:<%# DataBinder.Eval(Container.DataItem,"TimeStamp","{0:d/M/yyyy}") %></asp:Label>
                                             </td>
                                         </tr>
                                     </ItemTemplate>
