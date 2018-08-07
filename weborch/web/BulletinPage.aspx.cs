@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DataAccess;
 using BusinessLogic;
+using BusinessLogic.Model;
 
 namespace web
 {
@@ -158,7 +159,7 @@ namespace web
                 (item.ItemType == ListItemType.AlternatingItem))
             {
                 var repeater2 = (Repeater)item.FindControl("Repeater2");
-                var x = pc.getChildCommentByParentID(((Bulletin)e.Item.DataItem).ID);
+                var x = pc.getChildCommentByParentID(((BulletinModifiedModel)e.Item.DataItem).ID);
 
                 repeater2.DataSource = x;
                 repeater2.DataBind();

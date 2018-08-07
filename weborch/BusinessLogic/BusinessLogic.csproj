@@ -75,6 +75,7 @@
     <Compile Include="FreeBoardLogic.cs" />
     <Compile Include="InstrumentLogic.cs" />
     <Compile Include="MarketLogic.cs" />
+    <Compile Include="Model\BulletinModifiedModel.cs" />
     <Compile Include="NoticeLogic.cs" />
     <Compile Include="OrchestraInstrumentArtistLogic.cs" />
     <Compile Include="OrchestraLogic.cs" />

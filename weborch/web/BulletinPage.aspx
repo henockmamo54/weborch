@@ -11,29 +11,41 @@
                         <ItemTemplate>
                             <div class="rptr" style="width: 40em; box-shadow: 2px 2px 2px 2px #f5f5f5;">
                                 <div class="panel panel-default" style="background-color: #f7f7f7;">
+                                    <div style="padding-left: 10px; padding-right: 20px; width: 100%; margin-bottom: 1em; margin-top: 0.5em;">
+
+                                        <asp:Image ID="Image2" runat="server"
+                                            ImageUrl="https://myspace.com/common/images/user.png"
+                                            Style="width: 30px; height: 30px; border-radius: 50%; margin-top: 0.2em;" />
+                                        <%#Eval("Name") %><br />
+                                        <%#Eval("TimeStamp") %>
+                                    </div>
                                     <table style="margin-left: 0.2em;">
                                         <tr>
                                             <img src="Document/<%#Eval("ImageUrl") %>" style="width: 100%" />
                                         </tr>
-                                        <tr>
+                                        <%--<tr>
                                             <th colspan="2">ID <%#Eval("ID") %> </th>
+                                        </tr>--%>
+                                        <tr>
+                                            <br />
+                                            <%--<td>MSG</td>--%>
+                                            <td style="width: 100%"><%#Eval("MSG") %></td>
                                         </tr>
                                         <tr>
-                                            <td>MSG</td>
-                                            <td><%#Eval("MSG") %></td>
+                                            <%--<td>URL</td>--%>
+                                            <%--<td><%#Eval("URL") %></td>--%>
+                                            <td>
+                                                <a href="<%#Eval("URL") %>" target="_blank">Read More</a>
+                                            </td>
                                         </tr>
-                                        <tr>
-                                            <td>URL</td>
-                                            <td><%#Eval("URL") %></td>
-                                        </tr>
-                                        <tr>
+                                        <%--<tr>
                                             <td>Image</td>
                                             <td><%#Eval("ImageUrl") %></td>
-                                        </tr>
-                                        <tr>
+                                        </tr>--%>
+                                        <%--<tr>
                                             <td>Date</td>
                                             <td><%#Eval("TimeStamp") %></td>
-                                        </tr>
+                                        </tr>--%>
                                         <%--<tr><td>Date of Examination</td><td><%#Eval("D_O_E") %></td></tr>
           <tr><td>Department</td><td><%#Eval("Department") %></td></tr>--%>
                                     </table>
@@ -132,7 +144,7 @@
                         <div class="col-md-2">
                             Type:
                         </div>
-                        <div class="col-md-10" style="padding-bottom:1em;">
+                        <div class="col-md-10" style="padding-bottom: 1em;">
                             <asp:DropDownList CssClass="form-control" ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1BulletinType" DataTextField="Name" DataValueField="ID"></asp:DropDownList>
                             <asp:SqlDataSource ID="SqlDataSource1BulletinType" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [ID], [Name] FROM lookup.[BulletinType]"></asp:SqlDataSource>
                         </div>
@@ -141,7 +153,7 @@
                         <div class="col-md-2">
                             Msg:
                         </div>
-                        <div class="col-md-10" style="padding-bottom:1em;">
+                        <div class="col-md-10" style="padding-bottom: 1em;">
 
                             <asp:TextBox CssClass="form-control" ID="txt_bulmsg" runat="server" TextMode="MultiLine"></asp:TextBox>
                         </div>
@@ -150,7 +162,7 @@
                         <div class="col-md-2">
                             URL:
                         </div>
-                        <div class="col-md-10" style="padding-bottom:1em;">
+                        <div class="col-md-10" style="padding-bottom: 1em;">
 
                             <asp:TextBox CssClass="form-control" ID="txt_bulurl" runat="server"></asp:TextBox>
                         </div>
@@ -160,7 +172,7 @@
                             Image:                     
                                 
                         </div>
-                        <div class="col-md-10" style="padding-bottom:1em;">
+                        <div class="col-md-10" style="padding-bottom: 1em;">
                             <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline" />
                             <asp:Button ID="addPost" CssClass="btn btn-info pull-right" runat="server" Text="Add" OnClick="Button1_Click" />
                         </div>
