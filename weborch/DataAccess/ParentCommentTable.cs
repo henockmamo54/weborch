@@ -19,5 +19,8 @@ namespace DataAccess
         public string CommentMessage { get; set; }
         public System.DateTime CommentDate { get; set; }
         public Nullable<int> PostID { get; set; }
+        public Nullable<int> UserID { get; set; }
+    
+        public virtual UserCommonTable UserCommonTable { get; set; }
     }
 }

@@ -12,15 +12,14 @@ namespace DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class ChildCommentTable
+    public partial class BulletinLikeUnlike
     {
         public int ID { get; set; }
-        public string Username { get; set; }
-        public string CommentMessage { get; set; }
-        public System.DateTime CommentDate { get; set; }
-        public Nullable<int> ParentCommentID { get; set; }
         public Nullable<int> UserID { get; set; }
+        public Nullable<int> PostID { get; set; }
+        public Nullable<bool> IsLike { get; set; }
     
+        public virtual Bulletin Bulletin { get; set; }
         public virtual UserCommonTable UserCommonTable { get; set; }
     }
 }

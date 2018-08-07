@@ -66,6 +66,11 @@
         <AssociationConnector Association="OrchestraDBModel.FK__Bulletin__UserID__7EF6D905" />
         <EntityTypeShape EntityType="OrchestraDBModel.BulletinType" Width="1.5" PointX="12.375" PointY="0.875" />
         <AssociationConnector Association="OrchestraDBModel.FK__Bulletin__Bullet__7FEAFD3E" />
+        <EntityTypeShape EntityType="OrchestraDBModel.BulletinLikeUnlike" Width="1.5" PointX="12.625" PointY="18.5" />
+        <AssociationConnector Association="OrchestraDBModel.FK__BulletinL__PostI__09746778" />
+        <AssociationConnector Association="OrchestraDBModel.FK__BulletinL__UserI__0880433F" />
+        <AssociationConnector Association="OrchestraDBModel.FK__ChildComm__UserI__01D345B0" />
+        <AssociationConnector Association="OrchestraDBModel.FK__ParentCom__UserI__00DF2177" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -50,6 +50,16 @@
           <tr><td>Department</td><td><%#Eval("Department") %></td></tr>--%>
                                     </table>
                                     <%--<hr style="margin: 0.5em; border-top: 1px solid #dedada;" />--%>
+                                    <button class="social-like" style="margin-left: 0.3em;">
+                                        <span class="like" runat="server" onclick="LikeClicked"><i class="glyphicon glyphicon-thumbs-up"></i></span>
+                                        <span class="count">15</span>
+                                    </button>
+                                    &nbsp;
+                                    <button class="social-dislike">
+                                        <span class="dislike">10</span>
+                                        <span class="like"><i class="glyphicon glyphicon-thumbs-down"></i></span>
+                                    </button>
+
                                     <div style="padding-left: 20px; padding-right: 20px; width: 100%;">
                                         <asp:TextBox ID="txtComment" runat="server" TextMode="MultiLine"
                                             Width="100%" Style="border-radius: 5px; margin-bottom: 0.5em;"></asp:TextBox>
@@ -203,6 +213,51 @@
             return false;
         }
     </script>
+
+    <style>
+        .social-like,
+        .social-dislike {
+            margin-bottom: 1em;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            width: 48%;
+            background-color: #8dbd64;
+            color: #fff;
+        }
+
+        .social-like {
+            border-top-left-radius: 5px;
+            text-align: right;
+        }
+
+        .social-dislike {
+            border-top-right-radius: 5px;
+            text-align: left;
+        }
+
+        .count,
+        .like,
+        .dislike {
+            padding: 10px;
+
+        }
+
+        .count,
+        .dislike {
+            background-color: #5da25e;
+            border-radius: 50%;
+            font-size: 12px;
+        }
+
+        .dislike {
+            margin-left: -13px;
+        }
+
+        .count {
+            margin-right: -10px;
+        }
+    </style>
 
 </asp:Content>
 

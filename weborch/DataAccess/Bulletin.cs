@@ -14,6 +14,12 @@ namespace DataAccess
     
     public partial class Bulletin
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Bulletin()
+        {
+            this.BulletinLikeUnlikes = new HashSet<BulletinLikeUnlike>();
+        }
+    
         public int ID { get; set; }
         public string MSG { get; set; }
         public string URL { get; set; }
@@ -21,9 +27,10 @@ namespace DataAccess
         public Nullable<System.DateTime> TimeStamp { get; set; }
         public Nullable<int> UserID { get; set; }
         public Nullable<int> BulletinTypeID { get; set; }
-        public string Name { get; set; }
-
+    
         public virtual UserCommonTable UserCommonTable { get; set; }
         public virtual BulletinType BulletinType { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BulletinLikeUnlike> BulletinLikeUnlikes { get; set; }
     }
 }
