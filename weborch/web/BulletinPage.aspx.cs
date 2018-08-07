@@ -14,19 +14,15 @@ namespace web
         BulletinLogic bl = new BulletinLogic();
         ParentCommentLogic pc = new ParentCommentLogic();
         ChildCommentLogic cl = new ChildCommentLogic();
+        UserCommonTable user;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            user = (UserCommonTable)Session["User"];
             if (!IsPostBack)
             {
                 Repeater1.DataSource = bl.getAllMsg();
-                Repeater1.DataBind();
-
-                //GridViewComment.DataSource = pc.getAllParentComments();
-                //GridViewComment.DataBind();
-
-                //Repeater2.DataSource = pc.getAllParentComments();
-                //Repeater2.DataBind();
+                Repeater1.DataBind();                
             }
 
         }
@@ -66,6 +62,8 @@ namespace web
                 bulletin.URL = txt_bulurl.Text;
                 bulletin.TimeStamp = DateTime.Now;
                 bulletin.ImageUrl = FileUpload1.FileName;
+                bulletin.BulletinTypeID = int.Parse(DropDownList1.SelectedValue);
+                bulletin.UserID = user.ID;
                 if (bl.addBulletin(bulletin))
                 {
                     Repeater1.DataSource = bl.getAllMsg();

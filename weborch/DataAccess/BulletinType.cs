@@ -12,17 +12,19 @@ namespace DataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Bulletin
+    public partial class BulletinType
     {
-        public int ID { get; set; }
-        public string MSG { get; set; }
-        public string URL { get; set; }
-        public string ImageUrl { get; set; }
-        public Nullable<System.DateTime> TimeStamp { get; set; }
-        public Nullable<int> UserID { get; set; }
-        public Nullable<int> BulletinTypeID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public BulletinType()
+        {
+            this.Bulletins = new HashSet<Bulletin>();
+        }
     
-        public virtual UserCommonTable UserCommonTable { get; set; }
-        public virtual BulletinType BulletinType { get; set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public Nullable<bool> IsActive { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Bulletin> Bulletins { get; set; }
     }
 }

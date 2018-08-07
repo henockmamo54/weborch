@@ -52,5 +52,6 @@ namespace DataAccess
         public virtual DbSet<Performance> Performances { get; set; }
         public virtual DbSet<PerformanceDetail_Instrument_Artist> PerformanceDetail_Instrument_Artist { get; set; }
         public virtual DbSet<Orchestra> Orchestras { get; set; }
+        public virtual DbSet<BulletinType> BulletinTypes { get; set; }
     }
 }

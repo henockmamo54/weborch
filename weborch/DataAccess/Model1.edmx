@@ -53,6 +53,8 @@
           <Property Name="URL" Type="varchar" MaxLength="200" />
           <Property Name="ImageUrl" Type="varchar" MaxLength="200" />
           <Property Name="TimeStamp" Type="datetime" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="BulletinTypeID" Type="int" />
         </EntityType>
         <EntityType Name="ChildCommentTable">
           <Key>
@@ -245,6 +247,14 @@
           <Property Name="UserTypeName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="ArtistType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="BulletinType">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
@@ -450,6 +460,30 @@
             </Principal>
             <Dependent Role="Artist_Instrument">
               <PropertyRef Name="InstrumentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bulletin__Bullet__7FEAFD3E">
+          <End Role="BulletinType" Type="Self.BulletinType" Multiplicity="0..1" />
+          <End Role="Bulletin" Type="Self.Bulletin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BulletinType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Bulletin">
+              <PropertyRef Name="BulletinTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Bulletin__UserID__7EF6D905">
+          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
+          <End Role="Bulletin" Type="Self.Bulletin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserCommonTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Bulletin">
+              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -762,6 +796,7 @@
           <EntitySet Name="User_Endorser" EntityType="Self.User_Endorser" Schema="Drived" store:Type="Tables" />
           <EntitySet Name="User_UserType" EntityType="Self.User_UserType" Schema="Drived" store:Type="Tables" />
           <EntitySet Name="ArtistType" EntityType="Self.ArtistType" Schema="Lookup" store:Type="Tables" />
+          <EntitySet Name="BulletinType" EntityType="Self.BulletinType" Schema="Lookup" store:Type="Tables" />
           <EntitySet Name="UserType" EntityType="Self.UserType" Schema="Lookup" store:Type="Tables" />
           <EntitySet Name="Endorser" EntityType="Self.Endorser" Schema="Main" store:Type="Tables" />
           <EntitySet Name="Performance" EntityType="Self.Performance" Schema="Main" store:Type="Tables" />
@@ -796,6 +831,14 @@
           <AssociationSet Name="FK__Artist_In__Instr__114A936A" Association="Self.FK__Artist_In__Instr__114A936A">
             <End Role="Instrument" EntitySet="Instrument" />
             <End Role="Artist_Instrument" EntitySet="Artist_Instrument" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bulletin__Bullet__7FEAFD3E" Association="Self.FK__Bulletin__Bullet__7FEAFD3E">
+            <End Role="BulletinType" EntitySet="BulletinType" />
+            <End Role="Bulletin" EntitySet="Bulletin" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Bulletin__UserID__7EF6D905" Association="Self.FK__Bulletin__UserID__7EF6D905">
+            <End Role="UserCommonTable" EntitySet="UserCommonTable" />
+            <End Role="Bulletin" EntitySet="Bulletin" />
           </AssociationSet>
           <AssociationSet Name="FK__Orchestra__Artis__160F4887" Association="Self.FK__Orchestra__Artis__160F4887">
             <End Role="Artist" EntitySet="Artist" />
@@ -1121,6 +1164,15 @@
             <End Role="Orchestra" EntitySet="Orchestras" />
             <End Role="PerformanceDetail" EntitySet="PerformanceDetails" />
           </AssociationSet>
+          <AssociationSet Name="FK__Bulletin__UserID__7EF6D905" Association="OrchestraDBModel.FK__Bulletin__UserID__7EF6D905">
+            <End Role="UserCommonTable" EntitySet="UserCommonTables" />
+            <End Role="Bulletin" EntitySet="Bulletins" />
+          </AssociationSet>
+          <EntitySet Name="BulletinTypes" EntityType="OrchestraDBModel.BulletinType" />
+          <AssociationSet Name="FK__Bulletin__Bullet__7FEAFD3E" Association="OrchestraDBModel.FK__Bulletin__Bullet__7FEAFD3E">
+            <End Role="BulletinType" EntitySet="BulletinTypes" />
+            <End Role="Bulletin" EntitySet="Bulletins" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -1148,6 +1200,10 @@
           <Property Name="URL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="ImageUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="BulletinTypeID" Type="Int32" />
+          <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__Bulletin__UserID__7EF6D905" FromRole="Bulletin" ToRole="UserCommonTable" />
+          <NavigationProperty Name="BulletinType" Relationship="OrchestraDBModel.FK__Bulletin__Bullet__7FEAFD3E" FromRole="Bulletin" ToRole="BulletinType" />
         </EntityType>
         <EntityType Name="ChildCommentTable">
           <Key>
@@ -1337,6 +1393,7 @@
           <NavigationProperty Name="User_Endorser" Relationship="OrchestraDBModel.FK__User_Endo__UserI__70A8B9AE" FromRole="UserCommonTable" ToRole="User_Endorser" />
           <NavigationProperty Name="Performances" Relationship="OrchestraDBModel.FK__Performan__UserI__5224328E" FromRole="UserCommonTable" ToRole="Performance" />
           <NavigationProperty Name="Orchestras" Relationship="OrchestraDBModel.FK__Orchestra__UserI__6BE40491" FromRole="UserCommonTable" ToRole="Orchestra" />
+          <NavigationProperty Name="Bulletins" Relationship="OrchestraDBModel.FK__Bulletin__UserID__7EF6D905" FromRole="UserCommonTable" ToRole="Bulletin" />
         </EntityType>
         <EntityType Name="UserCompany">
           <Key>
@@ -1849,6 +1906,39 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Bulletin__UserID__7EF6D905">
+          <End Type="OrchestraDBModel.UserCommonTable" Role="UserCommonTable" Multiplicity="0..1" />
+          <End Type="OrchestraDBModel.Bulletin" Role="Bulletin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserCommonTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Bulletin">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BulletinType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="Bulletins" Relationship="OrchestraDBModel.FK__Bulletin__Bullet__7FEAFD3E" FromRole="BulletinType" ToRole="Bulletin" />
+        </EntityType>
+        <Association Name="FK__Bulletin__Bullet__7FEAFD3E">
+          <End Type="OrchestraDBModel.BulletinType" Role="BulletinType" Multiplicity="0..1" />
+          <End Type="OrchestraDBModel.Bulletin" Role="Bulletin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BulletinType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Bulletin">
+              <PropertyRef Name="BulletinTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1933,6 +2023,8 @@
           <EntitySetMapping Name="Bulletins">
             <EntityTypeMapping TypeName="OrchestraDBModel.Bulletin">
               <MappingFragment StoreEntitySet="Bulletin">
+                <ScalarProperty Name="BulletinTypeID" ColumnName="BulletinTypeID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
                 <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
                 <ScalarProperty Name="URL" ColumnName="URL" />
@@ -2242,6 +2334,15 @@
                 <ScalarProperty Name="URL" ColumnName="URL" />
                 <ScalarProperty Name="Alias" ColumnName="Alias" />
                 <ScalarProperty Name="OfficialName" ColumnName="OfficialName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BulletinTypes">
+            <EntityTypeMapping TypeName="OrchestraDBModel.BulletinType">
+              <MappingFragment StoreEntitySet="BulletinType">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
