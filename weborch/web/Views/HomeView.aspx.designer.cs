@@ -22,6 +22,24 @@ namespace web {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
+        /// dropdownlist_bulletinType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdownlist_bulletinType;
+        
+        /// <summary>
+        /// SqlDataSource1_bulletinType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1_bulletinType;
+        
+        /// <summary>
         /// Repeater1 control.
         /// </summary>
         /// <remarks>

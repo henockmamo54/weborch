@@ -35,7 +35,7 @@
                                             <%--<td>URL</td>--%>
                                             <%--<td><%#Eval("URL") %></td>--%>
                                             <td>
-                                                <a href="<%#Eval("URL") %>" target="_blank">Read More</a>
+                                                <a href="//<%#Eval("URL") %>" target="_blank">Read More</a>
                                             </td>
                                         </tr>
                                         <%--<tr>

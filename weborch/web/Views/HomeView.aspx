@@ -62,7 +62,15 @@
                     <div class="col-md-4" style="padding-right: 0; padding-left: 0;">
                         <div class="container" style="padding: 0; padding-top: 0em;">
                             <div class="panel panel-default" style="overflow-y: scroll; height: 380px;">
-                                <div class="panel-heading">Notice</div>
+                                <div class="panel-heading" style="text-align: right; padding-top: 3px; padding-bottom: 3px;">
+                                    Notice
+                                        <asp:DropDownList runat="server" CssClass="form-control" Style="width: auto; display: inline;"
+                                            ID="dropdownlist_bulletinType" DataSourceID="SqlDataSource1_bulletinType" DataTextField="Name" DataValueField="ID" OnSelectedIndexChanged="dropdownlist_bulletinType_SelectedIndexChanged" AutoPostBack="True">
+                                        </asp:DropDownList>
+                                    <asp:SqlDataSource ID="SqlDataSource1_bulletinType" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [ID]= -1 , [Name] ='All' FROM lookup.[BulletinType]
+union
+SELECT [ID], [Name] FROM lookup.[BulletinType]"></asp:SqlDataSource>
+                                </div>
                                 <%--<div class="panel-body">Panel Content</div>--%>
                                 <%--<div class="btn-info pull-right">Notice</div>
                             <br />--%>
@@ -75,8 +83,8 @@
 
                                             <td style="width: 30%">
                                                 <img src="../Document/<%#Eval("ImageUrl") %>" style="width: 100%" />
-                                                <asp:Label runat="server" ID="Label2"
-                                                    Text='<%# DataBinder.Eval(Container.DataItem,"TimeStamp","{0:d/M/yyyy}") %>' />
+                                                <%--<asp:Label runat="server" ID="Label2"
+                                                    Text='<%# DataBinder.Eval(Container.DataItem,"TimeStamp","{0:d/M/yyyy}") %>' />--%>
                                             </td>
                                             <%--<td style="width: 20%">
                                             <asp:Label runat="server" ID="Label3"
@@ -85,6 +93,9 @@
                                             <td style="width: 70%">
                                                 <asp:Label runat="server" ID="Label1"
                                                     Text='<%# Eval("MSG") %>' />
+                                                <a href="//<%#Eval("URL") %>" target="_blank">Read More</a>
+                                                <br />
+                                                <asp:Label Style="color: darkgrey;" runat="server" ID="Label3">Posted on:<%# DataBinder.Eval(Container.DataItem,"TimeStamp","{0:d/M/yyyy}") %></asp:Label>
                                             </td>
                                         </tr>
                                     </ItemTemplate>
@@ -92,7 +103,11 @@
                                         </table>
                                     </FooterTemplate>
                                 </asp:Repeater>
-                                <asp:SqlDataSource ID="SqlDataSource1_bulletininfo" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [ID], [MSG], [URL], [ImageUrl], [TimeStamp] FROM core.Bulletin"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="SqlDataSource1_bulletininfo" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [ID], [MSG], [URL], [ImageUrl], [TimeStamp],BulletinTypeID FROM core.Bulletin">
+                                    <FilterParameters>
+                                        <asp:ControlParameter ControlID="dropdownlist_bulletinType" DefaultValue="-1" Name="bulletinType" PropertyName="SelectedValue" />
+                                    </FilterParameters>
+                                </asp:SqlDataSource>
                                 <%--<div class="panel-footer">Panel Footer</div>--%>
                             </div>
                         </div>
@@ -195,7 +210,7 @@
                             <div class="col-md-5">
                                 <img src="../Document/5.jpg" class="shadowedPanel" height="200" width="200" style="padding: 0" />
                             </div>
-                            <div class="bottom-align-text col-md-6" style="padding: 0px; height: 200px; ">
+                            <div class="bottom-align-text col-md-6" style="padding: 0px; height: 200px;">
                                 Vivaldi - the four seasons (Orchestra is 'l MUSIC)
                             </div>
                         </div>
@@ -228,7 +243,6 @@
         }
     </script>
     <style>
-        
         .shadowedbox {
             padding: 0.5em;
             box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);

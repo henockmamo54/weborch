@@ -40,5 +40,19 @@ namespace web
             //smtp.Send(message);
 
         }
+
+        protected void dropdownlist_bulletinType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(dropdownlist_bulletinType.SelectedValue + "===================>");
+            if (int.Parse(dropdownlist_bulletinType.SelectedValue) != -1)
+            {
+                SqlDataSource1_bulletininfo.SelectCommand = @"SELECT [ID], [MSG], [URL], [ImageUrl], [TimeStamp],BulletinTypeID FROM core.Bulletin where BulletinTypeID=" + dropdownlist_bulletinType.SelectedValue;
+                SqlDataSource1_bulletininfo.DataBind();
+            }
+            else {
+                SqlDataSource1_bulletininfo.SelectCommand = @"SELECT [ID], [MSG], [URL], [ImageUrl], [TimeStamp],BulletinTypeID FROM core.Bulletin";
+                SqlDataSource1_bulletininfo.DataBind();
+            }
+        }
     }
 }
