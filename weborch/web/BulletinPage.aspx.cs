@@ -17,15 +17,19 @@ namespace web
         ParentCommentLogic pc = new ParentCommentLogic();
         ChildCommentLogic cl = new ChildCommentLogic();
         UserCommonTable user;
+        public static UserCommonTable myuser;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             user = (UserCommonTable)Session["User"];
+            myuser = (UserCommonTable)Session["User"];
             if (!IsPostBack)
             {
-                Repeater1.DataSource = bl.getAllMsg();
-                Repeater1.DataBind();                
+                Repeater1.DataSource = bl.getAllMsg(user.ID);
+                Repeater1.DataBind();
             }
+
+            Session["postRepeater"] = Repeater1;
 
         }
 
@@ -185,10 +189,56 @@ namespace web
             Repeater1.DataBind();
 
         }
-        
-        public void LikeClicked(object sender, EventArgs e) {
+
+        public void LikeClicked(object sender, EventArgs e)
+        {
 
         }
+
+        [System.Web.Services.WebMethod]
+        [System.Web.Script.Services.ScriptMethod()]
+        public static void test2(int id, int isLike)
+        {
+
+            OrchestraDBEntities entities = new OrchestraDBEntities();
+            var myval = entities.BulletinLikeUnlikes.Where(x => x.PostID == id & x.UserID == myuser.ID).ToList();
+            if (myval.Count > 0)
+            {
+
+                if (isLike == 1)
+                {
+                    if (myval.FirstOrDefault().islike == 1)
+                        myval.FirstOrDefault().islike = 0;
+                    else myval.FirstOrDefault().islike = 1;
+                }
+                else
+                {
+                    if (myval.FirstOrDefault().islike == -1)
+                        myval.FirstOrDefault().islike = 0;
+                    else myval.FirstOrDefault().islike = -1;
+                }
+                entities.SaveChanges();
+            }
+            else
+            {
+                BulletinLikeUnlike b = new BulletinLikeUnlike();
+                b.PostID = id;
+                b.UserID = myuser.ID;
+                b.islike = isLike;
+                b.timestamp = DateTime.Now;
+                entities.BulletinLikeUnlikes.Add(b);
+                entities.SaveChanges();
+            }
+
+            BulletinLogic bl = new BulletinLogic();
+
+            Repeater repeater = new Repeater();
+            repeater = System.Web.HttpContext.Current.Session["postRepeater"] as Repeater;
+            repeater.DataSource = bl.getAllMsg(myuser.ID);
+            repeater.DataBind();
+
+        }
+
 
     }
 }

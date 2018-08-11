@@ -31,6 +31,40 @@ namespace BusinessLogic
 
             return y;
         }
+        public List<BulletinModifiedModel>  getAllMsg(int userID)
+        {
+            OrchestraDBEntities entity = new OrchestraDBEntities();
+            var y = entity.Database.SqlQuery<BulletinModifiedModel>(string.Format(@"
+                                            select ID, MSG,URL,ImageUrl,TimeStamp,UserID, BulletinTypeID, ISNULL(companyName,Name) Name,isnull(likecount,0)likecount, ISNULL(dislikecount,0)dislikecount,ISNULL(isliked,0) isliked,ISNULL(disliked,0) disliked
+                                                from(
+		                                            select b.ID,MSG,URL,ImageUrl,b.TimeStamp,b.UserID, BulletinTypeID, p.Name,c.CompanyName,likecount, dislikecount, ld.IsLike as isliked, uld.IsLike as disliked 
+		                                            from core.bulletin b
+		                                            join Main.UserCommonTable u on u.id = b.UserID
+		                                            Left join Main.UserPersonalInfo p on p.userID=u.id
+		                                            Left join Main.UserCompany c on c.userid=u.id
+		                                            --Left join Core.BulletinLikeUnlike bl on bl.UserID= u.ID
+		                                            Left join (
+			                                            select COUNT(distinct UserID) likecount,PostID 
+			                                            from Core.BulletinLikeUnlike
+			                                            where IsLike=1 
+			                                            group by PostID) l on b.ID=l.PostID
+		                                            Left join (
+			                                            select COUNT(distinct UserID) dislikecount,PostID 
+			                                            from Core.BulletinLikeUnlike
+			                                            where IsLike=-1  
+			                                            group by PostID
+			                                            )ul on ul.PostID=b.ID
+		                                            Left join(
+			                                            select PostID,UserID,IsLike from Core.BulletinLikeUnlike
+			                                            where IsLike=1 and UserID={0}) ld on b.ID=ld.PostID
+		                                            Left join(
+			                                            select PostID,UserID,IsLike from Core.BulletinLikeUnlike
+			                                            where IsLike=-1 and UserID={0}) uld on b.ID=uld.PostID
+	                                            )x", userID)).ToList<BulletinModifiedModel>();
+
+
+            return y;
+        }
         public bool addBulletin(Bulletin bulletin)
         {
             try

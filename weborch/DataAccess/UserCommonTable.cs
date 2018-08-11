@@ -25,9 +25,9 @@ namespace DataAccess
             this.Performances = new HashSet<Performance>();
             this.Orchestras = new HashSet<Orchestra>();
             this.Bulletins = new HashSet<Bulletin>();
-            this.BulletinLikeUnlikes = new HashSet<BulletinLikeUnlike>();
             this.ChildCommentTables = new HashSet<ChildCommentTable>();
             this.ParentCommentTables = new HashSet<ParentCommentTable>();
+            this.BulletinLikeUnlikes = new HashSet<BulletinLikeUnlike>();
         }
     
         public int ID { get; set; }
@@ -54,10 +54,10 @@ namespace DataAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bulletin> Bulletins { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BulletinLikeUnlike> BulletinLikeUnlikes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ChildCommentTable> ChildCommentTables { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ParentCommentTable> ParentCommentTables { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BulletinLikeUnlike> BulletinLikeUnlikes { get; set; }
     }
 }

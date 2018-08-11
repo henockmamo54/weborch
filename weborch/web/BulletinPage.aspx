@@ -60,6 +60,22 @@
                                         <span class="like"><i class="glyphicon glyphicon-thumbs-down"></i></span>
                                     </button>--%>
 
+
+                                    <hr style="margin: 0.5em; border-top: 1px solid #dedada;" />
+                                    <button class="social-like" style="    margin-left: 1.2em;
+    margin-right: 0.5em;" runat="server"  >
+                                        <%--<asp:Button runat="server" ID="likebutton"  Text="Like" OnClick="LikeClicked" />--%>
+                                        <span class="like" ><i class="glyphicon glyphicon-thumbs-up" onclick="testfunc(<%#Eval("ID") %>,1)"></i></span>
+                                        <span class="count"><%#Eval("likecount") %></span>
+                                    </button>
+                                    &nbsp;
+                                    <button class="social-dislike">
+                                        <span class="dislike"><%#Eval("dislikecount") %></span>
+                                        <%--<asp:Button runat="server" ID="dislikebutton" Text="DisLike" OnClick="LikeClicked"   />--%>
+                                        <span class="like"><i class="glyphicon glyphicon-thumbs-down" onclick="testfunc(<%#Eval("ID") %>,-1)"></i></span>
+                                    </button>
+
+
                                     <div style="padding-left: 20px; padding-right: 20px; width: 100%;">
                                         <asp:TextBox ID="txtComment" runat="server" TextMode="MultiLine"
                                             Width="100%" Style="border-radius: 5px; margin-bottom: 0.5em;"></asp:TextBox>
@@ -213,10 +229,39 @@
             return false;
         }
 
-        //function LikeClicked() {
-        //    console.log('test');
-        //    alert('test');
-        //}
+        function testfunc(id,status) {
+            //console.log(id,status);
+            ////PageMethods.test2();
+            ////alert('test');
+            //var params = '{{ id: 1 }, { islike: 1 }}' //'{ id: ' + id + ',islike:'+ status + '}';
+            //var data = {
+            //    id: 1,
+            //    islike: 1,
+            //};
+
+            //params = JSON.stringify(data)
+            //console.log(params)
+
+            $.ajax({
+                type: "POST",
+                url: "BulletinPage.aspx/test2", //Pagename/Functionname
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ id: id, isLike: status }), //{ },//data
+                success: function (data) {
+                    //alert('success')
+                    console.log(data);
+                    //alert(data.d);
+
+                },
+                error: function (result) {
+                    console.log(result)
+                    //alert("error")
+
+                }
+            });
+
+        }
     </script>
 
     <style>
@@ -226,7 +271,7 @@
             border: none;
             outline: none;
             font-size: 16px;
-            width: 48%;
+            width: 45%;
             background-color: #8dbd64;
             color: #fff;
         }
@@ -260,7 +305,7 @@
         }
 
         .count {
-            margin-right: -10px;
+            margin-right: -12px;
         }
     </style>
 

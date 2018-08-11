@@ -17,7 +17,8 @@ namespace DataAccess
         public int ID { get; set; }
         public Nullable<int> UserID { get; set; }
         public Nullable<int> PostID { get; set; }
-        public Nullable<bool> IsLike { get; set; }
+        public Nullable<System.DateTime> timestamp { get; set; }
+        public Nullable<int> islike { get; set; }
     
         public virtual Bulletin Bulletin { get; set; }
         public virtual UserCommonTable UserCommonTable { get; set; }
