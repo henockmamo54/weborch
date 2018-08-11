@@ -190,8 +190,45 @@ namespace web
 
         }
 
-        public void LikeClicked(object sender, EventArgs e)
+        public void LikeClicked(object sender, CommandEventArgs e)
         {
+            var value = e.CommandArgument.ToString().Split(',');
+            int id = int.Parse(value[0]);
+            int isLike = int.Parse(value[1]);
+            OrchestraDBEntities entities = new OrchestraDBEntities();
+            var myval = entities.BulletinLikeUnlikes.Where(x => x.PostID == id & x.UserID == myuser.ID).ToList();
+            if (myval.Count > 0)
+            {
+
+                if (isLike == 1)
+                {
+                    if (myval.FirstOrDefault().islike == 1)
+                        myval.FirstOrDefault().islike = 0;
+                    else myval.FirstOrDefault().islike = 1;
+                }
+                else
+                {
+                    if (myval.FirstOrDefault().islike == -1)
+                        myval.FirstOrDefault().islike = 0;
+                    else myval.FirstOrDefault().islike = -1;
+                }
+                entities.SaveChanges();
+            }
+            else
+            {
+                BulletinLikeUnlike b = new BulletinLikeUnlike();
+                b.PostID = id;
+                b.UserID = myuser.ID;
+                b.islike = isLike;
+                b.timestamp = DateTime.Now;
+                entities.BulletinLikeUnlikes.Add(b);
+                entities.SaveChanges();
+            }
+
+            BulletinLogic bl = new BulletinLogic();
+
+            Repeater1.DataSource = bl.getAllMsg(myuser.ID);
+            Repeater1.DataBind();
 
         }
 
@@ -232,10 +269,10 @@ namespace web
 
             BulletinLogic bl = new BulletinLogic();
 
-            Repeater repeater = new Repeater();
-            repeater = System.Web.HttpContext.Current.Session["postRepeater"] as Repeater;
-            repeater.DataSource = bl.getAllMsg(myuser.ID);
-            repeater.DataBind();
+            //Repeater repeater = new Repeater();
+            //repeater = System.Web.HttpContext.Current.Session["postRepeater"] as Repeater;
+            //Repeater1.DataSource = bl.getAllMsg(myuser.ID);
+            //Repeater1.DataBind();
 
         }
 

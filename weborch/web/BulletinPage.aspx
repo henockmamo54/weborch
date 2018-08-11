@@ -62,18 +62,19 @@
 
 
                                     <hr style="margin: 0.5em; border-top: 1px solid #dedada;" />
-                                    <button class="social-like" style="    margin-left: 1.2em;
-    margin-right: 0.5em;" runat="server"  >
-                                        <%--<asp:Button runat="server" ID="likebutton"  Text="Like" OnClick="LikeClicked" />--%>
-                                        <span class="like" ><i class="glyphicon glyphicon-thumbs-up" onclick="testfunc(<%#Eval("ID") %>,1)"></i></span>
+                                    <div class="social-like testhover" style="margin-left: 1.2em; margin-right: 0.5em;" runat="server">
+                                        <asp:ImageButton ImageUrl="~/Document/l.png" Width="40px" runat="server" ID="likebutton" Text="Like" 
+                                            OnCommand="LikeClicked" CommandName="MyUpdate" CommandArgument='<%#Eval("ID")  + "," +1 %>' />
+                                        <%--<span class="like"><i class="glyphicon glyphicon-thumbs-up" onclick="testfunc(<%#Eval("ID") %>,1)"></i></span>--%>
                                         <span class="count"><%#Eval("likecount") %></span>
-                                    </button>
+                                    </div>
                                     &nbsp;
-                                    <button class="social-dislike">
+                                    <div class="social-dislike testhover ">
+                                        <asp:ImageButton ImageUrl="~/Document/dl.png" Width="40px" runat="server" ID="dislikebutton" Text="DisLike"  
+                                            OnCommand="LikeClicked" CommandName="MyUpdate" CommandArgument='<%#Eval("ID")  + ", -1" %>' />                                        
                                         <span class="dislike"><%#Eval("dislikecount") %></span>
-                                        <%--<asp:Button runat="server" ID="dislikebutton" Text="DisLike" OnClick="LikeClicked"   />--%>
-                                        <span class="like"><i class="glyphicon glyphicon-thumbs-down" onclick="testfunc(<%#Eval("ID") %>,-1)"></i></span>
-                                    </button>
+                                        <%--<span class="like"><i class="glyphicon glyphicon-thumbs-down" onclick="testfunc(<%#Eval("ID") %>,-1)"></i></span>--%>
+                                    </div>
 
 
                                     <div style="padding-left: 20px; padding-right: 20px; width: 100%;">
@@ -229,7 +230,7 @@
             return false;
         }
 
-        function testfunc(id,status) {
+        function testfunc(id, status) {
             //console.log(id,status);
             ////PageMethods.test2();
             ////alert('test');
@@ -272,10 +273,16 @@
             outline: none;
             font-size: 16px;
             width: 45%;
-            background-color: #8dbd64;
+            /*background-color: #8dbd64;*/
+            background-color: #e0e0e0;
             color: #fff;
+            display: inline-table;
         }
 
+        /*.social-like :hover,
+        .social-dislike :hover {
+            background-color: #8dbd64;
+        }*/
         .social-like {
             border-top-left-radius: 5px;
             text-align: right;
@@ -289,15 +296,19 @@
         .count,
         .like,
         .dislike {
-            padding: 10px;
-
+            /*padding: 10px;*/
         }
 
         .count,
         .dislike {
-            background-color: #5da25e;
-            border-radius: 50%;
-            font-size: 12px;
+            /*background-color: #5da25e;*/
+            /*border-radius: 40%;*/
+            font-size: 14px;
+            color: black;
+        }
+
+        .testhover:hover {
+            background-color: #cccaca;
         }
 
         .dislike {
@@ -305,7 +316,7 @@
         }
 
         .count {
-            margin-right: -12px;
+            /*margin-right: -12px;*/
         }
     </style>
 

@@ -197,6 +197,10 @@
     <Content Include="Document\4.jpeg" />
     <Content Include="Document\5.jpg" />
     <Content Include="Document\9.jpg" />
+    <Content Include="Document\dl-c.png" />
+    <Content Include="Document\dl.png" />
+    <Content Include="Document\l-c.png" />
+    <Content Include="Document\l.png" />
     <Content Include="Home.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="Orchestra.aspx" />
