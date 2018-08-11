@@ -223,6 +223,32 @@
       <End Role="Orchestra" EntitySet="Orchestras" />
       <End Role="PerformanceDetail" EntitySet="PerformanceDetails" />
     </AssociationSet>
+    <AssociationSet Name="FK__Bulletin__UserID__7EF6D905" Association="OrchestraDBModel.FK__Bulletin__UserID__7EF6D905">
+      <End Role="UserCommonTable" EntitySet="UserCommonTables" />
+      <End Role="Bulletin" EntitySet="Bulletins" />
+    </AssociationSet>
+    <EntitySet Name="BulletinTypes" EntityType="OrchestraDBModel.BulletinType" />
+    <AssociationSet Name="FK__Bulletin__Bullet__7FEAFD3E" Association="OrchestraDBModel.FK__Bulletin__Bullet__7FEAFD3E">
+      <End Role="BulletinType" EntitySet="BulletinTypes" />
+      <End Role="Bulletin" EntitySet="Bulletins" />
+    </AssociationSet>
+    <EntitySet Name="BulletinLikeUnlikes" EntityType="OrchestraDBModel.BulletinLikeUnlike" />
+    <AssociationSet Name="FK__BulletinL__PostI__09746778" Association="OrchestraDBModel.FK__BulletinL__PostI__09746778">
+      <End Role="Bulletin" EntitySet="Bulletins" />
+      <End Role="BulletinLikeUnlike" EntitySet="BulletinLikeUnlikes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BulletinL__UserI__0880433F" Association="OrchestraDBModel.FK__BulletinL__UserI__0880433F">
+      <End Role="UserCommonTable" EntitySet="UserCommonTables" />
+      <End Role="BulletinLikeUnlike" EntitySet="BulletinLikeUnlikes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChildComm__UserI__01D345B0" Association="OrchestraDBModel.FK__ChildComm__UserI__01D345B0">
+      <End Role="UserCommonTable" EntitySet="UserCommonTables" />
+      <End Role="ChildCommentTable" EntitySet="ChildCommentTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ParentCom__UserI__00DF2177" Association="OrchestraDBModel.FK__ParentCom__UserI__00DF2177">
+      <End Role="UserCommonTable" EntitySet="UserCommonTables" />
+      <End Role="ParentCommentTable" EntitySet="ParentCommentTables" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="User">
     <Key>
@@ -250,6 +276,11 @@
     <Property Name="URL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="ImageUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="BulletinTypeID" Type="Int32" />
+    <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__Bulletin__UserID__7EF6D905" FromRole="Bulletin" ToRole="UserCommonTable" />
+    <NavigationProperty Name="BulletinType" Relationship="OrchestraDBModel.FK__Bulletin__Bullet__7FEAFD3E" FromRole="Bulletin" ToRole="BulletinType" />
+    <NavigationProperty Name="BulletinLikeUnlikes" Relationship="OrchestraDBModel.FK__BulletinL__PostI__09746778" FromRole="Bulletin" ToRole="BulletinLikeUnlike" />
   </EntityType>
   <EntityType Name="ChildCommentTable">
     <Key>
@@ -260,6 +291,8 @@
     <Property Name="CommentMessage" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
     <Property Name="CommentDate" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="ParentCommentID" Type="Int32" />
+    <Property Name="UserID" Type="Int32" />
+    <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__ChildComm__UserI__01D345B0" FromRole="ChildCommentTable" ToRole="UserCommonTable" />
   </EntityType>
   <EntityType Name="ParentCommentTable">
     <Key>
@@ -270,6 +303,8 @@
     <Property Name="CommentMessage" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
     <Property Name="CommentDate" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="PostID" Type="Int32" />
+    <Property Name="UserID" Type="Int32" />
+    <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__ParentCom__UserI__00DF2177" FromRole="ParentCommentTable" ToRole="UserCommonTable" />
   </EntityType>
   <EntityType Name="Artist_Instrument">
     <Key>
@@ -439,6 +474,10 @@
     <NavigationProperty Name="User_Endorser" Relationship="OrchestraDBModel.FK__User_Endo__UserI__70A8B9AE" FromRole="UserCommonTable" ToRole="User_Endorser" />
     <NavigationProperty Name="Performances" Relationship="OrchestraDBModel.FK__Performan__UserI__5224328E" FromRole="UserCommonTable" ToRole="Performance" />
     <NavigationProperty Name="Orchestras" Relationship="OrchestraDBModel.FK__Orchestra__UserI__6BE40491" FromRole="UserCommonTable" ToRole="Orchestra" />
+    <NavigationProperty Name="Bulletins" Relationship="OrchestraDBModel.FK__Bulletin__UserID__7EF6D905" FromRole="UserCommonTable" ToRole="Bulletin" />
+    <NavigationProperty Name="BulletinLikeUnlikes" Relationship="OrchestraDBModel.FK__BulletinL__UserI__0880433F" FromRole="UserCommonTable" ToRole="BulletinLikeUnlike" />
+    <NavigationProperty Name="ChildCommentTables" Relationship="OrchestraDBModel.FK__ChildComm__UserI__01D345B0" FromRole="UserCommonTable" ToRole="ChildCommentTable" />
+    <NavigationProperty Name="ParentCommentTables" Relationship="OrchestraDBModel.FK__ParentCom__UserI__00DF2177" FromRole="UserCommonTable" ToRole="ParentCommentTable" />
   </EntityType>
   <EntityType Name="UserCompany">
     <Key>
@@ -948,6 +987,98 @@
       </Principal>
       <Dependent Role="PerformanceDetail">
         <PropertyRef Name="Orchestra" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Bulletin__UserID__7EF6D905">
+    <End Type="OrchestraDBModel.UserCommonTable" Role="UserCommonTable" Multiplicity="0..1" />
+    <End Type="OrchestraDBModel.Bulletin" Role="Bulletin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserCommonTable">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Bulletin">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="BulletinType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Bulletins" Relationship="OrchestraDBModel.FK__Bulletin__Bullet__7FEAFD3E" FromRole="BulletinType" ToRole="Bulletin" />
+  </EntityType>
+  <Association Name="FK__Bulletin__Bullet__7FEAFD3E">
+    <End Type="OrchestraDBModel.BulletinType" Role="BulletinType" Multiplicity="0..1" />
+    <End Type="OrchestraDBModel.Bulletin" Role="Bulletin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BulletinType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Bulletin">
+        <PropertyRef Name="BulletinTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="BulletinLikeUnlike">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="PostID" Type="Int32" />
+    <Property Name="IsLike" Type="Boolean" />
+    <NavigationProperty Name="Bulletin" Relationship="OrchestraDBModel.FK__BulletinL__PostI__09746778" FromRole="BulletinLikeUnlike" ToRole="Bulletin" />
+    <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__BulletinL__UserI__0880433F" FromRole="BulletinLikeUnlike" ToRole="UserCommonTable" />
+  </EntityType>
+  <Association Name="FK__BulletinL__PostI__09746778">
+    <End Type="OrchestraDBModel.Bulletin" Role="Bulletin" Multiplicity="0..1" />
+    <End Type="OrchestraDBModel.BulletinLikeUnlike" Role="BulletinLikeUnlike" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bulletin">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BulletinLikeUnlike">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BulletinL__UserI__0880433F">
+    <End Type="OrchestraDBModel.UserCommonTable" Role="UserCommonTable" Multiplicity="0..1" />
+    <End Type="OrchestraDBModel.BulletinLikeUnlike" Role="BulletinLikeUnlike" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserCommonTable">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BulletinLikeUnlike">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChildComm__UserI__01D345B0">
+    <End Type="OrchestraDBModel.UserCommonTable" Role="UserCommonTable" Multiplicity="0..1" />
+    <End Type="OrchestraDBModel.ChildCommentTable" Role="ChildCommentTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserCommonTable">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ChildCommentTable">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ParentCom__UserI__00DF2177">
+    <End Type="OrchestraDBModel.UserCommonTable" Role="UserCommonTable" Multiplicity="0..1" />
+    <End Type="OrchestraDBModel.ParentCommentTable" Role="ParentCommentTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserCommonTable">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ParentCommentTable">
+        <PropertyRef Name="UserID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
