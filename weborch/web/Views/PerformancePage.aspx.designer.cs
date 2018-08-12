@@ -103,6 +103,33 @@ namespace web.Views {
         protected global::System.Web.UI.WebControls.TextBox txt_ConcertHall;
         
         /// <summary>
+        /// txt_ticketbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_ticketbox;
+        
+        /// <summary>
+        /// txt_peformancehour control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_peformancehour;
+        
+        /// <summary>
+        /// txt_organizerinfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_organizerinfo;
+        
+        /// <summary>
         /// btn_addPerformance control.
         /// </summary>
         /// <remarks>

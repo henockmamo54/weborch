@@ -52,6 +52,9 @@ namespace web.Views
                 p.OrchestraID = int.Parse(DropDownList1.SelectedItem.Value);
                 p.Location = txt_location.Text;
                 p.ConcertHall = txt_ConcertHall.Text;
+                p.PerformanceHour = txt_peformancehour.Text;
+                p.TicketBox = txt_ticketbox.Text;
+                p.OrganizerInfo = txt_organizerinfo.Text;
                 //p.PerformanceDay = "Sunday";
                 getPhoto(p, FileUpload1);
 

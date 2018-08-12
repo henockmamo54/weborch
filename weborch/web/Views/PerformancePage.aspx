@@ -115,6 +115,34 @@
                         </div>
                         <br />
                     </div>
+                    <%--========================================================================--%>
+                    
+                    <div class="col-md-4">
+                        <br />
+                        <div class="col-md-4">Ticket box:</div>
+                        <div class="col-md-8">
+                            <asp:TextBox ID="txt_ticketbox" runat="server" class="form-control"></asp:TextBox>
+                        </div>
+                        <br />
+                    </div>
+                    <div class="col-md-4">
+                        <br />
+                        <div class="col-md-4">Performance  Hour:</div>
+                        <div class="col-md-8">
+                            <asp:TextBox ID="txt_peformancehour" runat="server" class="form-control"></asp:TextBox>
+                        </div>
+                        <br />
+                    </div>
+                    <div class="col-md-4">
+                        <br />
+                        <div class="col-md-4">Organizer info:</div>
+                        <div class="col-md-8">
+                            <asp:TextBox ID="txt_organizerinfo" runat="server" class="form-control"></asp:TextBox>
+                        </div>
+                        <br />
+                    </div>
+                    <%--========================================================================--%>
+
                 </div>
                 <div class="row col-md-12">
                     <br />
@@ -138,7 +166,10 @@ PerformanceTitle=@PerformanceTitle,
 Location=@Location,
 --PhotoAddLocation=@PhotoAddLocation,
 VideoLocation=@VideoLocation,
-ConcertHall=@ConcertHall
+ConcertHall=@ConcertHall,
+PerformanceHour = @PerformanceHour, 
+OrganizerInfo = @OrganizerInfo , 
+TicketBox = @TicketBox 
 
 where ID=@ID">
                     <DeleteParameters>
@@ -153,6 +184,12 @@ where ID=@ID">
                         <asp:Parameter Name="PhotoAddLocation" />
                         <asp:Parameter Name="VideoLocation" />
                         <asp:Parameter Name="ConcertHall" />
+                        
+                        <asp:Parameter Name="PerformanceHour" />
+                        <asp:Parameter Name="OrganizerInfo" />
+                        <asp:Parameter Name="TicketBox" />
+
+                        <asp:Parameter />
                         <asp:Parameter Name="ID" />
                     </UpdateParameters>
                 </asp:SqlDataSource>
@@ -179,6 +216,11 @@ where ID=@ID">
                         <asp:BoundField DataField="ConcertHall" HeaderText="Concert Hall" SortExpression="ConcertHall" />
                         <asp:BoundField DataField="StartDate" HeaderText="Start Date" SortExpression="StartDate" />
                         <asp:BoundField DataField="EndDate" HeaderText="End Date" SortExpression="EndDate" />
+
+                        <asp:BoundField DataField="PerformanceHour" HeaderText="Performance Hour" SortExpression="PerformanceHour" />
+                        <asp:BoundField DataField="OrganizerInfo" HeaderText="Organizer Info" SortExpression="OrganizerInfo" />
+                        <asp:BoundField DataField="TicketBox" HeaderText="Ticket Box" SortExpression="TicketBox" />
+
                         <asp:TemplateField HeaderText="Photo Ad Location" SortExpression="PhotoAddLocation">
                             <EditItemTemplate>
                                 <%--<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("PhotoAddLocation") %>'></asp:TextBox>--%>
@@ -274,7 +316,7 @@ where ID=@ID">
 
             .GridViewEditRow input[type=text] {
                 display: block;
-                width: 100%;
+                /*width: 100%;*/
                 height: 34px;
                 padding: 6px 12px;
                 font-size: 14px;

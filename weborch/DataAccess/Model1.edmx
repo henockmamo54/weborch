@@ -308,6 +308,10 @@
           <Property Name="EndDate" Type="date" />
           <Property Name="PhotoAddLocation" Type="nvarchar" MaxLength="100" />
           <Property Name="VideoLocation" Type="nvarchar" MaxLength="100" />
+          <Property Name="TicketBox" Type="nvarchar" MaxLength="200" />
+          <Property Name="PerformanceHour" Type="nvarchar" MaxLength="100" />
+          <Property Name="OrganizerInfo" Type="nvarchar" MaxLength="200" />
+          <Property Name="Archive" Type="bit" />
         </EntityType>
         <EntityType Name="PerformanceDetail">
           <Key>
@@ -1854,6 +1858,10 @@
           <NavigationProperty Name="PerformanceDetails" Relationship="OrchestraDBModel.FK__Performan__Perfo__503BEA1C" FromRole="Performance" ToRole="PerformanceDetail" />
           <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__Performan__UserI__5224328E" FromRole="Performance" ToRole="UserCommonTable" />
           <NavigationProperty Name="Orchestra" Relationship="OrchestraDBModel.FK__Performan__Orche__531856C7" FromRole="Performance" ToRole="Orchestra" />
+          <Property Name="TicketBox" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PerformanceHour" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizerInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Archive" Type="Boolean" />
         </EntityType>
         <Association Name="FK__Performan__Perfo__503BEA1C">
           <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="0..1" />
@@ -2460,6 +2468,10 @@
           <EntitySetMapping Name="Performances">
             <EntityTypeMapping TypeName="OrchestraDBModel.Performance">
               <MappingFragment StoreEntitySet="Performance">
+                <ScalarProperty Name="Archive" ColumnName="Archive" />
+                <ScalarProperty Name="OrganizerInfo" ColumnName="OrganizerInfo" />
+                <ScalarProperty Name="PerformanceHour" ColumnName="PerformanceHour" />
+                <ScalarProperty Name="TicketBox" ColumnName="TicketBox" />
                 <ScalarProperty Name="VideoLocation" ColumnName="VideoLocation" />
                 <ScalarProperty Name="PhotoAddLocation" ColumnName="PhotoAddLocation" />
                 <ScalarProperty Name="EndDate" ColumnName="EndDate" />

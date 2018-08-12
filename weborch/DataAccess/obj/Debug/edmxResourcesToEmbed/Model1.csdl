@@ -836,6 +836,10 @@
     <NavigationProperty Name="PerformanceDetails" Relationship="OrchestraDBModel.FK__Performan__Perfo__503BEA1C" FromRole="Performance" ToRole="PerformanceDetail" />
     <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__Performan__UserI__5224328E" FromRole="Performance" ToRole="UserCommonTable" />
     <NavigationProperty Name="Orchestra" Relationship="OrchestraDBModel.FK__Performan__Orche__531856C7" FromRole="Performance" ToRole="Orchestra" />
+    <Property Name="TicketBox" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PerformanceHour" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OrganizerInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Archive" Type="Boolean" />
   </EntityType>
   <Association Name="FK__Performan__Perfo__503BEA1C">
     <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="0..1" />

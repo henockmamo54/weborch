@@ -32,6 +32,10 @@ namespace DataAccess
         public Nullable<System.DateTime> EndDate { get; set; }
         public string PhotoAddLocation { get; set; }
         public string VideoLocation { get; set; }
+        public string TicketBox { get; set; }
+        public string PerformanceHour { get; set; }
+        public string OrganizerInfo { get; set; }
+        public Nullable<bool> Archive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PerformanceDetail> PerformanceDetails { get; set; }

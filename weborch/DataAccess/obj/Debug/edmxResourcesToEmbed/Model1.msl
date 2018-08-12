@@ -354,6 +354,10 @@
     <EntitySetMapping Name="Performances">
       <EntityTypeMapping TypeName="OrchestraDBModel.Performance">
         <MappingFragment StoreEntitySet="Performance">
+          <ScalarProperty Name="Archive" ColumnName="Archive" />
+          <ScalarProperty Name="OrganizerInfo" ColumnName="OrganizerInfo" />
+          <ScalarProperty Name="PerformanceHour" ColumnName="PerformanceHour" />
+          <ScalarProperty Name="TicketBox" ColumnName="TicketBox" />
           <ScalarProperty Name="VideoLocation" ColumnName="VideoLocation" />
           <ScalarProperty Name="PhotoAddLocation" ColumnName="PhotoAddLocation" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
