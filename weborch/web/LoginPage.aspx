@@ -24,7 +24,7 @@
                             </label>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </div>
-                        <asp:Button class="btn btn-lg btn-primary btn-block btn-signin" ID="Button1_signin" runat="server" Text="Sign in" OnClick="Button1_signin_Click1" />
+                        <asp:Button class="btn btn-lg btn-primary btn-block btn-signin" ID="Button1_signin" runat="server" Text="<%$Resources:HomeView.aspx,SignIn %>" OnClick="Button1_signin_Click1" />
 
                     </form>
                     <!-- /form -->
