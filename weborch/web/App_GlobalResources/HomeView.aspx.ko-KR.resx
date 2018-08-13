@@ -459,4 +459,13 @@
   <data name="Notice" xml:space="preserve">
     <value>주의</value>
   </data>
+  <data name="Change" xml:space="preserve">
+    <value>변화</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>닫기</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>구하다</value>
+  </data>
 </root>

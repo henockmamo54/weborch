@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <br />
-                        <div class="col-md-4">Title:</div>
+                        <div class="col-md-4"><%= Resources.HomeView.aspx.Title %>:</div>
                         <div class="col-md-8">
                             <asp:TextBox ID="txt_title" runat="server" class="form-control"></asp:TextBox>
                         </div>
@@ -28,9 +28,8 @@
 
                     <div class="col-md-4">
                         <br />
-                        <div class="col-md-4">Start date:</div>
+                        <div class="col-md-4"><%= Resources.HomeView.aspx.StartDate %>:</div>
                         <div class="col-md-8">
-                            <%--<asp:TextBox ID="txt_performancedate" runat="server" class="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>--%>
                             <div class='input-group date' id='datetimepicker2' style="display: inline-flex;">
                                 <input type='text' class="form-control" runat="server" id="txt_performancestartdate" style="display: inline-block; border-right-width: 0px;" />
                                 <span class="input-group-addon" style="flex-wrap: wrap; width: auto; display: inline-block; padding-left: 12px; margin-left: -5px; padding-top: 9px; padding-bottom: 7px;">
@@ -43,7 +42,7 @@
 
                     <div class="col-md-4">
                         <br />
-                        <div class="col-md-4">End date:</div>
+                        <div class="col-md-4"><%= Resources.HomeView.aspx.EndDate %>:</div>
                         <div class="col-md-8">
                             <%--<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>--%>
                             <div class='input-group date' id='datetimepicker3' style="display: inline-flex;">
@@ -58,7 +57,7 @@
 
                     <div class="col-md-4">
                         <br />
-                        <div class="col-md-4">Photo Ad.:</div>
+                        <div class="col-md-4"><%= Resources.HomeView.aspx.PhotoAd %>:</div>
                         <div class="col-md-8">
                             <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline" />
                             <%--<asp:TextBox ID="TextBox2" runat="server" class="form-control"></asp:TextBox>--%>
@@ -69,7 +68,7 @@
 
                     <div class="col-md-4">
                         <br />
-                        <div class="col-md-4">Video Ad.:</div>
+                        <div class="col-md-4"><%= Resources.HomeView.aspx.VideoAd %>:</div>
                         <div class="col-md-8">
                             <asp:TextBox ID="TextBox3" runat="server" class="form-control"></asp:TextBox>
                         </div>
@@ -77,20 +76,9 @@
                     </div>
 
 
-
-                    <%--<div class="col-md-4">
-                        <br />
-                        <div class="col-md-4">Performance day:</div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txt_performanceday" runat="server" class="form-control"></asp:TextBox>
-                        </div>
-                        <br />
-                    </div>--%>
-
-
                     <div class="col-md-4">
                         <br />
-                        <div class="col-md-4">Orchestra:</div>
+                        <div class="col-md-4"><%= Resources.HomeView.aspx.Orchestra %>:</div>
                         <div class="col-md-8">
                             <%--<asp:TextBox ID="txt_orchestra" runat="server" class="form-control"></asp:TextBox>--%>
                             <asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID"></asp:DropDownList>
@@ -101,7 +89,7 @@
                     </div>
                     <div class="col-md-4">
                         <br />
-                        <div class="col-md-4">Location:</div>
+                        <div class="col-md-4"><%= Resources.HomeView.aspx.Location %>:</div>
                         <div class="col-md-8">
                             <asp:TextBox ID="txt_location" runat="server" class="form-control"></asp:TextBox>
                         </div>
@@ -109,14 +97,14 @@
                     </div>
                     <div class="col-md-4">
                         <br />
-                        <div class="col-md-4">Concert Hall:</div>
+                        <div class="col-md-4"><%= Resources.HomeView.aspx.ConcertHall %>:</div>
                         <div class="col-md-8">
                             <asp:TextBox ID="txt_ConcertHall" runat="server" class="form-control"></asp:TextBox>
                         </div>
                         <br />
                     </div>
                     <%--========================================================================--%>
-                    
+
                     <div class="col-md-4">
                         <br />
                         <div class="col-md-4">Ticket box:</div>
@@ -142,11 +130,10 @@
                         <br />
                     </div>
                     <%--========================================================================--%>
-
                 </div>
                 <div class="row col-md-12">
                     <br />
-                    <asp:Button ID="btn_addPerformance" CssClass="btn btn-success pull-right" runat="server" Text="Register" OnClick="btn_performance_Click" />
+                    <asp:Button ID="btn_addPerformance" CssClass="btn btn-success pull-right" runat="server" Text="<%$Resources:HomeView.aspx,Register %>" OnClick="btn_performance_Click" />
                 </div>
             </div>
             <br />
@@ -184,7 +171,7 @@ where ID=@ID">
                         <asp:Parameter Name="PhotoAddLocation" />
                         <asp:Parameter Name="VideoLocation" />
                         <asp:Parameter Name="ConcertHall" />
-                        
+
                         <asp:Parameter Name="PerformanceHour" />
                         <asp:Parameter Name="OrganizerInfo" />
                         <asp:Parameter Name="TicketBox" />
@@ -195,8 +182,8 @@ where ID=@ID">
                 </asp:SqlDataSource>
             </div>
 
-            <div class="row">
-                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource2_allPerformances" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound" OnRowEditing="GridView1_RowEditing">
+            <div class="row"  style="overflow-x: scroll;">
+                <asp:GridView ID="GridView1" style="overflow-x: scroll; width:2000px;" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource2_allPerformances" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound" OnRowEditing="GridView1_RowEditing">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>
                         <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True"
@@ -205,23 +192,23 @@ where ID=@ID">
                             SelectImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-arrow-right-icon.png"
                             CancelImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-edit-delete-icon.png"
                             UpdateImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/128/Save-icon.png"
-                            HeaderStyle-Width="90px" ItemStyle-Width="90px" >
-                        <ControlStyle Height="20px" Width="20px" />
-                        <HeaderStyle Width="90px" />
-                        <ItemStyle Width="90px" />
+                            HeaderStyle-Width="90px" ItemStyle-Width="90px">
+                            <ControlStyle Height="20px" Width="20px" />
+                            <HeaderStyle Width="90px" />
+                            <ItemStyle Width="90px" />
                         </asp:CommandField>
-                        <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
-                        <asp:BoundField DataField="PerformanceTitle" HeaderText="Performance Title" SortExpression="PerformanceTitle" />
-                        <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location" />
-                        <asp:BoundField DataField="ConcertHall" HeaderText="Concert Hall" SortExpression="ConcertHall" />
-                        <asp:BoundField DataField="StartDate" HeaderText="Start Date" SortExpression="StartDate" />
-                        <asp:BoundField DataField="EndDate" HeaderText="End Date" SortExpression="EndDate" />
+                        <asp:BoundField DataField="ID" HeaderText="<%$Resources:HomeView.aspx,ID %>" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+                        <asp:BoundField DataField="PerformanceTitle" HeaderText="<%$Resources:HomeView.aspx,PerformanceTitle %>" SortExpression="PerformanceTitle" />
+                        <asp:BoundField DataField="Location" HeaderText="<%$Resources:HomeView.aspx,Location %>" SortExpression="Location" />
+                        <asp:BoundField DataField="ConcertHall" HeaderText="<%$Resources:HomeView.aspx,ConcertHall %>" SortExpression="ConcertHall" />
+                        <asp:BoundField DataField="StartDate" HeaderText="<%$Resources:HomeView.aspx,StartDate %>" SortExpression="StartDate" />
+                        <asp:BoundField DataField="EndDate" HeaderText="<%$Resources:HomeView.aspx,EndDate %>" SortExpression="EndDate" />
 
                         <asp:BoundField DataField="PerformanceHour" HeaderText="Performance Hour" SortExpression="PerformanceHour" />
                         <asp:BoundField DataField="OrganizerInfo" HeaderText="Organizer Info" SortExpression="OrganizerInfo" />
                         <asp:BoundField DataField="TicketBox" HeaderText="Ticket Box" SortExpression="TicketBox" />
 
-                        <asp:TemplateField HeaderText="Photo Ad Location" SortExpression="PhotoAddLocation">
+                        <asp:TemplateField HeaderText="<%$Resources:HomeView.aspx,PhotoAdLocation %>" SortExpression="PhotoAddLocation">
                             <EditItemTemplate>
                                 <%--<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("PhotoAddLocation") %>'></asp:TextBox>--%>
                                 <asp:Button ID="editButton" CssClass="btn btn-info" runat="server" Text='Change' data-toggle="modal" data-target="#exampleModalLong" />
@@ -230,8 +217,8 @@ where ID=@ID">
                                 <asp:Label ID="Label2" runat="server" Text='<%# Bind("PhotoAddLocation") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:BoundField DataField="VideoLocation" HeaderText="Video Location" SortExpression="VideoLocation" />
-                        <asp:TemplateField HeaderText="Orchestra" SortExpression="OfficialName">
+                        <asp:BoundField DataField="VideoLocation" HeaderText="<%$Resources:HomeView.aspx,VideoLocation %>" SortExpression="VideoLocation" />
+                        <asp:TemplateField HeaderText="<%$Resources:HomeView.aspx,Orchestra %>" SortExpression="OfficialName">
                             <EditItemTemplate>
                                 <asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID" SelectedValue='<%#Bind("OrchestraID")%>'></asp:DropDownList>
                             </EditItemTemplate>
@@ -244,7 +231,7 @@ where ID=@ID">
                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                     <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" Width="100%"  />
                     <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
                     <SortedAscendingCellStyle BackColor="#E9E7E2" />
                     <SortedAscendingHeaderStyle BackColor="#506C8C" />
@@ -253,36 +240,36 @@ where ID=@ID">
                 </asp:GridView>
             </div>
 
-            
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Photo</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
 
-                                <div class="form-group" style="text-align: center;">
-                                    <asp:Image runat="server" ID="modalImageContainer" Width="20em" Height="20em" />
-                                </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle"><%= Resources.HomeView.aspx.PhotoAd %></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
 
-                                <div class="form-group">
-                                    <label for="exampleFormControlTextarea1">Change</label>
-                                    <asp:FileUpload ID="FileUpload2" runat="server" Style="display: inline" />
-                                </div>
+                            <div class="form-group" style="text-align: center;">
+                                <asp:Image runat="server" ID="modalImageContainer" Width="20em" Height="20em" />
+                            </div>
 
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1"><%= Resources.HomeView.aspx.Change %></label>
+                                <asp:FileUpload ID="FileUpload2" runat="server" Style="display: inline" />
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <asp:Button runat="server" type="button" class="btn btn-primary" Text="Save changes" OnClick="buttonChangeImage" ID="btnsaveimagechange" />
-                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= Resources.HomeView.aspx.Close %></button>
+                            <asp:Button runat="server" type="button" class="btn btn-primary" Text="<%$Resources:HomeView.aspx,Save %>" OnClick="buttonChangeImage" ID="btnsaveimagechange" />
                         </div>
                     </div>
                 </div>
+            </div>
 
         </ContentTemplate>
 
@@ -310,27 +297,23 @@ where ID=@ID">
     </script>
 
     <style>
-        .GridViewEditRow {
-            width: 200px;
+        .GridViewEditRow input[type=text] {
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: #555555;
+            vertical-align: middle;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+            transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
         }
-
-            .GridViewEditRow input[type=text] {
-                display: block;
-                /*width: 100%;*/
-                height: 34px;
-                padding: 6px 12px;
-                font-size: 14px;
-                line-height: 1.428571429;
-                color: #555555;
-                vertical-align: middle;
-                background-color: #ffffff;
-                border: 1px solid #cccccc;
-                border-radius: 4px;
-                -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-                -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-                transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-            }
 
         .shadowedPanel {
             border: 1px solid transparent;
