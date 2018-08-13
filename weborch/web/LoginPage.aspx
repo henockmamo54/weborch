@@ -12,16 +12,15 @@
                     <p id="profile-name" class="profile-name-card"></p>
                     <form class="form-signin" defaultbutton="Button1_signin">
                         <span id="reauth-email" class="reauth-email"></span>
-                        <asp:TextBox type="text" ID="inputEmail" class="form-control" placeholder="Email" required autofocus Style="margin-bottom: 0.7em;" runat="server"></asp:TextBox>
-                        <asp:TextBox type="password" ID="inputPassword" class="form-control" placeholder="Password" required Style="margin-bottom: 0.7em;" runat="server"></asp:TextBox>
+                        <asp:TextBox type="text" ID="inputEmail" class="form-control" placeholder="<%$Resources:HomeView.aspx,Email %>" required autofocus Style="margin-bottom: 0.7em;" runat="server"></asp:TextBox>
+                        <asp:TextBox type="password" ID="inputPassword" class="form-control" placeholder="<%$Resources:HomeView.aspx,Password %>" required Style="margin-bottom: 0.7em;" runat="server"></asp:TextBox>
 
                         <asp:Label Style="color: red" ID="Label1_warnningmessage" runat="server" Text="Label" Visible="false">Login not successful. please check your login information.</asp:Label>
                         <div id="remember" class="checkbox">
                             <label>
                                 <input type="checkbox">
                                 <asp:CheckBox ID="CheckBox1" runat="server" value="remember-me" />
-                                Remember me
-                   
+                                <%= Resources.HomeView.aspx.Rememberme %>
                             </label>
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </div>
@@ -29,8 +28,8 @@
 
                     </form>
                     <!-- /form -->
-                    <a href="#" class="forgot-password">Forgot the password?
-                <asp:LinkButton ID="LinkButton1" runat="server" OnClientClick='redirect()'>Sign Up</asp:LinkButton>
+                    <a href="#" class="forgot-password"><%= Resources.HomeView.aspx.Forgotthepassword %>
+                        <asp:LinkButton ID="LinkButton1" runat="server" OnClientClick='redirect()'><%= Resources.HomeView.aspx.SignUp %></asp:LinkButton>
                     </a>
                 </div>
                 <!-- /card-container -->
