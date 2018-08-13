@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="row">
-        <h3>Instrument data</h3>
+        <h3><%= Resources.HomeView.aspx.Instrumentdata %></h3>
 
         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
             <ContentTemplate>
@@ -14,7 +14,7 @@
 
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">English Name:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Name %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_inst_engname" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Korean Name:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.KoreanName %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_inst_korean_name" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Alias:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Alias %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_inst_alias" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Player:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Player %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_inst_player" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Group:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Group %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_inst_group" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Explanation:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Explanation %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_inst_explanation" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -66,7 +66,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Sound Clip Location:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.SoundClipLocation %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_inst_soundcliplocation" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Video Clip Location:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.VideoClipLocation %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_inst_videocliplocation" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Photo Location:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.PhotoLocation %>:</div>
                                     <div class="col-md-8">
                                         <%--<asp:TextBox ID="txt_inst_photolocation" runat="server" class="form-control"></asp:TextBox>--%>
                                         <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline; margin-bottom: 1em;" />
@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Remarks:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Remarks %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_inst_remarks" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -103,7 +103,7 @@
                             </div>
 
                             <div class="row col-md-12">
-                                <asp:Button ID="txt_addInstrument" CssClass="btn btn-primary pull-right" runat="server" Text="Register" OnClick="btn_instadd_Click" />
+                                <asp:Button ID="txt_addInstrument" CssClass="btn btn-primary pull-right" runat="server" Text="<%$Resources:HomeView.aspx,Register %>" OnClick="btn_instadd_Click" />
                             </div>
                         </div>
 
@@ -111,14 +111,14 @@
 
                 </div>
                 <hr />
-                <div class="row listviewwithedit">
+                <div class="row listviewwithedit" >
 
-                    <div class="row form-group">
                         <span class='input-group-addon'>
                             <asp:Label runat="server" Style="padding: 5px;">Name:</asp:Label>
                             <asp:TextBox ID="TextBox1_serachinstrument" Style="display: inline;" class="form-control" runat="server" OnTextChanged="TextBox1_serachinstrument_TextChanged" AutoPostBack="True"></asp:TextBox>
                             <i class='glyphicon glyphicon-search' style="padding: 5px;"></i>
                         </span>
+                    <div style="overflow-x: scroll;">
 
                         <asp:SqlDataSource ID="SqlDataSource1_Instrumentlist" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" DeleteCommand="delete Core.Instrument
 where ID=@ID"
@@ -178,7 +178,7 @@ where ID=@ID
                                 <asp:Parameter Name="ID" />
                             </UpdateParameters>
                         </asp:SqlDataSource>
-                        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlDataSource1_Instrumentlist" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="ID" OnRowEditing="GridView1_RowEditing">
+                        <asp:GridView ID="GridView1" style="overflow-x: scroll; width:2000px;" runat="server" AllowPaging="True" AllowSorting="True" DataSourceID="SqlDataSource1_Instrumentlist" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="ID" OnRowEditing="GridView1_RowEditing">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True"
@@ -190,25 +190,25 @@ where ID=@ID
                                     <ControlStyle Height="20px" Width="20px" />
                                     <ItemStyle Wrap="False" />
                                 </asp:CommandField>
-                                <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
-                                <asp:BoundField DataField="EnglishName" HeaderText="EnglishName" SortExpression="EnglishName" />
-                                <asp:BoundField DataField="KoreanName" HeaderText="KoreanName" SortExpression="KoreanName" />
-                                <asp:BoundField DataField="Alias" HeaderText="Alias" SortExpression="Alias" />
-                                <asp:BoundField DataField="Player" HeaderText="Player" SortExpression="Player" />
-                                <asp:BoundField DataField="Group" HeaderText="Group" SortExpression="Group" />
-                                <asp:BoundField DataField="Explanation" HeaderText="Explanation" SortExpression="Explanation" />
-                                <asp:BoundField DataField="SoundClipLocation" HeaderText="SoundClipLocation" SortExpression="SoundClipLocation" />
-                                <asp:BoundField DataField="VideoClipLocation" HeaderText="VideoClipLocation" SortExpression="VideoClipLocation" />
-                                <asp:TemplateField HeaderText="PhotoLocation" SortExpression="PhotoLocation">
+                                <asp:BoundField DataField="ID" HeaderText="<%$Resources:HomeView.aspx,ID %>" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+                                <asp:BoundField DataField="EnglishName" HeaderText="<%$Resources:HomeView.aspx,Name %>" SortExpression="EnglishName" />
+                                <asp:BoundField DataField="KoreanName" HeaderText="<%$Resources:HomeView.aspx,KoreanName %>" SortExpression="KoreanName" />
+                                <asp:BoundField DataField="Alias" HeaderText="<%$Resources:HomeView.aspx,Alias %>" SortExpression="Alias" />
+                                <asp:BoundField DataField="Player" HeaderText="<%$Resources:HomeView.aspx,Player %>" SortExpression="Player" />
+                                <asp:BoundField DataField="Group" HeaderText="<%$Resources:HomeView.aspx,Group %>" SortExpression="Group" />
+                                <asp:BoundField DataField="Explanation" HeaderText="<%$Resources:HomeView.aspx,Explanation %>" SortExpression="Explanation" />
+                                <asp:BoundField DataField="SoundClipLocation" HeaderText="<%$Resources:HomeView.aspx,SoundClipLocation %>" SortExpression="SoundClipLocation" />
+                                <asp:BoundField DataField="VideoClipLocation" HeaderText="<%$Resources:HomeView.aspx,VideoClipLocation %>" SortExpression="VideoClipLocation" />
+                                <asp:TemplateField HeaderText="<%$Resources:HomeView.aspx,PhotoLocation %>" SortExpression="PhotoLocation">
                                     <EditItemTemplate>
                                         <%--<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("PhotoLocation") %>'></asp:TextBox>--%>
-                                        <asp:Button ID="editButton" CssClass="btn btn-info" runat="server" Text='<%# Bind("PhotoLocation") %>' data-toggle="modal" data-target="#exampleModalLong" />
+                                        <asp:Button ID="editButton" CssClass="btn btn-info" runat="server" Text='<%$Resources:HomeView.aspx,Change %>' data-toggle="modal" data-target="#exampleModalLong" />
                                     </EditItemTemplate>
                                     <ItemTemplate>
                                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("PhotoLocation") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="Remarks" HeaderText="Remarks" SortExpression="Remarks" />
+                                <asp:BoundField DataField="Remarks" HeaderText="<%$Resources:HomeView.aspx,Remarks %>" SortExpression="Remarks" />
                             </Columns>
                             <EditRowStyle BackColor="#e2e2e2" CssClass="GridViewEditRow" />
                             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

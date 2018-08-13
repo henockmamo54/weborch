@@ -23,57 +23,28 @@
                                         <tr>
                                             <img src="Document/<%#Eval("ImageUrl") %>" style="width: 100%" />
                                         </tr>
-                                        <%--<tr>
-                                            <th colspan="2">ID <%#Eval("ID") %> </th>
-                                        </tr>--%>
                                         <tr>
                                             <br />
-                                            <%--<td>MSG</td>--%>
                                             <td style="width: 100%"><%#Eval("MSG") %></td>
                                         </tr>
                                         <tr>
-                                            <%--<td>URL</td>--%>
-                                            <%--<td><%#Eval("URL") %></td>--%>
                                             <td>
                                                 <a href="//<%#Eval("URL") %>" target="_blank"><%= Resources.HomeView.aspx.ReadMore %></a>
                                             </td>
                                         </tr>
-                                        <%--<tr>
-                                            <td>Image</td>
-                                            <td><%#Eval("ImageUrl") %></td>
-                                        </tr>--%>
-                                        <%--<tr>
-                                            <td>Date</td>
-                                            <td><%#Eval("TimeStamp") %></td>
-                                        </tr>--%>
-                                        <%--<tr><td>Date of Examination</td><td><%#Eval("D_O_E") %></td></tr>
-          <tr><td>Department</td><td><%#Eval("Department") %></td></tr>--%>
-                                    </table>
-                                    <%--<hr style="margin: 0.5em; border-top: 1px solid #dedada;" />--%>
-                                    <%--<button class="social-like" style="margin-left: 0.3em;" runat="server"  onclick="LikeClicked">
-                                        <span class="like" ><i class="glyphicon glyphicon-thumbs-up"></i></span>
-                                        <span class="count">15</span>
-                                    </button>
-                                    &nbsp;
-                                    <button class="social-dislike">
-                                        <span class="dislike">10</span>
-                                        <span class="like"><i class="glyphicon glyphicon-thumbs-down"></i></span>
-                                    </button>--%>
-
+                                    </table>                                    
 
                                     <hr style="margin: 0.5em; border-top: 1px solid #dedada;" />
                                     <div class="social-like testhover" style="margin-left: 1.2em; margin-right: 0.5em;" runat="server">
-                                        <asp:ImageButton ImageUrl="~/Document/l.png" Width="40px" runat="server" ID="likebutton" Text="Like" 
+                                        <asp:ImageButton ImageUrl="~/Document/l.png" Width="20px" runat="server" ID="likebutton" Text="Like" 
                                             OnCommand="LikeClicked" CommandName="MyUpdate" CommandArgument='<%#Eval("ID")  + "," +1 %>' />
-                                        <%--<span class="like"><i class="glyphicon glyphicon-thumbs-up" onclick="testfunc(<%#Eval("ID") %>,1)"></i></span>--%>
                                         <span class="count"><%#Eval("likecount") %></span>
                                     </div>
                                     &nbsp;
-                                    <div class="social-dislike testhover ">
-                                        <asp:ImageButton ImageUrl="~/Document/dl.png" Width="40px" runat="server" ID="dislikebutton" Text="DisLike"  
-                                            OnCommand="LikeClicked" CommandName="MyUpdate" CommandArgument='<%#Eval("ID")  + ", -1" %>' />                                        
-                                        <span class="dislike"><%#Eval("dislikecount") %></span>
-                                        <%--<span class="like"><i class="glyphicon glyphicon-thumbs-down" onclick="testfunc(<%#Eval("ID") %>,-1)"></i></span>--%>
+                                    <div class="social-dislike testhover ">                          
+                                        <asp:ImageButton ImageUrl="~/Document/dl.png" Width="20px" runat="server" ID="dislikebutton" Text="DisLike"  
+                                            OnCommand="LikeClicked" CommandName="MyUpdate" CommandArgument='<%#Eval("ID")  + ", -1" %>' />            
+                                        <span class="dislike"><%#Eval("dislikecount") %></span>  
                                     </div>
 
 
@@ -274,7 +245,7 @@
             font-size: 16px;
             width: 45%;
             /*background-color: #8dbd64;*/
-            background-color: #e0e0e0;
+            /*background-color: #e0e0e0;*/
             color: #fff;
             display: inline-table;
         }
@@ -308,11 +279,11 @@
         }
 
         .testhover:hover {
-            background-color: #cccaca;
+            /*background-color: #cccaca;*/
         }
 
         .dislike {
-            margin-left: -13px;
+            /*margin-left: -13px;*/
         }
 
         .count {

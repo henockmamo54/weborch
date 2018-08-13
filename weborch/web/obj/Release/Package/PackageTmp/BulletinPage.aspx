@@ -35,7 +35,7 @@
                                             <%--<td>URL</td>--%>
                                             <%--<td><%#Eval("URL") %></td>--%>
                                             <td>
-                                                <a href="//<%#Eval("URL") %>" target="_blank">Read More</a>
+                                                <a href="//<%#Eval("URL") %>" target="_blank"><%= Resources.HomeView.aspx.ReadMore %></a>
                                             </td>
                                         </tr>
                                         <%--<tr>
@@ -83,7 +83,7 @@
                                         <asp:Image ID="Image1" runat="server"
                                             ImageUrl="https://myspace.com/common/images/user.png"
                                             Style="width: 30px; height: 30px; border-radius: 50%; margin-top: 0.2em;" />
-                                        <asp:Button ID="btnComment" Text="Comment" runat="server" OnCommand="btnComment_Click" CommandName="MyUpdate" CommandArgument='<%#Eval("ID") %>'
+                                        <asp:Button ID="btnComment" Text="<%$Resources:HomeView.aspx,Comment %>" runat="server" OnCommand="btnComment_Click" CommandName="MyUpdate" CommandArgument='<%#Eval("ID") %>'
                                             Style="background-color: #4a90ce; border: 1px solid #4a90ce; padding: 7px 25px; border-radius: 5px; color: #fff; float: right; margin-top: 0.2em; margin-bottom: 0.2em;" />
                                     </div>
 
@@ -108,8 +108,8 @@
                                                                 <asp:Label ID="lblCommentMessage" runat="server" Text='<% #Eval("Username") %>'></asp:Label><br />
                                                                 <asp:Label ID="Label1" runat="server" Text='<% #Eval("CommentMessage") %>'></asp:Label><br />
                                                                 <asp:Label ID="lbldatetime" runat="server" Text='<% #Eval("CommentDate") %>'> date</asp:Label><br />
-                                                                <a class="link" id='lnkReplyParent<%# Eval("ID") %>' href="javascript:void(0)" onclick="showReply(<%# Eval("ID") %>); return false;">Reply</a>&nbsp;
-       <a class="link" id="lnkCancel" href="javascript:void(0)" onclick="closeReply(<%# Eval("ID") %>); return false;">Cancel</a>
+                                                                <a class="link" id='lnkReplyParent<%# Eval("ID") %>' href="javascript:void(0)" onclick="showReply(<%# Eval("ID") %>); return false;"><%= Resources.HomeView.aspx.Reply %></a>&nbsp;
+       <a class="link" id="lnkCancel" href="javascript:void(0)" onclick="closeReply(<%# Eval("ID") %>); return false;"><%= Resources.HomeView.aspx.Cancel %></a>
 
                                                                 <asp:Repeater ID="detailRepeater" runat="server">
 
@@ -126,8 +126,8 @@
                                                                                         <asp:Label ID="Label2" runat="server" Text='<% #Eval("Username") %>'></asp:Label><br />
                                                                                         <asp:Label ID="lblCommentMessage" runat="server" Text='<% #Eval("CommentMessage") %>'></asp:Label><br />
                                                                                         <asp:Label ID="lbldatetime" runat="server" Text='<% #Eval("CommentDate") %>'> date</asp:Label><br />
-                                                                                        <a class="link" id='lnkReplyParent<%# Eval("ID") %>' href="javascript:void(0)" onclick="showReply(<%# Eval("ID") %>+'c'); return false;">Reply</a>
-                                                                                        <a class="link" id="lnkCancel" href="javascript:void(0)" onclick="closeReply(<%# Eval("ID") %>+'c'); return false;">Cancel</a>
+                                                                                        <a class="link" id='lnkReplyParent<%# Eval("ID") %>' href="javascript:void(0)" onclick="showReply(<%# Eval("ID") %>+'c'); return false;"><%= Resources.HomeView.aspx.Reply %></a>
+                                                                                        <a class="link" id="lnkCancel" href="javascript:void(0)" onclick="closeReply(<%# Eval("ID") %>+'c'); return false;"><%= Resources.HomeView.aspx.Cancel %></a>
 
                                                                                         <div id='divReply<%# Eval("ID") %>c' style="display: none; margin-top: 5px;">
                                                                                             <asp:TextBox ID="txtCommentReplyParent" runat="server" TextMode="MultiLine" Width="100%" Height="60px"></asp:TextBox>
@@ -168,40 +168,40 @@
                 <div class="col-md-4 pull-right panel panel-default" style="padding: 1em; box-shadow: 2px 2px 2px 2px #f5f5f5;">
 
                     <div class="col-md-12">
-                        <div class="col-md-2">
-                            Type:
+                        <div class="col-md-4">
+                            <%= Resources.HomeView.aspx.Type %>:
                         </div>
-                        <div class="col-md-10" style="padding-bottom: 1em;">
+                        <div class="col-md-8" style="padding-bottom: 1em;">
                             <asp:DropDownList CssClass="form-control" ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1BulletinType" DataTextField="Name" DataValueField="ID"></asp:DropDownList>
                             <asp:SqlDataSource ID="SqlDataSource1BulletinType" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [ID], [Name] FROM lookup.[BulletinType]"></asp:SqlDataSource>
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <div class="col-md-2">
-                            Msg:
+                        <div class="col-md-4">
+                            <%= Resources.HomeView.aspx.Msg %>:
                         </div>
-                        <div class="col-md-10" style="padding-bottom: 1em;">
+                        <div class="col-md-8" style="padding-bottom: 1em;">
 
                             <asp:TextBox CssClass="form-control" ID="txt_bulmsg" runat="server" TextMode="MultiLine"></asp:TextBox>
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <div class="col-md-2">
-                            URL:
+                        <div class="col-md-4">
+                            <%= Resources.HomeView.aspx.URL %>:
                         </div>
-                        <div class="col-md-10" style="padding-bottom: 1em;">
+                        <div class="col-md-8" style="padding-bottom: 1em;">
 
                             <asp:TextBox CssClass="form-control" ID="txt_bulurl" runat="server"></asp:TextBox>
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <div class="col-md-2">
-                            Image:                     
+                        <div class="col-md-4">
+                            <%= Resources.HomeView.aspx.Image %>:                     
                                 
                         </div>
-                        <div class="col-md-10" style="padding-bottom: 1em;">
+                        <div class="col-md-8" style="padding-bottom: 1em;">
                             <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline" />
-                            <asp:Button ID="addPost" CssClass="btn btn-info pull-right" runat="server" Text="Add" OnClick="Button1_Click" />
+                            <asp:Button ID="addPost" CssClass="btn btn-info pull-right" runat="server" Text="<%$Resources:HomeView.aspx,Add %>" OnClick="Button1_Click" />
                         </div>
                     </div>
 

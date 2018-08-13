@@ -3,35 +3,35 @@
      <asp:UpdatePanel runat="server" ID="updatepanel1">
         <ContentTemplate>
 
-            <h4>Sign Up</h4>
+            <h4><%= Resources.HomeView.aspx.SignUp %></h4>
             <div class="row">
                 <div class="col-md-2">
                     <ul class="list-group">
-                        <a class="list-group-item list-group-item-action active">Accept Terms</a>
-                        <a class="list-group-item list-group-item-action" href="UserInformationRegistrationPage.aspx" >User Info.</a>
+                        <a class="list-group-item list-group-item-action active"><%= Resources.HomeView.aspx.AcceptTerms %></a>
+                        <a class="list-group-item list-group-item-action" href="UserInformationRegistrationPage.aspx" ><%= Resources.HomeView.aspx.UserInfo %></a>
                     </ul>
                 </div>
                 <div class="col-md-10 " style="height: 250px;">
                    <div style="height:100px; " class="shadowedPanel">
-                       <h6><strong>Terms of use</strong></h6>
+                       <h6><strong><%= Resources.HomeView.aspx.Termsofuse %></strong></h6>
                    </div>
                     <div>
-                        <asp:CheckBox runat="server" ID="CheckBox1_terms" class="form-group pull-right" Text="Do you accept terms of use ?"/>
+                        <asp:CheckBox runat="server" ID="CheckBox1_terms" class="form-group pull-right" Text="<%$Resources:HomeView.aspx,Doyouaccepttermsofuse %>"/>
                         <br />
                     </div>
                     <br />
                    <div style="height:100px; " class="shadowedPanel">
-                       <h6><strong>Privacy Policy</strong></h6>
+                       <h6><strong><%= Resources.HomeView.aspx.PrivacyPolicy %></strong></h6>
                    </div>
                     
                     <div>
-                        <asp:CheckBox runat="server" ID="CheckBox1_privacy" class="form-group pull-right" Text="Do you accept privacy policy ?"/>
+                        <asp:CheckBox runat="server" ID="CheckBox1_privacy" class="form-group pull-right" Text="<%$Resources:HomeView.aspx,Doyouacceptprivacypolicy %>"/>
                         <br />
                     </div>
 
                 </div>
                 <div class="col-md-12 pull-right" style="text-align: center;">
-                            <asp:Button ID="txt_addInstrument" CssClass="btn btn-success " runat="server" Text="Continue" OnClick="btn_continueclicked" />
+                            <asp:Button ID="txt_addInstrument" CssClass="btn btn-success " runat="server" Text="<%$Resources:HomeView.aspx,Continue %>" OnClick="btn_continueclicked" />
                         </div>
             </div>
 
