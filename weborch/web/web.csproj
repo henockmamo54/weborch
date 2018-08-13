@@ -409,15 +409,20 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\HomeView.aspx.ko-KR.designer.cs">
+      <DependentUpon>HomeView.aspx.ko-KR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="App_GlobalResources\HomeView.aspx.designer.cs">
       <DependentUpon>HomeView.aspx.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="App_GlobalResources\HomeView.aspx.ko-KR.designer.cs">
+    <Compile Include="App_GlobalResources\HomeView.aspx2.ko-KR.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HomeView.aspx.ko-KR.resx</DependentUpon>
+      <DependentUpon>HomeView.aspx2.ko-KR.resx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="ArtistPage.aspx.cs">
@@ -671,15 +676,21 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\HomeView.aspx.ko-KR.resx">
+    <Content Include="App_GlobalResources\HomeView.aspx2.ko-KR.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>HomeView.aspx.ko-KR.designer.cs</LastGenOutput>
+      <LastGenOutput>HomeView.aspx2.ko-KR.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\HomeView.aspx.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>HomeView.aspx.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\HomeView.aspx.ko-KR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>HomeView.aspx.ko-KR.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <PropertyGroup>

@@ -117,37 +117,343 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AcceptTerms" xml:space="preserve">
+    <value>약관 동의</value>
+  </data>
+  <data name="AClassicalPerformanceArchives" xml:space="preserve">
+    <value>클래식 공연 기록관</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>추가</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>주소</value>
+  </data>
+  <data name="AdminEmail" xml:space="preserve">
+    <value>관리자 이메일</value>
+  </data>
+  <data name="AdminMobileNo" xml:space="preserve">
+    <value>관리자 핸드폰 번호</value>
+  </data>
+  <data name="AdminName" xml:space="preserve">
+    <value>관리자 이름</value>
+  </data>
+  <data name="Affiliation" xml:space="preserve">
+    <value>소속</value>
+  </data>
+  <data name="Agent" xml:space="preserve">
+    <value>중개사(에이전트)</value>
+  </data>
+  <data name="Alias" xml:space="preserve">
+    <value>별칭</value>
+  </data>
   <data name="AllClassicKorea" xml:space="preserve">
-    <value>AllClassicKorea</value>
+    <value>AllClassic Korea</value>
   </data>
   <data name="Artist" xml:space="preserve">
     <value>연주자</value>
   </data>
+  <data name="Artistdata" xml:space="preserve">
+    <value>연주자 정보</value>
+  </data>
+  <data name="Artists" xml:space="preserve">
+    <value>연주자</value>
+  </data>
+  <data name="Audience" xml:space="preserve">
+    <value>관객</value>
+  </data>
+  <data name="Bio" xml:space="preserve">
+    <value>이력</value>
+  </data>
+  <data name="Birthday" xml:space="preserve">
+    <value>생일</value>
+  </data>
   <data name="Bulletin" xml:space="preserve">
     <value>담벼락</value>
   </data>
+  <data name="BussinessNo" xml:space="preserve">
+    <value>사업자 번호</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>취소</value>
+  </data>
+  <data name="CEOName" xml:space="preserve">
+    <value>대표자 이름</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>한줄평</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>회사</value>
+  </data>
+  <data name="CompanyHomeUrl" xml:space="preserve">
+    <value>회사 홈페이지 주소</value>
+  </data>
+  <data name="CompanyName" xml:space="preserve">
+    <value>회사 이름</value>
+  </data>
+  <data name="Composer" xml:space="preserve">
+    <value>작곡가</value>
+  </data>
+  <data name="ConcertHall" xml:space="preserve">
+    <value>공연장</value>
+  </data>
+  <data name="Conductor" xml:space="preserve">
+    <value>지휘자</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>계속</value>
+  </data>
+  <data name="Doyouacceptprivacypolicy" xml:space="preserve">
+    <value>개인정보 처리 방침에 동의합니까?</value>
+  </data>
+  <data name="Doyouaccepttermsofuse" xml:space="preserve">
+    <value>이용약관에 동의합니까?</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>이메일</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>종료일</value>
+  </data>
+  <data name="Explanation" xml:space="preserve">
+    <value>설명</value>
+  </data>
+  <data name="FacebookAddr" xml:space="preserve">
+    <value>페이스북 주소</value>
+  </data>
+  <data name="FamilyName" xml:space="preserve">
+    <value>성</value>
+  </data>
+  <data name="FaxNo" xml:space="preserve">
+    <value>팩스번호</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>여성</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>이름</value>
+  </data>
+  <data name="Forgotthepassword" xml:space="preserve">
+    <value>비밀번호를 잊어버렸습니까?</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>그룹</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>아이디</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>사진</value>
+  </data>
+  <data name="Individual" xml:space="preserve">
+    <value>개인</value>
+  </data>
   <data name="Instrument" xml:space="preserve">
+    <value>악기</value>
+  </data>
+  <data name="Instrumentdata" xml:space="preserve">
+    <value>악기 정보</value>
+  </data>
+  <data name="Instruments" xml:space="preserve">
     <value>악기</value>
   </data>
   <data name="Introduction" xml:space="preserve">
     <value>소개(인사말)</value>
   </data>
-  <data name="label1" xml:space="preserve">
-    <value>hi henock korean</value>
+  <data name="KakaoTalkID" xml:space="preserve">
+    <value>카카오톡 아이디</value>
   </data>
-  <data name="MyPage" xml:space="preserve">
-    <value>마이페이지</value>
+  <data name="KoreanName" xml:space="preserve">
+    <value>한글 이름</value>
+  </data>
+  <data name="label1" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>공연 장소(위치)</value>
+  </data>
+  <data name="MajorInstrument1" xml:space="preserve">
+    <value>전공 악기 1</value>
+  </data>
+  <data name="MajorInstrument2" xml:space="preserve">
+    <value>전공 악기 2</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>남성</value>
+  </data>
+  <data name="MiddleName" xml:space="preserve">
+    <value>중간 이름</value>
+  </data>
+  <data name="MobileNo" xml:space="preserve">
+    <value>휴대폰번호</value>
+  </data>
+  <data name="Msg" xml:space="preserve">
+    <value>메세지</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>이름</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>신규</value>
   </data>
   <data name="Orchestra" xml:space="preserve">
     <value>악단</value>
   </data>
+  <data name="Orchestradata" xml:space="preserve">
+    <value>악단 정보</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>기타</value>
+  </data>
+  <data name="OtherInfo" xml:space="preserve">
+    <value>기타 정보</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>암호</value>
+  </data>
   <data name="Performance" xml:space="preserve">
     <value>공연</value>
+  </data>
+  <data name="PerformanceTitle" xml:space="preserve">
+    <value>공연 제목</value>
+  </data>
+  <data name="PersonalInfo" xml:space="preserve">
+    <value>개인 정보</value>
+  </data>
+  <data name="PhoneNo" xml:space="preserve">
+    <value>전화번호</value>
+  </data>
+  <data name="Photo1" xml:space="preserve">
+    <value>사진1</value>
+  </data>
+  <data name="Photo2" xml:space="preserve">
+    <value>사진2</value>
+  </data>
+  <data name="PhotoAd" xml:space="preserve">
+    <value>광고 파일</value>
+  </data>
+  <data name="PhotoAdLocation" xml:space="preserve">
+    <value>포스터 파일 위치</value>
+  </data>
+  <data name="PhotoLocation" xml:space="preserve">
+    <value>사진 위치</value>
+  </data>
+  <data name="Playedby" xml:space="preserve">
+    <value>연주한 사람:</value>
+  </data>
+  <data name="Player" xml:space="preserve">
+    <value>연주자</value>
+  </data>
+  <data name="PrivacyPolicy" xml:space="preserve">
+    <value>개인정보처리방침</value>
+  </data>
+  <data name="ProfilePage" xml:space="preserve">
+    <value>프로필 화면</value>
+  </data>
+  <data name="Promoter" xml:space="preserve">
+    <value>기획사</value>
+  </data>
+  <data name="ReadMore" xml:space="preserve">
+    <value>더 보기</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>등록</value>
+  </data>
+  <data name="Remarks" xml:space="preserve">
+    <value>참조</value>
+  </data>
+  <data name="Rememberme" xml:space="preserve">
+    <value>기억하기</value>
+  </data>
+  <data name="Repertory" xml:space="preserve">
+    <value>레파토리</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>답장하기</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>검색</value>
+  </data>
+  <data name="Sex" xml:space="preserve">
+    <value>성별</value>
+  </data>
+  <data name="ShopOwner" xml:space="preserve">
+    <value>상점 주인</value>
   </data>
   <data name="SignIn" xml:space="preserve">
     <value>로그인</value>
   </data>
   <data name="SignOut" xml:space="preserve">
     <value>로그 아웃</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>회원가입</value>
+  </data>
+  <data name="Since" xml:space="preserve">
+    <value>설립(창단)일</value>
+  </data>
+  <data name="SoundClipLocation" xml:space="preserve">
+    <value>사운드 클립 위치</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>시작일</value>
+  </data>
+  <data name="Student" xml:space="preserve">
+    <value>학생</value>
+  </data>
+  <data name="Teacher_Professor" xml:space="preserve">
+    <value>선생/교수</value>
+  </data>
+  <data name="TelNO" xml:space="preserve">
+    <value>전화번호</value>
+  </data>
+  <data name="Termsofuse" xml:space="preserve">
+    <value>이용약관</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>공연시간</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>제목</value>
+  </data>
+  <data name="TwitterAddr" xml:space="preserve">
+    <value>트위터 주소</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>유형</value>
+  </data>
+  <data name="URL" xml:space="preserve">
+    <value>홈페이지 주소</value>
+  </data>
+  <data name="UserInfo" xml:space="preserve">
+    <value>이용자 정보</value>
+  </data>
+  <data name="VideoAd" xml:space="preserve">
+    <value>동영상 광고</value>
+  </data>
+  <data name="VideoClipLocation" xml:space="preserve">
+    <value>비디오 클립 위치:</value>
+  </data>
+  <data name="VideoLocation" xml:space="preserve">
+    <value>동영상 위치</value>
+  </data>
+  <data name="WhatkindOfArtistAreyou" xml:space="preserve">
+    <value>당신은 어떤 분야입니까?</value>
+  </data>
+  <data name="WhatkindOfUserAreyou" xml:space="preserve">
+    <value>당신은 어떤 유형의 이용자입니까?</value>
+  </data>
+  <data name="YourAffilation" xml:space="preserve">
+    <value>너의 소속</value>
+  </data>
+  <data name="ZipCode" xml:space="preserve">
+    <value>우편번호</value>
+  </data>
+  <data name="Endorser" xml:space="preserve">
+    <value>인증자</value>
+  </data>
+  <data name="MyPage" xml:space="preserve">
+    <value>마이페이지</value>
   </data>
 </root>
