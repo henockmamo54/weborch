@@ -419,11 +419,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="App_GlobalResources\HomeView.aspx2.ko-KR.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HomeView.aspx2.ko-KR.resx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="ArtistPage.aspx.cs">
       <DependentUpon>ArtistPage.aspx</DependentUpon>
@@ -674,12 +669,6 @@
       <Project>{c1ce6b19-9c17-47a1-b1d6-fc64f611326e}</Project>
       <Name>DataAccess</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\HomeView.aspx2.ko-KR.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>HomeView.aspx2.ko-KR.designer.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\HomeView.aspx.resx">

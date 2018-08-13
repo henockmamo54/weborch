@@ -456,4 +456,7 @@
   <data name="MyPage" xml:space="preserve">
     <value>My Page</value>
   </data>
+  <data name="Notice" xml:space="preserve">
+    <value>Notice</value>
+  </data>
 </root>
