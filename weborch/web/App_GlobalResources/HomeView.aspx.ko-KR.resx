@@ -465,6 +465,9 @@
   <data name="Close" xml:space="preserve">
     <value>닫기</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>지우다</value>
+  </data>
   <data name="Save" xml:space="preserve">
     <value>구하다</value>
   </data>

@@ -20,7 +20,7 @@
 
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">First Name:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.FirstName %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_artist_firstname" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Family Name:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.FamilyName %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_artist_familyname" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Middle Name:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.MiddleName %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_artist_middlename" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Birth date:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Birthday %>:</div>
                                     <div class="col-md-8">
                                         <%--<asp:TextBox ID="txt_artist_birthdate" runat="server" class="form-control" ToolTip="dd/mm/yyyy"></asp:TextBox>--%>
                                         <div class='input-group date' id='datetimepicker2' style="display: flex;">
@@ -61,7 +61,7 @@
 
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Address:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Address %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_artist_address" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -70,7 +70,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Zip Code:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.ZipCode %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_artist_zipcode" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -79,7 +79,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Tel. No:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.TelNO %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_artist_teleno" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Mobile No:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.MobileNo %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_artist_mobileno" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -97,7 +97,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Fax No:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.FaxNo %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_aritist_faxno" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -106,7 +106,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Remarks:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Remarks %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_artist_remark" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -118,7 +118,7 @@
 
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Kakao Talk ID:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.KakaoTalkID %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="ukakao" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -126,7 +126,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Facebook Addr.:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.FacebookAddr %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="ufacebookadd" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -134,7 +134,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Twitter Addr.:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.TwitterAddr %>:</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="utwitter" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -142,7 +142,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Photo 1:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Photo1 %>:</div>
                                     <div class="col-md-8">
                                         <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline; display: inline; padding-left: 0; padding-right: 0; border: none; box-shadow: none;"
                                             class="form-control" />
@@ -152,7 +152,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4">Photo 2:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Photo2 %>:</div>
                                     <div class="col-md-8">
                                         <asp:FileUpload ID="FileUpload2" runat="server" Style="display: inline; display: inline; padding-left: 0; padding-right: 0; border: none; box-shadow: none;"
                                             class="form-control" />
@@ -162,7 +162,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <br />
-                                    <div class="col-md-3">Profile Page.:</div>
+                                    <div class="col-md-3"><%= Resources.HomeView.aspx.ProfilePage %>:</div>
                                     <div class="col-md-9">
                                         <asp:TextBox ID="uprofilepage" runat="server" class="form-control" TextMode="MultiLine" Rows="3"></asp:TextBox>
                                     </div>
@@ -170,7 +170,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <br />
-                                    <div class="col-md-3">Repertory.:</div>
+                                    <div class="col-md-3"><%= Resources.HomeView.aspx.Repertory %>:</div>
                                     <div class="col-md-9">
                                         <asp:TextBox ID="urepertory" runat="server" class="form-control" TextMode="MultiLine" Rows="3"></asp:TextBox>
                                     </div>
@@ -183,7 +183,7 @@
                                 <hr />
                                 <div class="col-md-6">
                                     <div class="col-md-4">
-                                        <asp:Label runat="server"><strong>Endorser:</strong></asp:Label>
+                                        <asp:Label runat="server"><strong><%= Resources.HomeView.aspx.Endorser %>:</strong></asp:Label>
                                     </div>
                                     <div class="col-md-4">
 
@@ -192,8 +192,8 @@
 
                                     </div>
                                     <div class="col-md-4">
-                                        <asp:Button ID="Button5" CssClass="btn btn-sm btn-warning" Style="margin-left: 3px !important;" runat="server" Text="Add" OnClick="btn_add_endorser_tolist" />
-                                        <asp:Button ID="Button1" CssClass="btn btn-sm btn-success" Style="margin-left: 3px !important;" runat="server" Text="New" data-toggle="modal" data-target="#exampleModalLong" />
+                                        <asp:Button ID="Button5" CssClass="btn btn-sm btn-warning" Style="margin-left: 3px !important;" runat="server" Text="<%$Resources:HomeView.aspx,Add %>" OnClick="btn_add_endorser_tolist" />
+                                        <asp:Button ID="Button1" CssClass="btn btn-sm btn-success" Style="margin-left: 3px !important;" runat="server" Text="<%$Resources:HomeView.aspx,New %>" data-toggle="modal" data-target="#exampleModalLong" />
                                     </div>
 
                                 </div>
@@ -202,7 +202,7 @@
                                     <asp:Repeater runat="server" ID="myendorsmentlist">
                                         <ItemTemplate>
                                             <tr style="margin-bottom: 3px;">
-                                                <asp:Button runat="server" AutoPostBack="True" CommandArgument='<%#Eval("ID")%>' Text="Delete" OnClick="btn_remove_endorser_tolist"></asp:Button>
+                                                <asp:Button runat="server" AutoPostBack="True" CommandArgument='<%#Eval("ID")%>' Text="<%$Resources:HomeView.aspx,Delete %>" OnClick="btn_remove_endorser_tolist"></asp:Button>
                                                 <td>
                                                     <asp:Label runat="server" ID="Label1" Text='<%# Eval("Name") %>' />
                                                     - 
@@ -222,14 +222,14 @@
                             <hr />
 
                             <div class="rwo">
-                                <label><strong>What kind Of Artist Are you?</strong></label>
+                                <label><strong><%= Resources.HomeView.aspx.WhatkindOfArtistAreyou %></strong></label>
                                 <div class="col-md-12 form-group">
                                     <br />
-                                    <asp:CheckBox runat="server" ID="chk_Composer" Text="Composer" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
-                                    <asp:CheckBox runat="server" ID="chk_Conductor" Text="Conductor" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
-                                    <asp:CheckBox runat="server" ID="chk_tp" Text="Teacher/Professor" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
-                                    <asp:CheckBox runat="server" ID="chk_Student" Text="Student" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
-                                    <asp:CheckBox runat="server" ID="chk_player" Text="Player" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                                    <asp:CheckBox runat="server" ID="chk_Composer" Text="<%$Resources:HomeView.aspx,Composer %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                                    <asp:CheckBox runat="server" ID="chk_Conductor" Text="<%$Resources:HomeView.aspx,Conductor %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                                    <asp:CheckBox runat="server" ID="chk_tp" Text="<%$Resources:HomeView.aspx,Teacher_Professor %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                                    <asp:CheckBox runat="server" ID="chk_Student" Text="<%$Resources:HomeView.aspx,Student %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                                    <asp:CheckBox runat="server" ID="chk_player" Text="<%$Resources:HomeView.aspx,Player %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
                                 </div>
                             </div>
 
@@ -240,13 +240,13 @@
                                     <div class="col-md-4">
                                         <br />
                                         <div class="col-md-4">
-                                            <asp:Label runat="server"><strong>Instrument</strong></asp:Label>
+                                            <asp:Label runat="server"><strong><%= Resources.HomeView.aspx.Instrument %></strong></asp:Label>
                                         </div>
                                         <div class="col-md-4">
                                             <asp:DropDownList class="form-control" runat="server" ID="DropDownList1_InstrumentInTheMain" AutoPostBack="True" DataSourceID="SqlDataSource3_instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
                                         </div>
                                         <div class="col-md-4">
-                                            <asp:Button ID="btn_add_Inst" CssClass="btn btn-sm btn-info" runat="server" Text="Add" OnClick="btn_add_Inst_Click" />
+                                            <asp:Button ID="btn_add_Inst" CssClass="btn btn-sm btn-info" runat="server" Text="<%$Resources:HomeView.aspx,Add %>" OnClick="btn_add_Inst_Click" />
                                         </div>
 
                                     </div>
@@ -256,7 +256,7 @@
                                     <asp:Repeater runat="server" ID="myinstrepeater">
                                         <ItemTemplate>
                                             <tr style="margin-bottom: 3px;">
-                                                <asp:Button runat="server" AutoPostBack="True" CommandArgument='<%#Eval("ID")%>' OnClick="removeinstrumentfrommyMainList" Text="Delete"></asp:Button>
+                                                <asp:Button runat="server" AutoPostBack="True" CommandArgument='<%#Eval("ID")%>' OnClick="removeinstrumentfrommyMainList" Text="<%$Resources:HomeView.aspx,Delete %>"></asp:Button>
                                                 <td>
                                                     <asp:Label runat="server" ID="Label1" Text='<%# Eval("EnglishName") %>' />
                                                 </td>
@@ -267,7 +267,7 @@
                                 </div>
                             </div>
                             <div class="row col-md-12">
-                                <asp:Button ID="btn_artist_add" CssClass="btn btn-primary pull-right" runat="server" Text="Register" OnClick="btn_artistadd_Click" />
+                                <asp:Button ID="btn_artist_add" CssClass="btn btn-primary pull-right" runat="server" Text="<%$Resources:HomeView.aspx,Register %>" OnClick="btn_artistadd_Click" />
                             </div>
 
                         </div>
@@ -278,14 +278,14 @@
                 <div class="row" style="margin-right: -15px; margin-left: -15px;">
                     <div class="col-md-12 form-group" style="margin-bottom: 0px; padding: 0px;">
                         <span class='input-group-addon'>
-                            <asp:Label runat="server" Style="padding: 5px;">Name:</asp:Label>
+                            <asp:Label runat="server" Style="padding: 5px;"><%= Resources.HomeView.aspx.Name %>:</asp:Label>
                             <asp:TextBox ID="TextBox1_serach" class="form-control" runat="server" Style="display: inline;" AutoPostBack="True" OnTextChanged="serachTextValueChanged"></asp:TextBox>
                             <i class='glyphicon glyphicon-search' style="padding: 5px;"></i>
                         </span>
 
                     </div>
 
-                    <div class="col-md-12" style="margin-bottom: 0px; padding: 0px;">
+                    <div class="col-md-12" style="margin-bottom: 0px; overflow-x: scroll; padding: 0px;">
 
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" DeleteCommand="Delete 
 Core.Artist
@@ -358,7 +358,7 @@ Where ID=@ID"
                             </UpdateParameters>
                         </asp:SqlDataSource>
 
-                        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowSorting="True" DataKeyNames="ID" OnRowEditing="GridView1_RowEditing">
+                        <asp:GridView ID="GridView1" runat="server" style="overflow-x: scroll; width:2000px;" AllowPaging="True" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowSorting="True" DataKeyNames="ID" OnRowEditing="GridView1_RowEditing">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <Columns>
                                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True"
@@ -372,40 +372,40 @@ Where ID=@ID"
                                     <HeaderStyle Width="90px" />
                                     <ItemStyle Width="90px" Wrap="False" />
                                 </asp:CommandField>
-                                <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
-                                <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
-                                <asp:BoundField DataField="FamilyName" HeaderText="FamilyName" SortExpression="FamilyName" />
-                                <asp:BoundField DataField="MiddleName" HeaderText="MiddleName" SortExpression="MiddleName" />
-                                <asp:BoundField DataField="BirthDate" HeaderText="BirthDate" SortExpression="BirthDate" />
-                                <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
-                                <asp:BoundField DataField="ZipCode" HeaderText="ZipCode" SortExpression="ZipCode" />
-                                <asp:BoundField DataField="TelNO" HeaderText="TelNO" SortExpression="TelNO" />
-                                <asp:BoundField DataField="MobileNO" HeaderText="MobileNO" SortExpression="MobileNO" />
-                                <asp:BoundField DataField="FaxNo" HeaderText="FaxNo" SortExpression="FaxNo" />
-                                <asp:BoundField DataField="Remar" HeaderText="Remar" SortExpression="Remar" />
-                                <asp:BoundField DataField="FacebookAddress" HeaderText="FacebookAddress" SortExpression="FacebookAddress" />
-                                <asp:BoundField DataField="TwitterAddress" HeaderText="TwitterAddress" SortExpression="TwitterAddress" />
-                                <asp:BoundField DataField="KakaoTalkAddress" HeaderText="KakaoTalkAddress" SortExpression="KakaoTalkAddress" />
-                                <asp:TemplateField HeaderText="Photo1" SortExpression="Photo1">
+                                <asp:BoundField DataField="ID" HeaderText="<%$Resources:HomeView.aspx,ID %>" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+                                <asp:BoundField DataField="FirstName" HeaderText="<%$Resources:HomeView.aspx,FirstName %>" SortExpression="FirstName" />
+                                <asp:BoundField DataField="FamilyName" HeaderText="<%$Resources:HomeView.aspx,FamilyName %>" SortExpression="FamilyName" />
+                                <asp:BoundField DataField="MiddleName" HeaderText="<%$Resources:HomeView.aspx,MiddleName %>" SortExpression="MiddleName" />
+                                <asp:BoundField DataField="BirthDate" HeaderText="<%$Resources:HomeView.aspx,BirthDay %>" SortExpression="BirthDate" />
+                                <asp:BoundField DataField="Address" HeaderText="<%$Resources:HomeView.aspx,Address %>" SortExpression="Address" />
+                                <asp:BoundField DataField="ZipCode" HeaderText="<%$Resources:HomeView.aspx,ZipCode %>" SortExpression="ZipCode" />
+                                <asp:BoundField DataField="TelNO" HeaderText="<%$Resources:HomeView.aspx,TelNO %>" SortExpression="TelNO" />
+                                <asp:BoundField DataField="MobileNO" HeaderText="<%$Resources:HomeView.aspx,MobileNO %>" SortExpression="MobileNO" />
+                                <asp:BoundField DataField="FaxNo" HeaderText="<%$Resources:HomeView.aspx,FaxNo %>" SortExpression="FaxNo" />
+                                <asp:BoundField DataField="Remar" HeaderText="<%$Resources:HomeView.aspx,Remarks %>" SortExpression="Remar" />
+                                <asp:BoundField DataField="FacebookAddress" HeaderText="<%$Resources:HomeView.aspx,FacebookAddr %>" SortExpression="FacebookAddress" />
+                                <asp:BoundField DataField="TwitterAddress" HeaderText="<%$Resources:HomeView.aspx,TwitterAddr %>" SortExpression="TwitterAddress" />
+                                <asp:BoundField DataField="KakaoTalkAddress" HeaderText="<%$Resources:HomeView.aspx,KakaoTalkID %>" SortExpression="KakaoTalkAddress" />
+                                <asp:TemplateField HeaderText="<%$Resources:HomeView.aspx,Photo1 %>" SortExpression="Photo1">
                                     <EditItemTemplate>
                                         <%--<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Photo1") %>'></asp:TextBox>--%>
-                                        <asp:Button ID="editButton" CssClass="btn btn-info" runat="server" Text='Change' data-toggle="modal" data-target="#photoModalLong" />
+                                        <asp:Button ID="editButton" CssClass="btn btn-info" runat="server" Text='<%$Resources:HomeView.aspx,Change %>' data-toggle="modal" data-target="#photoModalLong" />
                                     </EditItemTemplate>
                                     <ItemTemplate>
                                         <asp:Label ID="Label1" runat="server" Text='<%# Bind("Photo1") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Photo2" SortExpression="Photo2">
+                                <asp:TemplateField HeaderText="<%$Resources:HomeView.aspx,Photo2 %>" SortExpression="Photo2">
                                     <EditItemTemplate>
-                                        <asp:Button ID="editButton2" CssClass="btn btn-info" runat="server" Text='Change' data-toggle="modal" data-target="#photoModalLong" />
+                                        <asp:Button ID="editButton2" CssClass="btn btn-info" runat="server" Text='<%$Resources:HomeView.aspx,Change %>' data-toggle="modal" data-target="#photoModalLong" />
                                         <%--<asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Photo2") %>'></asp:TextBox>--%>
                                     </EditItemTemplate>
                                     <ItemTemplate>
                                         <asp:Label ID="Label2" runat="server" Text='<%# Bind("Photo2") %>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                                <asp:BoundField DataField="ProfilePage" HeaderText="ProfilePage" SortExpression="ProfilePage" />
-                                <asp:BoundField DataField="Repertory" HeaderText="Repertory" SortExpression="Repertory" />
+                                <asp:BoundField DataField="ProfilePage" HeaderText="<%$Resources:HomeView.aspx,ProfilePage %>" SortExpression="ProfilePage" />
+                                <asp:BoundField DataField="Repertory" HeaderText="<%$Resources:HomeView.aspx,Repertory %>" SortExpression="Repertory" />
                             </Columns>
                             <EditRowStyle BackColor="#e2e2e2" CssClass="GridViewEditRow" />
                             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -588,7 +588,7 @@ where id=@ID"
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Endorser</h5>
+                                <h5 class="modal-title" id="exampleModalLongTitle"><%= Resources.HomeView.aspx.Endorser %></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -596,19 +596,19 @@ where id=@ID"
                             <div class="modal-body">
 
                                 <div class="form-group">
-                                    <label for="exampleFormControlInput1">Name</label>
+                                    <label for="exampleFormControlInput1"><%= Resources.HomeView.aspx.Name %></label>
                                     <asp:TextBox runat="server" type="text" class="form-control" ID="FormControlInput1_Name" placeholder="Name of the Endorser" />
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exampleFormControlTextarea1">Email</label>
+                                    <label for="exampleFormControlTextarea1"><%= Resources.HomeView.aspx.Email %></label>
                                     <asp:TextBox runat="server" class="form-control" ID="FormControlTextarea1_email" TextMode="Email" placeholder="Email Address of the Endorser" />
                                 </div>
 
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <asp:Button runat="server" type="button" class="btn btn-primary" Text="Save changes" ID="btnAddReview" OnClick="btnAddEndorser_Click" />
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= Resources.HomeView.aspx.Close %></button>
+                                <asp:Button runat="server" type="button" class="btn btn-primary" Text="<%$Resources:HomeView.aspx,Save %>" ID="btnAddReview" OnClick="btnAddEndorser_Click" />
                             </div>
                         </div>
                     </div>

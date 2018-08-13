@@ -107,7 +107,8 @@ namespace web
                 Thread.CurrentThread.CurrentCulture = new CultureInfo(cookie.Value);
             }
 
-            Response.Redirect("~/Views/HomeView.aspx");
+            Response.Redirect(Request.RawUrl);
+            //Response.Redirect("~/Views/HomeView.aspx");
         }
 
     }

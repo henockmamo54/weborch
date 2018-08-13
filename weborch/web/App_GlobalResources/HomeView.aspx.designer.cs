@@ -340,6 +340,15 @@ namespace Resources.HomeView {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        internal static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do you accept privacy policy ?.
         /// </summary>
         internal static string Doyouacceptprivacypolicy {

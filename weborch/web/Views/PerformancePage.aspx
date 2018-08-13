@@ -211,7 +211,7 @@ where ID=@ID">
                         <asp:TemplateField HeaderText="<%$Resources:HomeView.aspx,PhotoAdLocation %>" SortExpression="PhotoAddLocation">
                             <EditItemTemplate>
                                 <%--<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("PhotoAddLocation") %>'></asp:TextBox>--%>
-                                <asp:Button ID="editButton" CssClass="btn btn-info" runat="server" Text='Change' data-toggle="modal" data-target="#exampleModalLong" />
+                                <asp:Button ID="editButton" CssClass="btn btn-info" runat="server" Text='<%$Resources:HomeView.aspx,Change %>' data-toggle="modal" data-target="#exampleModalLong" />
                             </EditItemTemplate>
                             <ItemTemplate>
                                 <asp:Label ID="Label2" runat="server" Text='<%# Bind("PhotoAddLocation") %>'></asp:Label>
