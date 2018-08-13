@@ -32,19 +32,29 @@
                                                 <a href="//<%#Eval("URL") %>" target="_blank"><%= Resources.HomeView.aspx.ReadMore %></a>
                                             </td>
                                         </tr>
-                                    </table>                                    
+                                    </table>
 
                                     <hr style="margin: 0.5em; border-top: 1px solid #dedada;" />
+                                       
+
                                     <div class="social-like testhover" style="margin-left: 1.2em; margin-right: 0.5em;" runat="server">
-                                        <asp:ImageButton ImageUrl="~/Document/l.png" Width="20px" runat="server" ID="likebutton" Text="Like" 
+
+                                        <asp:ImageButton Visible='<%#Eval("isliked").ToString().Equals("0") ? false:true %>'  ImageUrl="~/Document/l-c.png" Width="20px" runat="server" ID="ImageButton1" Text="Like"
+                                            OnCommand="LikeClicked" CommandName="MyUpdate" CommandArgument='<%#Eval("ID")  + "," +1 %>' />
+
+                                        <asp:ImageButton Visible='<%#Eval("isliked").ToString().Equals("0") ? true:false %>'  ImageUrl="~/Document/l.png" Width="20px" runat="server" ID="likebutton" Text="Like"
                                             OnCommand="LikeClicked" CommandName="MyUpdate" CommandArgument='<%#Eval("ID")  + "," +1 %>' />
                                         <span class="count"><%#Eval("likecount") %></span>
                                     </div>
                                     &nbsp;
-                                    <div class="social-dislike testhover ">                          
-                                        <asp:ImageButton ImageUrl="~/Document/dl.png" Width="20px" runat="server" ID="dislikebutton" Text="DisLike"  
-                                            OnCommand="LikeClicked" CommandName="MyUpdate" CommandArgument='<%#Eval("ID")  + ", -1" %>' />            
-                                        <span class="dislike"><%#Eval("dislikecount") %></span>  
+                                    <div class="social-dislike testhover ">
+
+                                        <asp:ImageButton Visible='<%#Eval("disliked").ToString().Equals("0") ? false:true %>' ImageUrl="~/Document/dl-c.png" Width="20px" runat="server" ID="dislikebutton" Text="DisLike"
+                                            OnCommand="LikeClicked" CommandName="MyUpdate" CommandArgument='<%#Eval("ID")  + ", -1" %>' />
+
+                                        <asp:ImageButton Visible='<%#Eval("disliked").ToString().Equals("0") ? true:false %>' ImageUrl="~/Document/dl.png" Width="20px" runat="server" ID="ImageButton2" Text="DisLike"
+                                            OnCommand="LikeClicked" CommandName="MyUpdate" CommandArgument='<%#Eval("ID")  + ", -1" %>' />
+                                        <span class="dislike"><%#Eval("dislikecount") %></span>
                                     </div>
 
 
