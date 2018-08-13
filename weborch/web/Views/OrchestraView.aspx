@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="row">
-        <h3>Orchestra data</h3>
+        <h3><%= Resources.HomeView.aspx.Orchestradata %></h3>
 
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
@@ -12,7 +12,7 @@
                         <div class="col-md-12  form-group">
                             <div class="col-md-4">
                                 <br />
-                                <div class="col-md-4">Name:</div>
+                                <div class="col-md-4"><%= Resources.HomeView.aspx.Name %>:</div>
                                 <div class="col-md-8">
                                     <asp:TextBox ID="txt_orchname" runat="server" class="form-control"></asp:TextBox>
                                 </div>
@@ -20,7 +20,7 @@
                             </div>
                             <div class="col-md-4">
                                 <br />
-                                <div class="col-md-4">Alias:</div>
+                                <div class="col-md-4"><%= Resources.HomeView.aspx.Alias %>:</div>
                                 <div class="col-md-8">
                                     <asp:TextBox ID="txt_orchaliasname" runat="server" class="form-control"></asp:TextBox>
                                 </div>
@@ -28,7 +28,7 @@
                             </div>
                             <div class="col-md-4">
                                 <br />
-                                <div class="col-md-4">URL:</div>
+                                <div class="col-md-4"><%= Resources.HomeView.aspx.URL %>:</div>
                                 <div class="col-md-8">
                                     <asp:TextBox ID="txt_orchurl" runat="server" class="form-control"></asp:TextBox>
                                 </div>
@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-md-4">
                                 <br />
-                                <div class="col-md-4">Address:</div>
+                                <div class="col-md-4"><%= Resources.HomeView.aspx.Address %>:</div>
                                 <div class="col-md-8">
                                     <asp:TextBox ID="txt_orchaddress" runat="server" class="form-control"></asp:TextBox>
                                 </div>
@@ -46,7 +46,7 @@
                             </div>
                             <div class="col-md-4">
                                 <br />
-                                <div class="col-md-4">ZipCode:</div>
+                                <div class="col-md-4"><%= Resources.HomeView.aspx.ZipCode %>:</div>
                                 <div class="col-md-8">
                                     <asp:TextBox ID="txt_orchzipcode" runat="server" class="form-control"></asp:TextBox>
                                 </div>
@@ -55,7 +55,7 @@
                             </div>
                             <div class="col-md-4">
                                 <br />
-                                <div class="col-md-4">TelNO:</div>
+                                <div class="col-md-4"><%= Resources.HomeView.aspx.TelNO %>:</div>
                                 <div class="col-md-8">
                                     <asp:TextBox ID="txt_orchtelno" runat="server" class="form-control"></asp:TextBox>
                                 </div>
@@ -64,7 +64,7 @@
                             </div>
                             <div class="col-md-4">
                                 <br />
-                                <div class="col-md-4">FaxNo:</div>
+                                <div class="col-md-4"><%= Resources.HomeView.aspx.FaxNo %>:</div>
                                 <div class="col-md-8">
                                     <asp:TextBox ID="txt_orchfaxno" runat="server" class="form-control"></asp:TextBox>
                                 </div>
@@ -73,7 +73,7 @@
                             </div>
                             <div class="col-md-4">
                                 <br />
-                                <div class="col-md-4">Conductor:</div>
+                                <div class="col-md-4"><%= Resources.HomeView.aspx.Conductor %>:</div>
                                 <div class="col-md-8">
                                     <%--<asp:TextBox ID="txt_orchcondactername" runat="server" class="form-control"></asp:TextBox>--%>
                                     <asp:DropDownList ID="DropDownList2_conductor" runat="server" DataSourceID="SqlDataSource3_conductor" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
@@ -90,7 +90,7 @@ where al.Name='Conductor'
                             </div>
                             <div class="col-md-4">
                                 <br />
-                                <div class="col-md-4">Since:</div>
+                                <div class="col-md-4"><%= Resources.HomeView.aspx.Since %>:</div>
                                 <div class="col-md-8">
                                     <asp:TextBox ID="txt_orchsince" runat="server" OnClick="dummybtnclick" class="form-control"></asp:TextBox>
                                 </div>
@@ -100,7 +100,7 @@ where al.Name='Conductor'
                         <br />
                         <div class="col-md-12">
                             <div class="col-md-12">
-                                <asp:Button ID="btn_orchadd" CssClass="btn btn-primary pull-right" Style="margin: 1em;" runat="server" Text="Register" OnClick="btn_orchadd_Click" />
+                                <asp:Button ID="btn_orchadd" CssClass="btn btn-primary pull-right" Style="margin: 1em;" runat="server" Text="<%$Resources:HomeView.aspx,Register %>" OnClick="btn_orchadd_Click" />
                             </div>
                         </div>
                     </div>
@@ -111,7 +111,7 @@ where al.Name='Conductor'
                     <div class="row">
                         <div class="col-md-12 form-group" style="margin-bottom: 0px;">
                             <span class='input-group-addon'>
-                                <asp:Label runat="server" Style="padding: 5px;">Name:</asp:Label>
+                                <asp:Label runat="server" Style="padding: 5px;"><%= Resources.HomeView.aspx.Name %>:</asp:Label>
                                 <asp:TextBox ID="TextBox1_serach" class="form-control" Style="display: inline;" runat="server" AutoPostBack="True" OnTextChanged="serachTextValueChanged"></asp:TextBox>
                                 <i class='glyphicon glyphicon-search' style="padding: 5px;"></i>
                             </span>
@@ -182,15 +182,15 @@ ID=@ID"
                                         <ControlStyle Height="20px" Width="20px" />
                                         <ItemStyle Wrap="False" />
                                     </asp:CommandField>
-                                    <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
-                                    <asp:BoundField DataField="OfficialName" HeaderText="OfficialName" SortExpression="OfficialName" />
-                                    <asp:BoundField DataField="Alias" HeaderText="Alias" SortExpression="Alias" />
-                                    <asp:BoundField DataField="URL" HeaderText="URL" SortExpression="URL" />
-                                    <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
-                                    <asp:BoundField DataField="ZipCode" HeaderText="ZipCode" SortExpression="ZipCode" />
-                                    <asp:BoundField DataField="TelNO" HeaderText="TelNO" SortExpression="TelNO" />
-                                    <asp:BoundField DataField="FaxNo" HeaderText="FaxNo" SortExpression="FaxNo" />
-                                    <asp:TemplateField HeaderText="ConductorName" SortExpression="ConductorName">
+                                    <asp:BoundField DataField="ID" HeaderText="<%$Resources:HomeView.aspx,ID %>" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+                                    <asp:BoundField DataField="OfficialName" HeaderText="<%$Resources:HomeView.aspx,Name %>" SortExpression="OfficialName" />
+                                    <asp:BoundField DataField="Alias" HeaderText="<%$Resources:HomeView.aspx,Alias %>" SortExpression="Alias" />
+                                    <asp:BoundField DataField="URL" HeaderText="<%$Resources:HomeView.aspx,URL %>" SortExpression="URL" />
+                                    <asp:BoundField DataField="Address" HeaderText="<%$Resources:HomeView.aspx,Address %>" SortExpression="Address" />
+                                    <asp:BoundField DataField="ZipCode" HeaderText="<%$Resources:HomeView.aspx,ZipCode %>" SortExpression="ZipCode" />
+                                    <asp:BoundField DataField="TelNO" HeaderText="<%$Resources:HomeView.aspx,TelNO %>" SortExpression="TelNO" />
+                                    <asp:BoundField DataField="FaxNo" HeaderText="<%$Resources:HomeView.aspx,FaxNo %>" SortExpression="FaxNo" />
+                                    <asp:TemplateField HeaderText="<%$Resources:HomeView.aspx,Conductor %>" SortExpression="ConductorName">
                                         <EditItemTemplate>
                                             <%--<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("ConductorName") %>'></asp:TextBox>--%>
                                              <asp:DropDownList ID="DropDownList2_conductor" runat="server" DataSourceID="SqlDataSource3_conductor" DataTextField="Name" DataValueField="ID" class="form-control" SelectedValue='<%#Bind("ConductorID")%>'></asp:DropDownList>
@@ -207,7 +207,7 @@ where al.Name='Conductor'
                                             <asp:Label ID="Label1" runat="server" Text='<%# Bind("ConductorName") %>'></asp:Label>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:BoundField DataField="Since" HeaderText="Since" SortExpression="Since" />
+                                    <asp:BoundField DataField="Since" HeaderText="<%$Resources:HomeView.aspx,Since %>" SortExpression="Since" />
                                 </Columns>
                                 <EditRowStyle BackColor="#e2e2e2" CssClass="GridViewEditRow" />
                                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

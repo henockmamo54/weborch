@@ -58,7 +58,8 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UserID" Type="int" />
     <Property Name="PostID" Type="int" />
-    <Property Name="IsLike" Type="bit" />
+    <Property Name="timestamp" Type="datetime" />
+    <Property Name="islike" Type="int" />
   </EntityType>
   <EntityType Name="ChildCommentTable">
     <Key>
@@ -302,6 +303,10 @@
     <Property Name="EndDate" Type="date" />
     <Property Name="PhotoAddLocation" Type="nvarchar" MaxLength="100" />
     <Property Name="VideoLocation" Type="nvarchar" MaxLength="100" />
+    <Property Name="TicketBox" Type="nvarchar" MaxLength="200" />
+    <Property Name="PerformanceHour" Type="nvarchar" MaxLength="100" />
+    <Property Name="OrganizerInfo" Type="nvarchar" MaxLength="200" />
+    <Property Name="Archive" Type="bit" />
   </EntityType>
   <EntityType Name="PerformanceDetail">
     <Key>

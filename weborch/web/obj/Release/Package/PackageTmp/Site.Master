@@ -18,7 +18,7 @@
 </head>
 <body>
     <form runat="server">
-        <asp:ScriptManager runat="server">
+        <asp:ScriptManager runat="server" EnablePageMethods="true">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
@@ -52,21 +52,25 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <%--<li><a runat="server" href="~/Views/HomeView">Home</a></li>--%>
-                        <li><a runat="server" href="~/Views/PerformancePage.aspx">Performance </a></li>
-                        <li><a runat="server" href="~/Views/ArtistPageView">Artist </a></li>
-                        <li><a runat="server" href="~/Views/OrchestraView">Orchestra</a></li>
-                        <li><a runat="server" href="~/Views/InstrumentView">Instrument </a></li>
-                        <li><a runat="server" href="~/BulletinPage.aspx">Bulletin</a></li>
+                        <li><a runat="server" href="~/Views/PerformancePage.aspx"> <%= Resources.HomeView.aspx.Performance %> </a></li>
+                        <li><a runat="server" href="~/Views/ArtistPageView"><%= Resources.HomeView.aspx.Artist %> </a></li>
+                        <li><a runat="server" href="~/Views/OrchestraView"><%= Resources.HomeView.aspx.Orchestra %></a></li>
+                        <li><a runat="server" href="~/Views/InstrumentView"><%= Resources.HomeView.aspx.Instrument %> </a></li>
+                        <li><a runat="server" href="~/BulletinPage.aspx"><%= Resources.HomeView.aspx.Bulletin %></a></li>
                         <%--<li><a runat="server" href="~/Views/PerformanceDetailPage.aspx">Performance Detail </a></li>
                         <li><a runat="server" href="~/Default">Default</a></li>--%>
-                        <li><a runat="server" href="~/Views/IntroductionPage.aspx">Introduction</a></li>
+                        <li><a runat="server" href="~/Views/IntroductionPage.aspx"><%= Resources.HomeView.aspx.Introduction %></a></li>
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <%--<li><a runat="server" href="~/Views/signupPages/TermsOfUsePage.aspx"><span class="">Sign Up</span></a></li>--%>
-                        <li><a runat="server" id="signinLink" visible="false" href="~/LoginPage"><span class="">Sign In</span></a></li>
-                        <li><a runat="server" id="signoutLink" visible="false"  href="" onServerClick="signoutClicked">Sign Out</a></li>
-                        <li><a runat="server" href="~/Views/MyPage"><span class="">My Page</span></a></li>
+                        <li><a runat="server" id="signinLink" visible="false" href="~/LoginPage"><span class=""> <%= Resources.HomeView.aspx.SignIn %></span></a></li>
+                        <li><a runat="server" id="signoutLink" visible="false"  href="" onServerClick="signoutClicked"> <%= Resources.HomeView.aspx.SignOut %></a></li>
+                        <li><a runat="server" href="~/Views/MyPage"><%= Resources.HomeView.aspx.MyPage %></a></li>
+
+                        <li><a runat="server" onServerClick="changeLanguage" style="padding-left: 0px; padding-right: 4px; display: inline-block;">en</a>|
+                            <a runat="server" onServerClick="changeLanguage" style="padding-right: 0px; padding-left: 4px; display: inline-block;">kr</a></li>
+                        
                         <%--<li><a runat="server" href="~/Views/ClassicCoinPage"><span class="">classic coin</span></a></li>--%>
                     </ul>
 
@@ -91,9 +95,10 @@
         </div>
 
         <div class="container" id="masterserachbar">
-            <div style="text-align: right; margin-top: 1em;">
+            <div style="text-align: right; margin-top: 1em; margin-bottom: 1em;">
                 <asp:TextBox runat="server" class="form-control" Style="display: inline;"></asp:TextBox>
-                <asp:Button runat="server" Text="search" class="btn btn-primary" />
+                <asp:Button runat="server" Text="<%$Resources:HomeView.aspx,search %>" class="btn btn-primary" />
+                <br />
             </div>
         </div>
         <div class="container body-content">

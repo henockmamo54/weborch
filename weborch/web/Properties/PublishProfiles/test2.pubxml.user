@@ -60,6 +60,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="ApplicationInsights.config">
       <publishTime>05/28/2018 21:34:58</publishTime>
     </File>
+    <File Include="App_GlobalResources/HomeView.aspx.ko-KR.resx">
+      <publishTime>08/13/2018 22:17:52</publishTime>
+    </File>
+    <File Include="App_GlobalResources/HomeView.aspx.resx">
+      <publishTime>08/13/2018 22:07:36</publishTime>
+    </File>
     <File Include="ArtistPage.aspx">
       <publishTime>06/19/2018 23:09:50</publishTime>
     </File>
@@ -76,10 +82,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/16/2013 20:06:22</publishTime>
     </File>
     <File Include="bin/BusinessLogic.exe">
-      <publishTime>08/08/2018 00:50:31</publishTime>
+      <publishTime>08/13/2018 22:23:55</publishTime>
     </File>
     <File Include="bin/DataAccess.exe">
-      <publishTime>08/08/2018 00:50:29</publishTime>
+      <publishTime>08/13/2018 22:23:53</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>03/02/2015 09:32:26</publishTime>
@@ -211,13 +217,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/22/2013 10:21:56</publishTime>
     </File>
     <File Include="bin/web.dll">
-      <publishTime>08/08/2018 00:50:40</publishTime>
+      <publishTime>08/13/2018 22:24:03</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>09/10/2013 17:28:38</publishTime>
     </File>
     <File Include="BulletinPage.aspx">
-      <publishTime>08/08/2018 00:44:17</publishTime>
+      <publishTime>08/12/2018 03:31:55</publishTime>
     </File>
     <File Include="Bundle.config">
       <publishTime>08/02/2018 20:55:43</publishTime>
@@ -272,6 +278,18 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Document/9.jpg">
       <publishTime>07/10/2018 17:06:29</publishTime>
+    </File>
+    <File Include="Document/dl-c.png">
+      <publishTime>08/12/2018 02:27:11</publishTime>
+    </File>
+    <File Include="Document/dl.png">
+      <publishTime>08/12/2018 02:27:11</publishTime>
+    </File>
+    <File Include="Document/l-c.png">
+      <publishTime>08/12/2018 02:27:11</publishTime>
+    </File>
+    <File Include="Document/l.png">
+      <publishTime>08/12/2018 02:27:11</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>05/28/2018 21:34:11</publishTime>
@@ -397,7 +415,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/28/2018 21:34:33</publishTime>
     </File>
     <File Include="Site.Master">
-      <publishTime>08/07/2018 20:00:30</publishTime>
+      <publishTime>08/13/2018 17:39:47</publishTime>
     </File>
     <File Include="Site.Mobile.Master">
       <publishTime>08/04/2018 02:19:10</publishTime>
@@ -406,7 +424,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/19/2018 22:54:54</publishTime>
     </File>
     <File Include="Views/ArtistPageView.aspx">
-      <publishTime>08/05/2018 01:06:30</publishTime>
+      <publishTime>08/13/2018 22:16:01</publishTime>
     </File>
     <File Include="Views/BulletinViewPage.aspx">
       <publishTime>07/30/2018 23:57:55</publishTime>
@@ -421,7 +439,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/04/2018 02:09:31</publishTime>
     </File>
     <File Include="Views/HomeView.aspx">
-      <publishTime>08/07/2018 21:53:23</publishTime>
+      <publishTime>08/13/2018 17:46:41</publishTime>
     </File>
     <File Include="Views/InformationOfPerformances.aspx">
       <publishTime>07/10/2018 20:53:30</publishTime>
@@ -457,7 +475,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/02/2018 23:21:07</publishTime>
     </File>
     <File Include="Views/PerformancePage.aspx">
-      <publishTime>08/05/2018 01:17:29</publishTime>
+      <publishTime>08/13/2018 21:09:59</publishTime>
     </File>
     <File Include="Views/signupPages/TermsOfUsePage.aspx">
       <publishTime>07/18/2018 00:33:06</publishTime>
@@ -472,7 +490,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/28/2018 21:34:37</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/02/2018 12:32:21</publishTime>
+      <publishTime>08/13/2018 22:24:08</publishTime>
     </File>
   </ItemGroup>
 </Project>
