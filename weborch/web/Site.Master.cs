@@ -7,6 +7,8 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
+using System.Threading;
+using System.Globalization;
 
 namespace web
 {
@@ -83,6 +85,31 @@ namespace web
         {
             Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
+
+        protected void changeLanguage(object sender, EventArgs e) {
+
+            HttpCookie cookie = Request.Cookies["CultureInfo"];
+
+            if (cookie != null && cookie.Value != null)
+            {
+                if (cookie.Value == "ko-KR") cookie.Value = "en-US";
+                else if (cookie.Value == "en-US") cookie.Value = "ko-KR";
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(cookie.Value);
+                Thread.CurrentThread.CurrentCulture = new CultureInfo(cookie.Value);
+                Response.Cookies.Add(cookie);
+            }
+            else
+            {
+                cookie = new HttpCookie("CultureInfo");
+                cookie.Value = "ko-KR";
+                Response.Cookies.Add(cookie);
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(cookie.Value);
+                Thread.CurrentThread.CurrentCulture = new CultureInfo(cookie.Value);
+            }
+
+            Response.Redirect("~/Views/HomeView.aspx");
+        }
+
     }
 
 }

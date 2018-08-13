@@ -4,22 +4,7 @@
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
 
         <ContentTemplate>
-
-            <%--<div style="margin-top: 1em;">
-                <nav class="navbar navbar-default">
-                    <div class="container-fluid">
-                        <ul class="nav navbar-nav">
-                            <li><a href="InformationOfPerformances.aspx">Information of Performance</a></li>
-                            <li><a href="ClassicPerformanceArchive.aspx">Classic Performance Archive</a></li>
-                            <li><a href="InformationSpace.aspx">Information Space</a></li>
-                            <li><a href="IntroductionPage.aspx">Introduction </a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>--%>
-
-            <br />
-
+            <asp:Button runat="server" meta:resourcekey="button1" Text="<%$Resources:HomeView.aspx,label1%>" />
             <div>
                 <div class="row " style="width: 100%; padding: 0; margin: 0; padding-top: 0em; height: 380px;">
                     <div class="col-md-8" style="padding-left: 0;">
