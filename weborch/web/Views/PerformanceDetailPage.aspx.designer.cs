@@ -13,6 +13,15 @@ namespace web.Views {
     public partial class PerformanceDetailPage {
         
         /// <summary>
+        /// forAudience control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl forAudience;
+        
+        /// <summary>
         /// performancePosterImage control.
         /// </summary>
         /// <remarks>
@@ -166,13 +175,13 @@ namespace web.Views {
         protected global::System.Web.UI.WebControls.Repeater talbereplacingrepeater;
         
         /// <summary>
-        /// AddNewEntryPanel control.
+        /// formanaging control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl AddNewEntryPanel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl formanaging;
         
         /// <summary>
         /// GridView1 control.
@@ -200,6 +209,15 @@ namespace web.Views {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1_performanceDetailList;
+        
+        /// <summary>
+        /// AddNewEntryPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl AddNewEntryPanel;
         
         /// <summary>
         /// dropdown_performance control.
