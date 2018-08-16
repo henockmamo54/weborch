@@ -22,5 +22,9 @@ namespace BusinessLogic
                 return false;
             }
         }
+
+        public Performance getPerformanceById(int id) {
+            return entity.Performances.Where(x => x.ID == id).FirstOrDefault();
+        }
     }
 }

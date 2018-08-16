@@ -5,33 +5,103 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using DataAccess;
+using BusinessLogic;
 
 namespace web.Views
 {
     public partial class PerformanceDetailPage : System.Web.UI.Page
     {
-        int PDID=0;
+        int PDID = 0;
         UserCommonTable user;
         bool isUserCompany = false;
+        PerformanceLogic pl = new PerformanceLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["PerformanceDetailID"] != null)
             {
                 int PDID = int.Parse(Session["PerformanceDetailID"].ToString());
                 dropdown_performance.SelectedValue = PDID.ToString();
+
+                SqlDataSource1_performanceDetailList.SelectCommand = string.Format(@"
+                            select pd.ID, p.PerformanceTitle,pd.Title,
+                            (c.FirstName + ' '+ c.MiddleName + ' '+ c.FamilyName) as Conductor,
+                            (co.FirstName + ' '+ co.MiddleName + ' '+ co.FamilyName) as Composer,
+                            list.Artists,list.Instruments,
+                            pd.Time from Main.PerformanceDetail pd
+                            join Core.Orchestra o on pd.Orchestra=o.ID
+                            join Main.Performance p on p.ID=pd.PerformanceID
+                            join  (select a.* from Core.Artist a 
+		                            join Drived.Artist_ArtistType at on a.ID= at.Artist
+		                            join Lookup.ArtistType al  on at.ArtistTypeID = al.ID
+		                            where al.Name like '%Conductor%') c on c.ID= pd.Conductor
+                            join  (select a.* from Core.Artist a 
+		                            join Drived.Artist_ArtistType at on a.ID= at.Artist
+		                            join Lookup.ArtistType al  on at.ArtistTypeID = al.ID
+		                            where al.Name like '%Composer%') co on co.ID= pd.Composer
+                            join(
+		                            SELECT
+			                             PerformanceDetailID,
+			                             STUFF(
+				                             (SELECT ',' + Name
+				                              FROM (
+		                            select distinct pia.PerformanceDetailID, i.EnglishName as instrument,a.FirstName + ' '+ a.MiddleName + ' '+ a.FamilyName as Name
+		                             from Drived.PerformanceDetail_Instrument_Artist pia 
+		                            join Core.Artist a on a.ID = pia.ArtistID
+		                            join Core.Instrument i on i.ID = pia.InstrumentID
+		                            ) x
+		                            where x.PerformanceDetailID= a.PerformanceDetailID
+				                              FOR XML PATH (''))
+				                              , 1, 1, '')  AS Artists,
+
+			                             STUFF(
+				                             (SELECT ','+ instrument
+				                              FROM (
+		                            select distinct  pia.PerformanceDetailID, i.EnglishName as instrument,a.FirstName + ' '+ a.MiddleName + ' '+ a.FamilyName as Name
+		                             from Drived.PerformanceDetail_Instrument_Artist pia 
+		                            join Core.Artist a on a.ID = pia.ArtistID
+		                            join Core.Instrument i on i.ID = pia.InstrumentID
+		                            ) x
+		                            where x.PerformanceDetailID= a.PerformanceDetailID
+				                              FOR XML PATH (''))
+				                              , 1, 1, '')  AS Instruments
+
+		                            FROM Drived.PerformanceDetail_Instrument_Artist AS a
+		                            GROUP BY PerformanceDetailID
+
+                            ) list on pd.ID = list.PerformanceDetailID
+                                where pd.PerformanceID={0}", PDID);
+
             }
 
             user = (UserCommonTable)Session["User"];
-            if (user != null) {
+            if (user != null)
+            {
                 OrchestraDBEntities entity = new OrchestraDBEntities();
                 var val = user.User_UserType.FirstOrDefault().UserTypeID.Value;
                 isUserCompany = entity.UserTypes.Where(x => x.ID == val).FirstOrDefault().Iscompany;
             }
 
             showandhidebtnforthepanel.Visible = isUserCompany;
+
+            getHeaderPeformanceData();
+            talbereplacingrepeater.DataSource = SqlDataSource1_performanceDetailList;
+            talbereplacingrepeater.DataBind();
         }
 
-        public void addDetailClicked(object sender, EventArgs e) {
+        public void getHeaderPeformanceData()
+        {
+            if (Session["PerformanceDetailID"] != null)
+            {
+                int PDID = int.Parse(Session["PerformanceDetailID"].ToString());
+                Performance p = pl.getPerformanceById(PDID);
+                performancePosterImage.ImageUrl = "~/Document/" + p.PhotoAddLocation;
+
+
+            }
+        }
+
+        public void addDetailClicked(object sender, EventArgs e)
+        {
 
             bool isSuccess = false;
             using (var context = new OrchestraDBEntities())
@@ -49,7 +119,7 @@ namespace web.Views
                         pd.Conductor = int.Parse(DropDownList2_conductor.SelectedValue);
                         //pd.Player = int.Parse(DropDownList3_player.SelectedValue);
                         pd.Composer = int.Parse(DropDownList4_composer.SelectedValue);
-                        pd.Time = DateTime.Parse( txt_time.Value);
+                        pd.Time = DateTime.Parse(txt_time.Value);
 
                         context.PerformanceDetails.Add(pd);
                         context.SaveChanges();
@@ -71,14 +141,15 @@ namespace web.Views
                         }
 
                         dbContextTransaction.Commit();
-                        isSuccess = true;                        
+                        isSuccess = true;
                     }
                     catch (Exception ee)
                     {
                         dbContextTransaction.Rollback();
                     }
 
-                    if (isSuccess) {
+                    if (isSuccess)
+                    {
                         GridView1.DataBind();
                         showMsg("Data inserted succssfuly");
 
@@ -90,7 +161,7 @@ namespace web.Views
                 }
             }
         }
-        
+
         public void btn_ADD_ONClick_showAndHideTheDataEntryPanel(object sender, EventArgs e)
         {
             showandhidebtnforthepanel.Visible = false;
@@ -102,13 +173,13 @@ namespace web.Views
 
         public void showMsg(string msg)
         {
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + msg + "')", true);            
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + msg + "')", true);
         }
-        
+
         protected void btn_add_ArtistInstrument_tolist(object sender, EventArgs e)
         {
             PerformanceDetail_Instrument_Artist detail = new PerformanceDetail_Instrument_Artist();
-            
+
 
             detail.ArtistID = int.Parse(DropDownList2_artistlist.SelectedValue);
             detail.Artist = new Artist();
@@ -150,7 +221,7 @@ namespace web.Views
                 int instrumentID = int.Parse(ids[1]);
                 List<PerformanceDetail_Instrument_Artist> mylist = (List<PerformanceDetail_Instrument_Artist>)Session["myPerformanceDetailArtistInstrumentlist"];
 
-                mylist.RemoveAll(x => x.ArtistID==artistID & x.InstrumentID==instrumentID);
+                mylist.RemoveAll(x => x.ArtistID == artistID & x.InstrumentID == instrumentID);
                 myPerformanceDetailArtistInstrumentlist.DataSource = mylist;
                 myPerformanceDetailArtistInstrumentlist.DataBind();
                 Session["myPerformanceDetailArtistInstrumentlist"] = mylist;
@@ -169,17 +240,18 @@ namespace web.Views
 
             var cell = GridView1.SelectedRow.Cells[1];
             var mystring = cell.Text.ToString();
-            int detailID= int.Parse(mystring);
+            int detailID = int.Parse(mystring);
 
             PerformanceDetail pd = entity.PerformanceDetails.Where(x => x.ID == detailID).FirstOrDefault();
 
-            if (pd != null) {
+            if (pd != null)
+            {
                 dropdown_performance.SelectedValue = pd.PerformanceID.ToString();
-                txt_performancetitle.Text=pd.Title;
+                txt_performancetitle.Text = pd.Title;
                 DropDownList1_orchestra.SelectedValue = pd.Orchestra.ToString();
                 DropDownList2_conductor.SelectedValue = pd.Conductor.ToString();
                 DropDownList4_composer.SelectedValue = pd.Composer.ToString();
-                txt_time.Value = pd.Time.ToString();               
+                txt_time.Value = pd.Time.ToString();
             }
 
 
@@ -260,7 +332,7 @@ namespace web.Views
             }
 
 
-           
+
 
 
         }

@@ -12,8 +12,43 @@
             <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
             <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
-            
-                   
+            <div class="row">
+                <div class="col-md-8">
+                    <asp:Image ImageUrl="~/Document/dl-c.png" runat="server" ID="performancePosterImage" />
+                </div>
+                <div class="col-md-4">
+
+
+                    <h2 style="margin-top:0;">Musical performance program</h2>
+                    <p><strong>Note:</strong> The performance Organized by <strong>Organizer</strong> will be held in <strong>data-parent</strong> at <strong>concert hall</strong> starting from <strong>start date</strong> to <strong>end date </strong>. The following is the schdule of the program </p>
+
+                    <div class="row">
+                        <ul class="list-group">
+                            <asp:Repeater runat="server" ID="talbereplacingrepeater">
+
+                                <ItemTemplate>
+                                    <li class="list-group-item" style="border:none;">
+                                        <strong><%#Eval("Title") %></strong><br />
+                                        <ul>
+                                            <li>Conductor: <%#Eval("Conductor") %></li>
+                                            <li>Composer: <%#Eval("Composer") %></li>
+                                            <li>Artists: <%#Eval("Artists") %></li>
+                                            <li>Instruments: <%#Eval("Instruments") %></li>
+                                            <li>Time: <%#Eval("Time") %></li>
+                                        </ul>
+                                    </li>
+                                </ItemTemplate>
+
+                            </asp:Repeater>
+                        </ul>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
 
             <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource1_performanceDetailList" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
@@ -111,7 +146,7 @@ join(
             <hr />
 
             <div class="row shadowedPanel" visible="false" runat="server" id="AddNewEntryPanel">
-                
+
                 <div class="row">
                     <div class="col-md-4">
                         <br />
@@ -177,8 +212,8 @@ where al.Name='Composer'
 "></asp:SqlDataSource>
                         </div>
                         <br />
-                    </div>                    
-                     <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
                         <br />
                         <div class="col-md-4">Time</div>
                         <div class="col-md-8">
@@ -254,6 +289,7 @@ FROM Core.Artist"></asp:SqlDataSource>
 
 
             <br />
+
 
         </ContentTemplate>
     </asp:UpdatePanel>
