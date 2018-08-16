@@ -15,6 +15,13 @@ namespace web.Views
         UserCommonTable user;
         bool isUserCompany = false;
         PerformanceLogic pl = new PerformanceLogic();
+
+        // later this will be removed
+        int likecount = 10;
+        int dislikecount = 7;
+
+        bool isliked = false;
+        bool isdisliked = false;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["PerformanceDetailID"] != null)
@@ -84,9 +91,169 @@ namespace web.Views
             showandhidebtnforthepanel.Visible = isUserCompany;
 
             getHeaderPeformanceData();
+
             talbereplacingrepeater.DataSource = SqlDataSource1_performanceDetailList;
             talbereplacingrepeater.DataBind();
+
+            likecountspan.InnerText = likecount.ToString();
+            dislikecountspan.InnerText = dislikecount.ToString();
         }
+
+
+        public void LikeClicked(object sender, CommandEventArgs e)
+        {
+            var value = e.CommandArgument.ToString().Split(',');
+            int id = int.Parse(value[0]);
+            int isLike = int.Parse(value[1]);
+
+            if (isLike == 1) {
+                if (isliked)
+                {
+                    isliked = false;
+                    likecount--;
+                    likebutton.Visible = true;
+                    likebuttonliked.Visible = false;
+                }
+                else {
+                    isliked = true;
+                    likecount++;
+                    likebutton.Visible = false;
+                    likebuttonliked.Visible = true;
+
+                    dislikebutton.Visible = true;
+                    dislikebuttondisliked.Visible = false;
+                    if (isdisliked) {
+                        dislikecount--;
+                        isdisliked = false;
+                    }
+
+                }
+                likecountspan.InnerText = likecount.ToString();
+            }
+            else{
+                if (isdisliked)
+                {
+                    isdisliked = false;
+                    dislikecount--;
+                    dislikebutton.Visible = true;
+                    dislikebuttondisliked.Visible = false;
+                }
+                else
+                {
+                    isdisliked = true;
+                    dislikecount++;
+                    dislikebutton.Visible = false;
+                    dislikebuttondisliked.Visible = true;
+
+
+                    likebutton.Visible = true;
+                    likebuttonliked.Visible = false;
+                    if (isliked)
+                    {
+                        likecount--;
+                        isliked = false;
+                    }
+                }
+                dislikecountspan.InnerText = dislikecount.ToString();
+            }
+
+            //OrchestraDBEntities entities = new OrchestraDBEntities();
+            //var myval = entities.BulletinLikeUnlikes.Where(x => x.PostID == id & x.UserID == myuser.ID).ToList();
+            //if (myval.Count > 0)
+            //{
+
+            //    if (isLike == 1)
+            //    {
+            //        if (myval.FirstOrDefault().islike == 1)
+            //            myval.FirstOrDefault().islike = 0;
+            //        else myval.FirstOrDefault().islike = 1;
+            //    }
+            //    else
+            //    {
+            //        if (myval.FirstOrDefault().islike == -1)
+            //            myval.FirstOrDefault().islike = 0;
+            //        else myval.FirstOrDefault().islike = -1;
+            //    }
+            //    entities.SaveChanges();
+            //}
+            //else
+            //{
+            //    BulletinLikeUnlike b = new BulletinLikeUnlike();
+            //    b.PostID = id;
+            //    b.UserID = myuser.ID;
+            //    b.islike = isLike;
+            //    b.timestamp = DateTime.Now;
+            //    entities.BulletinLikeUnlikes.Add(b);
+            //    entities.SaveChanges();
+            //}
+
+            //BulletinLogic bl = new BulletinLogic();
+
+            //Repeater1.DataSource = bl.getAllMsg(myuser.ID);
+            //Repeater1.DataBind();
+
+        }
+
+
+        protected void btnComment_Click(object sender, CommandEventArgs e)
+        {
+            //RepeaterItem item = (sender as Button).NamingContainer as RepeaterItem;
+            //string message = (item.FindControl("txtComment") as TextBox).Text;
+
+
+            //ParentCommentTable pt = new ParentCommentTable();
+            //pt.Username = "anonymous";
+            //pt.CommentMessage = message;
+            //pt.PostID = int.Parse(e.CommandArgument.ToString());
+
+            //pc.addParentComment(pt);
+
+            //var value = e.CommandArgument;
+
+            //System.Console.WriteLine("on btn click");
+
+            //Repeater1.DataSource = bl.getAllMsg();
+            //Repeater1.DataBind();
+
+        }
+
+        protected void btnAddDetailComment_Click(object sender, CommandEventArgs e)
+        {
+            //RepeaterItem item = (sender as Button).NamingContainer as RepeaterItem;
+            //string message = (item.FindControl("txtCommentReplyParent") as TextBox).Text;
+
+
+            //ChildCommentTable ct = new ChildCommentTable();
+            //ct.Username = "anonymous";
+            //ct.CommentMessage = message;
+            //ct.ParentCommentID = int.Parse(e.CommandArgument.ToString());
+
+            //cl.addChildComment(ct);
+
+            //Repeater1.DataSource = bl.getAllMsg();
+            //Repeater1.DataBind();
+
+        }
+
+
+        protected void Repeater2_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            //RepeaterItem item = e.Item;
+            //if ((item.ItemType == ListItemType.Item) ||
+            //    (item.ItemType == ListItemType.AlternatingItem))
+            //{
+            //    var detail = (Repeater)item.FindControl("detailRepeater");
+
+            //    //pc.getAllParentComments().Take(2).ToList()
+            //    var x = cl.getChildCommentByParentID(((ParentCommentTable)e.Item.DataItem).ID);
+            //    detail.DataSource = x;
+            //    detail.DataBind();
+
+            //    string msg = ((ParentCommentTable)e.Item.DataItem).CommentMessage;
+            //    System.Console.WriteLine(msg);
+            //}
+        }
+        
 
         public void getHeaderPeformanceData()
         {
