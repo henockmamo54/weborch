@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PerformanceDetailPage.aspx.cs" Inherits="web.Views.PerformanceDetailPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PerformanceDetailPage.aspx.cs" Inherits="web.Views.PerformanceDetailPage" ValidateRequest="false" EnableEventValidation="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -13,12 +13,12 @@
             <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
             <div class="row">
+
                 <div class="col-md-8">
-                    <div class="col-md-12"></div>
+
                     <asp:Image ImageUrl="~/Document/dl-c.png" CssClass="shadowedPanel" Style="width: 100%;" runat="server" ID="performancePosterImage" />
-
-
                     <%--====================================================================================--%>
+                    <br />
                     <br />
 
                     <div class="social-like testhover" style="margin-left: 1.2em; margin-right: 0.5em;" runat="server">
@@ -38,88 +38,94 @@
 
                         <asp:ImageButton Visible='true' ImageUrl="~/Document/dl.png" Width="20px" runat="server" ID="dislikebutton" Text="DisLike"
                             OnCommand="LikeClicked" CommandName="MyUpdate" CommandArgument='2, -1' />
-                        <span class="dislike" id="dislikecountspan" runat="server"> </span>
+                        <span class="dislike" id="dislikecountspan" runat="server"></span>
                     </div>
-
-
-                    <div style="padding-left: 20px; padding-right: 20px; width: 100%;">
-                        <asp:TextBox ID="txtComment" runat="server" TextMode="MultiLine"
-                            Width="100%" Style="border-radius: 5px; margin-bottom: 0.5em;" CssClass="form-control"></asp:TextBox>
-                        <asp:Image ID="Image1" runat="server"
-                            ImageUrl="https://myspace.com/common/images/user.png"
-                            Style="width: 30px; height: 30px; border-radius: 50%; margin-top: 0.2em;" />
-                        <asp:Button ID="btnComment" Text="<%$Resources:HomeView.aspx,Comment %>" runat="server" OnCommand="btnComment_Click" CommandName="MyUpdate" CommandArgument='<%#Eval("ID") %>'
-                            Style="background-color: #4a90ce; border: 1px solid #4a90ce; padding: 7px 25px; border-radius: 5px; color: #fff; float: right; margin-top: 0.2em; margin-bottom: 0.2em;" />
-                    </div>
-
-
 
                     <%--=============================================================================--%>
+                    <div >
 
+                        <div style="padding-left: 20px; padding-right: 20px; width: 100%;">
 
+                            <div>
 
-                    <div class="row">
-                        <asp:Repeater ID="Repeater2" runat="server" OnItemDataBound="Repeater2_ItemDataBound">
-                            <ItemTemplate>
-                                <div class="col-md-11">
-                                    <hr style="margin: 1em; border-top: 1px solid #dedada;" />
-                                    <table style="margin: 3px 5px; width: 100%;">
-                                        <tr>
-                                            <td style="width: 55px; vertical-align: text-top;">
-                                                <asp:Image ID="ImageParent" runat="server" Style="width: 50px; height: 50px; border-radius: 50%; margin-top: 0.2em;" ImageUrl="https://storage.designcrowd.com/common/images/v3/no-profile-pic-tiny.png" />
-                                            </td>
-                                            <td style="padding: 0px 5px; text-align: left; vertical-align: top;">
-                                                <asp:Label ID="lblCommentID" runat="server" Visible="false" Text='<%#Eval("ID") %>'></asp:Label>
-                                                <asp:Label ID="lblCommentMessage" runat="server" Text='<% #Eval("Username") %>'></asp:Label><br />
-                                                <asp:Label ID="Label1" runat="server" Text='<% #Eval("CommentMessage") %>'></asp:Label><br />
-                                                <asp:Label ID="lbldatetime" runat="server" Text='<% #Eval("CommentDate") %>'> date</asp:Label><br />
-                                                <a class="link" id='lnkReplyParent<%# Eval("ID") %>' href="javascript:void(0)" onclick="showReply(<%# Eval("ID") %>); return false;"><%= Resources.HomeView.aspx.Reply %></a>&nbsp;
+                                <asp:Image ID="Image1" runat="server"
+                                    ImageUrl="https://myspace.com/common/images/user.png"
+                                    Style="width: 30px; height: 30px; border-radius: 50%; margin-top: 0.2em; display: inline-block;" />
+
+                                <asp:TextBox ID="txtComment" runat="server" TextMode="MultiLine"
+                                    Width="79%" Style="display: inline-block; border-radius: 5px; margin-bottom: 0.5em;" CssClass="form-control"></asp:TextBox>
+
+                                <asp:Button ID="btnComment" Text="<%$Resources:HomeView.aspx,Comment %>" runat="server" OnCommand="btnComment_Click" CommandName="MyUpdate" CommandArgument='<%#Eval("ID") %>'
+                                    Style="display: inline-block; background-color: #4a90ce; border: 1px solid #4a90ce; padding: 7px 25px; border-radius: 5px; color: #fff; float: right; margin-top: 1.1em; margin-bottom: 0.2em;" />
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <asp:Repeater ID="Repeater2" runat="server" OnItemDataBound="Repeater2_ItemDataBound">
+                                <ItemTemplate>
+                                    <div class="col-md-11">
+                                        <hr style="margin: 1em; border-top: 1px solid #dedada;" />
+                                        <table style="margin: 3px 5px; width: 100%;">
+                                            <tr>
+                                                <td style="width: 55px; vertical-align: text-top;">
+                                                    <asp:Image ID="ImageParent" runat="server" Style="width: 50px; height: 50px; border-radius: 50%; margin-top: 0.2em;" ImageUrl="https://storage.designcrowd.com/common/images/v3/no-profile-pic-tiny.png" />
+                                                </td>
+                                                <td style="padding: 0px 5px; text-align: left; vertical-align: top;">
+                                                    <asp:Label ID="lblCommentID" runat="server" Visible="false" Text='<%#Eval("ID") %>'></asp:Label>
+                                                    <asp:Label ID="lblCommentMessage" runat="server" Text='<% #Eval("Username") %>'></asp:Label><br />
+                                                    <asp:Label ID="Label1" runat="server" Text='<% #Eval("CommentMessage") %>'></asp:Label><br />
+                                                    <asp:Label ID="lbldatetime" runat="server" Text='<% #Eval("CommentDate") %>'> date</asp:Label><br />
+                                                    <a class="link" id='lnkReplyParent<%# Eval("ID") %>' href="javascript:void(0)" onclick="showReply(<%# Eval("ID") %>); return false;"><%= Resources.HomeView.aspx.Reply %></a>&nbsp;
        <a class="link" id="lnkCancel" href="javascript:void(0)" onclick="closeReply(<%# Eval("ID") %>); return false;"><%= Resources.HomeView.aspx.Cancel %></a>
 
-                                                <asp:Repeater ID="detailRepeater" runat="server">
+                                                    <asp:Repeater ID="detailRepeater" runat="server">
 
-                                                    <ItemTemplate>
-                                                        <div class="row">
-                                                            <hr style="margin: 1em;" />
-                                                            <table style="margin: 3px 5px; width: 100%;">
-                                                                <tr>
-                                                                    <td style="width: 55px; vertical-align: text-top;">
-                                                                        <asp:Image ID="ImageParent" runat="server" Style="width: 50px; height: 50px; border-radius: 50%; margin-top: 0.2em;" ImageUrl="https://storage.designcrowd.com/common/images/v3/no-profile-pic-tiny.png" />
-                                                                    </td>
-                                                                    <td style="padding: 0px 5px; text-align: left; vertical-align: top;">
-                                                                        <asp:Label ID="lblCommentID" runat="server" Visible="false" Text='<%#Eval("ID") %>'></asp:Label>
-                                                                        <asp:Label ID="Label2" runat="server" Text='<% #Eval("Username") %>'></asp:Label><br />
-                                                                        <asp:Label ID="lblCommentMessage" runat="server" Text='<% #Eval("CommentMessage") %>'></asp:Label><br />
-                                                                        <asp:Label ID="lbldatetime" runat="server" Text='<% #Eval("CommentDate") %>'> date</asp:Label><br />
-                                                                        <a class="link" id='lnkReplyParent<%# Eval("ID") %>' href="javascript:void(0)" onclick="showReply(<%# Eval("ID") %>+'c'); return false;"><%= Resources.HomeView.aspx.Reply %></a>
-                                                                        <a class="link" id="lnkCancel" href="javascript:void(0)" onclick="closeReply(<%# Eval("ID") %>+'c'); return false;"><%= Resources.HomeView.aspx.Cancel %></a>
+                                                        <ItemTemplate>
+                                                            <div class="row">
+                                                                <hr style="margin: 1em;" />
+                                                                <table style="margin: 3px 5px; width: 100%;">
+                                                                    <tr>
+                                                                        <td style="width: 55px; vertical-align: text-top;">
+                                                                            <asp:Image ID="ImageParent" runat="server" Style="width: 50px; height: 50px; border-radius: 50%; margin-top: 0.2em;" ImageUrl="https://storage.designcrowd.com/common/images/v3/no-profile-pic-tiny.png" />
+                                                                        </td>
+                                                                        <td style="padding: 0px 5px; text-align: left; vertical-align: top;">
+                                                                            <asp:Label ID="lblCommentID" runat="server" Visible="false" Text='<%#Eval("ID") %>'></asp:Label>
+                                                                            <asp:Label ID="Label2" runat="server" Text='<% #Eval("Username") %>'></asp:Label><br />
+                                                                            <asp:Label ID="lblCommentMessage" runat="server" Text='<% #Eval("CommentMessage") %>'></asp:Label><br />
+                                                                            <asp:Label ID="lbldatetime" runat="server" Text='<% #Eval("CommentDate") %>'> date</asp:Label><br />
+                                                                            <a class="link" id='lnkReplyParent<%# Eval("ID") %>' href="javascript:void(0)" onclick="showReply(<%# Eval("ID") %>+'c'); return false;"><%= Resources.HomeView.aspx.Reply %></a>
+                                                                            <a class="link" id="lnkCancel" href="javascript:void(0)" onclick="closeReply(<%# Eval("ID") %>+'c'); return false;"><%= Resources.HomeView.aspx.Cancel %></a>
 
-                                                                        <div id='divReply<%# Eval("ID") %>c' style="display: none; margin-top: 5px;">
-                                                                            <asp:TextBox ID="txtCommentReplyParent" runat="server" TextMode="MultiLine" Width="100%" Height="60px"></asp:TextBox>
-                                                                            <asp:Button ID="btnReplyParent" runat="server" Text="Reply" Style="float: right; margin: 5px;"
-                                                                                OnCommand="btnAddDetailComment_Click" CommandName="MyUpdate" CommandArgument='<%# DataBinder.Eval(Container.Parent.Parent, "DataItem.ID") %>' />
-                                                                        </div>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </ItemTemplate>
+                                                                            <div id='divReply<%# Eval("ID") %>c' style="display: none; margin-top: 5px;">
+                                                                                <asp:TextBox ID="txtCommentReplyParent" runat="server" TextMode="MultiLine" Width="100%" Height="60px"></asp:TextBox>
+                                                                                <asp:Button ID="btnReplyParent" runat="server" Text="Reply" Style="float: right; margin: 5px;"
+                                                                                    OnCommand="btnAddDetailComment_Click" CommandName="MyUpdate" CommandArgument='<%# DataBinder.Eval(Container.Parent.Parent, "DataItem.ID") %>' />
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </ItemTemplate>
 
 
 
-                                                </asp:Repeater>
+                                                    </asp:Repeater>
 
-                                                <div id='divReply<%# Eval("ID") %>' style="display: none; margin-top: 5px;">
-                                                    <asp:TextBox ID="txtCommentReplyParent" runat="server" TextMode="MultiLine" Width="100%" Height="60px"></asp:TextBox>
-                                                    <asp:Button ID="btnReplyParent" runat="server" Text="Reply" Style="float: right; margin: 5px;"
-                                                        OnCommand="btnAddDetailComment_Click" CommandName="MyUpdate" CommandArgument='<%#Eval("ID") %>' />
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </ItemTemplate>
-                        </asp:Repeater>
+                                                    <div id='divReply<%# Eval("ID") %>' style="display: none; margin-top: 5px;">
+                                                        <asp:TextBox ID="txtCommentReplyParent" runat="server" TextMode="MultiLine" Width="100%" Height="60px"></asp:TextBox>
+                                                        <asp:Button ID="btnReplyParent" runat="server" Text="Reply" Style="float: right; margin: 5px;"
+                                                            OnCommand="btnAddDetailComment_Click" CommandName="MyUpdate" CommandArgument='<%#Eval("ID") %>' />
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
+
                     </div>
 
                     <%--=============================================================================================--%>
@@ -127,9 +133,8 @@
 
                 <div class="col-md-4">
 
-
                     <h2 style="margin-top: 0;">Musical performance program</h2>
-                    <p><strong>Note:</strong> The performance Organized by <strong>Organizer</strong> will be held in <strong>data-parent</strong> at <strong>concert hall</strong> starting from <strong>start date</strong> to <strong>end date </strong>. The following is the schdule of the program </p>
+                    <p><strong>Note:</strong> The performance Organized by <strong><span runat="server" id="organizer"></span></strong> will be held in <strong><span runat="server" id="location"></span></strong> at <strong><span runat="server" id="concerthall"></span></strong> starting from <strong><span runat="server" id="startingdate"></span></strong> to <strong><span runat="server" id="enddate"></span></strong>. The following is the schdule of the program </p>
 
                     <div class="row">
                         <ul class="list-group">
@@ -159,43 +164,47 @@
             </div>
 
 
-            <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource1_performanceDetailList" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound">
-                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                <Columns>
-                    <asp:CommandField ButtonType="Image" ControlStyle-Height="20px" ControlStyle-Width="20px" ShowDeleteButton="True" DeleteImageUrl="http://icons.iconarchive.com/icons/everaldo/kids-icons/128/edit-delete-icon.png"
-                        SelectImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/128/edit-validated-icon.png" ShowSelectButton="True" HeaderStyle-Width="60px" />
-                    <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
-                    <asp:BoundField DataField="PerformanceTitle" HeaderText="PerformanceTitle" SortExpression="PerformanceTitle" />
-                    <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
-                    <asp:BoundField DataField="Conductor" HeaderText="Conductor" ReadOnly="True" SortExpression="Conductor" />
-                    <asp:BoundField DataField="Composer" HeaderText="Composer" ReadOnly="True" SortExpression="Composer" />
-                    <asp:BoundField DataField="Artists" HeaderText="Artists" ReadOnly="True" SortExpression="Artists" />
-                    <asp:BoundField DataField="Instruments" HeaderText="Instruments" ReadOnly="True" SortExpression="Instruments" />
-                    <asp:BoundField DataField="Time" HeaderText="Time" SortExpression="Time" />
-                </Columns>
-                <EditRowStyle BackColor="#999999" />
-                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-            </asp:GridView>
 
-            <div class="row" style="text-align: center !important;">
-                <br />
-                <asp:Button runat="server" AutoPostBack="True" CssClass="btn btn-warning" ID="showandhidebtnforthepanel" Text="ADD" OnClick="btn_ADD_ONClick_showAndHideTheDataEntryPanel"></asp:Button>
-            </div>
+            <div class="row shadowedPanel" visible="false" runat="server" id="AddNewEntryPanel">
 
-            <div class="row">
-                <asp:SqlDataSource ID="SqlDataSource1_performanceDetailList" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" DeleteCommand="
+
+                <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource1_performanceDetailList" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound">
+                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <Columns>
+                        <asp:CommandField ButtonType="Image" ControlStyle-Height="20px" ControlStyle-Width="20px" ShowDeleteButton="True" DeleteImageUrl="http://icons.iconarchive.com/icons/everaldo/kids-icons/128/edit-delete-icon.png"
+                            SelectImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/128/edit-validated-icon.png" ShowSelectButton="True" HeaderStyle-Width="60px" />
+                        <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+                        <asp:BoundField DataField="PerformanceTitle" HeaderText="PerformanceTitle" SortExpression="PerformanceTitle" />
+                        <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
+                        <asp:BoundField DataField="Conductor" HeaderText="Conductor" ReadOnly="True" SortExpression="Conductor" />
+                        <asp:BoundField DataField="Composer" HeaderText="Composer" ReadOnly="True" SortExpression="Composer" />
+                        <asp:BoundField DataField="Artists" HeaderText="Artists" ReadOnly="True" SortExpression="Artists" />
+                        <asp:BoundField DataField="Instruments" HeaderText="Instruments" ReadOnly="True" SortExpression="Instruments" />
+                        <asp:BoundField DataField="Time" HeaderText="Time" SortExpression="Time" />
+                    </Columns>
+                    <EditRowStyle BackColor="#999999" />
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                </asp:GridView>
+
+                <div class="row" style="text-align: center !important;">
+                    <br />
+                    <asp:Button runat="server" AutoPostBack="True" CssClass="btn btn-warning" ID="showandhidebtnforthepanel" Text="ADD" OnClick="btn_ADD_ONClick_showAndHideTheDataEntryPanel"></asp:Button>
+                </div>
+
+                <div class="row">
+                    <asp:SqlDataSource ID="SqlDataSource1_performanceDetailList" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" DeleteCommand="
 delete  
 Main.PerformanceDetail 
 where ID= @ID"
-                    SelectCommand="
+                        SelectCommand="
 select pd.ID, p.PerformanceTitle,pd.Title,
 (c.FirstName + ' '+ c.MiddleName + ' '+ c.FamilyName) as Conductor,
 (co.FirstName + ' '+ co.MiddleName + ' '+ co.FamilyName) as Composer,
@@ -243,18 +252,17 @@ join(
 
 ) list on pd.ID = list.PerformanceDetailID
  ">
-                    <DeleteParameters>
-                        <asp:Parameter Name="ID" />
-                    </DeleteParameters>
-                    <FilterParameters>
-                        <asp:ControlParameter ControlID="dropdown_performance" DefaultValue="-1" Name="performanceID" PropertyName="SelectedValue" />
-                    </FilterParameters>
-                </asp:SqlDataSource>
-            </div>
+                        <DeleteParameters>
+                            <asp:Parameter Name="ID" />
+                        </DeleteParameters>
+                        <FilterParameters>
+                            <asp:ControlParameter ControlID="dropdown_performance" DefaultValue="-1" Name="performanceID" PropertyName="SelectedValue" />
+                        </FilterParameters>
+                    </asp:SqlDataSource>
+                </div>
 
-            <hr />
+                <hr />
 
-            <div class="row shadowedPanel" visible="false" runat="server" id="AddNewEntryPanel">
 
                 <div class="row">
                     <div class="col-md-4">
@@ -461,6 +469,18 @@ FROM Core.Artist"></asp:SqlDataSource>
         function showdattime() {
             $('#datetimepicker3').datetimepicker();
         }
+
+        function showReply(n) {
+            console.log(n);
+            $("#divReply" + n).show();
+            return false;
+            return false;
+        }
+        function closeReply(n) {
+            $("#divReply" + n).hide();
+            return false;
+        }
+
     </script>
 
 </asp:Content>

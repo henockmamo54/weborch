@@ -22,6 +22,9 @@ namespace web.Views
 
         bool isliked = false;
         bool isdisliked = false;
+        ParentCommentLogic pc = new ParentCommentLogic();
+        ChildCommentLogic cl = new ChildCommentLogic();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["PerformanceDetailID"] != null)
@@ -97,6 +100,11 @@ namespace web.Views
 
             likecountspan.InnerText = likecount.ToString();
             dislikecountspan.InnerText = dislikecount.ToString();
+
+            var parcomm = pc.getChildCommentByParentID(3);
+            Repeater2.DataSource = parcomm;
+            Repeater2.DataBind();
+
         }
 
 
@@ -197,61 +205,62 @@ namespace web.Views
 
         protected void btnComment_Click(object sender, CommandEventArgs e)
         {
-            //RepeaterItem item = (sender as Button).NamingContainer as RepeaterItem;
-            //string message = (item.FindControl("txtComment") as TextBox).Text;
+            RepeaterItem item = (sender as Button).NamingContainer as RepeaterItem;
+            string message = (item.FindControl("txtComment") as TextBox).Text;
 
 
-            //ParentCommentTable pt = new ParentCommentTable();
-            //pt.Username = "anonymous";
-            //pt.CommentMessage = message;
-            //pt.PostID = int.Parse(e.CommandArgument.ToString());
+            ParentCommentTable pt = new ParentCommentTable();
+            pt.Username = "anonymous";
+            pt.CommentMessage = message;
+            pt.PostID = int.Parse(e.CommandArgument.ToString());
 
-            //pc.addParentComment(pt);
+            pc.addParentComment(pt);
 
-            //var value = e.CommandArgument;
+            var value = e.CommandArgument;
 
-            //System.Console.WriteLine("on btn click");
+            System.Console.WriteLine("on btn click");
 
-            //Repeater1.DataSource = bl.getAllMsg();
-            //Repeater1.DataBind();
+            var parcomm = pc.getChildCommentByParentID(3);
+            Repeater2.DataSource = parcomm;
+            Repeater2.DataBind();
 
         }
 
         protected void btnAddDetailComment_Click(object sender, CommandEventArgs e)
         {
-            //RepeaterItem item = (sender as Button).NamingContainer as RepeaterItem;
-            //string message = (item.FindControl("txtCommentReplyParent") as TextBox).Text;
+            RepeaterItem item = (sender as Button).NamingContainer as RepeaterItem;
+            string message = (item.FindControl("txtCommentReplyParent") as TextBox).Text;
 
 
-            //ChildCommentTable ct = new ChildCommentTable();
-            //ct.Username = "anonymous";
-            //ct.CommentMessage = message;
-            //ct.ParentCommentID = int.Parse(e.CommandArgument.ToString());
+            ChildCommentTable ct = new ChildCommentTable();
+            ct.Username = "anonymous";
+            ct.CommentMessage = message;
+            ct.ParentCommentID = int.Parse(e.CommandArgument.ToString());
+            cl.addChildComment(ct);
 
-            //cl.addChildComment(ct);
-
-            //Repeater1.DataSource = bl.getAllMsg();
-            //Repeater1.DataBind();
+            var parcomm = pc.getChildCommentByParentID(3);
+            Repeater2.DataSource = parcomm;
+            Repeater2.DataBind();
 
         }
 
 
         protected void Repeater2_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
-            //RepeaterItem item = e.Item;
-            //if ((item.ItemType == ListItemType.Item) ||
-            //    (item.ItemType == ListItemType.AlternatingItem))
-            //{
-            //    var detail = (Repeater)item.FindControl("detailRepeater");
+            RepeaterItem item = e.Item;
+            if ((item.ItemType == ListItemType.Item) ||
+                (item.ItemType == ListItemType.AlternatingItem))
+            {
+                var detail = (Repeater)item.FindControl("detailRepeater");
 
-            //    //pc.getAllParentComments().Take(2).ToList()
-            //    var x = cl.getChildCommentByParentID(((ParentCommentTable)e.Item.DataItem).ID);
-            //    detail.DataSource = x;
-            //    detail.DataBind();
+                //pc.getAllParentComments().Take(2).ToList()
+                var x = cl.getChildCommentByParentID(((ParentCommentTable)e.Item.DataItem).ID);
+                detail.DataSource = x;
+                detail.DataBind();
 
-            //    string msg = ((ParentCommentTable)e.Item.DataItem).CommentMessage;
-            //    System.Console.WriteLine(msg);
-            //}
+                string msg = ((ParentCommentTable)e.Item.DataItem).CommentMessage;
+                System.Console.WriteLine(msg);
+            }
         }
         
 
@@ -262,6 +271,11 @@ namespace web.Views
                 int PDID = int.Parse(Session["PerformanceDetailID"].ToString());
                 Performance p = pl.getPerformanceById(PDID);
                 performancePosterImage.ImageUrl = "~/Document/" + p.PhotoAddLocation;
+                organizer.InnerText = p.OrganizerInfo;
+                location.InnerText = p.Location;
+                startingdate.InnerText = p.StartDate.ToString();
+                enddate.InnerText = p.EndDate.ToString();
+                concerthall.InnerText = p.ConcertHall;
 
 
             }
