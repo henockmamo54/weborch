@@ -12,6 +12,8 @@
             <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
             <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
+            <h2 runat="server" id="performanceTitle"></h2>
+
             <div class="row" id="forAudience" runat="server">
 
                 <div class="col-md-8">
@@ -133,7 +135,7 @@
 
                 <div class="col-md-4">
 
-                    <h2 style="margin-top: 0;">Musical performance program</h2>
+                    <h3 style="margin-top: 0;">Musical performance program</h3>
                     <p><strong>Note:</strong> The performance Organized by <strong><span runat="server" id="organizer"></span></strong> will be held in <strong><span runat="server" id="location"></span></strong> at <strong><span runat="server" id="concerthall"></span></strong> starting from <strong><span runat="server" id="startingdate"></span></strong> to <strong><span runat="server" id="enddate"></span></strong>. The following is the schdule of the program </p>
 
                     <div class="row">

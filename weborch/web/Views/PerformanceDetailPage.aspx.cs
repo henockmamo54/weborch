@@ -278,6 +278,7 @@ namespace web.Views
                 startingdate.InnerText = p.StartDate.ToString();
                 enddate.InnerText = p.EndDate.ToString();
                 concerthall.InnerText = p.ConcertHall;
+                performanceTitle.InnerText = p.PerformanceTitle;
 
 
             }

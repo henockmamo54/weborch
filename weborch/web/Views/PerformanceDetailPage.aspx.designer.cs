@@ -13,6 +13,15 @@ namespace web.Views {
     public partial class PerformanceDetailPage {
         
         /// <summary>
+        /// performanceTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl performanceTitle;
+        
+        /// <summary>
         /// forAudience control.
         /// </summary>
         /// <remarks>
