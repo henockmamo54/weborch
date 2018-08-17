@@ -27,6 +27,12 @@ namespace web.Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.QueryString["ID"] != null)
+            {
+                int idByStringQuery = int.Parse(Request.QueryString["ID"]);
+                Session["PerformanceDetailID"] = idByStringQuery;
+            }
+
             if (Session["PerformanceDetailID"] != null)
             {
                 int PDID = int.Parse(Session["PerformanceDetailID"].ToString());

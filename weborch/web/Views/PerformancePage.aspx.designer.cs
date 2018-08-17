@@ -13,6 +13,33 @@ namespace web.Views {
     public partial class PerformancePage {
         
         /// <summary>
+        /// forAudience control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl forAudience;
+        
+        /// <summary>
+        /// repeater_performanceList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater repeater_performanceList;
+        
+        /// <summary>
+        /// formanaging control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl formanaging;
+        
+        /// <summary>
         /// PanelPerformanceRegiter control.
         /// </summary>
         /// <remarks>

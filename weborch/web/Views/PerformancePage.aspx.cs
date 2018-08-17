@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using DataAccess;
 using System.Globalization;
 using BusinessLogic;
+using System.Data;
 
 namespace web.Views
 {
@@ -32,6 +33,11 @@ namespace web.Views
                 isUserCompany = entity.UserTypes.Where(x => x.ID == val).FirstOrDefault().Iscompany;
             }
             PanelPerformanceRegiter.Visible = isUserCompany;
+            forAudience.Visible = !isUserCompany;
+            formanaging.Visible = isUserCompany;
+
+            repeater_performanceList.DataSource = SqlDataSource2_allPerformances;
+            repeater_performanceList.DataBind();
         }
 
         public void btn_performance_Click(object sender, EventArgs e)
@@ -173,7 +179,17 @@ namespace web.Views
 
         }
 
+        protected void repeater_performanceList_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                DataRowView drv = (DataRowView)e.Item.DataItem;
+                int ID = Convert.ToInt32(drv["ID"]);
 
+                LinkButton lnkt = (LinkButton)e.Item.FindControl("tumbinallink");
+                lnkt.PostBackUrl = "PerformanceDetailPage.aspx?ID="+ID.ToString();
 
+            }
+        }
     }
 }

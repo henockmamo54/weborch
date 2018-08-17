@@ -18,7 +18,7 @@
 
                 <div class="col-md-8">
 
-                    <asp:Image ImageUrl="~/Document/dl-c.png" CssClass="shadowedPanel" Style="width: 100%;" runat="server" ID="performancePosterImage" />
+                    <asp:Image  CssClass="shadowedPanel" Style="width: 100%;" runat="server" ID="performancePosterImage" />
                     <%--====================================================================================--%>
                     <br />
                     <br />
