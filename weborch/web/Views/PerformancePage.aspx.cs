@@ -144,6 +144,7 @@ namespace web.Views
             Performance a = entity.Performances.Where(x => x.ID == id).FirstOrDefault();
 
             modalImageContainer.ImageUrl = "~/Document/" + a.PhotoAddLocation;
+            modalImageContainer2.ImageUrl = "~/Document/" + a.Brochure;
             Session["SelectedPerformanceID"] = id;
         }
 
@@ -182,6 +183,44 @@ namespace web.Views
             }
 
         }
+
+
+        protected void buttonChangeImage2(object sender, EventArgs e)
+        {
+            if (FileUpload4.HasFiles)
+            {
+                string ext = System.IO.Path.GetExtension(FileUpload4.FileName);
+                if (ext == ".jpg" || ext == ".png" || ext == ".gif" || ext == ".jpeg")
+                {
+                    string path = Server.MapPath("~//Document//");
+                    FileUpload4.SaveAs(path + FileUpload4.FileName);
+                }
+                else
+                {
+                    showMsg("you can upload only jpeg,jpg,png,gif file formats");
+                    return;
+                }
+            }
+
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
+            if (Session["SelectedPerformanceID"] != null)
+            {
+
+                int id = int.Parse(Session["SelectedPerformanceID"].ToString());
+                OrchestraDBEntities entity = new OrchestraDBEntities();
+
+                var x = entity.Performances.Where(inst => inst.ID == id).FirstOrDefault();
+                if (x != null)
+                {
+                    x.Brochure = FileUpload4.FileName;
+                    entity.SaveChanges();
+                    GridView1.DataBind();
+                }
+            }
+
+        }
+
 
         protected void repeater_performanceList_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {

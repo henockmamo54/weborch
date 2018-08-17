@@ -26,11 +26,35 @@
                                     <div class="thumbnail">
                                         <asp:LinkButton runat="server" ID="tumbinallink" target="_blank">
                                             <img src="../Document/<%#Eval("PhotoAddLocation") %>" alt="Lights" style="width: 100%; height: 200px;">
-                                            <div class="caption">
-                                                <p>
-                                                    <%# (Eval("PerformanceTitle") +","+ Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString().Length>50?
+
+                                            
+      <%--<div class = "caption">
+         <h3><%# Eval("PerformanceTitle").ToString().Length >30? Eval("PerformanceTitle").ToString().Substring(0,30):Eval("PerformanceTitle").ToString() + " ..." %></h3>
+         <p><%# (Eval("PerformanceTitle") +","+ Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString().Length>50?
                                                            (Eval("PerformanceTitle") +","+ Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString().Substring(0,50)+ " .... Read More":
-                                                           (Eval("PerformanceTitle") +","+ Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString() + " .... Read More" %>
+                                                           (Eval("PerformanceTitle") +","+ Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString() + " .... Read More" %></p>
+         
+         <p>
+            <a href = "#" class = "btn btn-primary" role = "button">
+               Button
+            </a> 
+            
+            <a href = "#" class = "btn btn-default" role = "button">
+               Button
+            </a>
+         </p>
+         
+      </div>--%>
+
+
+                                            <div class="caption">
+                                                <h4><%# (Eval("PerformanceTitle")) .ToString().Length>30?
+                                                           (Eval("PerformanceTitle")) .ToString().Substring(0,30)+ " ....":
+                                                           (Eval("PerformanceTitle")) .ToString()%></h4>
+                                                <p>
+                                                    <%# ( Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString().Length>40?
+                                                           (Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString().Substring(0,40)+ " .... More":
+                                                            (Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString() + " .... More" %>
                                                 </p>
                                             </div>
                                         </asp:LinkButton>
@@ -89,7 +113,7 @@
                             </div>
                             <br />
                         </div>
-                        
+
                         <div class="col-md-4">
                             <br />
                             <div class="col-md-4"><%= Resources.HomeView.aspx.PhotoAd %>:</div>
@@ -99,7 +123,7 @@
                             </div>
                             <br />
                         </div>
-                        
+
                         <div class="col-md-4">
                             <br />
                             <div class="col-md-4">Brochure:</div>
@@ -200,9 +224,7 @@ VideoLocation=@VideoLocation,
 ConcertHall=@ConcertHall,
 PerformanceHour = @PerformanceHour, 
 OrganizerInfo = @OrganizerInfo , 
-TicketBox = @TicketBox,
-Brochure = @Brochure 
-
+TicketBox = @TicketBox
 where ID=@ID">
                         <DeleteParameters>
                             <asp:Parameter Name="ID" />
@@ -220,6 +242,7 @@ where ID=@ID">
                             <asp:Parameter Name="PerformanceHour" />
                             <asp:Parameter Name="OrganizerInfo" />
                             <asp:Parameter Name="TicketBox" />
+                            <asp:Parameter Name="Brochure" />
 
                             <asp:Parameter />
                             <asp:Parameter Name="ID" />
@@ -252,7 +275,17 @@ where ID=@ID">
                             <asp:BoundField DataField="PerformanceHour" HeaderText="Performance Hour" SortExpression="PerformanceHour" />
                             <asp:BoundField DataField="OrganizerInfo" HeaderText="Organizer Info" SortExpression="OrganizerInfo" />
                             <asp:BoundField DataField="TicketBox" HeaderText="Ticket Box" SortExpression="TicketBox" />
-                            <asp:BoundField DataField="Brochure" HeaderText="Brochure" SortExpression="Brochure" />
+
+                            <asp:TemplateField HeaderText="Brochure" SortExpression="Brochure">
+                                <EditItemTemplate>
+                                    <asp:Button ID="editButton3" CssClass="btn btn-info" runat="server" Text='<%$Resources:HomeView.aspx,Change %>' data-toggle="modal" data-target="#exampleModalLong2" />
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("Brochure") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <%--<asp:BoundField DataField="Brochure" HeaderText="Brochure" SortExpression="Brochure" />--%>
 
                             <asp:TemplateField HeaderText="<%$Resources:HomeView.aspx,PhotoAdLocation %>" SortExpression="PhotoAddLocation">
                                 <EditItemTemplate>
@@ -263,6 +296,7 @@ where ID=@ID">
                                     <asp:Label ID="Label2" runat="server" Text='<%# Bind("PhotoAddLocation") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
+
                             <asp:BoundField DataField="VideoLocation" HeaderText="<%$Resources:HomeView.aspx,VideoLocation %>" SortExpression="VideoLocation" />
                             <asp:TemplateField HeaderText="<%$Resources:HomeView.aspx,Orchestra %>" SortExpression="OfficialName">
                                 <EditItemTemplate>
@@ -318,12 +352,45 @@ where ID=@ID">
                 </div>
             </div>
 
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle2"><%= Resources.HomeView.aspx.PhotoAd %></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="form-group" style="text-align: center;">
+                                <asp:Image runat="server" ID="modalImageContainer2" Width="20em" Height="20em" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1"><%= Resources.HomeView.aspx.Change %></label>
+                                <asp:FileUpload ID="FileUpload4" runat="server" Style="display: inline" />
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= Resources.HomeView.aspx.Close %></button>
+                            <asp:Button runat="server" type="button" class="btn btn-primary" Text="<%$Resources:HomeView.aspx,Save %>" OnClick="buttonChangeImage2" ID="btnsaveimagechange2" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </ContentTemplate>
 
 
         <Triggers>
             <asp:PostBackTrigger ControlID="btn_addPerformance" />
             <asp:PostBackTrigger ControlID="btnsaveimagechange" />
+            <asp:PostBackTrigger ControlID="btnsaveimagechange2" />
         </Triggers>
 
     </asp:UpdatePanel>
@@ -344,30 +411,30 @@ where ID=@ID">
     </script>
 
     <style>
-        .GridViewEditRow input[type=text] {
-            display: block;
-            width: 100%;
-            height: 34px;
-            padding: 6px 12px;
-            font-size: 14px;
-            line-height: 1.428571429;
-            color: #555555;
-            vertical-align: middle;
-            background-color: #ffffff;
-            border: 1px solid #cccccc;
-            border-radius: 4px;
-            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-            -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-            transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-        }
+ .GridViewEditRow input[type=text] {
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #555555;
+        vertical-align: middle;
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+        -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    }
 
-        .shadowedPanel {
-            border: 1px solid transparent;
-            border-radius: 4px;
-            border-color: #dddddd;
-            padding: 1em;
-            box-shadow: 2px 2px 2px 2px #f5f5f5;
-        }
-    </style>
+    .shadowedPanel {
+        border: 1px solid transparent;
+        border-radius: 4px;
+        border-color: #dddddd;
+        padding: 1em;
+        box-shadow: 2px 2px 2px 2px #f5f5f5;
+    }
+</style>
 </asp:Content>
