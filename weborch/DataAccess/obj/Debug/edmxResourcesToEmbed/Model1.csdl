@@ -840,6 +840,7 @@
     <Property Name="PerformanceHour" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="OrganizerInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Archive" Type="Boolean" />
+    <Property Name="Brochure" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK__Performan__Perfo__503BEA1C">
     <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="0..1" />

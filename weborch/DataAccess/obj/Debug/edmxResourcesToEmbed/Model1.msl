@@ -354,6 +354,7 @@
     <EntitySetMapping Name="Performances">
       <EntityTypeMapping TypeName="OrchestraDBModel.Performance">
         <MappingFragment StoreEntitySet="Performance">
+          <ScalarProperty Name="Brochure" ColumnName="Brochure" />
           <ScalarProperty Name="Archive" ColumnName="Archive" />
           <ScalarProperty Name="OrganizerInfo" ColumnName="OrganizerInfo" />
           <ScalarProperty Name="PerformanceHour" ColumnName="PerformanceHour" />

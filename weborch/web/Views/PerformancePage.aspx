@@ -89,7 +89,7 @@
                             </div>
                             <br />
                         </div>
-
+                        
                         <div class="col-md-4">
                             <br />
                             <div class="col-md-4"><%= Resources.HomeView.aspx.PhotoAd %>:</div>
@@ -99,13 +99,22 @@
                             </div>
                             <br />
                         </div>
-
+                        
+                        <div class="col-md-4">
+                            <br />
+                            <div class="col-md-4">Brochure:</div>
+                            <div class="col-md-8">
+                                <asp:FileUpload ID="FileUpload3" runat="server" Style="display: inline" />
+                                <%--<asp:TextBox ID="TextBox2" runat="server" class="form-control"></asp:TextBox>--%>
+                            </div>
+                            <br />
+                        </div>
 
                         <div class="col-md-4">
                             <br />
                             <div class="col-md-4"><%= Resources.HomeView.aspx.VideoAd %>:</div>
                             <div class="col-md-8">
-                                <asp:TextBox ID="TextBox3" runat="server" class="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txt_videolocation" runat="server" class="form-control"></asp:TextBox>
                             </div>
                             <br />
                         </div>
@@ -191,7 +200,8 @@ VideoLocation=@VideoLocation,
 ConcertHall=@ConcertHall,
 PerformanceHour = @PerformanceHour, 
 OrganizerInfo = @OrganizerInfo , 
-TicketBox = @TicketBox 
+TicketBox = @TicketBox,
+Brochure = @Brochure 
 
 where ID=@ID">
                         <DeleteParameters>
@@ -242,6 +252,7 @@ where ID=@ID">
                             <asp:BoundField DataField="PerformanceHour" HeaderText="Performance Hour" SortExpression="PerformanceHour" />
                             <asp:BoundField DataField="OrganizerInfo" HeaderText="Organizer Info" SortExpression="OrganizerInfo" />
                             <asp:BoundField DataField="TicketBox" HeaderText="Ticket Box" SortExpression="TicketBox" />
+                            <asp:BoundField DataField="Brochure" HeaderText="Brochure" SortExpression="Brochure" />
 
                             <asp:TemplateField HeaderText="<%$Resources:HomeView.aspx,PhotoAdLocation %>" SortExpression="PhotoAddLocation">
                                 <EditItemTemplate>

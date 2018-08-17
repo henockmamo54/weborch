@@ -36,6 +36,7 @@ namespace DataAccess
         public string PerformanceHour { get; set; }
         public string OrganizerInfo { get; set; }
         public Nullable<bool> Archive { get; set; }
+        public string Brochure { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PerformanceDetail> PerformanceDetails { get; set; }

@@ -45,7 +45,7 @@ namespace web.Views
             try
             {
                 var user = (UserCommonTable)Session["User"];
-                
+
 
                 Performance p = new Performance();
                 p.UserID = user.ID;
@@ -61,8 +61,10 @@ namespace web.Views
                 p.PerformanceHour = txt_peformancehour.Text;
                 p.TicketBox = txt_ticketbox.Text;
                 p.OrganizerInfo = txt_organizerinfo.Text;
+                p.VideoLocation = txt_videolocation.Text;
                 //p.PerformanceDay = "Sunday";
-                getPhoto(p, FileUpload1);
+                getPhoto(p, FileUpload1, 1);
+                getPhoto(p, FileUpload3, 2);
 
                 if (pl.insertPerformance(p))
                 {
@@ -70,7 +72,7 @@ namespace web.Views
                     GridView1.DataBind();
                     showMsg("Data inserted succssfuly");
                 }
-                else showMsg("Please check your inputs"); 
+                else showMsg("Please check your inputs");
             }
             catch (Exception ee)
             {
@@ -85,7 +87,7 @@ namespace web.Views
         }
 
 
-        public void getPhoto(Performance p, FileUpload fileupload)
+        public void getPhoto(Performance p, FileUpload fileupload, int photonumber)
         {
 
             if (fileupload.HasFiles)
@@ -101,9 +103,11 @@ namespace web.Views
                     showMsg("you can upload only jpeg,jpg,png,gif file formats");
                 }
             }
+            if (photonumber == 1)
+                p.PhotoAddLocation = fileupload.FileName;
+            if (photonumber == 2)
+                p.Brochure = fileupload.FileName;
 
-            p.PhotoAddLocation = fileupload.FileName;
-            
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -123,9 +127,9 @@ namespace web.Views
                 {
                     {
                         Button btnEdit = (Button)e.Row.FindControl("btnEdit");
-                        ((CommandField)((DataControlFieldCell) (e.Row.Cells[0])).ContainingField).ShowEditButton=false;
-                        ((CommandField)((DataControlFieldCell) (e.Row.Cells[0])).ContainingField).ShowDeleteButton=false;
-                        
+                        ((CommandField)((DataControlFieldCell)(e.Row.Cells[0])).ContainingField).ShowEditButton = false;
+                        ((CommandField)((DataControlFieldCell)(e.Row.Cells[0])).ContainingField).ShowDeleteButton = false;
+
                     }
                 }
 
@@ -187,7 +191,7 @@ namespace web.Views
                 int ID = Convert.ToInt32(drv["ID"]);
 
                 LinkButton lnkt = (LinkButton)e.Item.FindControl("tumbinallink");
-                lnkt.PostBackUrl = "PerformanceDetailPage.aspx?ID="+ID.ToString();
+                lnkt.PostBackUrl = "PerformanceDetailPage.aspx?ID=" + ID.ToString();
 
             }
         }

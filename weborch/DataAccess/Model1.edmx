@@ -312,6 +312,7 @@
           <Property Name="PerformanceHour" Type="nvarchar" MaxLength="100" />
           <Property Name="OrganizerInfo" Type="nvarchar" MaxLength="200" />
           <Property Name="Archive" Type="bit" />
+          <Property Name="Brochure" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="PerformanceDetail">
           <Key>
@@ -1862,6 +1863,7 @@
           <Property Name="PerformanceHour" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="OrganizerInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Archive" Type="Boolean" />
+          <Property Name="Brochure" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK__Performan__Perfo__503BEA1C">
           <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="0..1" />
@@ -2468,6 +2470,7 @@
           <EntitySetMapping Name="Performances">
             <EntityTypeMapping TypeName="OrchestraDBModel.Performance">
               <MappingFragment StoreEntitySet="Performance">
+                <ScalarProperty Name="Brochure" ColumnName="Brochure" />
                 <ScalarProperty Name="Archive" ColumnName="Archive" />
                 <ScalarProperty Name="OrganizerInfo" ColumnName="OrganizerInfo" />
                 <ScalarProperty Name="PerformanceHour" ColumnName="PerformanceHour" />

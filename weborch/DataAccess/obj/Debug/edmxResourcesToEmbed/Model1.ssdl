@@ -307,6 +307,7 @@
     <Property Name="PerformanceHour" Type="nvarchar" MaxLength="100" />
     <Property Name="OrganizerInfo" Type="nvarchar" MaxLength="200" />
     <Property Name="Archive" Type="bit" />
+    <Property Name="Brochure" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="PerformanceDetail">
     <Key>
