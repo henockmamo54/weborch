@@ -28,6 +28,7 @@ namespace DataAccess
             this.ChildCommentTables = new HashSet<ChildCommentTable>();
             this.ParentCommentTables = new HashSet<ParentCommentTable>();
             this.BulletinLikeUnlikes = new HashSet<BulletinLikeUnlike>();
+            this.PerformanceParentCommentTables = new HashSet<PerformanceParentCommentTable>();
         }
     
         public int ID { get; set; }
@@ -59,5 +60,7 @@ namespace DataAccess
         public virtual ICollection<ParentCommentTable> ParentCommentTables { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BulletinLikeUnlike> BulletinLikeUnlikes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PerformanceParentCommentTable> PerformanceParentCommentTables { get; set; }
     }
 }

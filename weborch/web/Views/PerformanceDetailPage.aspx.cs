@@ -24,9 +24,12 @@ namespace web.Views
         bool isdisliked = false;
         ParentCommentLogic pc = new ParentCommentLogic();
         ChildCommentLogic cl = new ChildCommentLogic();
+        OrchestraDBEntities entity = new OrchestraDBEntities();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            OrchestraDBEntities entity = new OrchestraDBEntities();
+
             if (Request.QueryString["ID"] != null)
             {
                 int idByStringQuery = int.Parse(Request.QueryString["ID"]);
@@ -92,7 +95,6 @@ namespace web.Views
             user = (UserCommonTable)Session["User"];
             if (user != null)
             {
-                OrchestraDBEntities entity = new OrchestraDBEntities();
                 var val = user.User_UserType.FirstOrDefault().UserTypeID.Value;
                 isUserCompany = entity.UserTypes.Where(x => x.ID == val).FirstOrDefault().Iscompany;
             }
@@ -109,8 +111,10 @@ namespace web.Views
             likecountspan.InnerText = likecount.ToString();
             dislikecountspan.InnerText = dislikecount.ToString();
 
-            var parcomm = pc.getChildCommentByParentID(3);
-            Repeater2.DataSource = parcomm;
+            //var parcomm = pc.getChildCommentByParentID(3);
+            //Repeater2.DataSource = parcomm;
+            Repeater2.DataSource = entity.PerformanceParentCommentTables.ToList().Where(x => x.PerformanceID == PDID && x.ParentCommentID == null).ToList();
+
             Repeater2.DataBind();
 
         }
@@ -213,41 +217,52 @@ namespace web.Views
 
         protected void btnComment_Click(object sender, CommandEventArgs e)
         {
-            RepeaterItem item = (sender as Button).NamingContainer as RepeaterItem;
-            string message = (item.FindControl("txtComment") as TextBox).Text;
+            OrchestraDBEntities entity = new OrchestraDBEntities();
 
+            PerformanceParentCommentTable pt = new PerformanceParentCommentTable();
+            pt.UserName = "anonymous";
+            pt.CommentMessage = txtComment.Text;
+            pt.PerformanceID = PDID;
+            pt.CommentDate = DateTime.Now;
 
-            ParentCommentTable pt = new ParentCommentTable();
-            pt.Username = "anonymous";
-            pt.CommentMessage = message;
-            pt.PostID = int.Parse(e.CommandArgument.ToString());
-
-            pc.addParentComment(pt);
+            entity.PerformanceParentCommentTables.Add(pt);
+            entity.SaveChanges();
+            
 
             var value = e.CommandArgument;
 
             System.Console.WriteLine("on btn click");
 
-            var parcomm = pc.getChildCommentByParentID(3);
-            Repeater2.DataSource = parcomm;
+            //var parcomm = pc.getChildCommentByParentID(3);
+            //Repeater2.DataSource = parcomm;
+            Repeater2.DataSource = entity.PerformanceParentCommentTables.ToList().Where(x => x.PerformanceID == PDID && x.ParentCommentID == null).ToList();
+
             Repeater2.DataBind();
 
         }
 
         protected void btnAddDetailComment_Click(object sender, CommandEventArgs e)
         {
+            OrchestraDBEntities entity = new OrchestraDBEntities();
             RepeaterItem item = (sender as Button).NamingContainer as RepeaterItem;
             string message = (item.FindControl("txtCommentReplyParent") as TextBox).Text;
 
 
-            ChildCommentTable ct = new ChildCommentTable();
-            ct.Username = "anonymous";
-            ct.CommentMessage = message;
-            ct.ParentCommentID = int.Parse(e.CommandArgument.ToString());
-            cl.addChildComment(ct);
+            PerformanceParentCommentTable pt = new PerformanceParentCommentTable();
+            pt.UserName = "anonymous";
+            pt.CommentMessage = message;
+            pt.PerformanceID = PDID;
+            pt.CommentDate = DateTime.Now;
+            pt.ParentCommentID= int.Parse(e.CommandArgument.ToString());
 
-            var parcomm = pc.getChildCommentByParentID(3);
-            Repeater2.DataSource = parcomm;
+
+            entity.PerformanceParentCommentTables.Add(pt);
+            entity.SaveChanges();
+
+
+            //var parcomm = pc.getChildCommentByParentID(3);
+            //Repeater2.DataSource = parcomm;
+            Repeater2.DataSource = entity.PerformanceParentCommentTables.ToList().Where(x => x.PerformanceID == PDID && x.ParentCommentID == null).ToList();
             Repeater2.DataBind();
 
         }
@@ -262,12 +277,11 @@ namespace web.Views
                 var detail = (Repeater)item.FindControl("detailRepeater");
 
                 //pc.getAllParentComments().Take(2).ToList()
-                var x = cl.getChildCommentByParentID(((ParentCommentTable)e.Item.DataItem).ID);
-                detail.DataSource = x;
+                //var x = cl.getChildCommentByParentID(((ParentCommentTable)e.Item.DataItem).ID);
+                var source = entity.PerformanceParentCommentTables.Where(x => x.ParentCommentID == ((PerformanceParentCommentTable)e.Item.DataItem).ID).ToList();
+                detail.DataSource = source;
                 detail.DataBind();
-
-                string msg = ((ParentCommentTable)e.Item.DataItem).CommentMessage;
-                System.Console.WriteLine(msg);
+                
             }
         }
         

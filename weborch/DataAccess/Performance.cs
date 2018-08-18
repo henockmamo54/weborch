@@ -18,6 +18,7 @@ namespace DataAccess
         public Performance()
         {
             this.PerformanceDetails = new HashSet<PerformanceDetail>();
+            this.PerformanceParentCommentTables = new HashSet<PerformanceParentCommentTable>();
         }
     
         public int ID { get; set; }
@@ -42,5 +43,7 @@ namespace DataAccess
         public virtual ICollection<PerformanceDetail> PerformanceDetails { get; set; }
         public virtual UserCommonTable UserCommonTable { get; set; }
         public virtual Orchestra Orchestra { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PerformanceParentCommentTable> PerformanceParentCommentTables { get; set; }
     }
 }

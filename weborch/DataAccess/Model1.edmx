@@ -156,6 +156,18 @@
           <Property Name="PostID" Type="int" />
           <Property Name="UserID" Type="int" />
         </EntityType>
+        <EntityType Name="PerformanceParentCommentTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CommentMessage" Type="varchar" MaxLength="300" />
+          <Property Name="CommentDate" Type="datetime" Nullable="false" />
+          <Property Name="PerformanceID" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="ParentCommentID" Type="int" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="PromotionAndRecruitment">
           <Key>
             <PropertyRef Name="ID" />
@@ -696,6 +708,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Performan__Paren__12FDD1B2">
+          <End Role="PerformanceParentCommentTable" Type="Self.PerformanceParentCommentTable" Multiplicity="0..1" />
+          <End Role="PerformanceParentCommentTable1" Type="Self.PerformanceParentCommentTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerformanceParentCommentTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PerformanceParentCommentTable1">
+              <PropertyRef Name="ParentCommentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Performan__Perfo__11158940">
+          <End Role="Performance" Type="Self.Performance" Multiplicity="0..1" />
+          <End Role="PerformanceParentCommentTable" Type="Self.PerformanceParentCommentTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Performance">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PerformanceParentCommentTable">
+              <PropertyRef Name="PerformanceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Performan__Perfo__503BEA1C">
           <End Role="Performance" Type="Self.Performance" Multiplicity="0..1" />
           <End Role="PerformanceDetail" Type="Self.PerformanceDetail" Multiplicity="*" />
@@ -729,6 +765,18 @@
             </Principal>
             <Dependent Role="PerformanceDetail">
               <PropertyRef Name="Player" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Performan__UserI__1209AD79">
+          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
+          <End Role="PerformanceParentCommentTable" Type="Self.PerformanceParentCommentTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserCommonTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PerformanceParentCommentTable">
+              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -851,6 +899,7 @@
           <EntitySet Name="NoticeTable" EntityType="Self.NoticeTable" Schema="Core" store:Type="Tables" />
           <EntitySet Name="Orchestra" EntityType="Self.Orchestra" Schema="Core" store:Type="Tables" />
           <EntitySet Name="ParentCommentTable" EntityType="Self.ParentCommentTable" Schema="Core" store:Type="Tables" />
+          <EntitySet Name="PerformanceParentCommentTable" EntityType="Self.PerformanceParentCommentTable" Schema="Core" store:Type="Tables" />
           <EntitySet Name="PromotionAndRecruitment" EntityType="Self.PromotionAndRecruitment" Schema="Core" store:Type="Tables" />
           <EntitySet Name="Review" EntityType="Self.Review" Schema="Core" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="Core" store:Type="Tables" />
@@ -970,6 +1019,14 @@
             <End Role="Orchestra" EntitySet="Orchestra" />
             <End Role="PerformanceDetail" EntitySet="PerformanceDetail" />
           </AssociationSet>
+          <AssociationSet Name="FK__Performan__Paren__12FDD1B2" Association="Self.FK__Performan__Paren__12FDD1B2">
+            <End Role="PerformanceParentCommentTable" EntitySet="PerformanceParentCommentTable" />
+            <End Role="PerformanceParentCommentTable1" EntitySet="PerformanceParentCommentTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Performan__Perfo__11158940" Association="Self.FK__Performan__Perfo__11158940">
+            <End Role="Performance" EntitySet="Performance" />
+            <End Role="PerformanceParentCommentTable" EntitySet="PerformanceParentCommentTable" />
+          </AssociationSet>
           <AssociationSet Name="FK__Performan__Perfo__503BEA1C" Association="Self.FK__Performan__Perfo__503BEA1C">
             <End Role="Performance" EntitySet="Performance" />
             <End Role="PerformanceDetail" EntitySet="PerformanceDetail" />
@@ -981,6 +1038,10 @@
           <AssociationSet Name="FK__Performan__Playe__5CA1C101" Association="Self.FK__Performan__Playe__5CA1C101">
             <End Role="Artist" EntitySet="Artist" />
             <End Role="PerformanceDetail" EntitySet="PerformanceDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Performan__UserI__1209AD79" Association="Self.FK__Performan__UserI__1209AD79">
+            <End Role="UserCommonTable" EntitySet="UserCommonTable" />
+            <End Role="PerformanceParentCommentTable" EntitySet="PerformanceParentCommentTable" />
           </AssociationSet>
           <AssociationSet Name="FK__Performan__UserI__5224328E" Association="Self.FK__Performan__UserI__5224328E">
             <End Role="UserCommonTable" EntitySet="UserCommonTable" />
@@ -1272,6 +1333,19 @@
             <End Role="UserCommonTable" EntitySet="UserCommonTables" />
             <End Role="BulletinLikeUnlike" EntitySet="BulletinLikeUnlikes" />
           </AssociationSet>
+          <EntitySet Name="PerformanceParentCommentTables" EntityType="OrchestraDBModel.PerformanceParentCommentTable" />
+          <AssociationSet Name="FK__Performan__Paren__12FDD1B2" Association="OrchestraDBModel.FK__Performan__Paren__12FDD1B2">
+            <End Role="PerformanceParentCommentTable" EntitySet="PerformanceParentCommentTables" />
+            <End Role="PerformanceParentCommentTable1" EntitySet="PerformanceParentCommentTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Performan__Perfo__11158940" Association="OrchestraDBModel.FK__Performan__Perfo__11158940">
+            <End Role="Performance" EntitySet="Performances" />
+            <End Role="PerformanceParentCommentTable" EntitySet="PerformanceParentCommentTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Performan__UserI__1209AD79" Association="OrchestraDBModel.FK__Performan__UserI__1209AD79">
+            <End Role="UserCommonTable" EntitySet="UserCommonTables" />
+            <End Role="PerformanceParentCommentTable" EntitySet="PerformanceParentCommentTables" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="User">
           <Key>
@@ -1501,6 +1575,7 @@
           <NavigationProperty Name="ChildCommentTables" Relationship="OrchestraDBModel.FK__ChildComm__UserI__01D345B0" FromRole="UserCommonTable" ToRole="ChildCommentTable" />
           <NavigationProperty Name="ParentCommentTables" Relationship="OrchestraDBModel.FK__ParentCom__UserI__00DF2177" FromRole="UserCommonTable" ToRole="ParentCommentTable" />
           <NavigationProperty Name="BulletinLikeUnlikes" Relationship="OrchestraDBModel.FK__BulletinL__UserI__0880433F" FromRole="UserCommonTable" ToRole="BulletinLikeUnlike" />
+          <NavigationProperty Name="PerformanceParentCommentTables" Relationship="OrchestraDBModel.FK__Performan__UserI__1209AD79" FromRole="UserCommonTable" ToRole="PerformanceParentCommentTable" />
         </EntityType>
         <EntityType Name="UserCompany">
           <Key>
@@ -1864,6 +1939,7 @@
           <Property Name="OrganizerInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Archive" Type="Boolean" />
           <Property Name="Brochure" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PerformanceParentCommentTables" Relationship="OrchestraDBModel.FK__Performan__Perfo__11158940" FromRole="Performance" ToRole="PerformanceParentCommentTable" />
         </EntityType>
         <Association Name="FK__Performan__Perfo__503BEA1C">
           <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="0..1" />
@@ -2107,6 +2183,58 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="BulletinLikeUnlike">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PerformanceParentCommentTable">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CommentMessage" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="CommentDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PerformanceID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="ParentCommentID" Type="Int32" />
+          <NavigationProperty Name="PerformanceParentCommentTable1" Relationship="OrchestraDBModel.FK__Performan__Paren__12FDD1B2" FromRole="PerformanceParentCommentTable" ToRole="PerformanceParentCommentTable1" />
+          <NavigationProperty Name="PerformanceParentCommentTable2" Relationship="OrchestraDBModel.FK__Performan__Paren__12FDD1B2" FromRole="PerformanceParentCommentTable1" ToRole="PerformanceParentCommentTable" />
+          <NavigationProperty Name="Performance" Relationship="OrchestraDBModel.FK__Performan__Perfo__11158940" FromRole="PerformanceParentCommentTable" ToRole="Performance" />
+          <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__Performan__UserI__1209AD79" FromRole="PerformanceParentCommentTable" ToRole="UserCommonTable" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__Performan__Paren__12FDD1B2">
+          <End Type="OrchestraDBModel.PerformanceParentCommentTable" Role="PerformanceParentCommentTable" Multiplicity="0..1" />
+          <End Type="OrchestraDBModel.PerformanceParentCommentTable" Role="PerformanceParentCommentTable1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerformanceParentCommentTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PerformanceParentCommentTable1">
+              <PropertyRef Name="ParentCommentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Performan__Perfo__11158940">
+          <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="0..1" />
+          <End Type="OrchestraDBModel.PerformanceParentCommentTable" Role="PerformanceParentCommentTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Performance">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PerformanceParentCommentTable">
+              <PropertyRef Name="PerformanceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Performan__UserI__1209AD79">
+          <End Type="OrchestraDBModel.UserCommonTable" Role="UserCommonTable" Multiplicity="0..1" />
+          <End Type="OrchestraDBModel.PerformanceParentCommentTable" Role="PerformanceParentCommentTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserCommonTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PerformanceParentCommentTable">
               <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
@@ -2533,6 +2661,19 @@
                 <ScalarProperty Name="timestamp" ColumnName="timestamp" />
                 <ScalarProperty Name="PostID" ColumnName="PostID" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PerformanceParentCommentTables">
+            <EntityTypeMapping TypeName="OrchestraDBModel.PerformanceParentCommentTable">
+              <MappingFragment StoreEntitySet="PerformanceParentCommentTable">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ParentCommentID" ColumnName="ParentCommentID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PerformanceID" ColumnName="PerformanceID" />
+                <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+                <ScalarProperty Name="CommentMessage" ColumnName="CommentMessage" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

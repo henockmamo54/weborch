@@ -139,6 +139,9 @@
     <Compile Include="PerformanceDetail_Instrument_Artist.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="PerformanceParentCommentTable.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="PromotionAndRecruitment.cs">
       <DependentUpon>Model1.tt</DependentUpon>
