@@ -799,6 +799,15 @@ namespace Resources.HomeView {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Poster.
+        /// </summary>
+        internal static string Poster {
+            get {
+                return ResourceManager.GetString("Poster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Privacy Policy.
         /// </summary>
         internal static string PrivacyPolicy {

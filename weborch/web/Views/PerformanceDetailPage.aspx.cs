@@ -35,7 +35,7 @@ namespace web.Views
 
             if (Session["PerformanceDetailID"] != null)
             {
-                int PDID = int.Parse(Session["PerformanceDetailID"].ToString());
+                PDID = int.Parse(Session["PerformanceDetailID"].ToString());
                 dropdown_performance.SelectedValue = PDID.ToString();
 
                 SqlDataSource1_performanceDetailList.SelectCommand = string.Format(@"
@@ -302,7 +302,8 @@ namespace web.Views
                     {
                         PerformanceDetail pd = new PerformanceDetail();
 
-                        pd.PerformanceID = int.Parse(dropdown_performance.SelectedValue);
+                        //pd.PerformanceID = int.Parse(dropdown_performance.SelectedValue);
+                        pd.PerformanceID = PDID;
                         pd.Title = txt_performancetitle.Text;
                         pd.Orchestra = int.Parse(DropDownList1_orchestra.SelectedValue);
                         //pd.Instrument = int.Parse(DropDownList_instrumentlist.SelectedValue);
@@ -470,7 +471,8 @@ namespace web.Views
                         int detailID = int.Parse(mystring);
                         PerformanceDetail pd = context.PerformanceDetails.Where(x => x.ID == detailID).FirstOrDefault();
 
-                        pd.PerformanceID = int.Parse(dropdown_performance.SelectedValue);
+                        //pd.PerformanceID = int.Parse(dropdown_performance.SelectedValue);
+                        pd.PerformanceID = PDID;
                         pd.Title = txt_performancetitle.Text;
                         pd.Orchestra = int.Parse(DropDownList1_orchestra.SelectedValue);
                         pd.Conductor = int.Parse(DropDownList2_conductor.SelectedValue);

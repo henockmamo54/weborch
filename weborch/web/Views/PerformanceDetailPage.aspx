@@ -12,7 +12,9 @@
             <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
             <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
-            <h2 runat="server" id="performanceTitle" style="margin-top: 0px; padding-top: 0px;"></h2>
+            <div class="row">
+                <h2 runat="server" id="performanceTitle" style="margin-top: 0px; padding-top: 0px;"></h2>
+            </div>
 
             <div class="row" id="forAudience" runat="server">
 
@@ -174,37 +176,184 @@
             </div>
 
             <div class="row" id="formanaging" runat="server">
+                <div class="row">
+                    <div class="row">
+                        <asp:Button runat="server" AutoPostBack="True" CssClass="btn btn-success pull-right" ID="showandhidebtnforthepanel" Text="+" OnClick="btn_ADD_ONClick_showAndHideTheDataEntryPanel" Style="margin-bottom: 10px;"></asp:Button>
+                        <br />
+                    </div>
 
-                <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource1_performanceDetailList" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound">
-                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                    <Columns>
-                        <asp:CommandField ButtonType="Image" ControlStyle-Height="20px" ControlStyle-Width="20px" ShowDeleteButton="True" DeleteImageUrl="http://icons.iconarchive.com/icons/everaldo/kids-icons/128/edit-delete-icon.png"
-                            SelectImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/128/edit-validated-icon.png" ShowSelectButton="True" HeaderStyle-Width="60px" />
-                        <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
-                        <asp:BoundField DataField="PerformanceTitle" HeaderText="PerformanceTitle" SortExpression="PerformanceTitle" />
-                        <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
-                        <asp:BoundField DataField="Conductor" HeaderText="Conductor" ReadOnly="True" SortExpression="Conductor" />
-                        <asp:BoundField DataField="Composer" HeaderText="Composer" ReadOnly="True" SortExpression="Composer" />
-                        <asp:BoundField DataField="Artists" HeaderText="Artists" ReadOnly="True" SortExpression="Artists" />
-                        <asp:BoundField DataField="Instruments" HeaderText="Instruments" ReadOnly="True" SortExpression="Instruments" />
-                        <asp:BoundField DataField="Time" HeaderText="Time" SortExpression="Time" />
-                    </Columns>
-                    <EditRowStyle BackColor="#999999" />
-                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                </asp:GridView>
+                    <div class="row shadowedPanel" visible="false" runat="server" id="AddNewEntryPanel" style="background: white; padding: 10px; margin-bottom: 10px;">
 
-                <div class="row" style="text-align: center !important;">
-                    <br />
-                    <asp:Button runat="server" AutoPostBack="True" CssClass="btn btn-warning" ID="showandhidebtnforthepanel" Text="ADD" OnClick="btn_ADD_ONClick_showAndHideTheDataEntryPanel"></asp:Button>
+                        <div class="row">
+                            <div class="col-md-4" runat="server" visible="false">
+                                <br />
+                                <div class="col-md-4">Performance:</div>
+                                <div class="col-md-8">
+                                    <asp:DropDownList ID="dropdown_performance" runat="server" DataSourceID="SqlDataSource1_performanceList" DataTextField="PerformanceTitle" DataValueField="ID" class="form-control" Enabled="false" AutoPostBack="True"></asp:DropDownList>
+                                    <asp:SqlDataSource ID="SqlDataSource1_performanceList" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT ID, PerformanceTitle FROM Main.Performance"></asp:SqlDataSource>
+                                </div>
+                                <br />
+
+                            </div>
+
+                            <div class="col-md-4">
+                                <br />
+                                <div class="col-md-4">Music Title:</div>
+                                <div class="col-md-8">
+                                    <asp:TextBox ID="txt_performancetitle" runat="server" class="form-control"></asp:TextBox>
+                                </div>
+                                <br />
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <br />
+                                <div class="col-md-4">Orchestra:</div>
+                                <div class="col-md-8">
+                                    <asp:DropDownList ID="DropDownList1_orchestra" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID"></asp:DropDownList>
+                                    <asp:SqlDataSource ID="SqlDataSource1_allOrchestra" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
+
+                                </div>
+                                <br />
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <br />
+                                <div class="col-md-4">Conductor:</div>
+                                <div class="col-md-8">
+                                    <asp:DropDownList ID="DropDownList2_conductor" runat="server" DataSourceID="SqlDataSource3_conductor" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
+                                    <asp:SqlDataSource ID="SqlDataSource3_conductor" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="select (FirstName + ' '+ MiddleName + ' '+ FamilyName) as Name, ID
+from(
+select a.ID,a.FirstName,a.MiddleName,a.FamilyName from Core.Artist a 
+join Drived.Artist_ArtistType at on a.ID= at.Artist
+join Lookup.ArtistType al  on at.ArtistTypeID = al.ID
+where al.Name='Conductor'
+) a"></asp:SqlDataSource>
+                                </div>
+                                <br />
+                            </div>
+                            <div class="col-md-4">
+                                <br />
+                                <div class="col-md-4">Composer</div>
+                                <div class="col-md-8">
+                                    <asp:DropDownList ID="DropDownList4_composer" runat="server" DataSourceID="SqlDataSource5_composer" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
+                                    <asp:SqlDataSource ID="SqlDataSource5_composer" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
+select (FirstName + ' '+ MiddleName + ' '+ FamilyName) as Name, ID
+from(
+select a.ID,a.FirstName,a.MiddleName,a.FamilyName from Core.Artist a 
+join Drived.Artist_ArtistType at on a.ID= at.Artist
+join Lookup.ArtistType al  on at.ArtistTypeID = al.ID
+where al.Name='Composer'
+) a
+"></asp:SqlDataSource>
+                                </div>
+                                <br />
+                            </div>
+                            <div class="col-md-4">
+                                <br />
+                                <div class="col-md-4">Time</div>
+                                <div class="col-md-8">
+                                    <%--<asp:TextBox ID="txt_time" runat="server" class="form-control"></asp:TextBox>--%>
+                                    <div class='input-group date' id='datetimepicker3' style="display: inline-flex;">
+                                        <input type='text' class="form-control" runat="server" id="txt_time" style="display: inline-block; border-right-width: 0px;" />
+                                        <span class="input-group-addon" style="flex-wrap: wrap; width: auto; display: inline-block; padding-left: 12px; margin-left: -5px; padding-top: 9px; padding-bottom: 7px;">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <br />
+                            </div>
+
+                        </div>
+
+                        <div class="row col-md-12">
+                            <hr />
+                            <div class="col-md-4">
+                                Instrument:
+                        <asp:DropDownList ID="DropDownList3_instrumentlist" class="form-control" runat="server" DataSourceID="SqlDataSource1_Instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
+                                <asp:SqlDataSource ID="SqlDataSource1_Instrumentlist" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT EnglishName, ID FROM Core.Instrument"></asp:SqlDataSource>
+                            </div>
+                            <div class="col-md-4">
+                                Played by:
+                        <asp:DropDownList ID="DropDownList2_artistlist" class="form-control" runat="server" DataSourceID="SqlDataSource1_artistlist" DataTextField="Name" DataValueField="ID"></asp:DropDownList>
+                                <asp:SqlDataSource ID="SqlDataSource1_artistlist" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT ID, Name= FamilyName+' '+ FirstName +' '+ MiddleName
+FROM Core.Artist"></asp:SqlDataSource>
+                            </div>
+                            <div class="col-md-3">
+                                <br />
+                                <asp:Button ID="Button1_addorchestraDetail" CssClass="btn btn-success" runat="server" Text="Add" OnClick="btn_add_ArtistInstrument_tolist" />
+                            </div>
+
+                        </div>
+
+                        <br />
+
+                        <div class="row col-md-12">
+                            <hr />
+                            <asp:Repeater runat="server" ID="myPerformanceDetailArtistInstrumentlist">
+                                <ItemTemplate>
+                                    <tr style="margin-bottom: 3px;">
+
+                                        <td>
+                                            <asp:Button runat="server" AutoPostBack="True" CssClass="btn btn-warning" CommandArgument='<%#Eval("ArtistID")+","+ Eval("InstrumentID")%>' Text="Delete" OnClick="btn_remove_ArtistInstrument_tolist"></asp:Button>
+                                        </td>
+
+                                        <td>
+                                            <asp:Label runat="server" ID="Label1" Text='<%# Eval("Artist.FirstName") %>' />
+                                            - 
+                                        </td>
+                                        <td>
+                                            <asp:Label runat="server" ID="Label2" Text='<%# Eval("Instrument.EnglishName") %>' />
+                                        </td>
+
+                                    </tr>
+                                    <br />
+                                    <br />
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
+
+                        <div class="row col-md-12">
+                            <asp:Button ID="btn_cancel" CssClass="btn btn-danger pull-right" Style="margin-right: 5px;" runat="server" Text="Cancel" OnClick="cancelDetailClicked" />
+                            <asp:Button ID="btn_update" CssClass="btn btn-success pull-right" Style="margin-right: 5px;" runat="server" Text="Save" OnClick="saveDetailClicked" />
+                            <asp:Button ID="btn_register" CssClass="btn btn-primary pull-right" Style="margin-right: 5px;" runat="server" Text="Register" OnClick="addDetailClicked" />
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource1_performanceDetailList"
+                            width="100%"
+                             ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound">
+                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                            <Columns>
+                                <asp:CommandField ButtonType="Image" ControlStyle-Height="20px" ControlStyle-Width="20px" ShowDeleteButton="True" DeleteImageUrl="http://icons.iconarchive.com/icons/everaldo/kids-icons/128/edit-delete-icon.png"
+                                    SelectImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/128/edit-validated-icon.png" ShowSelectButton="True" HeaderStyle-Width="60px" />
+                                <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+                                <%--<asp:BoundField DataField="PerformanceTitle" HeaderText="PerformanceTitle" SortExpression="PerformanceTitle" />--%>
+                                <asp:BoundField DataField="Title" HeaderText="Music Title" SortExpression="Title" />
+                                <asp:BoundField DataField="Conductor" HeaderText="Conductor" ReadOnly="True" SortExpression="Conductor" />
+                                <asp:BoundField DataField="Composer" HeaderText="Composer" ReadOnly="True" SortExpression="Composer" />
+                                <asp:BoundField DataField="Artists" HeaderText="Artists" ReadOnly="True" SortExpression="Artists" />
+                                <asp:BoundField DataField="Instruments" HeaderText="Instruments" ReadOnly="True" SortExpression="Instruments" />
+                                <asp:BoundField DataField="Time" HeaderText="Time" SortExpression="Time" />
+                            </Columns>
+                            <EditRowStyle BackColor="#999999" />
+                            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                        </asp:GridView>
+                    </div>
                 </div>
+
 
                 <div class="row">
                     <asp:SqlDataSource ID="SqlDataSource1_performanceDetailList" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" DeleteCommand="
@@ -266,153 +415,6 @@ join(
                             <asp:ControlParameter ControlID="dropdown_performance" DefaultValue="-1" Name="performanceID" PropertyName="SelectedValue" />
                         </FilterParameters>
                     </asp:SqlDataSource>
-                </div>
-
-            </div>
-
-
-            <div class="row shadowedPanel" visible="false" runat="server" id="AddNewEntryPanel">
-
-
-                <hr />
-
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <br />
-                        <div class="col-md-4">Performance:</div>
-                        <div class="col-md-8">
-                            <asp:DropDownList ID="dropdown_performance" runat="server" DataSourceID="SqlDataSource1_performanceList" DataTextField="PerformanceTitle" DataValueField="ID" class="form-control" Enabled="false" AutoPostBack="True"></asp:DropDownList>
-                            <asp:SqlDataSource ID="SqlDataSource1_performanceList" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT ID, PerformanceTitle FROM Main.Performance"></asp:SqlDataSource>
-                        </div>
-                        <br />
-
-                    </div>
-
-                    <div class="col-md-4">
-                        <br />
-                        <div class="col-md-4">Title:</div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txt_performancetitle" runat="server" class="form-control"></asp:TextBox>
-                        </div>
-                        <br />
-                    </div>
-
-
-                    <div class="col-md-4">
-                        <br />
-                        <div class="col-md-4">Orchestra:</div>
-                        <div class="col-md-8">
-                            <asp:DropDownList ID="DropDownList1_orchestra" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID"></asp:DropDownList>
-                            <asp:SqlDataSource ID="SqlDataSource1_allOrchestra" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
-
-                        </div>
-                        <br />
-                    </div>
-
-
-                    <div class="col-md-4">
-                        <br />
-                        <div class="col-md-4">Conductor:</div>
-                        <div class="col-md-8">
-                            <asp:DropDownList ID="DropDownList2_conductor" runat="server" DataSourceID="SqlDataSource3_conductor" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
-                            <asp:SqlDataSource ID="SqlDataSource3_conductor" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="select (FirstName + ' '+ MiddleName + ' '+ FamilyName) as Name, ID
-from(
-select a.ID,a.FirstName,a.MiddleName,a.FamilyName from Core.Artist a 
-join Drived.Artist_ArtistType at on a.ID= at.Artist
-join Lookup.ArtistType al  on at.ArtistTypeID = al.ID
-where al.Name='Conductor'
-) a"></asp:SqlDataSource>
-                        </div>
-                        <br />
-                    </div>
-                    <div class="col-md-4">
-                        <br />
-                        <div class="col-md-4">Composer</div>
-                        <div class="col-md-8">
-                            <asp:DropDownList ID="DropDownList4_composer" runat="server" DataSourceID="SqlDataSource5_composer" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
-                            <asp:SqlDataSource ID="SqlDataSource5_composer" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
-select (FirstName + ' '+ MiddleName + ' '+ FamilyName) as Name, ID
-from(
-select a.ID,a.FirstName,a.MiddleName,a.FamilyName from Core.Artist a 
-join Drived.Artist_ArtistType at on a.ID= at.Artist
-join Lookup.ArtistType al  on at.ArtistTypeID = al.ID
-where al.Name='Composer'
-) a
-"></asp:SqlDataSource>
-                        </div>
-                        <br />
-                    </div>
-                    <div class="col-md-4">
-                        <br />
-                        <div class="col-md-4">Time</div>
-                        <div class="col-md-8">
-                            <%--<asp:TextBox ID="txt_time" runat="server" class="form-control"></asp:TextBox>--%>
-                            <div class='input-group date' id='datetimepicker3' style="display: inline-flex;">
-                                <input type='text' class="form-control" runat="server" id="txt_time" style="display: inline-block; border-right-width: 0px;" />
-                                <span class="input-group-addon" style="flex-wrap: wrap; width: auto; display: inline-block; padding-left: 12px; margin-left: -5px; padding-top: 9px; padding-bottom: 7px;">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
-                            </div>
-                        </div>
-                        <br />
-                    </div>
-
-                </div>
-
-
-                <div class="row col-md-12">
-                    <hr />
-                    <div class="col-md-4">
-                        Instrument:
-                        <asp:DropDownList ID="DropDownList3_instrumentlist" class="form-control" runat="server" DataSourceID="SqlDataSource1_Instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
-                        <asp:SqlDataSource ID="SqlDataSource1_Instrumentlist" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT EnglishName, ID FROM Core.Instrument"></asp:SqlDataSource>
-                    </div>
-                    <div class="col-md-4">
-                        Played by:
-                        <asp:DropDownList ID="DropDownList2_artistlist" class="form-control" runat="server" DataSourceID="SqlDataSource1_artistlist" DataTextField="Name" DataValueField="ID"></asp:DropDownList>
-                        <asp:SqlDataSource ID="SqlDataSource1_artistlist" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT ID, Name= FamilyName+' '+ FirstName +' '+ MiddleName
-FROM Core.Artist"></asp:SqlDataSource>
-                    </div>
-                    <div class="col-md-3">
-                        <br />
-                        <asp:Button ID="Button1_addorchestraDetail" CssClass="btn btn-success" runat="server" Text="Add" OnClick="btn_add_ArtistInstrument_tolist" />
-                    </div>
-
-                </div>
-
-                <br />
-
-                <div class="row col-md-12">
-                    <hr />
-                    <asp:Repeater runat="server" ID="myPerformanceDetailArtistInstrumentlist">
-                        <ItemTemplate>
-                            <tr style="margin-bottom: 3px;">
-
-                                <td>
-                                    <asp:Button runat="server" AutoPostBack="True" CssClass="btn btn-warning" CommandArgument='<%#Eval("ArtistID")+","+ Eval("InstrumentID")%>' Text="Delete" OnClick="btn_remove_ArtistInstrument_tolist"></asp:Button>
-                                </td>
-
-                                <td>
-                                    <asp:Label runat="server" ID="Label1" Text='<%# Eval("Artist.FirstName") %>' />
-                                    - 
-                                </td>
-                                <td>
-                                    <asp:Label runat="server" ID="Label2" Text='<%# Eval("Instrument.EnglishName") %>' />
-                                </td>
-
-                            </tr>
-                            <br />
-                            <br />
-                        </ItemTemplate>
-                    </asp:Repeater>
-                </div>
-
-                <div class="row col-md-12">
-                    <br />
-                    <asp:Button ID="btn_cancel" CssClass="btn btn-danger pull-right" Style="margin-right: 5px;" runat="server" Text="Cancel" OnClick="cancelDetailClicked" />
-                    <asp:Button ID="btn_update" CssClass="btn btn-success pull-right" Style="margin-right: 5px;" runat="server" Text="Save" OnClick="saveDetailClicked" />
-                    <asp:Button ID="btn_register" CssClass="btn btn-primary pull-right" Style="margin-right: 5px;" runat="server" Text="Register" OnClick="addDetailClicked" />
                 </div>
 
             </div>

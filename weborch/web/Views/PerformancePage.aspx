@@ -13,10 +13,12 @@
             <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
             <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
+
+            <h2 style="margin-top: 0px; padding-top: 0px;">Musical Performances</h2>
+
             <div class="row" id="forAudience" runat="server">
 
                 <div class="container">
-                    <h2>Musical Performances</h2>
                     <div class="row">
 
                         <asp:Repeater runat="server" ID="repeater_performanceList" OnItemDataBound="repeater_performanceList_ItemDataBound">
@@ -26,26 +28,6 @@
                                     <div class="thumbnail">
                                         <asp:LinkButton runat="server" ID="tumbinallink" target="_blank">
                                             <img src="../Document/<%#Eval("PhotoAddLocation") %>" alt="Lights" style="width: 100%; height: 200px;">
-
-                                            
-      <%--<div class = "caption">
-         <h3><%# Eval("PerformanceTitle").ToString().Length >30? Eval("PerformanceTitle").ToString().Substring(0,30):Eval("PerformanceTitle").ToString() + " ..." %></h3>
-         <p><%# (Eval("PerformanceTitle") +","+ Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString().Length>50?
-                                                           (Eval("PerformanceTitle") +","+ Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString().Substring(0,50)+ " .... Read More":
-                                                           (Eval("PerformanceTitle") +","+ Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString() + " .... Read More" %></p>
-         
-         <p>
-            <a href = "#" class = "btn btn-primary" role = "button">
-               Button
-            </a> 
-            
-            <a href = "#" class = "btn btn-default" role = "button">
-               Button
-            </a>
-         </p>
-         
-      </div>--%>
-
 
                                             <div class="caption">
                                                 <h4><%# (Eval("PerformanceTitle")) .ToString().Length>30?
@@ -73,7 +55,7 @@
 
             <div class="row" id="formanaging" runat="server" visible="false">
 
-                <div class="row shadowedPanel" runat="server" id="PanelPerformanceRegiter">
+                <div class="row shadowedPanel" runat="server" id="PanelPerformanceRegiter" style="background: white; padding: 10px; margin-bottom: 10px;">
                     <div class="row">
                         <div class="col-md-4">
                             <br />
@@ -116,7 +98,7 @@
 
                         <div class="col-md-4">
                             <br />
-                            <div class="col-md-4"><%= Resources.HomeView.aspx.PhotoAd %>:</div>
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.Poster %>:</div>
                             <div class="col-md-8">
                                 <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline" />
                                 <%--<asp:TextBox ID="TextBox2" runat="server" class="form-control"></asp:TextBox>--%>
@@ -254,16 +236,17 @@ where ID=@ID">
                     <asp:GridView ID="GridView1" Style="overflow-x: scroll; width: 2000px;" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource2_allPerformances" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound" OnRowEditing="GridView1_RowEditing">
                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                         <Columns>
-                            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True"
-                                ButtonType="Image" ControlStyle-Height="20px" ControlStyle-Width="20px" DeleteImageUrl="http://icons.iconarchive.com/icons/everaldo/kids-icons/128/edit-delete-icon.png"
+                            <asp:CommandField ItemStyle-Width="150px" ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True"
+                                ButtonType="Image" ControlStyle-Height="20px" DeleteImageUrl="http://icons.iconarchive.com/icons/everaldo/kids-icons/128/edit-delete-icon.png"
                                 EditImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/128/edit-validated-icon.png"
-                                SelectImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-arrow-right-icon.png"
+                                SelectImageUrl="~/Document/detail2.png"
                                 CancelImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-edit-delete-icon.png"
-                                UpdateImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/128/Save-icon.png"
-                                HeaderStyle-Width="90px" ItemStyle-Width="90px">
-                                <ControlStyle Height="20px" Width="20px" />
-                                <HeaderStyle Width="90px" />
-                                <ItemStyle Width="90px" />
+                                UpdateImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/128/Save-icon.png">
+                                <%--HeaderStyle-Width="90px" 
+                                ItemStyle-Width="90px"--%>
+                                <%--<ControlStyle Height="20px" Width="20px" />--%>
+                                <%--<HeaderStyle Width="90px" />
+                                <ItemStyle Width="90px" />--%>
                             </asp:CommandField>
                             <asp:BoundField DataField="ID" HeaderText="<%$Resources:HomeView.aspx,ID %>" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                             <asp:BoundField DataField="PerformanceTitle" HeaderText="<%$Resources:HomeView.aspx,PerformanceTitle %>" SortExpression="PerformanceTitle" />
@@ -411,30 +394,30 @@ where ID=@ID">
     </script>
 
     <style>
- .GridViewEditRow input[type=text] {
-        display: block;
-        width: 100%;
-        height: 34px;
-        padding: 6px 12px;
-        font-size: 14px;
-        line-height: 1.428571429;
-        color: #555555;
-        vertical-align: middle;
-        background-color: #ffffff;
-        border: 1px solid #cccccc;
-        border-radius: 4px;
-        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-        -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-        transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-    }
+        .GridViewEditRow input[type=text] {
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: #555555;
+            vertical-align: middle;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+            transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        }
 
-    .shadowedPanel {
-        border: 1px solid transparent;
-        border-radius: 4px;
-        border-color: #dddddd;
-        padding: 1em;
-        box-shadow: 2px 2px 2px 2px #f5f5f5;
-    }
-</style>
+        .shadowedPanel {
+            border: 1px solid transparent;
+            border-radius: 4px;
+            border-color: #dddddd;
+            padding: 1em;
+            box-shadow: 2px 2px 2px 2px #f5f5f5;
+        }
+    </style>
 </asp:Content>

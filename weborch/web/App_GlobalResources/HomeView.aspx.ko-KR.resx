@@ -471,4 +471,7 @@
   <data name="Save" xml:space="preserve">
     <value>구하다</value>
   </data>
+  <data name="Poster" xml:space="preserve">
+    <value>Poster</value>
+  </data>
 </root>
