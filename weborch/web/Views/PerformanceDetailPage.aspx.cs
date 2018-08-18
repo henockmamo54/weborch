@@ -281,11 +281,11 @@ namespace web.Views
                 performancePosterImage.ImageUrl = "~/Document/" + p.PhotoAddLocation;
                 organizer.InnerText = p.OrganizerInfo;
                 location.InnerText = p.Location;
-                startingdate.InnerText = p.StartDate.ToString();
-                enddate.InnerText = p.EndDate.ToString();
+                startingdate.InnerText = ((DateTime)(p.StartDate)).ToShortDateString();
+                enddate.InnerText = ((DateTime)(p.EndDate)).ToShortDateString();
                 concerthall.InnerText = p.ConcertHall;
                 performanceTitle.InnerText = p.PerformanceTitle;
-
+                
 
             }
         }
