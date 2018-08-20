@@ -7,7 +7,7 @@
 
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
-                <div class="row shadowedPanel">
+                <div class="row shadowedPanel" style="background-color:white;">
                     <div class="col-md-12 ">
                         <div class="col-md-12  form-group">
                             <div class="col-md-4">
