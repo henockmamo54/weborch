@@ -25,15 +25,15 @@
 
                             <ItemTemplate>
                                 <div class="col-md-4" style="margin-bottom: 1em;">
-                                    <div class="thumbnail">
-                                        <asp:LinkButton runat="server" ID="tumbinallink" target="_blank">
-                                            <img src="../Document/<%#Eval("PhotoAddLocation") %>" alt="Lights" style="width: 100%; height: 200px;">
+                                    <div class="thumbnail shadowedbox" style="box-shadow: 2px 2px 2px #d0d0d0;">
+                                        <asp:LinkButton runat="server" ID="tumbinallink" target="_blank" style="text-decoration:none;">
+                                            <img src="../Document/<%#Eval("PhotoAddLocation") %>" class="shadowedbox" alt="Lights" style="width: 100%; height: 200px;">
 
                                             <div class="caption">
                                                 <h4><%# (Eval("PerformanceTitle")) .ToString().Length>30?
                                                            (Eval("PerformanceTitle")) .ToString().Substring(0,30)+ " ....":
                                                            (Eval("PerformanceTitle")) .ToString()%></h4>
-                                                <p>
+                                                <p style="font-family: Roboto, Arial, sans-serif;">
                                                     <%# ( Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString().Length>40?
                                                            (Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString().Substring(0,40)+ " .... More":
                                                             (Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString() + " .... More" %>
