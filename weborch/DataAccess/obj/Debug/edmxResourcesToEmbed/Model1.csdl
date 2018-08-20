@@ -262,6 +262,15 @@
       <End Role="UserCommonTable" EntitySet="UserCommonTables" />
       <End Role="PerformanceParentCommentTable" EntitySet="PerformanceParentCommentTables" />
     </AssociationSet>
+    <EntitySet Name="PerformanceLikeUnlikes" EntityType="OrchestraDBModel.PerformanceLikeUnlike" />
+    <AssociationSet Name="FK__Performan__Perfo__1A9EF37A" Association="OrchestraDBModel.FK__Performan__Perfo__1A9EF37A">
+      <End Role="Performance" EntitySet="Performances" />
+      <End Role="PerformanceLikeUnlike" EntitySet="PerformanceLikeUnlikes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Performan__UserI__19AACF41" Association="OrchestraDBModel.FK__Performan__UserI__19AACF41">
+      <End Role="UserCommonTable" EntitySet="UserCommonTables" />
+      <End Role="PerformanceLikeUnlike" EntitySet="PerformanceLikeUnlikes" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="User">
     <Key>
@@ -492,6 +501,7 @@
     <NavigationProperty Name="ParentCommentTables" Relationship="OrchestraDBModel.FK__ParentCom__UserI__00DF2177" FromRole="UserCommonTable" ToRole="ParentCommentTable" />
     <NavigationProperty Name="BulletinLikeUnlikes" Relationship="OrchestraDBModel.FK__BulletinL__UserI__0880433F" FromRole="UserCommonTable" ToRole="BulletinLikeUnlike" />
     <NavigationProperty Name="PerformanceParentCommentTables" Relationship="OrchestraDBModel.FK__Performan__UserI__1209AD79" FromRole="UserCommonTable" ToRole="PerformanceParentCommentTable" />
+    <NavigationProperty Name="PerformanceLikeUnlikes" Relationship="OrchestraDBModel.FK__Performan__UserI__19AACF41" FromRole="UserCommonTable" ToRole="PerformanceLikeUnlike" />
   </EntityType>
   <EntityType Name="UserCompany">
     <Key>
@@ -856,6 +866,7 @@
     <Property Name="Archive" Type="Boolean" />
     <Property Name="Brochure" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="PerformanceParentCommentTables" Relationship="OrchestraDBModel.FK__Performan__Perfo__11158940" FromRole="Performance" ToRole="PerformanceParentCommentTable" />
+    <NavigationProperty Name="PerformanceLikeUnlikes" Relationship="OrchestraDBModel.FK__Performan__Perfo__1A9EF37A" FromRole="Performance" ToRole="PerformanceLikeUnlike" />
   </EntityType>
   <Association Name="FK__Performan__Perfo__503BEA1C">
     <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="0..1" />
@@ -1151,6 +1162,43 @@
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="PerformanceParentCommentTable">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PerformanceLikeUnlike">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PerformanceID" Type="Int32" />
+    <Property Name="timestamp" Type="DateTime" Precision="3" />
+    <Property Name="islike" Type="Int32" />
+    <NavigationProperty Name="Performance" Relationship="OrchestraDBModel.FK__Performan__Perfo__1A9EF37A" FromRole="PerformanceLikeUnlike" ToRole="Performance" />
+    <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__Performan__UserI__19AACF41" FromRole="PerformanceLikeUnlike" ToRole="UserCommonTable" />
+  </EntityType>
+  <Association Name="FK__Performan__Perfo__1A9EF37A">
+    <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="0..1" />
+    <End Type="OrchestraDBModel.PerformanceLikeUnlike" Role="PerformanceLikeUnlike" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Performance">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PerformanceLikeUnlike">
+        <PropertyRef Name="PerformanceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Performan__UserI__19AACF41">
+    <End Type="OrchestraDBModel.UserCommonTable" Role="UserCommonTable" Multiplicity="0..1" />
+    <End Type="OrchestraDBModel.PerformanceLikeUnlike" Role="PerformanceLikeUnlike" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserCommonTable">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PerformanceLikeUnlike">
         <PropertyRef Name="UserID" />
       </Dependent>
     </ReferentialConstraint>

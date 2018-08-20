@@ -105,6 +105,8 @@ namespace web.Views
 
             getHeaderPeformanceData();
 
+            getLikeUnlikeStatusForUser();
+
             talbereplacingrepeater.DataSource = SqlDataSource1_performanceDetailList;
             talbereplacingrepeater.DataBind();
 
@@ -126,91 +128,107 @@ namespace web.Views
             int id = int.Parse(value[0]);
             int isLike = int.Parse(value[1]);
 
-            if (isLike == 1) {
-                if (isliked)
-                {
-                    isliked = false;
-                    likecount--;
-                    likebutton.Visible = true;
-                    likebuttonliked.Visible = false;
-                }
-                else {
-                    isliked = true;
-                    likecount++;
-                    likebutton.Visible = false;
-                    likebuttonliked.Visible = true;
+            if (user == null)
+            {
 
-                    dislikebutton.Visible = true;
-                    dislikebuttondisliked.Visible = false;
-                    if (isdisliked) {
-                        dislikecount--;
-                        isdisliked = false;
+                if (isLike == 1)
+                {
+                    if (isliked)
+                    {
+                        isliked = false;
+                        likecount--;
+                        likebutton.Visible = true;
+                        likebuttonliked.Visible = false;
                     }
+                    else
+                    {
+                        isliked = true;
+                        likecount++;
+                        likebutton.Visible = false;
+                        likebuttonliked.Visible = true;
 
-                }
-                likecountspan.InnerText = likecount.ToString();
-            }
-            else{
-                if (isdisliked)
-                {
-                    isdisliked = false;
-                    dislikecount--;
-                    dislikebutton.Visible = true;
-                    dislikebuttondisliked.Visible = false;
+                        dislikebutton.Visible = true;
+                        dislikebuttondisliked.Visible = false;
+                        if (isdisliked)
+                        {
+                            dislikecount--;
+                            isdisliked = false;
+                        }
+
+                    }
+                    likecountspan.InnerText = likecount.ToString();
                 }
                 else
                 {
-                    isdisliked = true;
-                    dislikecount++;
-                    dislikebutton.Visible = false;
-                    dislikebuttondisliked.Visible = true;
-
-
-                    likebutton.Visible = true;
-                    likebuttonliked.Visible = false;
-                    if (isliked)
+                    if (isdisliked)
                     {
-                        likecount--;
-                        isliked = false;
+                        isdisliked = false;
+                        dislikecount--;
+                        dislikebutton.Visible = true;
+                        dislikebuttondisliked.Visible = false;
                     }
+                    else
+                    {
+                        isdisliked = true;
+                        dislikecount++;
+                        dislikebutton.Visible = false;
+                        dislikebuttondisliked.Visible = true;
+
+
+                        likebutton.Visible = true;
+                        likebuttonliked.Visible = false;
+                        if (isliked)
+                        {
+                            likecount--;
+                            isliked = false;
+                        }
+                    }
+                    dislikecountspan.InnerText = dislikecount.ToString();
                 }
-                dislikecountspan.InnerText = dislikecount.ToString();
             }
 
-            //OrchestraDBEntities entities = new OrchestraDBEntities();
-            //var myval = entities.BulletinLikeUnlikes.Where(x => x.PostID == id & x.UserID == myuser.ID).ToList();
-            //if (myval.Count > 0)
-            //{
+            else if (user != null)
+            {
+                // islike 1= liked, 0= nither liked nor disliked, -1 disliked 
+                OrchestraDBEntities entities = new OrchestraDBEntities();
+                var myval = entities.PerformanceLikeUnlikes.Where(x => x.PerformanceID == PDID & x.UserID == user.ID).ToList();
+                if (myval.Count > 0)
+                {
 
-            //    if (isLike == 1)
-            //    {
-            //        if (myval.FirstOrDefault().islike == 1)
-            //            myval.FirstOrDefault().islike = 0;
-            //        else myval.FirstOrDefault().islike = 1;
-            //    }
-            //    else
-            //    {
-            //        if (myval.FirstOrDefault().islike == -1)
-            //            myval.FirstOrDefault().islike = 0;
-            //        else myval.FirstOrDefault().islike = -1;
-            //    }
-            //    entities.SaveChanges();
-            //}
-            //else
-            //{
-            //    BulletinLikeUnlike b = new BulletinLikeUnlike();
-            //    b.PostID = id;
-            //    b.UserID = myuser.ID;
-            //    b.islike = isLike;
-            //    b.timestamp = DateTime.Now;
-            //    entities.BulletinLikeUnlikes.Add(b);
-            //    entities.SaveChanges();
-            //}
+                    if (isLike == 1)
+                    {
+                        if (myval.FirstOrDefault().islike == 1)
+                            myval.FirstOrDefault().islike = 0;
+                        else myval.FirstOrDefault().islike = 1;
+                    }
+                    else
+                    {
+                        if (myval.FirstOrDefault().islike == -1)
+                            myval.FirstOrDefault().islike = 0;
+                        else myval.FirstOrDefault().islike = -1;
+                    }
+                    entities.SaveChanges();
+                }
+                else
+                {
+                    PerformanceLikeUnlike b = new PerformanceLikeUnlike();
+                    b.PerformanceID = PDID;
+                    b.UserID = user.ID;
+                    b.islike = isLike;
+                    b.timestamp = DateTime.Now;
+                    entities.PerformanceLikeUnlikes.Add(b);
+                    entities.SaveChanges();
+                }
 
-            //BulletinLogic bl = new BulletinLogic();
+                getLikeUnlikeStatusForUser();
+                likecountspan.InnerText = likecount.ToString();
+                dislikecountspan.InnerText = dislikecount.ToString();
 
-            //Repeater1.DataSource = bl.getAllMsg(myuser.ID);
-            //Repeater1.DataBind();
+
+                //BulletinLogic bl = new BulletinLogic();
+                //Repeater1.DataSource = bl.getAllMsg(myuser.ID);
+                //Repeater1.DataBind();
+            }
 
         }
 
@@ -227,7 +245,7 @@ namespace web.Views
 
             entity.PerformanceParentCommentTables.Add(pt);
             entity.SaveChanges();
-            
+
 
             var value = e.CommandArgument;
 
@@ -253,7 +271,7 @@ namespace web.Views
             pt.CommentMessage = message;
             pt.PerformanceID = PDID;
             pt.CommentDate = DateTime.Now;
-            pt.ParentCommentID= int.Parse(e.CommandArgument.ToString());
+            pt.ParentCommentID = int.Parse(e.CommandArgument.ToString());
 
 
             entity.PerformanceParentCommentTables.Add(pt);
@@ -281,10 +299,10 @@ namespace web.Views
                 var source = entity.PerformanceParentCommentTables.Where(x => x.ParentCommentID == ((PerformanceParentCommentTable)e.Item.DataItem).ID).ToList();
                 detail.DataSource = source;
                 detail.DataBind();
-                
+
             }
         }
-        
+
 
         public void getHeaderPeformanceData()
         {
@@ -299,8 +317,29 @@ namespace web.Views
                 enddate.InnerText = ((DateTime)(p.EndDate)).ToShortDateString();
                 concerthall.InnerText = p.ConcertHall;
                 performanceTitle.InnerText = p.PerformanceTitle;
-                
 
+
+            }
+        }
+
+        public void getLikeUnlikeStatusForUser() {
+            List<PerformanceLikeUnlike> performancelikeunlike = entity.PerformanceLikeUnlikes.Where(x => x.PerformanceID == PDID).ToList();
+            likecount = performancelikeunlike.Where(x => x.islike == 1).Count();
+            dislikecount = performancelikeunlike.Where(x => x.islike == -1).Count();
+
+            if (user != null) {
+                var detail = entity.PerformanceLikeUnlikes.Where(x => x.UserID == user.ID && x.PerformanceID == PDID).FirstOrDefault();
+                if (detail != null)
+                {
+                    isliked = detail.islike == 1;
+                    isdisliked = detail.islike == -1;
+
+                    likebutton.Visible = detail.islike != 1;
+                    likebuttonliked.Visible = detail.islike == 1;
+
+                    dislikebutton.Visible = detail.islike != -1;
+                    dislikebuttondisliked.Visible = detail.islike == -1;
+                }
             }
         }
 

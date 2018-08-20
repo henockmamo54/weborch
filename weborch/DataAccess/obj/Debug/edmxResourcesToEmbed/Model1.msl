@@ -434,5 +434,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="PerformanceLikeUnlikes">
+      <EntityTypeMapping TypeName="OrchestraDBModel.PerformanceLikeUnlike">
+        <MappingFragment StoreEntitySet="PerformanceLikeUnlike">
+          <ScalarProperty Name="islike" ColumnName="islike" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="PerformanceID" ColumnName="PerformanceID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -55,5 +55,6 @@ namespace DataAccess
         public virtual DbSet<BulletinType> BulletinTypes { get; set; }
         public virtual DbSet<BulletinLikeUnlike> BulletinLikeUnlikes { get; set; }
         public virtual DbSet<PerformanceParentCommentTable> PerformanceParentCommentTables { get; set; }
+        public virtual DbSet<PerformanceLikeUnlike> PerformanceLikeUnlikes { get; set; }
     }
 }

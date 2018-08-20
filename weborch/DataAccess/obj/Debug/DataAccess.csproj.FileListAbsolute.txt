@@ -53,3 +53,4 @@ E:\workspace\weborch_git\weborch\DataAccess\obj\Debug\DataAccess.Properties.Reso
 E:\workspace\weborch_git\weborch\DataAccess\obj\Debug\DataAccess.csproj.GenerateResource.Cache
 E:\workspace\weborch_git\weborch\DataAccess\obj\Debug\DataAccess.exe
 E:\workspace\weborch_git\weborch\DataAccess\obj\Debug\DataAccess.pdb
+E:\workspace\weborch_git\weborch\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache

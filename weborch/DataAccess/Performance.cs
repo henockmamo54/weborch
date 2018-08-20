@@ -19,6 +19,7 @@ namespace DataAccess
         {
             this.PerformanceDetails = new HashSet<PerformanceDetail>();
             this.PerformanceParentCommentTables = new HashSet<PerformanceParentCommentTable>();
+            this.PerformanceLikeUnlikes = new HashSet<PerformanceLikeUnlike>();
         }
     
         public int ID { get; set; }
@@ -45,5 +46,7 @@ namespace DataAccess
         public virtual Orchestra Orchestra { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PerformanceParentCommentTable> PerformanceParentCommentTables { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PerformanceLikeUnlike> PerformanceLikeUnlikes { get; set; }
     }
 }

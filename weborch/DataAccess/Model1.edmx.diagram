@@ -75,6 +75,9 @@
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__Paren__12FDD1B2" />
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__Perfo__11158940" />
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__UserI__1209AD79" />
+        <EntityTypeShape EntityType="OrchestraDBModel.PerformanceLikeUnlike" Width="1.5" PointX="15.25" PointY="16.75" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Performan__Perfo__1A9EF37A" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Performan__UserI__19AACF41" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
