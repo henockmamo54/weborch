@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-md-10">
 
-                    <div class="col-md-12 shadowedPanel" style="height: 220px;">
+                    <div class="col-md-12 shadowedPanel" style="height: 220px; background-color:white;">
                         <div class="rwo">
                             <label><%= Resources.HomeView.aspx.WhatkindOfUserAreyou %></label>
                             <div class="col-md-12 form-group">
@@ -51,11 +51,11 @@
 
                     </div>
                     <br />
-                    <div runat="server" id="PersonInfoFormContainer" visible="false" class="col-md-12 shadowedPanel">
+                    <div runat="server" id="PersonInfoFormContainer" visible="false" style="background-color:white;" class="col-md-12 shadowedPanel">
                         <div class="row">
                             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                 <ContentTemplate>
-                                    <div class="col-md-12" style="padding: 0;">
+                                    <div class="col-md-12" style="padding: 0; ">
                                         <div class="col-md-6 form-group" style="padding: 0;">
                                             <div>
                                                 <div class="col-md-12">
@@ -316,9 +316,9 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
 
                         </div>
                     </div>
-                    <div runat="server" id="CompanyInfoFormContainer" visible="false" class="col-md-12 shadowedPanel">
+                    <div runat="server" id="CompanyInfoFormContainer" style="background-color:white;" visible="false" class="col-md-12 shadowedPanel">
                         <div class="row">
-                            <div class=" row col-md-12 form-group">
+                            <div class=" row col-md-12 form-group" >
 
                                 <div class="col-md-6 ">
                                     <div>

@@ -354,6 +354,7 @@
     <EntitySetMapping Name="Performances">
       <EntityTypeMapping TypeName="OrchestraDBModel.Performance">
         <MappingFragment StoreEntitySet="Performance">
+          <ScalarProperty Name="Brochure" ColumnName="Brochure" />
           <ScalarProperty Name="Archive" ColumnName="Archive" />
           <ScalarProperty Name="OrganizerInfo" ColumnName="OrganizerInfo" />
           <ScalarProperty Name="PerformanceHour" ColumnName="PerformanceHour" />
@@ -415,6 +416,31 @@
           <ScalarProperty Name="islike" ColumnName="islike" />
           <ScalarProperty Name="timestamp" ColumnName="timestamp" />
           <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PerformanceParentCommentTables">
+      <EntityTypeMapping TypeName="OrchestraDBModel.PerformanceParentCommentTable">
+        <MappingFragment StoreEntitySet="PerformanceParentCommentTable">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ParentCommentID" ColumnName="ParentCommentID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PerformanceID" ColumnName="PerformanceID" />
+          <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+          <ScalarProperty Name="CommentMessage" ColumnName="CommentMessage" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PerformanceLikeUnlikes">
+      <EntityTypeMapping TypeName="OrchestraDBModel.PerformanceLikeUnlike">
+        <MappingFragment StoreEntitySet="PerformanceLikeUnlike">
+          <ScalarProperty Name="islike" ColumnName="islike" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="PerformanceID" ColumnName="PerformanceID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>

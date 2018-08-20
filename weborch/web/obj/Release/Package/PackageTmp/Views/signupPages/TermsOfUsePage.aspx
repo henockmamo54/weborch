@@ -11,8 +11,8 @@
                         <a class="list-group-item list-group-item-action" href="UserInformationRegistrationPage.aspx" ><%= Resources.HomeView.aspx.UserInfo %></a>
                     </ul>
                 </div>
-                <div class="col-md-10 " style="height: 250px;">
-                   <div style="height:100px; " class="shadowedPanel">
+                <div class="col-md-10 " >
+                   <div style="height:175px;  background-color:white;" class="shadowedPanel">
                        <h6><strong><%= Resources.HomeView.aspx.Termsofuse %></strong></h6>
                    </div>
                     <div>
@@ -20,7 +20,7 @@
                         <br />
                     </div>
                     <br />
-                   <div style="height:100px; " class="shadowedPanel">
+                   <div style="height:175px;  background-color:white;" class="shadowedPanel">
                        <h6><strong><%= Resources.HomeView.aspx.PrivacyPolicy %></strong></h6>
                    </div>
                     

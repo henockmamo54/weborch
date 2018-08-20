@@ -46,7 +46,7 @@
                     <div class="col-md-4" style="padding-right: 0; padding-left: 0;">
                         <div class="container" style="padding: 0; padding-top: 0em;">
                             <div class="panel panel-default" style="overflow-y: scroll; height: 380px;">
-                                <div class="panel-heading" style="text-align: right; padding-top: 3px; padding-bottom: 3px;">
+                                <div class="panel-heading" style="text-align: right; padding-top: 3px; padding-bottom: 3px; background-color:ghostwhite;">
                                     <%= Resources.HomeView.aspx.Notice %>
                                         <asp:DropDownList runat="server" CssClass="form-control" Style="width: auto; display: inline;"
                                             ID="dropdownlist_bulletinType" DataSourceID="SqlDataSource1_bulletinType" DataTextField="Name" DataValueField="ID" OnSelectedIndexChanged="dropdownlist_bulletinType_SelectedIndexChanged" AutoPostBack="True">
@@ -93,7 +93,7 @@ SELECT [ID], [Name] FROM lookup.[BulletinType]"></asp:SqlDataSource>
                 <div class="" style="width: 100%; padding-top: 1em;">
                    
 
-                    <div class="shadowedPanel" style="padding-bottom: 1em; height: 300px;">
+                    <%--<div class="shadowedPanel" style="padding-bottom: 1em; height: 300px;">
 
                         <div class="col-md-12">
                             <h4><%= Resources.HomeView.aspx.AClassicalPerformanceArchives %></h4>
@@ -115,7 +115,8 @@ SELECT [ID], [Name] FROM lookup.[BulletinType]"></asp:SqlDataSource>
                                 Vivaldi - the four seasons (Orchestra is 'l MUSIC)
                             </div>
                         </div>
-                    </div>
+                    </div>--%>
+
                 </div>
 
             </div>

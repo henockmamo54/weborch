@@ -14,137 +14,188 @@
             <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
 
-            <div class="row shadowedPanel" runat="server" id="PanelPerformanceRegiter">
-                <div class="row">
-                    <div class="col-md-4">
-                        <br />
-                        <div class="col-md-4"><%= Resources.HomeView.aspx.Title %>:</div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txt_title" runat="server" class="form-control"></asp:TextBox>
-                        </div>
-                        <br />
+            <h2 style="margin-top: 0px; padding-top: 0px;">Musical Performances</h2>
 
-                    </div>
+            <div class="row" id="forAudience" runat="server">
 
-                    <div class="col-md-4">
-                        <br />
-                        <div class="col-md-4"><%= Resources.HomeView.aspx.StartDate %>:</div>
-                        <div class="col-md-8">
-                            <div class='input-group date' id='datetimepicker2' style="display: inline-flex;">
-                                <input type='text' class="form-control" runat="server" id="txt_performancestartdate" style="display: inline-block; border-right-width: 0px;" />
-                                <span class="input-group-addon" style="flex-wrap: wrap; width: auto; display: inline-block; padding-left: 12px; margin-left: -5px; padding-top: 9px; padding-bottom: 7px;">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
-                            </div>
-                        </div>
-                        <br />
-                    </div>
+                <div class="container">
+                    <div class="row">
 
-                    <div class="col-md-4">
-                        <br />
-                        <div class="col-md-4"><%= Resources.HomeView.aspx.EndDate %>:</div>
-                        <div class="col-md-8">
-                            <%--<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>--%>
-                            <div class='input-group date' id='datetimepicker3' style="display: inline-flex;">
-                                <input type='text' class="form-control" runat="server" id="txt_performanceenddate" style="display: inline-block; border-right-width: 0px;" />
-                                <span class="input-group-addon" style="flex-wrap: wrap; width: auto; display: inline-block; padding-left: 12px; margin-left: -5px; padding-top: 9px; padding-bottom: 7px;">
-                                    <span class="glyphicon glyphicon-calendar"></span>
-                                </span>
-                            </div>
-                        </div>
-                        <br />
-                    </div>
+                        <asp:Repeater runat="server" ID="repeater_performanceList" OnItemDataBound="repeater_performanceList_ItemDataBound">
 
-                    <div class="col-md-4">
-                        <br />
-                        <div class="col-md-4"><%= Resources.HomeView.aspx.PhotoAd %>:</div>
-                        <div class="col-md-8">
-                            <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline" />
-                            <%--<asp:TextBox ID="TextBox2" runat="server" class="form-control"></asp:TextBox>--%>
-                        </div>
-                        <br />
-                    </div>
+                            <ItemTemplate>
+                                <div class="col-md-4" style="margin-bottom: 1em;">
+                                    <div class="thumbnail shadowedbox" style="box-shadow: 2px 2px 2px #d0d0d0;">
+                                        <asp:LinkButton runat="server" ID="tumbinallink" target="_blank" style="text-decoration:none;">
+                                            <img src="../Document/<%#Eval("PhotoAddLocation") %>" class="shadowedbox" alt="Lights" style="width: 100%; height: 200px;">
+
+                                            <div class="caption" style="padding-bottom:3px;">
+                                                <h4><%# (Eval("PerformanceTitle")) .ToString().Length>30?
+                                                           (Eval("PerformanceTitle")) .ToString().Substring(0,30)+ " ....":
+                                                           (Eval("PerformanceTitle")) .ToString()%></h4>
+                                                <p style="font-family: Roboto, Arial, sans-serif; margin-bottom:0px;">
+                                                    <%# ( Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString().Length>50?
+                                                           (Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString().Substring(0,50)+ " ....See More":
+                                                            (Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString() +"<br/>"
+                                                            + " .... See More" %>
+                                                </p>
+                                            </div>
+                                        </asp:LinkButton>
+                                        &nbsp;&nbsp;&nbsp;
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
 
 
-                    <div class="col-md-4">
-                        <br />
-                        <div class="col-md-4"><%= Resources.HomeView.aspx.VideoAd %>:</div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="TextBox3" runat="server" class="form-control"></asp:TextBox>
-                        </div>
-                        <br />
-                    </div>
-
-
-                    <div class="col-md-4">
-                        <br />
-                        <div class="col-md-4"><%= Resources.HomeView.aspx.Orchestra %>:</div>
-                        <div class="col-md-8">
-                            <%--<asp:TextBox ID="txt_orchestra" runat="server" class="form-control"></asp:TextBox>--%>
-                            <asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID"></asp:DropDownList>
-                            <asp:SqlDataSource ID="SqlDataSource1_allOrchestra" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
-                        </div>
-                        <br />
 
                     </div>
-                    <div class="col-md-4">
-                        <br />
-                        <div class="col-md-4"><%= Resources.HomeView.aspx.Location %>:</div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txt_location" runat="server" class="form-control"></asp:TextBox>
-                        </div>
-                        <br />
-                    </div>
-                    <div class="col-md-4">
-                        <br />
-                        <div class="col-md-4"><%= Resources.HomeView.aspx.ConcertHall %>:</div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txt_ConcertHall" runat="server" class="form-control"></asp:TextBox>
-                        </div>
-                        <br />
-                    </div>
-                    <%--========================================================================--%>
-
-                    <div class="col-md-4">
-                        <br />
-                        <div class="col-md-4">Ticket box:</div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txt_ticketbox" runat="server" class="form-control"></asp:TextBox>
-                        </div>
-                        <br />
-                    </div>
-                    <div class="col-md-4">
-                        <br />
-                        <div class="col-md-4">Performance  Hour:</div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txt_peformancehour" runat="server" class="form-control"></asp:TextBox>
-                        </div>
-                        <br />
-                    </div>
-                    <div class="col-md-4">
-                        <br />
-                        <div class="col-md-4">Organizer info:</div>
-                        <div class="col-md-8">
-                            <asp:TextBox ID="txt_organizerinfo" runat="server" class="form-control"></asp:TextBox>
-                        </div>
-                        <br />
-                    </div>
-                    <%--========================================================================--%>
                 </div>
-                <div class="row col-md-12">
-                    <br />
-                    <asp:Button ID="btn_addPerformance" CssClass="btn btn-success pull-right" runat="server" Text="<%$Resources:HomeView.aspx,Register %>" OnClick="btn_performance_Click" />
-                </div>
+
             </div>
-            <br />
-            <div class="row ">
 
-                <asp:SqlDataSource ID="SqlDataSource2_allPerformances" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
+            <div class="row" id="formanaging" runat="server" visible="false">
+
+                <div class="row shadowedPanel" runat="server" id="PanelPerformanceRegiter" style="background: white; padding: 10px; margin-bottom: 10px;">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <br />
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.Title %>:</div>
+                            <div class="col-md-8">
+                                <asp:TextBox ID="txt_title" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                            <br />
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <br />
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.StartDate %>:</div>
+                            <div class="col-md-8">
+                                <div class='input-group date' id='datetimepicker2' style="display: inline-flex;">
+                                    <input type='text' class="form-control" runat="server" id="txt_performancestartdate" style="display: inline-block; border-right-width: 0px;" />
+                                    <span class="input-group-addon" style="flex-wrap: wrap; width: auto; display: inline-block; padding-left: 12px; margin-left: -5px; padding-top: 9px; padding-bottom: 7px;">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <br />
+                        </div>
+
+                        <div class="col-md-4">
+                            <br />
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.EndDate %>:</div>
+                            <div class="col-md-8">
+                                <%--<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>--%>
+                                <div class='input-group date' id='datetimepicker3' style="display: inline-flex;">
+                                    <input type='text' class="form-control" runat="server" id="txt_performanceenddate" style="display: inline-block; border-right-width: 0px;" />
+                                    <span class="input-group-addon" style="flex-wrap: wrap; width: auto; display: inline-block; padding-left: 12px; margin-left: -5px; padding-top: 9px; padding-bottom: 7px;">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <br />
+                        </div>
+
+                        <div class="col-md-4">
+                            <br />
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.Poster %>:</div>
+                            <div class="col-md-8">
+                                <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline" />
+                                <%--<asp:TextBox ID="TextBox2" runat="server" class="form-control"></asp:TextBox>--%>
+                            </div>
+                            <br />
+                        </div>
+
+                        <div class="col-md-4">
+                            <br />
+                            <div class="col-md-4">Brochure:</div>
+                            <div class="col-md-8">
+                                <asp:FileUpload ID="FileUpload3" runat="server" Style="display: inline" />
+                                <%--<asp:TextBox ID="TextBox2" runat="server" class="form-control"></asp:TextBox>--%>
+                            </div>
+                            <br />
+                        </div>
+
+                        <div class="col-md-4">
+                            <br />
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.VideoAd %>:</div>
+                            <div class="col-md-8">
+                                <asp:TextBox ID="txt_videolocation" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                            <br />
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <br />
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.Orchestra %>:</div>
+                            <div class="col-md-8">
+                                <%--<asp:TextBox ID="txt_orchestra" runat="server" class="form-control"></asp:TextBox>--%>
+                                <asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID"></asp:DropDownList>
+                                <asp:SqlDataSource ID="SqlDataSource1_allOrchestra" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
+                            </div>
+                            <br />
+
+                        </div>
+                        <div class="col-md-4">
+                            <br />
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.Location %>:</div>
+                            <div class="col-md-8">
+                                <asp:TextBox ID="txt_location" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                            <br />
+                        </div>
+                        <div class="col-md-4">
+                            <br />
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.ConcertHall %>:</div>
+                            <div class="col-md-8">
+                                <asp:TextBox ID="txt_ConcertHall" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                            <br />
+                        </div>
+                        <%--========================================================================--%>
+
+                        <div class="col-md-4">
+                            <br />
+                            <div class="col-md-4">Ticket box:</div>
+                            <div class="col-md-8">
+                                <asp:TextBox ID="txt_ticketbox" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                            <br />
+                        </div>
+                        <div class="col-md-4">
+                            <br />
+                            <div class="col-md-4">Performance  Hour:</div>
+                            <div class="col-md-8">
+                                <asp:TextBox ID="txt_peformancehour" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                            <br />
+                        </div>
+                        <div class="col-md-4">
+                            <br />
+                            <div class="col-md-4">Organizer info:</div>
+                            <div class="col-md-8">
+                                <asp:TextBox ID="txt_organizerinfo" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                            <br />
+                        </div>
+                        <%--========================================================================--%>
+                    </div>
+                    <div class="row col-md-12">
+                        <br />
+                        <asp:Button ID="btn_addPerformance" CssClass="btn btn-success pull-right" runat="server" Text="<%$Resources:HomeView.aspx,Register %>" OnClick="btn_performance_Click" />
+                    </div>
+                </div>
+                <br />
+                <div class="row ">
+
+                    <asp:SqlDataSource ID="SqlDataSource2_allPerformances" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
 SELECT p.*, OfficialName  FROM Main.Performance p
 join Core.Orchestra o on p.OrchestraID=o.ID"
-                    DeleteCommand="Delete Main.Performance
+                        DeleteCommand="Delete Main.Performance
 where id = @ID"
-                    UpdateCommand="update Main.Performance
+                        UpdateCommand="update Main.Performance
 
 set OrchestraID=@OrchestraID,
 StartDate=@StartDate,
@@ -156,90 +207,104 @@ VideoLocation=@VideoLocation,
 ConcertHall=@ConcertHall,
 PerformanceHour = @PerformanceHour, 
 OrganizerInfo = @OrganizerInfo , 
-TicketBox = @TicketBox 
-
+TicketBox = @TicketBox
 where ID=@ID">
-                    <DeleteParameters>
-                        <asp:Parameter Name="ID" />
-                    </DeleteParameters>
-                    <UpdateParameters>
-                        <asp:Parameter Name="OrchestraID" />
-                        <asp:Parameter Name="StartDate" />
-                        <asp:Parameter Name="EndDate" />
-                        <asp:Parameter Name="PerformanceTitle" />
-                        <asp:Parameter Name="Location" />
-                        <asp:Parameter Name="PhotoAddLocation" />
-                        <asp:Parameter Name="VideoLocation" />
-                        <asp:Parameter Name="ConcertHall" />
+                        <DeleteParameters>
+                            <asp:Parameter Name="ID" />
+                        </DeleteParameters>
+                        <UpdateParameters>
+                            <asp:Parameter Name="OrchestraID" />
+                            <asp:Parameter Name="StartDate" />
+                            <asp:Parameter Name="EndDate" />
+                            <asp:Parameter Name="PerformanceTitle" />
+                            <asp:Parameter Name="Location" />
+                            <asp:Parameter Name="PhotoAddLocation" />
+                            <asp:Parameter Name="VideoLocation" />
+                            <asp:Parameter Name="ConcertHall" />
 
-                        <asp:Parameter Name="PerformanceHour" />
-                        <asp:Parameter Name="OrganizerInfo" />
-                        <asp:Parameter Name="TicketBox" />
+                            <asp:Parameter Name="PerformanceHour" />
+                            <asp:Parameter Name="OrganizerInfo" />
+                            <asp:Parameter Name="TicketBox" />
+                            <asp:Parameter Name="Brochure" />
 
-                        <asp:Parameter />
-                        <asp:Parameter Name="ID" />
-                    </UpdateParameters>
-                </asp:SqlDataSource>
+                            <asp:Parameter />
+                            <asp:Parameter Name="ID" />
+                        </UpdateParameters>
+                    </asp:SqlDataSource>
+                </div>
+
+                <div class="row" style="overflow-x: scroll;">
+                    <asp:GridView ID="GridView1" Style="overflow-x: scroll; width: 2000px;" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource2_allPerformances" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound" OnRowEditing="GridView1_RowEditing">
+                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                        <Columns>
+                            <asp:CommandField ItemStyle-Width="150px" ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True"
+                                ButtonType="Image" ControlStyle-Height="20px" DeleteImageUrl="http://icons.iconarchive.com/icons/everaldo/kids-icons/128/edit-delete-icon.png"
+                                EditImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/128/edit-validated-icon.png"
+                                SelectImageUrl="~/Document/detail2.png"
+                                CancelImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-edit-delete-icon.png"
+                                UpdateImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/128/Save-icon.png">
+                                <%--HeaderStyle-Width="90px" 
+                                ItemStyle-Width="90px"--%>
+                                <%--<ControlStyle Height="20px" Width="20px" />--%>
+                                <%--<HeaderStyle Width="90px" />
+                                <ItemStyle Width="90px" />--%>
+                            </asp:CommandField>
+                            <asp:BoundField DataField="ID" HeaderText="<%$Resources:HomeView.aspx,ID %>" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+                            <asp:BoundField DataField="PerformanceTitle" HeaderText="<%$Resources:HomeView.aspx,PerformanceTitle %>" SortExpression="PerformanceTitle" />
+                            <asp:BoundField DataField="Location" HeaderText="<%$Resources:HomeView.aspx,Location %>" SortExpression="Location" />
+                            <asp:BoundField DataField="ConcertHall" HeaderText="<%$Resources:HomeView.aspx,ConcertHall %>" SortExpression="ConcertHall" />
+                            <asp:BoundField DataField="StartDate" HeaderText="<%$Resources:HomeView.aspx,StartDate %>" SortExpression="StartDate" />
+                            <asp:BoundField DataField="EndDate" HeaderText="<%$Resources:HomeView.aspx,EndDate %>" SortExpression="EndDate" />
+
+                            <asp:BoundField DataField="PerformanceHour" HeaderText="Performance Hour" SortExpression="PerformanceHour" />
+                            <asp:BoundField DataField="OrganizerInfo" HeaderText="Organizer Info" SortExpression="OrganizerInfo" />
+                            <asp:BoundField DataField="TicketBox" HeaderText="Ticket Box" SortExpression="TicketBox" />
+
+                            <asp:TemplateField HeaderText="Brochure" SortExpression="Brochure">
+                                <EditItemTemplate>
+                                    <asp:Button ID="editButton3" CssClass="btn btn-info" runat="server" Text='<%$Resources:HomeView.aspx,Change %>' data-toggle="modal" data-target="#exampleModalLong2" />
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("Brochure") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <%--<asp:BoundField DataField="Brochure" HeaderText="Brochure" SortExpression="Brochure" />--%>
+
+                            <asp:TemplateField HeaderText="<%$Resources:HomeView.aspx,PhotoAdLocation %>" SortExpression="PhotoAddLocation">
+                                <EditItemTemplate>
+                                    <%--<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("PhotoAddLocation") %>'></asp:TextBox>--%>
+                                    <asp:Button ID="editButton" CssClass="btn btn-info" runat="server" Text='<%$Resources:HomeView.aspx,Change %>' data-toggle="modal" data-target="#exampleModalLong" />
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("PhotoAddLocation") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <asp:BoundField DataField="VideoLocation" HeaderText="<%$Resources:HomeView.aspx,VideoLocation %>" SortExpression="VideoLocation" />
+                            <asp:TemplateField HeaderText="<%$Resources:HomeView.aspx,Orchestra %>" SortExpression="OfficialName">
+                                <EditItemTemplate>
+                                    <asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID" SelectedValue='<%#Bind("OrchestraID")%>'></asp:DropDownList>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("OfficialName") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                        <EditRowStyle BackColor="#e2e2e2" CssClass="GridViewEditRow" />
+                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" Width="100%" />
+                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                    </asp:GridView>
+                </div>
+
             </div>
-
-            <div class="row"  style="overflow-x: scroll;">
-                <asp:GridView ID="GridView1" style="overflow-x: scroll; width:2000px;" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource2_allPerformances" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound" OnRowEditing="GridView1_RowEditing">
-                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                    <Columns>
-                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True"
-                            ButtonType="Image" ControlStyle-Height="20px" ControlStyle-Width="20px" DeleteImageUrl="http://icons.iconarchive.com/icons/everaldo/kids-icons/128/edit-delete-icon.png"
-                            EditImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/128/edit-validated-icon.png"
-                            SelectImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-arrow-right-icon.png"
-                            CancelImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-edit-delete-icon.png"
-                            UpdateImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/128/Save-icon.png"
-                            HeaderStyle-Width="90px" ItemStyle-Width="90px">
-                            <ControlStyle Height="20px" Width="20px" />
-                            <HeaderStyle Width="90px" />
-                            <ItemStyle Width="90px" />
-                        </asp:CommandField>
-                        <asp:BoundField DataField="ID" HeaderText="<%$Resources:HomeView.aspx,ID %>" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
-                        <asp:BoundField DataField="PerformanceTitle" HeaderText="<%$Resources:HomeView.aspx,PerformanceTitle %>" SortExpression="PerformanceTitle" />
-                        <asp:BoundField DataField="Location" HeaderText="<%$Resources:HomeView.aspx,Location %>" SortExpression="Location" />
-                        <asp:BoundField DataField="ConcertHall" HeaderText="<%$Resources:HomeView.aspx,ConcertHall %>" SortExpression="ConcertHall" />
-                        <asp:BoundField DataField="StartDate" HeaderText="<%$Resources:HomeView.aspx,StartDate %>" SortExpression="StartDate" />
-                        <asp:BoundField DataField="EndDate" HeaderText="<%$Resources:HomeView.aspx,EndDate %>" SortExpression="EndDate" />
-
-                        <asp:BoundField DataField="PerformanceHour" HeaderText="Performance Hour" SortExpression="PerformanceHour" />
-                        <asp:BoundField DataField="OrganizerInfo" HeaderText="Organizer Info" SortExpression="OrganizerInfo" />
-                        <asp:BoundField DataField="TicketBox" HeaderText="Ticket Box" SortExpression="TicketBox" />
-
-                        <asp:TemplateField HeaderText="<%$Resources:HomeView.aspx,PhotoAdLocation %>" SortExpression="PhotoAddLocation">
-                            <EditItemTemplate>
-                                <%--<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("PhotoAddLocation") %>'></asp:TextBox>--%>
-                                <asp:Button ID="editButton" CssClass="btn btn-info" runat="server" Text='<%$Resources:HomeView.aspx,Change %>' data-toggle="modal" data-target="#exampleModalLong" />
-                            </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:Label ID="Label2" runat="server" Text='<%# Bind("PhotoAddLocation") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:BoundField DataField="VideoLocation" HeaderText="<%$Resources:HomeView.aspx,VideoLocation %>" SortExpression="VideoLocation" />
-                        <asp:TemplateField HeaderText="<%$Resources:HomeView.aspx,Orchestra %>" SortExpression="OfficialName">
-                            <EditItemTemplate>
-                                <asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID" SelectedValue='<%#Bind("OrchestraID")%>'></asp:DropDownList>
-                            </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:Label ID="Label1" runat="server" Text='<%# Bind("OfficialName") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-                    <EditRowStyle BackColor="#e2e2e2" CssClass="GridViewEditRow" />
-                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" Width="100%"  />
-                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                </asp:GridView>
-            </div>
-
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -271,12 +336,45 @@ where ID=@ID">
                 </div>
             </div>
 
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalLong2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle2"><%= Resources.HomeView.aspx.PhotoAd %></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="form-group" style="text-align: center;">
+                                <asp:Image runat="server" ID="modalImageContainer2" Width="20em" Height="20em" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1"><%= Resources.HomeView.aspx.Change %></label>
+                                <asp:FileUpload ID="FileUpload4" runat="server" Style="display: inline" />
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= Resources.HomeView.aspx.Close %></button>
+                            <asp:Button runat="server" type="button" class="btn btn-primary" Text="<%$Resources:HomeView.aspx,Save %>" OnClick="buttonChangeImage2" ID="btnsaveimagechange2" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </ContentTemplate>
 
 
         <Triggers>
             <asp:PostBackTrigger ControlID="btn_addPerformance" />
             <asp:PostBackTrigger ControlID="btnsaveimagechange" />
+            <asp:PostBackTrigger ControlID="btnsaveimagechange2" />
         </Triggers>
 
     </asp:UpdatePanel>

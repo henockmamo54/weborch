@@ -16,7 +16,7 @@
     <link href="Content/Site.css" rel="stylesheet" />    
 
 </head>
-<body>
+<body style="background-color:whitesmoke;">
     <form runat="server">
         <asp:ScriptManager runat="server" EnablePageMethods="true">
             <Scripts>
@@ -39,7 +39,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-default navbar-fixed-top" id="masterNavigationBar" style="border-color: white; background-color: white;">
+        <div class="navbar navbar-default navbar-fixed-top" id="masterNavigationBar" style="border-color: white; background-color: #fdfdfd;">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

@@ -9,8 +9,8 @@
                 <div class="col-md-6">
                     <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand" OnItemDataBound="Repeater1_ItemDataBound">
                         <ItemTemplate>
-                            <div class="rptr" style="width: 40em; box-shadow: 2px 2px 2px 2px #f5f5f5;">
-                                <div class="panel panel-default" style="background-color: #f7f7f7;">
+                            <div class="rptr" style="width: 40em; box-shadow: 2px 2px 2px 2px #f5f5f5; ">
+                                <div class="panel panel-default" style="background-color:#f9f9f9;">
                                     <div style="padding-left: 10px; padding-right: 20px; width: 100%; margin-bottom: 1em; margin-top: 0.5em;">
 
                                         <asp:Image ID="Image2" runat="server"
