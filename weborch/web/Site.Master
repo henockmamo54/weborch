@@ -66,7 +66,7 @@
                         <%--<li><a runat="server" href="~/Views/signupPages/TermsOfUsePage.aspx"><span class="">Sign Up</span></a></li>--%>
                         <li><a runat="server" id="signinLink" visible="false" href="~/LoginPage"><span class=""> <%= Resources.HomeView.aspx.SignIn %></span></a></li>
                         <li><a runat="server" id="signoutLink" visible="false"  href="" onServerClick="signoutClicked"> <%= Resources.HomeView.aspx.SignOut %></a></li>
-                        <li><a runat="server" href="~/Views/MyPage"><%= Resources.HomeView.aspx.MyPage %></a></li>
+                        <li><a runat="server" id="mypageLink" visible="false" href="~/Views/MyPage"><%= Resources.HomeView.aspx.MyPage %></a></li>
 
                         <li><a runat="server" onServerClick="changeLanguage" style="padding-left: 0px; padding-right: 4px; display: inline-block;">en</a>|
                             <a runat="server" onServerClick="changeLanguage" style="padding-right: 0px; padding-left: 4px; display: inline-block;">kr</a></li>

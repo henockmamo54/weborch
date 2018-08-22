@@ -907,7 +907,7 @@ namespace Resources.HomeView {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sex.
+        ///   Looks up a localized string similar to Gender.
         /// </summary>
         internal static string Sex {
             get {
