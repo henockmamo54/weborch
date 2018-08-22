@@ -22,6 +22,8 @@ namespace web.Views.signupPages
             string pwd = upassword.Text;
             upassword.Attributes.Add("value", pwd);
 
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "bindDateTime();", true);
+
             if (!IsPostBack)
             {
                 //CompanyInfoFormContainer.Visible = false;

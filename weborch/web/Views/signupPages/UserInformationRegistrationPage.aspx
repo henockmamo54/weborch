@@ -583,6 +583,9 @@ where al.Name='Conductor'
             $('.modal-backdrop').remove();
             //alert('test');
         }
+        function bindDateTime() {
+            $('#datetimepicker2').datetimepicker();
+        }
         $(function () {
             $('#datetimepicker2').datetimepicker();
         });
