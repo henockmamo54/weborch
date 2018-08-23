@@ -584,10 +584,14 @@ where al.Name='Conductor'
             //alert('test');
         }
         function bindDateTime() {
-            $('#datetimepicker2').datetimepicker();
+            $('#datetimepicker2').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
         }
         $(function () {
-            $('#datetimepicker2').datetimepicker();
+            $('#datetimepicker2').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
         });
 
     </script>
