@@ -301,18 +301,18 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                 <div class="row col-md-12">
                                     <hr />
                                     <div class="col-md-6">
-                                        <div class="col-md-4">
+                                        <div class="col-md-2">
                                             <asp:Label runat="server"><strong><%= Resources.HomeView.aspx.Endorser %>:</strong></asp:Label>
                                         </div>
-                                        <div class="col-md-4">
 
+                                        <%--<div class="col-md-4">
                                             <asp:DropDownList class="form-control" ID="DropDownList1_endorserlist" runat="server" DataSourceID="SqlDataSource1_endorserList" DataTextField="Name" DataValueField="ID"></asp:DropDownList>
                                             <asp:SqlDataSource ID="SqlDataSource1_endorserList" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [Name], [Email],  [ID] FROM Main.[Endorser]"></asp:SqlDataSource>
+                                        </div>--%>
 
-                                        </div>
                                         <div class="col-md-4">
-                                            <asp:Button ID="Button5" CssClass="btn btn-sm btn-warning" Style="margin-left: 3px !important;" runat="server" Text="<%$Resources:HomeView.aspx,Add %>" OnClick="btn_add_endorser_tolist" />
-                                            <asp:Button ID="Button1" CssClass="btn btn-sm btn-success" Style="margin-left: 3px !important;" runat="server" Text="<%$Resources:HomeView.aspx,New %>" data-toggle="modal" data-target="#exampleModalLong" />
+                                            <%--<asp:Button ID="Button5" CssClass="btn btn-sm btn-warning" Style="margin-left: 3px !important;" runat="server" Text="<%$Resources:HomeView.aspx,Add %>" OnClick="btn_add_endorser_tolist" />--%>
+                                            <asp:Button ID="Button1" CssClass="btn btn-sm btn-success" Style="margin-left: 3px !important;" runat="server" Text="<%$Resources:HomeView.aspx,Add %>" data-toggle="modal" data-target="#exampleModalLong" />
                                         </div>
 
                                     </div>
@@ -321,7 +321,7 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                         <asp:Repeater runat="server" ID="myendorsmentlist">
                                             <ItemTemplate>
                                                 <tr style="margin-bottom: 3px;">
-                                                    <asp:Button runat="server" AutoPostBack="True" CommandArgument='<%#Eval("ID")%>' Text="<%$Resources:HomeView.aspx,Delete %>" OnClick="btn_remove_endorser_tolist"></asp:Button>
+                                                    <asp:Button runat="server" AutoPostBack="True" Text="<%$Resources:HomeView.aspx,Delete %>" CommandArgument='<%# Container.ItemIndex  %>' OnCommand="btn_remove_endorser_tolist"></asp:Button>
                                                     <td>
                                                         <asp:Label runat="server" ID="Label1" Text='<%# Eval("Name") %>' />
                                                         - 
@@ -808,9 +808,16 @@ where id=@ID"
             });
         });
 
+        //function closeModal() {
+        //    $('#exampleModalLong').modal('hide');
+        //    $('.modal-backdrop').remove();
+        //}
         function closeModal() {
             $('#exampleModalLong').modal('hide');
             $('.modal-backdrop').remove();
+            $('body').removeClass('modal-open');
+
+            //alert('test');
         }
 
         function removeinstrumentfromList() {
