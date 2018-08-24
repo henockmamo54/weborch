@@ -8,7 +8,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
     <div class="row">
-        <h3>Artist data</h3>
+        <h3 style="margin-top: 0;">Artist data</h3>
 
         <asp:UpdatePanel ID="UpdatePanel3" runat="server">
             <ContentTemplate>
@@ -68,20 +68,20 @@ FROM   core.artist
                                 </div>
                             </div>--%>
 
-                            <div class="col-sm-4" >
+                            <div class="col-sm-4">
                                 <div class="row col-sm-12" style="box-shadow: 0px 0px 5px 2px #d4d3d3; border-radius: 3px; margin-bottom: 2rem; padding-left: 0; background-color: white; font-family: Roboto, Arial, sans-serif;">
                                     <div class="col-sm-6" style="padding: 0;">
-                                        <img style="width: 100%; height: 18.25rem;    padding: 3px; border-radius: 7px;" class="card-img-top img-rounded" src="../Document/<%#Eval("Photo1") %>" alt="Card image cap">
+                                        <img style="width: 100%; height: 18.25rem; padding: 3px; border-radius: 7px;" class="card-img-top img-rounded" src="../Document/<%#Eval("Photo1") %>" alt="Card image cap">
                                     </div>
                                     <div class="col-sm-6" style="margin: 0px; padding: 0px; padding-left: 8px; font-size: 1.2rem;">
                                         <div class="card-body">
-                                            <h5 class="card-title" style="margin: 0; margin-top: 5px;    margin-bottom: 5px;"><strong><%#Eval("FirstName") %> <%#Eval("MiddleName") %> <%#Eval("FamilyName") %></strong></h5>
+                                            <h5 class="card-title" style="margin: 0; margin-top: 5px; margin-bottom: 5px;"><strong><%#Eval("FirstName") %> <%#Eval("MiddleName") %> <%#Eval("FamilyName") %></strong></h5>
                                             <p class="card-text" style="color: #555555;">
                                                 <strong>Affiliation: </strong>
                                                 <%#Eval("Affiliation") %>, <%#Eval("ArtistType") %>
                                                 <br />
                                                 <strong>Instruments: </strong>
-                                                <%#Eval("instruments") %>                                                
+                                                <%#Eval("instruments") %>
                                             </p>
                                             <a href="#" class="btn btn-default">Home Page</a>
                                         </div>
@@ -247,26 +247,58 @@ FROM   core.artist
                                         </div>
                                         <br />
                                     </div>
-                                    <div class="col-md-6">
-                                        <br />
-                                        <div class="col-md-3"><%= Resources.HomeView.aspx.ProfilePage %>:</div>
-                                        <div class="col-md-9">
-                                            <asp:TextBox ID="uprofilepage" runat="server" class="form-control" TextMode="MultiLine" Rows="3"></asp:TextBox>
-                                        </div>
-                                        <br />
-                                    </div>
-                                    <div class="col-md-6">
-                                        <br />
-                                        <div class="col-md-3"><%= Resources.HomeView.aspx.Repertory %>:</div>
-                                        <div class="col-md-9">
-                                            <asp:TextBox ID="urepertory" runat="server" class="form-control" TextMode="MultiLine" Rows="3"></asp:TextBox>
-                                        </div>
-                                        <br />
-                                    </div>
 
+                                    <%--<div class="col-md-12">test</div>--%>
+
+                                    <%--===============================================================================================================================================--%>
+                                    <div class="col-md-4 " style="width:100%;">
+                                        <div class="col-md-4" style="padding:0;">
+                                            <div class="col-md-12" style="padding:0;">
+                                                <br />
+                                                <div class="col-md-4"><%= Resources.HomeView.aspx.Affiliation %>:</div>
+                                                <div class="col-md-8">
+
+                                                    <asp:DropDownList ID="DropDownList1_Affilation" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID" AutoPostBack="false" OnSelectedIndexChanged="DropDownList1_Affilation_SelectedIndexChanged"></asp:DropDownList>
+                                                    <asp:SqlDataSource ID="SqlDataSource1_allOrchestra" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [OfficialName]='Other', [ID]=-1 FROM  core.[Orchestra]
+union
+SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
+
+                                                </div>
+                                                <br />
+                                            </div>
+                                            <div class="col-md-12" style="padding:0;">
+                                                <br />
+                                                <div class="col-md-4"></div>
+                                                <div class="col-md-8">
+
+                                                    <asp:TextBox ID="uaffilation" runat="server" placeholder="Your Affilation" class="form-control"></asp:TextBox>
+                                                </div>
+                                                <br />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <%--===========================================================================================================================================================--%>
+                                    <div class="col-md-12">
+                                        <div class="col-md-6">
+                                            <br />
+                                            <div class="col-md-3"><%= Resources.HomeView.aspx.ProfilePage %>:</div>
+                                            <div class="col-md-9">
+                                                <asp:TextBox ID="uprofilepage" runat="server" class="form-control" TextMode="MultiLine" Rows="3"></asp:TextBox>
+                                            </div>
+                                            <br />
+                                        </div>
+                                        <div class="col-md-6">
+                                            <br />
+                                            <div class="col-md-3"><%= Resources.HomeView.aspx.Repertory %>:</div>
+                                            <div class="col-md-9">
+                                                <asp:TextBox ID="urepertory" runat="server" class="form-control" TextMode="MultiLine" Rows="3"></asp:TextBox>
+                                            </div>
+                                            <br />
+                                        </div>
+                                    </div>
                                     <%--===========================================================================================================================================================--%>
                                 </div>
-                                <div class="row">
+                                <div class="row col-md-12">
                                     <hr />
                                     <div class="col-md-6">
                                         <div class="col-md-4">
@@ -312,11 +344,11 @@ FROM   core.artist
                                     <label><strong><%= Resources.HomeView.aspx.WhatkindOfArtistAreyou %></strong></label>
                                     <div class="col-md-12 form-group">
                                         <br />
-                                        <asp:CheckBox runat="server" ID="chk_Composer" Text="<%$Resources:HomeView.aspx,Composer %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
-                                        <asp:CheckBox runat="server" ID="chk_Conductor" Text="<%$Resources:HomeView.aspx,Conductor %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
-                                        <asp:CheckBox runat="server" ID="chk_tp" Text="<%$Resources:HomeView.aspx,Teacher_Professor %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
-                                        <asp:CheckBox runat="server" ID="chk_Student" Text="<%$Resources:HomeView.aspx,Student %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
-                                        <asp:CheckBox runat="server" ID="chk_player" Text="<%$Resources:HomeView.aspx,Player %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                                        <asp:CheckBox runat="server" ID="chk_Composer" Text="<%$Resources:HomeView.aspx,Composer %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="false" />
+                                        <asp:CheckBox runat="server" ID="chk_Conductor" Text="<%$Resources:HomeView.aspx,Conductor %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="false" />
+                                        <asp:CheckBox runat="server" ID="chk_tp" Text="<%$Resources:HomeView.aspx,Teacher_Professor %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="false" />
+                                        <asp:CheckBox runat="server" ID="chk_Student" Text="<%$Resources:HomeView.aspx,Student %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="false" />
+                                        <asp:CheckBox runat="server" ID="chk_player" Text="<%$Resources:HomeView.aspx,Player %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="false" />
                                     </div>
                                 </div>
 
@@ -755,6 +787,14 @@ where id=@ID"
     <script type="text/javascript">
 
 
+
+        function bindDateTime() {
+            $('#datetimepicker2').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        }
+
+
         function closeModal() {
             $('#photoModalLong').modal('hide');
             $('.modal-backdrop').remove();
@@ -763,7 +803,9 @@ where id=@ID"
 
 
         $(function () {
-            $('#datetimepicker2').datetimepicker();
+            $('#datetimepicker2').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
         });
 
         function closeModal() {
@@ -863,7 +905,10 @@ where id=@ID"
     </style>
 
     <style>
-        inContent iewpagr {
+
+
+
+        /*inContent iewpagr {
             id h: 100%;
             .itvie d n 1 ma -w d tat;
         }
@@ -886,7 +931,7 @@ where id=@ID"
             margin: 1px;
             padding: 0.5em;
             border-radius: 0.7em;
-        }
+        }*/
     </style>
 
 </asp:Content>

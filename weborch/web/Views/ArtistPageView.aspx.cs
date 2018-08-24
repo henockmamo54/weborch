@@ -3,6 +3,7 @@ using DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,11 +17,14 @@ namespace web
         ArtistInstrumentLogic artInstLogic = new ArtistInstrumentLogic();
         List<Instrument> instrumentlist;
         OrchestraDBEntities entity = new OrchestraDBEntities();
+        UserCommonTable user;
         protected void Page_Load(object sender, EventArgs e)
         {
             ////artist grid
             //GridView3.DataSource = artl.getAllArtists();
             //GridView3.DataBind();
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "bindDateTime();", true);
 
             if (!IsPostBack)
             {
@@ -31,6 +35,16 @@ namespace web
 
                 artistsRepeater.DataSource = SqlDataSource3_ArtistListForAudience;
                 artistsRepeater.DataBind();
+
+                user = (UserCommonTable)Session["User"];
+                if (user != null)
+                {
+                    OrchestraDBEntities entity = new OrchestraDBEntities();
+                    var val = user.User_UserType.FirstOrDefault().UserTypeID.Value;
+                    bool isUserCompany = entity.UserTypes.Where(x => x.ID == val).FirstOrDefault().Iscompany;
+                    foraudience.Visible = !isUserCompany;
+                    formanaging.Visible = isUserCompany;
+                }
             }
 
         }
@@ -53,13 +67,16 @@ namespace web
                 artist.FirstName = txt_artist_firstname.Text;
                 artist.MiddleName = txt_artist_middlename.Text;
                 artist.FamilyName = txt_artist_familyname.Text;
-                artist.BirthDate = DateTime.Parse(txt_artist_birthdate.Value);
+                artist.BirthDate = DateTime.ParseExact(txt_artist_birthdate.Value, "dd/mm/yyyy", CultureInfo.InvariantCulture);
                 artist.Address = txt_artist_address.Text;
                 artist.ZipCode = txt_artist_zipcode.Text;
                 artist.TelNO = txt_artist_teleno.Text;
                 artist.MobileNO = txt_artist_mobileno.Text;
                 artist.FaxNo = txt_aritist_faxno.Text;
                 artist.Remar = txt_artist_remark.Text;
+                if (int.Parse(DropDownList1_Affilation.SelectedValue) == -1)
+                    artist.Affiliation = uaffilation.Text;
+                else artist.Affiliation = DropDownList1_Affilation.SelectedItem.Text;
 
                 artist.FacebookAddress = ufacebookadd.Text;
                 artist.TwitterAddress = utwitter.Text;
@@ -375,6 +392,11 @@ namespace web
             modalImageContainer.ImageUrl = "~/Document/" + a.Photo1;
             modalImageContainer2.ImageUrl = "~/Document/" + a.Photo2;
             Session["SelectedArtistID"] = GridView1.Rows[e.NewEditIndex].Cells[1].Text;
+        }        
+        protected void DropDownList1_Affilation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (int.Parse(DropDownList1_Affilation.SelectedValue) == -1) uaffilation.Visible = true;
+            else uaffilation.Visible = false;
         }
     }
 }

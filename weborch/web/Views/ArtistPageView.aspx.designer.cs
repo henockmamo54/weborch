@@ -193,6 +193,33 @@ namespace web {
         protected global::System.Web.UI.WebControls.FileUpload FileUpload2;
         
         /// <summary>
+        /// DropDownList1_Affilation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1_Affilation;
+        
+        /// <summary>
+        /// SqlDataSource1_allOrchestra control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1_allOrchestra;
+        
+        /// <summary>
+        /// uaffilation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uaffilation;
+        
+        /// <summary>
         /// uprofilepage control.
         /// </summary>
         /// <remarks>
