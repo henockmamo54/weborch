@@ -271,15 +271,15 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
                                                 <div class="col-md-4">
                                                     <asp:Label runat="server"><%= Resources.HomeView.aspx.Endorser %>:</asp:Label>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <%--<div class="col-md-4">
 
                                                     <asp:DropDownList class="form-control" ID="DropDownList1_endorserlist" runat="server" DataSourceID="SqlDataSource1_endorserList" DataTextField="Name" DataValueField="ID"></asp:DropDownList>
                                                     <asp:SqlDataSource ID="SqlDataSource1_endorserList" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [Name], [Email],  [ID] FROM Main.[Endorser]"></asp:SqlDataSource>
 
-                                                </div>
+                                                </div>--%>
                                                 <div class="col-md-4">
-                                                    <asp:Button ID="Button5" CssClass="btn btn-sm btn-warning" Style="margin-left: 3px !important;" runat="server" Text="<%$Resources:HomeView.aspx,Add %>" OnClick="btn_add_endorser_tolist" />
-                                                    <asp:Button ID="btn_add_Inst" CssClass="btn btn-sm btn-success" Style="margin-left: 3px !important;" runat="server" Text="<%$Resources:HomeView.aspx,New %>" data-toggle="modal" data-target="#exampleModalLong" />
+                                                    <%--<asp:Button ID="Button5" CssClass="btn btn-sm btn-warning" Style="margin-left: 3px !important;" runat="server" Text="<%$Resources:HomeView.aspx,Add %>" OnClick="btn_add_endorser_tolist" />--%>
+                                                    <asp:Button ID="btn_add_Inst" CssClass="btn btn-sm btn-success" Style="margin-left: 3px !important;" runat="server" Text="<%$Resources:HomeView.aspx,Add %>" data-toggle="modal" data-target="#exampleModalLong" />
                                                 </div>
 
                                             </div>
@@ -288,7 +288,7 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
                                                 <asp:Repeater runat="server" ID="myendorsmentlist">
                                                     <ItemTemplate>
                                                         <tr style="margin-bottom: 3px;">
-                                                            <asp:Button runat="server" AutoPostBack="True" CommandArgument='<%#Eval("ID")%>' OnClick="btn_remove_endorser_tolist" Text="<%$Resources:HomeView.aspx,Delete %>"></asp:Button>
+                                                            <asp:Button CssClass="btn btn-secondary" runat="server" AutoPostBack="True" CommandArgument='<%# Container.ItemIndex  %>' OnCommand="btn_remove_endorser_tolist" Text="<%$Resources:HomeView.aspx,Delete %>"></asp:Button>
                                                             <td>
                                                                 <asp:Label runat="server" ID="Label1" Text='<%# Eval("Name") %>' />
                                                                 - 
@@ -581,6 +581,8 @@ where al.Name='Conductor'
         function closeModal() {
             $('#exampleModalLong').modal('hide');
             $('.modal-backdrop').remove();
+            $('body').removeClass('modal-open');
+
             //alert('test');
         }
         function bindDateTime() {

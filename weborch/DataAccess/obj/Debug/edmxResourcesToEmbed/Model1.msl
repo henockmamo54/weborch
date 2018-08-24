@@ -334,6 +334,9 @@
     <EntitySetMapping Name="User_Endorser">
       <EntityTypeMapping TypeName="OrchestraDBModel.User_Endorser">
         <MappingFragment StoreEntitySet="User_Endorser">
+          <ScalarProperty Name="ArtistID" ColumnName="ArtistID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Comment" ColumnName="Comment" />
           <ScalarProperty Name="EndorserID" ColumnName="EndorserID" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />

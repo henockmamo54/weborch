@@ -18,8 +18,12 @@ namespace DataAccess
         public Nullable<int> UserID { get; set; }
         public Nullable<int> EndorserID { get; set; }
         public string Comment { get; set; }
+        public string Email { get; set; }
+        public string Name { get; set; }
+        public Nullable<int> ArtistID { get; set; }
     
         public virtual Endorser Endorser { get; set; }
         public virtual UserCommonTable UserCommonTable { get; set; }
+        public virtual Artist Artist { get; set; }
     }
 }

@@ -10,6 +10,7 @@ using DataAccess;
 using System.Data;
 using System.Net;
 using System.Net.Mail;
+using System.Globalization;
 
 namespace web.Views.signupPages
 {
@@ -269,7 +270,7 @@ namespace web.Views.signupPages
                             personalInfo.Affiliation = uaffilation.Text;
                         else personalInfo.Affiliation = DropDownList1_Affilation.SelectedItem.Text;
                         personalInfo.sex = DropDownList1_sex.SelectedItem.Text;
-                        personalInfo.Birthday = DateTime.Parse(userBirthDate.Value);
+                        personalInfo.Birthday = DateTime.ParseExact(userBirthDate.Value,"dd/mm/yyyy", CultureInfo.InvariantCulture);
                         personalInfo.ZipCode = uzipcode.Text;
                         personalInfo.Address = uaddress.Text;
                         personalInfo.MobileNumber = umobileno.Text;
@@ -294,7 +295,7 @@ namespace web.Views.signupPages
                         Artist artist = new Artist();
                         artist.FirstName = uname.Text;
                         artist.FamilyName = " ";
-                        artist.BirthDate = DateTime.Parse(userBirthDate.Value);
+                        artist.BirthDate = DateTime.ParseExact(userBirthDate.Value, "dd/mm/yyyy", CultureInfo.InvariantCulture);
                         artist.Address = personalInfo.Address;
                         artist.ZipCode = personalInfo.ZipCode;
                         artist.TelNO = personalInfo.MobileNumber;
@@ -354,13 +355,16 @@ namespace web.Views.signupPages
                         //register endorsers
                         if (Session["myendorsmentlist"] != null)
                         {
-                            List<Endorser> mylist = (List<Endorser>)Session["myendorsmentlist"];
-                            foreach (Endorser x in mylist)
+                            List<User_Endorser> mylist = (List<User_Endorser>)Session["myendorsmentlist"];
+                            foreach (User_Endorser x in mylist)
                             {
-                                Artist_Endorser endorser = new Artist_Endorser();
-                                endorser.ArtistID = artist.ID;
-                                endorser.EndorserID = x.ID;
-                                context.Artist_Endorser.Add(endorser);
+                                User_Endorser ue = new User_Endorser();
+                                ue.ArtistID = artist.ID;
+                                ue.UserID = user.ID;
+                                ue.Email = x.Email;
+                                ue.Name = x.Name;
+
+                                context.User_Endorser.Add(ue);
                                 context.SaveChanges();
                                 //sending message to endorsers
                                 sendEmailToEndorser(x.Email, artist, x);
@@ -393,12 +397,12 @@ namespace web.Views.signupPages
 
         }
 
-        public void sendEmailToEndorser(string to, Artist artist, Endorser e)
+        public void sendEmailToEndorser(string to, Artist artist, User_Endorser e)
         {
             try
             {
                 var fromAddress = new MailAddress("iijbiijb14@gmail.com");
-                var fromPassword = "*******";
+                var fromPassword = "*****";
                 //var toAddress = new MailAddress("henockmamo54@gmail.com");
                 var toAddress = to;
 
@@ -462,39 +466,38 @@ namespace web.Views.signupPages
 
         protected void btn_add_endorser_tolist(object sender, EventArgs e)
         {
-            Endorser endorser = new Endorser();
-            endorser.ID = int.Parse(DropDownList1_endorserlist.SelectedItem.Value);
-            endorser.Name = DropDownList1_endorserlist.SelectedItem.Text;
-            endorser.Email = ((DataView)SqlDataSource1_endorserList.Select(new DataSourceSelectArguments())).ToTable().Rows[DropDownList1_endorserlist.SelectedIndex]["Email"].ToString();
+            //Endorser endorser = new Endorser();
+            //endorser.ID = int.Parse(DropDownList1_endorserlist.SelectedItem.Value);
+            //endorser.Name = DropDownList1_endorserlist.SelectedItem.Text;
+            //endorser.Email = ((DataView)SqlDataSource1_endorserList.Select(new DataSourceSelectArguments())).ToTable().Rows[DropDownList1_endorserlist.SelectedIndex]["Email"].ToString();
 
-            if (Session["myendorsmentlist"] != null)
-            {
-                List<Endorser> mylist = (List<Endorser>)Session["myendorsmentlist"];
-                mylist.Add(endorser);
-                myendorsmentlist.DataSource = mylist;
-                myendorsmentlist.DataBind();
-                Session["myendorsmentlist"] = mylist;
-            }
-            else
-            {
-                List<Endorser> endorserList = new List<Endorser>();
-                endorserList.Add(endorser);
+            //if (Session["myendorsmentlist"] != null)
+            //{
+            //    List<Endorser> mylist = (List<Endorser>)Session["myendorsmentlist"];
+            //    mylist.Add(endorser);
+            //    myendorsmentlist.DataSource = mylist;
+            //    myendorsmentlist.DataBind();
+            //    Session["myendorsmentlist"] = mylist;
+            //}
+            //else
+            //{
+            //    List<Endorser> endorserList = new List<Endorser>();
+            //    endorserList.Add(endorser);
 
-                myendorsmentlist.DataSource = endorserList;
-                myendorsmentlist.DataBind();
-                Session["myendorsmentlist"] = endorserList;
-            }
+            //    myendorsmentlist.DataSource = endorserList;
+            //    myendorsmentlist.DataBind();
+            //    Session["myendorsmentlist"] = endorserList;
+            //}
         }
 
-        public void btn_remove_endorser_tolist(object sender, EventArgs e)
+        public void btn_remove_endorser_tolist(object sender, CommandEventArgs e)
         {
             if (Session["myendorsmentlist"] != null)
             {
-                Button btn = (Button)sender;
-                int ID = int.Parse(btn.CommandArgument.ToString());
-                List<Endorser> mylist = (List<Endorser>)Session["myendorsmentlist"];
+                
+                List<User_Endorser> mylist = (List<User_Endorser>)Session["myendorsmentlist"];
 
-                mylist.RemoveAll(x => x.ID == ID);
+                mylist.RemoveAt(int.Parse(e.CommandArgument.ToString()));
                 myendorsmentlist.DataSource = mylist;
                 myendorsmentlist.DataBind();
                 Session["myendorsmentlist"] = mylist;
@@ -504,18 +507,37 @@ namespace web.Views.signupPages
 
         protected void btnAddEndorser_Click(object sender, EventArgs e)
         {
-            EndorserLogic el = new EndorserLogic();
-            Endorser r = new Endorser();
-            r.Name = FormControlInput1_Name.Text;
-            r.Email = FormControlTextarea1_email.Text;
+            User_Endorser endorser = new User_Endorser();
+            endorser.Name = FormControlInput1_Name.Text;
+            endorser.Email = FormControlTextarea1_email.Text;
 
 
-            if (el.insertEndorser(r))
+            //if (el.insertEndorser(r))
+            //{
+            //    DropDownList1_endorserlist.DataBind();
+            //    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
+            //}
+            //else showMsg("Please check your inputs!!!");
+
+            if (Session["myendorsmentlist"] != null)
             {
-                DropDownList1_endorserlist.DataBind();
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
+                List<User_Endorser> mylist = (List<User_Endorser>)Session["myendorsmentlist"];
+                mylist.Add(endorser);
+                myendorsmentlist.DataSource = mylist;
+                myendorsmentlist.DataBind();
+                Session["myendorsmentlist"] = mylist;
             }
-            else showMsg("Please check your inputs!!!");
+            else
+            {
+                List<User_Endorser> endorserList = new List<User_Endorser>();
+                endorserList.Add(endorser);
+
+                myendorsmentlist.DataSource = endorserList;
+                myendorsmentlist.DataBind();
+                Session["myendorsmentlist"] = endorserList;
+            }
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop2", "closeModal();", true);
 
         }
 

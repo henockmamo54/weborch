@@ -15,14 +15,29 @@ namespace BusinessLogic
             return entity.Endorsers.ToList();
         }
 
-        public bool insertEndorser(Endorser e) {
+        public bool insertEndorser(Endorser e)
+        {
             try
             {
                 entity.Endorsers.Add(e);
                 entity.SaveChanges();
                 return true;
             }
-            catch (Exception exception) {
+            catch (Exception exception)
+            {
+                return false;
+            }
+        }
+        public bool insertUserEndorser(User_Endorser e)
+        {
+            try
+            {
+                entity.User_Endorser.Add(e);
+                entity.SaveChanges();
+                return true;
+            }
+            catch (Exception exception)
+            {
                 return false;
             }
         }

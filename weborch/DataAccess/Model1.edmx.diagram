@@ -78,6 +78,7 @@
         <EntityTypeShape EntityType="OrchestraDBModel.PerformanceLikeUnlike" Width="1.5" PointX="15.25" PointY="16.75" />
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__Perfo__1A9EF37A" />
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__UserI__19AACF41" />
+        <AssociationConnector Association="OrchestraDBModel.FK__User_Endo__Artis__1B9317B3" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -48,6 +48,7 @@
     <NavigationProperty Name="Artist_Endorser" Relationship="OrchestraDBModel.FK__Artist_En__Artis__756D6ECB" FromRole="Artist" ToRole="Artist_Endorser" />
     <NavigationProperty Name="PerformanceDetail_Instrument_Artist" Relationship="OrchestraDBModel.FK__Performan__Artis__793DFFAF" FromRole="Artist" ToRole="PerformanceDetail_Instrument_Artist" />
     <NavigationProperty Name="Orchestras" Relationship="OrchestraDBModel.FK__Orchestra__Condu__7C1A6C5A" FromRole="Artist" ToRole="Orchestra" />
+    <NavigationProperty Name="User_Endorser" Relationship="OrchestraDBModel.FK__User_Endo__Artis__1B9317B3" FromRole="Artist" ToRole="User_Endorser" />
   </EntityType>
   <EntityType Name="Instrument">
     <Key>
@@ -270,6 +271,10 @@
     <AssociationSet Name="FK__Performan__UserI__19AACF41" Association="OrchestraDBModel.FK__Performan__UserI__19AACF41">
       <End Role="UserCommonTable" EntitySet="UserCommonTables" />
       <End Role="PerformanceLikeUnlike" EntitySet="PerformanceLikeUnlikes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User_Endo__Artis__1B9317B3" Association="OrchestraDBModel.FK__User_Endo__Artis__1B9317B3">
+      <End Role="Artist" EntitySet="Artists" />
+      <End Role="User_Endorser" EntitySet="User_Endorser" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="User">
@@ -781,6 +786,10 @@
     <NavigationProperty Name="Endorser" Relationship="OrchestraDBModel.FK__User_Endo__Endor__719CDDE7" FromRole="User_Endorser" ToRole="Endorser" />
     <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__User_Endo__UserI__70A8B9AE" FromRole="User_Endorser" ToRole="UserCommonTable" />
     <Property Name="Comment" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ArtistID" Type="Int32" />
+    <NavigationProperty Name="Artist" Relationship="OrchestraDBModel.FK__User_Endo__Artis__1B9317B3" FromRole="User_Endorser" ToRole="Artist" />
   </EntityType>
   <Association Name="FK__User_Endo__Endor__719CDDE7">
     <End Type="OrchestraDBModel.Endorser" Role="Endorser" Multiplicity="0..1" />
@@ -1200,6 +1209,18 @@
       </Principal>
       <Dependent Role="PerformanceLikeUnlike">
         <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__User_Endo__Artis__1B9317B3">
+    <End Type="OrchestraDBModel.Artist" Role="Artist" Multiplicity="0..1" />
+    <End Type="OrchestraDBModel.User_Endorser" Role="User_Endorser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User_Endorser">
+        <PropertyRef Name="ArtistID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

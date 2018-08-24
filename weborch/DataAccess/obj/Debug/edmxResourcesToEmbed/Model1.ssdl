@@ -266,6 +266,9 @@
     <Property Name="UserID" Type="int" />
     <Property Name="EndorserID" Type="int" />
     <Property Name="Comment" Type="nvarchar" MaxLength="400" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ArtistID" Type="int" />
   </EntityType>
   <EntityType Name="User_UserType">
     <Key>
@@ -822,6 +825,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__User_Endo__Artis__1B9317B3">
+    <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+    <End Role="User_Endorser" Type="Self.User_Endorser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User_Endorser">
+        <PropertyRef Name="ArtistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__User_Endo__Endor__719CDDE7">
     <End Role="Endorser" Type="Self.Endorser" Multiplicity="0..1" />
     <End Role="User_Endorser" Type="Self.User_Endorser" Multiplicity="*" />
@@ -1085,6 +1100,10 @@
     <AssociationSet Name="FK__Performan__UserI__5224328E" Association="Self.FK__Performan__UserI__5224328E">
       <End Role="UserCommonTable" EntitySet="UserCommonTable" />
       <End Role="Performance" EntitySet="Performance" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User_Endo__Artis__1B9317B3" Association="Self.FK__User_Endo__Artis__1B9317B3">
+      <End Role="Artist" EntitySet="Artist" />
+      <End Role="User_Endorser" EntitySet="User_Endorser" />
     </AssociationSet>
     <AssociationSet Name="FK__User_Endo__Endor__719CDDE7" Association="Self.FK__User_Endo__Endor__719CDDE7">
       <End Role="Endorser" EntitySet="Endorser" />
