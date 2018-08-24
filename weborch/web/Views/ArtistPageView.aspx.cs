@@ -28,6 +28,9 @@ namespace web
                 Session["myinstlist"] = null;
                 myinstrepeater.DataSource = null;
                 myinstrepeater.DataBind();
+
+                artistsRepeater.DataSource = SqlDataSource1;
+                artistsRepeater.DataBind();
             }
 
         }
