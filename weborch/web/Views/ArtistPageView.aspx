@@ -68,10 +68,10 @@ FROM   core.artist
                                 </div>
                             </div>--%>
 
-                            <div class="col-sm-4">
+                            <div class="col-sm-4" >
                                 <div class="row col-sm-12" style="box-shadow: 0px 0px 5px 2px #d4d3d3; border-radius: 3px; margin-bottom: 2rem; padding-left: 0; background-color: white; font-family: Roboto, Arial, sans-serif;">
                                     <div class="col-sm-6" style="padding: 0;">
-                                        <img style="width: 100%; height: 18.25rem;" class="card-img-top img-rounded" src="../Document/<%#Eval("Photo1") %>" alt="Card image cap">
+                                        <img style="width: 100%; height: 18.25rem;    padding: 3px; border-radius: 7px;" class="card-img-top img-rounded" src="../Document/<%#Eval("Photo1") %>" alt="Card image cap">
                                     </div>
                                     <div class="col-sm-6" style="margin: 0px; padding: 0px; padding-left: 8px; font-size: 1.2rem;">
                                         <div class="card-body">
