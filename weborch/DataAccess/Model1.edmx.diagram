@@ -4,18 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a6e3d000cd584187a98f6ee5e2d83436" Name="Diagram1" ZoomLevel="35">
-        <EntityTypeShape EntityType="OrchestraDBModel.Artist" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="a6e3d000cd584187a98f6ee5e2d83436" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="OrchestraDBModel.Instrument" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="OrchestraDBModel.User" Width="1.5" PointX="0.75" PointY="4.75" />
         <EntityTypeShape EntityType="OrchestraDBModel.Bulletin" Width="1.5" PointX="3.375" PointY="4.75" />
         <EntityTypeShape EntityType="OrchestraDBModel.ChildCommentTable" Width="1.5" PointX="5.375" PointY="4.75" />
         <EntityTypeShape EntityType="OrchestraDBModel.ParentCommentTable" Width="1.5" PointX="7.375" PointY="0.75" />
         <EntityTypeShape EntityType="OrchestraDBModel.Artist_Instrument" Width="1.5" PointX="8" PointY="4.375" />
-        <AssociationConnector Association="OrchestraDBModel.FK__Artist_In__Artis__10566F31" />
         <AssociationConnector Association="OrchestraDBModel.FK__Artist_In__Instr__114A936A" />
         <EntityTypeShape EntityType="OrchestraDBModel.Orchestra_Instrument_Artist" Width="1.5" PointX="10" PointY="0.75" />
-        <AssociationConnector Association="OrchestraDBModel.FK__Orchestra__Artis__160F4887" />
         <AssociationConnector Association="OrchestraDBModel.FK__Orchestra__Instr__17036CC0" />
         <EntityTypeShape EntityType="OrchestraDBModel.FreeBoard" Width="1.5" PointX="3.75" PointY="7.75" />
         <EntityTypeShape EntityType="OrchestraDBModel.Market" Width="1.5" PointX="5.75" PointY="7.75" />
@@ -31,14 +28,9 @@
         <AssociationConnector Association="OrchestraDBModel.FK__UserCompa__UserI__45BE5BA9" />
         <EntityTypeShape EntityType="OrchestraDBModel.Artist_ArtistType" Width="1.5" PointX="3" PointY="0.75" />
         <EntityTypeShape EntityType="OrchestraDBModel.ArtistType" Width="1.5" PointX="0.75" PointY="15.75" />
-        <AssociationConnector Association="OrchestraDBModel.FK__Artist_Ar__Artis__4A8310C6" />
         <AssociationConnector Association="OrchestraDBModel.FK__Artist_Ar__Artis__4B7734FF" />
         <EntityTypeShape EntityType="OrchestraDBModel.PerformanceDetail" Width="1.5" PointX="12.625" PointY="5.375" />
-        <AssociationConnector Association="OrchestraDBModel.FK__Performan__Compo__5D95E53A" />
-        <AssociationConnector Association="OrchestraDBModel.FK__Performan__Condu__5BAD9CC8" />
-        <AssociationConnector Association="OrchestraDBModel.FK__Performan__Playe__5CA1C101" />
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__Instr__5AB9788F" />
-        <AssociationConnector Association="OrchestraDBModel.FK__Artist__UserID__690797E6" />
         <EntityTypeShape EntityType="OrchestraDBModel.UserPersonalInfo" Width="1.5" PointX="10" PointY="11" />
         <AssociationConnector Association="OrchestraDBModel.FK__UserPerso__Major__69FBBC1F" />
         <AssociationConnector Association="OrchestraDBModel.FK__UserPerso__Major__6AEFE058" />
@@ -48,17 +40,14 @@
         <AssociationConnector Association="OrchestraDBModel.FK__User_Endo__Endor__719CDDE7" />
         <AssociationConnector Association="OrchestraDBModel.FK__User_Endo__UserI__70A8B9AE" />
         <EntityTypeShape EntityType="OrchestraDBModel.Artist_Endorser" Width="1.5" PointX="12.625" PointY="10.25" />
-        <AssociationConnector Association="OrchestraDBModel.FK__Artist_En__Artis__756D6ECB" />
         <AssociationConnector Association="OrchestraDBModel.FK__Artist_En__Endor__74794A92" />
         <EntityTypeShape EntityType="OrchestraDBModel.Performance" Width="1.5" PointX="7" PointY="11.25" />
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__Perfo__503BEA1C" />
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__UserI__5224328E" />
         <EntityTypeShape EntityType="OrchestraDBModel.PerformanceDetail_Instrument_Artist" Width="1.5" PointX="14.875" PointY="4.25" />
-        <AssociationConnector Association="OrchestraDBModel.FK__Performan__Artis__793DFFAF" />
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__Instr__7A3223E8" />
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__Perfo__7849DB76" />
         <EntityTypeShape EntityType="OrchestraDBModel.Orchestra" Width="1.5" PointX="12.25" PointY="13.125" />
-        <AssociationConnector Association="OrchestraDBModel.FK__Orchestra__Condu__7C1A6C5A" />
         <AssociationConnector Association="OrchestraDBModel.FK__Orchestra__Orche__151B244E" />
         <AssociationConnector Association="OrchestraDBModel.FK__Orchestra__UserI__6BE40491" />
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__Orche__531856C7" />
@@ -78,6 +67,17 @@
         <EntityTypeShape EntityType="OrchestraDBModel.PerformanceLikeUnlike" Width="1.5" PointX="15.25" PointY="16.75" />
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__Perfo__1A9EF37A" />
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__UserI__19AACF41" />
+        <EntityTypeShape EntityType="OrchestraDBModel.Artist" Width="1.5" PointX="4.25" PointY="21" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Artist__UserID__690797E6" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Artist_Ar__Artis__4A8310C6" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Artist_En__Artis__756D6ECB" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Artist_In__Artis__10566F31" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Orchestra__Artis__160F4887" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Orchestra__Condu__7C1A6C5A" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Performan__Artis__793DFFAF" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Performan__Compo__5D95E53A" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Performan__Condu__5BAD9CC8" />
+        <AssociationConnector Association="OrchestraDBModel.FK__Performan__Playe__5CA1C101" />
         <AssociationConnector Association="OrchestraDBModel.FK__User_Endo__Artis__1B9317B3" />
         </Diagram>
     </edmx:Diagrams>

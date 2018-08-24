@@ -15,6 +15,47 @@
 
                 <div id="foraudience" runat="server">
 
+                    <asp:SqlDataSource ID="SqlDataSource3_ArtistListForAudience" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand=" SELECT core.artist.firstname,
+       core.artist.middlename,
+       core.artist.familyname,
+       core.artist.photo1,
+       core.artist.affiliation,
+       ArtistType.NAME AS ArtistType,
+       inst.namevalues AS instruments
+FROM   core.artist
+       INNER JOIN (SELECT
+       artist,
+       Stuff((SELECT ', ' + NAME
+              FROM   (SELECT at.artist,
+                             al.NAME
+                      FROM   drived.artist_artisttype at
+                             JOIN lookup.artisttype al
+                               ON at.artisttypeid = al.id)x
+              WHERE  ( artist = Results.artist )
+              FOR xml path(''), type).value('(./text())[1]', 'VARCHAR(MAX)'), 1
+                                     , 2, '')
+       AS NAME
+                   FROM   drived.artist_artisttype Results
+                   GROUP  BY artist) ArtistType
+               ON core.artist.id = ArtistType.artist
+       JOIN
+              (SELECT
+       artist,
+                    Stuff((SELECT ', ' + englishname
+                           FROM   (SELECT ai.artistid,
+                                          i.englishname
+                                   FROM   drived.artist_instrument ai
+                                          JOIN core.instrument i
+                                            ON ai.instrumentid = i.id)x
+                           WHERE  ( artistid = Results.artist )
+                           FOR xml
+       path(''), type).value('(./text())[1]', 'VARCHAR(MAX)'), 1
+                                           , 2, '')
+                    AS NameValues
+             FROM   drived.artist_artisttype Results
+             GROUP  BY artist) inst
+         ON inst.artist = core.artist.id  "></asp:SqlDataSource>
+
                     <asp:Repeater runat="server" ID="artistsRepeater">
                         <ItemTemplate>
 
@@ -27,16 +68,21 @@
                                 </div>
                             </div>--%>
 
-                            <div class="col-sm-3">
-
+                            <div class="col-sm-4">
                                 <div class="row col-sm-12" style="box-shadow: 0px 0px 5px 2px #d4d3d3; border-radius: 3px; margin-bottom: 2rem; padding-left: 0; background-color: white; font-family: Roboto, Arial, sans-serif;">
                                     <div class="col-sm-6" style="padding: 0;">
-                                        <img style="width: 100%; height: 14.25rem;" class="card-img-top img-rounded" src="../Document/<%#Eval("Photo1") %>" alt="Card image cap">
+                                        <img style="width: 100%; height: 18.25rem;" class="card-img-top img-rounded" src="../Document/<%#Eval("Photo1") %>" alt="Card image cap">
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-6" style="margin: 0px; padding: 0px; padding-left: 8px; font-size: 1.2rem;">
                                         <div class="card-body">
-                                            <h5 class="card-title"><strong><%#Eval("FirstName") %> <%#Eval("MiddleName") %> <%#Eval("FamilyName") %></strong></h5>
-                                            <p class="card-text"><%#Eval("FirstName") %></p>
+                                            <h5 class="card-title" style="margin: 0; margin-top: 5px;    margin-bottom: 5px;"><strong><%#Eval("FirstName") %> <%#Eval("MiddleName") %> <%#Eval("FamilyName") %></strong></h5>
+                                            <p class="card-text" style="color: #555555;">
+                                                <strong>Affiliation: </strong>
+                                                <%#Eval("Affiliation") %>, <%#Eval("ArtistType") %>
+                                                <br />
+                                                <strong>Instruments: </strong>
+                                                <%#Eval("instruments") %>                                                
+                                            </p>
                                             <a href="#" class="btn btn-default">Home Page</a>
                                         </div>
                                     </div>

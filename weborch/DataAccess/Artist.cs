@@ -17,15 +17,15 @@ namespace DataAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Artist()
         {
+            this.Artist_ArtistType = new HashSet<Artist_ArtistType>();
+            this.Artist_Endorser = new HashSet<Artist_Endorser>();
             this.Artist_Instrument = new HashSet<Artist_Instrument>();
             this.Orchestra_Instrument_Artist = new HashSet<Orchestra_Instrument_Artist>();
-            this.Artist_ArtistType = new HashSet<Artist_ArtistType>();
+            this.Orchestras = new HashSet<Orchestra>();
+            this.PerformanceDetail_Instrument_Artist = new HashSet<PerformanceDetail_Instrument_Artist>();
             this.PerformanceDetails = new HashSet<PerformanceDetail>();
             this.PerformanceDetails1 = new HashSet<PerformanceDetail>();
             this.PerformanceDetails2 = new HashSet<PerformanceDetail>();
-            this.Artist_Endorser = new HashSet<Artist_Endorser>();
-            this.PerformanceDetail_Instrument_Artist = new HashSet<PerformanceDetail_Instrument_Artist>();
-            this.Orchestras = new HashSet<Orchestra>();
             this.User_Endorser = new HashSet<User_Endorser>();
         }
     
@@ -47,42 +47,28 @@ namespace DataAccess
         public string Photo2 { get; set; }
         public string ProfilePage { get; set; }
         public string Repertory { get; set; }
-        public string EndorsorEmailID1 { get; set; }
-        public string EndorsorName1 { get; set; }
-        public string EndorsorComments1 { get; set; }
-        public string EndorsorEmailID2 { get; set; }
-        public string EndorsorName2 { get; set; }
-        public string EndorsorComments2 { get; set; }
-        public string EndorsorEmailID3 { get; set; }
-        public string EndorsorName3 { get; set; }
-        public string EndorsorComments3 { get; set; }
-        public string EndorsorEmailID4 { get; set; }
-        public string EndorsorName4 { get; set; }
-        public string EndorsorComments4 { get; set; }
-        public string EndorsorEmailID5 { get; set; }
-        public string EndorsorName5 { get; set; }
-        public string EndorsorComments5 { get; set; }
         public Nullable<int> UserID { get; set; }
+        public string Affiliation { get; set; }
     
+        public virtual UserCommonTable UserCommonTable { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Artist_ArtistType> Artist_ArtistType { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Artist_Endorser> Artist_Endorser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Artist_Instrument> Artist_Instrument { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orchestra_Instrument_Artist> Orchestra_Instrument_Artist { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Artist_ArtistType> Artist_ArtistType { get; set; }
+        public virtual ICollection<Orchestra> Orchestras { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PerformanceDetail_Instrument_Artist> PerformanceDetail_Instrument_Artist { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PerformanceDetail> PerformanceDetails { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PerformanceDetail> PerformanceDetails1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PerformanceDetail> PerformanceDetails2 { get; set; }
-        public virtual UserCommonTable UserCommonTable { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Artist_Endorser> Artist_Endorser { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PerformanceDetail_Instrument_Artist> PerformanceDetail_Instrument_Artist { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Orchestra> Orchestras { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User_Endorser> User_Endorser { get; set; }
     }

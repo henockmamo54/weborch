@@ -19,7 +19,7 @@ namespace DataAccess
         public Nullable<int> ArtistID { get; set; }
         public string Comment { get; set; }
     
-        public virtual Artist Artist { get; set; }
         public virtual Endorser Endorser { get; set; }
+        public virtual Artist Artist { get; set; }
     }
 }

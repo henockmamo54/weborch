@@ -34,7 +34,6 @@ namespace DataAccess
         public Nullable<int> UserID { get; set; }
         public Nullable<int> ConductorID { get; set; }
     
-        public virtual Artist Artist { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orchestra_Instrument_Artist> Orchestra_Instrument_Artist { get; set; }
         public virtual UserCommonTable UserCommonTable { get; set; }
@@ -42,5 +41,6 @@ namespace DataAccess
         public virtual ICollection<Performance> Performances { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PerformanceDetail> PerformanceDetails { get; set; }
+        public virtual Artist Artist { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace DataAccess
         public Nullable<int> ArtistID { get; set; }
         public Nullable<int> InstrumentID { get; set; }
     
-        public virtual Artist Artist { get; set; }
         public virtual Instrument Instrument { get; set; }
+        public virtual Artist Artist { get; set; }
     }
 }

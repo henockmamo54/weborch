@@ -29,7 +29,7 @@ namespace web
                 myinstrepeater.DataSource = null;
                 myinstrepeater.DataBind();
 
-                artistsRepeater.DataSource = SqlDataSource1;
+                artistsRepeater.DataSource = SqlDataSource3_ArtistListForAudience;
                 artistsRepeater.DataBind();
             }
 

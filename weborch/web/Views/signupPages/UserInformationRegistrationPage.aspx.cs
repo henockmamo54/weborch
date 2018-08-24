@@ -300,6 +300,7 @@ namespace web.Views.signupPages
                         artist.ZipCode = personalInfo.ZipCode;
                         artist.TelNO = personalInfo.MobileNumber;
                         artist.MobileNO = personalInfo.MobileNumber;
+                        artist.Affiliation = personalInfo.Affiliation;
 
 
                         artist.FacebookAddress = ufacebookadd.Text;

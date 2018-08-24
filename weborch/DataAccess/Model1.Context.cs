@@ -25,7 +25,6 @@ namespace DataAccess
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Artist> Artists { get; set; }
         public virtual DbSet<Instrument> Instruments { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Bulletin> Bulletins { get; set; }
@@ -56,5 +55,6 @@ namespace DataAccess
         public virtual DbSet<BulletinLikeUnlike> BulletinLikeUnlikes { get; set; }
         public virtual DbSet<PerformanceParentCommentTable> PerformanceParentCommentTables { get; set; }
         public virtual DbSet<PerformanceLikeUnlike> PerformanceLikeUnlikes { get; set; }
+        public virtual DbSet<Artist> Artists { get; set; }
     }
 }

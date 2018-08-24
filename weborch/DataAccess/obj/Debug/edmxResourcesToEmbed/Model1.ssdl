@@ -22,22 +22,8 @@
     <Property Name="Photo2" Type="nvarchar" MaxLength="80" />
     <Property Name="ProfilePage" Type="nvarchar" MaxLength="400" />
     <Property Name="Repertory" Type="nvarchar" MaxLength="200" />
-    <Property Name="EndorsorEmailID1" Type="nvarchar" MaxLength="30" />
-    <Property Name="EndorsorName1" Type="nvarchar" MaxLength="30" />
-    <Property Name="EndorsorComments1" Type="nvarchar" MaxLength="100" />
-    <Property Name="EndorsorEmailID2" Type="nvarchar" MaxLength="30" />
-    <Property Name="EndorsorName2" Type="nvarchar" MaxLength="30" />
-    <Property Name="EndorsorComments2" Type="nvarchar" MaxLength="100" />
-    <Property Name="EndorsorEmailID3" Type="nvarchar" MaxLength="30" />
-    <Property Name="EndorsorName3" Type="nvarchar" MaxLength="30" />
-    <Property Name="EndorsorComments3" Type="nvarchar" MaxLength="100" />
-    <Property Name="EndorsorEmailID4" Type="nvarchar" MaxLength="30" />
-    <Property Name="EndorsorName4" Type="nvarchar" MaxLength="30" />
-    <Property Name="EndorsorComments4" Type="nvarchar" MaxLength="100" />
-    <Property Name="EndorsorEmailID5" Type="nvarchar" MaxLength="30" />
-    <Property Name="EndorsorName5" Type="nvarchar" MaxLength="30" />
-    <Property Name="EndorsorComments5" Type="nvarchar" MaxLength="100" />
     <Property Name="UserID" Type="int" />
+    <Property Name="Affiliation" Type="nvarchar" MaxLength="40" />
   </EntityType>
   <EntityType Name="Bulletin">
     <Key>
