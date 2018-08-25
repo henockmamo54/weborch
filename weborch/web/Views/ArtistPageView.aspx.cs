@@ -473,48 +473,55 @@ namespace web
         protected void DropDownList1_artistType_SelectedIndexChanged(object sender, EventArgs e)
         {
             var filterQuery = "";
-            if (DropDownList1_artistType.SelectedIndex != 0) filterQuery = " where ArtistType.NAME like '%"+DropDownList1_artistType.SelectedItem.Text+"%'";
+            if (DropDownList1_artistType.SelectedIndex != 0) filterQuery += " where ArtistType.NAME like '%" + DropDownList1_artistType.SelectedItem.Text + "%'";
+            if (DropDownList1_instrumentTypeFilter.SelectedIndex != 0)
+            {
+                if (DropDownList1_artistType.SelectedIndex != 0) filterQuery += " And ";
+                else filterQuery += " Where ";
+
+                filterQuery += " inst.namevalues like '%" + DropDownList1_instrumentTypeFilter.SelectedItem.Text + "%'";
+            }
 
             SqlDataSource3_ArtistListForAudience.SelectCommand = string.Format(@"SELECT core.artist.firstname,
-       core.artist.middlename,
-       core.artist.familyname,
-       core.artist.photo1,
-       core.artist.affiliation,
-       ArtistType.NAME AS ArtistType,
-       inst.namevalues AS instruments
-FROM   core.artist
-       INNER JOIN (SELECT
-       artist,
-       Stuff((SELECT ', ' + NAME
-              FROM   (SELECT at.artist,
-                             al.NAME
-                      FROM   drived.artist_artisttype at
-                             JOIN lookup.artisttype al
-                               ON at.artisttypeid = al.id)x
-              WHERE  ( artist = Results.artist )
-              FOR xml path(''), type).value('(./text())[1]', 'VARCHAR(MAX)'), 1
-                                     , 2, '')
-       AS NAME
-                   FROM   drived.artist_artisttype Results
-                   GROUP  BY artist) ArtistType
-               ON core.artist.id = ArtistType.artist
-       JOIN
-              (SELECT
-       artist,
-                    Stuff((SELECT ', ' + englishname
-                           FROM   (SELECT ai.artistid,
-                                          i.englishname
-                                   FROM   drived.artist_instrument ai
-                                          JOIN core.instrument i
-                                            ON ai.instrumentid = i.id)x
-                           WHERE  ( artistid = Results.artist )
-                           FOR xml
-       path(''), type).value('(./text())[1]', 'VARCHAR(MAX)'), 1
-                                           , 2, '')
-                    AS NameValues
-             FROM   drived.artist_artisttype Results
-             GROUP  BY artist) inst
-         ON inst.artist = core.artist.id  {0}", filterQuery);
+                                                                       core.artist.middlename,
+                                                                       core.artist.familyname,
+                                                                       core.artist.photo1,
+                                                                       core.artist.affiliation,
+                                                                       ArtistType.NAME AS ArtistType,
+                                                                       inst.namevalues AS instruments
+                                                                FROM   core.artist
+                                                                       INNER JOIN (SELECT
+                                                                       artist,
+                                                                       Stuff((SELECT ', ' + NAME
+                                                                              FROM   (SELECT at.artist,
+                                                                                             al.NAME
+                                                                                      FROM   drived.artist_artisttype at
+                                                                                             JOIN lookup.artisttype al
+                                                                                               ON at.artisttypeid = al.id)x
+                                                                              WHERE  ( artist = Results.artist )
+                                                                              FOR xml path(''), type).value('(./text())[1]', 'VARCHAR(MAX)'), 1
+                                                                                                     , 2, '')
+                                                                       AS NAME
+                                                                                   FROM   drived.artist_artisttype Results
+                                                                                   GROUP  BY artist) ArtistType
+                                                                               ON core.artist.id = ArtistType.artist
+                                                                       JOIN
+                                                                              (SELECT
+                                                                       artist,
+                                                                                    Stuff((SELECT ', ' + englishname
+                                                                                           FROM   (SELECT ai.artistid,
+                                                                                                          i.englishname
+                                                                                                   FROM   drived.artist_instrument ai
+                                                                                                          JOIN core.instrument i
+                                                                                                            ON ai.instrumentid = i.id)x
+                                                                                           WHERE  ( artistid = Results.artist )
+                                                                                           FOR xml
+                                                                       path(''), type).value('(./text())[1]', 'VARCHAR(MAX)'), 1
+                                                                                                           , 2, '')
+                                                                                    AS NameValues
+                                                                             FROM   drived.artist_artisttype Results
+                                                                             GROUP  BY artist) inst
+                                                                         ON inst.artist = core.artist.id  {0}", filterQuery);
 
             artistsRepeater.DataSource = SqlDataSource3_ArtistListForAudience;
             artistsRepeater.DataBind();
