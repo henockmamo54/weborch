@@ -10,11 +10,11 @@
                 <div id="forAudience" runat="server">
 
 
-                    <div class="row col-md-12" style="margin-bottom: 1rem;">
-                        <h3><%= Resources.HomeView.aspx.Orchestradata %></h3>
-                        <div class="col-md-3 pull-right">
+                    <div class="row col-md-12" style="margin-bottom: 1rem;padding:0px;  ">
+                        <h3 style="display:inline-block;"><%= Resources.HomeView.aspx.Orchestradata %></h3>
+                        <div class="col-md-3 pull-right" style="padding:0;">
                             <h5 style="display: inline-block;">Name: </h5>
-                            <asp:TextBox AutoPostBack="true" ID="txtbox_namefilter" runat="server" CssClass="form-control" Style="width: 70%; display: inline-block;" OnTextChanged="filterOrchestraDataByName"></asp:TextBox>
+                            <asp:TextBox AutoPostBack="true" ID="txtbox_namefilter" runat="server" CssClass="form-control" Style="width: 82%; display: inline-block;  margin-top: 20px;" OnTextChanged="filterOrchestraDataByName"></asp:TextBox>
                         </div>
                     </div>
 

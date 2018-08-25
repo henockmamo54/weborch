@@ -13,12 +13,23 @@ namespace web
     {
         OrchestraLogic orl = new OrchestraLogic();
         OrchestraInstrumentArtistLogic oial = new OrchestraInstrumentArtistLogic();
+        UserCommonTable user;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 repeater_orchestraList.DataSource = SqlDataSource1_allOrchestraInfo;
                 repeater_orchestraList.DataBind();
+            }
+
+            user = (UserCommonTable)Session["User"];
+            if (user != null)
+            {
+                OrchestraDBEntities entity = new OrchestraDBEntities();
+                var val = user.User_UserType.FirstOrDefault().UserTypeID.Value;
+                bool isUserCompany = entity.UserTypes.Where(x => x.ID == val).FirstOrDefault().Iscompany;
+                forAudience.Visible = !isUserCompany;
+                formanaging.Visible = isUserCompany;
             }
 
             ////orchestra grid
