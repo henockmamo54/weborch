@@ -473,7 +473,7 @@ namespace web
         protected void DropDownList1_artistType_SelectedIndexChanged(object sender, EventArgs e)
         {
             var filterQuery = "";
-            if (DropDownList1_artistType.SelectedIndex != -1) filterQuery = " where ArtistType.NAME like '%"+DropDownList1_artistType.SelectedItem.Text+"%'";
+            if (DropDownList1_artistType.SelectedIndex != 0) filterQuery = " where ArtistType.NAME like '%"+DropDownList1_artistType.SelectedItem.Text+"%'";
 
             SqlDataSource3_ArtistListForAudience.SelectCommand = string.Format(@"SELECT core.artist.firstname,
        core.artist.middlename,
