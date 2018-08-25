@@ -481,6 +481,14 @@ namespace web
 
                 filterQuery += " inst.namevalues like '%" + DropDownList1_instrumentTypeFilter.SelectedItem.Text + "%'";
             }
+            if (txtbox_namefilter.Text.ToString().Length > 0) {
+                if (DropDownList1_artistType.SelectedIndex != 0 || DropDownList1_instrumentTypeFilter.SelectedIndex != 0) filterQuery += " And ";
+                else filterQuery += " Where ";
+
+                filterQuery += " core.artist.firstname like N'%" + txtbox_namefilter.Text + "%' or";
+                filterQuery += " core.artist.middlename like N'%" + txtbox_namefilter.Text + "%' or";
+                filterQuery += " core.artist.familyname like N'%" + txtbox_namefilter.Text + "%'";
+            }
 
             SqlDataSource3_ArtistListForAudience.SelectCommand = string.Format(@"SELECT core.artist.firstname,
                                                                        core.artist.middlename,

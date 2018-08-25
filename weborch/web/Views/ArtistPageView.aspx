@@ -39,6 +39,10 @@ union
 SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataSource>
                             <asp:DropDownList ID="DropDownList1_instrumentTypeFilter" CssClass="form-control pull-right" Style="width: 70%;"  runat="server" AutoPostBack="True" DataSourceID="SqlDataSource3_instrumentListForFilter" DataTextField="EnglishName" DataValueField="ID" OnSelectedIndexChanged="DropDownList1_artistType_SelectedIndexChanged"></asp:DropDownList>
                         </div>
+                        <div class="col-md-3 pull-right">
+                            <h5 style="display: inline-block;">Name: </h5>
+                            <asp:TextBox AutoPostBack="true" ID="txtbox_namefilter" runat="server" CssClass="form-control" style="width:70%; display:inline-block;" OnTextChanged="DropDownList1_artistType_SelectedIndexChanged"></asp:TextBox>
+                        </div>
                     </div>
 
                     <asp:SqlDataSource ID="SqlDataSource3_ArtistListForAudience" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand=" SELECT core.artist.firstname,
@@ -125,7 +129,7 @@ FROM   core.artist
 
                 <div id="formanaging" runat="server" visible="false">
 
-                    <h3 style="margin-top: 0; display: inline;">Artist data</h3>
+                    <h3 >Artist data</h3>
 
                     <div class="row shadowedPanel" style="background-color: white;">
                         <div class="col-md-12">
