@@ -12,6 +12,9 @@ namespace web
         InstrumentLogic insl = new InstrumentLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
+            instrumentrepeater.DataSource = SqlDataSource1_Instrumentlist;
+            instrumentrepeater.DataBind();
+
             //instrument grid
             //GridView2.DataSource = insl.getAllInstruments();
             //GridView2.DataBind();
