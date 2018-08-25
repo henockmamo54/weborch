@@ -7,13 +7,33 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
+
+
     <div class="row">
-        <h3 style="margin-top: 0;">Artist data</h3>
+
 
         <asp:UpdatePanel ID="UpdatePanel3" runat="server">
             <ContentTemplate>
 
                 <div id="foraudience" runat="server">
+
+                    <div class="row col-md-12" style="margin-bottom: 1rem;">
+
+                        <h3 style="margin-top: 0; display: inline;">Artist data</h3>
+                        <div class="col-md-2 pull-right">
+                            <h5 style="display: inline-block;">Type: </h5>
+                            <asp:DropDownList AutoPostBack="true" ID="DropDownList1_artistType" runat="server" DataSourceID="SqlDataSource3_artistType" DataTextField="Name" DataValueField="ID" CssClass="form-control pull-right" Style="width: 70%;" OnSelectedIndexChanged="DropDownList1_artistType_SelectedIndexChanged"></asp:DropDownList>
+                            <asp:SqlDataSource ID="SqlDataSource3_artistType" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
+select 'All' as Name , CAST ('-1' AS INT) as ID
+
+
+union 
+
+SELECT  Name,ID FROM Lookup.ArtistType 
+"></asp:SqlDataSource>
+                        </div>
+                    </div>
+
 
                     <asp:SqlDataSource ID="SqlDataSource3_ArtistListForAudience" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand=" SELECT core.artist.firstname,
        core.artist.middlename,
@@ -251,9 +271,9 @@ FROM   core.artist
                                     <%--<div class="col-md-12">test</div>--%>
 
                                     <%--===============================================================================================================================================--%>
-                                    <div class="col-md-4 " style="width:100%;">
-                                        <div class="col-md-4" style="padding:0;">
-                                            <div class="col-md-12" style="padding:0;">
+                                    <div class="col-md-4 " style="width: 100%;">
+                                        <div class="col-md-4" style="padding: 0;">
+                                            <div class="col-md-12" style="padding: 0;">
                                                 <br />
                                                 <div class="col-md-4"><%= Resources.HomeView.aspx.Affiliation %>:</div>
                                                 <div class="col-md-8">
@@ -266,7 +286,7 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                 </div>
                                                 <br />
                                             </div>
-                                            <div class="col-md-12" style="padding:0;">
+                                            <div class="col-md-12" style="padding: 0;">
                                                 <br />
                                                 <div class="col-md-4"></div>
                                                 <div class="col-md-8">
@@ -857,64 +877,56 @@ where id=@ID"
     </script>
 
     <style>
-        .GridViewEditRow {
-            width: 200px;
+        
+       G  {
+            
         }
 
-        .mystyle td {
-            /*width: 60px;*/
-            -ms-word-break: break-all;
-            word-break: break-all;
-            word-break: break-word;
-            -webkit-hyphens: auto;
-            -moz-hyphens: auto;
-            -ms-hyphens: auto;
-            hyphens: auto;
-        }
+                   .mys
+                     /* idth: 60px
+               -ms-word break: brea
+                  word-break  brea
+                  word-br ak: b
+                      -w bkit-
+            
+           n
 
+                ms-hyphens:  auto;         hens: auto;
+         .mystyle nput[type=
+                     /* idth: 60px
+               -ms-word break: brea
+                  word-break  brea
+                  word-br ak: b
+                      -w bkit-
+            
+           n
 
-        .mystyle input[type=submit] {
-            /*width: 60px;*/
-            -ms-word-break: break-all;
-            word-break: break-all;
-            word-break: break-word;
-            -webkit-hyphens: auto;
-            -moz-hyphens: auto;
-            -ms-hyphens: auto;
-            hyphens: auto;
-        }
+                  -ms-hyhens:  auto;
+    : auto;                   .Grid iewEd
+            pe=text  {
+             play: bl ck;
+     100%;
+       px;
+           padding:
+                     font-
+                       line height:
+            
+            colo : #55555
+              verti al-lign: middle;            ackground-colo :  #f
+                  border: 1px s lid #cccc            
+          orer-radi
+                    -we kit-bxshaow: inset  0 1p 1x rgba(
+            );
+            box shadow: inse 0 1px 1px gba(0, 0, 0, 0.07);
+           -w
+            on: border- olor ease-inout 0.15s, ox-shaow ease-inout 0.15s;          s
 
-        .GridViewEditRow input[type=text] {
-            display: block;
-            width: 100%;
-            height: 34px;
-            padding: 6px 12px;
-            font-size: 14px;
-            line-height: 1.428571429;
-            color: #555555;
-            vertical-align: middle;
-            background-color: #ffffff;
-            border: 1px solid #cccccc;
-            border-radius: 4px;
-            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-            -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-            transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-        }
-
-        .shadowedPanel {
-            border: 1px solid transparent;
-            border-radius: 4px;
-            border-color: #dddddd;
-            padding: 1em;
-            box-shadow: 2px 2px 2px 2px #f5f5f5;
-        }
+        r-co ease-i -
+            -shad
+        ; .shadowed anel border: 1px solid tr bor x; borer-olo: #ddddd ding: 1em; b hadow: 2px 2px 2px 2px #f5f
     </style>
 
     <style>
-
-
-
         /*inContent iewpagr {
             id h: 100%;
             .itvie d n 1 ma -w d tat;
@@ -924,11 +936,10 @@ where id=@ID"
             r i o px 2px f5f 5 s l b rd b rerwidt bo d .intrum ntlaye;
         }
 
-        trip - ol : l pa in 2x
-        }
+        trip - ol : l pa i
+              }
 
-        s {
-            ;
+        s {              ;
             bo der-r bo 1em;
             x 2px 2 x px ndforart stinst;
 

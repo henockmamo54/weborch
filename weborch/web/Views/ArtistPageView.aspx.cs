@@ -88,7 +88,7 @@ namespace web
 
                 artist.ProfilePage = uprofilepage.Text;
                 artist.Repertory = urepertory.Text;
-                
+
 
 
                 var artistID = artl.addArtistReturnNewID(artist);
@@ -99,13 +99,14 @@ namespace web
                     //GridView3.DataBind();
                     GridView1.DataBind();
                     if (Session["myinstlist"] != null)
-                    {                        
+                    {
                         List<Instrument> mylist = (List<Instrument>)Session["myinstlist"];
-                        foreach (Instrument i in mylist) {
+                        foreach (Instrument i in mylist)
+                        {
                             Artist_Instrument artistInst = new Artist_Instrument();
                             artistInst.ArtistID = artistID;
                             artistInst.InstrumentID = i.ID;
-                            artInstLogic.addArtistInstrument(artistInst);                            
+                            artInstLogic.addArtistInstrument(artistInst);
                         }
                     }
 
@@ -116,7 +117,7 @@ namespace web
                     if (chk_tp.Checked) usertypes.Add(3);
                     if (chk_Student.Checked) usertypes.Add(4);
                     if (chk_player.Checked) usertypes.Add(5);
-                    
+
                     OrchestraDBEntities entity = new OrchestraDBEntities();
 
                     // register  user types
@@ -126,7 +127,7 @@ namespace web
                         type.Artist = artistID;
                         type.ArtistTypeID = i;
 
-                        
+
                         entity.Artist_ArtistType.Add(type);
                         entity.SaveChanges();
                     }
@@ -233,7 +234,8 @@ namespace web
 
         }
 
-        public void chk_boxChanged(object sender, EventArgs e) {
+        public void chk_boxChanged(object sender, EventArgs e)
+        {
 
         }
 
@@ -293,10 +295,11 @@ namespace web
             }
         }
 
-        public void removeinstrumentfromList(object sender, EventArgs e) {
+        public void removeinstrumentfromList(object sender, EventArgs e)
+        {
 
         }
-        
+
         public void removeinstrumentfrommyMainList(object sender, EventArgs e)
         {
             if (Session["myinstlist"] != null)
@@ -311,7 +314,8 @@ namespace web
             }
         }
 
-        public void serachTextValueChanged(object sender, EventArgs e) {
+        public void serachTextValueChanged(object sender, EventArgs e)
+        {
             GridView1.DataBind();
             DropDownList1_artistList.DataBind();
             ListView_instrumentsplayedbyartist.DataBind();
@@ -442,8 +446,8 @@ namespace web
                             showMsg("you can upload only jpeg,jpg,png,gif file formats, please check phot #2!");
                             return;
                         }
-                    }                    
-                    
+                    }
+
                     entity.SaveChanges();
                     GridView1.DataBind();
                 }
@@ -459,11 +463,61 @@ namespace web
             modalImageContainer.ImageUrl = "~/Document/" + a.Photo1;
             modalImageContainer2.ImageUrl = "~/Document/" + a.Photo2;
             Session["SelectedArtistID"] = GridView1.Rows[e.NewEditIndex].Cells[1].Text;
-        }        
+        }
         protected void DropDownList1_Affilation_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (int.Parse(DropDownList1_Affilation.SelectedValue) == -1) uaffilation.Visible = true;
             else uaffilation.Visible = false;
+        }
+
+        protected void DropDownList1_artistType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var filterQuery = "";
+            if (DropDownList1_artistType.SelectedIndex != -1) filterQuery = " where ArtistType.NAME like '%"+DropDownList1_artistType.SelectedItem.Text+"%'";
+
+            SqlDataSource3_ArtistListForAudience.SelectCommand = string.Format(@"SELECT core.artist.firstname,
+       core.artist.middlename,
+       core.artist.familyname,
+       core.artist.photo1,
+       core.artist.affiliation,
+       ArtistType.NAME AS ArtistType,
+       inst.namevalues AS instruments
+FROM   core.artist
+       INNER JOIN (SELECT
+       artist,
+       Stuff((SELECT ', ' + NAME
+              FROM   (SELECT at.artist,
+                             al.NAME
+                      FROM   drived.artist_artisttype at
+                             JOIN lookup.artisttype al
+                               ON at.artisttypeid = al.id)x
+              WHERE  ( artist = Results.artist )
+              FOR xml path(''), type).value('(./text())[1]', 'VARCHAR(MAX)'), 1
+                                     , 2, '')
+       AS NAME
+                   FROM   drived.artist_artisttype Results
+                   GROUP  BY artist) ArtistType
+               ON core.artist.id = ArtistType.artist
+       JOIN
+              (SELECT
+       artist,
+                    Stuff((SELECT ', ' + englishname
+                           FROM   (SELECT ai.artistid,
+                                          i.englishname
+                                   FROM   drived.artist_instrument ai
+                                          JOIN core.instrument i
+                                            ON ai.instrumentid = i.id)x
+                           WHERE  ( artistid = Results.artist )
+                           FOR xml
+       path(''), type).value('(./text())[1]', 'VARCHAR(MAX)'), 1
+                                           , 2, '')
+                    AS NameValues
+             FROM   drived.artist_artisttype Results
+             GROUP  BY artist) inst
+         ON inst.artist = core.artist.id  {0}", filterQuery);
+
+            artistsRepeater.DataSource = SqlDataSource3_ArtistListForAudience;
+            artistsRepeater.DataBind();
         }
     }
 }

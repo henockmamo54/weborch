@@ -31,6 +31,24 @@ namespace web {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl foraudience;
         
         /// <summary>
+        /// DropDownList1_artistType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1_artistType;
+        
+        /// <summary>
+        /// SqlDataSource3_artistType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource3_artistType;
+        
+        /// <summary>
         /// SqlDataSource3_ArtistListForAudience control.
         /// </summary>
         /// <remarks>
