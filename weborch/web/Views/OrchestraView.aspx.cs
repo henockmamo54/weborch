@@ -15,6 +15,9 @@ namespace web
         OrchestraInstrumentArtistLogic oial = new OrchestraInstrumentArtistLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
+            repeater_orchestraList.DataSource = SqlDataSource1_allOrchestraInfo;
+            repeater_orchestraList.DataBind();
+
             ////orchestra grid
             //GridView1.DataSource = orl.getAllOrchestra();
             //GridView1.DataBind();
