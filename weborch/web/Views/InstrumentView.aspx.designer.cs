@@ -31,6 +31,15 @@ namespace web {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl forAudinence;
         
         /// <summary>
+        /// txtbox_namefilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtbox_namefilter;
+        
+        /// <summary>
         /// instrumentrepeater control.
         /// </summary>
         /// <remarks>

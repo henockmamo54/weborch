@@ -3,21 +3,27 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="row">
-        <h3><%= Resources.HomeView.aspx.Instrumentdata %></h3>
+        
 
         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
             <ContentTemplate>
 
                 <div id="forAudinence" runat="server" visible="true">
-
+                    <div class="row col-md-12" style="margin-bottom: 1rem;padding:0px;  ">
+                       <h3 style="display:inline-block;"><%= Resources.HomeView.aspx.Instrumentdata %></h3>
+                        <div class="col-md-3 pull-right" style="padding:0;">
+                            <h5 style="display: inline-block;">Name: </h5>
+                            <asp:TextBox AutoPostBack="true" ID="txtbox_namefilter" runat="server" CssClass="form-control" Style="width: 82%; display: inline-block;  margin-top: 20px;" OnTextChanged="filterArtistDataByName"></asp:TextBox>
+                        </div>
+                    </div>
                     <asp:Repeater runat="server" ID="instrumentrepeater">
 
                         <ItemTemplate>
                             <div class="col-lg-3 col-sm-3 text-center" style="margin-bottom:1rem;padding-left: 5px; padding-right: 5px;">
                                 <div class="instrumentcontainer">
-                                <img height="150" class="rounded-circle img-fluid d-block mx-auto" src="../Document/<%#Eval("PhotoLocation") %>"" alt="" >
-                                <h3><%#Eval("EnglishName")%></h3>
-                                <p><%# Eval("Explanation").ToString().Length<40? "<br/><br/>":Eval("Explanation") %></p>
+                                <img height="200" class="rounded-circle img-fluid d-block mx-auto" src="../Document/<%#Eval("PhotoLocation") %>"" alt="" >
+                                <h3 style="margin-top:5px;"><%#Eval("EnglishName")%></h3>
+                                <p><%# Eval("Explanation").ToString().Length<40? "<br/><br/>":Eval("Explanation").ToString().Length>49?Eval("Explanation").ToString().Substring(0,49):Eval("Explanation").ToString() %></p>
 
                                 </div>
                             </div>
@@ -27,7 +33,7 @@
                 </div>
 
                 <div id="formanaging" runat="server" visible="false">
-
+                    <h3><%= Resources.HomeView.aspx.Instrumentdata %></h3>
                     <div class="row shadowedPanel" style="background-color: white;">
                         <div class="col-md-12">
                             <div class="col-md-12">
