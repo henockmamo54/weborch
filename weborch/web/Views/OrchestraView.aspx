@@ -3,12 +3,20 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="row">
-        <h3><%= Resources.HomeView.aspx.Orchestradata %></h3>
 
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
 
                 <div id="forAudience" runat="server">
+
+
+                    <div class="row col-md-12" style="margin-bottom: 1rem;">
+                        <h3><%= Resources.HomeView.aspx.Orchestradata %></h3>
+                        <div class="col-md-3 pull-right">
+                            <h5 style="display: inline-block;">Name: </h5>
+                            <asp:TextBox AutoPostBack="true" ID="txtbox_namefilter" runat="server" CssClass="form-control" Style="width: 70%; display: inline-block;" OnTextChanged="filterOrchestraDataByName"></asp:TextBox>
+                        </div>
+                    </div>
 
                     <asp:Repeater runat="server" ID="repeater_orchestraList">
                         <ItemTemplate>
@@ -38,6 +46,8 @@
                 </div>
 
                 <div id="formanaging" runat="server" visible="false">
+
+                    <h3><%= Resources.HomeView.aspx.Orchestradata %></h3>
 
                     <div class="row shadowedPanel" style="background-color: white;">
                         <div class="col-md-12 ">
@@ -452,69 +462,60 @@ join.Core.Artist aa on aa.ID=a.ArtistID"
             margin: 5px;
             border-radius: 5px;
             padding: 5px;
-            background-color: white;
-            border: solid 1px #dde0dd;
-            box-shadow: 1px 1px 1px 1px #dde0dd;
+            background-color: whie;
+            bord 1 box-haow 1px 1px 1px 1px #dd 0 .listvieww :not(#list iewpa d-wrap: break-word;
+            max w;
         }
 
-        .listviewwithedit tr td :not(#listviewpager) {
-            word-wrap: break-word;
-            max-width: 10em;
+
+        o ew1_listviewpager {
+            00%;
         }
 
-        #MainContent_ListView1_listviewpager {
-            max-width: 100%;
+        stviewwith dit tr td input : 10px;*/ idth: 9e !impo
         }
 
-        .listviewwithedit tr td input {
-            /*width: 10px;*/
-            max-width: 9em !important;
+        .sadoedbox {
+            m;
+            box-sh x 0, 0, 0.05;
+            border-colo:;
         }
 
-        .shadowedbox {
-            padding: 0.5em;
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-            border-color: #dddddd;
+
+        .myl :not(#li tviewp rd-wrap: breakwor; : 0.2em;
         }
 
-        .mylistview tr td :not(#listviewpager) {
-            word-wrap: break-word;
-            padding: 0.2em;
+        striped d, t rder-color: li h p ddig: 2p;
         }
 
-        .table-striped td, tr, th {
-            border-color: lightgray;
-            padding: 2px;
+        hadowedPanel {
+            r: 1px solid ranspare borde -rad bo dercolr: ddddd;
+            a box s 2px 2px #f5f5f5;
         }
 
-        .shadowedPanel {
-            border: 1px solid transparent;
-            border-radius: 4px;
-            border-color: #dddddd;
-            padding: 1em;
-            box-shadow: 2px 2px 2px 2px #f5f5f5;
-        }
+        dViewEditRow {
+            /*wid h
+              }
 
-        .GridViewEditRow {
-            /*width: 200px;*/
-        }
+            nput[t pe=te
+                 /* ispla
+                      wdth: 
+                 heigh : 34p
+              padding: 6 x 12px;
+   size: 4px;
+  -height: 1.4285 1429;            
+            lor: #555555;
+          n: midd e;                         : #ffffff;
+      px solid #cccccc;            
+                        order-rdis: 4px;            
+             bkit-box-sh dow: net  1p 1px rga(, , 0, 0.
+                 box-shadow: in et 0 1px 1px rgba(0, 0, , 0.07);
+               -wbkit-t
+            color ease- n-out 0.15s, box-shadow ase-inout 0.15s;
+               t
+        d
 
-            .GridViewEditRow input[type=text] {
-                /*display: block;*/
-                width: 100%;
-                height: 34px;
-                padding: 6px 12px;
-                font-size: 14px;
-                line-height: 1.428571429;
-                color: #555555;
-                vertical-align: middle;
-                background-color: #ffffff;
-                border: 1px solid #cccccc;
-                border-radius: 4px;
-                -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-                -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-                transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+         ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
             }
     </style>
 </asp:Content>

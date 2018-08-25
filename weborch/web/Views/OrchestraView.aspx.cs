@@ -15,8 +15,11 @@ namespace web
         OrchestraInstrumentArtistLogic oial = new OrchestraInstrumentArtistLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
-            repeater_orchestraList.DataSource = SqlDataSource1_allOrchestraInfo;
-            repeater_orchestraList.DataBind();
+            if (!IsPostBack)
+            {
+                repeater_orchestraList.DataSource = SqlDataSource1_allOrchestraInfo;
+                repeater_orchestraList.DataBind();
+            }
 
             ////orchestra grid
             //GridView1.DataSource = orl.getAllOrchestra();
@@ -35,7 +38,7 @@ namespace web
                 orch.ZipCode = txt_orchzipcode.Text;
                 orch.TelNO = txt_orchtelno.Text;
                 orch.FaxNo = txt_orchfaxno.Text;
-                orch.ConductorID = int.Parse( DropDownList2_conductor.SelectedValue);
+                orch.ConductorID = int.Parse(DropDownList2_conductor.SelectedValue);
                 orch.Since = int.Parse(txt_orchsince.Text);
 
                 if (orl.addOrchestra(orch))
@@ -55,6 +58,31 @@ namespace web
             }
         }
 
+        protected void filterOrchestraDataByName(object sender, EventArgs e)
+        {
+
+            if (txtbox_namefilter.Text.ToString().Length > 0)
+            {
+                var query = string.Format(@"SELECT o.ID, OfficialName, Alias, URL, o.Address, o.ZipCode, o.TelNO,o.FaxNo, ConductorID, Since,
+                                            ConductorName= FirstName + ' '+ MiddleName+ ' ' + FamilyName
+                                            FROM Core.Orchestra o
+                                            join core.artist a on o.ConductorID = a. ID where OfficialName like N'%{0}%' or Alias like N'%{0}%' ", txtbox_namefilter.Text);
+                SqlDataSource1_allOrchestraInfo.SelectCommand = query;
+                repeater_orchestraList.DataSource = SqlDataSource1_allOrchestraInfo;
+                repeater_orchestraList.DataBind();
+            }
+            else
+            {
+                var query = string.Format(@"SELECT o.ID, OfficialName, Alias, URL, o.Address, o.ZipCode, o.TelNO,o.FaxNo, ConductorID, Since,
+                                            ConductorName= FirstName + ' '+ MiddleName+ ' ' + FamilyName
+                                            FROM Core.Orchestra o
+                                            join core.artist a on o.ConductorID = a. ID ");
+                SqlDataSource1_allOrchestraInfo.SelectCommand = query;
+                repeater_orchestraList.DataSource = SqlDataSource1_allOrchestraInfo;
+                repeater_orchestraList.DataBind();
+
+            }
+        }
         public void showMsg(string msg)
         {
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + msg + "')", true);
@@ -80,7 +108,7 @@ namespace web
         protected void Button1_addorchestraDetail_Click(object sender, EventArgs e)
         {
             Orchestra_Instrument_Artist obj = new Orchestra_Instrument_Artist();
-            obj.OrchestraID = int.Parse( DropDownList1_orchestralist.SelectedValue);
+            obj.OrchestraID = int.Parse(DropDownList1_orchestralist.SelectedValue);
             obj.InstrumentID = int.Parse(DropDownList3_instrumentlist.SelectedValue);
             obj.ArtistID = int.Parse(DropDownList2_artistlist.SelectedValue);
 
@@ -93,7 +121,8 @@ namespace web
             //ListView2_orchestraInstrumentArtist.DataBind();
         }
 
-        public void serachTextValueChanged(object sender, EventArgs e) {
+        public void serachTextValueChanged(object sender, EventArgs e)
+        {
 
         }
     }
