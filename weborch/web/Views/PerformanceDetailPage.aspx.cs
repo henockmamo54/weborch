@@ -12,7 +12,7 @@ namespace web.Views
     public partial class PerformanceDetailPage : System.Web.UI.Page
     {
         int PDID = 0;
-        UserCommonTable user;
+        static UserCommonTable user;
         bool isUserCompany = false;
         PerformanceLogic pl = new PerformanceLogic();
 
@@ -29,6 +29,8 @@ namespace web.Views
         protected void Page_Load(object sender, EventArgs e)
         {
             OrchestraDBEntities entity = new OrchestraDBEntities();
+
+            user = (UserCommonTable)Session["User"];
 
             if (Request.QueryString["ID"] != null)
             {
@@ -234,6 +236,13 @@ namespace web.Views
 
         }
 
+        [System.Web.Services.WebMethod]
+        [System.Web.Script.Services.ScriptMethod()]
+        public static bool checkLoginStatus(int n)
+        {
+           
+            return user!=null;
+        }
 
         protected void btnComment_Click(object sender, CommandEventArgs e)
         {

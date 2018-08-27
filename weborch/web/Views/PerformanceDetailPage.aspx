@@ -473,6 +473,7 @@ join(
 
         </ContentTemplate>
     </asp:UpdatePanel>
+    
     <style>
         .shadowedPanel {
             border: 1px solid transparent;
@@ -542,9 +543,41 @@ join(
 
         function showReply(n) {
             console.log(n);
-            $("#divReply" + n).show();
-            return false;
-            return false;
+
+            // check for user login
+            $.ajax({
+                type: "POST",
+                url: "PerformanceDetailPage.aspx/checkLoginStatus", //Pagename/Functionname
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ n: 1 }), //{ },//data
+                success: function (data) {
+                    //alert('success')
+                    //console.log(data);
+                    //alert(data.d);
+
+                    //if log in show the reply message 
+                    if (data.d) {
+
+                        $("#divReply" + n).show();
+                        return false;
+                        return false;
+                    }
+
+                    else {
+                        alert('Please sign in to write comments!!!');
+                    }
+
+                },
+                error: function (result) {
+                    console.log(result)
+                    //alert("error")
+
+                }
+            });
+
+
+
         }
         function closeReply(n) {
             $("#divReply" + n).hide();
