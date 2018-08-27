@@ -285,6 +285,22 @@ namespace web.Views
 
         }
 
+        protected void detailrepeater_onItemDatabound(object sender, RepeaterItemEventArgs e) {
+
+            RepeaterItem item = e.Item;
+            if ((item.ItemType == ListItemType.Item) ||
+                (item.ItemType == ListItemType.AlternatingItem))
+            {
+                var detail = (Repeater)item.FindControl("detailRepeater3");
+
+                //pc.getAllParentComments().Take(2).ToList()
+                //var x = cl.getChildCommentByParentID(((ParentCommentTable)e.Item.DataItem).ID);
+                var source = entity.PerformanceParentCommentTables.Where(x => x.ParentCommentID == ((PerformanceParentCommentTable)e.Item.DataItem).ID).ToList();
+                detail.DataSource = source;
+                detail.DataBind();
+
+            }
+        }
 
         protected void Repeater2_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
