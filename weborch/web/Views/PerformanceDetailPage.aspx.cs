@@ -115,7 +115,9 @@ namespace web.Views
 
             //var parcomm = pc.getChildCommentByParentID(3);
             //Repeater2.DataSource = parcomm;
-            Repeater2.DataSource = entity.PerformanceParentCommentTables.ToList().Where(x => x.PerformanceID == PDID && x.ParentCommentID == null).ToList();
+            Repeater2.DataSource = entity.PerformanceParentCommentTables.ToList().Where(x => x.PerformanceID == PDID && x.ParentCommentID == null)
+                .OrderByDescending(x=>x.CommentDate)
+                .ToList();
 
             Repeater2.DataBind();
 
@@ -253,7 +255,9 @@ namespace web.Views
 
             //var parcomm = pc.getChildCommentByParentID(3);
             //Repeater2.DataSource = parcomm;
-            Repeater2.DataSource = entity.PerformanceParentCommentTables.ToList().Where(x => x.PerformanceID == PDID && x.ParentCommentID == null).ToList();
+            Repeater2.DataSource = entity.PerformanceParentCommentTables.ToList().Where(x => x.PerformanceID == PDID && x.ParentCommentID == null)
+                .OrderByDescending(x => x.CommentDate)
+                .ToList();
 
             Repeater2.DataBind();
 
@@ -280,7 +284,9 @@ namespace web.Views
 
             //var parcomm = pc.getChildCommentByParentID(3);
             //Repeater2.DataSource = parcomm;
-            Repeater2.DataSource = entity.PerformanceParentCommentTables.ToList().Where(x => x.PerformanceID == PDID && x.ParentCommentID == null).ToList();
+            Repeater2.DataSource = entity.PerformanceParentCommentTables.ToList().Where(x => x.PerformanceID == PDID && x.ParentCommentID == null)
+                .OrderByDescending(x => x.CommentDate)
+                .ToList();
             Repeater2.DataBind();
 
         }
@@ -295,7 +301,7 @@ namespace web.Views
 
                 //pc.getAllParentComments().Take(2).ToList()
                 //var x = cl.getChildCommentByParentID(((ParentCommentTable)e.Item.DataItem).ID);
-                var source = entity.PerformanceParentCommentTables.Where(x => x.ParentCommentID == ((PerformanceParentCommentTable)e.Item.DataItem).ID).ToList();
+                var source = entity.PerformanceParentCommentTables.Where(x => x.ParentCommentID == ((PerformanceParentCommentTable)e.Item.DataItem).ID).OrderByDescending(x => x.CommentDate).ToList();
                 detail.DataSource = source;
                 detail.DataBind();
 
@@ -312,7 +318,7 @@ namespace web.Views
 
                 //pc.getAllParentComments().Take(2).ToList()
                 //var x = cl.getChildCommentByParentID(((ParentCommentTable)e.Item.DataItem).ID);
-                var source = entity.PerformanceParentCommentTables.Where(x => x.ParentCommentID == ((PerformanceParentCommentTable)e.Item.DataItem).ID).ToList();
+                var source = entity.PerformanceParentCommentTables.Where(x => x.ParentCommentID == ((PerformanceParentCommentTable)e.Item.DataItem).ID).OrderByDescending(x => x.CommentDate).ToList();
                 detail.DataSource = source;
                 detail.DataBind();
 
