@@ -503,11 +503,15 @@ join.Core.Artist aa on aa.ID=a.ArtistID"
                  heigh : 34p
               padding: 6 x 12px;
    size: 4px;
-  -height: 1.4285 1429;            
+  -height: 1.4285 1429;
+            
             lor: #555555;
-          n: midd e;                         : #ffffff;
-      px solid #cccccc;            
-                        order-rdis: 4px;            
+          n: midd e;
+                         : #ffffff;
+      px solid #cccccc;
+            
+                        order-rdis: 4px;
+            
              bkit-box-sh dow: net  1p 1px rga(, , 0, 0.
                  box-shadow: in et 0 1px 1px rgba(0, 0, , 0.07);
                -wbkit-t
