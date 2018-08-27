@@ -37,11 +37,11 @@ SELECT  Name,ID FROM Lookup.ArtistType
                             <asp:SqlDataSource ID="SqlDataSource3_instrumentListForFilter" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT ID=-1, EnglishName='All', KoreanName = 'ALL', [Group] ='ALL'  FROM Core.Instrument
 union
 SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataSource>
-                            <asp:DropDownList ID="DropDownList1_instrumentTypeFilter" CssClass="form-control pull-right" Style="width: 70%;"  runat="server" AutoPostBack="True" DataSourceID="SqlDataSource3_instrumentListForFilter" DataTextField="EnglishName" DataValueField="ID" OnSelectedIndexChanged="DropDownList1_artistType_SelectedIndexChanged"></asp:DropDownList>
+                            <asp:DropDownList ID="DropDownList1_instrumentTypeFilter" CssClass="form-control pull-right" Style="width: 70%;" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource3_instrumentListForFilter" DataTextField="EnglishName" DataValueField="ID" OnSelectedIndexChanged="DropDownList1_artistType_SelectedIndexChanged"></asp:DropDownList>
                         </div>
                         <div class="col-md-3 pull-right">
                             <h5 style="display: inline-block;">Name: </h5>
-                            <asp:TextBox AutoPostBack="true" ID="txtbox_namefilter" runat="server" CssClass="form-control" style="width:70%; display:inline-block;" OnTextChanged="DropDownList1_artistType_SelectedIndexChanged"></asp:TextBox>
+                            <asp:TextBox AutoPostBack="true" ID="txtbox_namefilter" runat="server" CssClass="form-control" Style="width: 70%; display: inline-block;" OnTextChanged="DropDownList1_artistType_SelectedIndexChanged"></asp:TextBox>
                         </div>
                     </div>
 
@@ -129,11 +129,11 @@ FROM   core.artist
 
                 <div id="formanaging" runat="server" visible="false">
 
-                    <h3 >Artist data</h3>
+                    <h3>Artist data</h3>
 
                     <div class="row shadowedPanel" style="background-color: white;">
                         <div class="col-md-12">
-                            <div class="col-md-12">
+                            <div class="col-md-12" style="margin:5px;">
 
                                 <div class=" row col-md-12 form-group">
 
@@ -259,13 +259,12 @@ FROM   core.artist
                                         </div>
                                         <br />
                                     </div>
-                                    <div class="col-md-4">
+                                    <%--<div class="col-md-4">
                                         <br />
                                         <div class="col-md-4"><%= Resources.HomeView.aspx.Photo1 %>:</div>
                                         <div class="col-md-8">
                                             <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline; display: inline; padding-left: 0; padding-right: 0; border: none; box-shadow: none;"
                                                 class="form-control" />
-                                            <%--<asp:TextBox ID="uphoto1" runat="server" class="form-control"></asp:TextBox>--%>
                                         </div>
                                         <br />
                                     </div>
@@ -275,12 +274,10 @@ FROM   core.artist
                                         <div class="col-md-8">
                                             <asp:FileUpload ID="FileUpload2" runat="server" Style="display: inline; display: inline; padding-left: 0; padding-right: 0; border: none; box-shadow: none;"
                                                 class="form-control" />
-                                            <%--<asp:TextBox ID="uphoto2" runat="server" class="form-control"></asp:TextBox>--%>
                                         </div>
                                         <br />
-                                    </div>
+                                    </div>--%>
 
-                                    <%--<div class="col-md-12">test</div>--%>
 
                                     <%--===============================================================================================================================================--%>
                                     <div class="col-md-4 " style="width: 100%;">
@@ -417,6 +414,35 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                         </asp:Repeater>
                                     </div>
                                 </div>
+
+                                <hr />
+                                <div class=" row col-md-12">
+                                    <label><strong>Profile Pictures</strong></label>
+
+                                    <div class="col-md-12 form-group">
+                                        <div class="col-md-4">
+                                            <br />
+                                            <div class="col-md-4"><%= Resources.HomeView.aspx.Photo1 %>:</div>
+                                            <div class="col-md-8">
+                                                <asp:FileUpload ID="FileUpload5" runat="server" Style="display: inline; display: inline; padding-left: 0; padding-right: 0; border: none; box-shadow: none;"
+                                                    class="form-control" />
+                                                <%--<asp:TextBox ID="uphoto1" runat="server" class="form-control"></asp:TextBox>--%>
+                                            </div>
+                                            <br />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <br />
+                                            <div class="col-md-4"><%= Resources.HomeView.aspx.Photo2 %>:</div>
+                                            <div class="col-md-8">
+                                                <asp:FileUpload ID="FileUpload6" runat="server" Style="display: inline; display: inline; padding-left: 0; padding-right: 0; border: none; box-shadow: none;"
+                                                    class="form-control" />
+                                            </div>
+                                            <br />
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+
                                 <div class="row col-md-12">
                                     <asp:Button ID="btn_artist_add" CssClass="btn btn-primary pull-right" runat="server" Text="<%$Resources:HomeView.aspx,Register %>" OnClick="btn_artistadd_Click" />
                                 </div>
@@ -889,13 +915,11 @@ where id=@ID"
     </script>
 
     <style>
-        
-       G  {
-            
+        G {
         }
 
-                   .mys
-                     /* idth: 60px
+        .mys
+        /* idth: 60px
                -ms-word break: brea
                   word-break  brea
                   word-br ak: b
@@ -903,7 +927,8 @@ where id=@ID"
             
            n
 
-                ms-hyphens:  auto;         hens: auto;
+                ms-hyphens:  auto;
+         hens: auto;
          .mystyle nput[type=
                      /* idth: 60px
                -ms-word break: brea
@@ -914,7 +939,8 @@ where id=@ID"
            n
 
                   -ms-hyhens:  auto;
-    : auto;                   .Grid iewEd
+    : auto;
+                   .Grid iewEd
             pe=text  {
              play: bl ck;
      100%;
@@ -924,14 +950,17 @@ where id=@ID"
                        line height:
             
             colo : #55555
-              verti al-lign: middle;            ackground-colo :  #f
-                  border: 1px s lid #cccc            
+              verti al-lign: middle;
+            ackground-colo :  #f
+                  border: 1px s lid #cccc
+            
           orer-radi
                     -we kit-bxshaow: inset  0 1p 1x rgba(
             );
             box shadow: inse 0 1px 1px gba(0, 0, 0, 0.07);
            -w
-            on: border- olor ease-inout 0.15s, ox-shaow ease-inout 0.15s;          s
+            on: border- olor ease-inout 0.15s, ox-shaow ease-inout 0.15s;
+          s
 
         r-co ease-i -
             -shad

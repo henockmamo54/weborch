@@ -83,8 +83,8 @@ namespace web
                 artist.FacebookAddress = ufacebookadd.Text;
                 artist.TwitterAddress = utwitter.Text;
                 artist.KakaoTalkAddress = ukakao.Text;
-                getPhoto(artist, 1, FileUpload1);
-                getPhoto(artist, 2, FileUpload2);
+                getPhoto(artist, 1, FileUpload5);
+                getPhoto(artist, 2, FileUpload6);
 
                 artist.ProfilePage = uprofilepage.Text;
                 artist.Repertory = urepertory.Text;
