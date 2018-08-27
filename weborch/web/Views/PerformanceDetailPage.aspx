@@ -85,6 +85,12 @@
                                                     <a class="link" id='lnkReplyParent<%# Eval("ID") %>' href="javascript:void(0)" onclick="showReply(<%# Eval("ID") %>); return false;"><%= Resources.HomeView.aspx.Reply %></a>
                                                     <a class="link" id="lnkCancel" href="javascript:void(0)" onclick="closeReply(<%# Eval("ID") %>); return false;"><%= Resources.HomeView.aspx.Cancel %></a>
 
+                                                    <div id='divReply<%# Eval("ID") %>' style="display: none; margin-top: 5px;">
+                                                        <asp:TextBox ID="txtCommentReplyParent" runat="server" TextMode="MultiLine" Width="100%" Height="60px"></asp:TextBox>
+                                                        <asp:Button ID="btnReplyParent" runat="server" Text="Reply" Style="float: right; margin: 5px;"
+                                                            OnCommand="btnAddDetailComment_Click" CommandName="MyUpdate" CommandArgument='<%#Eval("ID") %>' />
+                                                    </div>
+
                                                     <asp:Repeater ID="detailRepeater" runat="server" OnItemDataBound="detailrepeater_onItemDatabound">
 
                                                         <ItemTemplate>
@@ -158,11 +164,12 @@
 
                                                     </asp:Repeater>
 
-                                                    <div id='divReply<%# Eval("ID") %>' style="display: none; margin-top: 5px;">
+                                                    <%--<div id='divReply<%# Eval("ID") %>' style="display: none; margin-top: 5px;">
                                                         <asp:TextBox ID="txtCommentReplyParent" runat="server" TextMode="MultiLine" Width="100%" Height="60px"></asp:TextBox>
                                                         <asp:Button ID="btnReplyParent" runat="server" Text="Reply" Style="float: right; margin: 5px;"
                                                             OnCommand="btnAddDetailComment_Click" CommandName="MyUpdate" CommandArgument='<%#Eval("ID") %>' />
-                                                    </div>
+                                                    </div>--%>
+
                                                 </td>
                                             </tr>
                                         </table>
