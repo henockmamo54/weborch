@@ -249,7 +249,12 @@ namespace web.Views
             OrchestraDBEntities entity = new OrchestraDBEntities();
 
             PerformanceParentCommentTable pt = new PerformanceParentCommentTable();
-            pt.UserName = "anonymous";
+            if (user != null)
+            {
+                if (isUserCompany) pt.UserName = user.UserCompanies.FirstOrDefault().CompanyName.ToString();
+                else pt.UserName = user.UserPersonalInfoes.FirstOrDefault().Name.ToString();
+            }
+            else pt.UserName = "anonymous";
             pt.CommentMessage = txtComment.Text;
             pt.PerformanceID = PDID;
             pt.CommentDate = DateTime.Now;
@@ -280,7 +285,12 @@ namespace web.Views
 
 
             PerformanceParentCommentTable pt = new PerformanceParentCommentTable();
-            pt.UserName = "anonymous";
+            if (user != null)
+            {
+                if (isUserCompany) pt.UserName = user.UserCompanies.FirstOrDefault().CompanyName.ToString();
+                else pt.UserName = user.UserPersonalInfoes.FirstOrDefault().Name.ToString();
+            }
+            else pt.UserName = "anonymous";
             pt.CommentMessage = message;
             pt.PerformanceID = PDID;
             pt.CommentDate = DateTime.Now;
