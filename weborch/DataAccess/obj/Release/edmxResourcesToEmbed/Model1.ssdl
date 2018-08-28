@@ -22,22 +22,8 @@
     <Property Name="Photo2" Type="nvarchar" MaxLength="80" />
     <Property Name="ProfilePage" Type="nvarchar" MaxLength="400" />
     <Property Name="Repertory" Type="nvarchar" MaxLength="200" />
-    <Property Name="EndorsorEmailID1" Type="nvarchar" MaxLength="30" />
-    <Property Name="EndorsorName1" Type="nvarchar" MaxLength="30" />
-    <Property Name="EndorsorComments1" Type="nvarchar" MaxLength="100" />
-    <Property Name="EndorsorEmailID2" Type="nvarchar" MaxLength="30" />
-    <Property Name="EndorsorName2" Type="nvarchar" MaxLength="30" />
-    <Property Name="EndorsorComments2" Type="nvarchar" MaxLength="100" />
-    <Property Name="EndorsorEmailID3" Type="nvarchar" MaxLength="30" />
-    <Property Name="EndorsorName3" Type="nvarchar" MaxLength="30" />
-    <Property Name="EndorsorComments3" Type="nvarchar" MaxLength="100" />
-    <Property Name="EndorsorEmailID4" Type="nvarchar" MaxLength="30" />
-    <Property Name="EndorsorName4" Type="nvarchar" MaxLength="30" />
-    <Property Name="EndorsorComments4" Type="nvarchar" MaxLength="100" />
-    <Property Name="EndorsorEmailID5" Type="nvarchar" MaxLength="30" />
-    <Property Name="EndorsorName5" Type="nvarchar" MaxLength="30" />
-    <Property Name="EndorsorComments5" Type="nvarchar" MaxLength="100" />
     <Property Name="UserID" Type="int" />
+    <Property Name="Affiliation" Type="nvarchar" MaxLength="40" />
   </EntityType>
   <EntityType Name="Bulletin">
     <Key>
@@ -266,6 +252,9 @@
     <Property Name="UserID" Type="int" />
     <Property Name="EndorserID" Type="int" />
     <Property Name="Comment" Type="nvarchar" MaxLength="400" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ArtistID" Type="int" />
   </EntityType>
   <EntityType Name="User_UserType">
     <Key>
@@ -822,6 +811,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__User_Endo__Artis__1B9317B3">
+    <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+    <End Role="User_Endorser" Type="Self.User_Endorser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User_Endorser">
+        <PropertyRef Name="ArtistID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__User_Endo__Endor__719CDDE7">
     <End Role="Endorser" Type="Self.Endorser" Multiplicity="0..1" />
     <End Role="User_Endorser" Type="Self.User_Endorser" Multiplicity="*" />
@@ -1085,6 +1086,10 @@
     <AssociationSet Name="FK__Performan__UserI__5224328E" Association="Self.FK__Performan__UserI__5224328E">
       <End Role="UserCommonTable" EntitySet="UserCommonTable" />
       <End Role="Performance" EntitySet="Performance" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User_Endo__Artis__1B9317B3" Association="Self.FK__User_Endo__Artis__1B9317B3">
+      <End Role="Artist" EntitySet="Artist" />
+      <End Role="User_Endorser" EntitySet="User_Endorser" />
     </AssociationSet>
     <AssociationSet Name="FK__User_Endo__Endor__719CDDE7" Association="Self.FK__User_Endo__Endor__719CDDE7">
       <End Role="Endorser" EntitySet="Endorser" />

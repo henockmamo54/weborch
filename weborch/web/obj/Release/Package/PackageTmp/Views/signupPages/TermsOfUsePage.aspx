@@ -9,7 +9,8 @@
                 <div class="col-md-2">
                     <ul class="list-group">
                         <a class="list-group-item list-group-item-action active"><%= Resources.HomeView.aspx.AcceptTerms %></a>
-                        <a class="list-group-item list-group-item-action" href="UserInformationRegistrationPage.aspx"><%= Resources.HomeView.aspx.UserInfo %></a>
+                        <%--<a class="list-group-item list-group-item-action" href="UserInformationRegistrationPage.aspx"><%= Resources.HomeView.aspx.UserInfo %></a>--%>
+                        <a class="list-group-item list-group-item-action" onclick="showSelectMessage()"><%= Resources.HomeView.aspx.UserInfo %></a>
                     </ul>
                 </div>
                 <div class="col-md-10 ">
@@ -233,6 +234,12 @@
         </ContentTemplate>
     </asp:UpdatePanel>
 
+    <script type="text/javascript">
+        function showSelectMessage() {
+            alert("Please agree to the terms and conditions.");
+        }
+    </script>
+
     <style>
         .shadowedPanel {
             border: 1px solid transparent;
@@ -241,6 +248,28 @@
             padding: 1em;
             box-shadow: 2px 2px 2px 2px #f5f5f5;
         }
+
+
+        ::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 10px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #eeeeee;
+            border-radius: 10px;
+        }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d5d5d5;
+            }
     </style>
 
 </asp:Content>
