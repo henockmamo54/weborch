@@ -277,6 +277,19 @@ namespace web
 
         }
 
+        protected void btnsaveProfile_Click(object sender, EventArgs e)
+        {
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "test", "closeProfileModal();", true);
+            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeProfileModal();", true);
+        }
+        protected void btnCloseProfileEditor_click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "hideEditor", "hideEditor();", true);
+        }
+
+
+
 
     }
 }

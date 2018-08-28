@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BulletinPage.aspx.cs" Inherits="web.BulletinPage" %>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -9,8 +10,8 @@
                 <div class="col-md-6">
                     <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand" OnItemDataBound="Repeater1_ItemDataBound">
                         <ItemTemplate>
-                            <div class="rptr" style="width: 40em; box-shadow: 2px 2px 2px 2px #f5f5f5; ">
-                                <div class="panel panel-default" style="background-color:#f9f9f9;">
+                            <div class="rptr" style="width: 40em; box-shadow: 2px 2px 2px 2px #f5f5f5;">
+                                <div class="panel panel-default" style="background-color: #f9f9f9;">
                                     <div style="padding-left: 10px; padding-right: 20px; width: 100%; margin-bottom: 1em; margin-top: 0.5em;">
 
                                         <asp:Image ID="Image2" runat="server"
@@ -35,14 +36,14 @@
                                     </table>
 
                                     <hr style="margin: 0.5em; border-top: 1px solid #dedada;" />
-                                       
+
 
                                     <div class="social-like testhover" style="margin-left: 1.2em; margin-right: 0.5em;" runat="server">
 
-                                        <asp:ImageButton Visible='<%#Eval("isliked").ToString().Equals("0") ? false:true %>'  ImageUrl="~/Document/l-c.png" Width="20px" runat="server" ID="ImageButton1" Text="Like"
+                                        <asp:ImageButton Visible='<%#Eval("isliked").ToString().Equals("0") ? false:true %>' ImageUrl="~/Document/l-c.png" Width="20px" runat="server" ID="ImageButton1" Text="Like"
                                             OnCommand="LikeClicked" CommandName="MyUpdate" CommandArgument='<%#Eval("ID")  + "," +1 %>' />
 
-                                        <asp:ImageButton Visible='<%#Eval("isliked").ToString().Equals("0") ? true:false %>'  ImageUrl="~/Document/l.png" Width="20px" runat="server" ID="likebutton" Text="Like"
+                                        <asp:ImageButton Visible='<%#Eval("isliked").ToString().Equals("0") ? true:false %>' ImageUrl="~/Document/l.png" Width="20px" runat="server" ID="likebutton" Text="Like"
                                             OnCommand="LikeClicked" CommandName="MyUpdate" CommandArgument='<%#Eval("ID")  + "," +1 %>' />
                                         <span class="count"><%#Eval("likecount") %></span>
                                     </div>
@@ -162,8 +163,12 @@
                             <%= Resources.HomeView.aspx.Msg %>:
                         </div>
                         <div class="col-md-8" style="padding-bottom: 1em;">
-
-                            <asp:TextBox CssClass="form-control" ID="txt_bulmsg" runat="server" TextMode="MultiLine"></asp:TextBox>
+                            <%--<div class="col-md-9"  ID="txt_bulmsg" >
+                                My post content
+                            </div>
+                            <div class="col-md-3 btn btn-success" onclick="loadEditor()">change </div>--%>
+                            <textbox rows="2" class="form-control" id="txt_bulmsg" onclick="loadEditor()" style="height: 250px; overflow-y: scroll;"></textbox>
+                            <%--<asp:TextBox CssClass="form-control" ID="txt_bulmsg"  runat="server" TextMode="MultiLine"  onclick="loadEditor()"></asp:TextBox>--%>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -186,9 +191,56 @@
                         </div>
                     </div>
 
-
+                    <%--<div id="me" class="col-md-12"> <div class="col-md-4"> test </div></div>--%>
                 </div>
             </div>
+
+            <%--            <ajaxToolkit:HtmlEditorExtender  runat="server"  />--%>
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="ProfileEditorModal" tabindex="-1" role="dialog" aria-labelledby="ProfileEditorModalTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document" style="width: 70%">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ProfileEditorModalTitle">Message</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <%--<div class="form-group">
+                                <label for="exampleFormControlInput1"><%= Resources.HomeView.aspx.Name %></label>
+                                <asp:TextBox runat="server" type="text" class="form-control" ID="TextBox1" placeholder="Name of the Endorser" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1"><%= Resources.HomeView.aspx.Email %></label>
+                                <asp:TextBox runat="server" class="form-control" ID="TextBox2" TextMode="Email" placeholder="Email Address of the Endorser" />
+                            </div>--%>
+
+
+                            <div style="width: 100%" id="editorcontainer">
+                                <!-- The toolbar will be rendered in this container. -->
+                                <div id="toolbar-container"></div>
+
+                                <!-- This container will become the editable. -->
+                                <div id="editor" style="min-height: 200px;" onchange="editorchanged()">
+                                    <p runat="server" id="editorcontent">This is the initial editor content.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <%--<asp:Button type="button" runat="server" ID="hideEditor" OnClick="btnCloseProfileEditor_click" class="btn btn-secondary" Text="<%$Resources:HomeView.aspx,Close %>"/>--%>
+                            <button type="button" class="btn btn-primary" id="Button7" onclick="hideEditor(false)">Cancel </button>
+                            <button type="button" class="btn btn-primary" id="Button6" onclick="hideEditor(true)">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 
 
         </ContentTemplate>
@@ -199,7 +251,10 @@
 
     </asp:UpdatePanel>
 
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/decoupled-document/ckeditor.js"></script>
+
     <script type="text/javascript">
+
         function showReply(n) {
             console.log(n);
             $("#divReply" + n).show();
@@ -210,6 +265,10 @@
             $("#divReply" + n).hide();
             return false;
         }
+
+        $("#editor").change(function () {
+            alert("Handler for .change() called.");
+        });
 
         function testfunc(id, status) {
             //console.log(id,status);
@@ -244,6 +303,60 @@
             });
 
         }
+
+        function loadEditor() {
+
+            //alert('load editor');
+            $('#ProfileEditorModal').modal('show');
+            var msgcontent = $('#txt_bulmsg')[0].innerHTML
+
+            $('#editorcontainer').html('<div id="toolbar-container"></div> <div id="editor" style="min-height: 200px;" onchange="editorchanged()"> </div>')
+
+            DecoupledEditor
+            .create(document.querySelector('#editor'))
+            .then(editor => {
+                const toolbarContainer = document.querySelector('#toolbar-container');
+
+                toolbarContainer.appendChild(editor.ui.view.toolbar.element);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+            $("#editor")[0].innerHTML = (msgcontent);
+
+
+        }
+
+        function hideEditor(update) {
+
+            var x = $("#editor")[0].innerHTML;
+            if (update)
+                $("#txt_bulmsg")[0].innerHTML = $("#editor")[0].innerHTML;
+            //alert(x);
+
+            $('#txt_bulmsg')[0].innerHTML = x;
+            //$('#me').innerHTML = x;
+            $('#editorcontainer').html("");
+
+
+            $('#ProfileEditorModal').modal('hide');
+            $('.modal-backdrop').remove();
+            $('body').removeClass('modal-open');
+        }
+
+        function closeProfileModal() {
+
+            var x = $("#editor")[0].innerHTML;
+            //$("#MainContent_uprofilepage")[0].innerHTML = x;
+            alert(x);
+
+            $('#ProfileEditorModal').modal('hide');
+            $('.modal-backdrop').remove();
+            $('body').removeClass('modal-open');
+        }
+
+
     </script>
 
     <style>
@@ -299,6 +412,29 @@
         .count {
             /*margin-right: -12px;*/
         }
+
+        
+        ::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 10px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #eeeeee;
+            border-radius: 10px;
+        }
+
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #d5d5d5;
+            }
+
     </style>
 
 </asp:Content>

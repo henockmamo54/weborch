@@ -49,15 +49,6 @@ namespace web {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1BulletinType;
         
         /// <summary>
-        /// txt_bulmsg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_bulmsg;
-        
-        /// <summary>
         /// txt_bulurl control.
         /// </summary>
         /// <remarks>
@@ -83,5 +74,14 @@ namespace web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button addPost;
+        
+        /// <summary>
+        /// editorcontent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl editorcontent;
     }
 }
