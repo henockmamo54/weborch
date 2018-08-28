@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BulletinPage.aspx.cs" Inherits="web.BulletinPage" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BulletinPage.aspx.cs" Inherits="web.BulletinPage" ValidateRequest="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -26,7 +25,7 @@
                                         </tr>
                                         <tr>
                                             <br />
-                                            <td style="width: 100%"><%#Eval("MSG") %></td>
+                                            <td style="width: 100%"><%#Server.HtmlDecode(Eval("MSG").ToString()) %></td>
                                         </tr>
                                         <tr>
                                             <td>
@@ -168,6 +167,7 @@
                             </div>
                             <div class="col-md-3 btn btn-success" onclick="loadEditor()">change </div>--%>
                             <textbox rows="2" class="form-control" id="txt_bulmsg" onclick="loadEditor()" style="height: 100px; overflow-y: scroll;"></textbox>
+                            <asp:HiddenField ID="HiddenField2" runat="server" value="" />
                             <%--<asp:TextBox CssClass="form-control" ID="txt_bulmsg"  runat="server" TextMode="MultiLine"  onclick="loadEditor()"></asp:TextBox>--%>
                         </div>
                     </div>
@@ -336,6 +336,8 @@
             //alert(x);
 
             $('#txt_bulmsg')[0].innerHTML = x;
+            document.getElementById('MainContent_HiddenField2').value = x
+            //$('#HiddenField2').value = x;
             //$('#me').innerHTML = x;
             $('#editorcontainer').html("");
 

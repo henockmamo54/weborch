@@ -40,9 +40,12 @@ namespace web
             // then do whatever is necessary to get the employees from dept
             return pc.getAllParentComments().Take(2).ToList();
         }
-
+        
         protected void Button1_Click(object sender, EventArgs e)
         {
+            var msg = Server.HtmlEncode(HiddenField2.Value);
+            showMsg(msg);
+
             try
             {
                 if (FileUpload1.HasFiles)
@@ -65,7 +68,8 @@ namespace web
                 }
 
                 Bulletin bulletin = new Bulletin();
-                bulletin.MSG = txt_bulmsg.Text;
+                //bulletin.MSG = txt_bulmsg.Text;
+                bulletin.MSG = msg;
                 bulletin.URL = txt_bulurl.Text;
                 bulletin.TimeStamp = DateTime.Now;
                 bulletin.ImageUrl = FileUpload1.FileName;
@@ -90,7 +94,7 @@ namespace web
         private void cleanPostText()
         {
             //txtbulimage.Text = "";
-            txt_bulmsg.Text = "";
+            //txt_bulmsg.Text = "";
             txt_bulurl.Text = "";
         }
 
