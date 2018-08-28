@@ -10,7 +10,7 @@
                 <div class="col-md-6">
                     <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand" OnItemDataBound="Repeater1_ItemDataBound">
                         <ItemTemplate>
-                            <div class="rptr" style="width: 40em; box-shadow: 2px 2px 2px 2px #f5f5f5;">
+                            <div class="rptr" style="width: 40em; box-shadow: 1px 1px 1px 1px #ececec;">
                                 <div class="panel panel-default" style="background-color: #f9f9f9;">
                                     <div style="padding-left: 10px; padding-right: 20px; width: 100%; margin-bottom: 1em; margin-top: 0.5em;">
 
@@ -147,7 +147,7 @@
                         </ItemTemplate>
                     </asp:Repeater>
                 </div>
-                <div class="col-md-4 pull-right panel panel-default" style="padding: 1em; box-shadow: 2px 2px 2px 2px #f5f5f5;">
+                <div class="col-md-4 pull-right panel panel-default" style="padding: 1em; box-shadow: 1px 1px 1px 1px #ececec;">
 
                     <div class="col-md-12">
                         <div class="col-md-4">
@@ -167,7 +167,7 @@
                                 My post content
                             </div>
                             <div class="col-md-3 btn btn-success" onclick="loadEditor()">change </div>--%>
-                            <textbox rows="2" class="form-control" id="txt_bulmsg" onclick="loadEditor()" style="height: 250px; overflow-y: scroll;"></textbox>
+                            <textbox rows="2" class="form-control" id="txt_bulmsg" onclick="loadEditor()" style="height: 100px; overflow-y: scroll;"></textbox>
                             <%--<asp:TextBox CssClass="form-control" ID="txt_bulmsg"  runat="server" TextMode="MultiLine"  onclick="loadEditor()"></asp:TextBox>--%>
                         </div>
                     </div>
