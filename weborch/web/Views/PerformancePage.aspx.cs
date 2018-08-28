@@ -31,6 +31,14 @@ namespace web.Views
                 OrchestraDBEntities entity = new OrchestraDBEntities();
                 var val = user.User_UserType.FirstOrDefault().UserTypeID.Value;
                 isUserCompany = entity.UserTypes.Where(x => x.ID == val).FirstOrDefault().Iscompany;
+
+
+                var performanceFilteredQuery = string.Format(@"SELECT p.*, OfficialName  FROM Main.Performance p
+                                                join Core.Orchestra o on p.OrchestraID=o.ID
+                                                where P.UserID={0}",user.ID);
+                SqlDataSource2_allPerformances.SelectCommand = performanceFilteredQuery;
+                GridView1.DataBind();
+
             }
             PanelPerformanceRegiter.Visible = isUserCompany;
             forAudience.Visible = !isUserCompany;
@@ -38,6 +46,7 @@ namespace web.Views
 
             repeater_performanceList.DataSource = SqlDataSource2_allPerformances;
             repeater_performanceList.DataBind();
+
         }
 
         public void btn_performance_Click(object sender, EventArgs e)
