@@ -69,6 +69,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="ArtistPage.aspx">
       <publishTime>06/19/2018 23:09:50</publishTime>
     </File>
+    <File Include="bin/AjaxControlToolkit.dll">
+      <publishTime>02/03/2017 12:01:24</publishTime>
+    </File>
+    <File Include="bin/AjaxControlToolkit.HtmlEditor.Sanitizer.dll">
+      <publishTime>08/28/2018 20:15:34</publishTime>
+    </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>02/22/2013 08:43:40</publishTime>
     </File>
@@ -92,6 +98,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="bin/EntityFramework.SqlServer.dll">
       <publishTime>03/02/2015 09:32:26</publishTime>
+    </File>
+    <File Include="bin/HtmlAgilityPack.dll">
+      <publishTime>08/28/2018 20:15:35</publishTime>
     </File>
     <File Include="bin/Microsoft.AI.Agent.Intercept.dll">
       <publishTime>11/30/2016 16:07:42</publishTime>
@@ -217,13 +226,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/22/2013 10:21:56</publishTime>
     </File>
     <File Include="bin/web.dll">
-      <publishTime>08/28/2018 14:35:57</publishTime>
+      <publishTime>08/29/2018 12:04:58</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>09/10/2013 17:28:38</publishTime>
     </File>
     <File Include="BulletinPage.aspx">
-      <publishTime>08/24/2018 19:36:35</publishTime>
+      <publishTime>08/29/2018 01:47:45</publishTime>
     </File>
     <File Include="Bundle.config">
       <publishTime>08/02/2018 20:55:43</publishTime>
@@ -328,7 +337,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/19/2018 22:26:52</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>08/24/2018 01:08:15</publishTime>
+      <publishTime>08/28/2018 21:25:10</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>05/28/2018 21:34:34</publishTime>
@@ -496,7 +505,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/28/2018 21:34:37</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/28/2018 14:36:03</publishTime>
+      <publishTime>08/29/2018 12:05:06</publishTime>
     </File>
   </ItemGroup>
 </Project>
