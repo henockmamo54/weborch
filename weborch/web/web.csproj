@@ -299,7 +299,9 @@
     <Content Include="Views\IntroductionPage.aspx" />
     <Content Include="Views\MyPage.aspx" />
     <Content Include="Views\OrchestraView.aspx" />
+    <Content Include="Views\ManagePerformanceDetailPage.aspx" />
     <Content Include="Views\PerformanceDetailPage.aspx" />
+    <Content Include="Views\ManagePerformancePage.aspx" />
     <Content Include="Views\PerformancePage.aspx" />
     <Content Include="Views\signupPages\TermsOfUsePage.aspx" />
     <Content Include="Views\signupPages\UserInformationRegistrationPage.aspx" />
@@ -635,12 +637,26 @@
     <Compile Include="Views\OrchestraView.aspx.designer.cs">
       <DependentUpon>OrchestraView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\ManagePerformanceDetailPage.aspx.cs">
+      <DependentUpon>ManagePerformanceDetailPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ManagePerformanceDetailPage.aspx.designer.cs">
+      <DependentUpon>ManagePerformanceDetailPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\PerformanceDetailPage.aspx.cs">
       <DependentUpon>PerformanceDetailPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\PerformanceDetailPage.aspx.designer.cs">
       <DependentUpon>PerformanceDetailPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManagePerformancePage.aspx.cs">
+      <DependentUpon>ManagePerformancePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ManagePerformancePage.aspx.designer.cs">
+      <DependentUpon>ManagePerformancePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\PerformancePage.aspx.cs">
       <DependentUpon>PerformancePage.aspx</DependentUpon>

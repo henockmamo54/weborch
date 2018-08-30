@@ -15,6 +15,7 @@
 
 
             <h2 style="margin-top: 0px; padding-top: 0px;">Musical Performances</h2>
+            <asp:LinkButton CssClass="btn btn-primary" runat="server" ID="btn_MangePerformanceButton" Text="Add Performance" Visible="false" PostBackUrl="~/Views/ManagePerformancePage.aspx" />
 
             <div class="row" id="forAudience" runat="server">
 

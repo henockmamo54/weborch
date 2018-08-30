@@ -43,8 +43,9 @@ namespace web.Views
 
             }
             PanelPerformanceRegiter.Visible = isUserCompany;
-            forAudience.Visible = !isUserCompany;
-            formanaging.Visible = isUserCompany;
+            //forAudience.Visible = !isUserCompany;
+            //formanaging.Visible = isUserCompany;
+            btn_MangePerformanceButton.Visible = isUserCompany;
 
             repeater_performanceList.DataSource = SqlDataSource2_allPerformances;
             repeater_performanceList.DataBind();
