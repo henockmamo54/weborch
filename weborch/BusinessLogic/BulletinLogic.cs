@@ -31,10 +31,10 @@ namespace BusinessLogic
 
             return y;
         }
-        public List<BulletinModifiedModel>  getAllMsg(int userID)
+        public List<BulletinModifiedModel>  getAllMsg(int? userID)
         {
             OrchestraDBEntities entity = new OrchestraDBEntities();
-            var y = entity.Database.SqlQuery<BulletinModifiedModel>(string.Format(@"
+            var query = string.Format(@"
                                             select ID, MSG,URL,ImageUrl,TimeStamp,UserID, BulletinTypeID, ISNULL(companyName,Name) Name,isnull(likecount,0)likecount, ISNULL(dislikecount,0)dislikecount,ISNULL(isliked,0) isliked,ISNULL(disliked,0) disliked
                                                 from(
 		                                            select b.ID,MSG,URL,ImageUrl,b.TimeStamp,b.UserID, BulletinTypeID, p.Name,c.CompanyName,likecount, dislikecount, ld.IsLike as isliked, uld.IsLike as disliked 
@@ -60,7 +60,8 @@ namespace BusinessLogic
 		                                            Left join(
 			                                            select PostID,UserID,IsLike from Core.BulletinLikeUnlike
 			                                            where IsLike=-1 and UserID={0}) uld on b.ID=uld.PostID
-	                                            )x", userID)).ToList<BulletinModifiedModel>();
+	                                            )x", (userID==null ? "null":userID.ToString()));
+            var y = entity.Database.SqlQuery<BulletinModifiedModel>(query).ToList<BulletinModifiedModel>();
 
 
             return y;

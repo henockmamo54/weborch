@@ -25,8 +25,11 @@ namespace web
             myuser = (UserCommonTable)Session["User"];
             if (!IsPostBack)
             {
-                if (user == null) Response.Redirect("~/LoginPage.aspx");
-                Repeater1.DataSource = bl.getAllMsg(user.ID);
+                //if (user == null) Response.Redirect("~/LoginPage.aspx");
+
+                if (user != null)
+                    Repeater1.DataSource = bl.getAllMsg(user.ID);
+                else Repeater1.DataSource = bl.getAllMsg(null);
                 Repeater1.DataBind();
             }
 
