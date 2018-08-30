@@ -28,6 +28,7 @@ namespace DataAccess
         public Nullable<System.DateTime> TimeStamp { get; set; }
         public Nullable<int> UserID { get; set; }
         public Nullable<int> BulletinTypeID { get; set; }
+        public string Title { get; set; }
     
         public virtual UserCommonTable UserCommonTable { get; set; }
         public virtual BulletinType BulletinType { get; set; }

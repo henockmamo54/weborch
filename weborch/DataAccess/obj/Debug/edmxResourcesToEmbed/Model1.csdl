@@ -272,6 +272,7 @@
     <NavigationProperty Name="BulletinType" Relationship="OrchestraDBModel.FK__Bulletin__Bullet__7FEAFD3E" FromRole="Bulletin" ToRole="BulletinType" />
     <NavigationProperty Name="BulletinLikeUnlikes" Relationship="OrchestraDBModel.FK__BulletinL__PostI__09746778" FromRole="Bulletin" ToRole="BulletinLikeUnlike" />
     <NavigationProperty Name="BulletinCommentTables" Relationship="OrchestraDBModel.FK__BulletinC__PostI__1E6F845E" FromRole="Bulletin" ToRole="BulletinCommentTable" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="ChildCommentTable">
     <Key>

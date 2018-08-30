@@ -199,6 +199,15 @@
                     </div>
                     <div class="col-md-12">
                         <div class="col-md-4">
+                            Title:
+                        </div>
+                        <div class="col-md-8" style="padding-bottom: 1em;">
+
+                            <asp:TextBox CssClass="form-control" ID="txt_title" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-4">
                             <%= Resources.HomeView.aspx.Msg %>:
                         </div>
                         <div class="col-md-8" style="padding-bottom: 1em;">

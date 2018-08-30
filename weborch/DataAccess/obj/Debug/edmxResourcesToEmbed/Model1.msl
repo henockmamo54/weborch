@@ -39,6 +39,7 @@
     <EntitySetMapping Name="Bulletins">
       <EntityTypeMapping TypeName="OrchestraDBModel.Bulletin">
         <MappingFragment StoreEntitySet="Bulletin">
+          <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="BulletinTypeID" ColumnName="BulletinTypeID" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />

@@ -52,6 +52,12 @@ namespace web
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            if (user == null)
+            {
+                showMsg("Please sign in to write comments!!!");
+                return;
+            }
+
             var msg = Server.HtmlEncode(HiddenField2.Value);
            
             try
@@ -80,6 +86,7 @@ namespace web
                 bulletin.MSG = msg;
                 bulletin.URL = txt_bulurl.Text;
                 bulletin.TimeStamp = DateTime.Now;
+                bulletin.Title = txt_title.Text;
                 bulletin.ImageUrl = FileUpload1.FileName;
                 bulletin.BulletinTypeID = int.Parse(DropDownList1.SelectedValue);
                 bulletin.UserID = user.ID;
