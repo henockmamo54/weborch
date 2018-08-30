@@ -11,7 +11,7 @@
                         <ItemTemplate>
                             <div class="rptr" style="width: 40em; box-shadow: 1px 1px 1px 1px #ececec;">
                                 <div class="panel panel-default" style="background-color: #f9f9f9;">
-                                    <div style="padding-left: 10px; padding-right: 20px; width: 100%; margin-bottom: 1em; margin-top: 0.5em;">
+                                    <div style="padding-left: 10px; padding-right: 20px; width: 100%; margin-bottom: 0.3em; margin-top: 0.5em;">
 
                                         <asp:Image ID="Image2" runat="server"
                                             ImageUrl="https://myspace.com/common/images/user.png"
@@ -21,10 +21,11 @@
                                     </div>
                                     <table style="margin-left: 0.2em;">
                                         <tr>
-                                            <img src="Document/<%#Eval("ImageUrl") %>" style="width: 100%" />
+                                            <asp:Image ID="imagecontainer" runat="server" ImageUrl='Document/<%#Eval("ImageUrl") %>' style="width: 100%; padding-bottom:0.5em;" />
+
+                                            <%--<img  id="imagecontainer" src="Document/<%#Eval("ImageUrl") %>" style="width: 100%" />--%>
                                         </tr>
                                         <tr>
-                                            <br />
                                             <td style="width: 100%"><%#Server.HtmlDecode(Eval("MSG").ToString()) %></td>
                                         </tr>
                                         <tr>
@@ -422,7 +423,7 @@
 
             var x = $("#editor")[0].innerHTML;
             //$("#MainContent_uprofilepage")[0].innerHTML = x;
-            alert(x);
+            //alert(x);
 
             $('#ProfileEditorModal').modal('hide');
             $('.modal-backdrop').remove();

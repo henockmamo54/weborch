@@ -64,7 +64,7 @@ namespace BusinessLogic
             var y = entity.Database.SqlQuery<BulletinModifiedModel>(query).ToList<BulletinModifiedModel>();
 
 
-            return y;
+            return y.OrderByDescending(x=>x.TimeStamp).ToList();
         }
         public bool addBulletin(Bulletin bulletin)
         {
