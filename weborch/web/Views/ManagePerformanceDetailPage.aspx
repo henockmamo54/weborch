@@ -12,17 +12,19 @@
             <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
             <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
-            <div class="row">
-                <h2 runat="server" id="performanceTitle" style="margin-top: 0px; padding-top: 0px;"></h2> 
-            </div>
+
             <div class="row" id="formanaging" runat="server">
                 <div class="row">
+                    <div class="row">
+                        <h2 runat="server" id="performanceTitle" style="margin-top: 0px; padding-top: 0px;"></h2>
+                    </div>
+
                     <div class="row">
                         <asp:Button runat="server" AutoPostBack="True" CssClass="btn btn-success pull-right" ID="showandhidebtnforthepanel" Text="+" OnClick="btn_ADD_ONClick_showAndHideTheDataEntryPanel" Style="margin-bottom: 10px;"></asp:Button>
                         <br />
                     </div>
 
-                    <div class="row shadowedPanel" visible="false" runat="server" id="AddNewEntryPanel" style="background: white; padding: 10px; margin-bottom: 10px;box-shadow: 1px 1px 1px 1px #d0d0d0;">
+                    <div class="row shadowedPanel" visible="false" runat="server" id="AddNewEntryPanel" style="background: white; padding: 10px; margin-bottom: 10px; box-shadow: 1px 1px 1px 1px #d0d0d0;">
 
                         <div class="row">
                             <div class="col-md-4" runat="server" visible="false">
@@ -162,7 +164,6 @@ FROM Core.Artist"></asp:SqlDataSource>
 
                     </div>
 
-
                     <div class="row">
                         <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource1_performanceDetailList"
                             Width="100%"
@@ -265,7 +266,7 @@ join(
 
         </ContentTemplate>
     </asp:UpdatePanel>
-    
+
     <style>
         .shadowedPanel {
             border: 1px solid transparent;

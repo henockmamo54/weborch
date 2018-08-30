@@ -13,15 +13,6 @@ namespace web.Views {
     public partial class ManagePerformanceDetailPage {
         
         /// <summary>
-        /// performanceTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl performanceTitle;
-        
-        /// <summary>
         /// formanaging control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace web.Views {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl formanaging;
+        
+        /// <summary>
+        /// performanceTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl performanceTitle;
         
         /// <summary>
         /// showandhidebtnforthepanel control.
