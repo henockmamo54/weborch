@@ -32,17 +32,15 @@ namespace web.Views
                 var val = user.User_UserType.FirstOrDefault().UserTypeID.Value;
                 isUserCompany = entity.UserTypes.Where(x => x.ID == val).FirstOrDefault().Iscompany;
 
-                if (isUserCompany)
-                {
-                    var performanceFilteredQuery = string.Format(@"SELECT p.*, OfficialName  FROM Main.Performance p
-                                                join Core.Orchestra o on p.OrchestraID=o.ID
-                                                where P.UserID={0}", user.ID);
-                    SqlDataSource2_allPerformances.SelectCommand = performanceFilteredQuery;
-                    GridView1.DataBind();
-                }
+                //if (isUserCompany)
+                //{
+                //    var performanceFilteredQuery = string.Format(@"SELECT p.*, OfficialName  FROM Main.Performance p
+                //                                join Core.Orchestra o on p.OrchestraID=o.ID
+                //                                where P.UserID={0}", user.ID);
+                //    SqlDataSource2_allPerformances.SelectCommand = performanceFilteredQuery;
+                //}
 
             }
-            PanelPerformanceRegiter.Visible = isUserCompany;
             //forAudience.Visible = !isUserCompany;
             //formanaging.Visible = isUserCompany;
             btn_MangePerformanceButton.Visible = isUserCompany;
@@ -52,83 +50,11 @@ namespace web.Views
 
         }
 
-        public void btn_performance_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var user = (UserCommonTable)Session["User"];
-
-
-                Performance p = new Performance();
-                p.UserID = user.ID;
-                p.OrchestraID = int.Parse(DropDownList1.SelectedValue.ToString());
-                p.PerformanceTitle = txt_title.Text;
-                //p.PerformanceDate= DateTime.Parse(txt_performancedate.Text);
-                p.StartDate = DateTime.Parse(txt_performancestartdate.Value); //,"dd/mm/yyyy", new CultureInfo("en-US"));
-                p.EndDate = DateTime.Parse(txt_performanceenddate.Value); //,"dd/mm/yyyy", new CultureInfo("en-US"));
-                //p.PerformanceDay = txt_performanceday.Text;
-                p.OrchestraID = int.Parse(DropDownList1.SelectedItem.Value);
-                p.Location = txt_location.Text;
-                p.ConcertHall = txt_ConcertHall.Text;
-                p.PerformanceHour = txt_peformancehour.Text;
-                p.TicketBox = txt_ticketbox.Text;
-                p.OrganizerInfo = txt_organizerinfo.Text;
-                p.VideoLocation = txt_videolocation.Text;
-                //p.PerformanceDay = "Sunday";
-                getPhoto(p, FileUpload1, 1);
-                getPhoto(p, FileUpload3, 2);
-
-                if (pl.insertPerformance(p))
-                {
-                    //ListView1.DataBind();
-                    GridView1.DataBind();
-                    showMsg("Data inserted succssfuly");
-                }
-                else showMsg("Please check your inputs");
-            }
-            catch (Exception ee)
-            {
-                showMsg("Please check your inputs");
-            }
-
-        }
-
         public void showMsg(string msg)
         {
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + msg + "')", true);
         }
-
-
-        public void getPhoto(Performance p, FileUpload fileupload, int photonumber)
-        {
-
-            if (fileupload.HasFiles)
-            {
-                string ext = System.IO.Path.GetExtension(fileupload.FileName);
-                if (ext == ".jpg" || ext == ".png" || ext == ".gif" || ext == ".jpeg")
-                {
-                    string path = Server.MapPath("~//Document//");
-                    fileupload.SaveAs(path + fileupload.FileName);
-                }
-                else
-                {
-                    showMsg("you can upload only jpeg,jpg,png,gif file formats");
-                }
-            }
-            if (photonumber == 1)
-                p.PhotoAddLocation = fileupload.FileName;
-            if (photonumber == 2)
-                p.Brochure = fileupload.FileName;
-
-        }
-
-        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //GridViewRow row = GridView1.SelectedRow;
-            //var x = row.Cells[1].Text;
-            Session["PerformanceDetailID"] = GridView1.SelectedRow.Cells[1].Text;
-            Response.Redirect("PerformanceDetailPage.aspx");
-        }
+                
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -145,94 +71,10 @@ namespace web.Views
                     }
                 }
 
-
-
             }
         }
-
-        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            int id = int.Parse(GridView1.Rows[e.NewEditIndex].Cells[1].Text);
-            Performance a = entity.Performances.Where(x => x.ID == id).FirstOrDefault();
-
-            modalImageContainer.ImageUrl = "~/Document/" + a.PhotoAddLocation;
-            modalImageContainer2.ImageUrl = "~/Document/" + a.Brochure;
-            Session["SelectedPerformanceID"] = id;
-        }
-
-        protected void buttonChangeImage(object sender, EventArgs e)
-        {
-            if (FileUpload2.HasFiles)
-            {
-                string ext = System.IO.Path.GetExtension(FileUpload2.FileName);
-                if (ext == ".jpg" || ext == ".png" || ext == ".gif" || ext == ".jpeg")
-                {
-                    string path = Server.MapPath("~//Document//");
-                    FileUpload2.SaveAs(path + FileUpload2.FileName);
-                }
-                else
-                {
-                    showMsg("you can upload only jpeg,jpg,png,gif file formats");
-                    return;
-                }
-            }
-
-
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
-            if (Session["SelectedPerformanceID"] != null)
-            {
-
-                int id = int.Parse(Session["SelectedPerformanceID"].ToString());
-                OrchestraDBEntities entity = new OrchestraDBEntities();
-
-                var x = entity.Performances.Where(inst => inst.ID == id).FirstOrDefault();
-                if (x != null)
-                {
-                    x.PhotoAddLocation = FileUpload2.FileName;
-                    entity.SaveChanges();
-                    GridView1.DataBind();
-                }
-            }
-
-        }
-
-
-        protected void buttonChangeImage2(object sender, EventArgs e)
-        {
-            if (FileUpload4.HasFiles)
-            {
-                string ext = System.IO.Path.GetExtension(FileUpload4.FileName);
-                if (ext == ".jpg" || ext == ".png" || ext == ".gif" || ext == ".jpeg")
-                {
-                    string path = Server.MapPath("~//Document//");
-                    FileUpload4.SaveAs(path + FileUpload4.FileName);
-                }
-                else
-                {
-                    showMsg("you can upload only jpeg,jpg,png,gif file formats");
-                    return;
-                }
-            }
-
-
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
-            if (Session["SelectedPerformanceID"] != null)
-            {
-
-                int id = int.Parse(Session["SelectedPerformanceID"].ToString());
-                OrchestraDBEntities entity = new OrchestraDBEntities();
-
-                var x = entity.Performances.Where(inst => inst.ID == id).FirstOrDefault();
-                if (x != null)
-                {
-                    x.Brochure = FileUpload4.FileName;
-                    entity.SaveChanges();
-                    GridView1.DataBind();
-                }
-            }
-
-        }
-
+        
+        
 
         protected void repeater_performanceList_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
