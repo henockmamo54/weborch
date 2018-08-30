@@ -16,8 +16,9 @@ namespace web
         BulletinLogic bl = new BulletinLogic();
         ParentCommentLogic pc = new ParentCommentLogic();
         ChildCommentLogic cl = new ChildCommentLogic();
-        UserCommonTable user;
+        static UserCommonTable user;
         public static UserCommonTable myuser;
+        bool isUserCompany;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,8 +28,13 @@ namespace web
             {
                 //if (user == null) Response.Redirect("~/LoginPage.aspx");
 
+                OrchestraDBEntities entity = new OrchestraDBEntities();
                 if (user != null)
+                {
                     Repeater1.DataSource = bl.getAllMsg(user.ID);
+                    var val = user.User_UserType.FirstOrDefault().UserTypeID.Value;
+                    isUserCompany = entity.UserTypes.Where(x => x.ID == val).FirstOrDefault().Iscompany;
+                }
                 else Repeater1.DataSource = bl.getAllMsg(null);
                 Repeater1.DataBind();
             }
@@ -43,7 +49,7 @@ namespace web
             // then do whatever is necessary to get the employees from dept
             return pc.getAllParentComments().Take(2).ToList();
         }
-        
+
         protected void Button1_Click(object sender, EventArgs e)
         {
             var msg = Server.HtmlEncode(HiddenField2.Value);
@@ -116,21 +122,32 @@ namespace web
             RepeaterItem item = (sender as Button).NamingContainer as RepeaterItem;
             string message = (item.FindControl("txtComment") as TextBox).Text;
 
+            if (user == null)
+            {
+                showMsg("Please sign in to write comments!!!");
+                return;
+            }
+            if (message.Length > 0)
+            {
+                BulletinCommentTable pt = new BulletinCommentTable();
+                if (user != null)
+                {
+                    if (isUserCompany) pt.UserName = user.UserCompanies.FirstOrDefault().CompanyName.ToString();
+                    else pt.UserName = user.UserPersonalInfoes.FirstOrDefault().Name.ToString();
+                }
+                else pt.UserName = "anonymous";
+                pt.CommentMessage = message;
+                pt.PostID = int.Parse(e.CommandArgument.ToString());
 
-            ParentCommentTable pt = new ParentCommentTable();
-            pt.Username = "anonymous";
-            pt.CommentMessage = message;
-            pt.PostID = int.Parse(e.CommandArgument.ToString());
+                pc.addBulletinComment(pt);
 
-            pc.addParentComment(pt);
+                var value = e.CommandArgument;
 
-            var value = e.CommandArgument;
+                System.Console.WriteLine("on btn click");
 
-            System.Console.WriteLine("on btn click");
-
-            Repeater1.DataSource = bl.getAllMsg();
-            Repeater1.DataBind();
-
+                Repeater1.DataSource = bl.getAllMsg();
+                Repeater1.DataBind();
+            }
         }
 
         protected void Repeater2_DataBinding(object sender, System.Web.UI.WebControls.RepeaterItemEventArgs e)
@@ -151,11 +168,11 @@ namespace web
                 var detail = (Repeater)item.FindControl("detailRepeater");
 
                 //pc.getAllParentComments().Take(2).ToList()
-                var x = cl.getChildCommentByParentID(((ParentCommentTable)e.Item.DataItem).ID);
+                var x = pc.getBulletinCommentByParent(((BulletinCommentTable)e.Item.DataItem).ID);
                 detail.DataSource = x;
                 detail.DataBind();
 
-                string msg = ((ParentCommentTable)e.Item.DataItem).CommentMessage;
+                string msg = ((BulletinCommentTable)e.Item.DataItem).CommentMessage;
                 System.Console.WriteLine(msg);
             }
         }
@@ -172,12 +189,22 @@ namespace web
                 (item.ItemType == ListItemType.AlternatingItem))
             {
                 var repeater2 = (Repeater)item.FindControl("Repeater2");
-                var x = pc.getChildCommentByParentID(((BulletinModifiedModel)e.Item.DataItem).ID);
+                var x = pc.getcomments(((BulletinModifiedModel)e.Item.DataItem).ID);
+                //var x = pc.getChildCommentByParentID(((BulletinModifiedModel)e.Item.DataItem).ID);
 
                 repeater2.DataSource = x;
                 repeater2.DataBind();
 
             }
+        }
+
+
+        [System.Web.Services.WebMethod]
+        [System.Web.Script.Services.ScriptMethod()]
+        public static bool checkLoginStatus(int n)
+        {
+
+            return user != null;
         }
 
         protected void btnAddDetailComment_Click(object sender, CommandEventArgs e)
@@ -186,12 +213,17 @@ namespace web
             string message = (item.FindControl("txtCommentReplyParent") as TextBox).Text;
 
 
-            ChildCommentTable ct = new ChildCommentTable();
-            ct.Username = "anonymous";
+            BulletinCommentTable ct = new BulletinCommentTable();
+            if (user != null)
+            {
+                if (isUserCompany) ct.UserName = user.UserCompanies.FirstOrDefault().CompanyName.ToString();
+                else ct.UserName = user.UserPersonalInfoes.FirstOrDefault().Name.ToString();
+            }else
+            ct.UserName = "anonymous";
             ct.CommentMessage = message;
             ct.ParentCommentID = int.Parse(e.CommandArgument.ToString());
 
-            cl.addChildComment(ct);
+            pc.addBulletinComment(ct);
 
             Repeater1.DataSource = bl.getAllMsg();
             Repeater1.DataBind();
@@ -295,7 +327,21 @@ namespace web
             ScriptManager.RegisterStartupScript(this, this.GetType(), "hideEditor", "hideEditor();", true);
         }
 
+        public void detailrepeater_onItemDataBound(object sender, RepeaterItemEventArgs e ) {
+            RepeaterItem item = e.Item;
+            if ((item.ItemType == ListItemType.Item) ||
+                (item.ItemType == ListItemType.AlternatingItem))
+            {
+                var detail = (Repeater)item.FindControl("detailRepeater3");
 
+                //pc.getAllParentComments().Take(2).ToList()
+                //var x = cl.getChildCommentByParentID(((ParentCommentTable)e.Item.DataItem).ID);
+                var source = pc.getBulletinCommentByParent(((BulletinCommentTable)e.Item.DataItem).ID);
+                detail.DataSource = source;
+                detail.DataBind();
+
+            }
+        }
 
 
     }

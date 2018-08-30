@@ -79,6 +79,10 @@
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__Condu__5BAD9CC8" />
         <AssociationConnector Association="OrchestraDBModel.FK__Performan__Playe__5CA1C101" />
         <AssociationConnector Association="OrchestraDBModel.FK__User_Endo__Artis__1B9317B3" />
+        <EntityTypeShape EntityType="OrchestraDBModel.BulletinCommentTable" Width="1.5" PointX="14.625" PointY="22.25" />
+        <AssociationConnector Association="OrchestraDBModel.FK__BulletinC__PostI__1E6F845E" />
+        <AssociationConnector Association="OrchestraDBModel.FK__BulletinC__Paren__2057CCD0" />
+        <AssociationConnector Association="OrchestraDBModel.FK__BulletinC__UserI__1F63A897" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

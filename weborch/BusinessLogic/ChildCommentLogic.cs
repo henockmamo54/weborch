@@ -13,6 +13,8 @@ namespace BusinessLogic
             return entity.ChildCommentTables.Where(x => x.ParentCommentID == id).ToList();
         }
 
+
+
         public bool addChildComment(ChildCommentTable ct)
         {
             try

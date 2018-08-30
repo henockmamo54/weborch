@@ -18,6 +18,7 @@ namespace DataAccess
         public Bulletin()
         {
             this.BulletinLikeUnlikes = new HashSet<BulletinLikeUnlike>();
+            this.BulletinCommentTables = new HashSet<BulletinCommentTable>();
         }
     
         public int ID { get; set; }
@@ -32,5 +33,7 @@ namespace DataAccess
         public virtual BulletinType BulletinType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BulletinLikeUnlike> BulletinLikeUnlikes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BulletinCommentTable> BulletinCommentTables { get; set; }
     }
 }

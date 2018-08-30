@@ -56,5 +56,6 @@ namespace DataAccess
         public virtual DbSet<PerformanceParentCommentTable> PerformanceParentCommentTables { get; set; }
         public virtual DbSet<PerformanceLikeUnlike> PerformanceLikeUnlikes { get; set; }
         public virtual DbSet<Artist> Artists { get; set; }
+        public virtual DbSet<BulletinCommentTable> BulletinCommentTables { get; set; }
     }
 }

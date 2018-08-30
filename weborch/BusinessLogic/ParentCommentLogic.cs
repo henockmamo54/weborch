@@ -30,5 +30,26 @@ namespace BusinessLogic
         {
             return entity.ParentCommentTables.Where(x => x.PostID == ID).ToList();
         }
+
+        public List<BulletinCommentTable> getcomments(int ID) {
+            return entity.BulletinCommentTables.Where(x => x.PostID == ID && x.ParentCommentID==null).OrderByDescending(x=>x.CommentDate ).ToList();
+        }
+
+        public bool addBulletinComment(BulletinCommentTable bt) {
+
+            try {
+                bt.CommentDate = DateTime.Now;
+                entity.BulletinCommentTables.Add(bt);
+                entity.SaveChanges();
+                return true;
+            }
+            catch (Exception e) {
+                return false;
+            }
+        }
+
+        public List<BulletinCommentTable> getBulletinCommentByParent(int parentID) {
+            return entity.BulletinCommentTables.Where(x => x.ParentCommentID == parentID).OrderByDescending(x => x.CommentDate).ToList();
+        }
     }
 }

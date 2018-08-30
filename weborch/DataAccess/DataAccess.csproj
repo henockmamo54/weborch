@@ -76,6 +76,9 @@
     <Compile Include="Bulletin.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="BulletinCommentTable.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="BulletinLikeUnlike.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
