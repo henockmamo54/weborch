@@ -232,6 +232,11 @@ namespace web
 
         public void LikeClicked(object sender, CommandEventArgs e)
         {
+            if (user == null)
+            {
+                showMsg("Please sign in to Like Posts!!!");
+                return;
+            }
             var value = e.CommandArgument.ToString().Split(',');
             int id = int.Parse(value[0]);
             int isLike = int.Parse(value[1]);
