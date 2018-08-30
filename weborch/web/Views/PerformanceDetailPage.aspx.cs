@@ -102,8 +102,8 @@ namespace web.Views
             }
 
             showandhidebtnforthepanel.Visible = isUserCompany;
-            forAudience.Visible = !isUserCompany;
-            formanaging.Visible = isUserCompany;
+            //forAudience.Visible = !isUserCompany;
+            //formanaging.Visible = isUserCompany;
 
             getHeaderPeformanceData();
 

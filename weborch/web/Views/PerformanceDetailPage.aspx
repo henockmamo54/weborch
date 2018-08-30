@@ -223,7 +223,7 @@
                 </div>
             </div>
 
-            <div class="row" id="formanaging" runat="server">
+            <div class="row" id="formanaging" runat="server" visible="false">
                 <div class="row">
                     <div class="row">
                         <asp:Button runat="server" AutoPostBack="True" CssClass="btn btn-success pull-right" ID="showandhidebtnforthepanel" Text="+" OnClick="btn_ADD_ONClick_showAndHideTheDataEntryPanel" Style="margin-bottom: 10px;"></asp:Button>

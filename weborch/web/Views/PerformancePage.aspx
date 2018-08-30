@@ -14,20 +14,22 @@
             <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
 
-            <h2 style="margin-top: 0px; padding-top: 0px;">Musical Performances</h2>
-            <asp:LinkButton CssClass="btn btn-primary" runat="server" ID="btn_MangePerformanceButton" Text="Add Performance" Visible="false" PostBackUrl="~/Views/ManagePerformancePage.aspx" />
-
             <div class="row" id="forAudience" runat="server">
 
                 <div class="container">
                     <div class="row">
+
+                        <div class=" col-md-12">
+                            <h2 style="margin-top: 0px; padding-top: 0px; display: inline-block;">Musical Performances</h2>
+                            <asp:LinkButton CssClass="btn btn-primary pull-right" runat="server" Style="display: inline-block;" ID="btn_MangePerformanceButton" Text="Add Performance" Visible="false" PostBackUrl="~/Views/ManagePerformancePage.aspx" />
+                        </div>
 
                         <asp:Repeater runat="server" ID="repeater_performanceList" OnItemDataBound="repeater_performanceList_ItemDataBound">
 
                             <ItemTemplate>
                                 <div class="col-md-4" style="margin-bottom: 1em;">
                                     <div class="thumbnail shadowedbox" style="box-shadow: 2px 2px 2px #d0d0d0;">
-                                        <asp:LinkButton runat="server" ID="tumbinallink" target="_blank" style="text-decoration:none;">
+                                        <asp:LinkButton runat="server" ID="tumbinallink" target="_blank" Style="text-decoration: none;">
                                             <img src="../Document/<%#Eval("PhotoAddLocation") %>" class="shadowedbox" alt="Lights" style="width: 100%; height: 200px;">
 
                                             <div class="caption" style="padding-bottom:3px;">
