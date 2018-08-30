@@ -246,35 +246,45 @@ namespace web.Views
 
         protected void btnComment_Click(object sender, CommandEventArgs e)
         {
-            OrchestraDBEntities entity = new OrchestraDBEntities();
-
-            PerformanceParentCommentTable pt = new PerformanceParentCommentTable();
-            if (user != null)
-            {
-                if (isUserCompany) pt.UserName = user.UserCompanies.FirstOrDefault().CompanyName.ToString();
-                else pt.UserName = user.UserPersonalInfoes.FirstOrDefault().Name.ToString();
+            if (user == null) {
+                showMsg("Please sign in to write comments!!!");
+                return;
             }
-            else pt.UserName = "anonymous";
-            pt.CommentMessage = txtComment.Text;
-            pt.PerformanceID = PDID;
-            pt.CommentDate = DateTime.Now;
+            if (txtComment.Text.Length > 0)
+            {
+                btnComment.Enabled = false;
+                OrchestraDBEntities entity = new OrchestraDBEntities();
 
-            entity.PerformanceParentCommentTables.Add(pt);
-            entity.SaveChanges();
+                PerformanceParentCommentTable pt = new PerformanceParentCommentTable();
+                if (user != null)
+                {
+                    if (isUserCompany) pt.UserName = user.UserCompanies.FirstOrDefault().CompanyName.ToString();
+                    else pt.UserName = user.UserPersonalInfoes.FirstOrDefault().Name.ToString();
+                }
+                else pt.UserName = "anonymous";
+                pt.CommentMessage = txtComment.Text;
+                pt.PerformanceID = PDID;
+                pt.CommentDate = DateTime.Now;
+
+                entity.PerformanceParentCommentTables.Add(pt);
+                entity.SaveChanges();
 
 
-            var value = e.CommandArgument;
+                var value = e.CommandArgument;
 
-            System.Console.WriteLine("on btn click");
+                System.Console.WriteLine("on btn click");
 
-            //var parcomm = pc.getChildCommentByParentID(3);
-            //Repeater2.DataSource = parcomm;
-            Repeater2.DataSource = entity.PerformanceParentCommentTables.ToList().Where(x => x.PerformanceID == PDID && x.ParentCommentID == null)
-                .OrderByDescending(x => x.CommentDate)
-                .ToList();
+                //var parcomm = pc.getChildCommentByParentID(3);
+                //Repeater2.DataSource = parcomm;
+                Repeater2.DataSource = entity.PerformanceParentCommentTables.ToList().Where(x => x.PerformanceID == PDID && x.ParentCommentID == null)
+                    .OrderByDescending(x => x.CommentDate)
+                    .ToList();
 
-            Repeater2.DataBind();
+                Repeater2.DataBind();
 
+                btnComment.Enabled = true;
+                txtComment.Text = "";
+            }
         }
 
         protected void btnAddDetailComment_Click(object sender, CommandEventArgs e)
