@@ -133,61 +133,8 @@ namespace web.Views
 
             if (user == null)
             {
-
-                if (isLike == 1)
-                {
-                    if (isliked)
-                    {
-                        isliked = false;
-                        likecount--;
-                        likebutton.Visible = true;
-                        likebuttonliked.Visible = false;
-                    }
-                    else
-                    {
-                        isliked = true;
-                        likecount++;
-                        likebutton.Visible = false;
-                        likebuttonliked.Visible = true;
-
-                        dislikebutton.Visible = true;
-                        dislikebuttondisliked.Visible = false;
-                        if (isdisliked)
-                        {
-                            dislikecount--;
-                            isdisliked = false;
-                        }
-
-                    }
-                    likecountspan.InnerText = likecount.ToString();
-                }
-                else
-                {
-                    if (isdisliked)
-                    {
-                        isdisliked = false;
-                        dislikecount--;
-                        dislikebutton.Visible = true;
-                        dislikebuttondisliked.Visible = false;
-                    }
-                    else
-                    {
-                        isdisliked = true;
-                        dislikecount++;
-                        dislikebutton.Visible = false;
-                        dislikebuttondisliked.Visible = true;
-
-
-                        likebutton.Visible = true;
-                        likebuttonliked.Visible = false;
-                        if (isliked)
-                        {
-                            likecount--;
-                            isliked = false;
-                        }
-                    }
-                    dislikecountspan.InnerText = dislikecount.ToString();
-                }
+                showMsg("Please sign in to Like Posts!!!");
+                return;
             }
 
             else if (user != null)

@@ -21,7 +21,7 @@
 
                         <div class=" col-md-12">
                             <h2 style="margin-top: 0px; padding-top: 0px; display: inline-block;">Musical Performances</h2>
-                            <asp:LinkButton CssClass="btn btn-primary pull-right" runat="server" Style="display: inline-block;" ID="btn_MangePerformanceButton" Text="Add Performance" Visible="false" PostBackUrl="~/Views/ManagePerformancePage.aspx" />
+                            <asp:LinkButton CssClass="btn btn-success pull-right" runat="server" Style="display: inline-block;" ID="btn_MangePerformanceButton" Text="Add / Manage Performance" Visible="false" PostBackUrl="~/Views/ManagePerformancePage.aspx" />
                         </div>
 
                         <asp:Repeater runat="server" ID="repeater_performanceList" OnItemDataBound="repeater_performanceList_ItemDataBound">

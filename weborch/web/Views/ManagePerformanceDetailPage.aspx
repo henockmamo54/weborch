@@ -13,7 +13,7 @@
             <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
             <div class="row">
-                <h2 runat="server" id="performanceTitle" style="margin-top: 0px; padding-top: 0px;"></h2>
+                <h2 runat="server" id="performanceTitle" style="margin-top: 0px; padding-top: 0px;"></h2> 
             </div>
             <div class="row" id="formanaging" runat="server">
                 <div class="row">
@@ -22,7 +22,7 @@
                         <br />
                     </div>
 
-                    <div class="row shadowedPanel" visible="false" runat="server" id="AddNewEntryPanel" style="background: white; padding: 10px; margin-bottom: 10px;">
+                    <div class="row shadowedPanel" visible="false" runat="server" id="AddNewEntryPanel" style="background: white; padding: 10px; margin-bottom: 10px;box-shadow: 1px 1px 1px 1px #d0d0d0;">
 
                         <div class="row">
                             <div class="col-md-4" runat="server" visible="false">

@@ -139,7 +139,7 @@ namespace web.Views
                 int PDID = int.Parse(Session["PerformanceDetailID"].ToString());
                 Performance p = pl.getPerformanceById(PDID);
                 
-                performanceTitle.InnerText = p.PerformanceTitle;
+                performanceTitle.InnerText = p.PerformanceTitle + " Details";
             }
         }
 

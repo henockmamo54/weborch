@@ -18,7 +18,7 @@
 
             <div class="row" id="formanaging" runat="server" visible="true">
 
-                <div class="row shadowedPanel" runat="server" id="PanelPerformanceRegiter" style="background: white; padding: 10px; margin-bottom: 10px;">
+                <div class="row shadowedPanel" runat="server" id="PanelPerformanceRegiter" style="background: white; padding: 10px; margin-bottom: 10px;box-shadow: 1px 1px 1px 1px #d0d0d0;">
                     <div class="row">
                         <div class="col-md-4">
                             <br />
