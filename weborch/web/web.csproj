@@ -299,6 +299,7 @@
     <Content Include="Views\InstrumentView.aspx" />
     <Content Include="Views\IntroductionPage.aspx" />
     <Content Include="Views\MyPage.aspx" />
+    <Content Include="Views\ManageOrchestraView.aspx" />
     <Content Include="Views\OrchestraView.aspx" />
     <Content Include="Views\ManagePerformanceDetailPage.aspx" />
     <Content Include="Views\PerformanceDetailPage.aspx" />
@@ -637,6 +638,13 @@
     </Compile>
     <Compile Include="Views\MyPage.aspx.designer.cs">
       <DependentUpon>MyPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageOrchestraView.aspx.cs">
+      <DependentUpon>ManageOrchestraView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ManageOrchestraView.aspx.designer.cs">
+      <DependentUpon>ManageOrchestraView.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\OrchestraView.aspx.cs">
       <DependentUpon>OrchestraView.aspx</DependentUpon>

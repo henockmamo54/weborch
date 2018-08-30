@@ -45,7 +45,7 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
                             <h5 style="display: inline-block;">Name: </h5>
                             <asp:TextBox AutoPostBack="true" ID="txtbox_namefilter" runat="server" CssClass="form-control" Style="width: 70%; display: inline-block;" OnTextChanged="DropDownList1_artistType_SelectedIndexChanged"></asp:TextBox>
                         </div>
-                        <%--<div class="col-md-3 pull-right">--%>
+                        <div class="col-md-3 pull-right">
                             <%--<asp:LinkButton runat="server" Text="test haha" CssClass="btn btn-success pull-right"/>--%>
                             <asp:LinkButton CssClass="btn btn-success pull-right" runat="server" ID="btn_MangeArtistButton" Text="Add / Manage Artist" Visible="false" PostBackUrl="~/Views/ManageArtistPageView.aspx" />                        
                         </div>
