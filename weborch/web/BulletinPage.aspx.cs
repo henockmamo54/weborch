@@ -59,7 +59,7 @@ namespace web
             }
 
             var msg = Server.HtmlEncode(HiddenField2.Value);
-           
+
             try
             {
                 if (FileUpload1.HasFiles)
@@ -93,8 +93,8 @@ namespace web
 
                 if (bl.addBulletin(bulletin))
                 {
-                    if(user!=null)
-                    Repeater1.DataSource = bl.getAllMsg(user.ID);
+                    if (user != null)
+                        Repeater1.DataSource = bl.getAllMsg(user.ID);
                     else Repeater1.DataSource = bl.getAllMsg(null);
                     Repeater1.DataBind();
                     showMsg("Data inserted succssfuly");
@@ -194,17 +194,29 @@ namespace web
         }
 
         protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {            
+        {
             RepeaterItem item = e.Item;
             if ((item.ItemType == ListItemType.Item) ||
                 (item.ItemType == ListItemType.AlternatingItem))
             {
 
                 var imagecontainer = (Image)item.FindControl("imagecontainer");
-                if (((BulletinModifiedModel)e.Item.DataItem).ImageUrl.ToString().Length == 0) imagecontainer.Visible = false;
-                else imagecontainer.ImageUrl = "Document/" + ((BulletinModifiedModel)e.Item.DataItem).ImageUrl;
+                var paddedMSG = item.FindControl("paddedMSG");
+                var MSG = item.FindControl("MSG");
+                if (((BulletinModifiedModel)e.Item.DataItem).ImageUrl.ToString().Length == 0)
+                {
+                    imagecontainer.Visible = false;
+                    MSG.Visible = false;
+                    paddedMSG.Visible = true;
+                }
+                else
+                {
+                    imagecontainer.ImageUrl = "Document/" + ((BulletinModifiedModel)e.Item.DataItem).ImageUrl;
+                    MSG.Visible = true;
+                    paddedMSG.Visible = false;
+                }
 
-                 var repeater2 = (Repeater)item.FindControl("Repeater2");
+                var repeater2 = (Repeater)item.FindControl("Repeater2");
                 var x = pc.getcomments(((BulletinModifiedModel)e.Item.DataItem).ID);
                 //var x = pc.getChildCommentByParentID(((BulletinModifiedModel)e.Item.DataItem).ID);
 
@@ -234,8 +246,9 @@ namespace web
             {
                 if (isUserCompany) ct.UserName = user.UserCompanies.FirstOrDefault().CompanyName.ToString();
                 else ct.UserName = user.UserPersonalInfoes.FirstOrDefault().Name.ToString();
-            }else
-            ct.UserName = "anonymous";
+            }
+            else
+                ct.UserName = "anonymous";
             ct.CommentMessage = message;
             ct.ParentCommentID = int.Parse(e.CommandArgument.ToString());
 
@@ -350,7 +363,8 @@ namespace web
             ScriptManager.RegisterStartupScript(this, this.GetType(), "hideEditor", "hideEditor();", true);
         }
 
-        public void detailrepeater_onItemDataBound(object sender, RepeaterItemEventArgs e ) {
+        public void detailrepeater_onItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
             RepeaterItem item = e.Item;
             if ((item.ItemType == ListItemType.Item) ||
                 (item.ItemType == ListItemType.AlternatingItem))
