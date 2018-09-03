@@ -24,11 +24,11 @@
                     <asp:Repeater runat="server" ID="instrumentrepeater">
 
                         <ItemTemplate>
-                            <div class="col-lg-3 col-sm-3 text-center" style="margin-bottom:1rem;padding-left: 5px; padding-right: 5px;">
+                            <div class="col-lg-3 col-sm-6 text-center" style="margin-bottom:1rem;padding-left: 5px; padding-right: 5px;">
                                 <div class="instrumentcontainer">
-                                <img height="200" class="rounded-circle img-fluid d-block mx-auto" src="../Document/<%#Eval("PhotoLocation") %>"" alt="" >
+                                <img height="200" class="rounded-circle img-fluid d-block mx-auto" src="../Document/<%#Eval("PhotoLocation") %>"" alt="" style=" padding-top:5px;" >
                                 <h3 style="margin-top:5px;"><%#Eval("EnglishName")%></h3>
-                                <p><%# Eval("Explanation").ToString().Length<40? "<br/><br/>":Eval("Explanation").ToString().Length>49?Eval("Explanation").ToString().Substring(0,49):Eval("Explanation").ToString() %></p>
+                                <p><%# Eval("Explanation").ToString().Length<40? "<br/><br/>":Eval("Explanation").ToString().Length>40?Eval("Explanation").ToString().Substring(0,40):Eval("Explanation").ToString() %></p>
 
                                 </div>
                             </div>
