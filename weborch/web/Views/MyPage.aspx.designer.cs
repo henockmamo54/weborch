@@ -31,6 +31,15 @@ namespace web.Views {
         protected global::System.Web.UI.WebControls.Label mynameholder;
         
         /// <summary>
+        /// personalInfoDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl personalInfoDiv;
+        
+        /// <summary>
         /// uemail control.
         /// </summary>
         /// <remarks>
@@ -208,7 +217,7 @@ namespace web.Views {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radioOcupation_Composer;
+        protected global::System.Web.UI.WebControls.CheckBox radioOcupation_Composer;
         
         /// <summary>
         /// radioOcupation_Conductor control.
@@ -217,7 +226,7 @@ namespace web.Views {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radioOcupation_Conductor;
+        protected global::System.Web.UI.WebControls.CheckBox radioOcupation_Conductor;
         
         /// <summary>
         /// radioOcupation_TeacherProfessor control.
@@ -226,7 +235,7 @@ namespace web.Views {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radioOcupation_TeacherProfessor;
+        protected global::System.Web.UI.WebControls.CheckBox radioOcupation_TeacherProfessor;
         
         /// <summary>
         /// radioOcupation_Student control.
@@ -235,7 +244,7 @@ namespace web.Views {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radioOcupation_Student;
+        protected global::System.Web.UI.WebControls.CheckBox radioOcupation_Student;
         
         /// <summary>
         /// radioOcupation_Audience control.
@@ -244,7 +253,7 @@ namespace web.Views {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radioOcupation_Audience;
+        protected global::System.Web.UI.WebControls.CheckBox radioOcupation_Audience;
         
         /// <summary>
         /// radioOcupation_Player control.
@@ -253,7 +262,7 @@ namespace web.Views {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radioOcupation_Player;
+        protected global::System.Web.UI.WebControls.CheckBox radioOcupation_Player;
         
         /// <summary>
         /// RadioButton1_Other control.
@@ -262,6 +271,195 @@ namespace web.Views {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton1_Other;
+        protected global::System.Web.UI.WebControls.CheckBox RadioButton1_Other;
+        
+        /// <summary>
+        /// companyInfoDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl companyInfoDiv;
+        
+        /// <summary>
+        /// oemail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox oemail;
+        
+        /// <summary>
+        /// opassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox opassword;
+        
+        /// <summary>
+        /// omibile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox omibile;
+        
+        /// <summary>
+        /// ocompanyname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ocompanyname;
+        
+        /// <summary>
+        /// obussinessno control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox obussinessno;
+        
+        /// <summary>
+        /// ozipcode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ozipcode;
+        
+        /// <summary>
+        /// oaddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox oaddress;
+        
+        /// <summary>
+        /// RadioButton1_Orchestra control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox RadioButton1_Orchestra;
+        
+        /// <summary>
+        /// RadioButton2_Promoter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox RadioButton2_Promoter;
+        
+        /// <summary>
+        /// RadioButton3_Agent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox RadioButton3_Agent;
+        
+        /// <summary>
+        /// RadioButton4_ShopOwner control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox RadioButton4_ShopOwner;
+        
+        /// <summary>
+        /// RadioButton7comp_Other control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox RadioButton7comp_Other;
+        
+        /// <summary>
+        /// ophonenumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ophonenumber;
+        
+        /// <summary>
+        /// ofaxnumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ofaxnumber;
+        
+        /// <summary>
+        /// oceoname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox oceoname;
+        
+        /// <summary>
+        /// oadminemail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox oadminemail;
+        
+        /// <summary>
+        /// oadminname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox oadminname;
+        
+        /// <summary>
+        /// oadminmobno control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox oadminmobno;
+        
+        /// <summary>
+        /// ocompanyurl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ocompanyurl;
+        
+        /// <summary>
+        /// ootherinof control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ootherinof;
     }
 }
