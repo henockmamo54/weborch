@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Threading;
 using System.Globalization;
+using DataAccess;
 
 namespace web
 {
@@ -31,13 +32,43 @@ namespace web
             System.Diagnostics.Debug.WriteLine(dropdownlist_bulletinType.SelectedValue + "===================>");
             if (int.Parse(dropdownlist_bulletinType.SelectedValue) != -1)
             {
-                SqlDataSource1_bulletininfo.SelectCommand = @"SELECT [ID], [MSG], [URL], [ImageUrl], [TimeStamp],BulletinTypeID FROM core.Bulletin where BulletinTypeID=" + dropdownlist_bulletinType.SelectedValue;
+                SqlDataSource1_bulletininfo.SelectCommand = @"SELECT  [ID], [MSG], [URL], [ImageUrl], [TimeStamp],BulletinTypeID FROM core.Bulletin where BulletinTypeID=" + dropdownlist_bulletinType.SelectedValue;
                 SqlDataSource1_bulletininfo.DataBind();
             }
-            else {
-                SqlDataSource1_bulletininfo.SelectCommand = @"SELECT [ID], [MSG], [URL], [ImageUrl], [TimeStamp],BulletinTypeID FROM core.Bulletin";
+            else
+            {
+                SqlDataSource1_bulletininfo.SelectCommand = @"SELECT  [ID], [MSG], [URL], [ImageUrl], [TimeStamp],BulletinTypeID FROM core.Bulletin";
                 SqlDataSource1_bulletininfo.DataBind();
             }
         }
+
+        public void RepeaterbulletinMsg_onItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+
+
+            RepeaterItem item = e.Item;
+            if ((item.ItemType == ListItemType.Item) ||
+                (item.ItemType == ListItemType.AlternatingItem))
+            {
+                var msgbox = (System.Web.UI.HtmlControls.HtmlTableCell)item.FindControl("bulletinMsgContainer");
+                var imagecontainer = (System.Web.UI.HtmlControls.HtmlTableCell)item.FindControl("photoaddcontainerForBulletin");
+                var imagelocationStringcount = ((System.Data.DataRowView)e.Item.DataItem)[3].ToString().Length;
+
+                if (!(imagelocationStringcount > 0))
+                {
+                    //msgbox.Style["width"] = "100%";
+                    imagecontainer.InnerHtml = "";
+                }
+                //else
+                //{
+                //    msgbox.Style["width"] = "70%";
+                //    imagecontainer.Visible = true;
+                //    imagecontainer.Style["width"] = "30%";
+                //}
+            }
+
+        }
+
+
     }
 }
