@@ -17,7 +17,7 @@
                             <asp:TextBox AutoPostBack="true" ID="txtbox_namefilter" runat="server" CssClass="form-control" Style="width: 82%; display: inline-block; " OnTextChanged="filterArtistDataByName"></asp:TextBox>
                         </div>
                         <div class="col-md-3 pull-right">
-                            <asp:LinkButton CssClass="btn btn-success pull-right" runat="server" ID="btn_InstrumentViewButton" Text="Add / Manage Artist" Visible="false" PostBackUrl="~/Views/ManageInstrumentView.aspx" />                        
+                            <asp:LinkButton CssClass="btn btn-success pull-right" runat="server" ID="btn_InstrumentViewButton" Text="Add / Manage Instrument" Visible="false" PostBackUrl="~/Views/ManageInstrumentView.aspx" />                        
                         </div>
                     </div>
 

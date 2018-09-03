@@ -13,6 +13,15 @@ namespace web.Views {
     public partial class MyPage {
         
         /// <summary>
+        /// profileimage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image profileimage;
+        
+        /// <summary>
         /// mynameholder control.
         /// </summary>
         /// <remarks>
@@ -193,12 +202,66 @@ namespace web.Views {
         protected global::System.Web.UI.WebControls.TextBox urepertory;
         
         /// <summary>
-        /// radioOcupation control.
+        /// radioOcupation_Composer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList radioOcupation;
+        protected global::System.Web.UI.WebControls.RadioButton radioOcupation_Composer;
+        
+        /// <summary>
+        /// radioOcupation_Conductor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton radioOcupation_Conductor;
+        
+        /// <summary>
+        /// radioOcupation_TeacherProfessor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton radioOcupation_TeacherProfessor;
+        
+        /// <summary>
+        /// radioOcupation_Student control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton radioOcupation_Student;
+        
+        /// <summary>
+        /// radioOcupation_Audience control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton radioOcupation_Audience;
+        
+        /// <summary>
+        /// radioOcupation_Player control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton radioOcupation_Player;
+        
+        /// <summary>
+        /// RadioButton1_Other control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton RadioButton1_Other;
     }
 }

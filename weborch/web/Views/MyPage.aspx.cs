@@ -19,67 +19,91 @@ namespace web.Views
                 if (user == null) Response.Redirect("~/LoginPage.aspx");
                 else
                 {
-                    mynameholder.Text = user.UserPersonalInfoes.FirstOrDefault().Name;
-                    uemail.Text = user.Email;
-                    upassword.Text = user.Password;
-                    uname.Text = user.UserPersonalInfoes.FirstOrDefault().Name;
-                    uaffilation.Text = user.UserPersonalInfoes.FirstOrDefault().Affiliation;
-                    usersex.Text = user.UserPersonalInfoes.FirstOrDefault().sex;
-                    userBirthDate.Text = user.UserPersonalInfoes.FirstOrDefault().Birthday.ToString();
-                    uzipcode.Text = user.UserPersonalInfoes.FirstOrDefault().ZipCode;
-                    uaddress.Text = user.UserPersonalInfoes.FirstOrDefault().Address;
-                    umobileno.Text = user.MobileNumber;
-                    ufacebookadd.Text = user.UserPersonalInfoes.FirstOrDefault().FacebookAddress;
-                    utwitter.Text = user.UserPersonalInfoes.FirstOrDefault().TwitterAddress;
-                    ukakao.Text = user.UserPersonalInfoes.FirstOrDefault().KakaoTalkAddress;
+                    OrchestraDBEntities entity = new OrchestraDBEntities();
+                    var val = user.User_UserType.FirstOrDefault().UserTypeID.Value;
+                    bool isUserCompany = entity.UserTypes.Where(x => x.ID == val).FirstOrDefault().Iscompany;
+                    if (isUserCompany)
+                    {
+                        // will be implemented 
+                    }
+                    else
+                    {
+                        mynameholder.Text = user.UserPersonalInfoes.FirstOrDefault().Name;
+                        uemail.Text = user.Email;
+                        upassword.Text = user.Password;
+                        uname.Text = user.UserPersonalInfoes.FirstOrDefault().Name;
+                        uaffilation.Text = user.UserPersonalInfoes.FirstOrDefault().Affiliation;
+                        usersex.Text = user.UserPersonalInfoes.FirstOrDefault().sex;
+                        userBirthDate.Text = user.UserPersonalInfoes.FirstOrDefault().Birthday.ToString();
+                        uzipcode.Text = user.UserPersonalInfoes.FirstOrDefault().ZipCode;
+                        uaddress.Text = user.UserPersonalInfoes.FirstOrDefault().Address;
+                        umobileno.Text = user.MobileNumber;
+                        ufacebookadd.Text = user.UserPersonalInfoes.FirstOrDefault().FacebookAddress;
+                        utwitter.Text = user.UserPersonalInfoes.FirstOrDefault().TwitterAddress;
+                        ukakao.Text = user.UserPersonalInfoes.FirstOrDefault().KakaoTalkAddress;
 
-                    if (user.UserPersonalInfoes.FirstOrDefault().MajorInstrument1ID != null)
-                    DropDownList1_mjInst1.SelectedValue = user.UserPersonalInfoes.FirstOrDefault().MajorInstrument1ID.ToString();
-                    if(user.UserPersonalInfoes.FirstOrDefault().MajorInstrument2ID != null)
-                    DropDownList1_mjInst2.SelectedValue= user.UserPersonalInfoes.FirstOrDefault().MajorInstrument2ID.ToString();
+                        if (user.UserPersonalInfoes.FirstOrDefault().MajorInstrument1ID != null)
+                            DropDownList1_mjInst1.SelectedValue = user.UserPersonalInfoes.FirstOrDefault().MajorInstrument1ID.ToString();
+                        if (user.UserPersonalInfoes.FirstOrDefault().MajorInstrument2ID != null)
+                            DropDownList1_mjInst2.SelectedValue = user.UserPersonalInfoes.FirstOrDefault().MajorInstrument2ID.ToString();
 
-                    uprofilepage.Text = user.UserPersonalInfoes.FirstOrDefault().ProfilePage;
-                    urepertory.Text = user.UserPersonalInfoes.FirstOrDefault().Repertory;
+                        uprofilepage.Text = user.UserPersonalInfoes.FirstOrDefault().ProfilePage;
+                        urepertory.Text = user.UserPersonalInfoes.FirstOrDefault().Repertory;
+                        profileimage.ImageUrl = "../Document/" + user.UserPersonalInfoes.FirstOrDefault().Photo1;
 
-                    //uedoremail1.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorEmailID1;
-                    //uendorname1.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorName1;
-                    //uendorcomm1.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorComments1;
+                        var usertypes = user.User_UserType.ToList();
 
-                    //uedoremail2.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorEmailID2;
-                    //uendorname2.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorName2;
-                    //uendorcomm2.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorComments2;
+                        foreach (User_UserType u in usertypes) {
 
-                    //uedoremail3.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorEmailID3;
-                    //uendorname3.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorName3;
-                    //uendorcomm3.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorComments3;
+                            if (u.UserType.Name == "Composer") radioOcupation_Composer.Checked = true;
+                            if (u.UserType.Name == "Conductor") radioOcupation_Conductor.Checked = true;
+                            //if (u.UserTypeName == "Teacher/Professor") radioOcupation_TeacherProfessor.Checked = true;
+                            if (u.UserType.Name == "Student") radioOcupation_Student.Checked = true;
+                            if (u.UserType.Name == "Audience") radioOcupation_Audience.Checked = true;
+                            if (u.UserType.Name == "Player") radioOcupation_Player.Checked = true;
+                            if (u.UserType.Name == "Other") RadioButton1_Other.Checked = true;
+                        }
 
-                    //uedoremail4.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorEmailID4;
-                    //uendorname4.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorName4;
-                    //uendorcomm4.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorComments4;
+                        //uedoremail1.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorEmailID1;
+                        //uendorname1.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorName1;
+                        //uendorcomm1.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorComments1;
 
-                    //uedoremail5.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorEmailID5;
-                    //uendorname5.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorName5;
-                    //uendorcomm5.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorComments5;
+                        //uedoremail2.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorEmailID2;
+                        //uendorname2.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorName2;
+                        //uendorcomm2.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorComments2;
 
-                    //txt_useremail.Text = user.Email;
-                    //txt_userPassword.Text = user.Password;
-                    ////txt_userkoreanname.Text = user.KoreanName;
-                    ////txt_userenglishname.Text = user.EnglishName;
-                    //txt_usersex.Text = user.UserPersonalInfoes.FirstOrDefault().sex;
-                    //txt_userBirthDate.Text = user.UserPersonalInfoes.FirstOrDefault().Birthday.ToString();
-                    //txt_userZipCode.Text = user.UserPersonalInfoes.FirstOrDefault().ZipCode;
-                    //txt_useraddress.Text = user.UserPersonalInfoes.FirstOrDefault().Address;
-                    //txt_userPhoneNumber.Text = user.UserPersonalInfoes.FirstOrDefault().MobileNumber;
-                    //switch (user.Category.ToString().Trim()) {
-                    //    case "Player": radioOcupation.SelectedIndex = 0; break;
-                    //    case "Composer": radioOcupation.SelectedIndex = 1; break;
-                    //    case "Researcher": radioOcupation.SelectedIndex =2; break;
-                    //    case "Conductor": radioOcupation.SelectedIndex = 3; break;
-                    //    case "Promotor": radioOcupation.SelectedIndex = 4; break;
-                    //    case "Audience": radioOcupation.SelectedIndex = 5; break;
-                    //    case "Other": radioOcupation.SelectedIndex = 6; break;
-                    //    default: { radioOcupation.SelectedIndex = 6; break; }
-                    //}
+                        //uedoremail3.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorEmailID3;
+                        //uendorname3.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorName3;
+                        //uendorcomm3.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorComments3;
+
+                        //uedoremail4.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorEmailID4;
+                        //uendorname4.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorName4;
+                        //uendorcomm4.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorComments4;
+
+                        //uedoremail5.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorEmailID5;
+                        //uendorname5.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorName5;
+                        //uendorcomm5.Text = user.UserPersonalInfoes.FirstOrDefault().EndorsorComments5;
+
+                        //txt_useremail.Text = user.Email;
+                        //txt_userPassword.Text = user.Password;
+                        ////txt_userkoreanname.Text = user.KoreanName;
+                        ////txt_userenglishname.Text = user.EnglishName;
+                        //txt_usersex.Text = user.UserPersonalInfoes.FirstOrDefault().sex;
+                        //txt_userBirthDate.Text = user.UserPersonalInfoes.FirstOrDefault().Birthday.ToString();
+                        //txt_userZipCode.Text = user.UserPersonalInfoes.FirstOrDefault().ZipCode;
+                        //txt_useraddress.Text = user.UserPersonalInfoes.FirstOrDefault().Address;
+                        //txt_userPhoneNumber.Text = user.UserPersonalInfoes.FirstOrDefault().MobileNumber;
+                        //switch (user.Category.ToString().Trim()) {
+                        //    case "Player": radioOcupation.SelectedIndex = 0; break;
+                        //    case "Composer": radioOcupation.SelectedIndex = 1; break;
+                        //    case "Researcher": radioOcupation.SelectedIndex =2; break;
+                        //    case "Conductor": radioOcupation.SelectedIndex = 3; break;
+                        //    case "Promotor": radioOcupation.SelectedIndex = 4; break;
+                        //    case "Audience": radioOcupation.SelectedIndex = 5; break;
+                        //    case "Other": radioOcupation.SelectedIndex = 6; break;
+                        //    default: { radioOcupation.SelectedIndex = 6; break; }
+                        //}
+                    }
                 }
             }
         }
