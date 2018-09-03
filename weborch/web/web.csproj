@@ -283,6 +283,7 @@
     <Content Include="Site.Master" />
     <Content Include="UserPage.aspx" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Views\ArtistProfilePaage.aspx" />
     <Content Include="Views\ManageInstrumentView.aspx" />
     <Content Include="Views\ManageArtistPageView.aspx" />
     <Content Include="Views\ArtistPageView.aspx" />
@@ -527,6 +528,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ArtistProfilePaage.aspx.cs">
+      <DependentUpon>ArtistProfilePaage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ArtistProfilePaage.aspx.designer.cs">
+      <DependentUpon>ArtistProfilePaage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ManageInstrumentView.aspx.cs">
       <DependentUpon>ManageInstrumentView.aspx</DependentUpon>

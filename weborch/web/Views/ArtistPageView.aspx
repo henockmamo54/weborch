@@ -51,7 +51,7 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
                         </div>
                     </div>
 
-                    <asp:SqlDataSource ID="SqlDataSource3_ArtistListForAudience" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand=" SELECT core.artist.firstname,
+                    <asp:SqlDataSource ID="SqlDataSource3_ArtistListForAudience" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand=" SELECT core.artist.ID,core.artist.firstname,
        core.artist.middlename,
        core.artist.familyname,
        core.artist.photo1,
@@ -110,7 +110,7 @@ FROM   core.artist
                                                 <strong>Instruments: </strong>
                                                 <%#Eval("instruments") %>
                                             </p>
-                                            <a href="#" class="btn btn-default">Home Page</a>
+                                            <a href="ArtistProfilePaage.aspx?ID=<%#Eval("ID") %> " class="btn btn-default">Home Page</a>
                                         </div>
                                     </div>
                                 </div>
