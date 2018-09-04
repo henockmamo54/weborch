@@ -36,6 +36,19 @@
     <Property Name="TimeStamp" Type="datetime" />
     <Property Name="UserID" Type="int" />
     <Property Name="BulletinTypeID" Type="int" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="BulletinCommentTable">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CommentMessage" Type="varchar" MaxLength="300" />
+    <Property Name="CommentDate" Type="datetime" Nullable="false" />
+    <Property Name="PostID" Type="int" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="ParentCommentID" Type="int" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="BulletinLikeUnlike">
     <Key>
@@ -511,6 +524,42 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__BulletinC__Paren__2057CCD0">
+    <End Role="BulletinCommentTable" Type="Self.BulletinCommentTable" Multiplicity="0..1" />
+    <End Role="BulletinCommentTable1" Type="Self.BulletinCommentTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BulletinCommentTable">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BulletinCommentTable1">
+        <PropertyRef Name="ParentCommentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BulletinC__PostI__1E6F845E">
+    <End Role="Bulletin" Type="Self.Bulletin" Multiplicity="0..1" />
+    <End Role="BulletinCommentTable" Type="Self.BulletinCommentTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bulletin">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BulletinCommentTable">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BulletinC__UserI__1F63A897">
+    <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
+    <End Role="BulletinCommentTable" Type="Self.BulletinCommentTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserCommonTable">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="BulletinCommentTable">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__BulletinL__PostI__09746778">
     <End Role="Bulletin" Type="Self.Bulletin" Multiplicity="0..1" />
     <End Role="BulletinLikeUnlike" Type="Self.BulletinLikeUnlike" Multiplicity="*" />
@@ -922,6 +971,7 @@
   <EntityContainer Name="OrchestraDBModelStoreContainer">
     <EntitySet Name="Artist" EntityType="Self.Artist" Schema="Core" store:Type="Tables" />
     <EntitySet Name="Bulletin" EntityType="Self.Bulletin" Schema="Core" store:Type="Tables" />
+    <EntitySet Name="BulletinCommentTable" EntityType="Self.BulletinCommentTable" Schema="Core" store:Type="Tables" />
     <EntitySet Name="BulletinLikeUnlike" EntityType="Self.BulletinLikeUnlike" Schema="Core" store:Type="Tables" />
     <EntitySet Name="ChildCommentTable" EntityType="Self.ChildCommentTable" Schema="Core" store:Type="Tables" />
     <EntitySet Name="FreeBoard" EntityType="Self.FreeBoard" Schema="Core" store:Type="Tables" />
@@ -986,6 +1036,18 @@
     <AssociationSet Name="FK__Bulletin__UserID__7EF6D905" Association="Self.FK__Bulletin__UserID__7EF6D905">
       <End Role="UserCommonTable" EntitySet="UserCommonTable" />
       <End Role="Bulletin" EntitySet="Bulletin" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BulletinC__Paren__2057CCD0" Association="Self.FK__BulletinC__Paren__2057CCD0">
+      <End Role="BulletinCommentTable" EntitySet="BulletinCommentTable" />
+      <End Role="BulletinCommentTable1" EntitySet="BulletinCommentTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BulletinC__PostI__1E6F845E" Association="Self.FK__BulletinC__PostI__1E6F845E">
+      <End Role="Bulletin" EntitySet="Bulletin" />
+      <End Role="BulletinCommentTable" EntitySet="BulletinCommentTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BulletinC__UserI__1F63A897" Association="Self.FK__BulletinC__UserI__1F63A897">
+      <End Role="UserCommonTable" EntitySet="UserCommonTable" />
+      <End Role="BulletinCommentTable" EntitySet="BulletinCommentTable" />
     </AssociationSet>
     <AssociationSet Name="FK__BulletinL__PostI__09746778" Association="Self.FK__BulletinL__PostI__09746778">
       <End Role="Bulletin" EntitySet="Bulletin" />

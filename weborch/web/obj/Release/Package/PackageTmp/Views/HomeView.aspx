@@ -46,34 +46,38 @@
                     <div class="col-md-4" style="padding-right: 0; padding-left: 0;">
                         <div class="container" style="padding: 0; padding-top: 0em;">
                             <div class="panel panel-default" style="overflow-y: scroll; height: 380px;">
-                                <div class="panel-heading" style="text-align: right; padding-top: 3px; padding-bottom: 3px; background-color:ghostwhite;">
+                                <div class="panel-heading" style="text-align: right; padding-top: 3px; padding-bottom: 3px; background-color: ghostwhite;">
                                     <%= Resources.HomeView.aspx.Notice %>
-                                        <asp:DropDownList runat="server" CssClass="form-control" Style="width: auto; display: inline;"
-                                            ID="dropdownlist_bulletinType" DataSourceID="SqlDataSource1_bulletinType" DataTextField="Name" DataValueField="ID" OnSelectedIndexChanged="dropdownlist_bulletinType_SelectedIndexChanged" AutoPostBack="True">
-                                        </asp:DropDownList>
+                                    <asp:DropDownList runat="server" CssClass="form-control" Style="width: auto; display: inline;"
+                                        ID="dropdownlist_bulletinType" DataSourceID="SqlDataSource1_bulletinType" DataTextField="Name" DataValueField="ID" OnSelectedIndexChanged="dropdownlist_bulletinType_SelectedIndexChanged" AutoPostBack="True">
+                                    </asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlDataSource1_bulletinType" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [ID]= -1 , [Name] ='All' FROM lookup.[BulletinType]
 union
 SELECT [ID], [Name] FROM lookup.[BulletinType]"></asp:SqlDataSource>
                                 </div>
-                                
-                                <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1_bulletininfo">
+
+                                <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1_bulletininfo" OnItemDataBound="RepeaterbulletinMsg_onItemDataBound">
                                     <HeaderTemplate>
                                         <table style="margin: 3px;" class="table-striped">
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <tr >
+                                        <tr>
 
-                                            <td style="width: 30%">
-                                                <img src="../Document/<%#Eval("ImageUrl") %>" style="width: 100%" />                                               
+
+                                            <td runat="server" style='width: 30%;' id="photoaddcontainerForBulletin">
+                                                <img src="../Document/<%#Eval("ImageUrl") %>" style="width: 100%" />
                                             </td>
-                                            
-                                            <td style="width: 70%">
+
+                                            <td style="width: 70%" runat="server" id="bulletinMsgContainer">
+
                                                 <asp:Label runat="server" ID="Label1"
-                                                    Text='<%# Eval("MSG") %>' />
-                                                <a href="//<%#Eval("URL") %>" target="_blank"><%= Resources.HomeView.aspx.ReadMore %></a>
+                                                    Text='<%# Server.HtmlDecode(Eval("MSG").ToString()) %>' />
+                                                <a href="//<%#Eval("URL") %>" target="_blank" style="width:100%;"><%= Resources.HomeView.aspx.ReadMore %></a>
                                                 <br />
-                                                <asp:Label Style="color: darkgrey;font-size: 0.8em;" runat="server" ID="Label3">Posted on:<%# DataBinder.Eval(Container.DataItem,"TimeStamp","{0:d/M/yyyy}") %></asp:Label>
+                                                <asp:Label Style="color: darkgrey; font-size: 0.8em;" runat="server" ID="Label3">Posted on:<%# DataBinder.Eval(Container.DataItem,"TimeStamp","{0:d/M/yyyy}") %></asp:Label>
+
                                             </td>
+
                                         </tr>
                                     </ItemTemplate>
                                     <FooterTemplate>
@@ -91,7 +95,7 @@ SELECT [ID], [Name] FROM lookup.[BulletinType]"></asp:SqlDataSource>
                     </div>
                 </div>
                 <div class="" style="width: 100%; padding-top: 1em;">
-                   
+
 
                     <%--<div class="shadowedPanel" style="padding-bottom: 1em; height: 300px;">
 
@@ -116,7 +120,6 @@ SELECT [ID], [Name] FROM lookup.[BulletinType]"></asp:SqlDataSource>
                             </div>
                         </div>
                     </div>--%>
-
                 </div>
 
             </div>
@@ -148,50 +151,33 @@ SELECT [ID], [Name] FROM lookup.[BulletinType]"></asp:SqlDataSource>
         .shadowedbox {
             padding: 0.5em;
             box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-            border-color: #dddddd;
+            border-color: #ddd;
         }
 
-        .shadowedbox2 {
-            margin-top: 1em;
-            box-shadow: 2px 2px 2px 2px #f5f5f5;
-            border-style: solid;
-            border-width: 1px;
-            border-width: 1px;
-            border-color: lightgray;
-            padding: 5px;
+        .sadoedbx2 op: 1em; 2px 2px 2px 2 x #f border- tyle borde -width: 1p border widt rder-color: li h p ddig: 5p;
         }
 
-        .shadowedPanel {
-            border: 1px solid transparent;
-            border-radius: 4px;
-            border-color: #dddddd;
-            padding: 1em;
-            box-shadow: 2px 2px 2px 2px #f5f5f5;
+        hadowedPanel {
+            r: 1px solid ranspare borde -rad bo dercolr: ddddd;
+            a box s 2px 2p #f5f .list-group-ite borde : no ::-webki r;
+
+        {
+            width: 3 x / Trac / llbar-track;
+
+        {
+            - t 0 0 5px gr border-radius: 10p;
+            /* Handle *
+            webkit-scrollb r-thu
+         d: #eeeeee;
+        
+        ius: 10px;
         }
 
-        .list-group-item {
-            border: none;
-        }
+               over */
+            o umb:hover;
 
-        ::-webkit-scrollbar {
-            width: 3px;
+        {
+            background background: #d5d5d5;
         }
-
-        /* Track */
-        ::-webkit-scrollbar-track {
-            box-shadow: inset 0 0 5px grey;
-            border-radius: 10px;
-        }
-
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-            background: #eeeeee;
-            border-radius: 10px;
-        }
-
-            /* Handle on hover */
-            ::-webkit-scrollbar-thumb:hover {
-                background: #d5d5d5;
-            }
     </style>
 </asp:Content>

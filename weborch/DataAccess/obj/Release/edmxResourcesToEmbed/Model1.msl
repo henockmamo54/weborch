@@ -39,6 +39,7 @@
     <EntitySetMapping Name="Bulletins">
       <EntityTypeMapping TypeName="OrchestraDBModel.Bulletin">
         <MappingFragment StoreEntitySet="Bulletin">
+          <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="BulletinTypeID" ColumnName="BulletinTypeID" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
@@ -431,6 +432,19 @@
           <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
           <ScalarProperty Name="FamilyName" ColumnName="FamilyName" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BulletinCommentTables">
+      <EntityTypeMapping TypeName="OrchestraDBModel.BulletinCommentTable">
+        <MappingFragment StoreEntitySet="BulletinCommentTable">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ParentCommentID" ColumnName="ParentCommentID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+          <ScalarProperty Name="CommentMessage" ColumnName="CommentMessage" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

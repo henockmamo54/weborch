@@ -54,7 +54,7 @@ namespace web
         {
             if (user == null)
             {
-                showMsg("Please sign in to write comments!!!");
+                showMsg("Please sign in to Post new message !!!");
                 return;
             }
 

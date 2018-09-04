@@ -11,7 +11,7 @@
                         <ItemTemplate>
                             <div class="rptr" style="width: 40em; box-shadow: 1px 1px 1px 1px #ececec;">
                                 <div class="panel panel-default" style="background-color: #f9f9f9;">
-                                    <div style="padding-left: 10px; padding-right: 20px; width: 100%; margin-bottom: 1em; margin-top: 0.5em;">
+                                    <div style="padding-left: 10px; padding-right: 20px; width: 100%; margin-bottom: 0.3em; margin-top: 0.5em;">
 
                                         <asp:Image ID="Image2" runat="server"
                                             ImageUrl="https://myspace.com/common/images/user.png"
@@ -21,10 +21,14 @@
                                     </div>
                                     <table style="margin-left: 0.2em;">
                                         <tr>
-                                            <img src="Document/<%#Eval("ImageUrl") %>" style="width: 100%" />
+                                            <asp:Image ID="imagecontainer" runat="server" ImageUrl='Document/<%#Eval("ImageUrl") %>' style="width: 100%; padding-bottom:0.5em;" />
+
+                                            <%--<img  id="imagecontainer" src="Document/<%#Eval("ImageUrl") %>" style="width: 100%" />--%>
                                         </tr>
-                                        <tr>
-                                            <br />
+                                        <tr id="paddedMSG" runat="server">
+                                            <td style="width: 100%; padding-left:1rem;"><%#Server.HtmlDecode(Eval("MSG").ToString()) %></td>
+                                        </tr>
+                                        <tr id="MSG" runat="server">
                                             <td style="width: 100%"><%#Server.HtmlDecode(Eval("MSG").ToString()) %></td>
                                         </tr>
                                         <tr>
@@ -79,7 +83,7 @@
                                             <ItemTemplate>
                                                 <div class="col-md-11">
                                                     <hr style="margin: 1em; border-top: 1px solid #dedada;" />
-                                                    <table style="margin: 3px 5px; width: 100%;">
+                                                    <table style="margin: 3px 5px; width: 100%;font-size: 1.3rem; font-family: Roboto, Arial, sans-serif;">
                                                         <tr>
                                                             <td style="width: 55px; vertical-align: text-top;">
                                                                 <asp:Image ID="ImageParent" runat="server" Style="width: 50px; height: 50px; border-radius: 50%; margin-top: 0.2em;" ImageUrl="https://storage.designcrowd.com/common/images/v3/no-profile-pic-tiny.png" />
@@ -92,7 +96,7 @@
                                                                 <a class="link" id='lnkReplyParent<%# Eval("ID") %>' href="javascript:void(0)" onclick="showReply(<%# Eval("ID") %>); return false;"><%= Resources.HomeView.aspx.Reply %></a>&nbsp;
        <a class="link" id="lnkCancel" href="javascript:void(0)" onclick="closeReply(<%# Eval("ID") %>); return false;"><%= Resources.HomeView.aspx.Cancel %></a>
 
-                                                                <asp:Repeater ID="detailRepeater" runat="server">
+                                                                <asp:Repeater ID="detailRepeater" runat="server" OnItemDataBound="detailrepeater_onItemDataBound">
 
                                                                     <ItemTemplate>
                                                                         <div class="row">
@@ -110,10 +114,49 @@
                                                                                         <a class="link" id='lnkReplyParent<%# Eval("ID") %>' href="javascript:void(0)" onclick="showReply(<%# Eval("ID") %>+'c'); return false;"><%= Resources.HomeView.aspx.Reply %></a>
                                                                                         <a class="link" id="lnkCancel" href="javascript:void(0)" onclick="closeReply(<%# Eval("ID") %>+'c'); return false;"><%= Resources.HomeView.aspx.Cancel %></a>
 
+                                                                                        <%--==========================================================================================================================================--%>
+
+                                                                                        <asp:Repeater ID="detailRepeater3" runat="server">
+
+                                                                                            <ItemTemplate>
+                                                                                                <div class="row">
+                                                                                                    <hr style="margin: 1em;" />
+                                                                                                    <table style="margin: 3px 5px; width: 100%;">
+                                                                                                        <tr>
+                                                                                                            <td style="width: 55px; vertical-align: text-top;">
+                                                                                                                <asp:Image ID="ImageParent3" runat="server" Style="width: 50px; height: 50px; border-radius: 50%; margin-top: 0.2em;" ImageUrl="https://storage.designcrowd.com/common/images/v3/no-profile-pic-tiny.png" />
+                                                                                                            </td>
+                                                                                                            <td style="padding: 0px 5px; text-align: left; vertical-align: top;">
+                                                                                                                <asp:Label ID="lblCommentID" runat="server" Visible="false" Text='<%#Eval("ID") %>'></asp:Label>
+                                                                                                                <strong>
+                                                                                                                    <asp:Label ID="Label3" runat="server" Text='<% #Eval("Username") %>'></asp:Label></strong><br />
+                                                                                                                <asp:Label ID="lblCommentMessage" runat="server" Text='<% #Eval("CommentMessage") %>'></asp:Label><br />
+                                                                                                                <asp:Label ID="lbldatetime" runat="server" Text='<% #Eval("CommentDate") %>'> date</asp:Label><br />
+                                                                                                                <%--<a class="link" id='lnkReplyParent<%# Eval("ID") %>' href="javascript:void(0)" onclick="showReply(<%# Eval("ID") %>+'c'); return false;"><%= Resources.HomeView.aspx.Reply %></a>
+                                                                                                    <a class="link" id="lnkCancel" href="javascript:void(0)" onclick="closeReply(<%# Eval("ID") %>+'c'); return false;"><%= Resources.HomeView.aspx.Cancel %></a>
+
+                                                                                                    <div id='divReply<%# Eval("ID") %>c' style="display: none; margin-top: 5px;">
+                                                                                                        <asp:TextBox ID="txtCommentReplyParent" runat="server" TextMode="MultiLine" Width="100%" Height="60px"></asp:TextBox>
+                                                                                                        <asp:Button ID="btnReplyParent" runat="server" Text="Reply" Style="float: right; margin: 5px;"
+                                                                                                            OnCommand="btnAddDetailComment_Click" CommandName="MyUpdate" CommandArgument='<%# DataBinder.Eval(Container.Parent.Parent, "DataItem.ID") %>' />
+                                                                                                    </div>--%>
+                                                                                                            </td>
+                                                                                                        </tr>
+                                                                                                    </table>
+                                                                                                </div>
+                                                                                            </ItemTemplate>
+
+
+
+                                                                                        </asp:Repeater>
+
+
+                                                                                        <%--===========================================================================================================================================--%>
+
                                                                                         <div id='divReply<%# Eval("ID") %>c' style="display: none; margin-top: 5px;">
                                                                                             <asp:TextBox ID="txtCommentReplyParent" runat="server" TextMode="MultiLine" Width="100%" Height="60px"></asp:TextBox>
                                                                                             <asp:Button ID="btnReplyParent" runat="server" Text="Reply" Style="float: right; margin: 5px;"
-                                                                                                OnCommand="btnAddDetailComment_Click" CommandName="MyUpdate" CommandArgument='<%# DataBinder.Eval(Container.Parent.Parent, "DataItem.ID") %>' />
+                                                                                                OnCommand="btnAddDetailComment_Click" CommandName="MyUpdate" CommandArgument='<%#Eval("ID") %>' />
                                                                                         </div>
                                                                                     </td>
                                                                                 </tr>
@@ -159,6 +202,15 @@
                     </div>
                     <div class="col-md-12">
                         <div class="col-md-4">
+                            Title:
+                        </div>
+                        <div class="col-md-8" style="padding-bottom: 1em;">
+
+                            <asp:TextBox CssClass="form-control" ID="txt_title" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-4">
                             <%= Resources.HomeView.aspx.Msg %>:
                         </div>
                         <div class="col-md-8" style="padding-bottom: 1em;">
@@ -167,7 +219,7 @@
                             </div>
                             <div class="col-md-3 btn btn-success" onclick="loadEditor()">change </div>--%>
                             <textbox rows="2" class="form-control" id="txt_bulmsg" onclick="loadEditor()" style="height: 100px; overflow-y: scroll;"></textbox>
-                            <asp:HiddenField ID="HiddenField2" runat="server" value="" />
+                            <asp:HiddenField ID="HiddenField2" runat="server" Value="" />
                             <%--<asp:TextBox CssClass="form-control" ID="txt_bulmsg"  runat="server" TextMode="MultiLine"  onclick="loadEditor()"></asp:TextBox>--%>
                         </div>
                     </div>
@@ -257,8 +309,40 @@
 
         function showReply(n) {
             console.log(n);
-            $("#divReply" + n).show();
-            return false;
+            //$("#divReply" + n).show();
+
+            // check for user login
+            $.ajax({
+                type: "POST",
+                url: "BulletinPage.aspx/checkLoginStatus", //Pagename/Functionname
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ n: 1 }), //{ },//data
+                success: function (data) {
+                    //alert('success')
+                    //console.log(data);
+                    //alert(data.d);
+
+                    //if log in show the reply message 
+                    if (data.d) {
+
+                        $("#divReply" + n).show();
+                        return false;
+                        return false;
+                    }
+
+                    else {
+                        alert('Please sign in to write comments!!!');
+                    }
+
+                },
+                error: function (result) {
+                    console.log(result)
+                    //alert("error")
+
+                }
+            });
+
             return false;
         }
         function closeReply(n) {
@@ -351,7 +435,7 @@
 
             var x = $("#editor")[0].innerHTML;
             //$("#MainContent_uprofilepage")[0].innerHTML = x;
-            alert(x);
+            //alert(x);
 
             $('#ProfileEditorModal').modal('hide');
             $('.modal-backdrop').remove();
@@ -415,7 +499,7 @@
             /*margin-right: -12px;*/
         }
 
-        
+
         ::-webkit-scrollbar {
             width: 3px;
         }
@@ -436,7 +520,6 @@
             ::-webkit-scrollbar-thumb:hover {
                 background: #d5d5d5;
             }
-
     </style>
 
 </asp:Content>
