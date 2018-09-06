@@ -423,10 +423,10 @@ Where ID=@ID"
                                 </UpdateParameters>
                             </asp:SqlDataSource>
 
-                            <asp:GridView ID="GridView1" runat="server" Style="overflow-x: scroll; width: 2000px;" AllowPaging="True" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowSorting="True" DataKeyNames="ID" OnRowEditing="GridView1_RowEditing">
-                                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                            <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Style="overflow-x: scroll; width: 2000px;" AllowPaging="True" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowSorting="True" DataKeyNames="ID" OnRowEditing="GridView1_RowEditing">
+                                <AlternatingRowStyle BackColor="White" ForeColor="#284775"/>
                                 <Columns>
-                                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True"
+                                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="true"
                                         ButtonType="Image" ControlStyle-Height="20px" ControlStyle-Width="20px" DeleteImageUrl="http://icons.iconarchive.com/icons/everaldo/kids-icons/128/edit-delete-icon.png"
                                         EditImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/128/edit-validated-icon.png"
                                         SelectImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-arrow-right-icon.png"

@@ -48,6 +48,103 @@ namespace web
 
         }
 
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            OrchestraDBEntities entity = new OrchestraDBEntities();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "ToggleScript", "showdattime();", true);
+
+            //showandhidebtnforthepanel.Visible = false;
+            //AddNewEntryPanel.Visible = true;
+            //btn_update.Visible = true;
+            //btn_register.Visible = false;
+
+            var cell = GridView1.SelectedRow.Cells[1];
+            var mystring = cell.Text.ToString();
+            int detailID = int.Parse(mystring);
+
+            Artist pd = entity.Artists.Where(x => x.ID == detailID).FirstOrDefault();
+
+            if (pd != null)
+            {
+                //dropdown_performance.SelectedValue = pd.PerformanceID.ToString();
+                //txt_performancetitle.Text = pd.Title;
+                //DropDownList1_orchestra.SelectedValue = pd.Orchestra.ToString();
+                //DropDownList2_conductor.SelectedValue = pd.Conductor.ToString();
+                //DropDownList4_composer.SelectedValue = pd.Composer.ToString();
+                //txt_time.Value = pd.Time.ToString();
+
+                txt_artist_firstname.Text = pd.FirstName;
+                txt_artist_familyname.Text = pd.FamilyName;
+                txt_artist_middlename.Text = pd.MiddleName;
+                txt_artist_address.Text = pd.Address;
+                txt_artist_birthdate.Value = pd.BirthDate.ToShortDateString();
+                txt_artist_zipcode.Text = pd.ZipCode;
+                txt_artist_teleno.Text = pd.TelNO;
+                txt_artist_mobileno.Text = pd.MobileNO;
+                txt_aritist_faxno.Text = pd.FaxNo;
+                txt_artist_remark.Text = pd.Remar;
+                ukakao.Text = pd.KakaoTalkAddress;
+                ufacebookadd.Text = pd.FacebookAddress;
+                utwitter.Text = pd.TwitterAddress;
+                //DropDownList1_Affilation.SelectedValue = pd.Affiliation;
+
+                if (pd.Affiliation.ToString() == "Other")
+                {
+                    DropDownList1_Affilation.SelectedIndex = -1;
+                    uaffilation.Text = "Other";
+                }
+                else
+                {
+                    DataSourceSelectArguments args = new DataSourceSelectArguments();
+                    DataView data = (DataView)(SqlDataSource1_allOrchestra.Select(args));
+                    DataTable dt = data.ToTable();
+
+                    int affilationIndex = -1;
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        // your index is in i
+                        if (dt.Rows[i][0].ToString().Equals(pd.Affiliation))
+                        {
+                            affilationIndex = int.Parse( dt.Rows[i][1].ToString());
+                            break;
+                        }
+                    }
+
+                    if (affilationIndex == -1) DropDownList1_Affilation.SelectedValue = "-1";
+                    else DropDownList1_Affilation.SelectedValue = affilationIndex.ToString();
+                }
+
+                uprofilepage.Text = pd.ProfilePage;
+                urepertory.Text = pd.Repertory;
+
+                List<User_Endorser> endorserList = pd.User_Endorser.ToList();
+                myendorsmentlist.DataSource = endorserList;
+                myendorsmentlist.DataBind();
+                Session["myendorsmentlist"] = endorserList;
+
+                var userinst = pd.Artist_Instrument.Select(y => y.InstrumentID).ToList();
+                List<Instrument> mylist = entity.Instruments.Where(x=> userinst.Contains(x.ID)).ToList();
+                myinstrepeater.DataSource = mylist;
+                myinstrepeater.DataBind();
+                Session["myinstlist"] = mylist;
+
+                var usertype = pd.Artist_ArtistType.ToList();//pd.UserCommonTable.User_UserType.ToList();
+                var lookupusertypes = entity.ArtistTypes.ToList();
+
+                chk_Composer.Checked = usertype.Where(x => x.ArtistTypeID == (lookupusertypes.Where(z => z.Name == "Composer").FirstOrDefault()).ID).Count() > 0;
+                chk_Conductor.Checked = usertype.Where(x => x.ArtistTypeID == (lookupusertypes.Where(z => z.Name == "Conductor").FirstOrDefault()).ID).Count() > 0;
+                chk_tp.Checked = usertype.Where(x => x.ArtistTypeID == (lookupusertypes.Where(z => z.Name == "Teacher/Professor").FirstOrDefault()).ID).Count() > 0;
+                chk_Student.Checked = usertype.Where(x => x.ArtistTypeID == (lookupusertypes.Where(z => z.Name == "Student").FirstOrDefault()).ID).Count() > 0;
+                chk_player.Checked = usertype.Where(x => x.ArtistTypeID == (lookupusertypes.Where(z => z.Name == "Player").FirstOrDefault()).ID).Count() > 0;                
+
+            }
+
+
+            //List<PerformanceDetail_Instrument_Artist> mylist = entity.PerformanceDetail_Instrument_Artist.Where(x => x.PerformanceDetailID == detailID).ToList();
+            //myPerformanceDetailArtistInstrumentlist.DataSource = mylist;
+            //myPerformanceDetailArtistInstrumentlist.DataBind();
+            //Session["myPerformanceDetailArtistInstrumentlist"] = mylist;
+        }
 
         public void showMsg(string msg)
         {
