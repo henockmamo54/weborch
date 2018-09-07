@@ -301,6 +301,24 @@ namespace web {
         protected global::System.Web.UI.WebControls.FileUpload FileUpload6;
         
         /// <summary>
+        /// btn_artist_cancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_artist_cancel;
+        
+        /// <summary>
+        /// btn_artist_save control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_artist_save;
+        
+        /// <summary>
         /// btn_artist_add control.
         /// </summary>
         /// <remarks>

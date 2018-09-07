@@ -34,7 +34,7 @@ namespace web
                 Session["myinstlist"] = null;
                 myinstrepeater.DataSource = null;
                 myinstrepeater.DataBind();
-                
+
                 user = (UserCommonTable)Session["User"];
                 if (user != null)
                 {
@@ -47,9 +47,21 @@ namespace web
             }
 
         }
-
+        public void btn_artistcancel_Click(object sender, EventArgs e) {
+            btn_artist_add.Visible = true;
+            btn_artist_cancel.Visible = false;
+            btn_artist_save.Visible = false;
+            cleanArtistTextBoxs();
+        }
+        public void btn_artistsave_Click(object sender, EventArgs e) {
+            updateArtistInfo();
+        }
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            btn_artist_add.Visible = false;
+            btn_artist_cancel.Visible = true;
+            btn_artist_save.Visible = true;
+
             OrchestraDBEntities entity = new OrchestraDBEntities();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "ToggleScript", "showdattime();", true);
 
@@ -60,19 +72,12 @@ namespace web
 
             var cell = GridView1.SelectedRow.Cells[1];
             var mystring = cell.Text.ToString();
-            int detailID = int.Parse(mystring);
-
-            Artist pd = entity.Artists.Where(x => x.ID == detailID).FirstOrDefault();
+            int artistID = int.Parse(mystring);
+            Session["ArtistID"] = artistID;
+            Artist pd = entity.Artists.Where(x => x.ID == artistID).FirstOrDefault();
 
             if (pd != null)
             {
-                //dropdown_performance.SelectedValue = pd.PerformanceID.ToString();
-                //txt_performancetitle.Text = pd.Title;
-                //DropDownList1_orchestra.SelectedValue = pd.Orchestra.ToString();
-                //DropDownList2_conductor.SelectedValue = pd.Conductor.ToString();
-                //DropDownList4_composer.SelectedValue = pd.Composer.ToString();
-                //txt_time.Value = pd.Time.ToString();
-
                 txt_artist_firstname.Text = pd.FirstName;
                 txt_artist_familyname.Text = pd.FamilyName;
                 txt_artist_middlename.Text = pd.MiddleName;
@@ -105,7 +110,7 @@ namespace web
                         // your index is in i
                         if (dt.Rows[i][0].ToString().Equals(pd.Affiliation))
                         {
-                            affilationIndex = int.Parse( dt.Rows[i][1].ToString());
+                            affilationIndex = int.Parse(dt.Rows[i][1].ToString());
                             break;
                         }
                     }
@@ -123,7 +128,7 @@ namespace web
                 Session["myendorsmentlist"] = endorserList;
 
                 var userinst = pd.Artist_Instrument.Select(y => y.InstrumentID).ToList();
-                List<Instrument> mylist = entity.Instruments.Where(x=> userinst.Contains(x.ID)).ToList();
+                List<Instrument> mylist = entity.Instruments.Where(x => userinst.Contains(x.ID)).ToList();
                 myinstrepeater.DataSource = mylist;
                 myinstrepeater.DataBind();
                 Session["myinstlist"] = mylist;
@@ -135,15 +140,14 @@ namespace web
                 chk_Conductor.Checked = usertype.Where(x => x.ArtistTypeID == (lookupusertypes.Where(z => z.Name == "Conductor").FirstOrDefault()).ID).Count() > 0;
                 chk_tp.Checked = usertype.Where(x => x.ArtistTypeID == (lookupusertypes.Where(z => z.Name == "Teacher/Professor").FirstOrDefault()).ID).Count() > 0;
                 chk_Student.Checked = usertype.Where(x => x.ArtistTypeID == (lookupusertypes.Where(z => z.Name == "Student").FirstOrDefault()).ID).Count() > 0;
-                chk_player.Checked = usertype.Where(x => x.ArtistTypeID == (lookupusertypes.Where(z => z.Name == "Player").FirstOrDefault()).ID).Count() > 0;                
+                chk_player.Checked = usertype.Where(x => x.ArtistTypeID == (lookupusertypes.Where(z => z.Name == "Player").FirstOrDefault()).ID).Count() > 0;
 
             }
 
 
-            //List<PerformanceDetail_Instrument_Artist> mylist = entity.PerformanceDetail_Instrument_Artist.Where(x => x.PerformanceDetailID == detailID).ToList();
-            //myPerformanceDetailArtistInstrumentlist.DataSource = mylist;
-            //myPerformanceDetailArtistInstrumentlist.DataBind();
-            //Session["myPerformanceDetailArtistInstrumentlist"] = mylist;
+            txt_artist_birthdate.Value = DateTime.Now.ToShortDateString();
+
+
         }
 
         public void showMsg(string msg)
@@ -260,6 +264,132 @@ namespace web
             }
         }
 
+        public void updateArtistInfo()
+        {
+            bool isSuccess = false;
+            using (var context = new OrchestraDBEntities())
+            {
+                using (var dbContextTransaction = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        int artistID = int.Parse(Session["ArtistID"].ToString());
+                        Artist artist = context.Artists.Where(x => x.ID == artistID).FirstOrDefault();
+                        artist.FirstName = txt_artist_firstname.Text;
+                        artist.MiddleName = txt_artist_middlename.Text;
+                        artist.FamilyName = txt_artist_familyname.Text;
+                        artist.BirthDate = DateTime.ParseExact(txt_artist_birthdate.Value, "dd/mm/yyyy", CultureInfo.InvariantCulture);
+                        artist.Address = txt_artist_address.Text;
+                        artist.ZipCode = txt_artist_zipcode.Text;
+                        artist.TelNO = txt_artist_teleno.Text;
+                        artist.MobileNO = txt_artist_mobileno.Text;
+                        artist.FaxNo = txt_aritist_faxno.Text;
+                        artist.Remar = txt_artist_remark.Text;
+                        if (int.Parse(DropDownList1_Affilation.SelectedValue) == -1)
+                            artist.Affiliation = uaffilation.Text;
+                        else artist.Affiliation = DropDownList1_Affilation.SelectedItem.Text;
+
+                        artist.FacebookAddress = ufacebookadd.Text;
+                        artist.TwitterAddress = utwitter.Text;
+                        artist.KakaoTalkAddress = ukakao.Text;
+                        if (FileUpload5.HasFile)
+                            getPhoto(artist, 1, FileUpload5);
+                        if (FileUpload6.HasFile)
+                            getPhoto(artist, 2, FileUpload6);
+
+                        artist.ProfilePage = uprofilepage.Text;
+                        artist.Repertory = urepertory.Text;
+                        context.SaveChanges();
+
+                        // remove the previous artist and instrument
+                        context.Artist_Instrument.RemoveRange(context.Artist_Instrument.Where(x => x.ArtistID == artistID).ToList());
+                        
+                        if (Session["myinstlist"] != null)
+                        {
+                            List<Instrument> mylist = (List<Instrument>)Session["myinstlist"];
+                            foreach (Instrument i in mylist)
+                            {
+                                Artist_Instrument artistInst = new Artist_Instrument();
+                                artistInst.ArtistID = artist.ID;
+                                artistInst.InstrumentID = i.ID;
+                                context.Artist_Instrument.Add(artistInst);
+                                context.SaveChanges();
+                            }
+                        }
+
+                        //get all Artist types
+                        List<int> usertypes = new List<int>();
+                        if (chk_Composer.Checked) usertypes.Add(1);
+                        if (chk_Conductor.Checked) usertypes.Add(2);
+                        if (chk_tp.Checked) usertypes.Add(3);
+                        if (chk_Student.Checked) usertypes.Add(4);
+                        if (chk_player.Checked) usertypes.Add(5);
+
+                        // remove the previous user types
+                        context.Artist_ArtistType.RemoveRange(context.Artist_ArtistType.Where(x => x.Artist == artistID).ToList());
+
+                        // register  user types
+                        foreach (int i in usertypes)
+                        {
+                            Artist_ArtistType type = new Artist_ArtistType();
+                            type.Artist = artist.ID;
+                            type.ArtistTypeID = i;
+                            
+                            context.Artist_ArtistType.Add(type);
+                            context.SaveChanges();
+                        }
+
+                        //// remove the previous endorsers
+                        //context.User_Endorser.RemoveRange(context.User_Endorser.Where(x => x.ArtistID == artistID).ToList());
+
+                        ////register endorsers
+                        //if (Session["myendorsmentlist"] != null)
+                        //{
+                        //    List<User_Endorser> mylist = (List<User_Endorser>)Session["myendorsmentlist"];
+                        //    foreach (User_Endorser x in mylist)
+                        //    {
+                        //        User_Endorser ue = new User_Endorser();
+                        //        ue.ArtistID = artist.ID;
+                        //        //ue.UserID = user.ID;
+                        //        ue.Email = x.Email;
+                        //        ue.Name = x.Name;
+
+                        //        context.User_Endorser.Add(ue);
+                        //        context.SaveChanges();
+                        //        //sending message to endorsers
+                        //        sendEmailToEndorser(x.Email, artist, x);
+                        //    }
+                        //}
+
+                        //showMsg("Data inserted succssfuly");
+                        cleanArtistTextBoxs();
+                        dbContextTransaction.Commit();
+                        isSuccess = true;
+
+                    }
+                    catch (Exception ee)
+                    {
+                        showMsg("Please check your inputs");
+                        dbContextTransaction.Rollback();
+
+                    }
+
+                    if (isSuccess)
+                    {
+                        showMsg("Data inserted succssfuly");
+                        cleanArtistTextBoxs();
+                    }
+                    else showMsg("Please check your inputs");
+
+
+                    DropDownList1_artistList.DataBind();
+                    GridView1.DataBind();
+
+                }
+            }
+
+        }
+
         public void sendEmailToEndorser(string to, Artist artist, User_Endorser e)
         {
             try
@@ -345,6 +475,20 @@ namespace web
             txt_artist_mobileno.Text = "";
             txt_aritist_faxno.Text = "";
             txt_artist_remark.Text = "";
+            ukakao.Text = "";
+            ufacebookadd.Text = "";
+            utwitter.Text = "";
+            uprofilepage.Text = "";
+            urepertory.Text = "";
+            Session["myendorsmentlist"] = null;
+            Session["myinstlist"] = null;
+
+            myinstrepeater.DataSource = null;
+            myinstrepeater.DataBind();
+
+            myendorsmentlist.DataSource = null;
+            myendorsmentlist.DataBind();
+
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
