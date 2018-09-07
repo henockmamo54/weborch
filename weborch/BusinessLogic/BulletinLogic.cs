@@ -35,9 +35,9 @@ namespace BusinessLogic
         {
             OrchestraDBEntities entity = new OrchestraDBEntities();
             var query = string.Format(@"
-                                            select ID, MSG,URL,ImageUrl,TimeStamp,UserID, BulletinTypeID, ISNULL(companyName,Name) Name,isnull(likecount,0)likecount, ISNULL(dislikecount,0)dislikecount,ISNULL(isliked,0) isliked,ISNULL(disliked,0) disliked
+                                            select ID, MSG,Title,URL,ImageUrl,TimeStamp,UserID, BulletinTypeID, ISNULL(companyName,Name) Name,isnull(likecount,0)likecount, ISNULL(dislikecount,0)dislikecount,ISNULL(isliked,0) isliked,ISNULL(disliked,0) disliked
                                                 from(
-		                                            select b.ID,MSG,URL,ImageUrl,b.TimeStamp,b.UserID, BulletinTypeID, p.Name,c.CompanyName,likecount, dislikecount, ld.IsLike as isliked, uld.IsLike as disliked 
+		                                            select b.ID,Title,MSG,URL,ImageUrl,b.TimeStamp,b.UserID, BulletinTypeID, p.Name,c.CompanyName,likecount, dislikecount, ld.IsLike as isliked, uld.IsLike as disliked 
 		                                            from core.bulletin b
 		                                            join Main.UserCommonTable u on u.id = b.UserID
 		                                            Left join Main.UserPersonalInfo p on p.userID=u.id

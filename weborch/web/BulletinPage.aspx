@@ -25,6 +25,9 @@
 
                                             <%--<img  id="imagecontainer" src="Document/<%#Eval("ImageUrl") %>" style="width: 100%" />--%>
                                         </tr>
+                                        <tr id="title" runat="server">
+                                            <td style="width: 100%"><strong><%#Server.HtmlDecode(Eval("Title").ToString()) %></strong></td>
+                                        </tr>
                                         <tr id="paddedMSG" runat="server">
                                             <td style="width: 100%; padding-left:1rem;"><%#Server.HtmlDecode(Eval("MSG").ToString()) %></td>
                                         </tr>

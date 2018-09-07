@@ -10,6 +10,7 @@ namespace BusinessLogic.Model
     {
         public int ID { get; set; }
         public string MSG { get; set; }
+        public string Title { get; set; }
         public string URL { get; set; }
         public string ImageUrl { get; set; }
         public Nullable<System.DateTime> TimeStamp { get; set; }
