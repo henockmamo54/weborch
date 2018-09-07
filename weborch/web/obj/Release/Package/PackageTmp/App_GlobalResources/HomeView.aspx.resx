@@ -474,4 +474,7 @@
   <data name="Poster" xml:space="preserve">
     <value>Poster</value>
   </data>
+  <data name="Homepage" xml:space="preserve">
+    <value>Home Page</value>
+  </data>
 </root>

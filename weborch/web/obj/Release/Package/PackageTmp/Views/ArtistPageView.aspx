@@ -38,7 +38,9 @@ SELECT  Name,ID FROM Lookup.ArtistType
                             <h5 style="display: inline-block;">Instrument: </h5>
                             <asp:SqlDataSource ID="SqlDataSource3_instrumentListForFilter" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT ID=-1, EnglishName='All', KoreanName = 'ALL', [Group] ='ALL'  FROM Core.Instrument
 union
-SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataSource>
+SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument
+
+order by EnglishName"></asp:SqlDataSource>
                             <asp:DropDownList ID="DropDownList1_instrumentTypeFilter" CssClass="form-control pull-right" Style="width: 70%;" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource3_instrumentListForFilter" DataTextField="EnglishName" DataValueField="ID" OnSelectedIndexChanged="DropDownList1_artistType_SelectedIndexChanged"></asp:DropDownList>
                         </div>
                         <div class="col-md-3 pull-right">
@@ -110,7 +112,7 @@ FROM   core.artist
                                                 <strong>Instruments: </strong>
                                                 <%#Eval("instruments") %>
                                             </p>
-                                            <a href="ArtistProfilePaage.aspx?ID=<%#Eval("ID") %> " class="btn btn-default">Home Page</a>
+                                            <a href="ArtistProfilePaage.aspx?ID=<%#Eval("ID") %> " class="btn btn-default" ><%= Resources.HomeView.aspx.Homepage %></a>
                                         </div>
                                     </div>
                                 </div>
