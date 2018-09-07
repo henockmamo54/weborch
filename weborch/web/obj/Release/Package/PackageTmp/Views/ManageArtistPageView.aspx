@@ -147,25 +147,6 @@
                                         </div>
                                         <br />
                                     </div>
-                                    <%--<div class="col-md-4">
-                                        <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.Photo1 %>:</div>
-                                        <div class="col-md-8">
-                                            <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline; display: inline; padding-left: 0; padding-right: 0; border: none; box-shadow: none;"
-                                                class="form-control" />
-                                        </div>
-                                        <br />
-                                    </div>
-                                    <div class="col-md-4">
-                                        <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.Photo2 %>:</div>
-                                        <div class="col-md-8">
-                                            <asp:FileUpload ID="FileUpload2" runat="server" Style="display: inline; display: inline; padding-left: 0; padding-right: 0; border: none; box-shadow: none;"
-                                                class="form-control" />
-                                        </div>
-                                        <br />
-                                    </div>--%>
-
 
                                     <%--===============================================================================================================================================--%>
                                     <div class="col-md-4 " style="width: 100%;">
@@ -237,7 +218,7 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                     <div class="row col-md-12 pull-right">
                                         <asp:Repeater runat="server" ID="myendorsmentlist">
                                             <ItemTemplate>
-                                                <tr style="margin-bottom: 3px;">
+                                                <tr style="margin-bottom: 5px;">
                                                     <asp:Button runat="server" AutoPostBack="True" Text="<%$Resources:HomeView.aspx,Delete %>" CommandArgument='<%# Container.ItemIndex  %>' OnCommand="btn_remove_endorser_tolist"></asp:Button>
                                                     <td>
                                                         <asp:Label runat="server" ID="Label1" Text='<%# Eval("Name") %>' />
@@ -290,9 +271,9 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                     <br />
                                     <div class="row col-md-12 pull-right">
                                         <asp:Repeater runat="server" ID="myinstrepeater">
-                                            <ItemTemplate>
-                                                <tr style="margin-bottom: 3px;">
-                                                    <asp:Button runat="server" AutoPostBack="True" CommandArgument='<%#Eval("ID")%>' OnClick="removeinstrumentfrommyMainList" Text="<%$Resources:HomeView.aspx,Delete %>"></asp:Button>
+                                            <ItemTemplate >
+                                                <tr >
+                                                    <asp:Button style="margin-bottom: 5px;" runat="server" AutoPostBack="True" CommandArgument='<%#Eval("ID")%>' OnClick="removeinstrumentfrommyMainList" Text="<%$Resources:HomeView.aspx,Delete %>"></asp:Button>
                                                     <td>
                                                         <asp:Label runat="server" ID="Label1" Text='<%# Eval("EnglishName") %>' />
                                                     </td>
@@ -332,7 +313,9 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                 <hr />
 
                                 <div class="row col-md-12">
-                                    <asp:Button ID="btn_artist_add" CssClass="btn btn-primary pull-right" runat="server" Text="<%$Resources:HomeView.aspx,Register %>" OnClick="btn_artistadd_Click" />
+                                    <asp:Button Visible="false" ID="btn_artist_cancel" CssClass="btn btn-danger pull-right" runat="server" Text="Cancel" OnClick="btn_artistcancel_Click" style="margin-right:10px;" />
+                                    <asp:Button Visible="false" ID="btn_artist_save" CssClass="btn btn-warning pull-right" runat="server" Text="Update" OnClick="btn_artistsave_Click" style="margin-right:10px;" />
+                                    <asp:Button ID="btn_artist_add" CssClass="btn btn-primary pull-right" runat="server" Text="<%$Resources:HomeView.aspx,Register %>" OnClick="btn_artistadd_Click" style="margin-right:10px;" />
                                 </div>
 
                             </div>
@@ -423,13 +406,13 @@ Where ID=@ID"
                                 </UpdateParameters>
                             </asp:SqlDataSource>
 
-                            <asp:GridView ID="GridView1" runat="server" Style="overflow-x: scroll; width: 2000px;" AllowPaging="True" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowSorting="True" DataKeyNames="ID" OnRowEditing="GridView1_RowEditing">
-                                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                            <asp:GridView ID="GridView1" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Style="overflow-x: scroll; width: 2000px;" AllowPaging="True" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowSorting="True" DataKeyNames="ID" OnRowEditing="GridView1_RowEditing">
+                                <AlternatingRowStyle BackColor="White" ForeColor="#284775"/>
                                 <Columns>
-                                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True"
+                                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="false" ShowSelectButton="true"
                                         ButtonType="Image" ControlStyle-Height="20px" ControlStyle-Width="20px" DeleteImageUrl="http://icons.iconarchive.com/icons/everaldo/kids-icons/128/edit-delete-icon.png"
                                         EditImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/128/edit-validated-icon.png"
-                                        SelectImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-arrow-right-icon.png"
+                                        SelectImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/128/edit-validated-icon.png"
                                         CancelImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-edit-delete-icon.png"
                                         UpdateImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/128/Save-icon.png"
                                         HeaderStyle-Width="90px" ItemStyle-Width="90px">

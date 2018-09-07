@@ -349,7 +349,7 @@
     <value>개인정보처리방침</value>
   </data>
   <data name="ProfilePage" xml:space="preserve">
-    <value>프로필 화면</value>
+    <value>자기소개</value>
   </data>
   <data name="Promoter" xml:space="preserve">
     <value>기획사</value>
@@ -364,10 +364,10 @@
     <value>참조</value>
   </data>
   <data name="Rememberme" xml:space="preserve">
-    <value>기억하기</value>
+    <value>ID, PW저장</value>
   </data>
   <data name="Repertory" xml:space="preserve">
-    <value>레파토리</value>
+    <value>이력사항</value>
   </data>
   <data name="Reply" xml:space="preserve">
     <value>답장하기</value>
@@ -469,7 +469,7 @@
     <value>지우다</value>
   </data>
   <data name="Save" xml:space="preserve">
-    <value>구하다</value>
+    <value>신청</value>
   </data>
   <data name="Poster" xml:space="preserve">
     <value>Poster</value>

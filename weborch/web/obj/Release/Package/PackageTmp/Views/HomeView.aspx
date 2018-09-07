@@ -47,7 +47,7 @@
                         <div class="container" style="padding: 0; padding-top: 0em;">
                             <div class="panel panel-default" style="overflow-y: scroll; height: 380px;">
                                 <div class="panel-heading" style="text-align: right; padding-top: 3px; padding-bottom: 3px; background-color: ghostwhite;">
-                                    <%= Resources.HomeView.aspx.Notice %>
+                                   <%-- <%= Resources.HomeView.aspx.Notice %>--%> Bulletin
                                     <asp:DropDownList runat="server" CssClass="form-control" Style="width: auto; display: inline;"
                                         ID="dropdownlist_bulletinType" DataSourceID="SqlDataSource1_bulletinType" DataTextField="Name" DataValueField="ID" OnSelectedIndexChanged="dropdownlist_bulletinType_SelectedIndexChanged" AutoPostBack="True">
                                     </asp:DropDownList>

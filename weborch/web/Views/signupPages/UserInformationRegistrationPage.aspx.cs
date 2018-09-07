@@ -187,7 +187,8 @@ namespace web.Views.signupPages
                             orch.ZipCode = company.ZipCode;
                             orch.TelNO = company.TelephoneNo;
                             orch.FaxNo = company.FaxNo;
-                            orch.ConductorID = int.Parse(DropDownList2_conductor.SelectedValue);
+                            if(DropDownList2_conductor.SelectedValue.Count()>0)
+                                orch.ConductorID = int.Parse(DropDownList2_conductor.SelectedValue);
                             orch.Since = int.Parse(txt_orchsince.Text);
                             orch.UserID = user.ID;
 
@@ -270,7 +271,7 @@ namespace web.Views.signupPages
                             personalInfo.Affiliation = uaffilation.Text;
                         else personalInfo.Affiliation = DropDownList1_Affilation.SelectedItem.Text;
                         personalInfo.sex = DropDownList1_sex.SelectedItem.Text;
-                        personalInfo.Birthday = DateTime.ParseExact(userBirthDate.Value,"dd/mm/yyyy", CultureInfo.InvariantCulture);
+                        personalInfo.Birthday = DateTime.ParseExact(userBirthDate.Value, "dd/mm/yyyy", CultureInfo.InvariantCulture);
                         personalInfo.ZipCode = uzipcode.Text;
                         personalInfo.Address = uaddress.Text;
                         personalInfo.MobileNumber = umobileno.Text;
@@ -292,87 +293,89 @@ namespace web.Views.signupPages
 
                         #region insert user as an arits ==============================================================>
 
-                        Artist artist = new Artist();
-                        artist.FirstName = uname.Text;
-                        artist.FamilyName = " ";
-                        artist.BirthDate = DateTime.ParseExact(userBirthDate.Value, "dd/mm/yyyy", CultureInfo.InvariantCulture);
-                        artist.Address = personalInfo.Address;
-                        artist.ZipCode = personalInfo.ZipCode;
-                        artist.TelNO = personalInfo.MobileNumber;
-                        artist.MobileNO = personalInfo.MobileNumber;
-                        artist.Affiliation = personalInfo.Affiliation;
-
-
-                        artist.FacebookAddress = ufacebookadd.Text;
-                        artist.TwitterAddress = utwitter.Text;
-                        artist.KakaoTalkAddress = ukakao.Text;
-                        artist.Photo1 = personalInfo.Photo1;
-                        artist.Photo2 = personalInfo.Photo2;
-                        artist.ProfilePage = uprofilepage.Text;
-                        artist.Repertory = urepertory.Text;
-
-                        artist.UserID = personalInfo.UserID;
-
-                        context.Artists.Add(artist);
-                        context.SaveChanges();
-
-                        if (DropDownList1_mjInst1.SelectedIndex > 0)
+                        if (chk_Composer.Checked || chk_Conductor.Checked || chk_tp.Checked || chk_Student.Checked || chk_Player.Checked)
                         {
-                            Artist_Instrument artistInst = new Artist_Instrument();
-                            artistInst.ArtistID = artist.ID;
-                            artistInst.InstrumentID = int.Parse(DropDownList1_mjInst1.SelectedValue);
-                            context.Artist_Instrument.Add(artistInst);
+                            Artist artist = new Artist();
+                            artist.FirstName = uname.Text;
+                            artist.FamilyName = " ";
+                            artist.BirthDate = DateTime.ParseExact(userBirthDate.Value, "dd/mm/yyyy", CultureInfo.InvariantCulture);
+                            artist.Address = personalInfo.Address;
+                            artist.ZipCode = personalInfo.ZipCode;
+                            artist.TelNO = personalInfo.MobileNumber;
+                            artist.MobileNO = personalInfo.MobileNumber;
+                            artist.Affiliation = personalInfo.Affiliation;
+
+
+                            artist.FacebookAddress = ufacebookadd.Text;
+                            artist.TwitterAddress = utwitter.Text;
+                            artist.KakaoTalkAddress = ukakao.Text;
+                            artist.Photo1 = personalInfo.Photo1;
+                            artist.Photo2 = personalInfo.Photo2;
+                            artist.ProfilePage = uprofilepage.Text;
+                            artist.Repertory = urepertory.Text;
+
+                            artist.UserID = personalInfo.UserID;
+
+                            context.Artists.Add(artist);
                             context.SaveChanges();
-                        }
-                        if (DropDownList1_mjInst2.SelectedIndex > 0)
-                        {
-                            Artist_Instrument artistInst = new Artist_Instrument();
-                            artistInst.ArtistID = artist.ID;
-                            artistInst.InstrumentID = int.Parse(DropDownList1_mjInst2.SelectedValue);
-                            context.Artist_Instrument.Add(artistInst);
-                            context.SaveChanges();
-                        }
 
-
-                        //get all Artist types
-                        List<int> artisttypes = new List<int>();
-                        if (chk_Composer.Checked) { artisttypes.Add(1); }
-                        if (chk_Conductor.Checked) { artisttypes.Add(2); }
-                        if (chk_tp.Checked) { artisttypes.Add(3); }
-                        if (chk_Student.Checked) { artisttypes.Add(4); }
-                        if (chk_Player.Checked) { artisttypes.Add(5); }
-
-                        // register  user types
-                        foreach (int i in artisttypes)
-                        {
-                            Artist_ArtistType type = new Artist_ArtistType();
-                            type.Artist = artist.ID;
-                            type.ArtistTypeID = i;
-
-                            context.Artist_ArtistType.Add(type);
-                            context.SaveChanges();
-                        }
-
-                        //register endorsers
-                        if (Session["myendorsmentlist"] != null)
-                        {
-                            List<User_Endorser> mylist = (List<User_Endorser>)Session["myendorsmentlist"];
-                            foreach (User_Endorser x in mylist)
+                            if (DropDownList1_mjInst1.SelectedIndex > 0)
                             {
-                                User_Endorser ue = new User_Endorser();
-                                ue.ArtistID = artist.ID;
-                                ue.UserID = user.ID;
-                                ue.Email = x.Email;
-                                ue.Name = x.Name;
-
-                                context.User_Endorser.Add(ue);
+                                Artist_Instrument artistInst = new Artist_Instrument();
+                                artistInst.ArtistID = artist.ID;
+                                artistInst.InstrumentID = int.Parse(DropDownList1_mjInst1.SelectedValue);
+                                context.Artist_Instrument.Add(artistInst);
                                 context.SaveChanges();
-                                //sending message to endorsers
-                                sendEmailToEndorser(x.Email, artist, x);
                             }
+                            if (DropDownList1_mjInst2.SelectedIndex > 0)
+                            {
+                                Artist_Instrument artistInst = new Artist_Instrument();
+                                artistInst.ArtistID = artist.ID;
+                                artistInst.InstrumentID = int.Parse(DropDownList1_mjInst2.SelectedValue);
+                                context.Artist_Instrument.Add(artistInst);
+                                context.SaveChanges();
+                            }
+
+
+                            //get all Artist types
+                            List<int> artisttypes = new List<int>();
+                            if (chk_Composer.Checked) { artisttypes.Add(1); }
+                            if (chk_Conductor.Checked) { artisttypes.Add(2); }
+                            if (chk_tp.Checked) { artisttypes.Add(3); }
+                            if (chk_Student.Checked) { artisttypes.Add(4); }
+                            if (chk_Player.Checked) { artisttypes.Add(5); }
+
+                            // register  user types
+                            foreach (int i in artisttypes)
+                            {
+                                Artist_ArtistType type = new Artist_ArtistType();
+                                type.Artist = artist.ID;
+                                type.ArtistTypeID = i;
+
+                                context.Artist_ArtistType.Add(type);
+                                context.SaveChanges();
+                            }
+
+                            //register endorsers
+                            if (Session["myendorsmentlist"] != null)
+                            {
+                                List<User_Endorser> mylist = (List<User_Endorser>)Session["myendorsmentlist"];
+                                foreach (User_Endorser x in mylist)
+                                {
+                                    User_Endorser ue = new User_Endorser();
+                                    ue.ArtistID = artist.ID;
+                                    ue.UserID = user.ID;
+                                    ue.Email = x.Email;
+                                    ue.Name = x.Name;
+
+                                    context.User_Endorser.Add(ue);
+                                    context.SaveChanges();
+                                    //sending message to endorsers
+                                    sendEmailToEndorser(x.Email, artist, x);
+                                }
+                            }
+
                         }
-
-
 
 
                         #endregion
@@ -495,7 +498,7 @@ namespace web.Views.signupPages
         {
             if (Session["myendorsmentlist"] != null)
             {
-                
+
                 List<User_Endorser> mylist = (List<User_Endorser>)Session["myendorsmentlist"];
 
                 mylist.RemoveAt(int.Parse(e.CommandArgument.ToString()));

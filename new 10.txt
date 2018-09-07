@@ -1,0 +1,14 @@
+
+
+ALTER TABLE [Main].[PerformanceDetail]
+ADD CONSTRAINT  FK__User_User__UserI__395884C4
+FOREIGN KEY([PerformanceID])
+REFERENCES  [Main].[Performance] ([ID])  on delete cascade
+GO
+
+
+ALTER TABLE [Drived].[User_UserType]
+ADD CONSTRAINT  FK__User_User__UserI__395884C4
+FOREIGN KEY([UserID])
+REFERENCES [Main].[UserCommonTable] ([ID])  on delete cascade
+GO
