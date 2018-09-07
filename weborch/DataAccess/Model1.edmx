@@ -10,9 +10,9 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FirstName" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="FamilyName" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="MiddleName" Type="varchar" MaxLength="200" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="200" />
+          <Property Name="FamilyName" Type="nvarchar" MaxLength="200" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="200" />
           <Property Name="BirthDate" Type="date" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="200" />
           <Property Name="ZipCode" Type="nvarchar" MaxLength="10" />
@@ -421,20 +421,24 @@
           <Property Name="MajorInstrument1ID" Type="int" />
           <Property Name="MajorInstrument2ID" Type="int" />
         </EntityType>
-        <Association Name="FK__Artist__UserID__690797E6">
-          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
-          <End Role="Artist" Type="Self.Artist" Multiplicity="*" />
+        <Association Name="DF__ParentCom__Comme__0A9D95DB">
+          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ParentCommentTable" Type="Self.ParentCommentTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserCommonTable">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="Artist">
+            <Dependent Role="ParentCommentTable">
               <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Artist_Ar__Artis__4A8310C6">
-          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Artist_ArtistType" Type="Self.Artist_ArtistType" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Artist">
@@ -458,7 +462,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Artist_En__Artis__756D6ECB">
-          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Artist_Endorser" Type="Self.Artist_Endorser" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Artist">
@@ -482,7 +488,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Artist_In__Artis__10566F31">
-          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Artist_Instrument" Type="Self.Artist_Instrument" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Artist">
@@ -518,7 +526,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Bulletin__UserID__7EF6D905">
-          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
+          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Bulletin" Type="Self.Bulletin" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserCommonTable">
@@ -529,20 +539,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__BulletinC__Paren__2057CCD0">
-          <End Role="BulletinCommentTable" Type="Self.BulletinCommentTable" Multiplicity="0..1" />
-          <End Role="BulletinCommentTable1" Type="Self.BulletinCommentTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="BulletinCommentTable">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="BulletinCommentTable1">
-              <PropertyRef Name="ParentCommentID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__BulletinC__PostI__1E6F845E">
-          <End Role="Bulletin" Type="Self.Bulletin" Multiplicity="0..1" />
+          <End Role="Bulletin" Type="Self.Bulletin" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="BulletinCommentTable" Type="Self.BulletinCommentTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Bulletin">
@@ -578,7 +578,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__BulletinL__UserI__0880433F">
-          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
+          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="BulletinLikeUnlike" Type="Self.BulletinLikeUnlike" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserCommonTable">
@@ -590,7 +592,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__ChildComm__UserI__01D345B0">
-          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
+          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ChildCommentTable" Type="Self.ChildCommentTable" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserCommonTable">
@@ -657,18 +661,6 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Orchestra">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ParentCom__UserI__00DF2177">
-          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
-          <End Role="ParentCommentTable" Type="Self.ParentCommentTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserCommonTable">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="ParentCommentTable">
               <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
@@ -770,14 +762,16 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Performan__Perfo__11158940">
-          <End Role="Performance" Type="Self.Performance" Multiplicity="0..1" />
+          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PerformanceParentCommentTable" Type="Self.PerformanceParentCommentTable" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Performance">
+            <Principal Role="UserCommonTable">
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="PerformanceParentCommentTable">
-              <PropertyRef Name="PerformanceID" />
+              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -789,18 +783,6 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="PerformanceLikeUnlike">
-              <PropertyRef Name="PerformanceID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Performan__Perfo__503BEA1C">
-          <End Role="Performance" Type="Self.Performance" Multiplicity="0..1" />
-          <End Role="PerformanceDetail" Type="Self.PerformanceDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Performance">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PerformanceDetail">
               <PropertyRef Name="PerformanceID" />
             </Dependent>
           </ReferentialConstraint>
@@ -842,7 +824,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Performan__UserI__19AACF41">
-          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
+          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PerformanceLikeUnlike" Type="Self.PerformanceLikeUnlike" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserCommonTable">
@@ -854,7 +838,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Performan__UserI__5224328E">
-          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
+          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Performance" Type="Self.Performance" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserCommonTable">
@@ -866,7 +852,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__User_Endo__Artis__1B9317B3">
-          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="User_Endorser" Type="Self.User_Endorser" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Artist">
@@ -889,20 +877,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__User_Endo__UserI__70A8B9AE">
-          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
-          <End Role="User_Endorser" Type="Self.User_Endorser" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserCommonTable">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="User_Endorser">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__User_User__UserI__395884C4">
-          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
+          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="User_UserType" Type="Self.User_UserType" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserCommonTable">
@@ -910,6 +888,20 @@
             </Principal>
             <Dependent Role="User_UserType">
               <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User_User__UserI__395884C41">
+          <End Role="Performance" Type="Self.Performance" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PerformanceDetail" Type="Self.PerformanceDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Performance">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PerformanceDetail">
+              <PropertyRef Name="PerformanceID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -926,7 +918,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__UserCompa__UserI__45BE5BA9">
-          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
+          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="UserCompany" Type="Self.UserCompany" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserCommonTable">
@@ -962,7 +956,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__UserPerso__UserI__41EDCAC5">
-          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1" />
+          <End Role="UserCommonTable" Type="Self.UserCommonTable" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="UserPersonalInfo" Type="Self.UserPersonalInfo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UserCommonTable">
@@ -1006,9 +1002,9 @@
           <EntitySet Name="UserCommonTable" EntityType="Self.UserCommonTable" Schema="Main" store:Type="Tables" />
           <EntitySet Name="UserCompany" EntityType="Self.UserCompany" Schema="Main" store:Type="Tables" />
           <EntitySet Name="UserPersonalInfo" EntityType="Self.UserPersonalInfo" Schema="Main" store:Type="Tables" />
-          <AssociationSet Name="FK__Artist__UserID__690797E6" Association="Self.FK__Artist__UserID__690797E6">
+          <AssociationSet Name="DF__ParentCom__Comme__0A9D95DB" Association="Self.DF__ParentCom__Comme__0A9D95DB">
             <End Role="UserCommonTable" EntitySet="UserCommonTable" />
-            <End Role="Artist" EntitySet="Artist" />
+            <End Role="ParentCommentTable" EntitySet="ParentCommentTable" />
           </AssociationSet>
           <AssociationSet Name="FK__Artist_Ar__Artis__4A8310C6" Association="Self.FK__Artist_Ar__Artis__4A8310C6">
             <End Role="Artist" EntitySet="Artist" />
@@ -1041,10 +1037,6 @@
           <AssociationSet Name="FK__Bulletin__UserID__7EF6D905" Association="Self.FK__Bulletin__UserID__7EF6D905">
             <End Role="UserCommonTable" EntitySet="UserCommonTable" />
             <End Role="Bulletin" EntitySet="Bulletin" />
-          </AssociationSet>
-          <AssociationSet Name="FK__BulletinC__Paren__2057CCD0" Association="Self.FK__BulletinC__Paren__2057CCD0">
-            <End Role="BulletinCommentTable" EntitySet="BulletinCommentTable" />
-            <End Role="BulletinCommentTable1" EntitySet="BulletinCommentTable" />
           </AssociationSet>
           <AssociationSet Name="FK__BulletinC__PostI__1E6F845E" Association="Self.FK__BulletinC__PostI__1E6F845E">
             <End Role="Bulletin" EntitySet="Bulletin" />
@@ -1086,10 +1078,6 @@
             <End Role="UserCommonTable" EntitySet="UserCommonTable" />
             <End Role="Orchestra" EntitySet="Orchestra" />
           </AssociationSet>
-          <AssociationSet Name="FK__ParentCom__UserI__00DF2177" Association="Self.FK__ParentCom__UserI__00DF2177">
-            <End Role="UserCommonTable" EntitySet="UserCommonTable" />
-            <End Role="ParentCommentTable" EntitySet="ParentCommentTable" />
-          </AssociationSet>
           <AssociationSet Name="FK__Performan__Artis__793DFFAF" Association="Self.FK__Performan__Artis__793DFFAF">
             <End Role="Artist" EntitySet="Artist" />
             <End Role="PerformanceDetail_Instrument_Artist" EntitySet="PerformanceDetail_Instrument_Artist" />
@@ -1123,16 +1111,12 @@
             <End Role="PerformanceParentCommentTable1" EntitySet="PerformanceParentCommentTable" />
           </AssociationSet>
           <AssociationSet Name="FK__Performan__Perfo__11158940" Association="Self.FK__Performan__Perfo__11158940">
-            <End Role="Performance" EntitySet="Performance" />
+            <End Role="UserCommonTable" EntitySet="UserCommonTable" />
             <End Role="PerformanceParentCommentTable" EntitySet="PerformanceParentCommentTable" />
           </AssociationSet>
           <AssociationSet Name="FK__Performan__Perfo__1A9EF37A" Association="Self.FK__Performan__Perfo__1A9EF37A">
             <End Role="Performance" EntitySet="Performance" />
             <End Role="PerformanceLikeUnlike" EntitySet="PerformanceLikeUnlike" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Performan__Perfo__503BEA1C" Association="Self.FK__Performan__Perfo__503BEA1C">
-            <End Role="Performance" EntitySet="Performance" />
-            <End Role="PerformanceDetail" EntitySet="PerformanceDetail" />
           </AssociationSet>
           <AssociationSet Name="FK__Performan__Perfo__7849DB76" Association="Self.FK__Performan__Perfo__7849DB76">
             <End Role="PerformanceDetail" EntitySet="PerformanceDetail" />
@@ -1162,13 +1146,13 @@
             <End Role="Endorser" EntitySet="Endorser" />
             <End Role="User_Endorser" EntitySet="User_Endorser" />
           </AssociationSet>
-          <AssociationSet Name="FK__User_Endo__UserI__70A8B9AE" Association="Self.FK__User_Endo__UserI__70A8B9AE">
-            <End Role="UserCommonTable" EntitySet="UserCommonTable" />
-            <End Role="User_Endorser" EntitySet="User_Endorser" />
-          </AssociationSet>
           <AssociationSet Name="FK__User_User__UserI__395884C4" Association="Self.FK__User_User__UserI__395884C4">
             <End Role="UserCommonTable" EntitySet="UserCommonTable" />
             <End Role="User_UserType" EntitySet="User_UserType" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User_User__UserI__395884C41" Association="Self.FK__User_User__UserI__395884C41">
+            <End Role="Performance" EntitySet="Performance" />
+            <End Role="PerformanceDetail" EntitySet="PerformanceDetail" />
           </AssociationSet>
           <AssociationSet Name="FK__User_User__UserT__3A4CA8FD" Association="Self.FK__User_User__UserT__3A4CA8FD">
             <End Role="UserType" EntitySet="UserType" />
@@ -2258,9 +2242,9 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="FamilyName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="MiddleName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FamilyName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />

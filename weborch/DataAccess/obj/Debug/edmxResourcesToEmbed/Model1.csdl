@@ -1063,9 +1063,9 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="FamilyName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="MiddleName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="FamilyName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />

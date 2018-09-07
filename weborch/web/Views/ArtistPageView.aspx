@@ -112,7 +112,7 @@ FROM   core.artist
                                                 <strong>Instruments: </strong>
                                                 <%#Eval("instruments") %>
                                             </p>
-                                            <a href="ArtistProfilePaage.aspx?ID=<%#Eval("ID") %> " class="btn btn-default">Home Page</a>
+                                            <a href="ArtistProfilePaage.aspx?ID=<%#Eval("ID") %> " class="btn btn-default" ><%= Resources.HomeView.aspx.Homepage %></a>
                                         </div>
                                     </div>
                                 </div>
