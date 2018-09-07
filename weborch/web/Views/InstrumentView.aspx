@@ -24,14 +24,45 @@
                     <asp:Repeater runat="server" ID="instrumentrepeater">
 
                         <ItemTemplate>
-                            <div class="col-lg-3 col-sm-6 text-center" style="margin-bottom:1rem;padding-left: 5px; padding-right: 5px;">
-                                <div class="instrumentcontainer">
+                            <div class="col-lg-3 col-sm-6 text-center" style="margin-bottom:1rem;padding-left: 5px; padding-right: 5px;" data-toggle="modal" data-target="#exampleModal<%#Eval("ID")%>">
+                                <div class="instrumentcontainer" >
                                 <img height="200" class="rounded-circle img-fluid d-block mx-auto" src="../Document/<%#Eval("PhotoLocation") %>"" alt="" style=" padding-top:5px;" >
-                                <h3 style="margin-top:5px;"><%#Eval("EnglishName")%></h3>
-                                <p><%# Eval("Explanation").ToString().Length<40? "<br/><br/>":Eval("Explanation").ToString().Length>40?Eval("Explanation").ToString().Substring(0,40):Eval("Explanation").ToString() %></p>
+                                <h3  style="margin-top:5px;"><%#Eval("EnglishName")%></h3>
+                                <p ><%# Eval("Explanation").ToString().Length<40? "<br/><br/>":Eval("Explanation").ToString().Length>40?Eval("Explanation").ToString().Substring(0,40):Eval("Explanation").ToString() %></p>
 
                                 </div>
                             </div>
+
+                            <div class="modal fade" id="exampleModal<%#Eval("ID")%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel"  style="color:darkslategrey;"><%#Eval("EnglishName")%></h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                      <div style="text-align:center">
+                                        <img height="300" class="rounded-circle img-fluid d-block mx-auto " src="../Document/<%#Eval("PhotoLocation") %>"" alt="" style=" padding-top:5px;" >
+                                          <br />
+                                      </div>
+                                      <div style="color:darkslategrey;">
+                                          <br />
+                                          Name: <strong> <%#Eval("EnglishName")%> [<%#Eval("KoreanName")%>]</strong> <br />
+                                          Alias: <strong> <%#Eval("Alias")%> </strong><br />
+                                          Player: <strong> <%#Eval("Player")%> </strong> <br />
+                                          Group: <strong> <%#Eval("Group")%>  </strong><br /><br />
+                                          Explanation: <strong> <%#Eval("Explanation")%> </strong> <br />
+                                      </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
                         </ItemTemplate>
 
                     </asp:Repeater>
