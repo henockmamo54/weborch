@@ -262,9 +262,9 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MSG" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="URL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-    <Property Name="ImageUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="MSG" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="URL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ImageUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="TimeStamp" Type="DateTime" Precision="3" />
     <Property Name="UserID" Type="Int32" />
     <Property Name="BulletinTypeID" Type="Int32" />
@@ -1231,7 +1231,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CommentMessage" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="CommentMessage" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="CommentDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="PostID" Type="Int32" />
     <Property Name="UserID" Type="Int32" />

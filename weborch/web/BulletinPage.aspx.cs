@@ -83,6 +83,8 @@ namespace web
 
                 Bulletin bulletin = new Bulletin();
                 //bulletin.MSG = txt_bulmsg.Text;
+                if (msg.Length > 400) msg = msg.Substring(0, 398);
+
                 bulletin.MSG = msg;
                 bulletin.URL = txt_bulurl.Text;
                 bulletin.TimeStamp = DateTime.Now;
@@ -237,6 +239,12 @@ namespace web
 
         protected void btnAddDetailComment_Click(object sender, CommandEventArgs e)
         {
+            if (user == null)
+            {
+                showMsg("Please sign in to write comments!!!");
+                return;
+            }
+
             RepeaterItem item = (sender as Button).NamingContainer as RepeaterItem;
             string message = (item.FindControl("txtCommentReplyParent") as TextBox).Text;
 
