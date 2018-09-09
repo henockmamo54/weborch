@@ -20,13 +20,13 @@
                 </div>
                 <div class="col-md-10">
 
-                    <div class="col-md-12 shadowedPanel" style="height: 220px; background-color:white;">
+                    <div class="col-md-12 shadowedPanel" style="height: 220px; background-color: white;">
                         <div class="rwo">
                             <label><%= Resources.HomeView.aspx.WhatkindOfUserAreyou %></label>
                             <div class="col-md-12 form-group">
                                 <br />
                                 <%= Resources.HomeView.aspx.Individual %>
-                            <asp:CheckBox runat="server" ID="chk_Composer" Text="<%$Resources:HomeView.aspx,Composer %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                                <asp:CheckBox runat="server" ID="chk_Composer" Text="<%$Resources:HomeView.aspx,Composer %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
                                 <asp:CheckBox runat="server" ID="chk_Conductor" Text="<%$Resources:HomeView.aspx,Conductor %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
                                 <asp:CheckBox runat="server" ID="chk_tp" Text="<%$Resources:HomeView.aspx,Teacher_Professor %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
                                 <asp:CheckBox runat="server" ID="chk_Student" Text="<%$Resources:HomeView.aspx,Student %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
@@ -36,7 +36,7 @@
                                 <br />
                                 <br />
                                 <%= Resources.HomeView.aspx.Company %>
-                            <asp:CheckBox runat="server" ID="chk_Orchestra" Text="<%$Resources:HomeView.aspx,Orchestra %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                                <asp:CheckBox runat="server" ID="chk_Orchestra" Text="<%$Resources:HomeView.aspx,Orchestra %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
                                 <asp:CheckBox runat="server" ID="chk_Promoter" Text="<%$Resources:HomeView.aspx,Promoter %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
                                 <asp:CheckBox runat="server" ID="chk_Agent" Text="<%$Resources:HomeView.aspx,Agent %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
                                 <asp:CheckBox runat="server" ID="chk_shopOwner" Text="<%$Resources:HomeView.aspx,ShopOwner %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
@@ -51,11 +51,11 @@
 
                     </div>
                     <br />
-                    <div runat="server" id="PersonInfoFormContainer" visible="false" style="background-color:white;" class="col-md-12 shadowedPanel">
+                    <div runat="server" id="PersonInfoFormContainer" visible="false" style="background-color: white;" class="col-md-12 shadowedPanel">
                         <div class="row">
                             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                 <ContentTemplate>
-                                    <div class="col-md-12" style="padding: 0; ">
+                                    <div class="col-md-12" style="padding: 0;">
                                         <div class="col-md-6 form-group" style="padding: 0;">
                                             <div>
                                                 <div class="col-md-12">
@@ -158,7 +158,10 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                     <br />
                                                     <div class="col-md-4"><%= Resources.HomeView.aspx.MobileNo %>:</div>
                                                     <div class="col-md-6">
-                                                        <asp:TextBox ID="umobileno" runat="server" class="form-control"></asp:TextBox>
+                                                        
+                                                        <asp:TextBox ID="umobileno1" runat="server" class="form-control" MaxLength="3" style="display: inline-block; width: 25%;"></asp:TextBox>
+                                                        <asp:TextBox ID="umobileno2" runat="server" class="form-control" MaxLength="4" style="display: inline-block; width: 35%;"></asp:TextBox>
+                                                        <asp:TextBox ID="umobileno3" runat="server" class="form-control" MaxLength="4" style="display: inline-block; width: 35%;"></asp:TextBox>
                                                     </div>
                                                     <br />
                                                 </div>
@@ -192,13 +195,9 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                     <div class="col-md-4"><%= Resources.HomeView.aspx.MajorInstrument1 %>:</div>
                                                     <div class="col-md-6">
 
-                                                        <asp:SqlDataSource ID="SqlDataSource3_instrumentlist" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="--SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument
-
-
-
-select -1 as ID, 'None' as EnglishName, 'None' as KoreanName, 'None' as [Group] 
+                                                        <asp:SqlDataSource ID="SqlDataSource3_instrumentlist" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="select 1 row, -1 as ID, 'None' as EnglishName, 'None' as KoreanName, 'None' as [Group] 
 union
-SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataSource>
+SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, KoreanName, [Group] FROM Core.Instrument "></asp:SqlDataSource>
                                                         <asp:DropDownList ID="DropDownList1_mjInst1" class="form-control" runat="server" DataSourceID="SqlDataSource3_instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
 
                                                         <%--<asp:TextBox ID="umajorinst1" runat="server" class="form-control"></asp:TextBox>--%>
@@ -302,7 +301,7 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
                                                     </ItemTemplate>
                                                 </asp:Repeater>
                                             </div>
-                                            
+
                                         </div>
 
 
@@ -316,9 +315,9 @@ SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataS
 
                         </div>
                     </div>
-                    <div runat="server" id="CompanyInfoFormContainer" style="background-color:white;" visible="false" class="col-md-12 shadowedPanel">
+                    <div runat="server" id="CompanyInfoFormContainer" style="background-color: white;" visible="false" class="col-md-12 shadowedPanel">
                         <div class="row">
-                            <div class=" row col-md-12 form-group" >
+                            <div class=" row col-md-12 form-group">
 
                                 <div class="col-md-6 ">
                                     <div>
@@ -560,7 +559,7 @@ where al.Name='Conductor'
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" ><%= Resources.HomeView.aspx.Close %></button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= Resources.HomeView.aspx.Close %></button>
                             <asp:Button runat="server" type="button" class="btn btn-primary" Text="<%$Resources:HomeView.aspx,Save %>" ID="btnAddReview" OnClick="btnAddEndorser_Click" />
                         </div>
                     </div>

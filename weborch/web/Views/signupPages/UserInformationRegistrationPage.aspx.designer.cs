@@ -247,13 +247,31 @@ namespace web.Views.signupPages {
         protected global::System.Web.UI.WebControls.TextBox uaddress;
         
         /// <summary>
-        /// umobileno control.
+        /// umobileno1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox umobileno;
+        protected global::System.Web.UI.WebControls.TextBox umobileno1;
+        
+        /// <summary>
+        /// umobileno2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox umobileno2;
+        
+        /// <summary>
+        /// umobileno3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox umobileno3;
         
         /// <summary>
         /// ufacebookadd control.

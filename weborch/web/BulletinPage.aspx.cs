@@ -73,6 +73,7 @@ namespace web
                     else
                     {
                         showMsg("you can upload only jpeg,jpg,png,gif file formats");
+                        return;
                     }
                 }
                 else

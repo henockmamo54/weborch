@@ -246,7 +246,7 @@ namespace web.Views.signupPages
                         user.Email = uemail.Text;
                         user.Password = upassword.Text;
                         user.isActive = true;
-                        user.MobileNumber = umobileno.Text;
+                        user.MobileNumber = umobileno1.Text + umobileno2.Text + umobileno3.Text;
 
                         context.UserCommonTables.Add(user);
                         context.SaveChanges();
@@ -274,7 +274,7 @@ namespace web.Views.signupPages
                         personalInfo.Birthday = DateTime.ParseExact(userBirthDate.Value, "dd/mm/yyyy", CultureInfo.InvariantCulture);
                         personalInfo.ZipCode = uzipcode.Text;
                         personalInfo.Address = uaddress.Text;
-                        personalInfo.MobileNumber = umobileno.Text;
+                        personalInfo.MobileNumber = umobileno1.Text + umobileno2.Text + umobileno3.Text;
                         personalInfo.FacebookAddress = ufacebookadd.Text;
                         personalInfo.TwitterAddress = utwitter.Text;
                         personalInfo.KakaoTalkAddress = ukakao.Text;
@@ -382,6 +382,8 @@ namespace web.Views.signupPages
 
                         dbContextTransaction.Commit();
                         isSuccess = true;
+                        //login in the user
+                        Session["User"] = user;
 
                     }
                     catch (Exception ee)
@@ -392,7 +394,7 @@ namespace web.Views.signupPages
 
                     if (isSuccess)
                     {
-                        showMsg("Data inserted succssfuly");
+                        showMsg("Data inserted succssfuly");                        
                         Response.Redirect("~/Views/HomeView.aspx");
                     }
                     else showMsg("Please check your inputs");

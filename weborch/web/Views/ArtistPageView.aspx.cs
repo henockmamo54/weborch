@@ -70,7 +70,7 @@ namespace web
                 filterQuery += " core.artist.familyname like N'%" + txtbox_namefilter.Text + "%'";
             }
 
-            SqlDataSource3_ArtistListForAudience.SelectCommand = string.Format(@"SELECT core.artist.firstname,
+            SqlDataSource3_ArtistListForAudience.SelectCommand = string.Format(@"SELECT core.artist.ID, core.artist.firstname,
                                                                        core.artist.middlename,
                                                                        core.artist.familyname,
                                                                        core.artist.photo1,
