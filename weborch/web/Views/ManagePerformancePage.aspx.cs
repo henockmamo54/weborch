@@ -71,8 +71,8 @@ namespace web.Views
                 p.OrganizerInfo = txt_organizerinfo.Text;
                 p.VideoLocation = txt_videolocation.Text;
                 //p.PerformanceDay = "Sunday";
-                getPhoto(p, FileUpload1, 1);
-                getPhoto(p, FileUpload3, 2);
+                if(!getPhoto(p, FileUpload1, 1)) return;
+                if (!getPhoto(p, FileUpload3, 2)) return;
 
                 if (pl.insertPerformance(p))
                 {
@@ -95,7 +95,7 @@ namespace web.Views
         }
 
 
-        public void getPhoto(Performance p, FileUpload fileupload, int photonumber)
+        public bool getPhoto(Performance p, FileUpload fileupload, int photonumber)
         {
 
             if (fileupload.HasFiles)
@@ -109,13 +109,14 @@ namespace web.Views
                 else
                 {
                     showMsg("you can upload only jpeg,jpg,png,gif file formats");
+                    return false;
                 }
             }
             if (photonumber == 1)
                 p.PhotoAddLocation = fileupload.FileName;
             if (photonumber == 2)
                 p.Brochure = fileupload.FileName;
-
+            return true;
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)

@@ -33,12 +33,12 @@
                                             <img src="../Document/<%#Eval("PhotoAddLocation") %>" class="shadowedbox" alt="Lights" style="width: 100%; height: 200px;">
 
                                             <div class="caption" style="padding-bottom:3px;">
-                                                <h4><%# (Eval("PerformanceTitle")) .ToString().Length>30?
-                                                           (Eval("PerformanceTitle")) .ToString().Substring(0,30)+ " ....":
+                                                <h4><%# (Eval("PerformanceTitle")) .ToString().Length>20?
+                                                           (Eval("PerformanceTitle")) .ToString().Substring(0,20)+ " ....":
                                                            (Eval("PerformanceTitle")) .ToString()%></h4>
                                                 <p style="font-family: Roboto, Arial, sans-serif; margin-bottom:0px;">
-                                                    <%# ( Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString().Length>50?
-                                                           (Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString().Substring(0,50)+ " ....See More":
+                                                    <%# ( Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString().Length>40?
+                                                           (Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString().Substring(0,40)+ " ....See More":
                                                             (Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString() +"<br/>"
                                                             + " .... See More" %>
                                                 </p>
