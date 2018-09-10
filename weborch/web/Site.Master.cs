@@ -77,6 +77,7 @@ namespace web
         }
         protected void signoutClicked(object sender, EventArgs e) {
             Session.Clear();
+            Session["User"] = null;
             Response.Redirect("~/Views/HomeView.aspx");
         }
         

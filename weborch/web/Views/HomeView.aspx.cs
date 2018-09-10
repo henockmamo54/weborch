@@ -32,12 +32,12 @@ namespace web
             System.Diagnostics.Debug.WriteLine(dropdownlist_bulletinType.SelectedValue + "===================>");
             if (int.Parse(dropdownlist_bulletinType.SelectedValue) != -1)
             {
-                SqlDataSource1_bulletininfo.SelectCommand = @"SELECT  [ID], [MSG], [URL], [ImageUrl], [TimeStamp],BulletinTypeID FROM core.Bulletin where BulletinTypeID=" + dropdownlist_bulletinType.SelectedValue;
+                SqlDataSource1_bulletininfo.SelectCommand = @"SELECT  [ID], [MSG], [URL], [ImageUrl], [TimeStamp],BulletinTypeID FROM core.Bulletin where BulletinTypeID=" + dropdownlist_bulletinType.SelectedValue + " order by TimeStamp desc";
                 SqlDataSource1_bulletininfo.DataBind();
             }
             else
             {
-                SqlDataSource1_bulletininfo.SelectCommand = @"SELECT  [ID], [MSG], [URL], [ImageUrl], [TimeStamp],BulletinTypeID FROM core.Bulletin";
+                SqlDataSource1_bulletininfo.SelectCommand = @"SELECT  [ID], [MSG], [URL], [ImageUrl], [TimeStamp],BulletinTypeID FROM core.Bulletin order by TimeStamp desc";
                 SqlDataSource1_bulletininfo.DataBind();
             }
         }

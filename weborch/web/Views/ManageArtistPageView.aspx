@@ -706,6 +706,7 @@ where id=@ID"
             <Triggers>
                 <asp:PostBackTrigger ControlID="btn_artist_add" />
                 <asp:PostBackTrigger ControlID="btnsaveimagechange" />
+                <asp:PostBackTrigger ControlID="btn_artist_save" />
             </Triggers>
 
         </asp:UpdatePanel>
@@ -718,6 +719,12 @@ where id=@ID"
 
 
         function bindDateTime() {
+            $('#datetimepicker2').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        }
+
+        function showdattime() {
             $('#datetimepicker2').datetimepicker({
                 format: 'DD/MM/YYYY'
             });

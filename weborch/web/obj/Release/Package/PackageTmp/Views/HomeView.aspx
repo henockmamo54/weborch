@@ -84,7 +84,7 @@ SELECT [ID], [Name] FROM lookup.[BulletinType]"></asp:SqlDataSource>
                                         </table>
                                     </FooterTemplate>
                                 </asp:Repeater>
-                                <asp:SqlDataSource ID="SqlDataSource1_bulletininfo" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [ID], [MSG], [URL], [ImageUrl], [TimeStamp],BulletinTypeID FROM core.Bulletin">
+                                <asp:SqlDataSource ID="SqlDataSource1_bulletininfo" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [ID], [MSG], [URL], [ImageUrl], [TimeStamp],BulletinTypeID FROM core.Bulletin order by TimeStamp desc">
                                     <FilterParameters>
                                         <asp:ControlParameter ControlID="dropdownlist_bulletinType" DefaultValue="-1" Name="bulletinType" PropertyName="SelectedValue" />
                                     </FilterParameters>

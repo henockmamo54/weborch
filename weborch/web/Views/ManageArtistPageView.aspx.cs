@@ -181,8 +181,8 @@ namespace web
                 artist.FacebookAddress = ufacebookadd.Text;
                 artist.TwitterAddress = utwitter.Text;
                 artist.KakaoTalkAddress = ukakao.Text;
-                getPhoto(artist, 1, FileUpload5);
-                getPhoto(artist, 2, FileUpload6);
+                if (!getPhoto(artist, 1, FileUpload5)) return;
+                if (getPhoto(artist, 2, FileUpload6)) return;
 
                 artist.ProfilePage = uprofilepage.Text;
                 artist.Repertory = urepertory.Text;
@@ -433,7 +433,7 @@ namespace web
         }
 
 
-        public void getPhoto(Artist info, int photonumber, FileUpload fileupload)
+        public bool getPhoto(Artist info, int photonumber, FileUpload fileupload)
         {
 
             if (fileupload.HasFiles)
@@ -447,6 +447,7 @@ namespace web
                 else
                 {
                     showMsg("you can upload only jpeg,jpg,png,gif file formats");
+                    return false;
                 }
             }
 
@@ -455,7 +456,7 @@ namespace web
             else
                 info.Photo2 = fileupload.FileName;
 
-
+            return true;
         }
 
         public void chk_boxChanged(object sender, EventArgs e)

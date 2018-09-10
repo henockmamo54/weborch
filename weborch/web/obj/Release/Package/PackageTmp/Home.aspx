@@ -69,7 +69,7 @@
                                     </table>
                                 </FooterTemplate>
                             </asp:Repeater>
-                            <asp:SqlDataSource ID="SqlDataSource1_bulletininfo" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [ID], [MSG], [URL], [ImageUrl], [TimeStamp] FROM core.Bulletin"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="SqlDataSource1_bulletininfo" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [ID], [MSG], [URL], [ImageUrl], [TimeStamp] FROM core.Bulletin order by TimeStamp desc"></asp:SqlDataSource>
                             <%--<div class="panel-footer">Panel Footer</div>--%>
                         </div>
                     </div>

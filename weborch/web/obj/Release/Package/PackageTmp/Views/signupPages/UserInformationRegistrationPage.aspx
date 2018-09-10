@@ -499,12 +499,12 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                     <div class="col-md-8">
                                         <%--<asp:TextBox ID="txt_orchcondactername" runat="server" class="form-control"></asp:TextBox>--%>
                                         <asp:DropDownList ID="DropDownList2_conductor" runat="server" DataSourceID="SqlDataSource3_conductor" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
-                                        <asp:SqlDataSource ID="SqlDataSource3_conductor" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="select (FirstName + ' '+ MiddleName + ' '+ FamilyName) as Name, ID
+                                        <asp:SqlDataSource ID="SqlDataSource3_conductor" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="select ( isnull(FirstName,'') + ' '+ isnull(MiddleName,'') + ' '+ isnull(FamilyName,'')) as Name, ID
 from(
-select a.ID,a.FirstName,a.MiddleName,a.FamilyName from Core.Artist a 
+select a.ID,a.FirstName,a.MiddleName,a.FamilyName,al.Name from Core.Artist a 
 join Drived.Artist_ArtistType at on a.ID= at.Artist
 join Lookup.ArtistType al  on at.ArtistTypeID = al.ID
-where al.Name='Conductor'
+where al.Name like '%Conductor%'
 ) a"></asp:SqlDataSource>
                                     </div>
                                     <br />

@@ -20,17 +20,23 @@
                                         <%#Eval("TimeStamp") %>
                                     </div>
                                     <table style="margin-left: 0.2em;">
+
+                                        <tr id="title" runat="server">
+                                            <td style="width: 100%"><h4><strong><%#Server.HtmlDecode(Eval("Title").ToString()) %></strong></h4></td>
+                                        </tr>
+
                                         <tr>
-                                            <asp:Image ID="imagecontainer" runat="server" ImageUrl='Document/<%#Eval("ImageUrl") %>' style="width: 100%; padding-bottom:0.5em;" />
+                                            <td>
+                                            <asp:Image ID="imagecontainer" runat="server" ImageUrl='../Document/<%#Eval("ImageUrl") %>' style="width: 100%; padding-bottom:0.5em;" />
+                                            </td>
 
                                             <%--<img  id="imagecontainer" src="Document/<%#Eval("ImageUrl") %>" style="width: 100%" />--%>
                                         </tr>
-                                        <tr id="title" runat="server">
-                                            <td style="width: 100%"><strong><%#Server.HtmlDecode(Eval("Title").ToString()) %></strong></td>
-                                        </tr>
+
                                         <tr id="paddedMSG" runat="server">
                                             <td style="width: 100%; padding-left:1rem;"><%#Server.HtmlDecode(Eval("MSG").ToString()) %></td>
                                         </tr>
+
                                         <tr id="MSG" runat="server">
                                             <td style="width: 100%"><%#Server.HtmlDecode(Eval("MSG").ToString()) %></td>
                                         </tr>

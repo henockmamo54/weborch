@@ -51,7 +51,7 @@ where ID=@ID"
 values (@OfficialName, @Alias, @URL, @Address, @ZipCode, @TelNO, @FaxNo, @ConductorName, @Since)"
                         SelectCommand="SELECT o.ID, OfficialName, Alias, URL, o.Address, o.ZipCode, o.TelNO,o.FaxNo, ConductorID, Since,  ConductorName= FirstName + ' '+ MiddleName+ ' ' + FamilyName
 FROM Core.Orchestra o
-join core.artist a on o.ConductorID = a. ID"
+left join core.artist a on o.ConductorID = a. ID"
                         UpdateCommand="Update Core.Orchestra
 set
 OfficialName=@OfficialName, 
