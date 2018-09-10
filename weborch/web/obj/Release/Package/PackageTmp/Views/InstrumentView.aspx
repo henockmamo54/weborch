@@ -77,7 +77,7 @@ EnglishName, KoreanName, Alias, Player, [Group], Explanation, SoundClipLocation,
 values
 (@EnglishName, @KoreanName, @Alias, @Player, @Group, @Explanation, @SoundClipLocation, @VideoClipLocation, @PhotoLocation, @Remarks)"
                                 SelectCommand="SELECT ID, EnglishName, KoreanName, Alias, Player, [Group], Explanation, SoundClipLocation, VideoClipLocation, PhotoLocation, Remarks FROM Core.Instrument
-order by ID desc"
+order by EnglishName asc"
                                 UpdateCommand="
 Update Core.Instrument
 set

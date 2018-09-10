@@ -36,11 +36,9 @@ SELECT  Name,ID FROM Lookup.ArtistType
                         </div>
                         <div class="col-md-3 pull-right">
                             <h5 style="display: inline-block;">Instrument: </h5>
-                            <asp:SqlDataSource ID="SqlDataSource3_instrumentListForFilter" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT ID=-1, EnglishName='All', KoreanName = 'ALL', [Group] ='ALL'  FROM Core.Instrument
+                            <asp:SqlDataSource ID="SqlDataSource3_instrumentListForFilter" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="select 1 row, -1 as ID, 'None' as EnglishName, 'None' as KoreanName, 'None' as [Group] 
 union
-SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument
-
-order by EnglishName"></asp:SqlDataSource>
+SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, KoreanName, [Group] FROM Core.Instrument "></asp:SqlDataSource>
                             <asp:DropDownList ID="DropDownList1_instrumentTypeFilter" CssClass="form-control pull-right" Style="width: 70%;" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource3_instrumentListForFilter" DataTextField="EnglishName" DataValueField="ID" OnSelectedIndexChanged="DropDownList1_artistType_SelectedIndexChanged"></asp:DropDownList>
                         </div>
                         <div class="col-md-3 pull-right">
