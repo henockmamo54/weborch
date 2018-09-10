@@ -29,7 +29,7 @@
                             <ItemTemplate>
                                 <div class="col-md-4" style="margin-bottom: 1em;">
                                     <div class="thumbnail shadowedbox" style="box-shadow: 2px 2px 2px #d0d0d0;">
-                                        <asp:LinkButton runat="server" ID="tumbinallink" target="_blank" Style="text-decoration: none;">
+                                        <asp:LinkButton runat="server" ID="tumbinallink"  Style="text-decoration: none;">
                                             <img src="../Document/<%#Eval("PhotoAddLocation") %>" class="shadowedbox" alt="Lights" style="width: 100%; height: 200px;">
 
                                             <div class="caption" style="padding-bottom:3px;">
@@ -61,7 +61,7 @@
             <div class="row ">
                 <asp:SqlDataSource ID="SqlDataSource2_allPerformances" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
 SELECT p.*, OfficialName  FROM Main.Performance p
-join Core.Orchestra o on p.OrchestraID=o.ID"
+join Core.Orchestra o on p.OrchestraID=o.ID order by StartDate"
                     DeleteCommand="Delete Main.Performance
 where id = @ID"
                     UpdateCommand="update Main.Performance
