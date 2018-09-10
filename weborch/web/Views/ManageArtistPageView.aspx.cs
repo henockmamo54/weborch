@@ -181,8 +181,9 @@ namespace web
                 artist.FacebookAddress = ufacebookadd.Text;
                 artist.TwitterAddress = utwitter.Text;
                 artist.KakaoTalkAddress = ukakao.Text;
-                if (!getPhoto(artist, 1, FileUpload5)) return;
-                if (getPhoto(artist, 2, FileUpload6)) return;
+                if (!getPhoto(artist, 1, FileUpload5)) { showMsg("Please select Photo1 for profile"); return; }
+                //if (!getPhoto(artist, 2, FileUpload6)) return;
+                getPhoto(artist, 2, FileUpload6);
 
                 artist.ProfilePage = uprofilepage.Text;
                 artist.Repertory = urepertory.Text;
@@ -450,6 +451,7 @@ namespace web
                     return false;
                 }
             }
+            if (!fileupload.HasFiles) return false;
 
             if (photonumber == 1)
                 info.Photo1 = fileupload.FileName;
