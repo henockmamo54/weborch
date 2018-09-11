@@ -31,7 +31,7 @@
                                         <span>Since: <%#Eval("Since") %></span>
                                         <br />
                                         <span>Conductor: <%#Eval("ConductorName") %></span><br />
-                                        <span>Address: <%#Eval("Address") %></span><br />
+                                        <span>Address: <%#Eval("Address").ToString().Length>20?Eval("Address").ToString().Substring(0,20):Eval("Address").ToString() %></span><br />
                                         <span>ZipCode: <%#Eval("ZipCode") %></span><br />
                                         <span>TelNO: <%#Eval("TelNO") %></span><br />
                                         <span>FaxNo: <%#Eval("FaxNo") %></span><br />

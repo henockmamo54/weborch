@@ -502,13 +502,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/03/2018 17:34:48</publishTime>
     </File>
     <File Include="Views/OrchestraView.aspx">
-      <publishTime>09/10/2018 18:53:25</publishTime>
+      <publishTime>09/11/2018 09:25:12</publishTime>
     </File>
     <File Include="Views/PerformanceDetailPage.aspx">
       <publishTime>08/30/2018 22:45:10</publishTime>
     </File>
     <File Include="Views/PerformancePage.aspx">
-      <publishTime>09/10/2018 23:07:19</publishTime>
+      <publishTime>09/11/2018 09:19:20</publishTime>
     </File>
     <File Include="Views/signupPages/TermsOfUsePage.aspx">
       <publishTime>08/23/2018 15:05:35</publishTime>
