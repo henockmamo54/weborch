@@ -187,10 +187,19 @@
 
                     <h3 style="margin-top: 0;">Musical performance program</h3>
                     <p>
-                        <strong>Note:</strong> The performance Organized by <strong><span runat="server" id="organizer"></span></strong>
+                        Organizer: <strong><span runat="server" id="organizer"></span></strong> <br />
+                        Player (Team): <strong><span runat="server" id="orchestra"></span></strong> <br />
+                        Location: <strong><span runat="server" id="location"></span></strong> <br />
+                        Concert Hall: <strong><span runat="server" id="concerthall"></span></strong><br />
+                        Start date: <strong><span runat="server" id="startingdate"></span></strong><br />
+                        End date: <strong><span runat="server" id="enddate"></span></strong>
+                        Ticket box: <strong><span runat="server" id="ticketbox"></span></strong>
+                        Performance Hour: <strong><span runat="server" id="performancehour"></span></strong>
+
+                        <%--<strong>Note:</strong> The performance Organized by <strong><span runat="server" id="organizer"></span></strong>
                         will be held in <strong><span runat="server" id="location"></span></strong>at <strong><span runat="server" id="concerthall"></span></strong>
                         starting from <strong><span runat="server" id="startingdate"></span></strong>to <strong><span runat="server" id="enddate"></span></strong>. 
-                        The following is the schdule of the program
+                        The following is the schdule of the program--%>
                     </p>
 
                     <div class="row">

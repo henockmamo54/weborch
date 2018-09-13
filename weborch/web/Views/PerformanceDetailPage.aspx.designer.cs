@@ -139,6 +139,15 @@ namespace web.Views {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl organizer;
         
         /// <summary>
+        /// orchestra control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl orchestra;
+        
+        /// <summary>
         /// location control.
         /// </summary>
         /// <remarks>
@@ -173,6 +182,24 @@ namespace web.Views {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl enddate;
+        
+        /// <summary>
+        /// ticketbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ticketbox;
+        
+        /// <summary>
+        /// performancehour control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl performancehour;
         
         /// <summary>
         /// talbereplacingrepeater control.

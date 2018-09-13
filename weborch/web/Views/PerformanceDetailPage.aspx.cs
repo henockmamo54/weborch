@@ -314,6 +314,12 @@ namespace web.Views
                 enddate.InnerText = ((DateTime)(p.EndDate)).ToShortDateString();
                 concerthall.InnerText = p.ConcertHall;
                 performanceTitle.InnerText = p.PerformanceTitle;
+                orchestra.InnerText = p.Orchestra.OfficialName;
+                startingdate.InnerText = (p.StartDate).ToString();
+                enddate.InnerText = p.EndDate.ToString();
+                ticketbox.InnerText = p.TicketBox;
+                performancehour.InnerText = p.PerformanceHour;
+                
 
 
             }

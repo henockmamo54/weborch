@@ -18,7 +18,7 @@
 
             <div class="row" id="formanaging" runat="server" visible="true">
 
-                <h2 style="margin-top: 0px; padding-top: 0px;">Musical Performances</h2>
+                <h2 style="margin-top: 0px; padding-top: 0px;">Musical Performance Information</h2>
 
                 <div class="row shadowedPanel" runat="server" id="PanelPerformanceRegiter" style="background: white; padding: 10px; margin-bottom: 10px;box-shadow: 1px 1px 1px 1px #d0d0d0;">
                     <div class="row">
