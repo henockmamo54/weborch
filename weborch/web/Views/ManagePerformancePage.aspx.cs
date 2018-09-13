@@ -151,6 +151,7 @@ namespace web.Views
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
+            
             int id = int.Parse(GridView1.Rows[e.NewEditIndex].Cells[1].Text);
             Performance a = entity.Performances.Where(x => x.ID == id).FirstOrDefault();
 

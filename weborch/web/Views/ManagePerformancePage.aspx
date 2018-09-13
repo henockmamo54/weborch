@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManagePerformancePage.aspx.cs" EnableEventValidation="false"  Inherits="web.Views.ManagePerformancePage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManagePerformancePage.aspx.cs" EnableEventValidation="false" Inherits="web.Views.ManagePerformancePage" %>
 
 
 
@@ -14,13 +14,13 @@
             <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
 
 
-            
+
 
             <div class="row" id="formanaging" runat="server" visible="true">
 
                 <h2 style="margin-top: 0px; padding-top: 0px;">Musical Performance Information</h2>
 
-                <div class="row shadowedPanel" runat="server" id="PanelPerformanceRegiter" style="background: white; padding: 10px; margin-bottom: 10px;box-shadow: 1px 1px 1px 1px #d0d0d0;">
+                <div class="row shadowedPanel" runat="server" id="PanelPerformanceRegiter" style="background: white; padding: 10px; margin-bottom: 10px; box-shadow: 1px 1px 1px 1px #d0d0d0;">
                     <div class="row">
                         <div class="col-md-4">
                             <br />
@@ -31,7 +31,7 @@
                             <br />
 
                         </div>
-                        
+
                         <div class="col-md-4">
                             <br />
                             <div class="col-md-4"><%= Resources.HomeView.aspx.MainTitleTheme %>:</div>
@@ -71,7 +71,7 @@
                             <br />
                         </div>
 
-                        
+
                         <div class="col-md-4">
                             <br />
                             <div class="col-md-4">Performance  Time:</div>
@@ -128,7 +128,7 @@
                                 <asp:SqlDataSource ID="SqlDataSource1_allOrchestra" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                             </div>
                             <div class="col-md-1">
-                                <asp:LinkButton runat="server" AutoPostBack="True" CssClass="btn btn-success pull-right" ID="showandhidebtnforthepanel" Text="+"  Style="margin-bottom: 10px;" PostBackUrl="~/Views/ManageOrchestraView.aspx"></asp:LinkButton>
+                                <asp:LinkButton runat="server" AutoPostBack="True" CssClass="btn btn-success pull-right" ID="showandhidebtnforthepanel" Text="+" Style="margin-bottom: 10px;" PostBackUrl="~/Views/ManageOrchestraView.aspx"></asp:LinkButton>
                             </div>
                             <br />
 
@@ -192,7 +192,7 @@ Location=@Location,
 --PhotoAddLocation=@PhotoAddLocation,
 VideoLocation=@VideoLocation,
 ConcertHall=@ConcertHall,
-PerformanceHour = @PerformanceHour, 
+PerformanceTime = @PerformanceTime, 
 OrganizerInfo = @OrganizerInfo , 
 MainTitle = @MainTitle,
 TicketBox = @TicketBox
@@ -211,7 +211,7 @@ where ID=@ID">
                             <asp:Parameter Name="VideoLocation" />
                             <asp:Parameter Name="ConcertHall" />
 
-                            <asp:Parameter Name="PerformanceHour" />
+                            <asp:Parameter Name="PerformanceTime" />
                             <asp:Parameter Name="OrganizerInfo" />
                             <asp:Parameter Name="MainTitle" />
 
@@ -222,6 +222,77 @@ where ID=@ID">
                 </div>
 
                 <div class="row" style="overflow-x: scroll;">
+
+                    <asp:GridView ID="GridView2" Style="overflow-x: scroll; width: 2000px;" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource2_allPerformances" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound"  OnRowEditing="GridView1_RowEditing">
+                        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                        <Columns>
+                            <asp:CommandField ItemStyle-Width="150px" ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True"
+                                ButtonType="Image" ControlStyle-Height="20px" DeleteImageUrl="http://icons.iconarchive.com/icons/everaldo/kids-icons/128/edit-delete-icon.png"
+                                EditImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/128/edit-validated-icon.png"
+                                SelectImageUrl="~/Document/detail2.png"
+                                CancelImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-edit-delete-icon.png"
+                                UpdateImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/128/Save-icon.png">
+                                <ControlStyle Height="20px" />
+                                <ItemStyle Width="150px" />
+                            </asp:CommandField>
+                            <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
+                            <asp:BoundField DataField="PerformanceTitle" HeaderText="PerformanceTitle" SortExpression="PerformanceTitle" />
+                            <asp:BoundField DataField="Location" HeaderText="Location" SortExpression="Location" />
+                            <asp:BoundField DataField="ConcertHall" HeaderText="ConcertHall" SortExpression="ConcertHall" />
+                            <asp:BoundField DataField="TimeStamp" HeaderText="TimeStamp" SortExpression="TimeStamp" />
+                            <%--<asp:BoundField DataField="UserID" HeaderText="UserID" SortExpression="UserID" />--%>
+                            <%--<asp:BoundField DataField="ExpiryDate" HeaderText="ExpiryDate" SortExpression="ExpiryDate" />--%>
+                            <%--<asp:BoundField DataField="OrchestraID" HeaderText="OrchestraID" SortExpression="OrchestraID" />--%>
+                            <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />
+                            <asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" />
+                            <%--<asp:BoundField DataField="PhotoAddLocation" HeaderText="PhotoAddLocation" SortExpression="PhotoAddLocation" />--%>
+                            
+                            <asp:TemplateField HeaderText="Brochure" SortExpression="Brochure">
+                                <EditItemTemplate>
+                                    <asp:Button ID="editButton3" CssClass="btn btn-info" runat="server" Text='<%$Resources:HomeView.aspx,Change %>' data-toggle="modal" data-target="#exampleModalLong2" />
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("Brochure") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            
+                            <asp:TemplateField HeaderText="<%$Resources:HomeView.aspx,PhotoAdLocation %>" SortExpression="PhotoAddLocation">
+                                <EditItemTemplate>
+                                    <asp:Button ID="editButton" CssClass="btn btn-info" runat="server" Text='<%$Resources:HomeView.aspx,Change %>' data-toggle="modal" data-target="#exampleModalLong" />
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("PhotoAddLocation") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="VideoLocation" HeaderText="VideoLocation" SortExpression="VideoLocation" />
+                            <asp:BoundField DataField="TicketBox" HeaderText="TicketBox" SortExpression="TicketBox" />
+                            <asp:BoundField DataField="PerformanceHour" HeaderText="PerformanceHour" SortExpression="PerformanceHour" />
+                            <asp:BoundField DataField="OrganizerInfo" HeaderText="OrganizerInfo" SortExpression="OrganizerInfo" />
+                            <%--<asp:CheckBoxField DataField="Archive" HeaderText="Archive" SortExpression="Archive" />--%>
+                            <%--<asp:BoundField DataField="Brochure" HeaderText="Brochure" SortExpression="Brochure" />--%>
+                            <asp:BoundField DataField="MainTitle" HeaderText="MainTitle" SortExpression="MainTitle" />
+                            <%--<asp:BoundField DataField="OfficialName" HeaderText="OfficialName" SortExpression="OfficialName" />--%>
+                             <asp:TemplateField HeaderText="<%$Resources:HomeView.aspx,Orchestra %>" SortExpression="OfficialName">
+                                <EditItemTemplate>
+                                    <asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID" SelectedValue='<%#Bind("OrchestraID")%>'></asp:DropDownList>
+                                </EditItemTemplate>
+                                <ItemTemplate>
+                                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("OfficialName") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                        <EditRowStyle BackColor="#e2e2e2" CssClass="GridViewEditRow" />
+                        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                        <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                        <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                        <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                    </asp:GridView>
+
                     <asp:GridView ID="GridView1" Style="overflow-x: scroll; width: 2000px;" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource2_allPerformances" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound" OnRowEditing="GridView1_RowEditing">
                         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                         <Columns>
@@ -231,13 +302,8 @@ where ID=@ID">
                                 SelectImageUrl="~/Document/detail2.png"
                                 CancelImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-edit-delete-icon.png"
                                 UpdateImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/128/Save-icon.png">
-                                <%--HeaderStyle-Width="90px" 
-                                ItemStyle-Width="90px"--%>
-                                <%--<ControlStyle Height="20px" Width="20px" />--%>
-                                <%--<HeaderStyle Width="90px" />
-                                <ItemStyle Width="90px" />--%>
-                            <ControlStyle Height="20px" />
-                            <ItemStyle Width="150px" />
+                                <ControlStyle Height="20px" />
+                                <ItemStyle Width="150px" />
                             </asp:CommandField>
                             <asp:BoundField DataField="ID" HeaderText="<%$Resources:HomeView.aspx,ID %>" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                             <asp:BoundField DataField="PerformanceTitle" HeaderText="<%$Resources:HomeView.aspx,PerformanceTitle %>" SortExpression="PerformanceTitle" />
@@ -247,7 +313,7 @@ where ID=@ID">
                             <asp:BoundField DataField="StartDate" HeaderText="<%$Resources:HomeView.aspx,StartDate %>" SortExpression="StartDate" />
                             <asp:BoundField DataField="EndDate" HeaderText="<%$Resources:HomeView.aspx,EndDate %>" SortExpression="EndDate" />
 
-                            <asp:BoundField DataField="PerformanceHour" HeaderText="Performance Hour" SortExpression="PerformanceHour" />
+                            <asp:BoundField DataField="PerformanceTime" HeaderText="Performance Time" SortExpression="PerformanceHour" />
                             <asp:BoundField DataField="OrganizerInfo" HeaderText="Organizer Info" SortExpression="OrganizerInfo" />
                             <asp:BoundField DataField="TicketBox" HeaderText="Ticket Box" SortExpression="TicketBox" />
 
@@ -259,12 +325,9 @@ where ID=@ID">
                                     <asp:Label ID="Label3" runat="server" Text='<%# Bind("Brochure") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-
-                            <%--<asp:BoundField DataField="Brochure" HeaderText="Brochure" SortExpression="Brochure" />--%>
-
+                            
                             <asp:TemplateField HeaderText="<%$Resources:HomeView.aspx,PhotoAdLocation %>" SortExpression="PhotoAddLocation">
                                 <EditItemTemplate>
-                                    <%--<asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("PhotoAddLocation") %>'></asp:TextBox>--%>
                                     <asp:Button ID="editButton" CssClass="btn btn-info" runat="server" Text='<%$Resources:HomeView.aspx,Change %>' data-toggle="modal" data-target="#exampleModalLong" />
                                 </EditItemTemplate>
                                 <ItemTemplate>
@@ -382,7 +445,7 @@ where ID=@ID">
                 format: "HH:mm A"
             });
 
-            
+
         });
 
 
