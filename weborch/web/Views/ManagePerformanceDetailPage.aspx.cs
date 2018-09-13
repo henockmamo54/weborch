@@ -28,6 +28,8 @@ namespace web.Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "showdattime();", true);
+
             OrchestraDBEntities entity = new OrchestraDBEntities();
 
             user = (UserCommonTable)Session["User"];

@@ -81,12 +81,12 @@ where al.Name='Conductor'
                                 <div class="col-md-8">
                                     <asp:DropDownList ID="DropDownList4_composer" runat="server" DataSourceID="SqlDataSource5_composer" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlDataSource5_composer" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
-select (FirstName + ' '+ MiddleName + ' '+ FamilyName) as Name, ID
+select ( isnull(FirstName,'') + ' '+ isnull(MiddleName,'') + ' '+ isnull(FamilyName,'') ) as Name, ID
 from(
 select a.ID,a.FirstName,a.MiddleName,a.FamilyName from Core.Artist a 
 join Drived.Artist_ArtistType at on a.ID= at.Artist
 join Lookup.ArtistType al  on at.ArtistTypeID = al.ID
-where al.Name='Composer'
+where al.Name like '%Composer%'
 ) a
 "></asp:SqlDataSource>
                                 </div>
@@ -327,11 +327,15 @@ join(
 
     <script type="text/javascript">
         $(function () {
-            $('#datetimepicker3').datetimepicker();
+            $('#datetimepicker3').datetimepicker({
+                format: "HH:mm A"
+            });
         });
 
         function showdattime() {
-            $('#datetimepicker3').datetimepicker();
+            $('#datetimepicker3').datetimepicker({
+                format: "HH:mm A"
+            });
         }
 
         function showReply(n) {
