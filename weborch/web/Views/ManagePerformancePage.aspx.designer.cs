@@ -58,6 +58,15 @@ namespace web.Views {
         protected global::System.Web.UI.HtmlControls.HtmlInputText txt_performanceenddate;
         
         /// <summary>
+        /// txt_peformancehour control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_peformancehour;
+        
+        /// <summary>
         /// FileUpload1 control.
         /// </summary>
         /// <remarks>
@@ -103,6 +112,15 @@ namespace web.Views {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1_allOrchestra;
         
         /// <summary>
+        /// showandhidebtnforthepanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton showandhidebtnforthepanel;
+        
+        /// <summary>
         /// txt_location control.
         /// </summary>
         /// <remarks>
@@ -128,15 +146,6 @@ namespace web.Views {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_ticketbox;
-        
-        /// <summary>
-        /// txt_peformancehour control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_peformancehour;
         
         /// <summary>
         /// txt_organizerinfo control.

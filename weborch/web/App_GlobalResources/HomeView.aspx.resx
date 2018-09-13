@@ -477,4 +477,13 @@
   <data name="Homepage" xml:space="preserve">
     <value>Home Page</value>
   </data>
+  <data name="ConcertTeam" xml:space="preserve">
+    <value>Concert Team</value>
+  </data>
+  <data name="PlayerTeam" xml:space="preserve">
+    <value>Player (team)</value>
+  </data>
+  <data name="Venu" xml:space="preserve">
+    <value>Venu</value>
+  </data>
 </root>

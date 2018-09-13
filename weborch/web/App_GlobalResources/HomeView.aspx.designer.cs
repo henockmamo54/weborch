@@ -322,6 +322,15 @@ namespace Resources.HomeView {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Concert Team.
+        /// </summary>
+        internal static string ConcertTeam {
+            get {
+                return ResourceManager.GetString("ConcertTeam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Conductor.
         /// </summary>
         internal static string Conductor {
@@ -808,6 +817,15 @@ namespace Resources.HomeView {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Player (team).
+        /// </summary>
+        internal static string PlayerTeam {
+            get {
+                return ResourceManager.GetString("PlayerTeam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Poster.
         /// </summary>
         internal static string Poster {
@@ -1074,6 +1092,15 @@ namespace Resources.HomeView {
         internal static string UserInfo {
             get {
                 return ResourceManager.GetString("UserInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Venu.
+        /// </summary>
+        internal static string Venu {
+            get {
+                return ResourceManager.GetString("Venu", resourceCulture);
             }
         }
         

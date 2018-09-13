@@ -190,7 +190,7 @@
                         Organizer: <strong><span runat="server" id="organizer"></span></strong> <br />
                         Player (Team): <strong><span runat="server" id="orchestra"></span></strong> <br />
                         Location: <strong><span runat="server" id="location"></span></strong> <br />
-                        Concert Hall: <strong><span runat="server" id="concerthall"></span></strong><br />
+                        Venu: <strong><span runat="server" id="concerthall"></span></strong><br />
                         Start date: <strong><span runat="server" id="startingdate"></span></strong><br />
                         End date: <strong><span runat="server" id="enddate"></span></strong>
                         Ticket box: <strong><span runat="server" id="ticketbox"></span></strong>

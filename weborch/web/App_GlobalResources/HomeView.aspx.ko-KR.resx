@@ -271,7 +271,7 @@
     <value>label1</value>
   </data>
   <data name="Location" xml:space="preserve">
-    <value>공연 장소(위치)</value>
+    <value>공연 장소</value>
   </data>
   <data name="MajorInstrument1" xml:space="preserve">
     <value>전공 악기 1</value>
@@ -349,7 +349,7 @@
     <value>개인정보처리방침</value>
   </data>
   <data name="ProfilePage" xml:space="preserve">
-    <value>자기소개</value>
+    <value>약력</value>
   </data>
   <data name="Promoter" xml:space="preserve">
     <value>기획사</value>
@@ -367,7 +367,7 @@
     <value>ID, PW저장</value>
   </data>
   <data name="Repertory" xml:space="preserve">
-    <value>이력사항</value>
+    <value>레파토리</value>
   </data>
   <data name="Reply" xml:space="preserve">
     <value>답장하기</value>
@@ -476,5 +476,14 @@
   </data>
   <data name="Homepage" xml:space="preserve">
     <value>상세정보</value>
+  </data>
+  <data name="ConcertTeam" xml:space="preserve">
+    <value>연주팀</value>
+  </data>
+  <data name="PlayerTeam" xml:space="preserve">
+    <value>연주자(팀)</value>
+  </data>
+  <data name="Venu" xml:space="preserve">
+    <value>공연장소</value>
   </data>
 </root>

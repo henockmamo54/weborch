@@ -24,7 +24,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <br />
-                            <div class="col-md-4"><%= Resources.HomeView.aspx.Title %>:</div>
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.PerformanceTitle %>:</div>
                             <div class="col-md-8">
                                 <asp:TextBox ID="txt_title" runat="server" class="form-control"></asp:TextBox>
                             </div>
@@ -61,6 +61,16 @@
                             <br />
                         </div>
 
+                        
+                        <div class="col-md-4">
+                            <br />
+                            <div class="col-md-4">Performance  Time:</div>
+                            <div class="col-md-8">
+                                <asp:TextBox ID="txt_peformancehour" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                            <br />
+                        </div>
+
                         <div class="col-md-4">
                             <br />
                             <div class="col-md-4"><%= Resources.HomeView.aspx.Poster %>:</div>
@@ -93,11 +103,14 @@
 
                         <div class="col-md-4">
                             <br />
-                            <div class="col-md-4"><%= Resources.HomeView.aspx.Orchestra %>:</div>
-                            <div class="col-md-8">
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.PlayerTeam %>:</div>
+                            <div class="col-md-6" style="margin-right: 5px;">
                                 <%--<asp:TextBox ID="txt_orchestra" runat="server" class="form-control"></asp:TextBox>--%>
                                 <asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID"></asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource1_allOrchestra" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
+                            </div>
+                            <div class="col-md-1">
+                                <asp:LinkButton runat="server" AutoPostBack="True" CssClass="btn btn-success pull-right" ID="showandhidebtnforthepanel" Text="+"  Style="margin-bottom: 10px;" PostBackUrl="~/Views/ManageOrchestraView.aspx"></asp:LinkButton>
                             </div>
                             <br />
 
@@ -112,7 +125,7 @@
                         </div>
                         <div class="col-md-4">
                             <br />
-                            <div class="col-md-4"><%= Resources.HomeView.aspx.ConcertHall %>:</div>
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.Venu %>:</div>
                             <div class="col-md-8">
                                 <asp:TextBox ID="txt_ConcertHall" runat="server" class="form-control"></asp:TextBox>
                             </div>
@@ -125,14 +138,6 @@
                             <div class="col-md-4">Ticket box:</div>
                             <div class="col-md-8">
                                 <asp:TextBox ID="txt_ticketbox" runat="server" class="form-control"></asp:TextBox>
-                            </div>
-                            <br />
-                        </div>
-                        <div class="col-md-4">
-                            <br />
-                            <div class="col-md-4">Performance  Hour:</div>
-                            <div class="col-md-8">
-                                <asp:TextBox ID="txt_peformancehour" runat="server" class="form-control"></asp:TextBox>
                             </div>
                             <br />
                         </div>
@@ -345,8 +350,12 @@ where ID=@ID">
 
     <script type="text/javascript">
         $(function () {
-            $('#datetimepicker2').datetimepicker();
-            $('#datetimepicker3').datetimepicker();
+            $('#datetimepicker2').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+            $('#datetimepicker3').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
         });
 
 
