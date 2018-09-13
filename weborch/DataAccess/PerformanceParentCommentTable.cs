@@ -31,7 +31,6 @@ namespace DataAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PerformanceParentCommentTable> PerformanceParentCommentTable1 { get; set; }
         public virtual PerformanceParentCommentTable PerformanceParentCommentTable2 { get; set; }
-        public virtual Performance Performance { get; set; }
         public virtual UserCommonTable UserCommonTable { get; set; }
     }
 }

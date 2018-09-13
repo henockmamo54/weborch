@@ -21,7 +21,7 @@ namespace DataAccess
         public Nullable<System.DateTime> timestamp { get; set; }
         public Nullable<int> islike { get; set; }
     
-        public virtual Performance Performance { get; set; }
         public virtual UserCommonTable UserCommonTable { get; set; }
+        public virtual Performance Performance { get; set; }
     }
 }

@@ -48,7 +48,6 @@ namespace DataAccess
         public virtual DbSet<Endorser> Endorsers { get; set; }
         public virtual DbSet<User_Endorser> User_Endorser { get; set; }
         public virtual DbSet<Artist_Endorser> Artist_Endorser { get; set; }
-        public virtual DbSet<Performance> Performances { get; set; }
         public virtual DbSet<PerformanceDetail_Instrument_Artist> PerformanceDetail_Instrument_Artist { get; set; }
         public virtual DbSet<Orchestra> Orchestras { get; set; }
         public virtual DbSet<BulletinType> BulletinTypes { get; set; }
@@ -57,5 +56,6 @@ namespace DataAccess
         public virtual DbSet<PerformanceLikeUnlike> PerformanceLikeUnlikes { get; set; }
         public virtual DbSet<Artist> Artists { get; set; }
         public virtual DbSet<BulletinCommentTable> BulletinCommentTables { get; set; }
+        public virtual DbSet<Performance> Performances { get; set; }
     }
 }

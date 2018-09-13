@@ -67,7 +67,8 @@ namespace web.Views
                 p.OrchestraID = int.Parse(DropDownList1.SelectedItem.Value);
                 p.Location = txt_location.Text;
                 p.ConcertHall = txt_ConcertHall.Text;
-                p.PerformanceHour = txt_peformancehour.Text;
+                //p.PerformanceHour = txt_peformancehour.Text;  
+                p.PerformanceTime = DateTime.Parse(txt_performanceTime.Value);
                 p.TicketBox = txt_ticketbox.Text;
                 p.OrganizerInfo = txt_organizerinfo.Text;
                 p.VideoLocation = txt_videolocation.Text;

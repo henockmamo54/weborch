@@ -339,6 +339,7 @@
           <Property Name="Archive" Type="bit" />
           <Property Name="Brochure" Type="nvarchar" MaxLength="100" />
           <Property Name="MainTitle" Type="nvarchar" MaxLength="20" />
+          <Property Name="PerformanceTime" Type="datetime" />
         </EntityType>
         <EntityType Name="PerformanceDetail">
           <Key>
@@ -1278,15 +1279,6 @@
             <End Role="Endorser" EntitySet="Endorsers" />
             <End Role="Artist_Endorser" EntitySet="Artist_Endorser" />
           </AssociationSet>
-          <EntitySet Name="Performances" EntityType="OrchestraDBModel.Performance" />
-          <AssociationSet Name="FK__Performan__Perfo__503BEA1C" Association="OrchestraDBModel.FK__Performan__Perfo__503BEA1C">
-            <End Role="Performance" EntitySet="Performances" />
-            <End Role="PerformanceDetail" EntitySet="PerformanceDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Performan__UserI__5224328E" Association="OrchestraDBModel.FK__Performan__UserI__5224328E">
-            <End Role="UserCommonTable" EntitySet="UserCommonTables" />
-            <End Role="Performance" EntitySet="Performances" />
-          </AssociationSet>
           <EntitySet Name="PerformanceDetail_Instrument_Artist" EntityType="OrchestraDBModel.PerformanceDetail_Instrument_Artist" />
           <AssociationSet Name="FK__Performan__Instr__7A3223E8" Association="OrchestraDBModel.FK__Performan__Instr__7A3223E8">
             <End Role="Instrument" EntitySet="Instruments" />
@@ -1304,10 +1296,6 @@
           <AssociationSet Name="FK__Orchestra__UserI__6BE40491" Association="OrchestraDBModel.FK__Orchestra__UserI__6BE40491">
             <End Role="UserCommonTable" EntitySet="UserCommonTables" />
             <End Role="Orchestra" EntitySet="Orchestras" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Performan__Orche__531856C7" Association="OrchestraDBModel.FK__Performan__Orche__531856C7">
-            <End Role="Orchestra" EntitySet="Orchestras" />
-            <End Role="Performance" EntitySet="Performances" />
           </AssociationSet>
           <AssociationSet Name="FK__Performan__Orche__59C55456" Association="OrchestraDBModel.FK__Performan__Orche__59C55456">
             <End Role="Orchestra" EntitySet="Orchestras" />
@@ -1344,19 +1332,11 @@
             <End Role="PerformanceParentCommentTable" EntitySet="PerformanceParentCommentTables" />
             <End Role="PerformanceParentCommentTable1" EntitySet="PerformanceParentCommentTables" />
           </AssociationSet>
-          <AssociationSet Name="FK__Performan__Perfo__11158940" Association="OrchestraDBModel.FK__Performan__Perfo__11158940">
-            <End Role="Performance" EntitySet="Performances" />
-            <End Role="PerformanceParentCommentTable" EntitySet="PerformanceParentCommentTables" />
-          </AssociationSet>
           <AssociationSet Name="FK__Performan__UserI__1209AD79" Association="OrchestraDBModel.FK__Performan__UserI__1209AD79">
             <End Role="UserCommonTable" EntitySet="UserCommonTables" />
             <End Role="PerformanceParentCommentTable" EntitySet="PerformanceParentCommentTables" />
           </AssociationSet>
           <EntitySet Name="PerformanceLikeUnlikes" EntityType="OrchestraDBModel.PerformanceLikeUnlike" />
-          <AssociationSet Name="FK__Performan__Perfo__1A9EF37A" Association="OrchestraDBModel.FK__Performan__Perfo__1A9EF37A">
-            <End Role="Performance" EntitySet="Performances" />
-            <End Role="PerformanceLikeUnlike" EntitySet="PerformanceLikeUnlikes" />
-          </AssociationSet>
           <AssociationSet Name="FK__Performan__UserI__19AACF41" Association="OrchestraDBModel.FK__Performan__UserI__19AACF41">
             <End Role="UserCommonTable" EntitySet="UserCommonTables" />
             <End Role="PerformanceLikeUnlike" EntitySet="PerformanceLikeUnlikes" />
@@ -1418,6 +1398,23 @@
           <AssociationSet Name="FK__BulletinC__UserI__1F63A897" Association="OrchestraDBModel.FK__BulletinC__UserI__1F63A897">
             <End Role="UserCommonTable" EntitySet="UserCommonTables" />
             <End Role="BulletinCommentTable" EntitySet="BulletinCommentTables" />
+          </AssociationSet>
+          <EntitySet Name="Performances" EntityType="OrchestraDBModel.Performance" />
+          <AssociationSet Name="FK__Performan__Orche__531856C7" Association="OrchestraDBModel.FK__Performan__Orche__531856C7">
+            <End Role="Orchestra" EntitySet="Orchestras" />
+            <End Role="Performance" EntitySet="Performances" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Performan__Perfo__1A9EF37A" Association="OrchestraDBModel.FK__Performan__Perfo__1A9EF37A">
+            <End Role="Performance" EntitySet="Performances" />
+            <End Role="PerformanceLikeUnlike" EntitySet="PerformanceLikeUnlikes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Performan__UserI__5224328E" Association="OrchestraDBModel.FK__Performan__UserI__5224328E">
+            <End Role="UserCommonTable" EntitySet="UserCommonTables" />
+            <End Role="Performance" EntitySet="Performances" />
+          </AssociationSet>
+          <AssociationSet Name="FK__User_User__UserI__395884C41" Association="OrchestraDBModel.FK__User_User__UserI__395884C41">
+            <End Role="Performance" EntitySet="Performances" />
+            <End Role="PerformanceDetail" EntitySet="PerformanceDetails" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="User">
@@ -1619,7 +1616,6 @@
           <NavigationProperty Name="UserCompanies" Relationship="OrchestraDBModel.FK__UserCompa__UserI__45BE5BA9" FromRole="UserCommonTable" ToRole="UserCompany" />
           <NavigationProperty Name="UserPersonalInfoes" Relationship="OrchestraDBModel.FK__UserPerso__UserI__41EDCAC5" FromRole="UserCommonTable" ToRole="UserPersonalInfo" />
           <NavigationProperty Name="User_Endorser" Relationship="OrchestraDBModel.FK__User_Endo__UserI__70A8B9AE" FromRole="UserCommonTable" ToRole="User_Endorser" />
-          <NavigationProperty Name="Performances" Relationship="OrchestraDBModel.FK__Performan__UserI__5224328E" FromRole="UserCommonTable" ToRole="Performance" />
           <NavigationProperty Name="Orchestras" Relationship="OrchestraDBModel.FK__Orchestra__UserI__6BE40491" FromRole="UserCommonTable" ToRole="Orchestra" />
           <NavigationProperty Name="Bulletins" Relationship="OrchestraDBModel.FK__Bulletin__UserID__7EF6D905" FromRole="UserCommonTable" ToRole="Bulletin" />
           <NavigationProperty Name="ChildCommentTables" Relationship="OrchestraDBModel.FK__ChildComm__UserI__01D345B0" FromRole="UserCommonTable" ToRole="ChildCommentTable" />
@@ -1629,6 +1625,7 @@
           <NavigationProperty Name="PerformanceLikeUnlikes" Relationship="OrchestraDBModel.FK__Performan__UserI__19AACF41" FromRole="UserCommonTable" ToRole="PerformanceLikeUnlike" />
           <NavigationProperty Name="Artists" Relationship="OrchestraDBModel.FK__Artist__UserID__690797E6" FromRole="UserCommonTable" ToRole="Artist" />
           <NavigationProperty Name="BulletinCommentTables" Relationship="OrchestraDBModel.FK__BulletinC__UserI__1F63A897" FromRole="UserCommonTable" ToRole="BulletinCommentTable" />
+          <NavigationProperty Name="Performances" Relationship="OrchestraDBModel.FK__Performan__UserI__5224328E" FromRole="UserCommonTable" ToRole="Performance" />
         </EntityType>
         <EntityType Name="UserCompany">
           <Key>
@@ -1730,13 +1727,13 @@
           <Property Name="Player" Type="Int32" />
           <Property Name="Composer" Type="Int32" />
           <NavigationProperty Name="Instrument1" Relationship="OrchestraDBModel.FK__Performan__Instr__5AB9788F" FromRole="PerformanceDetail" ToRole="Instrument" />
-          <NavigationProperty Name="Performance" Relationship="OrchestraDBModel.FK__Performan__Perfo__503BEA1C" FromRole="PerformanceDetail" ToRole="Performance" />
           <Property Name="Time" Type="DateTime" Precision="3" />
           <NavigationProperty Name="PerformanceDetail_Instrument_Artist" Relationship="OrchestraDBModel.FK__Performan__Perfo__7849DB76" FromRole="PerformanceDetail" ToRole="PerformanceDetail_Instrument_Artist" />
           <NavigationProperty Name="Orchestra1" Relationship="OrchestraDBModel.FK__Performan__Orche__59C55456" FromRole="PerformanceDetail" ToRole="Orchestra" />
           <NavigationProperty Name="Artist" Relationship="OrchestraDBModel.FK__Performan__Compo__5D95E53A" FromRole="PerformanceDetail" ToRole="Artist" />
           <NavigationProperty Name="Artist1" Relationship="OrchestraDBModel.FK__Performan__Condu__5BAD9CC8" FromRole="PerformanceDetail" ToRole="Artist" />
           <NavigationProperty Name="Artist2" Relationship="OrchestraDBModel.FK__Performan__Playe__5CA1C101" FromRole="PerformanceDetail" ToRole="Artist" />
+          <NavigationProperty Name="Performance" Relationship="OrchestraDBModel.FK__User_User__UserI__395884C41" FromRole="PerformanceDetail" ToRole="Performance" />
         </EntityType>
         <Association Name="FK__Performan__Instr__5AB9788F">
           <End Type="OrchestraDBModel.Instrument" Role="Instrument" Multiplicity="0..1" />
@@ -1900,58 +1897,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Performance">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PerformanceTitle" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
-          <Property Name="Location" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="ConcertHall" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="TimeStamp" Type="DateTime" Precision="3" />
-          <Property Name="UserID" Type="Int32" />
-          <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
-          <Property Name="OrchestraID" Type="Int32" />
-          <Property Name="StartDate" Type="DateTime" Precision="0" />
-          <Property Name="EndDate" Type="DateTime" Precision="0" />
-          <Property Name="PhotoAddLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="VideoLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="PerformanceDetails" Relationship="OrchestraDBModel.FK__Performan__Perfo__503BEA1C" FromRole="Performance" ToRole="PerformanceDetail" />
-          <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__Performan__UserI__5224328E" FromRole="Performance" ToRole="UserCommonTable" />
-          <NavigationProperty Name="Orchestra" Relationship="OrchestraDBModel.FK__Performan__Orche__531856C7" FromRole="Performance" ToRole="Orchestra" />
-          <Property Name="TicketBox" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="PerformanceHour" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="OrganizerInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="Archive" Type="Boolean" />
-          <Property Name="Brochure" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="PerformanceParentCommentTables" Relationship="OrchestraDBModel.FK__Performan__Perfo__11158940" FromRole="Performance" ToRole="PerformanceParentCommentTable" />
-          <NavigationProperty Name="PerformanceLikeUnlikes" Relationship="OrchestraDBModel.FK__Performan__Perfo__1A9EF37A" FromRole="Performance" ToRole="PerformanceLikeUnlike" />
-          <Property Name="MainTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <Association Name="FK__Performan__Perfo__503BEA1C">
-          <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="0..1" />
-          <End Type="OrchestraDBModel.PerformanceDetail" Role="PerformanceDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Performance">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PerformanceDetail">
-              <PropertyRef Name="PerformanceID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Performan__UserI__5224328E">
-          <End Type="OrchestraDBModel.UserCommonTable" Role="UserCommonTable" Multiplicity="0..1" />
-          <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="UserCommonTable">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Performance">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="PerformanceDetail_Instrument_Artist">
           <Key>
             <PropertyRef Name="ID" />
@@ -2005,9 +1950,9 @@
           <Property Name="ConductorID" Type="Int32" />
           <NavigationProperty Name="Orchestra_Instrument_Artist" Relationship="OrchestraDBModel.FK__Orchestra__Orche__151B244E" FromRole="Orchestra" ToRole="Orchestra_Instrument_Artist" />
           <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__Orchestra__UserI__6BE40491" FromRole="Orchestra" ToRole="UserCommonTable" />
-          <NavigationProperty Name="Performances" Relationship="OrchestraDBModel.FK__Performan__Orche__531856C7" FromRole="Orchestra" ToRole="Performance" />
           <NavigationProperty Name="PerformanceDetails" Relationship="OrchestraDBModel.FK__Performan__Orche__59C55456" FromRole="Orchestra" ToRole="PerformanceDetail" />
           <NavigationProperty Name="Artist" Relationship="OrchestraDBModel.FK__Orchestra__Condu__7C1A6C5A" FromRole="Orchestra" ToRole="Artist" />
+          <NavigationProperty Name="Performances" Relationship="OrchestraDBModel.FK__Performan__Orche__531856C7" FromRole="Orchestra" ToRole="Performance" />
         </EntityType>
         <Association Name="FK__Orchestra__Orche__151B244E">
           <End Type="OrchestraDBModel.Orchestra" Role="Orchestra" Multiplicity="0..1" />
@@ -2030,18 +1975,6 @@
             </Principal>
             <Dependent Role="Orchestra">
               <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Performan__Orche__531856C7">
-          <End Type="OrchestraDBModel.Orchestra" Role="Orchestra" Multiplicity="0..1" />
-          <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Orchestra">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Performance">
-              <PropertyRef Name="OrchestraID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2162,7 +2095,6 @@
           <Property Name="ParentCommentID" Type="Int32" />
           <NavigationProperty Name="PerformanceParentCommentTable1" Relationship="OrchestraDBModel.FK__Performan__Paren__12FDD1B2" FromRole="PerformanceParentCommentTable" ToRole="PerformanceParentCommentTable1" />
           <NavigationProperty Name="PerformanceParentCommentTable2" Relationship="OrchestraDBModel.FK__Performan__Paren__12FDD1B2" FromRole="PerformanceParentCommentTable1" ToRole="PerformanceParentCommentTable" />
-          <NavigationProperty Name="Performance" Relationship="OrchestraDBModel.FK__Performan__Perfo__11158940" FromRole="PerformanceParentCommentTable" ToRole="Performance" />
           <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__Performan__UserI__1209AD79" FromRole="PerformanceParentCommentTable" ToRole="UserCommonTable" />
           <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
@@ -2175,18 +2107,6 @@
             </Principal>
             <Dependent Role="PerformanceParentCommentTable1">
               <PropertyRef Name="ParentCommentID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Performan__Perfo__11158940">
-          <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="0..1" />
-          <End Type="OrchestraDBModel.PerformanceParentCommentTable" Role="PerformanceParentCommentTable" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Performance">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PerformanceParentCommentTable">
-              <PropertyRef Name="PerformanceID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2212,21 +2132,9 @@
           <Property Name="PerformanceID" Type="Int32" />
           <Property Name="timestamp" Type="DateTime" Precision="3" />
           <Property Name="islike" Type="Int32" />
-          <NavigationProperty Name="Performance" Relationship="OrchestraDBModel.FK__Performan__Perfo__1A9EF37A" FromRole="PerformanceLikeUnlike" ToRole="Performance" />
           <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__Performan__UserI__19AACF41" FromRole="PerformanceLikeUnlike" ToRole="UserCommonTable" />
+          <NavigationProperty Name="Performance" Relationship="OrchestraDBModel.FK__Performan__Perfo__1A9EF37A" FromRole="PerformanceLikeUnlike" ToRole="Performance" />
         </EntityType>
-        <Association Name="FK__Performan__Perfo__1A9EF37A">
-          <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="0..1" />
-          <End Type="OrchestraDBModel.PerformanceLikeUnlike" Role="PerformanceLikeUnlike" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Performance">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="PerformanceLikeUnlike">
-              <PropertyRef Name="PerformanceID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Performan__UserI__19AACF41">
           <End Type="OrchestraDBModel.UserCommonTable" Role="UserCommonTable" Multiplicity="0..1" />
           <End Type="OrchestraDBModel.PerformanceLikeUnlike" Role="PerformanceLikeUnlike" Multiplicity="*" />
@@ -2456,6 +2364,86 @@
             </Principal>
             <Dependent Role="BulletinCommentTable">
               <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Performance">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PerformanceTitle" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ConcertHall" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TimeStamp" Type="DateTime" Precision="3" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+          <Property Name="OrchestraID" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="PhotoAddLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VideoLocation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TicketBox" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PerformanceHour" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizerInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Archive" Type="Boolean" />
+          <Property Name="Brochure" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MainTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PerformanceTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Orchestra" Relationship="OrchestraDBModel.FK__Performan__Orche__531856C7" FromRole="Performance" ToRole="Orchestra" />
+          <NavigationProperty Name="PerformanceLikeUnlikes" Relationship="OrchestraDBModel.FK__Performan__Perfo__1A9EF37A" FromRole="Performance" ToRole="PerformanceLikeUnlike" />
+          <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__Performan__UserI__5224328E" FromRole="Performance" ToRole="UserCommonTable" />
+          <NavigationProperty Name="PerformanceDetails" Relationship="OrchestraDBModel.FK__User_User__UserI__395884C41" FromRole="Performance" ToRole="PerformanceDetail" />
+        </EntityType>
+        <Association Name="FK__Performan__Orche__531856C7">
+          <End Type="OrchestraDBModel.Orchestra" Role="Orchestra" Multiplicity="0..1" />
+          <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orchestra">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Performance">
+              <PropertyRef Name="OrchestraID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Performan__Perfo__1A9EF37A">
+          <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="0..1" />
+          <End Type="OrchestraDBModel.PerformanceLikeUnlike" Role="PerformanceLikeUnlike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Performance">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PerformanceLikeUnlike">
+              <PropertyRef Name="PerformanceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Performan__UserI__5224328E">
+          <End Type="OrchestraDBModel.UserCommonTable" Role="UserCommonTable" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserCommonTable">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Performance">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__User_User__UserI__395884C41">
+          <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="OrchestraDBModel.PerformanceDetail" Role="PerformanceDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Performance">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PerformanceDetail">
+              <PropertyRef Name="PerformanceID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2779,30 +2767,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Performances">
-            <EntityTypeMapping TypeName="OrchestraDBModel.Performance">
-              <MappingFragment StoreEntitySet="Performance">
-                <ScalarProperty Name="MainTitle" ColumnName="MainTitle" />
-                <ScalarProperty Name="Brochure" ColumnName="Brochure" />
-                <ScalarProperty Name="Archive" ColumnName="Archive" />
-                <ScalarProperty Name="OrganizerInfo" ColumnName="OrganizerInfo" />
-                <ScalarProperty Name="PerformanceHour" ColumnName="PerformanceHour" />
-                <ScalarProperty Name="TicketBox" ColumnName="TicketBox" />
-                <ScalarProperty Name="VideoLocation" ColumnName="VideoLocation" />
-                <ScalarProperty Name="PhotoAddLocation" ColumnName="PhotoAddLocation" />
-                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-                <ScalarProperty Name="OrchestraID" ColumnName="OrchestraID" />
-                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
-                <ScalarProperty Name="ConcertHall" ColumnName="ConcertHall" />
-                <ScalarProperty Name="Location" ColumnName="Location" />
-                <ScalarProperty Name="PerformanceTitle" ColumnName="PerformanceTitle" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="PerformanceDetail_Instrument_Artist">
             <EntityTypeMapping TypeName="OrchestraDBModel.PerformanceDetail_Instrument_Artist">
               <MappingFragment StoreEntitySet="PerformanceDetail_Instrument_Artist">
@@ -2910,6 +2874,31 @@
                 <ScalarProperty Name="PostID" ColumnName="PostID" />
                 <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
                 <ScalarProperty Name="CommentMessage" ColumnName="CommentMessage" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Performances">
+            <EntityTypeMapping TypeName="OrchestraDBModel.Performance">
+              <MappingFragment StoreEntitySet="Performance">
+                <ScalarProperty Name="PerformanceTime" ColumnName="PerformanceTime" />
+                <ScalarProperty Name="MainTitle" ColumnName="MainTitle" />
+                <ScalarProperty Name="Brochure" ColumnName="Brochure" />
+                <ScalarProperty Name="Archive" ColumnName="Archive" />
+                <ScalarProperty Name="OrganizerInfo" ColumnName="OrganizerInfo" />
+                <ScalarProperty Name="PerformanceHour" ColumnName="PerformanceHour" />
+                <ScalarProperty Name="TicketBox" ColumnName="TicketBox" />
+                <ScalarProperty Name="VideoLocation" ColumnName="VideoLocation" />
+                <ScalarProperty Name="PhotoAddLocation" ColumnName="PhotoAddLocation" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="OrchestraID" ColumnName="OrchestraID" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+                <ScalarProperty Name="ConcertHall" ColumnName="ConcertHall" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="PerformanceTitle" ColumnName="PerformanceTitle" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

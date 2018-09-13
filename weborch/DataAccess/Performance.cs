@@ -17,9 +17,8 @@ namespace DataAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Performance()
         {
-            this.PerformanceDetails = new HashSet<PerformanceDetail>();
-            this.PerformanceParentCommentTables = new HashSet<PerformanceParentCommentTable>();
             this.PerformanceLikeUnlikes = new HashSet<PerformanceLikeUnlike>();
+            this.PerformanceDetails = new HashSet<PerformanceDetail>();
         }
     
         public int ID { get; set; }
@@ -40,14 +39,13 @@ namespace DataAccess
         public Nullable<bool> Archive { get; set; }
         public string Brochure { get; set; }
         public string MainTitle { get; set; }
+        public Nullable<System.DateTime> PerformanceTime { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PerformanceDetail> PerformanceDetails { get; set; }
-        public virtual UserCommonTable UserCommonTable { get; set; }
         public virtual Orchestra Orchestra { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PerformanceParentCommentTable> PerformanceParentCommentTables { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PerformanceLikeUnlike> PerformanceLikeUnlikes { get; set; }
+        public virtual UserCommonTable UserCommonTable { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PerformanceDetail> PerformanceDetails { get; set; }
     }
 }

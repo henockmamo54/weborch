@@ -305,21 +305,24 @@ namespace web.Views
         {
             if (Session["PerformanceDetailID"] != null)
             {
-                int PDID = int.Parse(Session["PerformanceDetailID"].ToString());
-                Performance p = pl.getPerformanceById(PDID);
-                performancePosterImage.ImageUrl = "~/Document/" + p.PhotoAddLocation;
-                organizer.InnerText = p.OrganizerInfo;
-                location.InnerText = p.Location;
-                startingdate.InnerText = ((DateTime)(p.StartDate)).ToShortDateString();
-                enddate.InnerText = ((DateTime)(p.EndDate)).ToShortDateString();
-                concerthall.InnerText = p.ConcertHall;
-                performanceTitle.InnerText = p.PerformanceTitle;
-                orchestra.InnerText = p.Orchestra.OfficialName;
-                startingdate.InnerText = (p.StartDate).ToString();
-                enddate.InnerText = p.EndDate.ToString();
-                ticketbox.InnerText = p.TicketBox;
-                performancehour.InnerText = p.PerformanceHour;
-                
+                try
+                {
+                    int PDID = int.Parse(Session["PerformanceDetailID"].ToString());
+                    Performance p = pl.getPerformanceById(PDID);
+                    performancePosterImage.ImageUrl = "~/Document/" + p.PhotoAddLocation;
+                    organizer.InnerText = p.OrganizerInfo;
+                    location.InnerText = p.Location;
+                    startingdate.InnerText = ((DateTime)(p.StartDate)).ToShortDateString();
+                    enddate.InnerText = ((DateTime)(p.EndDate)).ToShortDateString();
+                    concerthall.InnerText = p.ConcertHall;
+                    performanceTitle.InnerText = p.PerformanceTitle;
+                    orchestra.InnerText = p.Orchestra.OfficialName;
+                    startingdate.InnerText = (p.StartDate).ToString();
+                    enddate.InnerText = p.EndDate.ToString();
+                    ticketbox.InnerText = p.TicketBox;
+                    performancetime.InnerText = ((DateTime)p.PerformanceTime).ToShortTimeString();
+                }
+                catch (Exception ee) { }
 
 
             }

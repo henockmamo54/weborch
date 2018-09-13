@@ -193,13 +193,13 @@ namespace web.Views {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ticketbox;
         
         /// <summary>
-        /// performancehour control.
+        /// performancetime control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl performancehour;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl performancetime;
         
         /// <summary>
         /// talbereplacingrepeater control.

@@ -21,7 +21,6 @@ namespace DataAccess
             this.UserCompanies = new HashSet<UserCompany>();
             this.UserPersonalInfoes = new HashSet<UserPersonalInfo>();
             this.User_Endorser = new HashSet<User_Endorser>();
-            this.Performances = new HashSet<Performance>();
             this.Orchestras = new HashSet<Orchestra>();
             this.Bulletins = new HashSet<Bulletin>();
             this.ChildCommentTables = new HashSet<ChildCommentTable>();
@@ -31,6 +30,7 @@ namespace DataAccess
             this.PerformanceLikeUnlikes = new HashSet<PerformanceLikeUnlike>();
             this.Artists = new HashSet<Artist>();
             this.BulletinCommentTables = new HashSet<BulletinCommentTable>();
+            this.Performances = new HashSet<Performance>();
         }
     
         public int ID { get; set; }
@@ -49,8 +49,6 @@ namespace DataAccess
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User_Endorser> User_Endorser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Performance> Performances { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orchestra> Orchestras { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bulletin> Bulletins { get; set; }
@@ -68,5 +66,7 @@ namespace DataAccess
         public virtual ICollection<Artist> Artists { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BulletinCommentTable> BulletinCommentTables { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Performance> Performances { get; set; }
     }
 }

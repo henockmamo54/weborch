@@ -315,30 +315,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Performances">
-      <EntityTypeMapping TypeName="OrchestraDBModel.Performance">
-        <MappingFragment StoreEntitySet="Performance">
-          <ScalarProperty Name="MainTitle" ColumnName="MainTitle" />
-          <ScalarProperty Name="Brochure" ColumnName="Brochure" />
-          <ScalarProperty Name="Archive" ColumnName="Archive" />
-          <ScalarProperty Name="OrganizerInfo" ColumnName="OrganizerInfo" />
-          <ScalarProperty Name="PerformanceHour" ColumnName="PerformanceHour" />
-          <ScalarProperty Name="TicketBox" ColumnName="TicketBox" />
-          <ScalarProperty Name="VideoLocation" ColumnName="VideoLocation" />
-          <ScalarProperty Name="PhotoAddLocation" ColumnName="PhotoAddLocation" />
-          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-          <ScalarProperty Name="OrchestraID" ColumnName="OrchestraID" />
-          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
-          <ScalarProperty Name="ConcertHall" ColumnName="ConcertHall" />
-          <ScalarProperty Name="Location" ColumnName="Location" />
-          <ScalarProperty Name="PerformanceTitle" ColumnName="PerformanceTitle" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="PerformanceDetail_Instrument_Artist">
       <EntityTypeMapping TypeName="OrchestraDBModel.PerformanceDetail_Instrument_Artist">
         <MappingFragment StoreEntitySet="PerformanceDetail_Instrument_Artist">
@@ -446,6 +422,31 @@
           <ScalarProperty Name="PostID" ColumnName="PostID" />
           <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
           <ScalarProperty Name="CommentMessage" ColumnName="CommentMessage" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Performances">
+      <EntityTypeMapping TypeName="OrchestraDBModel.Performance">
+        <MappingFragment StoreEntitySet="Performance">
+          <ScalarProperty Name="PerformanceTime" ColumnName="PerformanceTime" />
+          <ScalarProperty Name="MainTitle" ColumnName="MainTitle" />
+          <ScalarProperty Name="Brochure" ColumnName="Brochure" />
+          <ScalarProperty Name="Archive" ColumnName="Archive" />
+          <ScalarProperty Name="OrganizerInfo" ColumnName="OrganizerInfo" />
+          <ScalarProperty Name="PerformanceHour" ColumnName="PerformanceHour" />
+          <ScalarProperty Name="TicketBox" ColumnName="TicketBox" />
+          <ScalarProperty Name="VideoLocation" ColumnName="VideoLocation" />
+          <ScalarProperty Name="PhotoAddLocation" ColumnName="PhotoAddLocation" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="OrchestraID" ColumnName="OrchestraID" />
+          <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TimeStamp" ColumnName="TimeStamp" />
+          <ScalarProperty Name="ConcertHall" ColumnName="ConcertHall" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="PerformanceTitle" ColumnName="PerformanceTitle" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

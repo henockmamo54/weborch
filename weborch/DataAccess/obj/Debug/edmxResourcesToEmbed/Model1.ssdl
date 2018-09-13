@@ -334,6 +334,7 @@
     <Property Name="Archive" Type="bit" />
     <Property Name="Brochure" Type="nvarchar" MaxLength="100" />
     <Property Name="MainTitle" Type="nvarchar" MaxLength="20" />
+    <Property Name="PerformanceTime" Type="datetime" />
   </EntityType>
   <EntityType Name="PerformanceDetail">
     <Key>

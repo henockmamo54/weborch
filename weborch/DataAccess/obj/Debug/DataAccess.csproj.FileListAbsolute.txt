@@ -49,8 +49,8 @@ E:\workspace\weborch_git\weborch\DataAccess\bin\Debug\EntityFramework.xml
 E:\workspace\weborch_git\weborch\DataAccess\bin\Debug\EntityFramework.SqlServer.xml
 E:\workspace\weborch_git\weborch\DataAccess\bin\Debug\Microsoft.AspNet.Scaffolding.EntityFramework.12.0.xml
 E:\workspace\weborch_git\weborch\DataAccess\bin\Debug\Microsoft.AspNet.Scaffolding.12.0.xml
-E:\workspace\weborch_git\weborch\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
 E:\workspace\weborch_git\weborch\DataAccess\obj\Debug\DataAccess.Properties.Resources.resources
 E:\workspace\weborch_git\weborch\DataAccess\obj\Debug\DataAccess.csproj.GenerateResource.Cache
 E:\workspace\weborch_git\weborch\DataAccess\obj\Debug\DataAccess.exe
 E:\workspace\weborch_git\weborch\DataAccess\obj\Debug\DataAccess.pdb
+E:\workspace\weborch_git\weborch\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache

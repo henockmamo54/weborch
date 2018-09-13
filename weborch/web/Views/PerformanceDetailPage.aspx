@@ -192,9 +192,9 @@
                         Location: <strong><span runat="server" id="location"></span></strong> <br />
                         Venu: <strong><span runat="server" id="concerthall"></span></strong><br />
                         Start date: <strong><span runat="server" id="startingdate"></span></strong><br />
-                        End date: <strong><span runat="server" id="enddate"></span></strong>
-                        Ticket box: <strong><span runat="server" id="ticketbox"></span></strong>
-                        Performance Hour: <strong><span runat="server" id="performancehour"></span></strong>
+                        End date: <strong><span runat="server" id="enddate"></span></strong><br />
+                        Ticket box: <strong><span runat="server" id="ticketbox"></span></strong><br />
+                        Performance Time: <strong><span runat="server" id="performancetime"></span></strong>
 
                         <%--<strong>Note:</strong> The performance Organized by <strong><span runat="server" id="organizer"></span></strong>
                         will be held in <strong><span runat="server" id="location"></span></strong>at <strong><span runat="server" id="concerthall"></span></strong>

@@ -76,7 +76,15 @@
                             <br />
                             <div class="col-md-4">Performance  Time:</div>
                             <div class="col-md-8">
-                                <asp:TextBox ID="txt_peformancehour" runat="server" class="form-control"></asp:TextBox>
+                                <%--<asp:TextBox ID="txt_peformancehour" runat="server" class="form-control"></asp:TextBox>--%>
+
+                                <div class='input-group date' id='datetimepicker2_performancetime' style="display: inline-flex;">
+                                    <input type='text' class="form-control" runat="server" id="txt_performanceTime" style="display: inline-block; border-right-width: 0px;" />
+                                    <span class="input-group-addon" style="flex-wrap: wrap; width: auto; display: inline-block; padding-left: 12px; margin-left: -5px; padding-top: 9px; padding-bottom: 7px;">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+
                             </div>
                             <br />
                         </div>
@@ -370,6 +378,11 @@ where ID=@ID">
             $('#datetimepicker3').datetimepicker({
                 format: 'DD/MM/YYYY'
             });
+            $('#datetimepicker2_performancetime').datetimepicker({
+                format: "HH:mm A"
+            });
+
+            
         });
 
 
