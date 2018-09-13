@@ -480,6 +480,9 @@
   <data name="ConcertTeam" xml:space="preserve">
     <value>연주팀</value>
   </data>
+  <data name="MainTitleTheme" xml:space="preserve">
+    <value>대표곡/주제</value>
+  </data>
   <data name="PlayerTeam" xml:space="preserve">
     <value>연주자(팀)</value>
   </data>

@@ -480,6 +480,9 @@
   <data name="ConcertTeam" xml:space="preserve">
     <value>Concert Team</value>
   </data>
+  <data name="MainTitleTheme" xml:space="preserve">
+    <value>Main Title / Theme</value>
+  </data>
   <data name="PlayerTeam" xml:space="preserve">
     <value>Player (team)</value>
   </data>

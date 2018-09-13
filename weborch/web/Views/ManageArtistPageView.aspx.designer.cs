@@ -40,24 +40,6 @@ namespace web {
         protected global::System.Web.UI.WebControls.TextBox txt_artist_firstname;
         
         /// <summary>
-        /// txt_artist_familyname control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_artist_familyname;
-        
-        /// <summary>
-        /// txt_artist_middlename control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_artist_middlename;
-        
-        /// <summary>
         /// txt_artist_birthdate control.
         /// </summary>
         /// <remarks>

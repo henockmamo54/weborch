@@ -79,8 +79,8 @@ namespace web
             if (pd != null)
             {
                 txt_artist_firstname.Text = pd.FirstName;
-                txt_artist_familyname.Text = pd.FamilyName;
-                txt_artist_middlename.Text = pd.MiddleName;
+                //txt_artist_familyname.Text = pd.FamilyName;
+                //txt_artist_middlename.Text = pd.MiddleName;
                 txt_artist_address.Text = pd.Address;
                 txt_artist_birthdate.Value = pd.BirthDate.ToShortDateString();
                 txt_artist_zipcode.Text = pd.ZipCode;
@@ -165,8 +165,8 @@ namespace web
             {
                 Artist artist = new Artist();
                 artist.FirstName = txt_artist_firstname.Text;
-                artist.MiddleName = txt_artist_middlename.Text;
-                artist.FamilyName = txt_artist_familyname.Text;
+                //artist.MiddleName = txt_artist_middlename.Text;
+                //artist.FamilyName = txt_artist_familyname.Text;
                 artist.BirthDate = DateTime.ParseExact(txt_artist_birthdate.Value, "dd/mm/yyyy", CultureInfo.InvariantCulture);
                 artist.Address = txt_artist_address.Text;
                 artist.ZipCode = txt_artist_zipcode.Text;
@@ -277,8 +277,8 @@ namespace web
                         int artistID = int.Parse(Session["ArtistID"].ToString());
                         Artist artist = context.Artists.Where(x => x.ID == artistID).FirstOrDefault();
                         artist.FirstName = txt_artist_firstname.Text;
-                        artist.MiddleName = txt_artist_middlename.Text;
-                        artist.FamilyName = txt_artist_familyname.Text;
+                        //artist.MiddleName = txt_artist_middlename.Text;
+                        //artist.FamilyName = txt_artist_familyname.Text;
                         artist.BirthDate = DateTime.ParseExact(txt_artist_birthdate.Value, "dd/mm/yyyy", CultureInfo.InvariantCulture);
                         artist.Address = txt_artist_address.Text;
                         artist.ZipCode = txt_artist_zipcode.Text;
@@ -469,8 +469,8 @@ namespace web
         public void cleanArtistTextBoxs()
         {
             txt_artist_firstname.Text = "";
-            txt_artist_middlename.Text = "";
-            txt_artist_familyname.Text = "";
+            //txt_artist_middlename.Text = "";
+            //txt_artist_familyname.Text = "";
             txt_artist_birthdate.Value = "";
             txt_artist_address.Text = "";
             txt_artist_zipcode.Text = "";

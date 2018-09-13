@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManagePerformancePage.aspx.cs" Inherits="web.Views.ManagePerformancePage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ManagePerformancePage.aspx.cs" EnableEventValidation="false"  Inherits="web.Views.ManagePerformancePage" %>
 
 
 
@@ -27,6 +27,16 @@
                             <div class="col-md-4"><%= Resources.HomeView.aspx.PerformanceTitle %>:</div>
                             <div class="col-md-8">
                                 <asp:TextBox ID="txt_title" runat="server" class="form-control"></asp:TextBox>
+                            </div>
+                            <br />
+
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <br />
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.MainTitleTheme %>:</div>
+                            <div class="col-md-8">
+                                <asp:TextBox ID="txt_mainTitleTheme" runat="server" class="form-control"></asp:TextBox>
                             </div>
                             <br />
 
@@ -161,14 +171,14 @@
 
                     <asp:SqlDataSource ID="SqlDataSource2_allPerformances" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
 SELECT p.*, OfficialName  FROM Main.Performance p
-join Core.Orchestra o on p.OrchestraID=o.ID"
+join Core.Orchestra o on p.OrchestraID=o.ID
+order by p.TimeStamp desc"
                         DeleteCommand="Delete Main.Performance
 where id = @ID"
                         UpdateCommand="update Main.Performance
-
 set OrchestraID=@OrchestraID,
-StartDate=@StartDate,
-EndDate=@EndDate,
+--StartDate=@StartDate,
+--EndDate=@EndDate,
 PerformanceTitle=@PerformanceTitle,
 Location=@Location,
 --PhotoAddLocation=@PhotoAddLocation,
@@ -176,12 +186,14 @@ VideoLocation=@VideoLocation,
 ConcertHall=@ConcertHall,
 PerformanceHour = @PerformanceHour, 
 OrganizerInfo = @OrganizerInfo , 
+MainTitle = @MainTitle,
 TicketBox = @TicketBox
 where ID=@ID">
                         <DeleteParameters>
                             <asp:Parameter Name="ID" />
                         </DeleteParameters>
                         <UpdateParameters>
+                            <%--<asp:Parameter Name="MainTitle" />--%>
                             <asp:Parameter Name="OrchestraID" />
                             <asp:Parameter Name="StartDate" />
                             <asp:Parameter Name="EndDate" />
@@ -193,10 +205,9 @@ where ID=@ID">
 
                             <asp:Parameter Name="PerformanceHour" />
                             <asp:Parameter Name="OrganizerInfo" />
-                            <asp:Parameter Name="TicketBox" />
-                            <asp:Parameter Name="Brochure" />
+                            <asp:Parameter Name="MainTitle" />
 
-                            <asp:Parameter />
+                            <asp:Parameter Name="TicketBox" />
                             <asp:Parameter Name="ID" />
                         </UpdateParameters>
                     </asp:SqlDataSource>
@@ -217,9 +228,12 @@ where ID=@ID">
                                 <%--<ControlStyle Height="20px" Width="20px" />--%>
                                 <%--<HeaderStyle Width="90px" />
                                 <ItemStyle Width="90px" />--%>
+                            <ControlStyle Height="20px" />
+                            <ItemStyle Width="150px" />
                             </asp:CommandField>
                             <asp:BoundField DataField="ID" HeaderText="<%$Resources:HomeView.aspx,ID %>" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                             <asp:BoundField DataField="PerformanceTitle" HeaderText="<%$Resources:HomeView.aspx,PerformanceTitle %>" SortExpression="PerformanceTitle" />
+                            <asp:BoundField DataField="MainTitle" HeaderText="<%$Resources:HomeView.aspx,MainTitleTheme %>" SortExpression="PerformanceTitle" />
                             <asp:BoundField DataField="Location" HeaderText="<%$Resources:HomeView.aspx,Location %>" SortExpression="Location" />
                             <asp:BoundField DataField="ConcertHall" HeaderText="<%$Resources:HomeView.aspx,ConcertHall %>" SortExpression="ConcertHall" />
                             <asp:BoundField DataField="StartDate" HeaderText="<%$Resources:HomeView.aspx,StartDate %>" SortExpression="StartDate" />

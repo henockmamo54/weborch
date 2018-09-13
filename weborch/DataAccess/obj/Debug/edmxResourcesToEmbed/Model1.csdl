@@ -726,8 +726,8 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="PerformanceTitle" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
-    <Property Name="Location" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
-    <Property Name="ConcertHall" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="Location" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="ConcertHall" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="TimeStamp" Type="DateTime" Precision="3" />
     <Property Name="UserID" Type="Int32" />
     <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
@@ -746,6 +746,7 @@
     <Property Name="Brochure" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="PerformanceParentCommentTables" Relationship="OrchestraDBModel.FK__Performan__Perfo__11158940" FromRole="Performance" ToRole="PerformanceParentCommentTable" />
     <NavigationProperty Name="PerformanceLikeUnlikes" Relationship="OrchestraDBModel.FK__Performan__Perfo__1A9EF37A" FromRole="Performance" ToRole="PerformanceLikeUnlike" />
+    <Property Name="MainTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK__Performan__Perfo__503BEA1C">
     <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="0..1" />

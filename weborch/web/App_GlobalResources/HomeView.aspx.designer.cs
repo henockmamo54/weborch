@@ -583,6 +583,15 @@ namespace Resources.HomeView {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Main Title / Theme.
+        /// </summary>
+        internal static string MainTitleTheme {
+            get {
+                return ResourceManager.GetString("MainTitleTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Major Instrument 1:.
         /// </summary>
         internal static string MajorInstrument1 {

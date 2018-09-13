@@ -102,7 +102,8 @@ FROM   core.artist
                                     </div>
                                     <div class="col-sm-6" style="margin: 0px; padding: 0px; padding-left: 8px; font-size: 1.2rem;">
                                         <div class="card-body">
-                                            <h5 class="card-title" style="margin: 0; margin-top: 5px; margin-bottom: 5px;"><strong><%#Eval("FirstName") %> <%#Eval("MiddleName") %> <%#Eval("FamilyName") %></strong></h5>
+                                            <%--<h5 class="card-title" style="margin: 0; margin-top: 5px; margin-bottom: 5px;"><strong><%#Eval("FirstName") %> <%#Eval("MiddleName") %> <%#Eval("FamilyName") %></strong></h5>--%>
+                                            <h5 class="card-title" style="margin: 0; margin-top: 5px; margin-bottom: 5px;"><strong><%#Eval("FirstName") %> </strong></h5>
                                             <p class="card-text" style="color: #555555;">
                                                 <strong>Affiliation: </strong>
                                                 <%#Eval("Affiliation") %>, <%#Eval("ArtistType") %>
