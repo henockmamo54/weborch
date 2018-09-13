@@ -23,29 +23,29 @@ namespace web.Views
             {
                 //var user = (UserCommonTable)Session["User"];
                 //if (user == null) Response.Redirect("~/LoginPage.aspx");
-            }
-
-            user = (UserCommonTable)Session["User"];
-            if (user != null)
-            {
-                OrchestraDBEntities entity = new OrchestraDBEntities();
-                var val = user.User_UserType.FirstOrDefault().UserTypeID.Value;
-                isUserCompany = entity.UserTypes.Where(x => x.ID == val).FirstOrDefault().Iscompany;
-
-                if (isUserCompany)
+                user = (UserCommonTable)Session["User"];
+                if (user != null)
                 {
-                    var performanceFilteredQuery = string.Format(@"SELECT p.*, OfficialName  FROM Main.Performance p
+                    OrchestraDBEntities entity = new OrchestraDBEntities();
+                    var val = user.User_UserType.FirstOrDefault().UserTypeID.Value;
+                    isUserCompany = entity.UserTypes.Where(x => x.ID == val).FirstOrDefault().Iscompany;
+
+                    if (isUserCompany)
+                    {
+                        var performanceFilteredQuery = string.Format(@"SELECT p.*, OfficialName  FROM Main.Performance p
                                                 join Core.Orchestra o on p.OrchestraID=o.ID
                                                 where P.UserID={0}", user.ID);
-                    SqlDataSource2_allPerformances.SelectCommand = performanceFilteredQuery;
-                    GridView1.DataBind();
+                        SqlDataSource2_allPerformances.SelectCommand = performanceFilteredQuery;
+                        GridView2.DataBind();
+                    }
+                    else Response.Redirect("~/Views/HomeView.aspx");
+
                 }
                 else Response.Redirect("~/Views/HomeView.aspx");
 
+                PanelPerformanceRegiter.Visible = isUserCompany;
             }
-            else Response.Redirect("~/Views/HomeView.aspx");
 
-            PanelPerformanceRegiter.Visible = isUserCompany;
         }
 
         public void btn_performance_Click(object sender, EventArgs e)
@@ -61,8 +61,8 @@ namespace web.Views
                 p.PerformanceTitle = txt_title.Text;
                 p.MainTitle = txt_mainTitleTheme.Text;
                 //p.PerformanceDate= DateTime.Parse(txt_performancedate.Text);
-                p.StartDate = DateTime.ParseExact(txt_performancestartdate.Value,"dd/mm/yyyy", new CultureInfo("en-US"));
-                p.EndDate = DateTime.ParseExact(txt_performanceenddate.Value ,"dd/mm/yyyy", new CultureInfo("en-US"));
+                p.StartDate = DateTime.ParseExact(txt_performancestartdate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
+                p.EndDate = DateTime.ParseExact(txt_performanceenddate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
                 //p.PerformanceDay = txt_performanceday.Text;
                 p.OrchestraID = int.Parse(DropDownList1.SelectedItem.Value);
                 p.Location = txt_location.Text;
@@ -73,13 +73,13 @@ namespace web.Views
                 p.OrganizerInfo = txt_organizerinfo.Text;
                 p.VideoLocation = txt_videolocation.Text;
                 //p.PerformanceDay = "Sunday";
-                if(!getPhoto(p, FileUpload1, 1)) return;
+                if (!getPhoto(p, FileUpload1, 1)) return;
                 if (!getPhoto(p, FileUpload3, 2)) return;
 
                 if (pl.insertPerformance(p))
                 {
                     //ListView1.DataBind();
-                    GridView1.DataBind();
+                    GridView2.DataBind();
                     showMsg("Data inserted succssfuly");
                 }
                 else showMsg("Please check your inputs");
@@ -125,34 +125,31 @@ namespace web.Views
         {
             //GridViewRow row = GridView1.SelectedRow;
             //var x = row.Cells[1].Text;
-            Session["PerformanceDetailID"] = GridView1.SelectedRow.Cells[1].Text;
+            Session["PerformanceDetailID"] = GridView2.SelectedRow.Cells[1].Text;
             Response.Redirect("ManagePerformanceDetailPage.aspx");
         }
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
 
-            if (!isUserCompany)
-            {
-                if (e.Row.RowType == DataControlRowType.DataRow)
-                {
-                    {
-                        Button btnEdit = (Button)e.Row.FindControl("btnEdit");
-                        ((CommandField)((DataControlFieldCell)(e.Row.Cells[0])).ContainingField).ShowEditButton = false;
-                        ((CommandField)((DataControlFieldCell)(e.Row.Cells[0])).ContainingField).ShowDeleteButton = false;
+            //if (!isUserCompany)
+            //{
+            //    if (e.Row.RowType == DataControlRowType.DataRow)
+            //    {
+            //        {
+            //            Button btnEdit = (Button)e.Row.FindControl("btnEdit");
+            //            ((CommandField)((DataControlFieldCell)(e.Row.Cells[0])).ContainingField).ShowEditButton = false;
+            //            ((CommandField)((DataControlFieldCell)(e.Row.Cells[0])).ContainingField).ShowDeleteButton = false;
 
-                    }
-                }
-
-
-
-            }
+            //        }
+            //    }
+            //}
         }
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            
-            int id = int.Parse(GridView1.Rows[e.NewEditIndex].Cells[1].Text);
+
+            int id = int.Parse(GridView2.Rows[e.NewEditIndex].Cells[1].Text);
             Performance a = entity.Performances.Where(x => x.ID == id).FirstOrDefault();
 
             modalImageContainer.ImageUrl = "~/Document/" + a.PhotoAddLocation;
@@ -190,7 +187,7 @@ namespace web.Views
                 {
                     x.PhotoAddLocation = FileUpload2.FileName;
                     entity.SaveChanges();
-                    GridView1.DataBind();
+                    GridView2.DataBind();
                 }
             }
 
@@ -227,7 +224,7 @@ namespace web.Views
                 {
                     x.Brochure = FileUpload4.FileName;
                     entity.SaveChanges();
-                    GridView1.DataBind();
+                    GridView2.DataBind();
                 }
             }
 
