@@ -130,15 +130,6 @@ namespace web.Views {
         protected global::System.Web.UI.WebControls.LinkButton showandhidebtnforthepanel;
         
         /// <summary>
-        /// txt_location control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_location;
-        
-        /// <summary>
         /// txt_ConcertHall control.
         /// </summary>
         /// <remarks>
@@ -146,6 +137,15 @@ namespace web.Views {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_ConcertHall;
+        
+        /// <summary>
+        /// txt_location control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txt_location;
         
         /// <summary>
         /// txt_ticketbox control.

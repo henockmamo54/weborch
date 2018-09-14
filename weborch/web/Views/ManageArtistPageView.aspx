@@ -27,7 +27,7 @@
 
                                     <div class="col-md-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.FirstName %>:</div>
+                                        <div class="col-md-4"><%= Resources.HomeView.aspx.Name %>:</div>
                                         <div class="col-md-8">
                                             <asp:TextBox ID="txt_artist_firstname" runat="server" class="form-control"></asp:TextBox>
                                         </div>
@@ -421,9 +421,9 @@ Where ID=@ID"
                                         <ItemStyle Width="90px" Wrap="False" />
                                     </asp:CommandField>
                                     <asp:BoundField DataField="ID" HeaderText="<%$Resources:HomeView.aspx,ID %>" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
-                                    <asp:BoundField DataField="FirstName" HeaderText="<%$Resources:HomeView.aspx,FirstName %>" SortExpression="FirstName" />
-                                    <asp:BoundField DataField="FamilyName" HeaderText="<%$Resources:HomeView.aspx,FamilyName %>" SortExpression="FamilyName" />
-                                    <asp:BoundField DataField="MiddleName" HeaderText="<%$Resources:HomeView.aspx,MiddleName %>" SortExpression="MiddleName" />
+                                    <asp:BoundField DataField="FirstName" HeaderText="<%$Resources:HomeView.aspx,Name %>" SortExpression="FirstName" />
+                                   <%-- <asp:BoundField DataField="FamilyName" HeaderText="<%$Resources:HomeView.aspx,FamilyName %>" SortExpression="FamilyName" />
+                                    <asp:BoundField DataField="MiddleName" HeaderText="<%$Resources:HomeView.aspx,MiddleName %>" SortExpression="MiddleName" />--%>
                                     <asp:BoundField DataField="BirthDate" HeaderText="<%$Resources:HomeView.aspx,BirthDay %>" SortExpression="BirthDate" />
                                     <asp:BoundField DataField="Address" HeaderText="<%$Resources:HomeView.aspx,Address %>" SortExpression="Address" />
                                     <asp:BoundField DataField="ZipCode" HeaderText="<%$Resources:HomeView.aspx,ZipCode %>" SortExpression="ZipCode" />

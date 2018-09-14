@@ -20,7 +20,7 @@
                     <div class="row">
 
                         <div class=" col-md-12">
-                            <h2 style="margin-top: 0px; padding-top: 0px; display: inline-block;">Musical Performances</h2>
+                            <h2 style="margin-top: 0px; padding-top: 0px; display: inline-block;">Musical Performance Information</h2>
                             <asp:LinkButton CssClass="btn btn-success pull-right" runat="server" Style="display: inline-block;" ID="btn_MangePerformanceButton" Text="Add / Manage Performance" Visible="false" PostBackUrl="~/Views/ManagePerformancePage.aspx" />
                         </div>
 
@@ -37,9 +37,9 @@
                                                            (Eval("PerformanceTitle")) .ToString().Substring(0,15)+ " ....":
                                                            (Eval("PerformanceTitle")) .ToString()%></h4>
                                                 <p style="font-family: Roboto, Arial, sans-serif; margin-bottom:0px;">
-                                                    <%# ( Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString().Length>40?
-                                                           (Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString().Substring(0,40)+ " ....See More":
-                                                            (Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceHour")) .ToString() +"<br/>"
+                                                    <%# ( Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceTime")) .ToString().Length>40?
+                                                           (Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceTime")) .ToString().Substring(0,40)+ " ....See More":
+                                                            (Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceTime")) .ToString() +"<br/>"
                                                             + " .... See More" %>
                                                 </p>
                                             </div>

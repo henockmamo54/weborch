@@ -9,7 +9,7 @@
 
                 <div id="formanaging" runat="server" visible="true">
 
-                    <h3><%= Resources.HomeView.aspx.Orchestradata %></h3>
+                    <h3><%= Resources.HomeView.aspx.ConcertTeamData %></h3>
 
                     <div class="row shadowedPanel" style="background-color: white;box-shadow: 1px 1px 1px 1px #d0d0d0; border-radius:5px;">
                         <div class="col-md-12 ">

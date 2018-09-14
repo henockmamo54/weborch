@@ -138,17 +138,17 @@
                         </div>
                         <div class="col-md-4">
                             <br />
-                            <div class="col-md-4"><%= Resources.HomeView.aspx.Location %>:</div>
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.Venu %>:</div>
                             <div class="col-md-8">
-                                <asp:TextBox ID="txt_location" runat="server" class="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txt_ConcertHall" runat="server" class="form-control"></asp:TextBox>
                             </div>
                             <br />
                         </div>
                         <div class="col-md-4">
                             <br />
-                            <div class="col-md-4"><%= Resources.HomeView.aspx.Venu %>:</div>
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.AreaCity %>:</div>
                             <div class="col-md-8">
-                                <asp:TextBox ID="txt_ConcertHall" runat="server" class="form-control"></asp:TextBox>
+                                <asp:TextBox ID="txt_location" runat="server" class="form-control"></asp:TextBox>
                             </div>
                             <br />
                         </div>
@@ -240,7 +240,7 @@ where ID=@ID">
                             </asp:CommandField>
                             <asp:BoundField DataField="ID" HeaderText="<%$Resources:HomeView.aspx,ID %>" InsertVisible="False" ReadOnly="True" SortExpression="ID" />
                             <asp:BoundField DataField="PerformanceTitle" HeaderText="<%$Resources:HomeView.aspx,PerformanceTitle %>" SortExpression="PerformanceTitle" />
-                            <asp:BoundField DataField="Location" HeaderText="<%$Resources:HomeView.aspx,Location %>" SortExpression="Location" />
+                            <asp:BoundField DataField="Location" HeaderText="<%$Resources:HomeView.aspx,AreaCity %>" SortExpression="Location" />
                             <asp:BoundField DataField="ConcertHall" HeaderText="<%$Resources:HomeView.aspx,Venu %>" SortExpression="ConcertHall" />
                             <%--<asp:BoundField DataField="TimeStamp" HeaderText="TimeStamp" SortExpression="TimeStamp" />--%>
                             <%--<asp:BoundField DataField="UserID" HeaderText="UserID" SortExpression="UserID" />--%>

@@ -33,7 +33,7 @@
                                         </div>
                                         <br />
                                     </div>
-                                    <div class="col-md-4">
+                                    <%--<div class="col-md-4">
                                         <br />
                                         <div class="col-md-4"><%= Resources.HomeView.aspx.FamilyName %>:</div>
                                         <div class="col-md-8">
@@ -49,7 +49,7 @@
                                         </div>
                                         <br />
 
-                                    </div>
+                                    </div>--%>
                                     <div class="col-md-4">
                                         <br />
                                         <div class="col-md-4"><%= Resources.HomeView.aspx.Birthday %>:</div>

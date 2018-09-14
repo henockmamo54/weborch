@@ -36,7 +36,7 @@
                                 <br />
                                 <br />
                                 <%= Resources.HomeView.aspx.Company %>
-                                <asp:CheckBox runat="server" ID="chk_Orchestra" Text="<%$Resources:HomeView.aspx,Orchestra %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                                <asp:CheckBox runat="server" ID="chk_Orchestra" Text="<%$Resources:HomeView.aspx,ConcertTeam %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
                                 <asp:CheckBox runat="server" ID="chk_Promoter" Text="<%$Resources:HomeView.aspx,Promoter %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
                                 <asp:CheckBox runat="server" ID="chk_Agent" Text="<%$Resources:HomeView.aspx,Agent %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
                                 <asp:CheckBox runat="server" ID="chk_shopOwner" Text="<%$Resources:HomeView.aspx,ShopOwner %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />

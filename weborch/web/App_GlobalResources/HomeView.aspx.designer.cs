@@ -88,6 +88,15 @@ namespace Resources.HomeView {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add/Manage Concert Team.
+        /// </summary>
+        internal static string AddManageOrchestra {
+            get {
+                return ResourceManager.GetString("AddManageOrchestra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
         internal static string Address {
@@ -156,6 +165,15 @@ namespace Resources.HomeView {
         internal static string AllClassicKorea {
             get {
                 return ResourceManager.GetString("AllClassicKorea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Area / City.
+        /// </summary>
+        internal static string AreaCity {
+            get {
+                return ResourceManager.GetString("AreaCity", resourceCulture);
             }
         }
         
@@ -327,6 +345,15 @@ namespace Resources.HomeView {
         internal static string ConcertTeam {
             get {
                 return ResourceManager.GetString("ConcertTeam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Concert Team Data.
+        /// </summary>
+        internal static string ConcertTeamData {
+            get {
+                return ResourceManager.GetString("ConcertTeamData", resourceCulture);
             }
         }
         
