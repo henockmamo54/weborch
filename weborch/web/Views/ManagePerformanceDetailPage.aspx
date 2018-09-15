@@ -65,7 +65,7 @@
                                 <div class="col-md-4">Conductor:</div>
                                 <div class="col-md-8">
                                     <asp:DropDownList ID="DropDownList2_conductor" runat="server" DataSourceID="SqlDataSource3_conductor" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
-                                    <asp:SqlDataSource ID="SqlDataSource3_conductor" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="select (FirstName + ' '+ MiddleName + ' '+ FamilyName) as Name, ID
+                                    <asp:SqlDataSource ID="SqlDataSource3_conductor" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="select (FirstName ) as Name, ID
 from(
 select a.ID,a.FirstName,a.MiddleName,a.FamilyName from Core.Artist a 
 join Drived.Artist_ArtistType at on a.ID= at.Artist

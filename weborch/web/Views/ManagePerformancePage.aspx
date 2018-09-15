@@ -243,7 +243,7 @@ where ID=@ID">
                             <asp:BoundField DataField="MainTitle" HeaderText="<%$Resources:HomeView.aspx,MainTitleTheme %>" SortExpression="MainTitle" />
                             <asp:BoundField DataField="StartDate" HeaderText="<%$Resources:HomeView.aspx,StartDate %>" SortExpression="StartDate" DataFormatString="{0:d/M/yyyy}" />
                             <asp:BoundField DataField="EndDate" HeaderText="<%$Resources:HomeView.aspx,EndDate %>" SortExpression="EndDate"  DataFormatString="{0:d/M/yyyy}" />
-                            <asp:BoundField DataField="PerformanceTime" HeaderText="Performance  Time" SortExpression="EndDate" />
+                            <asp:BoundField DataField="PerformanceTime" HeaderText="Performance  Time" SortExpression="PerformanceTime" DataFormatString="{0:t}"  />
                             <asp:TemplateField HeaderText="<%$Resources:HomeView.aspx,PhotoAdLocation %>" SortExpression="PhotoAddLocation">
                                 <EditItemTemplate>
                                     <asp:Button ID="editButton" CssClass="btn btn-info" runat="server" Text='<%$Resources:HomeView.aspx,Change %>' data-toggle="modal" data-target="#exampleModalLong" />

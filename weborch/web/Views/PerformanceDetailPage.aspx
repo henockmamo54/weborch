@@ -239,8 +239,8 @@ Main.PerformanceDetail
 where ID= @ID"
                     SelectCommand="
 select pd.ID, p.PerformanceTitle,pd.Title,
-(c.FirstName + ' '+ c.MiddleName + ' '+ c.FamilyName) as Conductor,
-(co.FirstName + ' '+ co.MiddleName + ' '+ co.FamilyName) as Composer,
+(c.FirstName ) as Conductor,
+(co.FirstName ) as Composer,
 list.Artists,list.Instruments,
 pd.Time from Main.PerformanceDetail pd
 left join Core.Orchestra o on pd.Orchestra=o.ID
