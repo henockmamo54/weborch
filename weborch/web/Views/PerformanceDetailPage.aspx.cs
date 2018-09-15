@@ -211,6 +211,7 @@ namespace web.Views
                 pt.CommentMessage = txtComment.Text;
                 pt.PerformanceID = PDID;
                 pt.CommentDate = DateTime.Now;
+                pt.UserID = user.ID;
 
                 entity.PerformanceParentCommentTables.Add(pt);
                 entity.SaveChanges();
@@ -251,6 +252,7 @@ namespace web.Views
             pt.PerformanceID = PDID;
             pt.CommentDate = DateTime.Now;
             pt.ParentCommentID = int.Parse(e.CommandArgument.ToString());
+            pt.UserID = user.ID;
 
 
             entity.PerformanceParentCommentTables.Add(pt);

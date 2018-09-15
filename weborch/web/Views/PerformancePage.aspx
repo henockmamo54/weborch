@@ -37,9 +37,9 @@
                                                            (Eval("PerformanceTitle")) .ToString().Substring(0,15)+ " ....":
                                                            (Eval("PerformanceTitle")) .ToString()%></h4>
                                                 <p style="font-family: Roboto, Arial, sans-serif; margin-bottom:0px;">
-                                                    <%# ( Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceTime")) .ToString().Length>40?
-                                                           (Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceTime")) .ToString().Substring(0,40)+ " ....See More":
-                                                            (Eval("Location")+","+ Eval("ConcertHall") +","+ Eval("PerformanceTime")) .ToString() +"<br/>"
+                                                    <%# ( Eval("Location")+","+ Eval("ConcertHall") +","+  DataBinder.Eval(Container.DataItem,"PerformanceTime","{0:t}")) .ToString().Length>40?
+                                                           (Eval("Location")+","+ Eval("ConcertHall") +","+ DataBinder.Eval(Container.DataItem,"PerformanceTime","{0:t}")) .ToString().Substring(0,40)+ " ....See More":
+                                                            (Eval("Location")+","+ Eval("ConcertHall") +","+ DataBinder.Eval(Container.DataItem,"PerformanceTime","{0:t}")) .ToString() +"<br/>"
                                                             + " .... See More" %>
                                                 </p>
                                             </div>

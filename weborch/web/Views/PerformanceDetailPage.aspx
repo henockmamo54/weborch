@@ -194,7 +194,7 @@
                         Start date: <strong><span runat="server" id="startingdate"></span></strong><br />
                         End date: <strong><span runat="server" id="enddate"></span></strong><br />
                         Ticket box: <strong><span runat="server" id="ticketbox"></span></strong><br />
-                        Performance Time: <strong><span runat="server" id="performancetime"></span></strong>
+                        Performance Time: <strong><span runat="server" id="performancetime" ></span></strong>
 
                         <%--<strong>Note:</strong> The performance Organized by <strong><span runat="server" id="organizer"></span></strong>
                         will be held in <strong><span runat="server" id="location"></span></strong>at <strong><span runat="server" id="concerthall"></span></strong>
@@ -216,7 +216,7 @@
                                             <li>Composer: <%#Eval("Composer") %></li>
                                             <li>Artists: <%#Eval("Artists") %></li>
                                             <li>Instruments: <%#Eval("Instruments") %></li>
-                                            <li>Time: <%#Eval("Time") %></li>
+                                            <li>Time: <%#DataBinder.Eval(Container.DataItem,"Time","{0:t}") %></li>
                                         </ul>
                                     </li>
                                     <br />
