@@ -166,7 +166,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CommentMessage" Type="varchar" MaxLength="300" />
+    <Property Name="CommentMessage" Type="nvarchar" MaxLength="400" />
     <Property Name="CommentDate" Type="datetime" Nullable="false" />
     <Property Name="PerformanceID" Type="int" />
     <Property Name="UserID" Type="int" />
@@ -333,7 +333,7 @@
     <Property Name="OrganizerInfo" Type="nvarchar" MaxLength="200" />
     <Property Name="Archive" Type="bit" />
     <Property Name="Brochure" Type="nvarchar" MaxLength="100" />
-    <Property Name="MainTitle" Type="nvarchar" MaxLength="20" />
+    <Property Name="MainTitle" Type="nvarchar" MaxLength="400" />
     <Property Name="PerformanceTime" Type="datetime" />
   </EntityType>
   <EntityType Name="PerformanceDetail">
@@ -785,7 +785,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Performan__Perfo__7849DB76">
-    <End Role="PerformanceDetail" Type="Self.PerformanceDetail" Multiplicity="0..1" />
+    <End Role="PerformanceDetail" Type="Self.PerformanceDetail" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="PerformanceDetail_Instrument_Artist" Type="Self.PerformanceDetail_Instrument_Artist" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="PerformanceDetail">

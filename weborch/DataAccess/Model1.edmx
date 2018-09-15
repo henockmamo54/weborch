@@ -171,7 +171,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CommentMessage" Type="varchar" MaxLength="300" />
+          <Property Name="CommentMessage" Type="nvarchar" MaxLength="400" />
           <Property Name="CommentDate" Type="datetime" Nullable="false" />
           <Property Name="PerformanceID" Type="int" />
           <Property Name="UserID" Type="int" />
@@ -338,7 +338,7 @@
           <Property Name="OrganizerInfo" Type="nvarchar" MaxLength="200" />
           <Property Name="Archive" Type="bit" />
           <Property Name="Brochure" Type="nvarchar" MaxLength="100" />
-          <Property Name="MainTitle" Type="nvarchar" MaxLength="20" />
+          <Property Name="MainTitle" Type="nvarchar" MaxLength="400" />
           <Property Name="PerformanceTime" Type="datetime" />
         </EntityType>
         <EntityType Name="PerformanceDetail">
@@ -790,7 +790,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Performan__Perfo__7849DB76">
-          <End Role="PerformanceDetail" Type="Self.PerformanceDetail" Multiplicity="0..1" />
+          <End Role="PerformanceDetail" Type="Self.PerformanceDetail" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="PerformanceDetail_Instrument_Artist" Type="Self.PerformanceDetail_Instrument_Artist" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PerformanceDetail">
@@ -2088,7 +2090,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CommentMessage" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="CommentMessage" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
           <Property Name="CommentDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="PerformanceID" Type="Int32" />
           <Property Name="UserID" Type="Int32" />
@@ -2388,7 +2390,7 @@
           <Property Name="OrganizerInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Archive" Type="Boolean" />
           <Property Name="Brochure" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="MainTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MainTitle" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
           <Property Name="PerformanceTime" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Orchestra" Relationship="OrchestraDBModel.FK__Performan__Orche__531856C7" FromRole="Performance" ToRole="Orchestra" />
           <NavigationProperty Name="PerformanceLikeUnlikes" Relationship="OrchestraDBModel.FK__Performan__Perfo__1A9EF37A" FromRole="Performance" ToRole="PerformanceLikeUnlike" />

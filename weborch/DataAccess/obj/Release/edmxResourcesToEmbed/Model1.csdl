@@ -907,7 +907,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CommentMessage" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="CommentMessage" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
     <Property Name="CommentDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="PerformanceID" Type="Int32" />
     <Property Name="UserID" Type="Int32" />
@@ -1207,7 +1207,7 @@
     <Property Name="OrganizerInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Archive" Type="Boolean" />
     <Property Name="Brochure" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="MainTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MainTitle" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
     <Property Name="PerformanceTime" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Orchestra" Relationship="OrchestraDBModel.FK__Performan__Orche__531856C7" FromRole="Performance" ToRole="Orchestra" />
     <NavigationProperty Name="PerformanceLikeUnlikes" Relationship="OrchestraDBModel.FK__Performan__Perfo__1A9EF37A" FromRole="Performance" ToRole="PerformanceLikeUnlike" />
