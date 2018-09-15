@@ -19,7 +19,7 @@ namespace web.Views
         OrchestraDBEntities entity = new OrchestraDBEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "showdattime();", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "PopPerformance", "showdatetime();", true);
 
             if (!IsPostBack)
             {

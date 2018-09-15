@@ -376,6 +376,18 @@ where ID=@ID">
             });
         });
 
+        function showdatetime() {
+            $('#datetimepicker2').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+            $('#datetimepicker3').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+            $('#datetimepicker2_performancetime').datetimepicker({
+                format: "HH:mm A"
+            });
+        }
+
         function binddatetimecomps() {
             $('#datetimepicker2').datetimepicker({
                 format: 'DD/MM/YYYY'

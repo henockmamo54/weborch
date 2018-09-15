@@ -332,11 +332,6 @@ join(
             });
         });
 
-        function showdattime() {
-            $('#datetimepicker3').datetimepicker({
-                format: "HH:mm A"
-            });
-        }
 
         function showReply(n) {
             console.log(n);
@@ -379,6 +374,13 @@ join(
         function closeReply(n) {
             $("#divReply" + n).hide();
             return false;
+        }
+
+
+        function showdattime() {
+            $('#datetimepicker3').datetimepicker({
+                format: "HH:mm A"
+            });
         }
 
     </script>

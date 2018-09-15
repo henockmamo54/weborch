@@ -48,17 +48,17 @@ namespace web.Views
                             (co.FirstName + ' '+ co.MiddleName + ' '+ co.FamilyName) as Composer,
                             list.Artists,list.Instruments,
                             pd.Time from Main.PerformanceDetail pd
-                            join Core.Orchestra o on pd.Orchestra=o.ID
-                            join Main.Performance p on p.ID=pd.PerformanceID
-                            join  (select a.* from Core.Artist a 
+                            left join Core.Orchestra o on pd.Orchestra=o.ID
+                            left join Main.Performance p on p.ID=pd.PerformanceID
+                            left join  (select a.* from Core.Artist a 
 		                            join Drived.Artist_ArtistType at on a.ID= at.Artist
 		                            join Lookup.ArtistType al  on at.ArtistTypeID = al.ID
 		                            where al.Name like '%Conductor%') c on c.ID= pd.Conductor
-                            join  (select a.* from Core.Artist a 
+                            left join  (select a.* from Core.Artist a 
 		                            join Drived.Artist_ArtistType at on a.ID= at.Artist
 		                            join Lookup.ArtistType al  on at.ArtistTypeID = al.ID
 		                            where al.Name like '%Composer%') co on co.ID= pd.Composer
-                            join(
+                            left join(
 		                            SELECT
 			                             PerformanceDetailID,
 			                             STUFF(
