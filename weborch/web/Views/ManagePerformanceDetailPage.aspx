@@ -223,7 +223,7 @@ join(
 			 STUFF(
 				 (SELECT ',' + Name
 				  FROM (
-		select distinct pia.PerformanceDetailID, i.EnglishName as instrument,a.FirstName + ' '+ a.MiddleName + ' '+ a.FamilyName as Name
+		select distinct pia.PerformanceDetailID, i.EnglishName as instrument,a.FirstName  as Name
 		 from Drived.PerformanceDetail_Instrument_Artist pia 
 		join Core.Artist a on a.ID = pia.ArtistID
 		join Core.Instrument i on i.ID = pia.InstrumentID
@@ -235,7 +235,7 @@ join(
 			 STUFF(
 				 (SELECT ','+ instrument
 				  FROM (
-		select distinct  pia.PerformanceDetailID, i.EnglishName as instrument,a.FirstName + ' '+ a.MiddleName + ' '+ a.FamilyName as Name
+		select distinct  pia.PerformanceDetailID, i.EnglishName as instrument,a.FirstName  as Name
 		 from Drived.PerformanceDetail_Instrument_Artist pia 
 		join Core.Artist a on a.ID = pia.ArtistID
 		join Core.Instrument i on i.ID = pia.InstrumentID
