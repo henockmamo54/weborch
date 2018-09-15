@@ -8,14 +8,14 @@
             <ContentTemplate>
 
                 <div id="forAudience" runat="server">
-                    <h3 style="display: inline-block;"><%= Resources.HomeView.aspx.Orchestradata %></h3>
+                    <h3 style="display: inline-block;"><%= Resources.HomeView.aspx.ConcertTeamData %></h3>
                     <div class="row col-md-12" style="margin-bottom: 1rem; padding: 0px;">
                         <div class="col-md-3 pull-right" style="padding: 0;">
                             <h5 style="display: inline-block;">Name: </h5>
                             <asp:TextBox AutoPostBack="true" ID="txtbox_namefilter" runat="server" CssClass="form-control" Style="width: 82%; display: inline-block;" OnTextChanged="filterOrchestraDataByName"></asp:TextBox>
                         </div>
                         <div class="col-md-3 pull-right" >
-                            <asp:LinkButton CssClass="btn btn-success pull-right" runat="server" ID="btn_MangeOrchestraButton" Text="Add / Manage Orchestra" Visible="false" PostBackUrl="~/Views/ManageOrchestraView.aspx" />
+                            <asp:LinkButton CssClass="btn btn-success pull-right" runat="server" ID="btn_MangeOrchestraButton" Text="  <%$Resources:HomeView.aspx,AddManageOrchestra  %>" Visible="false" PostBackUrl="~/Views/ManageOrchestraView.aspx" />
                         </div>
                     </div>
 

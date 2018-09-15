@@ -489,4 +489,13 @@
   <data name="Venu" xml:space="preserve">
     <value>공연장소</value>
   </data>
+  <data name="AddManageOrchestra" xml:space="preserve">
+    <value>연주팀 정보</value>
+  </data>
+  <data name="AreaCity" xml:space="preserve">
+    <value>지역/도시</value>
+  </data>
+  <data name="ConcertTeamData" xml:space="preserve">
+    <value>연주팀 정보</value>
+  </data>
 </root>

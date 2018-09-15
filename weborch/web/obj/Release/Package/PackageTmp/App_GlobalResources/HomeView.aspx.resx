@@ -489,4 +489,13 @@
   <data name="Venu" xml:space="preserve">
     <value>Venu</value>
   </data>
+  <data name="AddManageOrchestra" xml:space="preserve">
+    <value>Add/Manage Concert Team</value>
+  </data>
+  <data name="AreaCity" xml:space="preserve">
+    <value>Area / City</value>
+  </data>
+  <data name="ConcertTeamData" xml:space="preserve">
+    <value>Concert Team Data</value>
+  </data>
 </root>
