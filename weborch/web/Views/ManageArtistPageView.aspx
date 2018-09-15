@@ -424,7 +424,7 @@ Where ID=@ID"
                                     <asp:BoundField DataField="FirstName" HeaderText="<%$Resources:HomeView.aspx,Name %>" SortExpression="FirstName" />
                                    <%-- <asp:BoundField DataField="FamilyName" HeaderText="<%$Resources:HomeView.aspx,FamilyName %>" SortExpression="FamilyName" />
                                     <asp:BoundField DataField="MiddleName" HeaderText="<%$Resources:HomeView.aspx,MiddleName %>" SortExpression="MiddleName" />--%>
-                                    <asp:BoundField DataField="BirthDate" HeaderText="<%$Resources:HomeView.aspx,BirthDay %>" SortExpression="BirthDate" />
+                                    <asp:BoundField DataField="BirthDate" HeaderText="<%$Resources:HomeView.aspx,BirthDay %>" SortExpression="BirthDate" DataFormatString="{0:d/M/yyyy}"  />
                                     <asp:BoundField DataField="Address" HeaderText="<%$Resources:HomeView.aspx,Address %>" SortExpression="Address" />
                                     <asp:BoundField DataField="ZipCode" HeaderText="<%$Resources:HomeView.aspx,ZipCode %>" SortExpression="ZipCode" />
                                     <asp:BoundField DataField="TelNO" HeaderText="<%$Resources:HomeView.aspx,TelNO %>" SortExpression="TelNO" />

@@ -114,7 +114,7 @@ where al.Name like '%Composer%'
                             <div class="col-md-4">
                                 Instrument:
                         <asp:DropDownList ID="DropDownList3_instrumentlist" class="form-control" runat="server" DataSourceID="SqlDataSource1_Instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
-                                <asp:SqlDataSource ID="SqlDataSource1_Instrumentlist" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT EnglishName, ID FROM Core.Instrument"></asp:SqlDataSource>
+                                <asp:SqlDataSource ID="SqlDataSource1_Instrumentlist" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT EnglishName, ID FROM Core.Instrument order by englishname"></asp:SqlDataSource>
                             </div>
                             <div class="col-md-4">
                                 Played by:
@@ -179,7 +179,7 @@ FROM Core.Artist"></asp:SqlDataSource>
                                 <asp:BoundField DataField="Composer" HeaderText="Composer" ReadOnly="True" SortExpression="Composer" />
                                 <asp:BoundField DataField="Artists" HeaderText="Artists" ReadOnly="True" SortExpression="Artists" />
                                 <asp:BoundField DataField="Instruments" HeaderText="Instruments" ReadOnly="True" SortExpression="Instruments" />
-                                <asp:BoundField DataField="Time" HeaderText="Time" SortExpression="Time" />
+                                <asp:BoundField DataField="Time" HeaderText="Time" SortExpression="Time" DataFormatString="{0:t}" />
                             </Columns>
                             <EditRowStyle BackColor="#999999" />
                             <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -203,8 +203,8 @@ Main.PerformanceDetail
 where ID= @ID"
                         SelectCommand="
 select pd.ID, p.PerformanceTitle,pd.Title,
-(c.FirstName + ' '+ c.MiddleName + ' '+ c.FamilyName) as Conductor,
-(co.FirstName + ' '+ co.MiddleName + ' '+ co.FamilyName) as Composer,
+(c.FirstName ) as Conductor,
+(co.FirstName ) as Composer,
 list.Artists,list.Instruments,
 pd.Time from Main.PerformanceDetail pd
 join Core.Orchestra o on pd.Orchestra=o.ID
