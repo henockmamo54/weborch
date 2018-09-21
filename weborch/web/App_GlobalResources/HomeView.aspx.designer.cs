@@ -340,7 +340,7 @@ namespace Resources.HomeView {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Concert Team.
+        ///   Looks up a localized string similar to Performance Group.
         /// </summary>
         internal static string ConcertTeam {
             get {

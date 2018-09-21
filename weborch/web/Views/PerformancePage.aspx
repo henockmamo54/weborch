@@ -30,7 +30,7 @@
                                 <div class="col-md-4" style="margin-bottom: 1em;">
                                     <div class="thumbnail shadowedbox" style="box-shadow: 2px 2px 2px #d0d0d0;">
                                         <asp:LinkButton runat="server" ID="tumbinallink"  Style="text-decoration: none;">
-                                            <img src="../Document/<%#Eval("PhotoAddLocation") %>" class="shadowedbox" alt="Lights" style="width: 100%; height: 200px;">
+                                            <img src="../Document/<%#Eval("PhotoAddLocation") %>" class="shadowedbox" alt="Lights" style="width: 100%; height: 300px;">
 
                                             <div class="caption" style="padding-bottom:3px;">
                                                 <h4><%# (Eval("PerformanceTitle")) .ToString().Length>15?
