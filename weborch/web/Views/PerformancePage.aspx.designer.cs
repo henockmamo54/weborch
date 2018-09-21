@@ -22,15 +22,6 @@ namespace web.Views {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl forAudience;
         
         /// <summary>
-        /// btn_MangePerformanceButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btn_MangePerformanceButton;
-        
-        /// <summary>
         /// repeater_performanceList control.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,15 @@ namespace web.Views {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater repeater_performanceList;
+        
+        /// <summary>
+        /// btn_MangePerformanceButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btn_MangePerformanceButton;
         
         /// <summary>
         /// SqlDataSource2_allPerformances control.

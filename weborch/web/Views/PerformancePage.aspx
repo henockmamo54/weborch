@@ -20,8 +20,7 @@
                     <div class="row">
 
                         <div class=" col-md-12">
-                            <h2 style="margin-top: 0px; padding-top: 0px; display: inline-block;">Musical Performance Information</h2>
-                            <asp:LinkButton CssClass="btn btn-success pull-right" runat="server" Style="display: inline-block;" ID="btn_MangePerformanceButton" Text="Add / Manage Performance" Visible="false" PostBackUrl="~/Views/ManagePerformancePage.aspx" />
+                            <h2 style="margin-top: 0px; padding-top: 0px; display: inline-block;">Musical Performance Information</h2>                           
                         </div>
 
                         <asp:Repeater runat="server" ID="repeater_performanceList" OnItemDataBound="repeater_performanceList_ItemDataBound">
@@ -56,7 +55,8 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <asp:Button runat="server" Text="Show More" CssClass="btn btn-success pull-right" OnClick="loadMorePerformances" />
+                             <asp:LinkButton CssClass="btn btn-success pull-right" runat="server" Style="display: inline-block; " ID="btn_MangePerformanceButton" Text="Add / Manage Performance" Visible="false" PostBackUrl="~/Views/ManagePerformancePage.aspx" />
+                            <asp:Button runat="server" Text="Show More" CssClass="btn btn-success pull-right" style="margin-right: 5px;" OnClick="loadMorePerformances" />
                         </div>
                     </div>
                 </div>
