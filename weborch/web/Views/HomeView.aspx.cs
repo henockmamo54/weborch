@@ -59,7 +59,7 @@ order by TimeStamp desc";
             if (Session["countOfShowMore"] == null) { Session["countOfShowMore"] = 3; countOfShowMore = 3; }
             else
             {
-                countOfShowMore = (int) Session["countOfShowMore"] + 1;
+                countOfShowMore = (int)Session["countOfShowMore"] + 1;
                 Session["countOfShowMore"] = countOfShowMore;
             }
             var count = countOfShowMore * 3;

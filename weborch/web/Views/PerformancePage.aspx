@@ -29,7 +29,7 @@
                             <ItemTemplate>
                                 <div class="col-md-4" style="margin-bottom: 1em;">
                                     <div class="thumbnail shadowedbox" style="box-shadow: 2px 2px 2px #d0d0d0;">
-                                        <asp:LinkButton runat="server" ID="tumbinallink"  Style="text-decoration: none;">
+                                        <asp:LinkButton runat="server" ID="tumbinallink" Style="text-decoration: none;">
                                             <img src="../Document/<%#Eval("PhotoAddLocation") %>" class="shadowedbox" alt="Lights" style="width: 100%; height: 300px;">
 
                                             <div class="caption" style="padding-bottom:3px;">
@@ -53,6 +53,12 @@
 
 
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <asp:Button runat="server" Text="Show More" CssClass="btn btn-success pull-right" OnClick="loadMorePerformances" />
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -60,7 +66,7 @@
 
             <div class="row ">
                 <asp:SqlDataSource ID="SqlDataSource2_allPerformances" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
-SELECT p.*, OfficialName  FROM Main.Performance p
+SELECT top 9 p.*, OfficialName  FROM Main.Performance p
 join Core.Orchestra o on p.OrchestraID=o.ID order by StartDate"
                     DeleteCommand="Delete Main.Performance
 where id = @ID"
@@ -106,7 +112,6 @@ where ID=@ID">
 
 
         <Triggers>
-
         </Triggers>
 
     </asp:UpdatePanel>

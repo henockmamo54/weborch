@@ -17,6 +17,8 @@ namespace web.Views
         UserCommonTable user;
         bool isUserCompany = false;
         OrchestraDBEntities entity = new OrchestraDBEntities();
+        private int countOfShowMore;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -88,5 +90,24 @@ namespace web.Views
 
             }
         }
+
+
+        public void loadMorePerformances(object sender, EventArgs e)
+        {
+            if (Session["countOfShowMore"] == null) { Session["countOfShowMore"] = 4; countOfShowMore = 4; }
+            else
+            {
+                countOfShowMore = (int)Session["countOfShowMore"] + 1;
+                Session["countOfShowMore"] = countOfShowMore;
+            }
+            var count = countOfShowMore * 3;
+            SqlDataSource2_allPerformances.SelectCommand = @"SELECT top " + count +
+                @" p.*, OfficialName  FROM Main.Performance p 
+                join Core.Orchestra o on p.OrchestraID = o.ID order by StartDate";
+
+            repeater_performanceList.DataSource = SqlDataSource2_allPerformances;
+            repeater_performanceList.DataBind();
+        }
+
     }
 }
