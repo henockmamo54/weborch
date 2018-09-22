@@ -362,6 +362,7 @@ FROM Core.Artist"></asp:SqlDataSource>
                             
                             <div class="row" style="text-align:center;">
                         <asp:Button ID="btn_addPerformance" CssClass="btn btn-success " runat="server" Text="<%$Resources:HomeView.aspx,Register %>" OnClick="saveAllPerformanceInformation" />
+                        <asp:Button ID="btn_updatePerformance" CssClass="btn btn-success " runat="server" Text="Update" OnClick="updatePerformanceinfo" />
                             </div>
 
                         </div>

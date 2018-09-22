@@ -278,6 +278,96 @@ namespace web.Views
 
         }
 
+        public void updatePerformanceinfo(object sender, EventArgs e)
+        {
+            bool isSuccess = false;
+            OrchestraDBEntities context2 = entity;
+            using (context2)
+            {
+                var dbContextTransaction = context2.Database.BeginTransaction();
+                using (dbContextTransaction)
+                {
+                    try
+                    {
+                        var user = (UserCommonTable)Session["User"];
+
+                        int myid = (int.Parse(GridView2.SelectedRow.Cells[1].Text));
+                        Performance p = entity.Performances.Where(x => x.ID == myid).FirstOrDefault();
+
+                        p.UserID = user.ID;
+                        p.OrchestraID = int.Parse(DropDownList1.SelectedValue.ToString());
+                        p.PerformanceTitle = txt_title.Text;
+                        p.MainTitle = txt_mainTitleTheme.Text;
+                        p.StartDate = DateTime.ParseExact(txt_performancestartdate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
+                        p.EndDate = DateTime.ParseExact(txt_performanceenddate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
+                        p.OrchestraID = int.Parse(DropDownList1.SelectedItem.Value);
+                        p.Location = txt_location.Text;
+                        p.ConcertHall = txt_ConcertHall.Text;
+                        p.PerformanceTime = DateTime.Parse(txt_performanceTime.Value);
+                        p.TicketBox = txt_ticketbox.Text;
+                        p.OrganizerInfo = txt_organizerinfo.Text;
+                        p.VideoLocation = txt_videolocation.Text;
+                        if (!getPhoto(p, FileUpload1, 1)) return;
+                        if (!getPhoto(p, FileUpload3, 2)) return;
+                        context2.SaveChanges();
+
+                        var myperformancedetail = (List<PerformanceDetail>)Session["myperformanceDetailList"];
+                        var artistinstlist = (List<List<PerformanceDetail_Instrument_Artist>>)Session["myinstrumentdetailList"];
+
+                        context2.PerformanceDetails.RemoveRange(context2.PerformanceDetails.Where(x => x.PerformanceID == p.ID));
+                        context2.SaveChanges();
+
+                        for (int i = 0; i < myperformancedetail.Count; i++)
+                        {
+
+                            PerformanceDetail pd = myperformancedetail[i];
+                            pd.Performance = p;
+                            pd.PerformanceID = p.ID;
+
+                            
+
+                            context2.PerformanceDetails.Add(pd);
+                            context2.SaveChanges();
+
+                            // register artist and instrument
+                            if (artistinstlist[i] != null)
+                            {
+                                List<PerformanceDetail_Instrument_Artist> mylist = artistinstlist[i];
+                                foreach (PerformanceDetail_Instrument_Artist x in mylist)
+                                {
+                                    PerformanceDetail_Instrument_Artist detail = new PerformanceDetail_Instrument_Artist();
+                                    detail.PerformanceDetailID = pd.ID;
+                                    detail.ArtistID = x.ArtistID;
+                                    detail.InstrumentID = x.InstrumentID;
+
+                                    context2.PerformanceDetail_Instrument_Artist.Add(detail);
+                                    context2.SaveChanges();
+                                }
+                            }
+
+                        }
+
+                        dbContextTransaction.Commit();
+                        isSuccess = true;
+                    }
+                    catch (Exception ee)
+                    {
+                        dbContextTransaction.Rollback();
+                    }
+
+                    if (isSuccess)
+                    {
+                        //ListView1.DataBind();
+                        GridView2.DataBind();
+                        showMsg("Data inserted succssfuly");
+                        cleanInputs();
+                    }
+                    else showMsg("Please check your inputs");
+
+                }
+            }
+        }
+
         public void saveAllPerformanceInformation(object sender, EventArgs e) {
 
             bool isSuccess = false;
@@ -522,8 +612,83 @@ namespace web.Views
             //GridViewRow row = GridView1.SelectedRow;
             //var x = row.Cells[1].Text;
             Session["PerformanceDetailID"] = GridView2.SelectedRow.Cells[1].Text;
-            Response.Redirect("ManagePerformanceDetailPage.aspx");
+            int myid = (int.Parse(GridView2.SelectedRow.Cells[1].Text));
+            Performance p = entity.Performances.Where(x=>x.ID==myid).FirstOrDefault();
+            //Response.Redirect("ManagePerformanceDetailPage.aspx");
+
+            DropDownList1.SelectedValue = p.OrchestraID.ToString();
+            txt_title.Text = p.PerformanceTitle;
+            txt_mainTitleTheme.Text = p.MainTitle;
+            txt_performancestartdate.Value = p.StartDate.ToString();
+            txt_performanceenddate.Value = p.EndDate.ToString();
+            DropDownList1.SelectedItem.Value = p.OrchestraID.ToString();
+            txt_location.Text = p.Location;
+            txt_ConcertHall.Text = p.ConcertHall;
+            txt_performanceTime.Value = p.PerformanceTime.ToString();
+            txt_ticketbox.Text = p.TicketBox.ToString();
+            txt_organizerinfo.Text = p.OrganizerInfo.ToString();
+            txt_videolocation.Text = p.VideoLocation;
+
+            // details
+            var pd = p.PerformanceDetails.ToList();
+            Session["myperformanceDetailList"] = pd;
+
+            var myinslist = new List<List<PerformanceDetail_Instrument_Artist>>();
+            foreach (var a in pd) myinslist.Add(a.PerformanceDetail_Instrument_Artist.ToList());
+
+            Session["myinstrumentdetailList"] = myinslist;
+            //var d1 = pd[0].PerformanceDetail_Instrument_Artist.ToList();
+
+            // mangage displayable objects
+            List<detailviewModel> myobjlist = new List<detailviewModel>();
+            if (Session["myperformanceDetailList"] != null)
+            {
+                var detail = (List<PerformanceDetail>)Session["myperformanceDetailList"];
+                for (int i = 0; i < detail.Count; i++)
+                {
+                    detailviewModel d = new detailviewModel();
+                    d.ID = i;
+                    d.Title = detail[i].Title;
+                    int cond = (int)detail[i].Conductor;
+                    int comp = (int)detail[i].Composer;
+                    d.Conductor = entity.Artists.Where(x => x.ID == cond).FirstOrDefault().FirstName;
+                    d.Composer = entity.Artists.Where(x => x.ID == comp).FirstOrDefault().FirstName;
+                    d.Time = detail[i].Time.ToString();
+
+                    // if it has artist insturment list
+                    if (Session["myinstrumentdetailList"] != null)
+                    {
+                        var t = (List<List<PerformanceDetail_Instrument_Artist>>)Session["myinstrumentdetailList"];
+                        List<PerformanceDetail_Instrument_Artist> td = t[i];
+                        if (td != null)
+                        {
+                            for (int j = 0; j < td.Count; j++)
+                            {
+                                d.Artists += td[j].Artist.FirstName + ", ";
+                                d.Instruments += td[j].Instrument.EnglishName + ", ";
+                            }
+                        }
+                    }
+
+                    myobjlist.Add(d);
+                }
+            }
+
+            Session["myDetailObjlist"] = myobjlist;
+            repeaterDetailMusicArtist.DataSource = myobjlist;
+            repeaterDetailMusicArtist.DataBind();
+
+            entity.Dispose();
+
+
         }
+
+
+        public Performance getHeaderPeformanceData(int performanceID)
+        {
+                return pl.getPerformanceById(performanceID);            
+        }
+
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
