@@ -301,6 +301,7 @@
     <Content Include="Views\informationSpacePages\PromotionAndRecruitmentPageView.aspx" />
     <Content Include="Views\InstrumentView.aspx" />
     <Content Include="Views\IntroductionPage.aspx" />
+    <Content Include="Views\ManagePerformancePage2.aspx" />
     <Content Include="Views\MyPage.aspx" />
     <Content Include="Views\ManageOrchestraView.aspx" />
     <Content Include="Views\OrchestraView.aspx" />
@@ -648,6 +649,13 @@
     </Compile>
     <Compile Include="Views\IntroductionPage.aspx.designer.cs">
       <DependentUpon>IntroductionPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManagePerformancePage2.aspx.cs">
+      <DependentUpon>ManagePerformancePage2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ManagePerformancePage2.aspx.designer.cs">
+      <DependentUpon>ManagePerformancePage2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\MyPage.aspx.cs">
       <DependentUpon>MyPage.aspx</DependentUpon>

@@ -17,6 +17,9 @@ namespace web.Views
         UserCommonTable user;
         bool isUserCompany = false;
         OrchestraDBEntities entity = new OrchestraDBEntities();
+        List<PerformanceDetail> myperformanceDetailList = new List<PerformanceDetail>();
+        List<List<PerformanceDetail_Instrument_Artist>> myinstrumentdetailList = new List<List<PerformanceDetail_Instrument_Artist>>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(this, this.GetType(), "PopPerformance", "showdatetime();", true);
@@ -44,52 +47,443 @@ namespace web.Views
 
                 }
                 else Response.Redirect("~/Views/HomeView.aspx");
-
-                PanelPerformanceRegiter.Visible = isUserCompany;
+                
             }
+
+
+            // mamage file uploads
+
+            {
+                if (Session["FileUpload1"] == null && FileUpload1.HasFile)
+                {
+                    Session["FileUpload1"] = FileUpload1;
+                }
+                // This condition will occur on next postbacks        
+                else if (Session["FileUpload1"] != null && (!FileUpload1.HasFile))
+                {
+                    FileUpload1 = (FileUpload)Session["FileUpload1"];
+                }
+                //  when Session will have File but user want to change the file 
+                // i.e. wants to upload a new file using same FileUpload control
+                // so update the session to have the newly uploaded file
+                else if (FileUpload1.HasFile)
+                {
+                    Session["FileUpload1"] = FileUpload1;
+                    FileUpload1 = (FileUpload)Session["FileUpload1"];
+                }
+            }
+        }
+
+
+        public void btn_remove_ArtistInstrument_tolist(object sender, EventArgs e)
+        {
+            if (Session["myPerformanceDetailArtistInstrumentlist"] != null)
+            {
+                Button btn = (Button)sender;
+                var ids = btn.CommandArgument.ToString().Split(',');
+                int artistID = int.Parse(ids[0]);
+                int instrumentID = int.Parse(ids[1]);
+                List<PerformanceDetail_Instrument_Artist> mylist = (List<PerformanceDetail_Instrument_Artist>)Session["myPerformanceDetailArtistInstrumentlist"];
+
+                mylist.RemoveAll(x => x.ArtistID == artistID & x.InstrumentID == instrumentID);
+                myPerformanceDetailArtistInstrumentlist.DataSource = mylist;
+                myPerformanceDetailArtistInstrumentlist.DataBind();
+                Session["myPerformanceDetailArtistInstrumentlist"] = mylist;
+            }
+        }
+
+
+        public void btn_remove_ItemDetailData(object sender, EventArgs e)
+        {
+            if (Session["myperformanceDetailList"] != null)
+            {
+                Button btn = (Button)sender;
+                var id = btn.CommandArgument.ToString();
+                //int listindex = int.Parse(id);
+
+                var artistinstdetailvalues = (List<List<PerformanceDetail_Instrument_Artist>>)Session["myinstrumentdetailList"];
+                var myperformanceDetailList = (List<PerformanceDetail>)Session["myperformanceDetailList"];
+                var myDetailObjlist = (List<detailviewModel>)Session["myDetailObjlist"];
+
+                int index = myDetailObjlist.FindIndex(x => x.ID == int.Parse(id));
+
+                artistinstdetailvalues.RemoveAt(index);
+                myperformanceDetailList.RemoveAt(index);
+                myDetailObjlist.RemoveAt(index);
+
+                repeaterDetailMusicArtist.DataSource = myDetailObjlist;
+                repeaterDetailMusicArtist.DataBind();
+
+                Session["myinstrumentdetailList"] = artistinstdetailvalues;
+                Session["myperformanceDetailList"] = myperformanceDetailList;
+                Session["myDetailObjlist"] = myDetailObjlist;
+
+                //int instrumentID = int.Parse(ids[1]);
+                //List<PerformanceDetail_Instrument_Artist> mylist = (List<PerformanceDetail_Instrument_Artist>)Session["myPerformanceDetailArtistInstrumentlist"];
+
+                //mylist.RemoveAll(x => x.ArtistID == artistID & x.InstrumentID == instrumentID);
+                //myPerformanceDetailArtistInstrumentlist.DataSource = mylist;
+                //myPerformanceDetailArtistInstrumentlist.DataBind();
+                //Session["myPerformanceDetailArtistInstrumentlist"] = mylist;
+            }
+        }
+
+
+        protected void btn_add_ArtistInstrument_tolist(object sender, EventArgs e)
+        {
+            PerformanceDetail_Instrument_Artist detail = new PerformanceDetail_Instrument_Artist();
+
+
+            detail.ArtistID = int.Parse(DropDownList2_artistlist.SelectedValue);
+            detail.Artist = new Artist();
+            detail.Artist.FirstName = DropDownList2_artistlist.SelectedItem.Text;
+
+            detail.InstrumentID = int.Parse(DropDownList3_instrumentlist.SelectedValue);
+            detail.Instrument = new Instrument();
+            detail.Instrument.EnglishName = DropDownList3_instrumentlist.SelectedItem.Text;
+
+            if (Session["myPerformanceDetailArtistInstrumentlist"] != null)
+            {
+                List<PerformanceDetail_Instrument_Artist> mylist = (List<PerformanceDetail_Instrument_Artist>)Session["myPerformanceDetailArtistInstrumentlist"];
+                mylist.Add(detail);
+
+                myPerformanceDetailArtistInstrumentlist.DataSource = mylist;
+                myPerformanceDetailArtistInstrumentlist.DataBind();
+
+                Session["myendorsmentlist"] = mylist;
+            }
+            else
+            {
+                List<PerformanceDetail_Instrument_Artist> mylist = new List<PerformanceDetail_Instrument_Artist>();
+                mylist.Add(detail);
+
+                myPerformanceDetailArtistInstrumentlist.DataSource = mylist;
+                myPerformanceDetailArtistInstrumentlist.DataBind();
+
+                Session["myPerformanceDetailArtistInstrumentlist"] = mylist;
+            }
+        }
+
+        public void saveDetailClicked(object sender, EventArgs e)
+        {
+            bool isSuccess = false;
+
+            {
+
+                {
+                    try
+                    {
+                        PerformanceDetail pd = new PerformanceDetail();
+                        pd.Title = txt_performancetitle.Text;
+                        pd.Orchestra = int.Parse(DropDownList1_orchestra.SelectedValue);
+                        pd.Conductor = int.Parse(DropDownList2_conductor.SelectedValue);
+                        pd.Composer = int.Parse(DropDownList4_composer.SelectedValue);
+                        pd.Time = DateTime.Now;
+
+                        // check the detial header 
+                        if (Session["myperformanceDetailList"] == null)
+                        {
+                            myperformanceDetailList.Add(pd);
+                            Session["myperformanceDetailList"] = myperformanceDetailList;
+                        }
+                        else
+                        {
+                            myperformanceDetailList = (List<PerformanceDetail>)Session["myperformanceDetailList"];
+                            myperformanceDetailList.Add(pd);
+                            Session["myperformanceDetailList"] = myperformanceDetailList;
+                        }
+
+                        // check detail instrument artist data
+                        if (Session["myinstrumentdetailList"] == null)
+                        {
+                            if (Session["myPerformanceDetailArtistInstrumentlist"] != null)
+                                myinstrumentdetailList.Add((List<PerformanceDetail_Instrument_Artist>)Session["myPerformanceDetailArtistInstrumentlist"]);
+                            else
+                                myinstrumentdetailList.Add(null);
+
+                            Session["myinstrumentdetailList"] = myinstrumentdetailList;
+                        }
+                        else
+                        {
+                            myinstrumentdetailList = (List<List<PerformanceDetail_Instrument_Artist>>)Session["myinstrumentdetailList"];
+                            if (Session["myPerformanceDetailArtistInstrumentlist"] != null)
+                                myinstrumentdetailList.Add((List<PerformanceDetail_Instrument_Artist>)Session["myPerformanceDetailArtistInstrumentlist"]);
+                            else
+                                myinstrumentdetailList.Add(null);
+
+                            Session["myinstrumentdetailList"] = myinstrumentdetailList;
+                        }
+
+
+
+                        isSuccess = true;
+                    }
+                    catch (Exception ee)
+                    {
+                        //dbContextTransaction.Rollback();
+                    }
+
+                    if (isSuccess)
+                    {
+                        //showMsg("Data inserted succssfuly");
+                        Session["myPerformanceDetailArtistInstrumentlist"] = null;
+                        //clear textbox
+
+                        // mangage displayable objects
+                        List<detailviewModel> myobjlist = new List<detailviewModel>();
+                        if (Session["myperformanceDetailList"] != null)
+                        {
+                            var detail = (List<PerformanceDetail>)Session["myperformanceDetailList"];
+                            for (int i = 0; i < detail.Count; i++)
+                            {
+                                detailviewModel d = new detailviewModel();
+                                d.ID = i;
+                                d.Title = detail[i].Title;
+                                int cond = (int)detail[i].Conductor;
+                                int comp = (int)detail[i].Composer;
+                                d.Conductor = entity.Artists.Where(x => x.ID == cond).FirstOrDefault().FirstName;
+                                d.Composer = entity.Artists.Where(x => x.ID == comp).FirstOrDefault().FirstName;
+                                d.Time = detail[i].Time.ToString();
+
+                                // if it has artist insturment list
+                                if (Session["myinstrumentdetailList"] != null)
+                                {
+                                    var t = (List<List<PerformanceDetail_Instrument_Artist>>)Session["myinstrumentdetailList"];
+                                    List<PerformanceDetail_Instrument_Artist> td = t[i];
+                                    if (td != null)
+                                    {
+                                        for (int j = 0; j < td.Count; j++)
+                                        {
+                                            d.Artists += td[j].Artist.FirstName + ", ";
+                                            d.Instruments += td[j].Instrument.EnglishName + ", ";
+                                        }
+                                    }
+                                }
+
+                                myobjlist.Add(d);
+                            }
+                        }
+
+                        Session["myDetailObjlist"] = myobjlist;
+                        myPerformanceDetailArtistInstrumentlist.DataBind();
+                        repeaterDetailMusicArtist.DataSource = myobjlist;
+                        repeaterDetailMusicArtist.DataBind();
+
+
+                    }
+                    else showMsg("Please check your inputs");
+                }
+            }
+
+
+        }
+
+        public void saveAllPerformanceInformation(object sender, EventArgs e) {
+
+            bool isSuccess = false;
+            using (var context = new OrchestraDBEntities())
+            {
+                using (var dbContextTransaction = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        var user = (UserCommonTable)Session["User"];
+
+                        Performance p = new Performance();
+                        p.UserID = user.ID;
+                        p.OrchestraID = int.Parse(DropDownList1.SelectedValue.ToString());
+                        p.PerformanceTitle = txt_title.Text;
+                        p.MainTitle = txt_mainTitleTheme.Text;
+                        p.StartDate = DateTime.ParseExact(txt_performancestartdate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
+                        p.EndDate = DateTime.ParseExact(txt_performanceenddate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
+                        p.OrchestraID = int.Parse(DropDownList1.SelectedItem.Value);
+                        p.Location = txt_location.Text;
+                        p.ConcertHall = txt_ConcertHall.Text;
+                        p.PerformanceTime = DateTime.Parse(txt_performanceTime.Value);
+                        p.TicketBox = txt_ticketbox.Text;
+                        p.OrganizerInfo = txt_organizerinfo.Text;
+                        p.VideoLocation = txt_videolocation.Text;
+                        if (!getPhoto(p, FileUpload1, 1)) return;
+                        if (!getPhoto(p, FileUpload3, 2)) return;
+                        context.Performances.Add(p);
+                        context.SaveChanges();
+
+                        var myperformancedetail = (List<PerformanceDetail>)Session["myperformanceDetailList"];
+                        var artistinstlist = (List<List<PerformanceDetail_Instrument_Artist>>)Session["myinstrumentdetailList"];
+
+                        for (int i = 0; i < myperformancedetail.Count; i++)
+                        {
+
+                            PerformanceDetail pd = myperformancedetail[i];
+                            pd.Performance = p;
+                            pd.PerformanceID = p.ID;
+
+                            context.PerformanceDetails.Add(pd);
+                            context.SaveChanges();
+
+                            // register artist and instrument
+                            if (artistinstlist[i] != null)
+                            {
+                                List<PerformanceDetail_Instrument_Artist> mylist = artistinstlist[i];
+                                foreach (PerformanceDetail_Instrument_Artist x in mylist)
+                                {
+                                    PerformanceDetail_Instrument_Artist detail = new PerformanceDetail_Instrument_Artist();
+                                    detail.PerformanceDetailID = pd.ID;
+                                    detail.ArtistID = x.ArtistID;
+                                    detail.InstrumentID = x.InstrumentID;
+
+                                    context.PerformanceDetail_Instrument_Artist.Add(detail);
+                                    context.SaveChanges();
+                                }
+                            }
+
+                        }
+
+                        dbContextTransaction.Commit();
+                        isSuccess = true;
+                    }
+                    catch (Exception ee)
+                    {
+                        dbContextTransaction.Rollback();
+                    }
+
+                    if (isSuccess)
+                    {
+                        //ListView1.DataBind();
+                        GridView2.DataBind();
+                        showMsg("Data inserted succssfuly");
+                        cleanInputs();
+                    }
+                    else showMsg("Please check your inputs");
+
+                }
+            }
+        }
+
+        public void cleanInputs() {
+
+
+            txt_title.Text = "";
+             txt_mainTitleTheme.Text="";
+            txt_performancestartdate.Value = "";
+             txt_performanceenddate.Value="";
+            
+            txt_location.Text="";
+             txt_ConcertHall.Text="";
+            txt_performanceTime.Value="";
+            txt_ticketbox.Text="";
+            txt_organizerinfo.Text = "";
+            txt_videolocation.Text="";
+            
+            txt_performancetitle.Text="";
+            txt_time.Value = "";
+
+            Session["myperformanceDetailList"] = null;
+            Session["myinstrumentdetailList"] = null;
+            Session["myDetailObjlist"] = null;
+
+            repeaterDetailMusicArtist.DataSource = null;
+            repeaterDetailMusicArtist.DataBind();
+            myPerformanceDetailArtistInstrumentlist.DataSource = null;
+            myPerformanceDetailArtistInstrumentlist.DataBind();
+
+
 
         }
 
         public void btn_performance_Click(object sender, EventArgs e)
         {
-            try
+            bool isSuccess = false;
+            using (var context = new OrchestraDBEntities())
             {
-                var user = (UserCommonTable)Session["User"];
-
-
-                Performance p = new Performance();
-                p.UserID = user.ID;
-                p.OrchestraID = int.Parse(DropDownList1.SelectedValue.ToString());
-                p.PerformanceTitle = txt_title.Text;
-                p.MainTitle = txt_mainTitleTheme.Text;
-                //p.PerformanceDate= DateTime.Parse(txt_performancedate.Text);
-                p.StartDate = DateTime.ParseExact(txt_performancestartdate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
-                p.EndDate = DateTime.ParseExact(txt_performanceenddate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
-                //p.PerformanceDay = txt_performanceday.Text;
-                p.OrchestraID = int.Parse(DropDownList1.SelectedItem.Value);
-                p.Location = txt_location.Text;
-                p.ConcertHall = txt_ConcertHall.Text;
-                //p.PerformanceHour = txt_peformancehour.Text;  
-                p.PerformanceTime = DateTime.Parse(txt_performanceTime.Value);
-                p.TicketBox = txt_ticketbox.Text;
-                p.OrganizerInfo = txt_organizerinfo.Text;
-                p.VideoLocation = txt_videolocation.Text;
-                //p.PerformanceDay = "Sunday";
-                if (!getPhoto(p, FileUpload1, 1)) return;
-                if (!getPhoto(p, FileUpload3, 2)) return;
-
-                if (pl.insertPerformance(p))
+                using (var dbContextTransaction = context.Database.BeginTransaction())
                 {
-                    //ListView1.DataBind();
-                    GridView2.DataBind();
-                    showMsg("Data inserted succssfuly");
+
+                    try
+                    {
+                        var user = (UserCommonTable)Session["User"];
+
+
+                        Performance p = new Performance();
+                        p.UserID = user.ID;
+                        p.OrchestraID = int.Parse(DropDownList1.SelectedValue.ToString());
+                        p.PerformanceTitle = txt_title.Text;
+                        p.MainTitle = txt_mainTitleTheme.Text;
+                        //p.PerformanceDate= DateTime.Parse(txt_performancedate.Text);
+                        p.StartDate = DateTime.ParseExact(txt_performancestartdate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
+                        p.EndDate = DateTime.ParseExact(txt_performanceenddate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
+                        //p.PerformanceDay = txt_performanceday.Text;
+                        p.OrchestraID = int.Parse(DropDownList1.SelectedItem.Value);
+                        p.Location = txt_location.Text;
+                        p.ConcertHall = txt_ConcertHall.Text;
+                        //p.PerformanceHour = txt_peformancehour.Text;  
+                        p.PerformanceTime = DateTime.Parse(txt_performanceTime.Value);
+                        p.TicketBox = txt_ticketbox.Text;
+                        p.OrganizerInfo = txt_organizerinfo.Text;
+                        p.VideoLocation = txt_videolocation.Text;
+                        //p.PerformanceDay = "Sunday";
+                        if (!getPhoto(p, FileUpload1, 1)) return;
+                        if (!getPhoto(p, FileUpload3, 2)) return;
+                        context.Performances.Add(p);
+                        context.SaveChanges();
+
+                        var myperformancedetail = (List<PerformanceDetail>)Session["myperformanceDetailList"];
+                        var artistinstlist = (List<List<PerformanceDetail_Instrument_Artist>>)Session["myinstrumentdetailList"];
+                        for (int i = 0; i < myperformancedetail.Count; i++)
+                        {
+
+                            PerformanceDetail pd = myperformancedetail[i];
+                            pd.PerformanceID = p.ID;
+                            //pd.Title = txt_performancetitle.Text;
+                            //pd.Orchestra = int.Parse(DropDownList1_orchestra.SelectedValue);
+                            ////pd.Instrument = int.Parse(DropDownList_instrumentlist.SelectedValue);
+                            //pd.Conductor = int.Parse(DropDownList2_conductor.SelectedValue);
+                            ////pd.Player = int.Parse(DropDownList3_player.SelectedValue);
+                            //pd.Composer = int.Parse(DropDownList4_composer.SelectedValue);
+                            //pd.Time = DateTime.Parse(txt_time.Value);
+
+                            context.PerformanceDetails.Add(pd);
+                            context.SaveChanges();
+
+                            //// register artist and instrument
+                            //if (artistinstlist[i] != null)
+                            //{
+                            //    List<PerformanceDetail_Instrument_Artist> mylist = artistinstlist[i];
+                            //    foreach (PerformanceDetail_Instrument_Artist x in mylist)
+                            //    {
+                            //        PerformanceDetail_Instrument_Artist detail = new PerformanceDetail_Instrument_Artist();
+                            //        detail.PerformanceDetailID = pd.ID;
+                            //        detail.ArtistID = x.ArtistID;
+                            //        detail.InstrumentID = x.InstrumentID;
+
+                            //        context.PerformanceDetail_Instrument_Artist.Add(detail);
+                            //        context.SaveChanges();
+                            //    }
+                            //}
+
+                        }
+                        
+                        dbContextTransaction.Commit();
+                        isSuccess = true;
+                    }
+                    catch (Exception ee)
+                    {
+                        dbContextTransaction.Rollback();
+                    }
+
+                    if (isSuccess)
+                    {
+                        //ListView1.DataBind();
+                        GridView2.DataBind();
+                        showMsg("Data inserted succssfuly");
+                    }
+                    else showMsg("Please check your inputs");
+
+
+
                 }
-                else showMsg("Please check your inputs");
             }
-            catch (Exception ee)
-            {
-                showMsg("Please check your inputs");
-            }
+
 
         }
 
@@ -195,7 +589,6 @@ namespace web.Views
 
         }
 
-
         protected void buttonChangeImage2(object sender, EventArgs e)
         {
             if (FileUpload4.HasFiles)
@@ -232,7 +625,6 @@ namespace web.Views
 
         }
 
-
         protected void repeater_performanceList_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
@@ -245,5 +637,17 @@ namespace web.Views
 
             }
         }
+    }
+
+    public class detailviewModel
+    {
+        public int ID { get; set; }
+        public string Title { get; set; }
+        public string Conductor { get; set; }
+        public string Composer { get; set; }
+        public string Artists { get; set; }
+        public string Instruments { get; set; }
+        public string Time { get; set; }
+
     }
 }
