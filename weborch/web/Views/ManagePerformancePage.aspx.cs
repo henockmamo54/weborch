@@ -19,10 +19,12 @@ namespace web.Views
         OrchestraDBEntities entity = new OrchestraDBEntities();
         List<PerformanceDetail> myperformanceDetailList = new List<PerformanceDetail>();
         List<List<PerformanceDetail_Instrument_Artist>> myinstrumentdetailList = new List<List<PerformanceDetail_Instrument_Artist>>();
+        static Page page;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(this, this.GetType(), "PopPerformance", "showdatetime();", true);
+            page = HttpContext.Current.Handler as Page;
 
             if (!IsPostBack)
             {
@@ -47,45 +49,57 @@ namespace web.Views
 
                 }
                 else Response.Redirect("~/Views/HomeView.aspx");
-                
+
             }
 
 
-            // mamage file uploads
+            //// mamage file uploads
 
-            {
-                if (Session["FileUpload1"] == null && FileUpload1.HasFile)
-                {
-                    Session["FileUpload1"] = FileUpload1;
-                }
-                // This condition will occur on next postbacks        
-                else if (Session["FileUpload1"] != null && (!FileUpload1.HasFile))
-                {
-                    FileUpload1 = (FileUpload)Session["FileUpload1"];
-                }
-                //  when Session will have File but user want to change the file 
-                // i.e. wants to upload a new file using same FileUpload control
-                // so update the session to have the newly uploaded file
-                else if (FileUpload1.HasFile)
-                {
-                    Session["FileUpload1"] = FileUpload1;
-                    FileUpload1 = (FileUpload)Session["FileUpload1"];
-                }
-            }
+            //{
+            //    if (Session["FileUpload1"] == null && FileUpload1.HasFile)
+            //    {
+            //        Session["FileUpload1"] = FileUpload1;
+            //    }
+            //    // This condition will occur on next postbacks        
+            //    else if (Session["FileUpload1"] != null && (!FileUpload1.HasFile))
+            //    {
+            //        FileUpload1 = (FileUpload)Session["FileUpload1"];
+            //    }
+            //    //  when Session will have File but user want to change the file 
+            //    // i.e. wants to upload a new file using same FileUpload control
+            //    // so update the session to have the newly uploaded file
+            //    else if (FileUpload1.HasFile)
+            //    {
+            //        Session["FileUpload1"] = FileUpload1;
+            //        FileUpload1 = (FileUpload)Session["FileUpload1"];
+            //    }
+            //    else Session["FileUpload1"] = FileUpload1;
+            //}
         }
 
-        [System.Web.Services.WebMethod]
-        [System.Web.Script.Services.ScriptMethod()]
-        public static void uploadFileChanged(int f) {
-            //System.Web.HttpContext.Current.Session["FileUpload1"] = f;  
-            if (HttpContext.Current != null)
-            {
-                //Page page = (Page)HttpContext.Current.Handler;               
-                //var y = (FileUpload)page.FindControl("FileUpload1");
-                //var x = y.HasFile;
-                //System.Web.HttpContext.Current.Session["FileUpload1"] = (FileUpload)page.FindControl("FileUpload1");
-            }
-        }
+        //[System.Web.Services.WebMethod]
+        //[System.Web.Script.Services.ScriptMethod()]
+        //public static void uploadFileChanged(int f) {
+        //    //System.Web.HttpContext.Current.Session["FileUpload1"] = f;  
+        //    if (HttpContext.Current != null)
+        //    {
+        //        //myfunc();
+        //        //Page page = HttpContext.Current.Handler as Page;
+        //        //var y = (FileUpload)page.FindControl("FileUpload1");
+        //        //var x = y.HasFile;
+        //        //System.Web.HttpContext.Current.Session["FileUpload1"] = (FileUpload)page.FindControl("FileUpload1");
+        //    }
+        //}
+
+        //public static void myfunc() {
+
+        //    if (HttpContext.Current != null)
+        //    {
+        //        //Page page = HttpContext.Current.Handler as Page;
+        //        var y = (FileUpload)page.FindControl("FileUpload1");
+        //    }
+
+        //}
         public void btn_remove_ArtistInstrument_tolist(object sender, EventArgs e)
         {
             if (Session["myPerformanceDetailArtistInstrumentlist"] != null)
@@ -390,13 +404,15 @@ namespace web.Views
             }
         }
 
-        public void cancelupdatePerformanceinfo(object sender, EventArgs e) {
+        public void cancelupdatePerformanceinfo(object sender, EventArgs e)
+        {
             cleanInputs();
             Session["FileUpload1"] = null;
             btn_addPerformance.Visible = true;
             btn_updatePerformance.Visible = false;
         }
-        public void saveAllPerformanceInformation(object sender, EventArgs e) {
+        public void saveAllPerformanceInformation(object sender, EventArgs e)
+        {
 
             bool isSuccess = false;
             using (var context = new OrchestraDBEntities())
@@ -479,22 +495,23 @@ namespace web.Views
             }
         }
 
-        public void cleanInputs() {
+        public void cleanInputs()
+        {
 
 
             txt_title.Text = "";
-             txt_mainTitleTheme.Text="";
+            txt_mainTitleTheme.Text = "";
             txt_performancestartdate.Value = "";
-             txt_performanceenddate.Value="";
-            
-            txt_location.Text="";
-             txt_ConcertHall.Text="";
-            txt_performanceTime.Text="";
-            txt_ticketbox.Text="";
+            txt_performanceenddate.Value = "";
+
+            txt_location.Text = "";
+            txt_ConcertHall.Text = "";
+            txt_performanceTime.Text = "";
+            txt_ticketbox.Text = "";
             txt_organizerinfo.Text = "";
-            txt_videolocation.Text="";
-            
-            txt_performancetitle.Text="";
+            txt_videolocation.Text = "";
+
+            txt_performancetitle.Text = "";
             txt_time.Value = "";
 
             Session["myperformanceDetailList"] = null;
@@ -581,7 +598,7 @@ namespace web.Views
                             //}
 
                         }
-                        
+
                         dbContextTransaction.Commit();
                         isSuccess = true;
                     }
@@ -614,10 +631,10 @@ namespace web.Views
 
         public bool getPhoto(Performance p, FileUpload fileupload, int photonumber)
         {
-            if (Session["FileUpload1"] != null && (!FileUpload1.HasFile))
-            {
-                FileUpload1 = (FileUpload)Session["FileUpload1"];
-            }
+            //if (Session["FileUpload1"] != null && (!fileupload.HasFile))
+            //{
+            //    fileupload = (FileUpload)Session["FileUpload1"];
+            //}
 
             if (fileupload.HasFiles)
             {
@@ -632,11 +649,13 @@ namespace web.Views
                     showMsg("you can upload only jpeg,jpg,png,gif file formats");
                     return false;
                 }
+
+                if (photonumber == 1)
+                    p.PhotoAddLocation = fileupload.FileName;
+                if (photonumber == 2)
+                    p.Brochure = fileupload.FileName;
             }
-            if (photonumber == 1)
-                p.PhotoAddLocation = fileupload.FileName;
-            if (photonumber == 2)
-                p.Brochure = fileupload.FileName;
+
             return true;
         }
 
@@ -651,7 +670,7 @@ namespace web.Views
 
             Session["PerformanceDetailID"] = GridView2.SelectedRow.Cells[1].Text;
             int myid = (int.Parse(GridView2.SelectedRow.Cells[1].Text));
-            Performance p = entity.Performances.Where(x=>x.ID==myid).FirstOrDefault();
+            Performance p = entity.Performances.Where(x => x.ID == myid).FirstOrDefault();
             //Response.Redirect("ManagePerformanceDetailPage.aspx");
 
             DropDownList1.SelectedValue = p.OrchestraID.ToString();
@@ -724,7 +743,7 @@ namespace web.Views
 
         public Performance getHeaderPeformanceData(int performanceID)
         {
-                return pl.getPerformanceById(performanceID);            
+            return pl.getPerformanceById(performanceID);
         }
 
 
@@ -840,7 +859,7 @@ namespace web.Views
 
             }
         }
-        
+
     }
 
     public class detailviewModel
