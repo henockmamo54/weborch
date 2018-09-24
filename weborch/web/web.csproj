@@ -209,11 +209,12 @@
     <Content Include="Document\4.jpeg" />
     <Content Include="Document\5.jpg" />
     <Content Include="Document\9.jpg" />
-    <Content Include="Document\classic coin.png" />
+    <Content Include="Document\bitcoin.png" />
     <Content Include="Document\detail.png" />
     <Content Include="Document\detail2.png" />
     <Content Include="Document\dl-c.png" />
     <Content Include="Document\dl.png" />
+    <Content Include="Document\kisspng-bitcoin-litecoin-cryptocurrency-exchange-ethereum-platinum-coins-5a707d7f5b6a71.6643404315173215993744.jpg" />
     <Content Include="Document\l-c.png" />
     <Content Include="Document\l.png" />
     <Content Include="Home.aspx" />

@@ -45,10 +45,18 @@ namespace web.Views
             }
             //forAudience.Visible = !isUserCompany;
             //formanaging.Visible = isUserCompany;
-            btn_MangePerformanceButton.Visible = isUserCompany;
+            //btn_MangePerformanceButton.Visible = isUserCompany;
 
             repeater_performanceList.DataSource = SqlDataSource2_allPerformances;
             repeater_performanceList.DataBind();
+
+        }
+
+        //PostBackUrl="~/Views/ManagePerformancePage.aspx" 
+
+        public void onBtnManagePerformanceButtonClick(object sender, EventArgs e) {
+            if (user != null && isUserCompany) Response.Redirect("~/Views/ManagePerformancePage.aspx");
+            else showMsg("Please login as a company user!!!");
 
         }
 

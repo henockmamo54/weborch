@@ -55,7 +55,7 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                             <asp:LinkButton CssClass="btn btn-success pull-right" runat="server" Style="display: inline-block; " ID="btn_MangePerformanceButton" Text="Add / Manage Performance" Visible="false" PostBackUrl="~/Views/ManagePerformancePage.aspx" />
+                             <asp:LinkButton CssClass="btn btn-success pull-right" runat="server" Style="display: inline-block; " ID="btn_MangePerformanceButton" Text="Add / Manage Performance"  OnClick="onBtnManagePerformanceButtonClick"/>
                             <asp:Button runat="server" Text="Show More" CssClass="btn btn-success pull-right" style="margin-right: 5px;" OnClick="loadMorePerformances" />
                         </div>
                     </div>

@@ -67,15 +67,16 @@ SELECT [ID], [Name] FROM lookup.[BulletinType]"></asp:SqlDataSource>
                                             <%--<td runat="server" style='width: 30%;' id="photoaddcontainerForBulletin">
                                                 <img src="../Document/<%#Eval("ImageUrl") %>" style="width: 100%" />
                                             </td>--%>
-                                            <td><%#Eval("Name") %> </td>
-                                            <td style="width: 80%" runat="server" id="bulletinMsgContainer">
+                                            <%--<td><%#Eval("Name") %> </td>--%>
+                                            <td style="width: 100%" runat="server" id="bulletinMsgContainer">
+                                                 <asp:Label Style="color: darkgrey; font-size: 0.8em;" runat="server" ID="Label3"><strong>[<%#Eval("Name") %>] </strong>Posted on:<%# DataBinder.Eval(Container.DataItem,"TimeStamp","{0:d/M/yyyy}") %></asp:Label>
+                                                
+                                                <br />
 
                                                 <asp:Label runat="server" ID="Label1"
                                                     Text='<%# Server.HtmlDecode(Eval("Title").ToString()) %>' />
                                                 <a href="//<%#Eval("URL") %>" target="_blank" style="width: 100%;"><%= Resources.HomeView.aspx.ReadMore %></a>
-                                                <br />
-                                                <asp:Label Style="color: darkgrey; font-size: 0.8em;" runat="server" ID="Label3">Posted on:<%# DataBinder.Eval(Container.DataItem,"TimeStamp","{0:d/M/yyyy}") %></asp:Label>
-
+                                               
                                             </td>
 
                                         </tr>
@@ -137,7 +138,7 @@ order by TimeStamp desc">
 
                     <asp:SqlDataSource ID="SqlDataSource2_allPerformances" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
 SELECT top 6 p.*, OfficialName  FROM Main.Performance p
-join Core.Orchestra o on p.OrchestraID=o.ID order by StartDate"
+join Core.Orchestra o on p.OrchestraID=o.ID order by timestamp desc"
                         DeleteCommand="Delete Main.Performance
 where id = @ID"
                         UpdateCommand="update Main.Performance
