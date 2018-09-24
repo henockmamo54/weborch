@@ -326,13 +326,14 @@ FROM Core.Artist"></asp:SqlDataSource>
                                     </asp:Repeater>
                                 </div>
                                 
-                                    <hr />
 
                                 <div class="row col-md-12">
                                     <%--<asp:Button ID="btn_cancel" CssClass="btn btn-danger pull-right" Style="margin-right: 5px;" runat="server" Text="Cancel" OnClick="cancelDetailClicked" />--%>
                                     <asp:Button ID="btn_addDetail" CssClass="btn btn-success pull-right" Style="margin-right: 5px;" runat="server" Text="Add Detail" OnClick="saveDetailClicked" />
                                     <%--<asp:Button ID="btn_register" CssClass="btn btn-primary pull-right" Style="margin-right: 5px;" runat="server" Text="Register" OnClick="addDetailClicked" />--%>
                                 </div>
+                                
+                                    <hr />
 
                                 <div class="row col-md-12">
                                     <div class="row">
@@ -608,6 +609,9 @@ where ID=@ID">
                 format: 'DD/MM/YYYY'
             });
             $('#datetimepicker2_performancetime').datetimepicker({
+                format: "HH:mm A"
+            });
+            $('#datetimepicker4').datetimepicker({
                 format: "HH:mm A"
             });
         }

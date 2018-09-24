@@ -39,7 +39,7 @@ namespace web.Views
                     {
                         var performanceFilteredQuery = string.Format(@"SELECT p.*, OfficialName  FROM Main.Performance p
                                                 join Core.Orchestra o on p.OrchestraID=o.ID
-                                                where P.UserID={0}", user.ID);
+                                                where P.UserID={0} order by p.TimeStamp desc", user.ID);
                         SqlDataSource2_allPerformances.SelectCommand = performanceFilteredQuery;
                         GridView2.DataBind();
                     }
@@ -421,6 +421,7 @@ namespace web.Views
                         p.TicketBox = txt_ticketbox.Text;
                         p.OrganizerInfo = txt_organizerinfo.Text;
                         p.VideoLocation = txt_videolocation.Text;
+                        p.TimeStamp = DateTime.Now;
                         if (!getPhoto(p, FileUpload1, 1)) return;
                         if (!getPhoto(p, FileUpload3, 2)) return;
                         context.Performances.Add(p);
@@ -656,8 +657,8 @@ namespace web.Views
             DropDownList1.SelectedValue = p.OrchestraID.ToString();
             txt_title.Text = p.PerformanceTitle;
             txt_mainTitleTheme.Text = p.MainTitle;
-            txt_performancestartdate.Value = p.StartDate.ToString();
-            txt_performanceenddate.Value = p.EndDate.ToString();
+            txt_performancestartdate.Value = String.Format("{0:DD/MM/YYYY}", p.StartDate);
+            txt_performanceenddate.Value = String.Format("{0:DD/MM/YYYY}", p.EndDate);
             DropDownList1.SelectedItem.Value = p.OrchestraID.ToString();
             txt_location.Text = p.Location;
             txt_ConcertHall.Text = p.ConcertHall;
