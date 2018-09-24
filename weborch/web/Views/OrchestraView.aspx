@@ -112,9 +112,10 @@ ID=@ID"
             margin: 5px;
             border-radius: 5px;
             padding: 5px;
-            background-color: whie;
+            border: 2px solid #dadce4;
+            /*background-color: whie;
             bord 1 box-haow 1px 1px 1px 1px #dd 0 .listvieww :not(#list iewpa d-wrap: break-word;
-            max w;
+            max w;*/
         }
 
 
