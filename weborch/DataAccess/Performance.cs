@@ -39,7 +39,7 @@ namespace DataAccess
         public Nullable<bool> Archive { get; set; }
         public string Brochure { get; set; }
         public string MainTitle { get; set; }
-        public Nullable<System.DateTime> PerformanceTime { get; set; }
+        public string PerformanceTime { get; set; }
     
         public virtual Orchestra Orchestra { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

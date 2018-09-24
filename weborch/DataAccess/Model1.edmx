@@ -339,7 +339,7 @@
           <Property Name="Archive" Type="bit" />
           <Property Name="Brochure" Type="nvarchar" MaxLength="100" />
           <Property Name="MainTitle" Type="nvarchar" MaxLength="400" />
-          <Property Name="PerformanceTime" Type="datetime" />
+          <Property Name="PerformanceTime" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="PerformanceDetail">
           <Key>
@@ -2391,7 +2391,7 @@
           <Property Name="Archive" Type="Boolean" />
           <Property Name="Brochure" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="MainTitle" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
-          <Property Name="PerformanceTime" Type="DateTime" Precision="3" />
+          <Property Name="PerformanceTime" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Orchestra" Relationship="OrchestraDBModel.FK__Performan__Orche__531856C7" FromRole="Performance" ToRole="Orchestra" />
           <NavigationProperty Name="PerformanceLikeUnlikes" Relationship="OrchestraDBModel.FK__Performan__Perfo__1A9EF37A" FromRole="Performance" ToRole="PerformanceLikeUnlike" />
           <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__Performan__UserI__5224328E" FromRole="Performance" ToRole="UserCommonTable" />

@@ -74,7 +74,18 @@ namespace web.Views
             }
         }
 
-
+        [System.Web.Services.WebMethod]
+        [System.Web.Script.Services.ScriptMethod()]
+        public static void uploadFileChanged(int f) {
+            //System.Web.HttpContext.Current.Session["FileUpload1"] = f;  
+            if (HttpContext.Current != null)
+            {
+                //Page page = (Page)HttpContext.Current.Handler;               
+                //var y = (FileUpload)page.FindControl("FileUpload1");
+                //var x = y.HasFile;
+                //System.Web.HttpContext.Current.Session["FileUpload1"] = (FileUpload)page.FindControl("FileUpload1");
+            }
+        }
         public void btn_remove_ArtistInstrument_tolist(object sender, EventArgs e)
         {
             if (Session["myPerformanceDetailArtistInstrumentlist"] != null)
@@ -305,7 +316,7 @@ namespace web.Views
                         p.OrchestraID = int.Parse(DropDownList1.SelectedItem.Value);
                         p.Location = txt_location.Text;
                         p.ConcertHall = txt_ConcertHall.Text;
-                        p.PerformanceTime = DateTime.Parse(txt_performanceTime.Value);
+                        p.PerformanceTime = txt_performanceTime.Text;
                         p.TicketBox = txt_ticketbox.Text;
                         p.OrganizerInfo = txt_organizerinfo.Text;
                         p.VideoLocation = txt_videolocation.Text;
@@ -406,7 +417,7 @@ namespace web.Views
                         p.OrchestraID = int.Parse(DropDownList1.SelectedItem.Value);
                         p.Location = txt_location.Text;
                         p.ConcertHall = txt_ConcertHall.Text;
-                        p.PerformanceTime = DateTime.Parse(txt_performanceTime.Value);
+                        p.PerformanceTime = txt_performanceTime.Text;
                         p.TicketBox = txt_ticketbox.Text;
                         p.OrganizerInfo = txt_organizerinfo.Text;
                         p.VideoLocation = txt_videolocation.Text;
@@ -477,7 +488,7 @@ namespace web.Views
             
             txt_location.Text="";
              txt_ConcertHall.Text="";
-            txt_performanceTime.Value="";
+            txt_performanceTime.Text="";
             txt_ticketbox.Text="";
             txt_organizerinfo.Text = "";
             txt_videolocation.Text="";
@@ -524,7 +535,7 @@ namespace web.Views
                         p.Location = txt_location.Text;
                         p.ConcertHall = txt_ConcertHall.Text;
                         //p.PerformanceHour = txt_peformancehour.Text;  
-                        p.PerformanceTime = DateTime.Parse(txt_performanceTime.Value);
+                        p.PerformanceTime = txt_performanceTime.Text;
                         p.TicketBox = txt_ticketbox.Text;
                         p.OrganizerInfo = txt_organizerinfo.Text;
                         p.VideoLocation = txt_videolocation.Text;
@@ -650,7 +661,7 @@ namespace web.Views
             DropDownList1.SelectedItem.Value = p.OrchestraID.ToString();
             txt_location.Text = p.Location;
             txt_ConcertHall.Text = p.ConcertHall;
-            txt_performanceTime.Value = p.PerformanceTime.ToString();
+            txt_performanceTime.Text = p.PerformanceTime.ToString();
             txt_ticketbox.Text = p.TicketBox.ToString();
             txt_organizerinfo.Text = p.OrganizerInfo;
             txt_videolocation.Text = p.VideoLocation;
@@ -828,6 +839,7 @@ namespace web.Views
 
             }
         }
+        
     }
 
     public class detailviewModel

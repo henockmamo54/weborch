@@ -97,14 +97,14 @@
                                         <br />
                                         <div class="col-md-4">Performance  Time:</div>
                                         <div class="col-md-8">
-                                            <%--<asp:TextBox ID="txt_peformancehour" runat="server" class="form-control"></asp:TextBox>--%>
+                                            <asp:TextBox ID="txt_performanceTime" runat="server" class="form-control"></asp:TextBox>
 
-                                            <div class='input-group date' id='datetimepicker2_performancetime' style="display: inline-flex;">
+                                            <%--<div class='input-group date' id='datetimepicker2_performancetime' style="display: inline-flex;">
                                                 <input type='text' class="form-control" runat="server" id="txt_performanceTime" style="display: inline-block; border-right-width: 0px;" />
                                                 <span class="input-group-addon" style="flex-wrap: wrap; width: auto; display: inline-block; padding-left: 12px; margin-left: -5px; padding-top: 9px; padding-bottom: 7px;">
                                                     <span class="glyphicon glyphicon-calendar"></span>
                                                 </span>
-                                            </div>
+                                            </div>--%>
 
                                         </div>
                                         <br />
@@ -114,7 +114,7 @@
                                         <br />
                                         <div class="col-md-4"><%= Resources.HomeView.aspx.Poster %>:</div>
                                         <div class="col-md-8">
-                                            <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline" />
+                                            <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline" onchange="UploadFile(this);" />
                                             <%--<asp:TextBox ID="TextBox2" runat="server" class="form-control"></asp:TextBox>--%>
                                         </div>
                                         <br />
@@ -267,7 +267,7 @@ where al.Name like '%Composer%'
                                         <div class="col-md-4">Time</div>
                                         <div class="col-md-8">
                                             <%--<asp:TextBox ID="txt_time" runat="server" class="form-control"></asp:TextBox>--%>
-                                            <div class='input-group date' id='datetimepicker3' style="display: inline-flex;">
+                                            <div class='input-group date' id='datetimepicker4' style="display: inline-flex;">
                                                 <input type='text' class="form-control" runat="server" id="txt_time" style="display: inline-block; border-right-width: 0px;" />
                                                 <span class="input-group-addon" style="flex-wrap: wrap; width: auto; display: inline-block; padding-left: 12px; margin-left: -5px; padding-top: 9px; padding-bottom: 7px;">
                                                     <span class="glyphicon glyphicon-calendar"></span>
@@ -302,7 +302,7 @@ FROM Core.Artist"></asp:SqlDataSource>
                                 <br />
 
                                 <div class="row col-md-12">
-                                    <hr />
+
                                     <asp:Repeater runat="server" ID="myPerformanceDetailArtistInstrumentlist">
                                         <ItemTemplate>
                                             <tr style="margin-bottom: 3px;">
@@ -325,6 +325,8 @@ FROM Core.Artist"></asp:SqlDataSource>
                                         </ItemTemplate>
                                     </asp:Repeater>
                                 </div>
+                                
+                                    <hr />
 
                                 <div class="row col-md-12">
                                     <%--<asp:Button ID="btn_cancel" CssClass="btn btn-danger pull-right" Style="margin-right: 5px;" runat="server" Text="Cancel" OnClick="cancelDetailClicked" />--%>
@@ -576,6 +578,11 @@ where ID=@ID">
             $('#datetimepicker2_performancetime').datetimepicker({
                 format: "HH:mm A"
             });
+
+            $('#datetimepicker4').datetimepicker({
+                format: "HH:mm A"
+            });
+
         });
 
         function showdatetime() {
@@ -586,6 +593,9 @@ where ID=@ID">
                 format: 'DD/MM/YYYY'
             });
             $('#datetimepicker2_performancetime').datetimepicker({
+                format: "HH:mm A"
+            });
+            $('#datetimepicker4').datetimepicker({
                 format: "HH:mm A"
             });
         }
@@ -611,6 +621,32 @@ where ID=@ID">
         function scrolltothetop() {
             $("html, body").animate({ scrollTop: 0 }, "slow");
             return false;
+        }
+
+        function UploadFile(fileupload) {
+            //alert('test');
+
+
+            $.ajax({
+                type: "POST",
+                url: "ManagePerformancePage.aspx/uploadFileChanged", //Pagename/Functionname
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ f: 1 }),
+                //data: JSON.stringify({ id: id, isLike: status }), //{ },//data
+                success: function (data) {
+                    //alert('success')
+                    console.log(data);
+                    //alert(data.d);
+
+                },
+                error: function (result) {
+                    console.log(result)
+                    //alert("error")
+
+                }
+            });
+
         }
 
     </script>

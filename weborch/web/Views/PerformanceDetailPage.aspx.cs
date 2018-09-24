@@ -322,7 +322,7 @@ namespace web.Views
                     startingdate.InnerText = (p.StartDate).ToString();
                     enddate.InnerText = p.EndDate.ToString();
                     ticketbox.InnerText = p.TicketBox;
-                    performancetime.InnerText = ((DateTime)p.PerformanceTime).ToShortTimeString();
+                    performancetime.InnerText = p.PerformanceTime;
                 }
                 catch (Exception ee) { }
 
