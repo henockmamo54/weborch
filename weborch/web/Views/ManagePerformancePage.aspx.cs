@@ -361,6 +361,8 @@ namespace web.Views
                         GridView2.DataBind();
                         showMsg("Data inserted succssfuly");
                         cleanInputs();
+                        btn_addPerformance.Visible = true;
+                        btn_updatePerformance.Visible = false;
                     }
                     else showMsg("Please check your inputs");
 
@@ -371,6 +373,8 @@ namespace web.Views
         public void cancelupdatePerformanceinfo(object sender, EventArgs e) {
             cleanInputs();
             Session["FileUpload1"] = null;
+            btn_addPerformance.Visible = true;
+            btn_updatePerformance.Visible = false;
         }
         public void saveAllPerformanceInformation(object sender, EventArgs e) {
 
@@ -617,6 +621,9 @@ namespace web.Views
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            btn_addPerformance.Visible = false;
+            btn_updatePerformance.Visible = true;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "scrolltothetop", "scrolltothetop();", true);
             //GridViewRow row = GridView1.SelectedRow;
             //var x = row.Cells[1].Text;
             Session["PerformanceDetailID"] = GridView2.SelectedRow.Cells[1].Text;
@@ -634,7 +641,7 @@ namespace web.Views
             txt_ConcertHall.Text = p.ConcertHall;
             txt_performanceTime.Value = p.PerformanceTime.ToString();
             txt_ticketbox.Text = p.TicketBox.ToString();
-            txt_organizerinfo.Text = p.OrganizerInfo.ToString();
+            txt_organizerinfo.Text = p.OrganizerInfo;
             txt_videolocation.Text = p.VideoLocation;
 
             // details

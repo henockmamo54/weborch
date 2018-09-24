@@ -362,7 +362,7 @@ FROM Core.Artist"></asp:SqlDataSource>
                             
                             <div class="row" style="text-align:center;">
                         <asp:Button ID="btn_addPerformance" CssClass="btn btn-primary " runat="server" Text="<%$Resources:HomeView.aspx,Register %>" OnClick="saveAllPerformanceInformation" />
-                        <asp:Button ID="btn_updatePerformance" CssClass="btn btn-success " runat="server" Text="Update" OnClick="updatePerformanceinfo" />
+                        <asp:Button ID="btn_updatePerformance" CssClass="btn btn-success " Visible="false" runat="server" Text="Update" OnClick="updatePerformanceinfo" />
                         <asp:Button ID="btn_cancelupdatePerformance" CssClass="btn btn-danger " runat="server" Text="Cancel" OnClick="cancelupdatePerformanceinfo" />
                             </div>
 
@@ -604,6 +604,11 @@ where ID=@ID">
             $('#exampleModalLong').modal('hide');
             $('.modal-backdrop').remove();
             //alert('test');
+        }
+
+        function scrolltothetop() {
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            return false;
         }
 
     </script>
