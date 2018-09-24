@@ -368,6 +368,10 @@ namespace web.Views
             }
         }
 
+        public void cancelupdatePerformanceinfo(object sender, EventArgs e) {
+            cleanInputs();
+            Session["FileUpload1"] = null;
+        }
         public void saveAllPerformanceInformation(object sender, EventArgs e) {
 
             bool isSuccess = false;
@@ -585,6 +589,10 @@ namespace web.Views
 
         public bool getPhoto(Performance p, FileUpload fileupload, int photonumber)
         {
+            if (Session["FileUpload1"] != null && (!FileUpload1.HasFile))
+            {
+                FileUpload1 = (FileUpload)Session["FileUpload1"];
+            }
 
             if (fileupload.HasFiles)
             {

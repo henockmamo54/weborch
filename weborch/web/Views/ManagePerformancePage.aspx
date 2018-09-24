@@ -361,8 +361,9 @@ FROM Core.Artist"></asp:SqlDataSource>
 
                             
                             <div class="row" style="text-align:center;">
-                        <asp:Button ID="btn_addPerformance" CssClass="btn btn-success " runat="server" Text="<%$Resources:HomeView.aspx,Register %>" OnClick="saveAllPerformanceInformation" />
+                        <asp:Button ID="btn_addPerformance" CssClass="btn btn-primary " runat="server" Text="<%$Resources:HomeView.aspx,Register %>" OnClick="saveAllPerformanceInformation" />
                         <asp:Button ID="btn_updatePerformance" CssClass="btn btn-success " runat="server" Text="Update" OnClick="updatePerformanceinfo" />
+                        <asp:Button ID="btn_cancelupdatePerformance" CssClass="btn btn-danger " runat="server" Text="Cancel" OnClick="cancelupdatePerformanceinfo" />
                             </div>
 
                         </div>
@@ -554,6 +555,7 @@ where ID=@ID">
 
 
         <Triggers>
+            <asp:PostBackTrigger ControlID="btn_updatePerformance" />
             <asp:PostBackTrigger ControlID="btn_addPerformance" />
             <asp:PostBackTrigger ControlID="btnsaveimagechange" />
             <asp:PostBackTrigger ControlID="btnsaveimagechange2" />
