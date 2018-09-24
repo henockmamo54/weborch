@@ -293,6 +293,8 @@ namespace web.Views
 
                         int myid = (int.Parse(GridView2.SelectedRow.Cells[1].Text));
                         Performance p = entity.Performances.Where(x => x.ID == myid).FirstOrDefault();
+                        context2.PerformanceDetails.RemoveRange(context2.PerformanceDetails.Where(x => x.PerformanceID == p.ID));
+                        context2.PerformanceDetail_Instrument_Artist.RemoveRange(context2.PerformanceDetail_Instrument_Artist.Where(x => x.PerformanceDetail.PerformanceID == p.ID));
 
                         p.UserID = user.ID;
                         p.OrchestraID = int.Parse(DropDownList1.SelectedValue.ToString());
@@ -314,20 +316,24 @@ namespace web.Views
                         var myperformancedetail = (List<PerformanceDetail>)Session["myperformanceDetailList"];
                         var artistinstlist = (List<List<PerformanceDetail_Instrument_Artist>>)Session["myinstrumentdetailList"];
 
-                        context2.PerformanceDetails.RemoveRange(context2.PerformanceDetails.Where(x => x.PerformanceID == p.ID));
                         context2.SaveChanges();
 
                         for (int i = 0; i < myperformancedetail.Count; i++)
                         {
-
-                            PerformanceDetail pd = myperformancedetail[i];
-                            pd.Performance = p;
+                            var previousPD = myperformancedetail[i];
+                            PerformanceDetail pd = new PerformanceDetail();
                             pd.PerformanceID = p.ID;
+                            pd.Performance = p;
+                            pd.Conductor = previousPD.Conductor;
+                            pd.Composer = previousPD.Composer;
+                            pd.Title = previousPD.Title;
+                            pd.Orchestra = previousPD.Orchestra;
+                            pd.Time = previousPD.Time;
 
-                            
 
                             context2.PerformanceDetails.Add(pd);
                             context2.SaveChanges();
+
 
                             // register artist and instrument
                             if (artistinstlist[i] != null)
@@ -337,6 +343,9 @@ namespace web.Views
                                 {
                                     PerformanceDetail_Instrument_Artist detail = new PerformanceDetail_Instrument_Artist();
                                     detail.PerformanceDetailID = pd.ID;
+                                    detail.PerformanceDetail = pd;
+                                    detail.PerformanceDetail.Performance = p;
+                                    detail.PerformanceDetail.PerformanceID = p.ID;
                                     detail.ArtistID = x.ArtistID;
                                     detail.InstrumentID = x.InstrumentID;
 
@@ -624,8 +633,10 @@ namespace web.Views
             btn_addPerformance.Visible = false;
             btn_updatePerformance.Visible = true;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "scrolltothetop", "scrolltothetop();", true);
+
             //GridViewRow row = GridView1.SelectedRow;
             //var x = row.Cells[1].Text;
+
             Session["PerformanceDetailID"] = GridView2.SelectedRow.Cells[1].Text;
             int myid = (int.Parse(GridView2.SelectedRow.Cells[1].Text));
             Performance p = entity.Performances.Where(x=>x.ID==myid).FirstOrDefault();

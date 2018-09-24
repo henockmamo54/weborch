@@ -294,7 +294,7 @@ FROM Core.Artist"></asp:SqlDataSource>
                                     </div>
                                     <div class="col-md-3">
                                         <br />
-                                        <asp:Button ID="Button1_addorchestraDetail"  CssClass="btn btn-success" runat="server" Text="Add" OnClick="btn_add_ArtistInstrument_tolist" />
+                                        <asp:Button ID="Button1_addArtistInstrumentpair"  CssClass="btn btn-success" runat="server" Text="Add" OnClick="btn_add_ArtistInstrument_tolist" />
                                     </div>
 
                                 </div>
@@ -328,7 +328,7 @@ FROM Core.Artist"></asp:SqlDataSource>
 
                                 <div class="row col-md-12">
                                     <%--<asp:Button ID="btn_cancel" CssClass="btn btn-danger pull-right" Style="margin-right: 5px;" runat="server" Text="Cancel" OnClick="cancelDetailClicked" />--%>
-                                    <asp:Button ID="btn_update" CssClass="btn btn-success pull-right" Style="margin-right: 5px;" runat="server" Text="Add Detail" OnClick="saveDetailClicked" />
+                                    <asp:Button ID="btn_addDetail" CssClass="btn btn-success pull-right" Style="margin-right: 5px;" runat="server" Text="Add Detail" OnClick="saveDetailClicked" />
                                     <%--<asp:Button ID="btn_register" CssClass="btn btn-primary pull-right" Style="margin-right: 5px;" runat="server" Text="Register" OnClick="addDetailClicked" />--%>
                                 </div>
 
@@ -559,6 +559,8 @@ where ID=@ID">
             <asp:PostBackTrigger ControlID="btn_addPerformance" />
             <asp:PostBackTrigger ControlID="btnsaveimagechange" />
             <asp:PostBackTrigger ControlID="btnsaveimagechange2" />
+            <asp:PostBackTrigger ControlID="btn_addDetail" />
+            <asp:PostBackTrigger ControlID="Button1_addArtistInstrumentpair" />
         </Triggers>
 
     </asp:UpdatePanel>

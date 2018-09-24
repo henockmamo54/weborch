@@ -310,13 +310,13 @@ namespace web.Views {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1_artistlist;
         
         /// <summary>
-        /// Button1_addorchestraDetail control.
+        /// Button1_addArtistInstrumentpair control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1_addorchestraDetail;
+        protected global::System.Web.UI.WebControls.Button Button1_addArtistInstrumentpair;
         
         /// <summary>
         /// myPerformanceDetailArtistInstrumentlist control.
@@ -328,13 +328,13 @@ namespace web.Views {
         protected global::System.Web.UI.WebControls.Repeater myPerformanceDetailArtistInstrumentlist;
         
         /// <summary>
-        /// btn_update control.
+        /// btn_addDetail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_update;
+        protected global::System.Web.UI.WebControls.Button btn_addDetail;
         
         /// <summary>
         /// repeaterDetailMusicArtist control.
