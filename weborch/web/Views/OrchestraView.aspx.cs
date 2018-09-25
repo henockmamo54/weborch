@@ -14,12 +14,14 @@ namespace web
         OrchestraLogic orl = new OrchestraLogic();
         OrchestraInstrumentArtistLogic oial = new OrchestraInstrumentArtistLogic();
         UserCommonTable user;
+        int countOfShowMore = 3;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 repeater_orchestraList.DataSource = SqlDataSource1_allOrchestraInfo;
                 repeater_orchestraList.DataBind();
+                Session["countOfShowMore"] = null;
             }
 
             user = (UserCommonTable)Session["User"];
@@ -29,17 +31,28 @@ namespace web
                 var val = user.User_UserType.FirstOrDefault().UserTypeID.Value;
                 bool isUserCompany = entity.UserTypes.Where(x => x.ID == val).FirstOrDefault().Iscompany;
                 btn_MangeOrchestraButton.Visible = isUserCompany;
-
-
             }
-            
+
+            //if (Session["countOfShowMore"] == null) { Session["countOfShowMore"] = 3; countOfShowMore = 3; }
+
         }
         protected void filterOrchestraDataByName(object sender, EventArgs e)
         {
 
+            //if (Session["countOfShowMore"] == null) { Session["countOfShowMore"] = 3; countOfShowMore = 3; }
+            if (Session["countOfShowMore"] == null) { Session["countOfShowMore"] = 12; countOfShowMore = 12; }
+            else
+            {
+                countOfShowMore = (int)Session["countOfShowMore"] + 8;
+                Session["countOfShowMore"] = countOfShowMore;
+            }
+            var count = countOfShowMore;
+            //var count = countOfShowMore * 4;
+
+
             if (txtbox_namefilter.Text.ToString().Length > 0)
             {
-                var query = string.Format(@"SELECT o.ID, OfficialName, Alias, URL, o.Address, o.ZipCode, o.TelNO,o.FaxNo, ConductorID, Since,
+                var query = string.Format(@"SELECT top "+ count + @" o.ID, OfficialName, Alias, URL, o.Address, o.ZipCode, o.TelNO,o.FaxNo, ConductorID, Since,
                                             ConductorName= FirstName + ' '+ MiddleName+ ' ' + FamilyName
                                             FROM Core.Orchestra o
                                             join core.artist a on o.ConductorID = a. ID where OfficialName like N'%{0}%' or Alias like N'%{0}%' ", txtbox_namefilter.Text);
@@ -49,7 +62,7 @@ namespace web
             }
             else
             {
-                var query = string.Format(@"SELECT o.ID, OfficialName, Alias, URL, o.Address, o.ZipCode, o.TelNO,o.FaxNo, ConductorID, Since,
+                var query = string.Format(@"SELECT top " + count + @" o.ID, OfficialName, Alias, URL, o.Address, o.ZipCode, o.TelNO,o.FaxNo, ConductorID, Since,
                                             ConductorName= FirstName + ' '+ MiddleName+ ' ' + FamilyName
                                             FROM Core.Orchestra o
                                             join core.artist a on o.ConductorID = a. ID ");
@@ -67,8 +80,12 @@ namespace web
             //ScriptManager.RegisterStartupScript(this, GetType(),
             //                      "ServerControlScript", msg, true);
         }
-        
-        
-        
+
+        public void loadMore(object sender, EventArgs e) {
+
+
+        }
+
+
     }
 }

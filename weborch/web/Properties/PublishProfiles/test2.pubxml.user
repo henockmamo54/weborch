@@ -64,7 +64,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/14/2018 15:06:39</publishTime>
     </File>
     <File Include="App_GlobalResources/HomeView.aspx.resx">
-      <publishTime>09/14/2018 15:06:41</publishTime>
+      <publishTime>09/21/2018 13:03:12</publishTime>
     </File>
     <File Include="ArtistPage.aspx">
       <publishTime>06/19/2018 23:09:50</publishTime>
@@ -88,10 +88,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/16/2013 20:06:22</publishTime>
     </File>
     <File Include="bin/BusinessLogic.exe">
-      <publishTime>09/15/2018 16:38:07</publishTime>
+      <publishTime>09/25/2018 01:36:27</publishTime>
     </File>
     <File Include="bin/DataAccess.exe">
-      <publishTime>09/15/2018 16:38:06</publishTime>
+      <publishTime>09/25/2018 01:36:26</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>03/02/2015 09:32:26</publishTime>
@@ -226,7 +226,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/22/2013 10:21:56</publishTime>
     </File>
     <File Include="bin/web.dll">
-      <publishTime>09/15/2018 19:39:25</publishTime>
+      <publishTime>09/25/2018 01:36:34</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>09/10/2013 17:28:38</publishTime>
@@ -288,6 +288,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Document/9.jpg">
       <publishTime>07/10/2018 17:06:29</publishTime>
     </File>
+    <File Include="Document/bitcoin.png">
+      <publishTime>09/25/2018 01:23:30</publishTime>
+    </File>
     <File Include="Document/detail.png">
       <publishTime>08/18/2018 23:35:31</publishTime>
     </File>
@@ -299,6 +302,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Document/dl.png">
       <publishTime>08/12/2018 02:27:11</publishTime>
+    </File>
+    <File Include="Document/kisspng-bitcoin-litecoin-cryptocurrency-exchange-ethereum-platinum-coins-5a707d7f5b6a71.6643404315173215993744.jpg">
+      <publishTime>09/25/2018 01:17:53</publishTime>
     </File>
     <File Include="Document/l-c.png">
       <publishTime>08/12/2018 02:27:11</publishTime>
@@ -325,7 +331,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/28/2018 21:34:11</publishTime>
     </File>
     <File Include="Home.aspx">
-      <publishTime>09/10/2018 17:22:20</publishTime>
+      <publishTime>09/21/2018 14:40:54</publishTime>
     </File>
     <File Include="Instrument.aspx">
       <publishTime>08/02/2018 17:44:20</publishTime>
@@ -430,7 +436,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/24/2018 01:08:15</publishTime>
     </File>
     <File Include="Site.Master">
-      <publishTime>09/13/2018 15:19:15</publishTime>
+      <publishTime>09/25/2018 01:27:55</publishTime>
     </File>
     <File Include="Site.Mobile.Master">
       <publishTime>08/04/2018 02:19:10</publishTime>
@@ -457,7 +463,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/04/2018 02:09:31</publishTime>
     </File>
     <File Include="Views/HomeView.aspx">
-      <publishTime>09/10/2018 17:52:32</publishTime>
+      <publishTime>09/25/2018 01:15:43</publishTime>
     </File>
     <File Include="Views/InformationOfPerformances.aspx">
       <publishTime>07/10/2018 20:53:30</publishTime>
@@ -496,19 +502,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/15/2018 17:47:22</publishTime>
     </File>
     <File Include="Views/ManagePerformancePage.aspx">
-      <publishTime>09/15/2018 17:21:34</publishTime>
+      <publishTime>09/25/2018 01:01:58</publishTime>
     </File>
     <File Include="Views/MyPage.aspx">
       <publishTime>09/03/2018 17:34:48</publishTime>
     </File>
     <File Include="Views/OrchestraView.aspx">
-      <publishTime>09/14/2018 14:46:08</publishTime>
+      <publishTime>09/24/2018 22:48:02</publishTime>
     </File>
     <File Include="Views/PerformanceDetailPage.aspx">
       <publishTime>09/15/2018 17:30:33</publishTime>
     </File>
     <File Include="Views/PerformancePage.aspx">
-      <publishTime>09/15/2018 16:44:19</publishTime>
+      <publishTime>09/25/2018 01:31:57</publishTime>
     </File>
     <File Include="Views/signupPages/TermsOfUsePage.aspx">
       <publishTime>08/23/2018 15:05:35</publishTime>
@@ -523,7 +529,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/28/2018 21:34:37</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/29/2018 12:05:06</publishTime>
+      <publishTime>09/25/2018 01:36:39</publishTime>
     </File>
   </ItemGroup>
 </Project>

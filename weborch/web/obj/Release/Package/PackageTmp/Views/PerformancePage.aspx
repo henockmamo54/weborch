@@ -20,8 +20,7 @@
                     <div class="row">
 
                         <div class=" col-md-12">
-                            <h2 style="margin-top: 0px; padding-top: 0px; display: inline-block;">Musical Performance Information</h2>
-                            <asp:LinkButton CssClass="btn btn-success pull-right" runat="server" Style="display: inline-block;" ID="btn_MangePerformanceButton" Text="Add / Manage Performance" Visible="false" PostBackUrl="~/Views/ManagePerformancePage.aspx" />
+                            <h2 style="margin-top: 0px; padding-top: 0px; display: inline-block;">Musical Performance Information</h2>                           
                         </div>
 
                         <asp:Repeater runat="server" ID="repeater_performanceList" OnItemDataBound="repeater_performanceList_ItemDataBound">
@@ -29,8 +28,8 @@
                             <ItemTemplate>
                                 <div class="col-md-4" style="margin-bottom: 1em;">
                                     <div class="thumbnail shadowedbox" style="box-shadow: 2px 2px 2px #d0d0d0;">
-                                        <asp:LinkButton runat="server" ID="tumbinallink"  Style="text-decoration: none;">
-                                            <img src="../Document/<%#Eval("PhotoAddLocation") %>" class="shadowedbox" alt="Lights" style="width: 100%; height: 200px;">
+                                        <asp:LinkButton runat="server" ID="tumbinallink" Style="text-decoration: none;">
+                                            <img src="../Document/<%#Eval("PhotoAddLocation") %>" class="shadowedbox" alt="Lights" style="width: 100%; height: 300px;">
 
                                             <div class="caption" style="padding-bottom:3px;">
                                                 <h4><%# (Eval("PerformanceTitle")) .ToString().Length>15?
@@ -53,6 +52,13 @@
 
 
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                             <asp:LinkButton CssClass="btn btn-success pull-right" runat="server" Style="display: inline-block; " ID="btn_MangePerformanceButton" Text="Add / Manage Performance"  OnClick="onBtnManagePerformanceButtonClick"/>
+                            <asp:Button runat="server" Text="Show More" CssClass="btn btn-success pull-right" style="margin-right: 5px;" OnClick="loadMorePerformances" />
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -60,7 +66,7 @@
 
             <div class="row ">
                 <asp:SqlDataSource ID="SqlDataSource2_allPerformances" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
-SELECT p.*, OfficialName  FROM Main.Performance p
+SELECT top 9 p.*, OfficialName  FROM Main.Performance p
 join Core.Orchestra o on p.OrchestraID=o.ID order by StartDate"
                     DeleteCommand="Delete Main.Performance
 where id = @ID"
@@ -106,7 +112,6 @@ where ID=@ID">
 
 
         <Triggers>
-
         </Triggers>
 
     </asp:UpdatePanel>
