@@ -14,6 +14,8 @@ namespace web
         OrchestraLogic orl = new OrchestraLogic();
         OrchestraInstrumentArtistLogic oial = new OrchestraInstrumentArtistLogic();
         UserCommonTable user;
+        OrchestraDBEntities entity = new OrchestraDBEntities();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -63,7 +65,7 @@ namespace web
         }
         public void showMsg(string msg)
         {
-            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + msg + "')", true);            
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + msg + "')", true);
         }
 
         public void cleanTextBox()
@@ -76,6 +78,7 @@ namespace web
             txt_orchtelno.Text = "";
             txt_orchfaxno.Text = "";
             //txt_orchcondactername.Text = "";
+            DropDownList2_conductor.SelectedValue = null;
             txt_orchsince.Text = "";
         }
 
@@ -99,5 +102,69 @@ namespace web
         {
 
         }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btn_orchadd.Visible = false;
+            btn_updateorch.Visible = true;
+
+            Session["PerformanceDetailID"] = GridView1.SelectedRow.Cells[1].Text;
+            int myid = (int.Parse(GridView1.SelectedRow.Cells[1].Text));
+            Orchestra orch = entity.Orchestras.Where(x => x.ID == myid).FirstOrDefault();
+
+            txt_orchname.Text = orch.OfficialName;
+            txt_orchaliasname.Text = orch.Alias;
+            txt_orchurl.Text = orch.URL;
+            txt_orchaddress.Text = orch.Address;
+            txt_orchzipcode.Text = orch.ZipCode;
+            txt_orchtelno.Text = orch.TelNO;
+            txt_orchfaxno.Text = orch.FaxNo;
+            DropDownList2_conductor.SelectedValue = orch.ConductorID.ToString();
+            txt_orchsince.Text = orch.Since + "";
+
+        }
+
+        protected void btn_cancelorch_Click(object sender, EventArgs e)
+        {
+
+            btn_orchadd.Visible = true;
+            btn_updateorch.Visible = false;
+
+            cleanTextBox();
+        }
+
+        protected void btn_updateorch_Click(object sender, EventArgs e)
+        {
+            Session["PerformanceDetailID"] = GridView1.SelectedRow.Cells[1].Text;
+            int myid = (int.Parse(GridView1.SelectedRow.Cells[1].Text));
+            Orchestra orch = entity.Orchestras.Where(x => x.ID == myid).FirstOrDefault();
+
+            try
+            {
+                orch.OfficialName = txt_orchname.Text;
+                orch.Alias = txt_orchaliasname.Text;
+                orch.URL = txt_orchurl.Text;
+                orch.Address = txt_orchaddress.Text;
+                orch.ZipCode = txt_orchzipcode.Text;
+                orch.TelNO = txt_orchtelno.Text;
+                orch.FaxNo = txt_orchfaxno.Text;
+                orch.ConductorID = int.Parse(DropDownList2_conductor.SelectedValue);
+                orch.Since = int.Parse(txt_orchsince.Text);
+
+                entity.SaveChanges();
+
+                showMsg("Data inserted succssfuly");
+                cleanTextBox();
+                GridView1.DataBind();
+
+            }
+            catch (Exception ee)
+            {
+                showMsg("Please check your inputs");
+            }
+
+
+        }
+
     }
 }

@@ -121,6 +121,15 @@ namespace web {
         protected global::System.Web.UI.WebControls.TextBox txt_orchsince;
         
         /// <summary>
+        /// btn_cancelorch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_cancelorch;
+        
+        /// <summary>
         /// btn_orchadd control.
         /// </summary>
         /// <remarks>
@@ -128,6 +137,15 @@ namespace web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_orchadd;
+        
+        /// <summary>
+        /// btn_updateorch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_updateorch;
         
         /// <summary>
         /// TextBox1_serach control.
