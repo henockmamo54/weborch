@@ -67,7 +67,7 @@
             <div class="row ">
                 <asp:SqlDataSource ID="SqlDataSource2_allPerformances" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
 SELECT top 9 p.*, OfficialName  FROM Main.Performance p
-join Core.Orchestra o on p.OrchestraID=o.ID order by StartDate"
+join Core.Orchestra o on p.OrchestraID=o.ID order by timestamp desc"
                     DeleteCommand="Delete Main.Performance
 where id = @ID"
                     UpdateCommand="update Main.Performance

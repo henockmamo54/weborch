@@ -11,7 +11,7 @@
 
                     <h3><%= Resources.HomeView.aspx.ConcertTeamData %></h3>
 
-                    <div class="row shadowedPanel" style="background-color: white;box-shadow: 1px 1px 1px 1px #d0d0d0; border-radius:5px;">
+                    <div class="row shadowedPanel" style="background-color: white; box-shadow: 1px 1px 1px 1px #d0d0d0; border-radius: 5px;">
                         <div class="col-md-12 ">
                             <div class="col-md-12  form-group">
                                 <div class="col-md-4">
@@ -103,9 +103,11 @@ where al.Name='Conductor'
                             </div>
                             <br />
                             <hr />
-                            <div class="col-md-12">
+                            <div class="col-md-12" >
                                 <div class="col-md-12">
-                                    <asp:Button ID="btn_orchadd" CssClass="btn btn-primary pull-right" Style="margin: 1em;" runat="server" Text="<%$Resources:HomeView.aspx,Register %>" OnClick="btn_orchadd_Click" />
+                                    <asp:Button ID="btn_cancelorch" Style="margin:1em; margin-right: 0.3em; "  CssClass="btn btn-danger pull-right" runat="server" Text="Cancel" OnClick="btn_cancelorch_Click" />
+                                    <asp:Button ID="btn_orchadd" Style="margin:1em; margin-right: 0.3em; " CssClass="btn btn-primary pull-right"  runat="server" Text="<%$Resources:HomeView.aspx,Register %>" OnClick="btn_orchadd_Click" />
+                                    <asp:Button ID="btn_updateorch" Style="margin:1em; margin-right: 0.3em; " CssClass="btn btn-success pull-right" Visible="false" runat="server" Text="Update" OnClick="btn_updateorch_Click"/>
                                 </div>
                             </div>
                         </div>
@@ -176,13 +178,13 @@ ID=@ID"
                                         <asp:Parameter Name="ID" />
                                     </UpdateParameters>
                                 </asp:SqlDataSource>
-                                <asp:GridView ID="GridView1" runat="server" Width="100%" AllowPaging="True" AllowSorting="True" CellPadding="4" DataSourceID="SqlDataSource1_allOrchestraInfo" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="ID">
+                                <asp:GridView ID="GridView1" runat="server" Width="100%" AllowPaging="True" AllowSorting="True" CellPadding="4" DataSourceID="SqlDataSource1_allOrchestraInfo" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="ID" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                     <Columns>
-                                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True"
+                                        <asp:CommandField ShowDeleteButton="True" ShowEditButton="false" ShowCancelButton="true" ShowSelectButton="true"
                                             ButtonType="Image" ControlStyle-Height="20px" ControlStyle-Width="20px" DeleteImageUrl="http://icons.iconarchive.com/icons/everaldo/kids-icons/128/edit-delete-icon.png"
                                             EditImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/128/edit-validated-icon.png"
-                                            SelectImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-arrow-right-icon.png"
+                                            SelectImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-9/128/edit-validated-icon.png"
                                             CancelImageUrl="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/128/Actions-edit-delete-icon.png"
                                             UpdateImageUrl="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-7/128/Save-icon.png">
                                             <ControlStyle Height="20px" Width="20px" />

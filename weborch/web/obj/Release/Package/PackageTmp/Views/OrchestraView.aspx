@@ -14,42 +14,49 @@
                             <h5 style="display: inline-block;">Name: </h5>
                             <asp:TextBox AutoPostBack="true" ID="txtbox_namefilter" runat="server" CssClass="form-control" Style="width: 82%; display: inline-block;" OnTextChanged="filterOrchestraDataByName"></asp:TextBox>
                         </div>
-                        <div class="col-md-3 pull-right" >
+                        <div class="col-md-3 pull-right">
                             <asp:LinkButton CssClass="btn btn-success pull-right" runat="server" ID="btn_MangeOrchestraButton" Text="  <%$Resources:HomeView.aspx,AddManageOrchestra  %>" Visible="false" PostBackUrl="~/Views/ManageOrchestraView.aspx" />
                         </div>
                     </div>
 
-                    <asp:Repeater runat="server" ID="repeater_orchestraList">
-                        <ItemTemplate>
+                    <div class="row">
+                        <asp:Repeater runat="server" ID="repeater_orchestraList">
+                            <ItemTemplate>
 
-                            <div class="col-md-3" style="padding-right: 5px; padding-left: 5px;">
-                                <div class="orchContainer" style="background-color: white;">
-                                    <h4 style="color: #00796B; font-weight: 800;"><%#Eval("OfficialName") %></h4>
-                                    <h5 style="color: #00796B;">(<%#Eval("Alias") %>)</h5>
-                                    <div style="font-size: 1.2rem; color: #4c4949; margin-left: 10px;">
+                                <div class="col-md-3" style="padding-right: 5px; padding-left: 5px;">
+                                    <div class="orchContainer" style="background-color: white;">
+                                        <h4 style="color: #00796B; font-weight: 800;"><%#Eval("OfficialName") %></h4>
+                                        <h5 style="color: #00796B;">(<%#Eval("Alias") %>)</h5>
+                                        <div style="font-size: 1.2rem; color: #4c4949; margin-left: 10px;">
 
-                                        <span>Since: <%#Eval("Since") %></span>
-                                        <br />
-                                        <span>Conductor: <%#Eval("ConductorName") %></span><br />
-                                        <span>Address: <%#Eval("Address").ToString().Length>20?Eval("Address").ToString().Substring(0,20):Eval("Address").ToString() %></span><br />
-                                        <span>ZipCode: <%#Eval("ZipCode") %></span><br />
-                                        <span>TelNO: <%#Eval("TelNO") %></span><br />
-                                        <span>FaxNo: <%#Eval("FaxNo") %></span><br />
-                                        <span><a href='<%#Eval("URL") %>' target="_blank">Home</a></span>
+                                            <span>Since: <%#Eval("Since") %></span>
+                                            <br />
+                                            <span>Conductor: <%#Eval("ConductorName") %></span><br />
+                                            <span>Address: <%#Eval("Address").ToString().Length>20?Eval("Address").ToString().Substring(0,20):Eval("Address").ToString() %></span><br />
+                                            <span>ZipCode: <%#Eval("ZipCode") %></span><br />
+                                            <span>TelNO: <%#Eval("TelNO") %></span><br />
+                                            <span>FaxNo: <%#Eval("FaxNo") %></span><br />
+                                            <span><a href='<%#Eval("URL") %>' target="_blank">Home</a></span>
+                                        </div>
                                     </div>
+
                                 </div>
 
-                            </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
 
-                        </ItemTemplate>
-                    </asp:Repeater>
+
+                    <div class="row">
+                        <asp:Button runat="server" Text="Show More" CssClass="btn btn-success pull-right" Style="margin-right: 5px;" OnClick="filterOrchestraDataByName"  />
+                    </div>
 
                     <asp:SqlDataSource ID="SqlDataSource1_allOrchestraInfo" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" DeleteCommand="delete from Core.Orchestra
 where ID=@ID"
                         InsertCommand="insert into Core.Orchestra
 (OfficialName, Alias, URL, Address, ZipCode, TelNO, FaxNo, ConductorName, Since)
 values (@OfficialName, @Alias, @URL, @Address, @ZipCode, @TelNO, @FaxNo, @ConductorName, @Since)"
-                        SelectCommand="SELECT o.ID, OfficialName, Alias, URL, o.Address, o.ZipCode, o.TelNO,o.FaxNo, ConductorID, Since,  ConductorName= FirstName + ' '+ MiddleName+ ' ' + FamilyName
+                        SelectCommand="SELECT top 12 o.ID, OfficialName, Alias, URL, o.Address, o.ZipCode, o.TelNO,o.FaxNo, ConductorID, Since,  ConductorName= FirstName + ' '+ MiddleName+ ' ' + FamilyName
 FROM Core.Orchestra o
 left join core.artist a on o.ConductorID = a. ID"
                         UpdateCommand="Update Core.Orchestra

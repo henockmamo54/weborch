@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="row shadowedPanel" runat="server" id="AddNewEntryPanel" style="background: white; padding: 10px; margin-bottom: 10px; box-shadow: 1px 1px 1px 1px #d0d0d0;">
 
-        <div class="row shadowedPanel" style="padding: 5px; margin: 10px; background-color: #f1f1f136;">
+        <div class="row " style="padding: 5px; margin: 10px; background-color: #f1f1f136;">
 
             <asp:UpdatePanel runat="server">
                 <ContentTemplate>
@@ -181,7 +181,7 @@
 
             <ContentTemplate>
 
-                <div class="shadowedPanel" style="padding: 5px; margin: 10px; background-color: #f1f1f136; margin-top: 10px;">
+                <div class="" style="padding: 5px; margin: 10px; background-color: #f1f1f136; margin-top: 10px;">
                     <div class="row">
                         <div class="col-md-12">
                             <h4>Musical performance program</h4>
@@ -377,17 +377,15 @@ FROM Core.Artist"></asp:SqlDataSource>
 
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
-
-            <div class="row col-md-12 " style="overflow-x: scroll;">
-                <div class="row ">
-
-                    <asp:SqlDataSource ID="SqlDataSource2_allPerformances" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
+            <%--<div class="row col-md-12 " style="overflow-x: scroll;">--%>
+            <div class="row shadowedPanel " runat="server" id="Div1" style="background: white;  box-shadow: 1px 1px 1px 1px #d0d0d0; overflow-x: scroll; padding-left: 20px;">
+                <asp:SqlDataSource ID="SqlDataSource2_allPerformances" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
 SELECT p.*, OfficialName  FROM Main.Performance p
 join Core.Orchestra o on p.OrchestraID=o.ID
 order by p.TimeStamp desc"
-                        DeleteCommand="Delete Main.Performance
+                    DeleteCommand="Delete Main.Performance
 where id = @ID"
-                        UpdateCommand="update Main.Performance
+                    UpdateCommand="update Main.Performance
 set OrchestraID=@OrchestraID,
 StartDate=@StartDate,
 EndDate=@EndDate,
@@ -401,29 +399,28 @@ OrganizerInfo = @OrganizerInfo ,
 MainTitle = @MainTitle,
 TicketBox = @TicketBox
 where ID=@ID">
-                        <DeleteParameters>
-                            <asp:Parameter Name="ID" />
-                        </DeleteParameters>
-                        <UpdateParameters>
-                            <%--<asp:Parameter Name="MainTitle" />--%>
-                            <asp:Parameter Name="OrchestraID" />
-                            <asp:Parameter Name="StartDate" />
-                            <asp:Parameter Name="EndDate" />
-                            <asp:Parameter Name="PerformanceTitle" />
-                            <asp:Parameter Name="Location" />
-                            <asp:Parameter Name="PhotoAddLocation" />
-                            <asp:Parameter Name="VideoLocation" />
-                            <asp:Parameter Name="ConcertHall" />
+                    <DeleteParameters>
+                        <asp:Parameter Name="ID" />
+                    </DeleteParameters>
+                    <UpdateParameters>
+                        <%--<asp:Parameter Name="MainTitle" />--%>
+                        <asp:Parameter Name="OrchestraID" />
+                        <asp:Parameter Name="StartDate" />
+                        <asp:Parameter Name="EndDate" />
+                        <asp:Parameter Name="PerformanceTitle" />
+                        <asp:Parameter Name="Location" />
+                        <asp:Parameter Name="PhotoAddLocation" />
+                        <asp:Parameter Name="VideoLocation" />
+                        <asp:Parameter Name="ConcertHall" />
 
-                            <asp:Parameter Name="PerformanceTime" />
-                            <asp:Parameter Name="OrganizerInfo" />
-                            <asp:Parameter Name="MainTitle" />
+                        <asp:Parameter Name="PerformanceTime" />
+                        <asp:Parameter Name="OrganizerInfo" />
+                        <asp:Parameter Name="MainTitle" />
 
-                            <asp:Parameter Name="TicketBox" />
-                            <asp:Parameter Name="ID" />
-                        </UpdateParameters>
-                    </asp:SqlDataSource>
-                </div>
+                        <asp:Parameter Name="TicketBox" />
+                        <asp:Parameter Name="ID" />
+                    </UpdateParameters>
+                </asp:SqlDataSource>
                 <asp:GridView ID="GridView2" CssClass="row" Style="overflow-x: scroll; width: 2000px;" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource2_allPerformances" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound" OnRowEditing="GridView1_RowEditing">
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                     <Columns>

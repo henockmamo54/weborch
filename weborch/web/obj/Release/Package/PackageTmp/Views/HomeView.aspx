@@ -45,8 +45,9 @@
                     </div>
                     <div class="col-md-4" style="padding-right: 0; padding-left: 0;">
                         <div class="container" style="padding: 0; padding-top: 0em;">
-                            <div class="panel panel-default" style="overflow-y: scroll; height: 380px;">
-                                <div class="panel-heading" style="text-align: right; padding-top: 3px; padding-bottom: 3px; background-color: ghostwhite;">
+
+                            <div class="bulletincontainer">
+                                <div class="" style="text-align: right;">
                                     <%-- <%= Resources.HomeView.aspx.Notice %>--%> Bulletin
                                     <asp:DropDownList runat="server" CssClass="form-control" Style="width: auto; display: inline;"
                                         ID="dropdownlist_bulletinType" DataSourceID="SqlDataSource1_bulletinType" DataTextField="Name" DataValueField="ID" OnSelectedIndexChanged="dropdownlist_bulletinType_SelectedIndexChanged" AutoPostBack="True">
@@ -61,30 +62,30 @@ SELECT [ID], [Name] FROM lookup.[BulletinType]"></asp:SqlDataSource>
                                         <table style="margin: 3px;" class="table-striped">
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <tr style="border-bottom: 1px #ececec; border-color: lightgray; border-radius: 10rem; padding-top: 5px; margin-bottom: 10px !important; padding: 10px !important;">
+                                        <tr>
 
+                                            <td style="width: 100%;" runat="server" id="bulletinMsgContainer" class="bulletinItems">
+                                                <asp:Label Style="color: darkgrey; font-size: 0.8em;" runat="server" ID="Label3"><strong>[<%#Eval("Name") %>] </strong>Posted on:<%# DataBinder.Eval(Container.DataItem,"TimeStamp","{0:d/M/yyyy}") %></asp:Label>
 
-                                            <%--<td runat="server" style='width: 30%;' id="photoaddcontainerForBulletin">
-                                                <img src="../Document/<%#Eval("ImageUrl") %>" style="width: 100%" />
-                                            </td>--%>
-                                            <%--<td><%#Eval("Name") %> </td>--%>
-                                            <td style="width: 100%" runat="server" id="bulletinMsgContainer">
-                                                 <asp:Label Style="color: darkgrey; font-size: 0.8em;" runat="server" ID="Label3"><strong>[<%#Eval("Name") %>] </strong>Posted on:<%# DataBinder.Eval(Container.DataItem,"TimeStamp","{0:d/M/yyyy}") %></asp:Label>
-                                                
                                                 <br />
 
                                                 <asp:Label runat="server" ID="Label1"
                                                     Text='<%# Server.HtmlDecode(Eval("Title").ToString()) %>' />
-                                                <a href="//<%#Eval("URL") %>" target="_blank" style="width: 100%;"><%= Resources.HomeView.aspx.ReadMore %></a>
-                                               
-                                            </td>
+                                                <a href="//<%#Eval("URL") %>" target="_blank" style="width: 100%;">
+                                                    <br />
+                                                    <%= Resources.HomeView.aspx.ReadMore %></a>
 
+                                            </td>
                                         </tr>
+
                                     </ItemTemplate>
                                     <FooterTemplate>
                                         </table>
                                     </FooterTemplate>
                                 </asp:Repeater>
+                                <div style="text-align: right">
+                                    <button class="btn btn-default pull-right">Show More </button>
+                                </div>
                                 <asp:SqlDataSource ID="SqlDataSource1_bulletininfo" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT b.[ID], Title, [MSG], [URL], [ImageUrl], [TimeStamp],BulletinTypeID,bt.Name 
 FROM core.Bulletin  b
 join Lookup.BulletinType bt on bt.ID=b.BulletinTypeID
@@ -187,31 +188,6 @@ where ID=@ID">
                 </div>
 
                 <div class="" style="width: 100%; padding-top: 1em;">
-
-
-                    <%--<div class="shadowedPanel" style="padding-bottom: 1em; height: 300px;">
-
-                        <div class="col-md-12">
-                            <h4><%= Resources.HomeView.aspx.AClassicalPerformanceArchives %></h4>
-                        </div>
-
-                        <hr />
-
-                        <div class="col-md-6">
-                            <div class="col-md-5">
-                                <img src="../Document/4.jpeg" class="shadowedPanel" height="200" width="200" style="padding: 0" />
-                            </div>
-                            <div class="col-md-6" style="padding: 0px;">Beethoven - Heroic Symphony (Orchestra is Seoul Symphony)</div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="col-md-5">
-                                <img src="../Document/5.jpg" class="shadowedPanel" height="200" width="200" style="padding: 0" />
-                            </div>
-                            <div class="bottom-align-text col-md-6" style="padding: 0px; height: 200px;">
-                                Vivaldi - the four seasons (Orchestra is 'l MUSIC)
-                            </div>
-                        </div>
-                    </div>--%>
                 </div>
 
             </div>
@@ -247,6 +223,25 @@ where ID=@ID">
         }
 
 
+
+        .bulletinItems {
+            border-bottom: 1px solid #ececec;
+            /*border-color: #e2e2e2;
+            border-radius: 10rem;*/
+            padding: 5px;
+        }
+
+        .bulletincontainer {
+            overflow-y: scroll;
+            height: 380px;
+            /*box-shadow: 2px 2px 2px #d0d0d0;
+            border: 0.5px solid #d0d0d0;*/
+            padding: 2px;
+            border-radius: 5px;
+            border: 0.5px solid lightgray;
+            background-color: #ffffff17;
+        }
+
         .shadowedPanel {
             border: 1px solid transparent;
             border-radius: 4px;
@@ -254,6 +249,8 @@ where ID=@ID">
             padding: 1em;
             box-shadow: 2px 2px 2px 2px #f5f5f5;
         }
+
+
 
 
         /*.sadoedbx2 op: 1em; 2px 2px 2px 2 x #f border- tyle borde -width: 1p border widt rder-color: li h p ddig: 5p;
