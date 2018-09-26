@@ -111,7 +111,7 @@ namespace web.Views
             var count = countOfShowMore * 3;
             SqlDataSource2_allPerformances.SelectCommand = @"SELECT top " + count +
                 @" p.*, OfficialName  FROM Main.Performance p 
-                join Core.Orchestra o on p.OrchestraID = o.ID order by StartDate";
+                join Core.Orchestra o on p.OrchestraID = o.ID order by timestamp desc";
 
             repeater_performanceList.DataSource = SqlDataSource2_allPerformances;
             repeater_performanceList.DataBind();

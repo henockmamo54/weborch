@@ -988,7 +988,7 @@ namespace Resources.HomeView {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sign In.
+        ///   Looks up a localized string similar to Login.
         /// </summary>
         internal static string SignIn {
             get {
@@ -997,7 +997,7 @@ namespace Resources.HomeView {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sign Out.
+        ///   Looks up a localized string similar to Logout.
         /// </summary>
         internal static string SignOut {
             get {

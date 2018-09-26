@@ -33,7 +33,7 @@ namespace web
                 btn_MangeOrchestraButton.Visible = isUserCompany;
             }
 
-            //if (Session["countOfShowMore"] == null) { Session["countOfShowMore"] = 3; countOfShowMore = 3; }
+            if (Session["countOfShowMore"] == null) { Session["countOfShowMore"] = 12; countOfShowMore = 12; }
 
         }
         protected void filterOrchestraDataByName(object sender, EventArgs e)
