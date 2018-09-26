@@ -14,7 +14,7 @@
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/Site.css" rel="stylesheet" />
-
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" media="screen" runat="server" />
 
 </head>
 <%--#E9EBEE;--%>
@@ -124,6 +124,11 @@
         padding: 0.5em;
         border-radius: 0.3em;
     }
+
+    /*.nav > li > a {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }*/
 
     /*::-webkit-scrollbar {
         width: 3px;

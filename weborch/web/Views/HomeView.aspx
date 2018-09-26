@@ -83,6 +83,9 @@ SELECT [ID], [Name] FROM lookup.[BulletinType]"></asp:SqlDataSource>
                                         </table>
                                     </FooterTemplate>
                                 </asp:Repeater>
+                                <div style="text-align:right">
+                                   <button class="btn btn-default pull-right"> Show More </button>
+                                </div>
                                 <asp:SqlDataSource ID="SqlDataSource1_bulletininfo" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT b.[ID], Title, [MSG], [URL], [ImageUrl], [TimeStamp],BulletinTypeID,bt.Name 
 FROM core.Bulletin  b
 join Lookup.BulletinType bt on bt.ID=b.BulletinTypeID
@@ -236,6 +239,7 @@ where ID=@ID">
             padding: 2px;
             background-color: #ffffff17;
             border-radius: 5px;
+                border: 0.5px solid lightgray;
         }
 
         .shadowedPanel {

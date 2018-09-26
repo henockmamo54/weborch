@@ -155,5 +155,6 @@ where ID=@ID
             padding: 1px;
             border-radius: 5px;
         }
+            
     </style>
 </asp:Content>
