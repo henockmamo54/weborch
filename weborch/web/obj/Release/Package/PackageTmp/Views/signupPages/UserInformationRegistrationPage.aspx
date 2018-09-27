@@ -60,7 +60,7 @@
                                             <div>
                                                 <div class="col-md-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Email %>:</div>
+                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Email %>*</div>
                                                     <div class="col-md-6">
                                                         <asp:TextBox ID="uemail" TextMode="Email" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
@@ -69,7 +69,7 @@
                                                 </div>
                                                 <div class="col-md-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Password %>:</div>
+                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Password %>*</div>
                                                     <div class="col-md-6">
                                                         <asp:TextBox ID="upassword" TextMode="Password" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
@@ -78,7 +78,7 @@
                                                 </div>
                                                 <div class="col-md-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Name %>:</div>
+                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Name %>*</div>
                                                     <div class="col-md-6">
                                                         <asp:TextBox ID="uname" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
@@ -86,7 +86,7 @@
                                                 </div>
                                                 <div class="col-md-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Affiliation %>:</div>
+                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Affiliation %>*</div>
                                                     <div class="col-md-6">
 
                                                         <asp:DropDownList ID="DropDownList1_Affilation" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_Affilation_SelectedIndexChanged"></asp:DropDownList>
@@ -112,7 +112,7 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
 
                                                 <div class="col-md-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Sex %>:</div>
+                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Sex %>*</div>
                                                     <div class="col-md-6">
 
                                                         <asp:DropDownList ID="DropDownList1_sex" runat="server" class="form-control">
@@ -126,7 +126,7 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Birthday %>:</div>
+                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Birthday %>*</div>
                                                     <div class="col-md-6">
                                                         <%--<asp:TextBox ID="userBirthDate" runat="server" ToolTip="dd/mm/yyyy" class="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>--%>
                                                         <div class='input-group date' id='datetimepicker2' style="display: flex;">
@@ -140,7 +140,7 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.ZipCode %>:</div>
+                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.ZipCode %></div>
                                                     <div class="col-md-6">
                                                         <asp:TextBox ID="uzipcode" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
@@ -148,7 +148,7 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Address %>:</div>
+                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Address %>*</div>
                                                     <div class="col-md-6">
                                                         <asp:TextBox ID="uaddress" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
@@ -156,7 +156,7 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.MobileNo %>:</div>
+                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.MobileNo %></div>
                                                     <div class="col-md-6">
                                                         
                                                         <asp:TextBox ID="umobileno1" runat="server" class="form-control" MaxLength="3" style="display: inline-block; width: 25%;"></asp:TextBox>
@@ -168,7 +168,7 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
 
                                                 <div class="col-md-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.FacebookAddr %>:</div>
+                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.FacebookAddr %></div>
                                                     <div class="col-md-6">
                                                         <asp:TextBox ID="ufacebookadd" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
@@ -176,7 +176,7 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.TwitterAddr %>:</div>
+                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.TwitterAddr %></div>
                                                     <div class="col-md-6">
                                                         <asp:TextBox ID="utwitter" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
@@ -184,7 +184,7 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.KakaoTalkID %>:</div>
+                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.KakaoTalkID %></div>
                                                     <div class="col-md-6">
                                                         <asp:TextBox ID="ukakao" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
@@ -192,7 +192,7 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.MajorInstrument1 %>:</div>
+                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.MajorInstrument1 %></div>
                                                     <div class="col-md-6">
 
                                                         <asp:SqlDataSource ID="SqlDataSource3_instrumentlist" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="select 1 row, -1 as ID, 'None' as EnglishName, 'None' as KoreanName, 'None' as [Group] 
@@ -206,7 +206,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                                 </div>
                                                 <div class="col-md-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.MajorInstrument2 %>:</div>
+                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.MajorInstrument2 %></div>
                                                     <div class="col-md-6">
                                                         <asp:DropDownList ID="DropDownList1_mjInst2" class="form-control" runat="server" DataSourceID="SqlDataSource3_instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
 
@@ -223,7 +223,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
 
                                             <div class="col-md-12">
                                                 <br />
-                                                <div class="col-md-4"><%= Resources.HomeView.aspx.Photo1 %>:</div>
+                                                <div class="col-md-4"><%= Resources.HomeView.aspx.Photo1 %>*</div>
                                                 <div class="col-md-6">
                                                     <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline" />
                                                     <%--<asp:TextBox ID="uphoto1" runat="server" class="form-control"></asp:TextBox>--%>
@@ -233,7 +233,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
 
                                             <div class="col-md-12">
                                                 <br />
-                                                <div class="col-md-4"><%= Resources.HomeView.aspx.Photo2 %>:</div>
+                                                <div class="col-md-4"><%= Resources.HomeView.aspx.Photo2 %></div>
                                                 <div class="col-md-6">
                                                     <asp:FileUpload ID="FileUpload2" runat="server" Style="display: inline" />
                                                     <%--<asp:TextBox ID="uphoto2" runat="server" class="form-control"></asp:TextBox>--%>
@@ -243,7 +243,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
 
                                             <div class="col-md-12">
                                                 <br />
-                                                <div class="col-md-4"><%= Resources.HomeView.aspx.ProfilePage %>:</div>
+                                                <div class="col-md-4"><%= Resources.HomeView.aspx.ProfilePage %>*</div>
                                                 <div class="col-md-8">
                                                     <asp:TextBox ID="uprofilepage" TextMode="MultiLine" Rows="3" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
@@ -254,7 +254,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
 
                                             <div class="col-md-12">
                                                 <br />
-                                                <div class="col-md-4"><%= Resources.HomeView.aspx.Repertory %>:</div>
+                                                <div class="col-md-4"><%= Resources.HomeView.aspx.Repertory %>*</div>
                                                 <div class="col-md-8">
                                                     <asp:TextBox TextMode="MultiLine" Rows="3" ID="urepertory" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
@@ -323,7 +323,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                     <div>
                                         <div class="col-md-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.Email %>:</div>
+                                            <div class="col-md-4"><%= Resources.HomeView.aspx.Email %>*</div>
                                             <div class="col-md-6">
                                                 <asp:TextBox ID="oemail" TextMode="Email" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -332,7 +332,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                         </div>
                                         <div class="col-md-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.Password %>:</div>
+                                            <div class="col-md-4"><%= Resources.HomeView.aspx.Password %>*</div>
                                             <div class="col-md-6">
                                                 <asp:TextBox ID="opassword" TextMode="Password" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -341,7 +341,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                         </div>
                                         <div class="col-md-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.MobileNo %>:</div>
+                                            <div class="col-md-4"><%= Resources.HomeView.aspx.MobileNo %></div>
                                             <div class="col-md-6">
                                                 <asp:TextBox ID="omibile" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -349,7 +349,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                         </div>
                                         <div class="col-md-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.CompanyName %>:</div>
+                                            <div class="col-md-4"><%= Resources.HomeView.aspx.CompanyName %>*</div>
                                             <div class="col-md-6">
                                                 <asp:TextBox ID="ocompanyname" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -358,7 +358,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                         </div>
                                         <div class="col-md-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.BussinessNo %>:</div>
+                                            <div class="col-md-4"><%= Resources.HomeView.aspx.BussinessNo %></div>
                                             <div class="col-md-6">
                                                 <asp:TextBox ID="obussinessno" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -366,7 +366,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                         </div>
                                         <div class="col-md-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.ZipCode %>:</div>
+                                            <div class="col-md-4"><%= Resources.HomeView.aspx.ZipCode %></div>
                                             <div class="col-md-6">
                                                 <asp:TextBox ID="ozipcode" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -374,7 +374,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                         </div>
                                         <div class="col-md-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.Address %>:</div>
+                                            <div class="col-md-4"><%= Resources.HomeView.aspx.Address %></div>
                                             <div class="col-md-6">
                                                 <asp:TextBox ID="oaddress" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -389,7 +389,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
 
                                         <div class="col-md-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.PhoneNo %>:</div>
+                                            <div class="col-md-4"><%= Resources.HomeView.aspx.PhoneNo %></div>
                                             <div class="col-md-6">
                                                 <asp:TextBox ID="ophonenumber" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -399,7 +399,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
 
                                         <div class="col-md-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.FaxNo %>:</div>
+                                            <div class="col-md-4"><%= Resources.HomeView.aspx.FaxNo %></div>
                                             <div class="col-md-6">
                                                 <asp:TextBox ID="ofaxnumber" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -408,7 +408,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
 
                                         <div class="col-md-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.CEOName %>:</div>
+                                            <div class="col-md-4"><%= Resources.HomeView.aspx.CEOName %></div>
                                             <div class="col-md-6">
                                                 <asp:TextBox ID="oceoname" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -416,7 +416,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                         </div>
                                         <div class="col-md-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.AdminEmail %>:</div>
+                                            <div class="col-md-4"><%= Resources.HomeView.aspx.AdminEmail %>*</div>
                                             <div class="col-md-6">
                                                 <asp:TextBox ID="oadminemail" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -424,7 +424,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                         </div>
                                         <div class="col-md-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.AdminName %>:</div>
+                                            <div class="col-md-4"><%= Resources.HomeView.aspx.AdminName %>*</div>
                                             <div class="col-md-6">
                                                 <asp:TextBox ID="oadminname" runat="server" class="form-control"></asp:TextBox>
                                             </div>
@@ -470,7 +470,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                 <h4><%= Resources.HomeView.aspx.Orchestradata %></h4>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Name %>:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Name %>*</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_orchname" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -478,7 +478,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Alias %>:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Alias %></div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_orchaliasname" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -486,7 +486,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.URL %>:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.URL %></div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_orchurl" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -495,7 +495,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Conductor %>:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Conductor %>*</div>
                                     <div class="col-md-8">
                                         <%--<asp:TextBox ID="txt_orchcondactername" runat="server" class="form-control"></asp:TextBox>--%>
                                         <asp:DropDownList ID="DropDownList2_conductor" runat="server" DataSourceID="SqlDataSource3_conductor" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
@@ -512,7 +512,7 @@ where al.Name like '%Conductor%'
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Since %>:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Since %></div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_orchsince" runat="server" OnClick="dummybtnclick" class="form-control"></asp:TextBox>
                                     </div>

@@ -27,32 +27,16 @@
 
                                     <div class="col-md-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.Name %>:</div>
+                                        <div class="col-md-4"><%= Resources.HomeView.aspx.Name %>*</div>
                                         <div class="col-md-8">
                                             <asp:TextBox ID="txt_artist_firstname" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <br />
                                     </div>
-                                    <%--<div class="col-md-4">
-                                        <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.FamilyName %>:</div>
-                                        <div class="col-md-8">
-                                            <asp:TextBox ID="txt_artist_familyname" runat="server" class="form-control"></asp:TextBox>
-                                        </div>
-                                        <br />
-                                    </div>
-                                    <div class="col-md-4">
-                                        <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.MiddleName %>:</div>
-                                        <div class="col-md-8">
-                                            <asp:TextBox ID="txt_artist_middlename" runat="server" class="form-control"></asp:TextBox>
-                                        </div>
-                                        <br />
 
-                                    </div>--%>
                                     <div class="col-md-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.Birthday %>:</div>
+                                        <div class="col-md-4"><%= Resources.HomeView.aspx.Birthday %>*</div>
                                         <div class="col-md-8">
                                             <%--<asp:TextBox ID="txt_artist_birthdate" runat="server" class="form-control" ToolTip="dd/mm/yyyy"></asp:TextBox>--%>
                                             <div class='input-group date' id='datetimepicker2' style="display: flex;">
@@ -68,7 +52,7 @@
 
                                     <div class="col-md-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.Address %>:</div>
+                                        <div class="col-md-4"><%= Resources.HomeView.aspx.Address %>*</div>
                                         <div class="col-md-8">
                                             <asp:TextBox ID="txt_artist_address" runat="server" class="form-control"></asp:TextBox>
                                         </div>
@@ -77,7 +61,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.ZipCode %>:</div>
+                                        <div class="col-md-4"><%= Resources.HomeView.aspx.ZipCode %>*</div>
                                         <div class="col-md-8">
                                             <asp:TextBox ID="txt_artist_zipcode" runat="server" class="form-control"></asp:TextBox>
                                         </div>
@@ -86,7 +70,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.TelNO %>:</div>
+                                        <div class="col-md-4"><%= Resources.HomeView.aspx.TelNO %></div>
                                         <div class="col-md-8">
                                             <asp:TextBox ID="txt_artist_teleno" runat="server" class="form-control"></asp:TextBox>
                                         </div>
@@ -95,7 +79,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.MobileNo %>:</div>
+                                        <div class="col-md-4"><%= Resources.HomeView.aspx.MobileNo %></div>
                                         <div class="col-md-8">
                                             <asp:TextBox ID="txt_artist_mobileno" runat="server" class="form-control"></asp:TextBox>
                                         </div>
@@ -104,7 +88,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.FaxNo %>:</div>
+                                        <div class="col-md-4"><%= Resources.HomeView.aspx.FaxNo %></div>
                                         <div class="col-md-8">
                                             <asp:TextBox ID="txt_aritist_faxno" runat="server" class="form-control"></asp:TextBox>
                                         </div>
@@ -113,7 +97,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.Remarks %>:</div>
+                                        <div class="col-md-4"><%= Resources.HomeView.aspx.Remarks %></div>
                                         <div class="col-md-8">
                                             <asp:TextBox ID="txt_artist_remark" runat="server" class="form-control"></asp:TextBox>
                                         </div>
@@ -125,7 +109,7 @@
 
                                     <div class="col-md-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.KakaoTalkID %>:</div>
+                                        <div class="col-md-4"><%= Resources.HomeView.aspx.KakaoTalkID %></div>
                                         <div class="col-md-8">
                                             <asp:TextBox ID="ukakao" runat="server" class="form-control"></asp:TextBox>
                                         </div>
@@ -133,7 +117,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.FacebookAddr %>:</div>
+                                        <div class="col-md-4"><%= Resources.HomeView.aspx.FacebookAddr %></div>
                                         <div class="col-md-8">
                                             <asp:TextBox ID="ufacebookadd" runat="server" class="form-control"></asp:TextBox>
                                         </div>
@@ -141,7 +125,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.TwitterAddr %>:</div>
+                                        <div class="col-md-4"><%= Resources.HomeView.aspx.TwitterAddr %></div>
                                         <div class="col-md-8">
                                             <asp:TextBox ID="utwitter" runat="server" class="form-control"></asp:TextBox>
                                         </div>
@@ -153,7 +137,7 @@
                                         <div class="col-md-4" style="padding: 0;">
                                             <div class="col-md-12" style="padding: 0;">
                                                 <br />
-                                                <div class="col-md-4"><%= Resources.HomeView.aspx.Affiliation %>:</div>
+                                                <div class="col-md-4"><%= Resources.HomeView.aspx.Affiliation %>*</div>
                                                 <div class="col-md-8">
 
                                                     <asp:DropDownList ID="DropDownList1_Affilation" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID" AutoPostBack="false" OnSelectedIndexChanged="DropDownList1_Affilation_SelectedIndexChanged"></asp:DropDownList>
@@ -179,7 +163,7 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                     <div class="col-md-12">
                                         <div class="col-md-6">
                                             <br />
-                                            <div class="col-md-3"><%= Resources.HomeView.aspx.ProfilePage %>:</div>
+                                            <div class="col-md-3"><%= Resources.HomeView.aspx.ProfilePage %>*</div>
                                             <div class="col-md-9">
                                                 <asp:TextBox ID="uprofilepage" runat="server" class="form-control" TextMode="MultiLine" Rows="3"></asp:TextBox>
                                             </div>
@@ -187,7 +171,7 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                         </div>
                                         <div class="col-md-6">
                                             <br />
-                                            <div class="col-md-3"><%= Resources.HomeView.aspx.Repertory %>:</div>
+                                            <div class="col-md-3"><%= Resources.HomeView.aspx.Repertory %>*</div>
                                             <div class="col-md-9">
                                                 <asp:TextBox ID="urepertory" runat="server" class="form-control" TextMode="MultiLine" Rows="3"></asp:TextBox>
                                             </div>
@@ -200,7 +184,7 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                     <hr />
                                     <div class="col-md-6">
                                         <div class="col-md-2">
-                                            <asp:Label runat="server"><strong><%= Resources.HomeView.aspx.Endorser %>:</strong></asp:Label>
+                                            <asp:Label runat="server"><strong><%= Resources.HomeView.aspx.Endorser %></strong></asp:Label>
                                         </div>
 
                                         <%--<div class="col-md-4">
@@ -471,7 +455,10 @@ Where ID=@ID"
 
                     </div>
                     <hr />
-                    <div class="row shadowedbox2">
+
+                    <asp:SqlDataSource ID="SqlDataSource3_instrumentlist" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT ID, EnglishName, KoreanName, [Group] FROM Core.Instrument"></asp:SqlDataSource>
+
+<%--                    <div class="row shadowedbox2">
                         <asp:Label runat="server"><h3>Instruments Played By an Artist</h3></asp:Label>
                         <div class="row">
                             <div class="col-md-3">
@@ -627,7 +614,7 @@ where id=@ID"
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>--%>
 
                 </div>
 

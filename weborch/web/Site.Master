@@ -64,7 +64,7 @@
                         <li><a style="color: white;" runat="server" href="~/Views/IntroductionPage.aspx"><%= Resources.HomeView.aspx.Introduction %></a></li>
                         <li><a style="color: white;" runat="server" onclick="alert('This page Will be added soon.')"><strong>Archive Center</strong></a></li>
                         <li><a style="color: white; padding-top: 10px;" runat="server" onclick="alert('This page Will be added soon.')">
-                            <img src="../Document/bitcoin.png" width="30px" />
+                            <img runat="server" src="~/Document/bitcoin.png" width="30" />
                             Classic Coin
                         </a></li>
                     </ul>

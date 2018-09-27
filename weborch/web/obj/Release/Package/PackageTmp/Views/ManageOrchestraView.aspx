@@ -16,7 +16,7 @@
                             <div class="col-md-12  form-group">
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Name %>:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Name %>*</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_orchname" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Alias %>:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Alias %></div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_orchaliasname" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.URL %>:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.URL %></div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_orchurl" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Address %>:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Address %>*</div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_orchaddress" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.ZipCode %>:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.ZipCode %></div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_orchzipcode" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.TelNO %>:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.TelNO %></div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_orchtelno" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.FaxNo %>:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.FaxNo %></div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_orchfaxno" runat="server" class="form-control"></asp:TextBox>
                                     </div>
@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Conductor %>:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Conductor %></div>
                                     <div class="col-md-8">
                                         <%--<asp:TextBox ID="txt_orchcondactername" runat="server" class="form-control"></asp:TextBox>--%>
                                         <asp:DropDownList ID="DropDownList2_conductor" runat="server" DataSourceID="SqlDataSource3_conductor" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
@@ -94,7 +94,7 @@ where al.Name='Conductor'
                                 </div>
                                 <div class="col-md-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Since %>:</div>
+                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Since %></div>
                                     <div class="col-md-8">
                                         <asp:TextBox ID="txt_orchsince" runat="server" OnClick="dummybtnclick" class="form-control"></asp:TextBox>
                                     </div>

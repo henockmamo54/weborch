@@ -253,7 +253,7 @@ namespace web
                     }
 
 
-                    DropDownList1_artistList.DataBind();
+                    //DropDownList1_artistList.DataBind();
                     showMsg("Data inserted succssfuly");
                     cleanArtistTextBoxs();
                 }
@@ -383,7 +383,7 @@ namespace web
                     else showMsg("Please check your inputs");
 
 
-                    DropDownList1_artistList.DataBind();
+                    //DropDownList1_artistList.DataBind();
                     GridView1.DataBind();
 
                 }
@@ -501,14 +501,14 @@ namespace web
 
         protected void btn_addInstrument_Click(object sender, EventArgs e)
         {
-            Artist_Instrument artistInst = new Artist_Instrument();
-            artistInst.ArtistID = int.Parse(DropDownList1_artistList.SelectedValue);
-            artistInst.InstrumentID = int.Parse(DropDownList1_Instrument.SelectedValue);
+            //Artist_Instrument artistInst = new Artist_Instrument();
+            //artistInst.ArtistID = int.Parse(DropDownList1_artistList.SelectedValue);
+            //artistInst.InstrumentID = int.Parse(DropDownList1_Instrument.SelectedValue);
 
-            if (artInstLogic.addArtistInstrument(artistInst))
-            {
-                ListView_instrumentsplayedbyartist.DataBind();
-            }
+            //if (artInstLogic.addArtistInstrument(artistInst))
+            //{
+            //    ListView_instrumentsplayedbyartist.DataBind();
+            //}
         }
 
         protected void btn_add_Inst_Click(object sender, EventArgs e)
@@ -558,8 +558,8 @@ namespace web
         public void serachTextValueChanged(object sender, EventArgs e)
         {
             GridView1.DataBind();
-            DropDownList1_artistList.DataBind();
-            ListView_instrumentsplayedbyartist.DataBind();
+            //DropDownList1_artistList.DataBind();
+            //ListView_instrumentsplayedbyartist.DataBind();
         }
 
         protected void btn_add_endorser_tolist(object sender, EventArgs e)

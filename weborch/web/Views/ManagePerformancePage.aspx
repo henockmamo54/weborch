@@ -17,7 +17,7 @@
 
                         <div class="col-md-4">
                             <br />
-                            <div class="col-md-4"><%= Resources.HomeView.aspx.PerformanceTitle %>:</div>
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.PerformanceTitle %>*</div>
                             <div class="col-md-8">
                                 <asp:TextBox ID="txt_title" runat="server" class="form-control"></asp:TextBox>
                             </div>
@@ -27,7 +27,7 @@
 
                         <div class="col-md-4">
                             <br />
-                            <div class="col-md-4"><%= Resources.HomeView.aspx.MainTitleTheme %>:</div>
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.MainTitleTheme %></div>
                             <div class="col-md-8">
                                 <asp:TextBox ID="txt_mainTitleTheme" runat="server" class="form-control"></asp:TextBox>
                             </div>
@@ -37,7 +37,7 @@
 
                         <div class="col-md-4">
                             <br />
-                            <div class="col-md-4"><%= Resources.HomeView.aspx.StartDate %>:</div>
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.StartDate %>*</div>
                             <div class="col-md-8">
                                 <div class='input-group date' id='datetimepicker2' style="display: inline-flex;">
                                     <input type='text' class="form-control" runat="server" id="txt_performancestartdate" style="display: inline-block; border-right-width: 0px;" />
@@ -52,7 +52,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <br />
-                            <div class="col-md-4"><%= Resources.HomeView.aspx.EndDate %>:</div>
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.EndDate %>*</div>
                             <div class="col-md-8">
                                 <%--<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>--%>
                                 <div class='input-group date' id='datetimepicker3' style="display: inline-flex;">
@@ -67,7 +67,7 @@
 
                         <div class="col-md-4">
                             <br />
-                            <div class="col-md-4">Performance  Time:</div>
+                            <div class="col-md-4">Performance  Time*</div>
                             <div class="col-md-8">
                                 <asp:TextBox ID="txt_performanceTime" runat="server" class="form-control"></asp:TextBox>
 
@@ -84,7 +84,7 @@
 
                         <div class="col-md-4">
                             <br />
-                            <div class="col-md-4"><%= Resources.HomeView.aspx.VideoAd %>:</div>
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.VideoAd %></div>
                             <div class="col-md-8">
                                 <asp:TextBox ID="txt_videolocation" runat="server" class="form-control"></asp:TextBox>
                             </div>
@@ -100,7 +100,7 @@
             <%--================================================--%>
             <div class="col-md-4">
                 <br />
-                <div class="col-md-4"><%= Resources.HomeView.aspx.Poster %>:</div>
+                <div class="col-md-4"><%= Resources.HomeView.aspx.Poster %>*</div>
                 <div class="col-md-8">
                     <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline" />
                     <%--<asp:TextBox ID="TextBox2" runat="server" class="form-control"></asp:TextBox>--%>
@@ -111,7 +111,7 @@
 
             <div class="col-md-4">
                 <br />
-                <div class="col-md-4">Brochure:</div>
+                <div class="col-md-4">Brochure</div>
                 <div class="col-md-8">
                     <asp:FileUpload ID="FileUpload3" runat="server" Style="display: inline" />
                     <%--<asp:TextBox ID="TextBox2" runat="server" class="form-control"></asp:TextBox>--%>
@@ -126,7 +126,7 @@
 
                     <div class="col-md-4">
                         <br />
-                        <div class="col-md-4"><%= Resources.HomeView.aspx.PlayerTeam %>:</div>
+                        <div class="col-md-4"><%= Resources.HomeView.aspx.PlayerTeam %>*</div>
                         <div class="col-md-6" style="margin-right: 5px;">
                             <%--<asp:TextBox ID="txt_orchestra" runat="server" class="form-control"></asp:TextBox>--%>
                             <asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID"></asp:DropDownList>
@@ -140,7 +140,7 @@
                     </div>
                     <div class="col-md-4">
                         <br />
-                        <div class="col-md-4"><%= Resources.HomeView.aspx.Venu %>:</div>
+                        <div class="col-md-4"><%= Resources.HomeView.aspx.Venu %>*</div>
                         <div class="col-md-8">
                             <asp:TextBox ID="txt_ConcertHall" runat="server" class="form-control"></asp:TextBox>
                         </div>
@@ -148,7 +148,7 @@
                     </div>
                     <div class="col-md-4">
                         <br />
-                        <div class="col-md-4"><%= Resources.HomeView.aspx.AreaCity %>:</div>
+                        <div class="col-md-4"><%= Resources.HomeView.aspx.AreaCity %>*</div>
                         <div class="col-md-8">
                             <asp:TextBox ID="txt_location" runat="server" class="form-control"></asp:TextBox>
                         </div>
@@ -158,7 +158,7 @@
 
                     <div class="col-md-4">
                         <br />
-                        <div class="col-md-4">Ticket box:</div>
+                        <div class="col-md-4">Ticket box*</div>
                         <div class="col-md-8">
                             <asp:TextBox ID="txt_ticketbox" runat="server" class="form-control"></asp:TextBox>
                         </div>
@@ -166,7 +166,7 @@
                     </div>
                     <div class="col-md-4">
                         <br />
-                        <div class="col-md-4">Organizer info:</div>
+                        <div class="col-md-4">Organizer info*</div>
                         <div class="col-md-8">
                             <asp:TextBox ID="txt_organizerinfo" runat="server" class="form-control"></asp:TextBox>
                         </div>
@@ -189,7 +189,7 @@
 
                         <div class="col-md-4" runat="server" visible="false">
                             <br />
-                            <div class="col-md-4">Performance:</div>
+                            <div class="col-md-4">Performance</div>
                             <div class="col-md-8">
                                 <asp:DropDownList ID="dropdown_performance" runat="server" DataSourceID="SqlDataSource1_performanceList" DataTextField="PerformanceTitle" DataValueField="ID" class="form-control" Enabled="false" AutoPostBack="True"></asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource1_performanceList" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT ID, PerformanceTitle FROM Main.Performance"></asp:SqlDataSource>
@@ -200,7 +200,7 @@
 
                         <div class="col-md-4">
                             <br />
-                            <div class="col-md-4">Music Title:</div>
+                            <div class="col-md-4">Music Title*</div>
                             <div class="col-md-8">
                                 <asp:TextBox ID="txt_performancetitle" runat="server" class="form-control"></asp:TextBox>
                             </div>
@@ -210,7 +210,7 @@
 
                         <div class="col-md-4">
                             <br />
-                            <div class="col-md-4">Orchestra:</div>
+                            <div class="col-md-4">Orchestra*</div>
                             <div class="col-md-8">
                                 <asp:DropDownList ID="DropDownList1_orchestra" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID"></asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
@@ -222,7 +222,7 @@
 
                         <div class="col-md-4">
                             <br />
-                            <div class="col-md-4">Conductor:</div>
+                            <div class="col-md-4">Conductor*</div>
                             <div class="col-md-8">
                                 <asp:DropDownList ID="DropDownList2_conductor" runat="server" DataSourceID="SqlDataSource3_conductor" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource3_conductor" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="select (FirstName ) as Name, ID
@@ -237,7 +237,7 @@ where al.Name='Conductor'
                         </div>
                         <div class="col-md-4">
                             <br />
-                            <div class="col-md-4">Composer</div>
+                            <div class="col-md-4">Composer*</div>
                             <div class="col-md-8">
                                 <asp:DropDownList ID="DropDownList4_composer" runat="server" DataSourceID="SqlDataSource5_composer" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource5_composer" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
@@ -254,7 +254,7 @@ where al.Name like '%Composer%'
                         </div>
                         <div class="col-md-4">
                             <br />
-                            <div class="col-md-4">Time</div>
+                            <div class="col-md-4">Time*</div>
                             <div class="col-md-8">
                                 <%--<asp:TextBox ID="txt_time" runat="server" class="form-control"></asp:TextBox>--%>
                                 <div class='input-group date' id='datetimepicker4' style="display: inline-flex;">
