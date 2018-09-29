@@ -41,48 +41,45 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <%--background-color: #fdfdfd;--%>
-
-        <div class="navbar navbar-default navbar-fixed-top" id="masterNavigationBar" style="border-color: white; background-color: #00796B;">
-            <div class="container">
+        <div class="navbar navbar-default navbar-fixed-top" id="masterNavigationBar" style="background-color:white; border-color: white;">
+            <div class="container" style="background-color:whitesmoke;">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a style="color: white;" class="navbar-brand" runat="server" href="~/Views/HomeView">AllClassic Korea</a>
+                    <a class="navbar-brand" runat="server" href="~/Views/HomeView" style="    background: red; color: white;">AllClassic Korea</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <%--<li><a runat="server" href="~/Views/HomeView">Home</a></li>--%>
-                        <li><a style="color: white;" runat="server" href="~/Views/PerformancePage.aspx"><%= Resources.HomeView.aspx.Performance %> </a></li>
-                        <li><a style="color: white;" runat="server" href="~/Views/ArtistPageView"><%= Resources.HomeView.aspx.Artist %> </a></li>
-                        <li><a style="color: white;" runat="server" href="~/Views/OrchestraView"><%= Resources.HomeView.aspx.ConcertTeam %></a></li>
-                        <li><a style="color: white;" runat="server" href="~/Views/InstrumentView"><%= Resources.HomeView.aspx.Instrument %> </a></li>
-                        <li><a style="color: white;" runat="server" href="~/BulletinPage.aspx"><%= Resources.HomeView.aspx.Bulletin %></a></li>
-                        <li><a style="color: white;" runat="server" href="~/Views/IntroductionPage.aspx"><%= Resources.HomeView.aspx.Introduction %></a></li>
-                        <li><a style="color: white;" runat="server" onclick="alert('This page Will be added soon.')"><strong>Archive Center</strong></a></li>
-                        <li><a style="color: white; padding-top: 10px;" runat="server" onclick="alert('This page Will be added soon.')">
+                        <li><a runat="server" href="~/Views/PerformancePage.aspx"><%= Resources.HomeView.aspx.Performance %> </a></li>
+                        <li><a runat="server" href="~/Views/ArtistPageView">Musician  </a></li>
+                        <li><a runat="server" href="">Music College  </a></li>
+                        <%--<li><a runat="server" href="~/Views/OrchestraView"><%= Resources.HomeView.aspx.ConcertTeam %></a></li>--%>
+                        <li><a runat="server" href="~/Views/InstrumentView"><%= Resources.HomeView.aspx.Instrument %> </a></li>
+                        <%--<li><a runat="server" href="~/BulletinPage.aspx"><%= Resources.HomeView.aspx.Bulletin %></a></li>--%>
+                        <li><a runat="server" onclick="alert('This page Will be added soon.')">Archive Center</a></li>
+                        <li><a style="padding-top: 10px;" runat="server" onclick="alert('This page Will be added soon.')">
                             <img runat="server" src="~/Document/bitcoin.png" width="30" />
                             Classic Coin
                         </a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <%--<li><a style="color: white;" runat="server" id="signinLink" visible="false" href="~/LoginPage"><span class=""><%= Resources.HomeView.aspx.SignIn %></span></a></li>
-                        <li><a style="color: white;" runat="server" id="signoutLink" visible="false" href="" onserverclick="signoutClicked"><%= Resources.HomeView.aspx.SignOut %></a></li>--%>
-                        <li><a style="color: white;" runat="server" id="mypageLink" visible="false" href="~/Views/MyPage"><%= Resources.HomeView.aspx.MyPage %></a></li>
+                        <li><a runat="server" href="~/Views/IntroductionPage.aspx">About US</a></li>
+                        <li><a runat="server" onserverclick="changeLanguage" style="padding-left: 0px; padding-right: 4px; display: inline-block;">en</a>|
+                            <a runat="server" onserverclick="changeLanguage" style="padding-right: 0px; padding-left: 4px; display: inline-block;">kr</a></li>
+                        <li style="margin-top: 1rem;">
+                            <asp:TextBox runat="server" class="form-control" Style="display: inline; width:150px;"></asp:TextBox>
+                <asp:Button runat="server" Text="<%$Resources:HomeView.aspx,search %>" class="btn btn-primary" /></li>
 
-                        <li><a runat="server" onserverclick="changeLanguage" style="color: white; padding-left: 0px; padding-right: 4px; display: inline-block;">en</a>|
-                            <a runat="server" onserverclick="changeLanguage" style="color: white; padding-right: 0px; padding-left: 4px; display: inline-block;">kr</a></li>
                     </ul>
+                    <%--<ul class="nav navbar-nav navbar-right">
+                        <li><a runat="server" id="mypageLink" visible="false" href="~/Views/MyPage"><%= Resources.HomeView.aspx.MyPage %></a></li>
+
+                        
+                    </ul>--%>
 
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
-                            <%--<ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
-                            </ul>--%>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
@@ -96,6 +93,9 @@
                 </div>
             </div>
         </div>
+
+
+
 
         <%--<div class="container" id="masterserachbar">
             <div style="text-align: right; margin-top: 1em; margin-bottom: 1em;">

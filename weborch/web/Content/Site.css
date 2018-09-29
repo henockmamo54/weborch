@@ -94,3 +94,9 @@ input[type="select"] {
     border: 0.5px solid lightgray;
     background-color: #ffffff17;
 }
+
+
+.navbar-default {
+    background-color: white;
+    border-color: white;
+}
