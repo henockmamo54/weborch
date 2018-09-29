@@ -27,7 +27,7 @@
 
                         <div class="row col-md-12 ">
                             <div class="col-md-3">
-                                <asp:Calendar runat="server" ID="dateselectorcalendar" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="250px" OnSelectionChanged="dateselectorcalendar_SelectionChanged">
+                                <asp:Calendar runat="server" ID="dateselectorcalendar"  BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="250px" OnSelectionChanged="dateselectorcalendar_SelectionChanged">
                                     <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
                                     <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
                                     <OtherMonthDayStyle ForeColor="#999999" />
@@ -65,11 +65,11 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="col-md-3 shadowedPanel" style="height:100px;">
-                                <h4></h4>
-                                <asp:Repeater runat="server" ID="repeater_location">
+                            <div class="col-md-3 ">
+                                <h4>Area</h4>
+                                <asp:Repeater runat="server" ID="repeater_location" OnItemDataBound="repeater_locationOnItemDataBound">
                                     <ItemTemplate>
-                                        <div style="    display: inline-block;border: 1px solid lightgray; padding: 5px; margin: 2px;"><%# Eval("Location") %></div>
+                                        <asp:Button runat="server" OnClick="test" CommandArgument='<%# Eval("Location") %>' id='location' class="locationcontainer" Text='<%# Eval("Location") %>'></asp:Button>
                                     </ItemTemplate>
                                 </asp:Repeater>
 
@@ -215,5 +215,18 @@ where ID=@ID">
             padding: 1em;
             box-shadow: 2px 2px 2px 2px #f5f5f5;
         }
+
+        .locationcontainer {
+            display: inline-block;
+            border: 1px solid lightgray;
+            padding: 3px;
+            margin: 1px;
+            border-radius: 3px;
+            background-color: white;
+        }
+
+            .locationcontainer:hover {
+                background-color: lightblue;
+            }
     </style>
 </asp:Content>

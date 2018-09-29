@@ -19,6 +19,8 @@ namespace web.Views
         bool isUserCompany = false;
         OrchestraDBEntities entity = new OrchestraDBEntities();
         private int countOfShowMore;
+        List<locationModel> locations = new List<locationModel>();
+        Button previousSelectedLocation;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,9 +35,16 @@ namespace web.Views
 
                 repeater_thisweekPerformanceInfo.DataSource = entity.Performances.Where(x => SqlFunctions.DatePart("ISO_WEEK", x.StartDate) == SqlFunctions.DatePart("ISO_WEEK", DateTime.Today)).ToList();
                 repeater_thisweekPerformanceInfo.DataBind();
-                label_countofitems.Text = repeater_performanceList.Items.Count+"";
+                label_countofitems.Text = repeater_performanceList.Items.Count + "";
 
-                repeater_location.DataSource = SqlDataSource2_allPerformances;
+                var locationlist = entity.Performances.Select(x => x.Location).Distinct().ToList();
+                for (int i = 0; i < locationlist.Count; i++)
+                {
+                    locations.Add(new locationModel(1, locationlist[i]));
+                }
+
+                Session["locations"] = locations;
+                repeater_location.DataSource = locations;
                 repeater_location.DataBind();
 
                 dateselectorcalendar.SelectedDates.Clear();
@@ -134,13 +143,90 @@ namespace web.Views
 
         protected void dateselectorcalendar_SelectionChanged(object sender, EventArgs e)
         {
-            DateTime selectedDate = dateselectorcalendar.SelectedDate;
+            if (Session["PreviousSelectedDate"] != null)
+            {
+                DateTime previousdate = (DateTime)Session["PreviousSelectedDate"];
+                if (previousdate == dateselectorcalendar.SelectedDate) dateselectorcalendar.SelectedDates.Clear();
 
-            SqlDataSource2_allPerformances.SelectCommand = @"SELECT top 9 p.*, OfficialName  FROM Main.Performance p
-                                                            join Core.Orchestra o on p.OrchestraID=o.ID where startdate='"+ selectedDate.ToShortDateString()+"' order by timestamp desc";
+            }
+            else Session["PreviousSelectedDate"] = dateselectorcalendar.SelectedDate;
+
+            filterPerformance();
+        }
+
+        public class locationModel
+        {
+            public locationModel(int id, string location)
+            {
+                this.ID = id;
+                this.Location = location;
+            }
+            public int ID { get; set; }
+            public string Location { get; set; }
+        }
+
+        public void test(object sender, EventArgs e)
+        {
+            Button pb = null;
+            Button b = (Button)sender;
+            b.BackColor = System.Drawing.Color.RosyBrown;
+
+            if (Session["previousSelectedLocation"] != null)
+            {
+                pb = (Button)Session["previousSelectedLocation"];
+                pb.BackColor = System.Drawing.Color.White;
+
+            }
+
+            if (pb != null)
+            {
+                if (b.Text == pb.Text) Session["previousSelectedLocation"] = null;
+                else Session["previousSelectedLocation"] = sender;
+            }
+            else Session["previousSelectedLocation"] = sender;
+
+            locations = (List<locationModel>)Session["locations"];
+            repeater_location.DataSource = locations;
+            repeater_location.DataBind();
+
+            filterPerformance();
+
+        }
+
+        public void repeater_locationOnItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            RepeaterItem item = e.Item;
+            if ((item.ItemType == ListItemType.Item) ||
+                (item.ItemType == ListItemType.AlternatingItem))
+            {
+                if (Session["previousSelectedLocation"] != null)
+                {
+                    Button pb = (Button)Session["previousSelectedLocation"];
+                    var detail = (Button)item.FindControl("location");
+                    if (detail.Text == pb.Text) detail.BackColor = System.Drawing.Color.RosyBrown;
+                }
+            }
+
+        }
+
+        public void filterPerformance() {
+
+            DateTime selectedDate = dateselectorcalendar.SelectedDate;
+            Button pb = (Button)Session["previousSelectedLocation"];
+
+            string filter = "";
+            if (pb != null && selectedDate != null) filter = @"where startdate='" + selectedDate.ToShortDateString() + "' and location = N'"+ pb.Text+"' ";
+            else if (pb == null && selectedDate != null) filter = @"where startdate='" + selectedDate.ToShortDateString() + "' ";
+            else if (pb != null && selectedDate == null) filter = @"where location = N'" + pb.Text + "' ";
+
+
+            SqlDataSource2_allPerformances.SelectCommand = @"SELECT  p.*, OfficialName  FROM Main.Performance p
+                                                            join Core.Orchestra o on p.OrchestraID=o.ID "+filter+" order by timestamp desc";
             repeater_performanceList.DataSource = SqlDataSource2_allPerformances;
             repeater_performanceList.DataBind();
             label_countofitems.Text = repeater_performanceList.Items.Count + "";
+
+
         }
     }
 }
