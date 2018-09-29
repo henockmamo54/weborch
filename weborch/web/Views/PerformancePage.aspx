@@ -27,7 +27,7 @@
 
                         <div class="row col-md-12 ">
                             <div class="col-md-3">
-                                <asp:Calendar runat="server" ID="dateselectorcalendar"  BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="250px" OnSelectionChanged="dateselectorcalendar_SelectionChanged">
+                                <asp:Calendar runat="server" ID="dateselectorcalendar"  BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="200px" OnSelectionChanged="dateselectorcalendar_SelectionChanged">
                                     <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
                                     <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
                                     <OtherMonthDayStyle ForeColor="#999999" />
@@ -36,7 +36,7 @@
                                     <TodayDayStyle BackColor="#CCCCCC" />
                                 </asp:Calendar>
                             </div>
-                            <div class="col-md-6 ">
+                            <div class="col-md-6 " style="padding:0;">
                                 <h4 style="color: #3c83f1;">Performance schedule: This week</h4>
                                 <div class="shadowedPanel">
                                     <table class="table">
@@ -87,18 +87,22 @@
                                 <div class="col-md-4" style="margin-bottom: 1em;">
                                     <div class="thumbnail shadowedbox" style="box-shadow: 2px 2px 2px #d0d0d0;">
                                         <asp:LinkButton runat="server" ID="tumbinallink" Style="text-decoration: none;">
-                                            <img src="../Document/<%#Eval("PhotoAddLocation") %>" class="shadowedbox" alt="Lights" style="width: 100%; height: 300px;">
+                                            <img src="../Document/<%#Eval("PhotoAddLocation") %>" class="shadowedbox" alt="Lights" style="width: 100%; height: 250px;">
 
                                             <div class="caption" style="padding-bottom:3px;">
                                                 <h4><%# (Eval("PerformanceTitle")) .ToString().Length>15?
                                                            (Eval("PerformanceTitle")) .ToString().Substring(0,15)+ " ....":
                                                            (Eval("PerformanceTitle")) .ToString()%></h4>
-                                                <p style="font-family: Roboto, Arial, sans-serif; margin-bottom:0px;">
-                                                    <%# ( Eval("Location")+","+ Eval("ConcertHall") +","+  DataBinder.Eval(Container.DataItem,"PerformanceTime","{0:t}")) .ToString().Length>40?
-                                                           (Eval("Location")+","+ Eval("ConcertHall") +","+ DataBinder.Eval(Container.DataItem,"PerformanceTime","{0:t}")) .ToString().Substring(0,40)+ " ....See More":
+                                                <h6>start date: <%# DataBinder.Eval(Container.DataItem,"startdate","{0:dd/MM/yyyy}") %></h6>
+                                                <h6>venu: <%# Eval("ConcertHall") %></h6>
+                                                <h6>Location: <%# Eval("Location") %></h6>
+                                                <h6>... see More</h6>
+                                               <%-- <p style="font-family: Roboto, Arial, sans-serif; margin-bottom:0px;">
+                                                    <%# ( Eval("Location")+","+ Eval("ConcertHall") +","+  DataBinder.Eval(Container.DataItem,"PerformanceTime","{0:t}")) .ToString().Length>25?
+                                                           (Eval("Location")+","+ Eval("ConcertHall") +","+ DataBinder.Eval(Container.DataItem,"PerformanceTime","{0:t}")) .ToString().Substring(0,25)+ " ....See More":
                                                             (Eval("Location")+","+ Eval("ConcertHall") +","+ DataBinder.Eval(Container.DataItem,"PerformanceTime","{0:t}")) .ToString() +"<br/>"
                                                             + " .... See More" %>
-                                                </p>
+                                                </p>--%>
                                             </div>
                                         </asp:LinkButton>
                                         &nbsp;&nbsp;&nbsp;
@@ -229,4 +233,7 @@ where ID=@ID">
                 background-color: lightblue;
             }
     </style>
+    <script type="text/javascript">
+        document.getElementById("performancetab").style.backgroundColor = "white";
+    </script>
 </asp:Content>

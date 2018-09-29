@@ -100,3 +100,11 @@ input[type="select"] {
     background-color: white;
     border-color: white;
 }
+
+a.list-group-item {
+    color: #080808;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #080808;
+}

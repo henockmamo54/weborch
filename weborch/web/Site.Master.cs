@@ -73,7 +73,9 @@ namespace web
         {
            var user= Session["User"];
             if (user == null) { signinLink.Visible = true; signoutLink.Visible = false; }
-            if (user != null) { signinLink.Visible = false; signoutLink.Visible = true; mypageLink.Visible = true; }
+            if (user != null) { signinLink.Visible = false; signoutLink.Visible = true;
+                //mypageLink.Visible = true;
+            }
         }
         protected void signoutClicked(object sender, EventArgs e) {
             Session.Clear();

@@ -24,6 +24,7 @@ namespace web.Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!IsPostBack)
             {
                 //var user = (UserCommonTable)Session["User"];
@@ -48,6 +49,9 @@ namespace web.Views
                 repeater_location.DataBind();
 
                 dateselectorcalendar.SelectedDates.Clear();
+
+                Session["PreviousSelectedDate"] = null;
+                Session["PreviousSelectedDate"] = null;
 
             }
 

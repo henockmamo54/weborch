@@ -13,6 +13,33 @@ namespace web {
     public partial class SiteMaster {
         
         /// <summary>
+        /// performancetab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor performancetab;
+        
+        /// <summary>
+        /// artisttab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor artisttab;
+        
+        /// <summary>
+        /// introductiontab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor introductiontab;
+        
+        /// <summary>
         /// signinLink control.
         /// </summary>
         /// <remarks>
