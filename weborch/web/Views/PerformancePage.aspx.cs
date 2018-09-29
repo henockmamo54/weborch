@@ -8,6 +8,7 @@ using DataAccess;
 using System.Globalization;
 using BusinessLogic;
 using System.Data;
+using System.Data.Entity.SqlServer;
 
 namespace web.Views
 {
@@ -25,6 +26,20 @@ namespace web.Views
             {
                 //var user = (UserCommonTable)Session["User"];
                 //if (user == null) Response.Redirect("~/LoginPage.aspx");
+
+
+                repeater_performanceList.DataSource = SqlDataSource2_allPerformances;
+                repeater_performanceList.DataBind();
+
+                repeater_thisweekPerformanceInfo.DataSource = entity.Performances.Where(x => SqlFunctions.DatePart("ISO_WEEK", x.StartDate) == SqlFunctions.DatePart("ISO_WEEK", DateTime.Today)).ToList();
+                repeater_thisweekPerformanceInfo.DataBind();
+                label_countofitems.Text = repeater_performanceList.Items.Count+"";
+
+                repeater_location.DataSource = SqlDataSource2_allPerformances;
+                repeater_location.DataBind();
+
+                dateselectorcalendar.SelectedDates.Clear();
+
             }
 
             user = (UserCommonTable)Session["User"];
@@ -47,14 +62,13 @@ namespace web.Views
             //formanaging.Visible = isUserCompany;
             //btn_MangePerformanceButton.Visible = isUserCompany;
 
-            repeater_performanceList.DataSource = SqlDataSource2_allPerformances;
-            repeater_performanceList.DataBind();
 
         }
 
         //PostBackUrl="~/Views/ManagePerformancePage.aspx" 
 
-        public void onBtnManagePerformanceButtonClick(object sender, EventArgs e) {
+        public void onBtnManagePerformanceButtonClick(object sender, EventArgs e)
+        {
             if (user != null && isUserCompany) Response.Redirect("~/Views/ManagePerformancePage.aspx");
             else showMsg("Please login as a company user!!!");
 
@@ -64,7 +78,7 @@ namespace web.Views
         {
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('" + msg + "')", true);
         }
-                
+
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -83,8 +97,8 @@ namespace web.Views
 
             }
         }
-        
-        
+
+
 
         protected void repeater_performanceList_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
@@ -115,7 +129,18 @@ namespace web.Views
 
             repeater_performanceList.DataSource = SqlDataSource2_allPerformances;
             repeater_performanceList.DataBind();
+            label_countofitems.Text = repeater_performanceList.Items.Count + "";
         }
 
+        protected void dateselectorcalendar_SelectionChanged(object sender, EventArgs e)
+        {
+            DateTime selectedDate = dateselectorcalendar.SelectedDate;
+
+            SqlDataSource2_allPerformances.SelectCommand = @"SELECT top 9 p.*, OfficialName  FROM Main.Performance p
+                                                            join Core.Orchestra o on p.OrchestraID=o.ID where startdate='"+ selectedDate.ToShortDateString()+"' order by timestamp desc";
+            repeater_performanceList.DataSource = SqlDataSource2_allPerformances;
+            repeater_performanceList.DataBind();
+            label_countofitems.Text = repeater_performanceList.Items.Count + "";
+        }
     }
 }

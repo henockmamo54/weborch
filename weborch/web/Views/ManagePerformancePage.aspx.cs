@@ -320,13 +320,13 @@ namespace web.Views
                         Performance p = entity.Performances.Where(x => x.ID == myid).FirstOrDefault();
                         context2.PerformanceDetails.RemoveRange(context2.PerformanceDetails.Where(x => x.PerformanceID == p.ID));
                         context2.PerformanceDetail_Instrument_Artist.RemoveRange(context2.PerformanceDetail_Instrument_Artist.Where(x => x.PerformanceDetail.PerformanceID == p.ID));
-
+                        
                         p.UserID = user.ID;
                         p.OrchestraID = int.Parse(DropDownList1.SelectedValue.ToString());
                         p.PerformanceTitle = txt_title.Text;
                         p.MainTitle = txt_mainTitleTheme.Text;
-                        p.StartDate = DateTime.ParseExact(txt_performancestartdate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
-                        p.EndDate = DateTime.ParseExact(txt_performanceenddate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
+                        p.StartDate = DateTime.ParseExact(txt_performancestartdate.Value, "dd/MM/yyyy", new CultureInfo("en-US"));
+                        p.EndDate = DateTime.ParseExact(txt_performanceenddate.Value, "dd/MM/yyyy", new CultureInfo("en-US"));
                         p.OrchestraID = int.Parse(DropDownList1.SelectedItem.Value);
                         p.Location = txt_location.Text;
                         p.ConcertHall = txt_ConcertHall.Text;

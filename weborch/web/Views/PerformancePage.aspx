@@ -19,10 +19,68 @@
                 <div class="container">
                     <div class="row">
 
-                        <div class=" col-md-12">
-                            <h2 style="margin-top: 0px; padding-top: 0px; display: inline-block;">Musical Performance Information</h2>                           
+                        <%-- <div class=" col-md-12">
+                            <h2 style="margin-top: 0px; padding-top: 0px; display: inline-block;">Musical Performance Information</h2>
+                        </div>--%>
+
+                        <br />
+
+                        <div class="row col-md-12 ">
+                            <div class="col-md-3">
+                                <asp:Calendar runat="server" ID="dateselectorcalendar" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="250px" OnSelectionChanged="dateselectorcalendar_SelectionChanged">
+                                    <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+                                    <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
+                                    <OtherMonthDayStyle ForeColor="#999999" />
+                                    <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                                    <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="0px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
+                                    <TodayDayStyle BackColor="#CCCCCC" />
+                                </asp:Calendar>
+                            </div>
+                            <div class="col-md-6 ">
+                                <h4 style="color: #3c83f1;">Performance schedule: This week</h4>
+                                <div class="shadowedPanel">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Start Date</th>
+                                                <th scope="col">Title</th>
+                                                <th scope="col">Area / City</th>
+                                                <th scope="col">Venu</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <asp:Repeater runat="server" ID="repeater_thisweekPerformanceInfo">
+                                                <ItemTemplate>
+                                                    <tr>
+                                                        <th scope="row"><%# DataBinder.Eval(Container.DataItem,"StartDate","{0:d/M/yyyy}")  %></th>
+                                                        <td><%# (Eval("PerformanceTitle")) .ToString().Length>15?
+                                                           (Eval("PerformanceTitle")) .ToString().Substring(0,15)+ " ....":
+                                                           (Eval("PerformanceTitle")) .ToString()%></td>
+                                                        <td><%# Eval("Location") %></td>
+                                                        <td><%# Eval("ConcertHall") %></td>
+                                                    </tr>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-3 shadowedPanel" style="height:100px;">
+                                <h4></h4>
+                                <asp:Repeater runat="server" ID="repeater_location">
+                                    <ItemTemplate>
+                                        <div style="    display: inline-block;border: 1px solid lightgray; padding: 5px; margin: 2px;"><%# Eval("Location") %></div>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+
+                            </div>
                         </div>
 
+                        <br />
+                        <h4 style="color: #3c83f1;">Total:
+                            <asp:Label runat="server" ID="label_countofitems"></asp:Label>
+                            Events </h4>
+                        <hr />
                         <asp:Repeater runat="server" ID="repeater_performanceList" OnItemDataBound="repeater_performanceList_ItemDataBound">
 
                             <ItemTemplate>
@@ -55,8 +113,8 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                             <asp:LinkButton CssClass="btn btn-success pull-right" runat="server" Style="display: inline-block; " ID="btn_MangePerformanceButton" Text="Add / Manage Performance"  OnClick="onBtnManagePerformanceButtonClick"/>
-                            <asp:Button runat="server" Text="Show More" CssClass="btn btn-success pull-right" style="margin-right: 5px;" OnClick="loadMorePerformances" />
+                            <asp:LinkButton CssClass="btn btn-success pull-right" runat="server" Style="display: inline-block;" ID="btn_MangePerformanceButton" Text="Add / Manage Performance" OnClick="onBtnManagePerformanceButtonClick" />
+                            <asp:Button runat="server" Text="Show More" CssClass="btn btn-success pull-right" Style="margin-right: 5px;" OnClick="loadMorePerformances" />
                         </div>
                     </div>
                 </div>
