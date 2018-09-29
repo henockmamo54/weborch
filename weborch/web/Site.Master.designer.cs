@@ -13,6 +13,15 @@ namespace web {
     public partial class SiteMaster {
         
         /// <summary>
+        /// mypageLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor mypageLink;
+        
+        /// <summary>
         /// signinLink control.
         /// </summary>
         /// <remarks>
@@ -29,15 +38,6 @@ namespace web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor signoutLink;
-        
-        /// <summary>
-        /// mypageLink control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor mypageLink;
         
         /// <summary>
         /// MainContent control.

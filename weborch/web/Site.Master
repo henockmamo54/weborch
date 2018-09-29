@@ -69,8 +69,8 @@
                         </a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a style="color: white;" runat="server" id="signinLink" visible="false" href="~/LoginPage"><span class=""><%= Resources.HomeView.aspx.SignIn %></span></a></li>
-                        <li><a style="color: white;" runat="server" id="signoutLink" visible="false" href="" onserverclick="signoutClicked"><%= Resources.HomeView.aspx.SignOut %></a></li>
+                        <%--<li><a style="color: white;" runat="server" id="signinLink" visible="false" href="~/LoginPage"><span class=""><%= Resources.HomeView.aspx.SignIn %></span></a></li>
+                        <li><a style="color: white;" runat="server" id="signoutLink" visible="false" href="" onserverclick="signoutClicked"><%= Resources.HomeView.aspx.SignOut %></a></li>--%>
                         <li><a style="color: white;" runat="server" id="mypageLink" visible="false" href="~/Views/MyPage"><%= Resources.HomeView.aspx.MyPage %></a></li>
 
                         <li><a runat="server" onserverclick="changeLanguage" style="color: white; padding-left: 0px; padding-right: 4px; display: inline-block;">en</a>|
@@ -105,8 +105,34 @@
             </div>
         </div>--%>
         <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
+            <div class="row">
+                <div class="col-md-2">
+                    <ul class="list-group">
+                        <a class="list-group-item list-group-item-action whitesmokeBG" runat="server" id="signinLink" visible="false" href="~/LoginPage"><span class=""><%= Resources.HomeView.aspx.SignIn %></span></a>
+                        <a class="list-group-item list-group-item-action" runat="server" id="signoutLink" visible="false" href="" onserverclick="signoutClicked"><%= Resources.HomeView.aspx.SignOut %></a>
+
+                        <%--<a class="list-group-item list-group-item-action active">
+                            <a runat="server" id="signinLink" visible="false" href="~/LoginPage"><span class=""><%= Resources.HomeView.aspx.SignIn %></span></a>
+                            <a runat="server" id="signoutLink" visible="false" href="" onserverclick="signoutClicked"><%= Resources.HomeView.aspx.SignOut %></a>
+                        </a>--%>
+
+                        <a class="list-group-item list-group-item-action  whitesmokeBG" href="#">Article</a>
+                        <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Auditions</a>
+                        <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Concours</a>
+                        <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Performance Group</a>
+                        <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Repair Shop</a>
+                        <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Music Shop</a>
+                        <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Concert Venu</a>
+                        <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Phoniatrics Doctor</a>
+                        <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Others</a>
+                        <a class="list-group-item list-group-item-action whitesmokeBG" href="#">FAQ</a>
+                    </ul>
+                </div>
+                <div class="col-md-10">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
             <hr />
             <footer id="masterFooter">
                 <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
@@ -123,6 +149,10 @@
         color: white;
         padding: 0.5em;
         border-radius: 0.3em;
+    }
+
+    .whitesmokeBG {
+        background-color: whitesmoke !important;
     }
 
     /*.nav > li > a {
