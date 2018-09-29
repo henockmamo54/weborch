@@ -97,13 +97,13 @@
             </div>
         </div>
 
-        <div class="container" id="masterserachbar">
+        <%--<div class="container" id="masterserachbar">
             <div style="text-align: right; margin-top: 1em; margin-bottom: 1em;">
                 <asp:TextBox runat="server" class="form-control" Style="display: inline;"></asp:TextBox>
                 <asp:Button runat="server" Text="<%$Resources:HomeView.aspx,search %>" class="btn btn-primary" />
                 <br />
             </div>
-        </div>
+        </div>--%>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>

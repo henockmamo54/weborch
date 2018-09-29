@@ -213,11 +213,12 @@ namespace web.Views
 
             DateTime selectedDate = dateselectorcalendar.SelectedDate;
             Button pb = (Button)Session["previousSelectedLocation"];
+            var null_date= DateTime.Parse("1/1/0001 12:00:00 AM", System.Globalization.CultureInfo.InvariantCulture);
 
             string filter = "";
-            if (pb != null && selectedDate != null) filter = @"where startdate='" + selectedDate.ToShortDateString() + "' and location = N'"+ pb.Text+"' ";
-            else if (pb == null && selectedDate != null) filter = @"where startdate='" + selectedDate.ToShortDateString() + "' ";
-            else if (pb != null && selectedDate == null) filter = @"where location = N'" + pb.Text + "' ";
+            if (pb != null && selectedDate != null_date) filter = @"where startdate='" + selectedDate.ToShortDateString() + "' and location = N'"+ pb.Text+"' ";
+            else if (pb == null && selectedDate != null_date) filter = @"where startdate='" + selectedDate.ToShortDateString() + "' ";
+            else if (pb != null && selectedDate == null_date) filter = @"where location = N'" + pb.Text + "' ";
 
 
             SqlDataSource2_allPerformances.SelectCommand = @"SELECT  p.*, OfficialName  FROM Main.Performance p
