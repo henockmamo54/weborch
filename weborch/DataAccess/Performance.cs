@@ -38,14 +38,25 @@ namespace DataAccess
         public string OrganizerInfo { get; set; }
         public Nullable<bool> Archive { get; set; }
         public string Brochure { get; set; }
-        public string MainTitle { get; set; }
         public string PerformanceTime { get; set; }
+        public string subtitle { get; set; }
+        public string Theme { get; set; }
+        public string Sponsor { get; set; }
+        public string Language { get; set; }
+        public string Region { get; set; }
+        public string City { get; set; }
+        public Nullable<int> MainTitleComposer { get; set; }
+        public Nullable<int> MainInstrument { get; set; }
+        public Nullable<int> ConductorID { get; set; }
     
+        public virtual Artist Artist { get; set; }
+        public virtual Instrument Instrument { get; set; }
         public virtual Orchestra Orchestra { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PerformanceLikeUnlike> PerformanceLikeUnlikes { get; set; }
         public virtual UserCommonTable UserCommonTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PerformanceDetail> PerformanceDetails { get; set; }
+        public virtual Artist Artist1 { get; set; }
     }
 }

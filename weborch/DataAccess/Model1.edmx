@@ -338,8 +338,16 @@
           <Property Name="OrganizerInfo" Type="nvarchar" MaxLength="200" />
           <Property Name="Archive" Type="bit" />
           <Property Name="Brochure" Type="nvarchar" MaxLength="100" />
-          <Property Name="MainTitle" Type="nvarchar" MaxLength="400" />
           <Property Name="PerformanceTime" Type="nvarchar" MaxLength="200" />
+          <Property Name="subtitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="Theme" Type="nvarchar" MaxLength="100" />
+          <Property Name="Sponsor" Type="nvarchar" MaxLength="100" />
+          <Property Name="Language" Type="nvarchar" MaxLength="100" />
+          <Property Name="Region" Type="nvarchar" MaxLength="100" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" />
+          <Property Name="MainTitleComposer" Type="int" />
+          <Property Name="MainInstrument" Type="int" />
+          <Property Name="ConductorID" Type="int" />
         </EntityType>
         <EntityType Name="PerformanceDetail">
           <Key>
@@ -691,6 +699,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Performan__Condu__373B3228">
+          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+          <End Role="Performance" Type="Self.Performance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Performance">
+              <PropertyRef Name="ConductorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Performan__Condu__5BAD9CC8">
           <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
           <End Role="PerformanceDetail" Type="Self.PerformanceDetail" Multiplicity="*" />
@@ -724,6 +744,30 @@
             </Principal>
             <Dependent Role="PerformanceDetail_Instrument_Artist">
               <PropertyRef Name="InstrumentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Performan__MainI__36470DEF">
+          <End Role="Instrument" Type="Self.Instrument" Multiplicity="0..1" />
+          <End Role="Performance" Type="Self.Performance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instrument">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Performance">
+              <PropertyRef Name="MainInstrument" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Performan__MainT__3552E9B6">
+          <End Role="Artist" Type="Self.Artist" Multiplicity="0..1" />
+          <End Role="Performance" Type="Self.Performance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Performance">
+              <PropertyRef Name="MainTitleComposer" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1090,6 +1134,10 @@
             <End Role="Artist" EntitySet="Artist" />
             <End Role="PerformanceDetail" EntitySet="PerformanceDetail" />
           </AssociationSet>
+          <AssociationSet Name="FK__Performan__Condu__373B3228" Association="Self.FK__Performan__Condu__373B3228">
+            <End Role="Artist" EntitySet="Artist" />
+            <End Role="Performance" EntitySet="Performance" />
+          </AssociationSet>
           <AssociationSet Name="FK__Performan__Condu__5BAD9CC8" Association="Self.FK__Performan__Condu__5BAD9CC8">
             <End Role="Artist" EntitySet="Artist" />
             <End Role="PerformanceDetail" EntitySet="PerformanceDetail" />
@@ -1101,6 +1149,14 @@
           <AssociationSet Name="FK__Performan__Instr__7A3223E8" Association="Self.FK__Performan__Instr__7A3223E8">
             <End Role="Instrument" EntitySet="Instrument" />
             <End Role="PerformanceDetail_Instrument_Artist" EntitySet="PerformanceDetail_Instrument_Artist" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Performan__MainI__36470DEF" Association="Self.FK__Performan__MainI__36470DEF">
+            <End Role="Instrument" EntitySet="Instrument" />
+            <End Role="Performance" EntitySet="Performance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Performan__MainT__3552E9B6" Association="Self.FK__Performan__MainT__3552E9B6">
+            <End Role="Artist" EntitySet="Artist" />
+            <End Role="Performance" EntitySet="Performance" />
           </AssociationSet>
           <AssociationSet Name="FK__Performan__Orche__531856C7" Association="Self.FK__Performan__Orche__531856C7">
             <End Role="Orchestra" EntitySet="Orchestra" />
@@ -1204,6 +1260,7 @@
           <NavigationProperty Name="UserPersonalInfoes" Relationship="OrchestraDBModel.FK__UserPerso__Major__69FBBC1F" FromRole="Instrument" ToRole="UserPersonalInfo" />
           <NavigationProperty Name="UserPersonalInfoes1" Relationship="OrchestraDBModel.FK__UserPerso__Major__6AEFE058" FromRole="Instrument" ToRole="UserPersonalInfo" />
           <NavigationProperty Name="PerformanceDetail_Instrument_Artist" Relationship="OrchestraDBModel.FK__Performan__Instr__7A3223E8" FromRole="Instrument" ToRole="PerformanceDetail_Instrument_Artist" />
+          <NavigationProperty Name="Performances" Relationship="OrchestraDBModel.FK__Performan__MainI__36470DEF" FromRole="Instrument" ToRole="Performance" />
           </EntityType>
         <EntityContainer Name="OrchestraDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Instruments" EntityType="Self.Instrument" />
@@ -1402,6 +1459,14 @@
             <End Role="BulletinCommentTable" EntitySet="BulletinCommentTables" />
           </AssociationSet>
           <EntitySet Name="Performances" EntityType="OrchestraDBModel.Performance" />
+          <AssociationSet Name="FK__Performan__MainT__3552E9B6" Association="OrchestraDBModel.FK__Performan__MainT__3552E9B6">
+            <End Role="Artist" EntitySet="Artists" />
+            <End Role="Performance" EntitySet="Performances" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Performan__MainI__36470DEF" Association="OrchestraDBModel.FK__Performan__MainI__36470DEF">
+            <End Role="Instrument" EntitySet="Instruments" />
+            <End Role="Performance" EntitySet="Performances" />
+          </AssociationSet>
           <AssociationSet Name="FK__Performan__Orche__531856C7" Association="OrchestraDBModel.FK__Performan__Orche__531856C7">
             <End Role="Orchestra" EntitySet="Orchestras" />
             <End Role="Performance" EntitySet="Performances" />
@@ -1417,6 +1482,10 @@
           <AssociationSet Name="FK__User_User__UserI__395884C41" Association="OrchestraDBModel.FK__User_User__UserI__395884C41">
             <End Role="Performance" EntitySet="Performances" />
             <End Role="PerformanceDetail" EntitySet="PerformanceDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Performan__Condu__373B3228" Association="OrchestraDBModel.FK__Performan__Condu__373B3228">
+            <End Role="Artist" EntitySet="Artists" />
+            <End Role="Performance" EntitySet="Performances" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="User">
@@ -2184,6 +2253,8 @@
           <NavigationProperty Name="PerformanceDetails1" Relationship="OrchestraDBModel.FK__Performan__Condu__5BAD9CC8" FromRole="Artist" ToRole="PerformanceDetail" />
           <NavigationProperty Name="PerformanceDetails2" Relationship="OrchestraDBModel.FK__Performan__Playe__5CA1C101" FromRole="Artist" ToRole="PerformanceDetail" />
           <NavigationProperty Name="User_Endorser" Relationship="OrchestraDBModel.FK__User_Endo__Artis__1B9317B3" FromRole="Artist" ToRole="User_Endorser" />
+          <NavigationProperty Name="Performances" Relationship="OrchestraDBModel.FK__Performan__MainT__3552E9B6" FromRole="Artist" ToRole="Performance" />
+          <NavigationProperty Name="Performances1" Relationship="OrchestraDBModel.FK__Performan__Condu__373B3228" FromRole="Artist" ToRole="Performance" />
         </EntityType>
         <Association Name="FK__Artist__UserID__690797E6">
           <End Type="OrchestraDBModel.UserCommonTable" Role="UserCommonTable" Multiplicity="0..1" />
@@ -2390,13 +2461,48 @@
           <Property Name="OrganizerInfo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Archive" Type="Boolean" />
           <Property Name="Brochure" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="MainTitle" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
           <Property Name="PerformanceTime" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="subtitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Theme" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Sponsor" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Language" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MainTitleComposer" Type="Int32" />
+          <Property Name="MainInstrument" Type="Int32" />
+          <NavigationProperty Name="Artist" Relationship="OrchestraDBModel.FK__Performan__MainT__3552E9B6" FromRole="Performance" ToRole="Artist" />
+          <NavigationProperty Name="Instrument" Relationship="OrchestraDBModel.FK__Performan__MainI__36470DEF" FromRole="Performance" ToRole="Instrument" />
           <NavigationProperty Name="Orchestra" Relationship="OrchestraDBModel.FK__Performan__Orche__531856C7" FromRole="Performance" ToRole="Orchestra" />
           <NavigationProperty Name="PerformanceLikeUnlikes" Relationship="OrchestraDBModel.FK__Performan__Perfo__1A9EF37A" FromRole="Performance" ToRole="PerformanceLikeUnlike" />
           <NavigationProperty Name="UserCommonTable" Relationship="OrchestraDBModel.FK__Performan__UserI__5224328E" FromRole="Performance" ToRole="UserCommonTable" />
           <NavigationProperty Name="PerformanceDetails" Relationship="OrchestraDBModel.FK__User_User__UserI__395884C41" FromRole="Performance" ToRole="PerformanceDetail" />
+          <Property Name="ConductorID" Type="Int32" />
+          <NavigationProperty Name="Artist1" Relationship="OrchestraDBModel.FK__Performan__Condu__373B3228" FromRole="Performance" ToRole="Artist" />
         </EntityType>
+        <Association Name="FK__Performan__MainT__3552E9B6">
+          <End Type="OrchestraDBModel.Artist" Role="Artist" Multiplicity="0..1" />
+          <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Performance">
+              <PropertyRef Name="MainTitleComposer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Performan__MainI__36470DEF">
+          <End Type="OrchestraDBModel.Instrument" Role="Instrument" Multiplicity="0..1" />
+          <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Instrument">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Performance">
+              <PropertyRef Name="MainInstrument" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Performan__Orche__531856C7">
           <End Type="OrchestraDBModel.Orchestra" Role="Orchestra" Multiplicity="0..1" />
           <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="*" />
@@ -2446,6 +2552,18 @@
             </Principal>
             <Dependent Role="PerformanceDetail">
               <PropertyRef Name="PerformanceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Performan__Condu__373B3228">
+          <End Type="OrchestraDBModel.Artist" Role="Artist" Multiplicity="0..1" />
+          <End Type="OrchestraDBModel.Performance" Role="Performance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artist">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Performance">
+              <PropertyRef Name="ConductorID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2883,8 +3001,16 @@
           <EntitySetMapping Name="Performances">
             <EntityTypeMapping TypeName="OrchestraDBModel.Performance">
               <MappingFragment StoreEntitySet="Performance">
+                <ScalarProperty Name="ConductorID" ColumnName="ConductorID" />
+                <ScalarProperty Name="MainInstrument" ColumnName="MainInstrument" />
+                <ScalarProperty Name="MainTitleComposer" ColumnName="MainTitleComposer" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="Sponsor" ColumnName="Sponsor" />
+                <ScalarProperty Name="Theme" ColumnName="Theme" />
+                <ScalarProperty Name="subtitle" ColumnName="subtitle" />
                 <ScalarProperty Name="PerformanceTime" ColumnName="PerformanceTime" />
-                <ScalarProperty Name="MainTitle" ColumnName="MainTitle" />
                 <ScalarProperty Name="Brochure" ColumnName="Brochure" />
                 <ScalarProperty Name="Archive" ColumnName="Archive" />
                 <ScalarProperty Name="OrganizerInfo" ColumnName="OrganizerInfo" />

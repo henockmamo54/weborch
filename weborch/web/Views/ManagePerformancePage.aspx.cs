@@ -324,7 +324,7 @@ namespace web.Views
                         p.UserID = user.ID;
                         p.OrchestraID = int.Parse(DropDownList1.SelectedValue.ToString());
                         p.PerformanceTitle = txt_title.Text;
-                        p.MainTitle = txt_mainTitleTheme.Text;
+                        //p.MainTitle = txt_mainTitleTheme.Text;
                         p.StartDate = DateTime.ParseExact(txt_performancestartdate.Value, "dd/MM/yyyy", new CultureInfo("en-US"));
                         p.EndDate = DateTime.ParseExact(txt_performanceenddate.Value, "dd/MM/yyyy", new CultureInfo("en-US"));
                         p.OrchestraID = int.Parse(DropDownList1.SelectedItem.Value);
@@ -427,7 +427,7 @@ namespace web.Views
                         p.UserID = user.ID;
                         p.OrchestraID = int.Parse(DropDownList1.SelectedValue.ToString());
                         p.PerformanceTitle = txt_title.Text;
-                        p.MainTitle = txt_mainTitleTheme.Text;
+                        //p.MainTitle = txt_mainTitleTheme.Text;
                         p.StartDate = DateTime.ParseExact(txt_performancestartdate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
                         p.EndDate = DateTime.ParseExact(txt_performanceenddate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
                         p.OrchestraID = int.Parse(DropDownList1.SelectedItem.Value);
@@ -500,7 +500,7 @@ namespace web.Views
 
 
             txt_title.Text = "";
-            txt_mainTitleTheme.Text = "";
+            //txt_mainTitleTheme.Text = "";
             txt_performancestartdate.Value = "";
             txt_performanceenddate.Value = "";
 
@@ -544,7 +544,7 @@ namespace web.Views
                         p.UserID = user.ID;
                         p.OrchestraID = int.Parse(DropDownList1.SelectedValue.ToString());
                         p.PerformanceTitle = txt_title.Text;
-                        p.MainTitle = txt_mainTitleTheme.Text;
+                        //p.MainTitle = txt_mainTitleTheme.Text;
                         //p.PerformanceDate= DateTime.Parse(txt_performancedate.Text);
                         p.StartDate = DateTime.ParseExact(txt_performancestartdate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
                         p.EndDate = DateTime.ParseExact(txt_performanceenddate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
@@ -675,7 +675,7 @@ namespace web.Views
 
             DropDownList1.SelectedValue = p.OrchestraID.ToString();
             txt_title.Text = p.PerformanceTitle;
-            txt_mainTitleTheme.Text = p.MainTitle;
+            //txt_mainTitleTheme.Text = p.MainTitle;
             txt_performancestartdate.Value = String.Format("{0:DD/MM/YYYY}", p.StartDate);
             txt_performanceenddate.Value = String.Format("{0:DD/MM/YYYY}", p.EndDate);
             DropDownList1.SelectedItem.Value = p.OrchestraID.ToString();

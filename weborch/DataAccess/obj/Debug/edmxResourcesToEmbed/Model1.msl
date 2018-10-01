@@ -429,8 +429,16 @@
     <EntitySetMapping Name="Performances">
       <EntityTypeMapping TypeName="OrchestraDBModel.Performance">
         <MappingFragment StoreEntitySet="Performance">
+          <ScalarProperty Name="ConductorID" ColumnName="ConductorID" />
+          <ScalarProperty Name="MainInstrument" ColumnName="MainInstrument" />
+          <ScalarProperty Name="MainTitleComposer" ColumnName="MainTitleComposer" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="Sponsor" ColumnName="Sponsor" />
+          <ScalarProperty Name="Theme" ColumnName="Theme" />
+          <ScalarProperty Name="subtitle" ColumnName="subtitle" />
           <ScalarProperty Name="PerformanceTime" ColumnName="PerformanceTime" />
-          <ScalarProperty Name="MainTitle" ColumnName="MainTitle" />
           <ScalarProperty Name="Brochure" ColumnName="Brochure" />
           <ScalarProperty Name="Archive" ColumnName="Archive" />
           <ScalarProperty Name="OrganizerInfo" ColumnName="OrganizerInfo" />
