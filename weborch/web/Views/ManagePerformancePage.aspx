@@ -8,8 +8,8 @@
 
     <div class="row shadowedPanel" runat="server" id="AddNewEntryPanel" style="background: white; padding: 10px; margin-bottom: 10px; box-shadow: 1px 1px 1px 1px #d0d0d0;">
 
-        <div class="col-md-6">
-            <div class="row " style="padding: 5px; margin: 10px; background-color: #f1f1f136;">
+        <div class="col-md-6" style="padding: 0px;">
+            <div class="row " style="padding: 5px; margin: 10px; background-color: #f1f1f136; border-radius: 10px;">
 
                 <asp:UpdatePanel runat="server">
                     <ContentTemplate>
@@ -21,7 +21,7 @@
 
                             <div class="col-md-12">
                                 <br />
-                                <div class="col-md-4"><%= Resources.HomeView.aspx.MainTitleTheme %>*</div>
+                                <div class="col-md-4">Main Title</div>
                                 <div class="col-md-8">
                                     <asp:TextBox ID="txt_title" runat="server" class="form-control"></asp:TextBox>
                                 </div>
@@ -36,7 +36,7 @@
                                 </div>
                                 <br />
                             </div>
-                            
+
                             <div class="col-md-12">
                                 <br />
                                 <div class="col-md-4">Subject / Theme </div>
@@ -45,12 +45,12 @@
                                 </div>
                                 <br />
                             </div>
-                            
+
                             <div class="col-md-12">
                                 <br />
-                                <div class="col-md-4"><%= Resources.HomeView.aspx.ConcertTeam %>*</div>
+                                <div class="col-md-4"><%= Resources.HomeView.aspx.ConcertTeam %></div>
                                 <div class="col-md-6" style="margin-right: 5px;">
-                                   <asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID"></asp:DropDownList>
+                                    <asp:DropDownList ID="DropDownList1" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID"></asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlDataSource1_allOrchestra" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                 </div>
                                 <div class="col-md-1">
@@ -68,12 +68,12 @@
                                 </div>
                                 <br />
                             </div>
-
+                            <br />
                             <div class="col-md-12">
                                 <br />
-                                <div class="col-md-4">Conductor </div>
+                                <div class="col-md-4">Conductor</div>
                                 <div class="col-md-8">
-                                    <asp:TextBox ID="TextBox4" runat="server" class="form-control"></asp:TextBox>
+                                    <asp:DropDownList ID="DropDownList2_mainConductor" runat="server" DataSourceID="SqlDataSource3_conductor" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
                                 </div>
                                 <br />
                             </div>
@@ -82,16 +82,16 @@
                                 <br />
                                 <div class="col-md-4">Main Title Composer </div>
                                 <div class="col-md-8">
-                                    <asp:TextBox ID="TextBox2" runat="server" class="form-control"></asp:TextBox>
+                                    <asp:DropDownList ID="DropDownList2_maintitlecomposer" runat="server" DataSourceID="SqlDataSource5_composer" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
                                 </div>
                                 <br />
                             </div>
-
+                            <br />
                             <div class="col-md-12">
                                 <br />
                                 <div class="col-md-4">Main Instrument </div>
                                 <div class="col-md-8">
-                                    <asp:TextBox ID="TextBox3" runat="server" class="form-control"></asp:TextBox>
+                                    <asp:DropDownList ID="DropDownList2_maininstrument" class="form-control" runat="server" DataSourceID="SqlDataSource1_Instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
                                 </div>
                                 <br />
                             </div>
@@ -143,7 +143,7 @@
 
                             <div class="col-md-12">
                                 <br />
-                                <div class="col-md-4"><%= Resources.HomeView.aspx.StartDate %>*</div>
+                                <div class="col-md-4"><%= Resources.HomeView.aspx.StartDate %></div>
                                 <div class="col-md-8">
                                     <div class='input-group date' id='datetimepicker2' style="display: inline-flex;">
                                         <input type='text' class="form-control" runat="server" id="txt_performancestartdate" style="display: inline-block; border-right-width: 0px;" />
@@ -154,10 +154,10 @@
                                 </div>
                                 <br />
                             </div>
-                                                        
+
                             <div class="col-md-12">
                                 <br />
-                                <div class="col-md-4"><%= Resources.HomeView.aspx.EndDate %>*</div>
+                                <div class="col-md-4"><%= Resources.HomeView.aspx.EndDate %></div>
                                 <div class="col-md-8">
                                     <%--<asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>--%>
                                     <div class='input-group date' id='datetimepicker3' style="display: inline-flex;">
@@ -172,7 +172,7 @@
 
                             <div class="col-md-12">
                                 <br />
-                                <div class="col-md-4">Performance  Time*</div>
+                                <div class="col-md-4">Performance  Time</div>
                                 <div class="col-md-8">
                                     <asp:TextBox ID="txt_performanceTime" runat="server" class="form-control"></asp:TextBox>
 
@@ -185,7 +185,7 @@
                                 </div>
                                 <br />
                             </div>
-
+                            <br />
                             <div class="col-md-12">
                                 <br />
                                 <div class="col-md-4"><%= Resources.HomeView.aspx.VideoAd %></div>
@@ -194,16 +194,16 @@
                                 </div>
                                 <br />
                             </div>
-                            
+
                         </div>
 
                     </ContentTemplate>
                 </asp:UpdatePanel>
 
                 <%--================================================--%>
-                <div class="col-md-12">
+                <div class="col-md-12" style="padding: 0px;">
                     <br />
-                    <div class="col-md-4"><%= Resources.HomeView.aspx.Poster %>*</div>
+                    <div class="col-md-4"><%= Resources.HomeView.aspx.Poster %></div>
                     <div class="col-md-8">
                         <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline" />
                         <%--<asp:TextBox ID="TextBox2" runat="server" class="form-control"></asp:TextBox>--%>
@@ -211,7 +211,7 @@
                     <br />
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-md-12" style="padding: 0px;">
                     <br />
                     <div class="col-md-4">Brochure</div>
                     <div class="col-md-8">
@@ -226,27 +226,27 @@
                 <asp:UpdatePanel runat="server">
                     <ContentTemplate>
 
-                        <div class="col-md-12">
+                        <div class="col-md-12" style="padding: 0px;">
                             <br />
-                            <div class="col-md-4"><%= Resources.HomeView.aspx.Venu %>*</div>
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.Venu %></div>
                             <div class="col-md-8">
                                 <asp:TextBox ID="txt_ConcertHall" runat="server" class="form-control"></asp:TextBox>
                             </div>
                             <br />
                         </div>
-                        <div class="col-md-12">
+                        <%--<div class="col-md-12">
                             <br />
-                            <div class="col-md-4"><%= Resources.HomeView.aspx.AreaCity %>*</div>
+                            <div class="col-md-4"><%= Resources.HomeView.aspx.AreaCity %></div>
                             <div class="col-md-8">
                                 <asp:TextBox ID="txt_location" runat="server" class="form-control"></asp:TextBox>
                             </div>
                             <br />
-                        </div>
+                        </div>--%>
                         <%--========================================================================--%>
 
-                        <div class="col-md-12">
+                        <div class="col-md-12" style="padding: 0px;">
                             <br />
-                            <div class="col-md-4">Ticket box*</div>
+                            <div class="col-md-4">Ticket box</div>
                             <div class="col-md-8">
                                 <asp:TextBox ID="txt_ticketbox" runat="server" class="form-control"></asp:TextBox>
                             </div>
@@ -257,12 +257,12 @@
                 </asp:UpdatePanel>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" style="padding: 0px;">
             <asp:UpdatePanel runat="server">
 
                 <ContentTemplate>
 
-                    <div class="" style="padding: 5px; margin: 10px; background-color: #f1f1f136; margin-top: 10px;">
+                    <div class="" style="padding: 5px; margin: 10px; background-color: #f1f1f136; margin-top: 10px; border-radius: 10px;">
                         <div class="row">
                             <div class="col-md-12">
                                 <h4>Musical performance program</h4>
@@ -281,7 +281,7 @@
 
                             <div class="col-md-12">
                                 <br />
-                                <div class="col-md-4">Music Title*</div>
+                                <div class="col-md-4">Music Title</div>
                                 <div class="col-md-8">
                                     <asp:TextBox ID="txt_performancetitle" runat="server" class="form-control"></asp:TextBox>
                                 </div>
@@ -291,7 +291,7 @@
 
                             <div class="col-md-12">
                                 <br />
-                                <div class="col-md-4">Orchestra*</div>
+                                <div class="col-md-4">Orchestra</div>
                                 <div class="col-md-8">
                                     <asp:DropDownList ID="DropDownList1_orchestra" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID"></asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
@@ -303,7 +303,7 @@
 
                             <div class="col-md-12">
                                 <br />
-                                <div class="col-md-4">Conductor*</div>
+                                <div class="col-md-4">Conductor</div>
                                 <div class="col-md-8">
                                     <asp:DropDownList ID="DropDownList2_conductor" runat="server" DataSourceID="SqlDataSource3_conductor" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlDataSource3_conductor" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="select (FirstName ) as Name, ID
@@ -318,7 +318,7 @@ where al.Name='Conductor'
                             </div>
                             <div class="col-md-12">
                                 <br />
-                                <div class="col-md-4">Composer*</div>
+                                <div class="col-md-4">Composer</div>
                                 <div class="col-md-8">
                                     <asp:DropDownList ID="DropDownList4_composer" runat="server" DataSourceID="SqlDataSource5_composer" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlDataSource5_composer" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
@@ -335,7 +335,7 @@ where al.Name like '%Composer%'
                             </div>
                             <div class="col-md-12">
                                 <br />
-                                <div class="col-md-4">Time*</div>
+                                <div class="col-md-4">Time</div>
                                 <div class="col-md-8">
                                     <%--<asp:TextBox ID="txt_time" runat="server" class="form-control"></asp:TextBox>--%>
                                     <div class='input-group date' id='datetimepicker4' style="display: inline-flex;">
@@ -432,19 +432,13 @@ FROM Core.Artist"></asp:SqlDataSource>
                             </div>
                         </div>
                     </div>
+                    <br />
 
-                    <div class="row" style="text-align: center;">
-                        <asp:Button ID="btn_addPerformance" CssClass="btn btn-primary " runat="server" Text="<%$Resources:HomeView.aspx,Register %>" OnClick="saveAllPerformanceInformation" />
-                        <asp:Button ID="btn_updatePerformance" CssClass="btn btn-success " Visible="false" runat="server" Text="Update" OnClick="updatePerformanceinfo" />
-                        <asp:Button ID="btn_cancelupdatePerformance" CssClass="btn btn-danger " runat="server" Text="Cancel" OnClick="cancelupdatePerformanceinfo" />
-                    </div>
 
 
                 </ContentTemplate>
 
                 <Triggers>
-                    <asp:PostBackTrigger ControlID="btn_updatePerformance" />
-                    <asp:PostBackTrigger ControlID="btn_addPerformance" />
                     <asp:PostBackTrigger ControlID="btnsaveimagechange" />
                     <asp:PostBackTrigger ControlID="btnsaveimagechange2" />
                     <%--<asp:PostBackTrigger ControlID="btn_addDetail" />
@@ -453,6 +447,26 @@ FROM Core.Artist"></asp:SqlDataSource>
 
             </asp:UpdatePanel>
         </div>
+
+
+        <div class="row">
+            <asp:UpdatePanel runat="server">
+                <ContentTemplate>
+
+                    <div class="row" style="text-align: center; margin-top: 10px; margin-bottom: 10px;">
+                        <asp:Button ID="btn_addPerformance" CssClass="btn btn-primary " runat="server" Text="<%$Resources:HomeView.aspx,Register %>" OnClick="saveAllPerformanceInformation" />
+                        <asp:Button ID="btn_updatePerformance" CssClass="btn btn-success " Visible="false" runat="server" Text="Update" OnClick="updatePerformanceinfo" />
+                        <asp:Button ID="btn_cancelupdatePerformance" CssClass="btn btn-danger " runat="server" Text="Cancel" OnClick="cancelupdatePerformanceinfo" />
+                    </div>
+                </ContentTemplate>
+                <Triggers>
+                    <asp:PostBackTrigger ControlID="btn_updatePerformance" />
+                    <asp:PostBackTrigger ControlID="btn_addPerformance" />
+                </Triggers>
+            </asp:UpdatePanel>
+        </div>
+
+
     </div>
 
     <asp:UpdatePanel runat="server">
@@ -720,11 +734,8 @@ where ID=@ID">
     </script>
 
     <style>
-          .shadowedPane    border: px oli trnsprent;
-              
-         4px;
-           border-color:  d
-                  /* adding
+        .shadowedPane border: px oli trnsprent; 4px; border-color: d
+        /* adding
                    box-
             x 2px 2 x #f5
              }
@@ -751,5 +762,5 @@ where ID=@ID">
             1px solid tra sparent;
             border-r dius borde -coor: #ddddd i box-shadow: 2px 2px 2px 2px #f5f5f5;
         }
-</style>
+    </style>
 </asp:Content>

@@ -429,6 +429,7 @@
     <EntitySetMapping Name="Performances">
       <EntityTypeMapping TypeName="OrchestraDBModel.Performance">
         <MappingFragment StoreEntitySet="Performance">
+          <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="ConductorID" ColumnName="ConductorID" />
           <ScalarProperty Name="MainInstrument" ColumnName="MainInstrument" />
           <ScalarProperty Name="MainTitleComposer" ColumnName="MainTitleComposer" />

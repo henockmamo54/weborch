@@ -85,31 +85,31 @@ namespace web.Views {
         protected global::System.Web.UI.WebControls.TextBox txt_mainPerformanceType;
         
         /// <summary>
-        /// TextBox4 control.
+        /// DropDownList2_mainConductor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList2_mainConductor;
         
         /// <summary>
-        /// TextBox2 control.
+        /// DropDownList2_maintitlecomposer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList2_maintitlecomposer;
         
         /// <summary>
-        /// TextBox3 control.
+        /// DropDownList2_maininstrument control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList2_maininstrument;
         
         /// <summary>
         /// txt_organizerinfo control.
@@ -218,15 +218,6 @@ namespace web.Views {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txt_ConcertHall;
-        
-        /// <summary>
-        /// txt_location control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_location;
         
         /// <summary>
         /// txt_ticketbox control.

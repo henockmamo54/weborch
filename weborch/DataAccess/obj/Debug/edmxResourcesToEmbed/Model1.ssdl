@@ -343,6 +343,7 @@
     <Property Name="MainTitleComposer" Type="int" />
     <Property Name="MainInstrument" Type="int" />
     <Property Name="ConductorID" Type="int" />
+    <Property Name="Type" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="PerformanceDetail">
     <Key>

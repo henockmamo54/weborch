@@ -1239,6 +1239,7 @@
     <NavigationProperty Name="PerformanceDetails" Relationship="OrchestraDBModel.FK__User_User__UserI__395884C41" FromRole="Performance" ToRole="PerformanceDetail" />
     <Property Name="ConductorID" Type="Int32" />
     <NavigationProperty Name="Artist1" Relationship="OrchestraDBModel.FK__Performan__Condu__373B3228" FromRole="Performance" ToRole="Artist" />
+    <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK__Performan__MainT__3552E9B6">
     <End Type="OrchestraDBModel.Artist" Role="Artist" Multiplicity="0..1" />

@@ -48,6 +48,7 @@ namespace DataAccess
         public Nullable<int> MainTitleComposer { get; set; }
         public Nullable<int> MainInstrument { get; set; }
         public Nullable<int> ConductorID { get; set; }
+        public string Type { get; set; }
     
         public virtual Artist Artist { get; set; }
         public virtual Instrument Instrument { get; set; }

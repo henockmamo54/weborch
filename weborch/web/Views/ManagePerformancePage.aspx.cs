@@ -324,18 +324,46 @@ namespace web.Views
                         p.UserID = user.ID;
                         p.OrchestraID = int.Parse(DropDownList1.SelectedValue.ToString());
                         p.PerformanceTitle = txt_title.Text;
-                        //p.MainTitle = txt_mainTitleTheme.Text;
-                        p.StartDate = DateTime.ParseExact(txt_performancestartdate.Value, "dd/MM/yyyy", new CultureInfo("en-US"));
-                        p.EndDate = DateTime.ParseExact(txt_performanceenddate.Value, "dd/MM/yyyy", new CultureInfo("en-US"));
+                        p.subtitle = txt_mainSubtitle.Text;
+                        p.Theme = txt_mainsubjecttheme.Text;
                         p.OrchestraID = int.Parse(DropDownList1.SelectedItem.Value);
-                        p.Location = txt_location.Text;
-                        p.ConcertHall = txt_ConcertHall.Text;
-                        p.PerformanceTime = txt_performanceTime.Text;
-                        p.TicketBox = txt_ticketbox.Text;
+                        p.Type = txt_mainPerformanceType.Text;
+                        p.ConductorID = int.Parse(DropDownList2_mainConductor.SelectedItem.Value);
+                        p.MainTitleComposer = int.Parse(DropDownList2_maintitlecomposer.SelectedItem.Value);
+                        p.MainInstrument = int.Parse(DropDownList2_maininstrument.SelectedItem.Value);
                         p.OrganizerInfo = txt_organizerinfo.Text;
+                        p.Sponsor = txt_mainsponser.Text;
+                        p.Language = txt_mainLanguage.Text;
+                        p.Region = txt_mainRegion.Text;
+                        p.City = txt_mainCity.Text;
+                        p.Location = p.City;
+                        p.StartDate = DateTime.ParseExact(txt_performancestartdate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
+                        p.EndDate = DateTime.ParseExact(txt_performanceenddate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
+                        p.PerformanceTime = txt_performanceTime.Text;
                         p.VideoLocation = txt_videolocation.Text;
-                        if (!getPhoto(p, FileUpload1, 1)) return;
-                        if (!getPhoto(p, FileUpload3, 2)) return;
+                        if (!getPhoto(p, FileUpload1, 1)) return; // poseter
+                        if (!getPhoto(p, FileUpload3, 2)) return; // brocher
+                        p.ConcertHall = txt_ConcertHall.Text;
+                        //p.Location = txt_location.Text;
+                        p.TicketBox = txt_ticketbox.Text;
+
+                        //p.UserID = user.ID;
+                        //p.OrchestraID = int.Parse(DropDownList1.SelectedValue.ToString());
+                        //p.PerformanceTitle = txt_title.Text;
+                        //p.MainTitle = txt_mainTitleTheme.Text;
+                        //p.StartDate = DateTime.ParseExact(txt_performancestartdate.Value, "dd/MM/yyyy", new CultureInfo("en-US"));
+                        //p.EndDate = DateTime.ParseExact(txt_performanceenddate.Value, "dd/MM/yyyy", new CultureInfo("en-US"));
+                        //p.OrchestraID = int.Parse(DropDownList1.SelectedItem.Value);
+                        //p.Location = txt_location.Text;
+                        //p.ConcertHall = txt_ConcertHall.Text;
+                        //p.PerformanceTime = txt_performanceTime.Text;
+                        //p.TicketBox = txt_ticketbox.Text;
+                        //p.OrganizerInfo = txt_organizerinfo.Text;
+                        //p.VideoLocation = txt_videolocation.Text;
+                        //if (!getPhoto(p, FileUpload1, 1)) return;
+                        //if (!getPhoto(p, FileUpload3, 2)) return;
+
+
                         context2.SaveChanges();
 
                         var myperformancedetail = (List<PerformanceDetail>)Session["myperformanceDetailList"];
@@ -427,19 +455,29 @@ namespace web.Views
                         p.UserID = user.ID;
                         p.OrchestraID = int.Parse(DropDownList1.SelectedValue.ToString());
                         p.PerformanceTitle = txt_title.Text;
-                        //p.MainTitle = txt_mainTitleTheme.Text;
+                        p.subtitle = txt_mainSubtitle.Text;
+                        p.Theme = txt_mainsubjecttheme.Text;
+                        p.OrchestraID = int.Parse(DropDownList1.SelectedItem.Value);
+                        p.Type = txt_mainPerformanceType.Text;
+                        p.ConductorID = int.Parse(DropDownList2_mainConductor.SelectedItem.Value);
+                        p.MainTitleComposer = int.Parse(DropDownList2_maintitlecomposer.SelectedItem.Value);
+                        p.MainInstrument = int.Parse(DropDownList2_maininstrument.SelectedItem.Value);
+                        p.OrganizerInfo = txt_organizerinfo.Text;
+                        p.Sponsor = txt_mainsponser.Text;
+                        p.Language = txt_mainLanguage.Text;
+                        p.Region = txt_mainRegion.Text;
+                        p.City = txt_mainCity.Text;
+                        p.Location = p.City;
                         p.StartDate = DateTime.ParseExact(txt_performancestartdate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
                         p.EndDate = DateTime.ParseExact(txt_performanceenddate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
-                        p.OrchestraID = int.Parse(DropDownList1.SelectedItem.Value);
-                        p.Location = txt_location.Text;
-                        p.ConcertHall = txt_ConcertHall.Text;
                         p.PerformanceTime = txt_performanceTime.Text;
-                        p.TicketBox = txt_ticketbox.Text;
-                        p.OrganizerInfo = txt_organizerinfo.Text;
                         p.VideoLocation = txt_videolocation.Text;
+                        if (!getPhoto(p, FileUpload1, 1)) return; // poseter
+                        if (!getPhoto(p, FileUpload3, 2)) return; // brocher
+                        p.ConcertHall = txt_ConcertHall.Text;
+                        //p.Location = txt_location.Text;
+                        p.TicketBox = txt_ticketbox.Text;
                         p.TimeStamp = DateTime.Now;
-                        if (!getPhoto(p, FileUpload1, 1)) return;
-                        if (!getPhoto(p, FileUpload3, 2)) return;
                         context.Performances.Add(p);
                         context.SaveChanges();
 
@@ -498,21 +536,27 @@ namespace web.Views
         public void cleanInputs()
         {
 
-
+            
             txt_title.Text = "";
-            //txt_mainTitleTheme.Text = "";
+            txt_mainSubtitle.Text = "";
+            txt_mainsubjecttheme.Text = "";
+            DropDownList1.SelectedItem.Value = "";
+            txt_mainPerformanceType.Text = "";
+            DropDownList2_mainConductor.SelectedItem.Value = "";
+            DropDownList2_maintitlecomposer.SelectedItem.Value = "";
+            DropDownList2_maininstrument.SelectedItem.Value = "";
+            txt_organizerinfo.Text = "";
+            txt_mainsponser.Text = "";
+            txt_mainLanguage.Text = "";
+            txt_mainRegion.Text = "";
+            txt_mainCity.Text = "";
             txt_performancestartdate.Value = "";
             txt_performanceenddate.Value = "";
-
-            txt_location.Text = "";
-            txt_ConcertHall.Text = "";
             txt_performanceTime.Text = "";
-            txt_ticketbox.Text = "";
-            txt_organizerinfo.Text = "";
             txt_videolocation.Text = "";
-
-            txt_performancetitle.Text = "";
-            txt_time.Value = "";
+            txt_ConcertHall.Text = "";
+            txt_ticketbox.Text = "";
+            
 
             Session["myperformanceDetailList"] = null;
             Session["myinstrumentdetailList"] = null;
@@ -550,7 +594,7 @@ namespace web.Views
                         p.EndDate = DateTime.ParseExact(txt_performanceenddate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
                         //p.PerformanceDay = txt_performanceday.Text;
                         p.OrchestraID = int.Parse(DropDownList1.SelectedItem.Value);
-                        p.Location = txt_location.Text;
+                        //p.Location = txt_location.Text;
                         p.ConcertHall = txt_ConcertHall.Text;
                         //p.PerformanceHour = txt_peformancehour.Text;  
                         p.PerformanceTime = txt_performanceTime.Text;
@@ -673,18 +717,47 @@ namespace web.Views
             Performance p = entity.Performances.Where(x => x.ID == myid).FirstOrDefault();
             //Response.Redirect("ManagePerformanceDetailPage.aspx");
 
+            ////=====================================================================
+
             DropDownList1.SelectedValue = p.OrchestraID.ToString();
             txt_title.Text = p.PerformanceTitle;
-            //txt_mainTitleTheme.Text = p.MainTitle;
-            txt_performancestartdate.Value = String.Format("{0:DD/MM/YYYY}", p.StartDate);
-            txt_performanceenddate.Value = String.Format("{0:DD/MM/YYYY}", p.EndDate);
+            txt_mainSubtitle.Text = p.subtitle;
+            txt_mainsubjecttheme.Text = p.Theme;
             DropDownList1.SelectedItem.Value = p.OrchestraID.ToString();
-            txt_location.Text = p.Location;
-            txt_ConcertHall.Text = p.ConcertHall;
-            txt_performanceTime.Text = p.PerformanceTime.ToString();
-            txt_ticketbox.Text = p.TicketBox.ToString();
-            txt_organizerinfo.Text = p.OrganizerInfo;
+            txt_mainPerformanceType.Text = p.Type;
+            DropDownList2_mainConductor.SelectedItem.Value = p.ConductorID.ToString();
+            DropDownList2_maintitlecomposer.SelectedItem.Value = p.MainTitleComposer.ToString();
+            DropDownList2_maininstrument.SelectedItem.Value = p.MainInstrument.ToString();
+            txt_organizerinfo.Text = p.OrganizerInfo.ToString();
+            txt_mainsponser.Text = p.Sponsor.ToString();
+            txt_mainLanguage.Text = p.Language.ToString();
+            txt_mainRegion.Text = p.Region.ToString();
+            txt_mainCity.Text = p.City;
+            txt_performancestartdate.Value = String.Format("{0:dd/MM/yy}", p.StartDate);
+            txt_performanceenddate.Value = String.Format("{0:dd/MM/yy}", p.EndDate);
+            //p.StartDate = DateTime.ParseExact(txt_performancestartdate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
+            //p.EndDate = DateTime.ParseExact(txt_performanceenddate.Value, "dd/mm/yyyy", new CultureInfo("en-US"));
+            txt_performanceTime.Text = p.PerformanceTime;
             txt_videolocation.Text = p.VideoLocation;
+            txt_ConcertHall.Text = p.ConcertHall;
+            txt_ticketbox.Text = p.TicketBox;
+
+
+            //=================================================================================
+
+            ////DropDownList1.SelectedValue = p.OrchestraID.ToString();
+            ////txt_title.Text = p.PerformanceTitle;
+            //////txt_mainTitleTheme.Text = p.MainTitle;
+            ////txt_performancestartdate.Value = String.Format("{0:DD/MM/YYYY}", p.StartDate);
+            ////txt_performanceenddate.Value = String.Format("{0:DD/MM/YYYY}", p.EndDate);
+            ////DropDownList1.SelectedItem.Value = p.OrchestraID.ToString();
+            //////txt_location.Text = p.Location;
+            ////txt_ConcertHall.Text = p.ConcertHall;
+            ////txt_performanceTime.Text = p.PerformanceTime.ToString();
+            ////txt_ticketbox.Text = p.TicketBox.ToString();
+            ////txt_organizerinfo.Text = p.OrganizerInfo;
+            ////txt_videolocation.Text = p.VideoLocation;
+
 
             // details
             var pd = p.PerformanceDetails.ToList();
