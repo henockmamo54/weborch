@@ -4,7 +4,7 @@
 
     <div class="row">
 
-        <div class="col-md-8" style="padding-right: 0; padding-left: 0;">
+        <div class="col-md-8 col-xs-8" style="padding-right: 0; padding-left: 0;">
             <div class="container" style="padding: 0; padding-top: 0em;">
                 <div class="panel panel-default" style="overflow-y: scroll;">
                     <div class="panel-heading">Notice</div>

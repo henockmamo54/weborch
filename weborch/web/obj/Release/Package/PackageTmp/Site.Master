@@ -5,8 +5,8 @@
 <html lang="en">
 <head runat="server">
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <%--<meta name="viewport" content="width=device-width, initial-scale=1.0" />--%>
+    <title><%: Page.Title %>AllClassic Korea</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -18,7 +18,7 @@
 
 </head>
 <%--#E9EBEE;--%>
-<body style="background-color: white;">
+<body style="background-color: white; padding-top: 0px;">
     <form runat="server">
         <asp:ScriptManager runat="server" EnablePageMethods="true">
             <Scripts>
@@ -41,48 +41,36 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <%--background-color: #fdfdfd;--%>
-
-        <div class="navbar navbar-default navbar-fixed-top" id="masterNavigationBar" style="border-color: white; background-color: #00796B;">
-            <div class="container">
+        <%--        <div class="navbar navbar-default navbar-fixed-top" id="masterNavigationBar" style="background-color: white; border-color: white;">
+            <div class="container" style="background-color: whitesmoke;">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a style="color: white;" class="navbar-brand" runat="server" href="~/Views/HomeView">AllClassic Korea</a>
+                    <a class="navbar-brand" runat="server" href="~/Views/HomeView" style="background: red; color: white;">AllClassic Korea</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <%--<li><a runat="server" href="~/Views/HomeView">Home</a></li>--%>
-                        <li><a style="color: white;" runat="server" href="~/Views/PerformancePage.aspx"><%= Resources.HomeView.aspx.Performance %> </a></li>
-                        <li><a style="color: white;" runat="server" href="~/Views/ArtistPageView"><%= Resources.HomeView.aspx.Artist %> </a></li>
-                        <li><a style="color: white;" runat="server" href="~/Views/OrchestraView"><%= Resources.HomeView.aspx.ConcertTeam %></a></li>
-                        <li><a style="color: white;" runat="server" href="~/Views/InstrumentView"><%= Resources.HomeView.aspx.Instrument %> </a></li>
-                        <li><a style="color: white;" runat="server" href="~/BulletinPage.aspx"><%= Resources.HomeView.aspx.Bulletin %></a></li>
-                        <li><a style="color: white;" runat="server" href="~/Views/IntroductionPage.aspx"><%= Resources.HomeView.aspx.Introduction %></a></li>
-                        <li><a style="color: white;" runat="server" onclick="alert('This page Will be added soon.')"><strong>Archive Center</strong></a></li>
-                        <li><a style="color: white; padding-top: 10px;" runat="server" onclick="alert('This page Will be added soon.')">
+                        <li><a id="performancetab" runat="server" href="~/Views/PerformancePage.aspx"><%= Resources.HomeView.aspx.Performance %> </a></li>
+                        <li><a id="artisttab" runat="server" href="~/Views/ArtistPageView">Musician  </a></li>
+                        <li><a runat="server" href="">Music College  </a></li>
+                        <li id="instrumenttab"><a runat="server" href="~/Views/InstrumentView"><%= Resources.HomeView.aspx.Instrument %> </a></li>
+                        <li><a runat="server" onclick="alert('This page Will be added soon.')">Archive Center</a></li>
+                        <li><a style="padding-top: 10px;" runat="server" onclick="alert('This page Will be added soon.')">
                             <img runat="server" src="~/Document/bitcoin.png" width="30" />
                             Classic Coin
                         </a></li>
+                        <li><a id="introductiontab" runat="server" href="~/Views/IntroductionPage.aspx">About US</a></li>
+                        <li><a runat="server" onserverclick="changeLanguage" style="padding-left: 0px; padding-right: 4px; display: inline-block;">en</a>|
+                            <a runat="server" onserverclick="changeLanguage" style="padding-right: 0px; padding-left: 4px; display: inline-block;">kr</a></li>
+                        <li style="margin-top: 1rem;">
+                            <asp:TextBox runat="server" class="form-control" Style="display: inline; width: 150px;"></asp:TextBox>
+                            <asp:Button runat="server" Text="<%$Resources:HomeView.aspx,search %>" class="btn btn-primary" /></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a style="color: white;" runat="server" id="signinLink" visible="false" href="~/LoginPage"><span class=""><%= Resources.HomeView.aspx.SignIn %></span></a></li>
-                        <li><a style="color: white;" runat="server" id="signoutLink" visible="false" href="" onserverclick="signoutClicked"><%= Resources.HomeView.aspx.SignOut %></a></li>
-                        <li><a style="color: white;" runat="server" id="mypageLink" visible="false" href="~/Views/MyPage"><%= Resources.HomeView.aspx.MyPage %></a></li>
-
-                        <li><a runat="server" onserverclick="changeLanguage" style="color: white; padding-left: 0px; padding-right: 4px; display: inline-block;">en</a>|
-                            <a runat="server" onserverclick="changeLanguage" style="color: white; padding-right: 0px; padding-left: 4px; display: inline-block;">kr</a></li>
-                    </ul>
-
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
-                            <%--<ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
-                            </ul>--%>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
@@ -95,21 +83,92 @@
                     </asp:LoginView>
                 </div>
             </div>
-        </div>
+        </div>--%>
 
-        <div class="container" id="masterserachbar">
-            <div style="text-align: right; margin-top: 1em; margin-bottom: 1em;">
-                <asp:TextBox runat="server" class="form-control" Style="display: inline;"></asp:TextBox>
-                <asp:Button runat="server" Text="<%$Resources:HomeView.aspx,search %>" class="btn btn-primary" />
-                <br />
+
+        <%--<div class="navbar navbar-default navbar-fixed-top" id="masterNavigationBar" style="background-color: whitesmoke; border-color: whitesmoke;">
+                <a class="allclasic_home" runat="server" href="~/Views/HomeView" style="background: red; color: white;">AllClassic Korea</a>
+                <a id="performancetab" runat="server" href="~/Views/PerformancePage.aspx"><%= Resources.HomeView.aspx.Performance %> </a>
+                <a id="artisttab" runat="server" href="~/Views/ArtistPageView">Musician  </a>
+                <a runat="server" href="">Music College  </a>
+                <a id="instrumenttab" runat="server" href="~/Views/InstrumentView"><%= Resources.HomeView.aspx.Instrument %> </a>
+                <a runat="server" onclick="alert('This page Will be added soon.')">Archive Center</a>
+                <a style="padding-top: 10px;" runat="server" onclick="alert('This page Will be added soon.')">
+                    <img runat="server" src="~/Document/bitcoin.png" width="30" />
+                    Classic Coin
+                </a>
+                <a id="introductiontab" runat="server" href="~/Views/IntroductionPage.aspx">About US</a>
+                <a runat="server" onserverclick="changeLanguage" style="padding-left: 0px; padding-right: 4px; display: inline-block;">en</a>|
+                            <a runat="server" onserverclick="changeLanguage" style="padding-right: 0px; padding-left: 4px; display: inline-block;">kr</a>
+                <span style="margin-top: 1rem;">
+                    <asp:TextBox runat="server" class="form-control" Style="display: inline; width: 150px;"></asp:TextBox>
+                    <asp:Button runat="server" Text="<%$Resources:HomeView.aspx,search %>" class="btn btn-primary" /></span>
+            </div>--%>
+
+        <div class="container body-content" style="padding-left: 20px;">
+
+            <div class="navbar-outer"  id="masterNavigationBar" >
+                <div class="row ">
+                    <div class="">
+                        <%--<span style="width: 16.666666666666664% !important; padding-right: 15px; background: red; padding: 15px 15px; font-size: 18px; line-height: 20px;">--%>
+                        <a class="navbar-brand allclasic_home" runat="server" href="~/Views/HomeView">AllClassic Korea</a>
+                        <a class="otheroptions" id="performancetab" runat="server" href="~/Views/PerformancePage.aspx"><%= Resources.HomeView.aspx.Performance %> </a>
+                        <a class="otheroptions" id="artisttab" runat="server" href="~/Views/ArtistPageView">Musician  </a>
+                        <a class="otheroptions" runat="server" href="">Music College  </a>
+                        <a class="otheroptions" id="instrumenttab" runat="server" href="~/Views/InstrumentView"><%= Resources.HomeView.aspx.Instrument %> </a>
+                        <a class="otheroptions" runat="server" onclick="alert('This page Will be added soon.')">Archive Center</a>
+                        <a class="otheroptions" style="padding-top: 10px;" runat="server" onclick="alert('This page Will be added soon.')">
+                            <img runat="server" src="~/Document/bitcoin.png" width="30" />
+                            Classic Coin
+                        </a>
+                        <a class="otheroptions" id="introductiontab" runat="server" href="~/Views/IntroductionPage.aspx">About US</a>
+                        <span class="otheroptions">
+                            <a runat="server" onserverclick="changeLanguage" style="padding-left: 0px; padding-right: 4px; display: inline-block;">en</a>|
+                            <a runat="server" onserverclick="changeLanguage" style="padding-right: 0px; padding-left: 4px; display: inline-block;">kr</a>
+                        </span>
+                        <span class="otheroptions" style="padding-top: 8px;">
+                            <asp:TextBox runat="server" class="form-control" Style="display: inline; width: 150px;"></asp:TextBox>
+                            <asp:Button runat="server" Text="<%$Resources:HomeView.aspx,search %>" class="btn btn-primary" />
+
+                        </span>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="container body-content">
-            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-            </asp:ContentPlaceHolder>
+
+
+            <div class="row">
+                <div class="col-md-2 col-xs-2" id="mastersidemenu" style="padding-left: 0px;">
+                    <ul class="list-group">
+                        <%--<a class="list-group-item list-group-item-action whitesmokeBG" runat="server" id="A1" visible="false" href="~/LoginPage"><span class=""><%= Resources.HomeView.aspx.SignIn %></span></a>--%>
+
+                        <a runat="server" id="signinLink" visible="false">
+                            <a class="list-group-item list-group-item-action whitesmokeBG" runat="server" href="~/LoginPage" ><%= Resources.HomeView.aspx.SignIn %></a>
+                            <a class="list-group-item list-group-item-action whitesmokeBG" runat="server" id="signuptab" href="~/Views/signupPages/TermsOfUsePage"><%= Resources.HomeView.aspx.SignUp %></a>
+                        </a>
+                        
+                        <a class="list-group-item list-group-item-action whitesmokeBG" runat="server" id="signoutLink" visible="false" href="" onserverclick="signoutClicked"><%= Resources.HomeView.aspx.SignOut %></a>
+
+
+                        <a class="list-group-item list-group-item-action  whitesmokeBG" href="#">Article</a>
+                        <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Auditions</a>
+                        <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Concours</a>
+                        <a id="performancegrouptab" class="list-group-item list-group-item-action " style="background-color:whitesmoke;" runat="server" href="~/Views/OrchestraView">Performance Group</a>
+                        <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Repair Shop</a>
+                        <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Music Shop</a>
+                        <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Concert Venu</a>
+                        <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Phoniatrics Doctor</a>
+                        <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Others</a>
+                        <a class="list-group-item list-group-item-action whitesmokeBG" href="#">FAQ</a>
+                    </ul>
+                </div>
+                <div class="col-md-10 col-xs-10"  id="mastermaincontent">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
             <hr />
             <footer id="masterFooter">
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> All Copyrights are reserved @www.allclassickorea.com 3F honsung Bldg. 220 Yeoksam-Ro Gangnam-gu, Seoul, Korea 06227</p>
             </footer>
         </div>
     </form>
@@ -125,26 +184,39 @@
         border-radius: 0.3em;
     }
 
-    /*.nav > li > a {
-        padding-left: 8px !important;
-        padding-right: 8px !important;
-    }*/
-
-    /*::-webkit-scrollbar {
-        width: 3px;
+    .whitesmokeBG {
+        background-color: whitesmoke ;
     }
 
-    ::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 5px grey;
-        border-radius: 10px;
+    .container {
+        max-width: none !important;
+        width: 1170px;
     }
 
-    ::-webkit-scrollbar-thumb {
-        background: #eeeeee;
-        border-radius: 10px;
+    .navbar-outer {
+        max-width: none !important;
+        width: 1170px;
+        background-color: whitesmoke;
     }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: #d5d5d5;
-        }*/
+    .allclasic_home {
+        color: white;
+        background: red;
+        width: 181px !important;
+    }
+
+    .otheroptions {
+        float: left;
+        padding-top: 15px;
+        font-size: 15px;
+        line-height: 20px;
+        background-color: whitesmoke;
+        color: black;
+        padding-left: 10px;
+        height: 50px;
+        padding-right: 5px;
+        border-right: 1px solid #e4e4e4;
+        border-bottom: 1px solid #e4e4e4;
+
+    }
 </style>

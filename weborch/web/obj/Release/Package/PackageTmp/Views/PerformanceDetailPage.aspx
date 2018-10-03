@@ -18,7 +18,7 @@
 
             <div class="row" id="forAudience" runat="server">
 
-                <div class="col-md-8">
+                <div class="col-md-8 col-xs-8">
 
                     <asp:Image CssClass="shadowedPanel" Style="width: 100%;" runat="server" ID="performancePosterImage" />
                     <%--====================================================================================--%>
@@ -183,7 +183,7 @@
                     <%--=============================================================================================--%>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 col-xs-4">
 
                     <h3 style="margin-top: 0;">Musical performance program</h3>
                     <p>
@@ -357,6 +357,12 @@ left join(
     </style>
 
     <script type="text/javascript">
+
+
+        document.getElementById("performancetab").style.backgroundColor = "white";
+        document.getElementById("performancetab").style.borderBottom = "none";
+
+
         $(function () {
             $('#datetimepicker3').datetimepicker();
         });

@@ -5,9 +5,9 @@
 
         <ContentTemplate>
             <div>
-                <div class="row " style="width: 100%; padding: 0; margin: 0; padding-top: 0em; height: 380px;">
-                    <div class="col-md-8" style="padding-left: 0;">
-
+                <div class="row " style="width: 100%; padding: 0; margin: 0; padding-top: 0em; height: 330px;">
+                    <div class="col-md-8 col-xs-8 col-xs-8" style="padding-left: 0;">
+                        <br />
                         <div id="myCarousel" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
                             <ol class="carousel-indicators">
@@ -43,8 +43,9 @@
                         </div>
 
                     </div>
-                    <div class="col-md-4" style="padding-right: 0; padding-left: 0;">
-                        <div class="container" style="padding: 0; padding-top: 0em;">
+                    <div class="col-md-4 col-xs-4 col-xs-4" style="padding-right: 0; padding-left: 0;">
+                        <br />
+                        <div  style="padding: 0; padding-top: 0em;">
 
                             <div class="bulletincontainer">
                                 <div class="" style="text-align: right;">
@@ -105,7 +106,7 @@ order by TimeStamp desc">
                     <br />
                     <hr style="border-top: 1px solid #ccc9c9;" />
 
-                    <div class=" col-md-12">
+                    <div class="col-md-12 col-xs-12  col-xs-12">
                         <h2 style="margin-top: 0px; padding-top: 0px; display: inline-block;">Musical Performance Information</h2>
                         <asp:LinkButton CssClass="btn btn-success pull-right" runat="server" Style="display: inline-block;" ID="btn_MangePerformanceButton" Text="Add / Manage Performance" Visible="false" PostBackUrl="~/Views/ManagePerformancePage.aspx" />
                     </div>
@@ -113,22 +114,27 @@ order by TimeStamp desc">
                     <asp:Repeater runat="server" ID="repeater_performanceList" OnItemDataBound="repeater_performanceList_ItemDataBound">
 
                         <ItemTemplate>
-                            <div class="col-md-4" style="margin-bottom: 1em;">
+                            <div class="col-md-4 col-xs-4 col-xs-4" style="margin-bottom: 1em;">
                                 <div class="thumbnail shadowedbox" style="box-shadow: 2px 2px 2px #d0d0d0;">
                                     <asp:LinkButton runat="server" ID="tumbinallink" Style="text-decoration: none;">
 
-                                            <img src="../Document/<%#Eval("PhotoAddLocation") %>" class="shadowedbox" alt="Lights" style="width: 100%; height: 300px;">
+                                            <img src="../Document/<%#Eval("PhotoAddLocation") %>" class="shadowedbox" alt="Lights" style="width: 100%; height: 250px;">
 
                                             <div class="caption" style="padding-bottom:3px;">
                                                 <h4><%# (Eval("PerformanceTitle")) .ToString().Length>15?
                                                            (Eval("PerformanceTitle")) .ToString().Substring(0,15)+ " ....":
                                                            (Eval("PerformanceTitle")) .ToString()%></h4>
-                                                <p style="font-family: Roboto, Arial, sans-serif; margin-bottom:0px;">
+                                                <h6>start date: <%# DataBinder.Eval(Container.DataItem,"startdate","{0:dd/MM/yyyy}") %></h6>
+                                                <h6>venu: <%# Eval("ConcertHall") %></h6>
+                                                <h6>Location: <%# Eval("Location") %></h6>
+                                                <h6>... see More</h6>
+
+                                                <%--<p style="font-family: Roboto, Arial, sans-serif; margin-bottom:0px;">
                                                     <%# ( Eval("Location")+","+ Eval("ConcertHall") +","+  DataBinder.Eval(Container.DataItem,"PerformanceTime","{0:t}")) .ToString().Length>40?
                                                            (Eval("Location")+","+ Eval("ConcertHall") +","+ DataBinder.Eval(Container.DataItem,"PerformanceTime","{0:t}")) .ToString().Substring(0,40)+ " ....See More":
                                                             (Eval("Location")+","+ Eval("ConcertHall") +","+ DataBinder.Eval(Container.DataItem,"PerformanceTime","{0:t}")) .ToString() +"<br/>"
                                                             + " .... See More" %>
-                                                </p>
+                                                </p>--%>
                                             </div>
                                     </asp:LinkButton>
                                     &nbsp;&nbsp;&nbsp;
@@ -182,7 +188,7 @@ where ID=@ID">
                 </div>
 
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 col-xs-12">
                         <asp:Button runat="server" Text="Show More" CssClass="btn btn-success pull-right" OnClick="loadMorePerformances" />
                     </div>
                 </div>
@@ -233,7 +239,7 @@ where ID=@ID">
 
         .bulletincontainer {
             overflow-y: scroll;
-            height: 380px;
+            height: 320px;
             /*box-shadow: 2px 2px 2px #d0d0d0;
             border: 0.5px solid #d0d0d0;*/
             padding: 2px;

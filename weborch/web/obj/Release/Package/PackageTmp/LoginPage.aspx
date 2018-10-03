@@ -2,11 +2,28 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
+    <script type="text/javascript">
+
+        var x = document.getElementById("mastermaincontent");
+        x.className = "col-md-12 col-xs-12"
+
+        var x = document.getElementById("masterNavigationBar");
+        x.style.display = "none";
+
+        var x = document.getElementById("mastersidemenu");
+        x.style.display = "none";
+        //var x = document.getElementById("masterFooter");
+        //x.style.display = "none";
+
+        var serachbar = document.getElementById("masterserachbar");
+        serachbar.style.display = "none";
+    </script>
+
     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
         <ContentTemplate>
 
-            <div class="container" >
-                <div class="card card-container" style="background:white; border-top: 1px solid lightgray;">
+            <div class="container">
+                <div class="card card-container" style="background: white; border-top: 1px solid lightgray;">
                     <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
                     <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
                     <p id="profile-name" class="profile-name-card"></p>
@@ -42,7 +59,20 @@
     </asp:UpdatePanel>
 
     <script type="text/javascript">
+
+        
+
+        document.getElementById("signuptab").style.backgroundColor = "rgb(255, 255, 255) ";
+        document.getElementById("signuptab").style.borderRight = "none";
+
+
+        var x = document.getElementById("mastermaincontent");
+        x.className = "col-md-12 col-xs-12"
+
         var x = document.getElementById("masterNavigationBar");
+        x.style.display = "none";
+
+        var x = document.getElementById("mastersidemenu");
         x.style.display = "none";
         //var x = document.getElementById("masterFooter");
         //x.style.display = "none";

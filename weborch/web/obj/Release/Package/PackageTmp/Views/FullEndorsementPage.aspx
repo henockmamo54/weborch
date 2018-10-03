@@ -4,7 +4,7 @@
     <asp:UpdatePanel ID="UpdatePanel3" runat="server">
         <ContentTemplate>
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 col-xs-6">
                     <h3>Endorsement Approval</h3>
                     <hr />
                     <h5><strong>Artist Name:</strong>

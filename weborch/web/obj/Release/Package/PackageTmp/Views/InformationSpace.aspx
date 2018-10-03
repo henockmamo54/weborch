@@ -6,7 +6,7 @@
 
             <h4>Information Space</h4>
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-2 col-xs-2">
                     <ul class="list-group">
                         <a class="list-group-item list-group-item-action active">Review</a>
                         <a class="list-group-item list-group-item-action" href="informationSpacePages/MarketPageView.aspx" >Market</a>
@@ -15,7 +15,7 @@
                         <a class="list-group-item list-group-item-action" href="informationSpacePages/NoticePageView.aspx">Notice</a>
                     </ul>
                 </div>
-                <div class="col-md-10 shadowedPanel" style="height: 500px;">
+                <div class="col-md-10 col-xs-10 shadowedPanel" style="height: 500px;">
                     <div style="height: 400px;">
                         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Width="100%">
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />

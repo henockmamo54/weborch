@@ -17,12 +17,12 @@
 
                 <div id="foraudience" runat="server">
 
-                        <div class=" col-md-12">
+                        <div class=" col-md-12 col-xs-12  col-xs-12">
                             <h2 style="margin-top: 0px; padding-top: 0px; display: inline-block;">Artist data</h2>
                             </div>
 
-                    <div class="row col-md-12" style="margin-bottom: 1rem;">
-                        <div class="col-md-2 pull-right">
+                    <div class="row col-md-12 col-xs-12  col-xs-12" style="margin-bottom: 1rem;">
+                        <div class="col-md-2 col-xs-2 pull-right">
                             <h5 style="display: inline-block;">Type: </h5>
                             <asp:DropDownList AutoPostBack="true" ID="DropDownList1_artistType" runat="server" DataSourceID="SqlDataSource3_artistType" DataTextField="Name" DataValueField="ID" CssClass="form-control pull-right" Style="width: 70%;" OnSelectedIndexChanged="DropDownList1_artistType_SelectedIndexChanged"></asp:DropDownList>
                             <asp:SqlDataSource ID="SqlDataSource3_artistType" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
@@ -34,18 +34,18 @@ union
 SELECT  Name,ID FROM Lookup.ArtistType 
 "></asp:SqlDataSource>
                         </div>
-                        <div class="col-md-3 pull-right">
+                        <div class="col-md-4 col-xs-4  col-xs-4 pull-right">
                             <h5 style="display: inline-block;">Instrument: </h5>
                             <asp:SqlDataSource ID="SqlDataSource3_instrumentListForFilter" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="select 1 row, -1 as ID, 'None' as EnglishName, 'None' as KoreanName, 'None' as [Group] 
 union
 SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, KoreanName, [Group] FROM Core.Instrument "></asp:SqlDataSource>
                             <asp:DropDownList ID="DropDownList1_instrumentTypeFilter" CssClass="form-control pull-right" Style="width: 70%;" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource3_instrumentListForFilter" DataTextField="EnglishName" DataValueField="ID" OnSelectedIndexChanged="DropDownList1_artistType_SelectedIndexChanged"></asp:DropDownList>
                         </div>
-                        <div class="col-md-3 pull-right">
+                        <div class="col-md-3 col-xs-3 pull-right">
                             <h5 style="display: inline-block;">Name: </h5>
                             <asp:TextBox AutoPostBack="true" ID="txtbox_namefilter" runat="server" CssClass="form-control" Style="width: 70%; display: inline-block;" OnTextChanged="DropDownList1_artistType_SelectedIndexChanged"></asp:TextBox>
                         </div>
-                        <div class="col-md-3 pull-right">
+                        <div class="col-md-3 col-xs-3  pull-right">
                             <%--<asp:LinkButton runat="server" Text="test haha" CssClass="btn btn-success pull-right"/>--%>
                             <asp:LinkButton CssClass="btn btn-success pull-right" runat="server" ID="btn_MangeArtistButton" Text="Add / Manage Artist" Visible="false" PostBackUrl="~/Views/ManageArtistPageView.aspx" />                        
                         </div>
@@ -95,12 +95,12 @@ FROM   core.artist
                     <asp:Repeater runat="server" ID="artistsRepeater">
                         <ItemTemplate>
 
-                            <div class="col-sm-4">
-                                <div class="row col-sm-12" style="box-shadow: 0px 0px 5px 2px #d4d3d3; border-radius: 3px; margin-bottom: 2rem; padding-left: 0; background-color: white; font-family: Roboto, Arial, sans-serif;">
-                                    <div class="col-sm-6" style="padding: 0;">
+                            <div class="col-sm-4 col-xs-4">
+                                <div class="row col-sm-12 col-xs-12" style="box-shadow: 0px 0px 5px 2px #d4d3d3; border-radius: 3px; margin-bottom: 2rem; padding-left: 0; background-color: white; font-family: Roboto, Arial, sans-serif;">
+                                    <div class="col-sm-6 col-xs-6" style="padding: 0;">
                                         <img style="width: 100%; height: 18.25rem; padding: 3px; border-radius: 7px;" class="card-img-top img-rounded" src="../Document/<%#Eval("Photo1") %>" alt="Card image cap">
                                     </div>
-                                    <div class="col-sm-6" style="margin: 0px; padding: 0px; padding-left: 8px; font-size: 1.2rem;">
+                                    <div class="col-sm-6 col-xs-6" style="margin: 0px; padding: 0px; padding-left: 8px; font-size: 1.2rem;">
                                         <div class="card-body">
                                             <%--<h5 class="card-title" style="margin: 0; margin-top: 5px; margin-bottom: 5px;"><strong><%#Eval("FirstName") %> <%#Eval("MiddleName") %> <%#Eval("FamilyName") %></strong></h5>--%>
                                             <h5 class="card-title" style="margin: 0; margin-top: 5px; margin-bottom: 5px;"><strong><%#Eval("FirstName") %> </strong></h5>
@@ -137,6 +137,10 @@ FROM   core.artist
 
 
     <script type="text/javascript">
+
+
+        document.getElementById("artisttab").style.backgroundColor = "white";
+        document.getElementById("artisttab").style.borderBottom = "none";
 
 
 

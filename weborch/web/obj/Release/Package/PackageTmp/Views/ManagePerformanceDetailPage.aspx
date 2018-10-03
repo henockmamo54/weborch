@@ -27,10 +27,10 @@
                     <div class="row shadowedPanel" visible="false" runat="server" id="AddNewEntryPanel" style="background: white; padding: 10px; margin-bottom: 10px; box-shadow: 1px 1px 1px 1px #d0d0d0;">
 
                         <div class="row">
-                            <div class="col-md-4" runat="server" visible="false">
+                            <div class="col-md-4 col-xs-4" runat="server" visible="false">
                                 <br />
-                                <div class="col-md-4">Performance:</div>
-                                <div class="col-md-8">
+                                <div class="col-md-4 col-xs-4">Performance:</div>
+                                <div class="col-md-8 col-xs-8">
                                     <asp:DropDownList ID="dropdown_performance" runat="server" DataSourceID="SqlDataSource1_performanceList" DataTextField="PerformanceTitle" DataValueField="ID" class="form-control" Enabled="false" AutoPostBack="True"></asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlDataSource1_performanceList" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT ID, PerformanceTitle FROM Main.Performance"></asp:SqlDataSource>
                                 </div>
@@ -38,20 +38,20 @@
 
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-xs-4">
                                 <br />
-                                <div class="col-md-4">Music Title:</div>
-                                <div class="col-md-8">
+                                <div class="col-md-4 col-xs-4">Music Title:</div>
+                                <div class="col-md-8 col-xs-8">
                                     <asp:TextBox ID="txt_performancetitle" runat="server" class="form-control"></asp:TextBox>
                                 </div>
                                 <br />
                             </div>
 
 
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-xs-4">
                                 <br />
-                                <div class="col-md-4">Orchestra:</div>
-                                <div class="col-md-8">
+                                <div class="col-md-4 col-xs-4">Orchestra:</div>
+                                <div class="col-md-8 col-xs-8">
                                     <asp:DropDownList ID="DropDownList1_orchestra" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID"></asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlDataSource1_allOrchestra" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
 
@@ -60,10 +60,10 @@
                             </div>
 
 
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-xs-4">
                                 <br />
-                                <div class="col-md-4">Conductor:</div>
-                                <div class="col-md-8">
+                                <div class="col-md-4 col-xs-4">Conductor:</div>
+                                <div class="col-md-8 col-xs-8">
                                     <asp:DropDownList ID="DropDownList2_conductor" runat="server" DataSourceID="SqlDataSource3_conductor" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlDataSource3_conductor" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="select (FirstName ) as Name, ID
 from(
@@ -75,10 +75,10 @@ where al.Name='Conductor'
                                 </div>
                                 <br />
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-xs-4">
                                 <br />
-                                <div class="col-md-4">Composer</div>
-                                <div class="col-md-8">
+                                <div class="col-md-4 col-xs-4">Composer</div>
+                                <div class="col-md-8 col-xs-8">
                                     <asp:DropDownList ID="DropDownList4_composer" runat="server" DataSourceID="SqlDataSource5_composer" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
                                     <asp:SqlDataSource ID="SqlDataSource5_composer" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="
 select ( isnull(FirstName,'') + ' '+ isnull(MiddleName,'') + ' '+ isnull(FamilyName,'') ) as Name, ID
@@ -92,10 +92,10 @@ where al.Name like '%Composer%'
                                 </div>
                                 <br />
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-xs-4">
                                 <br />
-                                <div class="col-md-4">Time</div>
-                                <div class="col-md-8">
+                                <div class="col-md-4 col-xs-4">Time</div>
+                                <div class="col-md-8 col-xs-8">
                                     <%--<asp:TextBox ID="txt_time" runat="server" class="form-control"></asp:TextBox>--%>
                                     <div class='input-group date' id='datetimepicker3' style="display: inline-flex;">
                                         <input type='text' class="form-control" runat="server" id="txt_time" style="display: inline-block; border-right-width: 0px;" />
@@ -109,14 +109,14 @@ where al.Name like '%Composer%'
 
                         </div>
 
-                        <div class="row col-md-12">
+                        <div class="row col-md-12 col-xs-12">
                             <hr />
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-xs-4">
                                 Instrument:
                         <asp:DropDownList ID="DropDownList3_instrumentlist" class="form-control" runat="server" DataSourceID="SqlDataSource1_Instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource1_Instrumentlist" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT EnglishName, ID FROM Core.Instrument order by englishname"></asp:SqlDataSource>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4 col-xs-4">
                                 Played by:
                         <asp:DropDownList ID="DropDownList2_artistlist" class="form-control" runat="server" DataSourceID="SqlDataSource1_artistlist" DataTextField="Name" DataValueField="ID"></asp:DropDownList>
                                 <asp:SqlDataSource ID="SqlDataSource1_artistlist" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT ID, Name= FirstName
@@ -131,7 +131,7 @@ FROM Core.Artist"></asp:SqlDataSource>
 
                         <br />
 
-                        <div class="row col-md-12">
+                        <div class="row col-md-12 col-xs-12">
                             <hr />
                             <asp:Repeater runat="server" ID="myPerformanceDetailArtistInstrumentlist">
                                 <ItemTemplate>
@@ -156,7 +156,7 @@ FROM Core.Artist"></asp:SqlDataSource>
                             </asp:Repeater>
                         </div>
 
-                        <div class="row col-md-12">
+                        <div class="row col-md-12 col-xs-12">
                             <asp:Button ID="btn_cancel" CssClass="btn btn-danger pull-right" Style="margin-right: 5px;" runat="server" Text="Cancel" OnClick="cancelDetailClicked" />
                             <asp:Button ID="btn_update" CssClass="btn btn-success pull-right" Style="margin-right: 5px;" runat="server" Text="Save" OnClick="saveDetailClicked" />
                             <asp:Button ID="btn_register" CssClass="btn btn-primary pull-right" Style="margin-right: 5px;" runat="server" Text="Register" OnClick="addDetailClicked" />
