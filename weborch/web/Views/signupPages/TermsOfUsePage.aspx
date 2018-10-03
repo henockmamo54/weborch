@@ -6,14 +6,14 @@
 
             <h4><%= Resources.HomeView.aspx.SignUp %></h4>
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-2 col-xs-2">
                     <ul class="list-group">
                         <a class="list-group-item list-group-item-action active"><%= Resources.HomeView.aspx.AcceptTerms %></a>
                         <%--<a class="list-group-item list-group-item-action" href="UserInformationRegistrationPage.aspx"><%= Resources.HomeView.aspx.UserInfo %></a>--%>
                         <a class="list-group-item list-group-item-action" onclick="showSelectMessage()"><%= Resources.HomeView.aspx.UserInfo %></a>
                     </ul>
                 </div>
-                <div class="col-md-10 ">
+                <div class="col-md-10 col-xs-10 ">
 
                     <h6><strong><%= Resources.HomeView.aspx.Termsofuse %></strong></h6>
                     <div style="background-color: white; height: 500px; overflow-y: scroll;"
@@ -226,7 +226,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-12 pull-right" style="text-align: center;">
+                <div class="col-md-12 col-xs-12 pull-right" style="text-align: center;">
                     <asp:Button ID="txt_addInstrument" CssClass="btn btn-success " runat="server" Text="<%$Resources:HomeView.aspx,Continue %>" OnClick="btn_continueclicked" />
                 </div>
             </div>

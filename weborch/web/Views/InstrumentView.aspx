@@ -11,8 +11,8 @@
                 <div id="forAudinence" runat="server" visible="true">
                        <h3 style="display:inline-block;"><%= Resources.HomeView.aspx.Instrumentdata %></h3>
                     
-                    <div class="row col-md-12" style="margin-bottom: 1rem;padding:0px;  ">
-                        <div class="col-md-4 pull-right" style="padding:0;">
+                    <div class="row col-md-12 col-xs-12" style="margin-bottom: 1rem;padding:0px;  ">
+                        <div class="col-md-4 col-xs-4 pull-right" style="padding:0;">
                             <h5 style="display: inline-block;">Name: </h5>
                             <asp:TextBox AutoPostBack="true" ID="txtbox_namefilter" runat="server" CssClass="form-control" Style="width: 82%; display: inline-block; " OnTextChanged="filterArtistDataByName"></asp:TextBox>
                         </div>
@@ -24,7 +24,7 @@
                     <asp:Repeater runat="server" ID="instrumentrepeater">
 
                         <ItemTemplate>
-                            <div class="col-lg-3 col-sm-6 text-center" style="margin-bottom:1rem;padding-left: 5px; padding-right: 5px;" data-toggle="modal" data-target="#exampleModal<%#Eval("ID")%>">
+                            <div class="col-lg-3 col-sm-3 col-xs-3 text-center" style="margin-bottom:1rem;padding-left: 5px; padding-right: 5px;" data-toggle="modal" data-target="#exampleModal<%#Eval("ID")%>">
                                 <div style="box-shadow: 0px 0px 5px 2px #d4d3d3; border-radius: 3px;">
                                 <div class="instrumentcontainer" >
                                 <img height="150" width="150" class="rounded-circle img-fluid d-block mx-auto" src="../Document/<%#Eval("PhotoLocation") %>"" alt="" style=" padding-top:5px;" >

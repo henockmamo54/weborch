@@ -9,8 +9,8 @@
 
                 <div id="forAudience" runat="server">
                     <h3 style="display: inline-block;"><%= Resources.HomeView.aspx.ConcertTeamData %></h3>
-                    <div class="row col-md-12" style="margin-bottom: 1rem; padding: 0px;">
-                        <div class="col-md-4 pull-right" style="padding: 0;">
+                    <div class="row col-md-12 col-xs-12" style="margin-bottom: 1rem; padding: 0px;">
+                        <div class="col-md-4 col-xs-4 pull-right" style="padding: 0;">
                             <h5 style="display: inline-block;">Name: </h5>
                             <asp:TextBox AutoPostBack="true" ID="txtbox_namefilter" runat="server" CssClass="form-control" Style="width: 82%; display: inline-block;" OnTextChanged="filterOrchestraDataByName"></asp:TextBox>
                         </div>
@@ -23,7 +23,7 @@
                         <asp:Repeater runat="server" ID="repeater_orchestraList">
                             <ItemTemplate>
 
-                                <div class="col-md-3" style="padding-right: 5px; padding-left: 5px;">
+                                <div class="col-md-3 col-xs-3" style="padding-right: 5px; padding-left: 5px;">
                                     <div class="orchContainer" style="background-color: white;">
                                         <h4 style="color: #00796B; font-weight: 800;"> <%#Eval("OfficialName").ToString().Length>10?Eval("OfficialName").ToString().Substring(0,10):Eval("OfficialName").ToString() %></h4>
                                         <h5 style="color: #00796B;">(<%#Eval("Alias") %>)</h5>

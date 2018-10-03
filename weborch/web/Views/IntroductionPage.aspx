@@ -6,7 +6,7 @@
 
             <h4>Introduction</h4>
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-2 col-xs-2">
                     <ul class="list-group">
                         <li class="list-group-item list-group-item-action active">Greetings</li>
                         <li class="list-group-item list-group-item-action">Company Introduction</li>
@@ -15,7 +15,7 @@
                         <li class="list-group-item list-group-item-action">Korea's Orchestra</li>
                     </ul>
                 </div>
-                <div class="col-md-10 shadowedPanel" style="height:500px;">
+                <div class="col-md-10 col-xs-10 shadowedPanel" style="height:500px;">
 
                 </div>
             </div>

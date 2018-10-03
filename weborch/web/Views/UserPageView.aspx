@@ -6,100 +6,100 @@
 
         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
             <ContentTemplate>
-                <div class="col-md-12">
+                <div class="col-md-12 col-xs-12">
                     <div class="col-md-5">
                         <div>
-                            <%--<div class="col-md-12">
+                            <%--<div class="col-md-12 col-xs-12">
                                 <br />
-                                <div class="col-md-4">User ID:</div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-xs-4">User ID:</div>
+                                <div class="col-md-6 col-xs-6">
                                     <asp:TextBox ID="txt_user_userid" runat="server"></asp:TextBox>
                                 </div>
                                 <br />
 
                             </div>--%>
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-xs-12">
                                 <br />
-                                <div class="col-md-4">Email:</div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-xs-4">Email:</div>
+                                <div class="col-md-6 col-xs-6">
                                     <asp:TextBox ID="txt_useremail" TextMode="Email" runat="server"></asp:TextBox>
                                 </div>
                                 <br />
 
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-xs-12">
                                 <br />
-                                <div class="col-md-4">Password:</div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-xs-4">Password:</div>
+                                <div class="col-md-6 col-xs-6">
                                     <asp:TextBox ID="txt_userPassword" TextMode="Password" runat="server"></asp:TextBox>
                                 </div>
                                 <br />
 
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-xs-12">
                                 <br />
-                                <div class="col-md-4">KoreanName:</div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-xs-4">KoreanName:</div>
+                                <div class="col-md-6 col-xs-6">
                                     <asp:TextBox ID="txt_userkoreanname" runat="server"></asp:TextBox>
                                 </div>
                                 <br />
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-xs-12">
                                 <br />
-                                <div class="col-md-4">EnglishName:</div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-xs-4">EnglishName:</div>
+                                <div class="col-md-6 col-xs-6">
                                     <asp:TextBox ID="txt_userenglishname" runat="server"></asp:TextBox>
                                 </div>
                                 <br />
 
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-xs-12">
                                 <br />
-                                <div class="col-md-4">Sex:</div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-xs-4">Sex:</div>
+                                <div class="col-md-6 col-xs-6">
                                     <asp:TextBox ID="txt_usersex" runat="server"></asp:TextBox>
                                 </div>
                                 <br />
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-xs-12">
                                 <br />
-                                <div class="col-md-4">Birth date:</div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-xs-4">Birth date:</div>
+                                <div class="col-md-6 col-xs-6">
                                     <asp:TextBox ID="txt_userBirthDate" runat="server"  placeholder="dd/mm/yyyy"  ToolTip="dd/mm/yyyy"></asp:TextBox>
                                 </div>
                                 <br />
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-xs-12">
                                 <br />
-                                <div class="col-md-4">Zip Code:</div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-xs-4">Zip Code:</div>
+                                <div class="col-md-6 col-xs-6">
                                     <asp:TextBox ID="txt_userZipCode" runat="server"></asp:TextBox>
                                 </div>
                                 <br />
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-xs-12">
                                 <br />
-                                <div class="col-md-4">Address:</div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-xs-4">Address:</div>
+                                <div class="col-md-6 col-xs-6">
                                     <asp:TextBox ID="txt_useraddress" runat="server"></asp:TextBox>
                                 </div>
                                 <br />
 
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-xs-12">
                                 <br />
-                                <div class="col-md-4">Phone Num.:</div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-xs-4">Phone Num.:</div>
+                                <div class="col-md-6 col-xs-6">
                                     <asp:TextBox ID="txt_userPhoneNumber" runat="server"></asp:TextBox>
                                 </div>
                                 <br />
 
                             </div>
                             
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-xs-12">
                                 <br />
-                                <div class="col-md-4">occupation:</div>
-                                <div class="col-md-6">
+                                <div class="col-md-4 col-xs-4">occupation:</div>
+                                <div class="col-md-6 col-xs-6">
                                     <%--<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>--%>
                                     <asp:RadioButtonList ID="radioOcupation" runat="server" CssClass="radio">
                                         <asp:ListItem>Player </asp:ListItem>
@@ -116,14 +116,14 @@
                             </div>
                             <br />
 
-                            <div class="col-md-12 pull-right" style="text-align:center;">
+                            <div class="col-md-12 col-xs-12 pull-right" style="text-align:center;">
                                 <asp:Button ID="btn_cancel" CssClass="btn btn-danger " runat="server" Text="Cancel" OnClick="btn_cancel_click" />
                                 <asp:Button ID="txt_addInstrument" CssClass="btn btn-success " runat="server" Text="Add" OnClick="btn_useradd_Click" />
                             </div>
 
                         </div>
                     </div>
-                  <%--  <div class="col-md-6">
+                  <%--  <div class="col-md-6 col-xs-6">
                         <asp:GridView ID="usergridview" CssClass="table-striped" runat="server" Width="745px">
                         </asp:GridView>
                     </div>--%>

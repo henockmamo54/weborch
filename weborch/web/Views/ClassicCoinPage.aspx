@@ -4,16 +4,16 @@
     <asp:UpdatePanel runat="server">
         <ContentTemplate>
             <br />
-            <div class="col-md-8">
+            <div class="col-md-8 col-xs-8">
 
                 <div class="panel panel-info" style="text-align: center;">
                     <div class="panel-heading">Classic coin</div>
                     <div class="panel-body">
-                        <div class="col-md-6 ">
+                        <div class="col-md-6 col-xs-6 ">
                             <img class="shadowedPanel" src="../Document/9.jpg" width="300" height="300" />
 
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-xs-6">
                             <div class="card" style="text-align:left;">
                                 <p>
                                     <h5>Total Number of Coins: 45</h5>

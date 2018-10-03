@@ -5,8 +5,7 @@
         <ContentTemplate>
             <div class="row">
                 <br />
-                <div class="col-md-2"></div>
-                <div class="col-md-6">
+                <div class="col-md-6 col-xs-6">
                     <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand" OnItemDataBound="Repeater1_ItemDataBound">
                         <ItemTemplate>
                             <div class="rptr" style="width: 40em; box-shadow: 1px 1px 1px 1px #ececec;">
@@ -198,31 +197,31 @@
                         </ItemTemplate>
                     </asp:Repeater>
                 </div>
-                <div class="col-md-4 pull-right panel panel-default" style="padding: 1em; box-shadow: 1px 1px 1px 1px #ececec;">
+                <div class="col-md-4 col-xs-4  col-xs-4 pull-right panel panel-default" style="padding: 1em; box-shadow: 1px 1px 1px 1px #ececec;">
 
-                    <div class="col-md-12">
-                        <div class="col-md-4">
+                    <div class="col-md-12 col-xs-12   ">
+                        <div class="col-md-4 col-xs-4  ">
                             <%= Resources.HomeView.aspx.Type %>:
                         </div>
-                        <div class="col-md-8" style="padding-bottom: 1em;">
+                        <div class="col-md-8 col-xs-8" style="padding-bottom: 1em;">
                             <asp:DropDownList CssClass="form-control" ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1BulletinType" DataTextField="Name" DataValueField="ID"></asp:DropDownList>
                             <asp:SqlDataSource ID="SqlDataSource1BulletinType" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [ID], [Name] FROM lookup.[BulletinType]"></asp:SqlDataSource>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="col-md-4">
+                    <div class="col-md-12 col-xs-12 ">
+                        <div class="col-md-4 col-xs-4 ">
                             Title:
                         </div>
-                        <div class="col-md-8" style="padding-bottom: 1em;">
+                        <div class="col-md-8 col-xs-8" style="padding-bottom: 1em;">
 
                             <asp:TextBox CssClass="form-control" ID="txt_title" runat="server"></asp:TextBox>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="col-md-4">
+                    <div class="col-md-12 col-xs-12 ">
+                        <div class="col-md-4 col-xs-4 ">
                             <%= Resources.HomeView.aspx.Msg %>:
                         </div>
-                        <div class="col-md-8" style="padding-bottom: 1em;">
+                        <div class="col-md-8 col-xs-8" style="padding-bottom: 1em;">
                             <%--<div class="col-md-9"  ID="txt_bulmsg" >
                                 My post content
                             </div>
@@ -232,27 +231,27 @@
                             <%--<asp:TextBox CssClass="form-control" ID="txt_bulmsg"  runat="server" TextMode="MultiLine"  onclick="loadEditor()"></asp:TextBox>--%>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="col-md-4">
+                    <div class="col-md-12 col-xs-12 ">
+                        <div class="col-md-4 col-xs-4 ">
                             <%= Resources.HomeView.aspx.URL %>:
                         </div>
-                        <div class="col-md-8" style="padding-bottom: 1em;">
+                        <div class="col-md-8 col-xs-8" style="padding-bottom: 1em;">
 
                             <asp:TextBox CssClass="form-control" ID="txt_bulurl" runat="server"></asp:TextBox>
                         </div>
                     </div>
-                    <div class="col-md-12">
-                        <div class="col-md-4">
+                    <div class="col-md-12 col-xs-12 ">
+                        <div class="col-md-4 col-xs-4 ">
                             <%= Resources.HomeView.aspx.Image %>:                     
                                 
                         </div>
-                        <div class="col-md-8" style="padding-bottom: 1em;">
+                        <div class="col-md-8 col-xs-8" style="padding-bottom: 1em;">
                             <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline" />
                             <asp:Button ID="addPost" CssClass="btn btn-info pull-right" runat="server" Text="<%$Resources:HomeView.aspx,Add %>" OnClick="Button1_Click" />
                         </div>
                     </div>
 
-                    <%--<div id="me" class="col-md-12"> <div class="col-md-4"> test </div></div>--%>
+                    <%--<div id="me" class="col-md-12 col-xs-12 "> <div class="col-md-4 col-xs-4 "> test </div></div>--%>
                 </div>
             </div>
 

@@ -11,101 +11,101 @@
                 <div id="formanaging" runat="server" >
                     <h3><%= Resources.HomeView.aspx.Instrumentdata %></h3>
                     <div class="row shadowedPanel" style="background-color: white;padding: 10px;box-shadow: 1px 1px 1px 1px #d0d0d0;border-radius:5px;">
-                        <div class="col-md-12">
-                            <div class="col-md-12">
+                        <div class="col-md-12 col-xs-12">
+                            <div class="col-md-12 col-xs-12">
                                 <div class="row pull-rght form-group" id="instrumentinfoInput">
 
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 col-xs-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.Name %>:</div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Name %>:</div>
+                                        <div class="col-md-8 col-xs-8">
                                             <asp:TextBox ID="txt_inst_engname" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <br />
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 col-xs-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.KoreanName %>:</div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.KoreanName %>:</div>
+                                        <div class="col-md-8 col-xs-8">
                                             <asp:TextBox ID="txt_inst_korean_name" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <br />
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 col-xs-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.Alias %>:</div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Alias %>:</div>
+                                        <div class="col-md-8 col-xs-8">
                                             <asp:TextBox ID="txt_inst_alias" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <br />
 
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 col-xs-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.Player %>:</div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Player %>:</div>
+                                        <div class="col-md-8 col-xs-8">
                                             <asp:TextBox ID="txt_inst_player" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <br />
 
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 col-xs-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.Group %>:</div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Group %>:</div>
+                                        <div class="col-md-8 col-xs-8">
                                             <asp:TextBox ID="txt_inst_group" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <br />
 
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 col-xs-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.Explanation %>:</div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Explanation %>:</div>
+                                        <div class="col-md-8 col-xs-8">
                                             <asp:TextBox ID="txt_inst_explanation" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <br />
 
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 col-xs-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.SoundClipLocation %>:</div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.SoundClipLocation %>:</div>
+                                        <div class="col-md-8 col-xs-8">
                                             <asp:TextBox ID="txt_inst_soundcliplocation" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <br />
 
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 col-xs-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.VideoClipLocation %>:</div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.VideoClipLocation %>:</div>
+                                        <div class="col-md-8 col-xs-8">
                                             <asp:TextBox ID="txt_inst_videocliplocation" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <br />
 
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 col-xs-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.PhotoLocation %>:</div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.PhotoLocation %>:</div>
+                                        <div class="col-md-8 col-xs-8">
                                             <%--<asp:TextBox ID="txt_inst_photolocation" runat="server" class="form-control"></asp:TextBox>--%>
                                             <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline; margin-bottom: 1em;" />
                                         </div>
                                         <br />
 
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 col-xs-4">
                                         <br />
-                                        <div class="col-md-4"><%= Resources.HomeView.aspx.Remarks %>:</div>
-                                        <div class="col-md-8">
+                                        <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Remarks %>:</div>
+                                        <div class="col-md-8 col-xs-8">
                                             <asp:TextBox ID="txt_inst_remarks" runat="server" class="form-control"></asp:TextBox>
                                         </div>
                                         <br />
                                     </div>
                                 </div>
 
-                                <div class="row col-md-12">
+                                <div class="row col-md-12 col-xs-12">
                                     <asp:Button ID="txt_addInstrument" CssClass="btn btn-primary pull-right" runat="server" Text="<%$Resources:HomeView.aspx,Register %>" OnClick="btn_instadd_Click" />
                                 </div>
                             </div>

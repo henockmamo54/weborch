@@ -19,13 +19,13 @@
                 <div class="container">
                     <div class="row">
 
-                        <%-- <div class=" col-md-12">
+                        <%-- <div class=" col-md-12 col-xs-12">
                             <h2 style="margin-top: 0px; padding-top: 0px; display: inline-block;">Musical Performance Information</h2>
                         </div>--%>
 
                         <br />
 
-                        <div class="row col-md-12 ">
+                        <div class="row col-md-12 col-xs-12 ">
                             <div class="col-md-3">
                                 <asp:Calendar runat="server" ID="dateselectorcalendar"  BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="200px" OnSelectionChanged="dateselectorcalendar_SelectionChanged">
                                     <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
@@ -36,7 +36,7 @@
                                     <TodayDayStyle BackColor="#CCCCCC" />
                                 </asp:Calendar>
                             </div>
-                            <div class="col-md-6 " style="padding:0;">
+                            <div class="col-md-6 col-xs-6 " style="padding:0;">
                                 <h4 style="color: #3c83f1;">Performance schedule: This week</h4>
                                 <div class="shadowedPanel">
                                     <table class="table">
@@ -84,7 +84,7 @@
                         <asp:Repeater runat="server" ID="repeater_performanceList" OnItemDataBound="repeater_performanceList_ItemDataBound">
 
                             <ItemTemplate>
-                                <div class="col-md-4" style="margin-bottom: 1em;">
+                                <div class="col-md-4 col-xs-4" style="margin-bottom: 1em;">
                                     <div class="thumbnail shadowedbox" style="box-shadow: 2px 2px 2px #d0d0d0;">
                                         <asp:LinkButton runat="server" ID="tumbinallink" Style="text-decoration: none;">
                                             <img src="../Document/<%#Eval("PhotoAddLocation") %>" class="shadowedbox" alt="Lights" style="width: 100%; height: 250px;">
@@ -116,7 +116,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 col-xs-12">
                             <asp:LinkButton CssClass="btn btn-success pull-right" runat="server" Style="display: inline-block;" ID="btn_MangePerformanceButton" Text="Add / Manage Performance" OnClick="onBtnManagePerformanceButtonClick" />
                             <asp:Button runat="server" Text="Show More" CssClass="btn btn-success pull-right" Style="margin-right: 5px;" OnClick="loadMorePerformances" />
                         </div>

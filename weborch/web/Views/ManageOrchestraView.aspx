@@ -12,73 +12,73 @@
                     <h3><%= Resources.HomeView.aspx.ConcertTeamData %></h3>
 
                     <div class="row shadowedPanel" style="background-color: white; box-shadow: 1px 1px 1px 1px #d0d0d0; border-radius: 5px;">
-                        <div class="col-md-12 ">
-                            <div class="col-md-12  form-group">
-                                <div class="col-md-4">
+                        <div class="col-md-12 col-xs-12 ">
+                            <div class="col-md-12 col-xs-12  form-group">
+                                <div class="col-md-4 col-xs-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Name %>*</div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Name %>*</div>
+                                    <div class="col-md-8 col-xs-8">
                                         <asp:TextBox ID="txt_orchname" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-xs-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Alias %></div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Alias %></div>
+                                    <div class="col-md-8 col-xs-8">
                                         <asp:TextBox ID="txt_orchaliasname" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-xs-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.URL %></div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.URL %></div>
+                                    <div class="col-md-8 col-xs-8">
                                         <asp:TextBox ID="txt_orchurl" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-xs-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Address %>*</div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Address %>*</div>
+                                    <div class="col-md-8 col-xs-8">
                                         <asp:TextBox ID="txt_orchaddress" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-xs-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.ZipCode %></div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.ZipCode %></div>
+                                    <div class="col-md-8 col-xs-8">
                                         <asp:TextBox ID="txt_orchzipcode" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-xs-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.TelNO %></div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.TelNO %></div>
+                                    <div class="col-md-8 col-xs-8">
                                         <asp:TextBox ID="txt_orchtelno" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-xs-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.FaxNo %></div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.FaxNo %></div>
+                                    <div class="col-md-8 col-xs-8">
                                         <asp:TextBox ID="txt_orchfaxno" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-xs-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Conductor %></div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Conductor %></div>
+                                    <div class="col-md-8 col-xs-8">
                                         <%--<asp:TextBox ID="txt_orchcondactername" runat="server" class="form-control"></asp:TextBox>--%>
                                         <asp:DropDownList ID="DropDownList2_conductor" runat="server" DataSourceID="SqlDataSource3_conductor" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
                                         <asp:SqlDataSource ID="SqlDataSource3_conductor" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="select (FirstName ) as Name, ID
@@ -92,10 +92,10 @@ where al.Name='Conductor'
                                     <br />
 
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-xs-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Since %></div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Since %></div>
+                                    <div class="col-md-8 col-xs-8">
                                         <asp:TextBox ID="txt_orchsince" runat="server" OnClick="dummybtnclick" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
@@ -103,8 +103,8 @@ where al.Name='Conductor'
                             </div>
                             <br />
                             <hr />
-                            <div class="col-md-12" >
-                                <div class="col-md-12">
+                            <div class="col-md-12 col-xs-12" >
+                                <div class="col-md-12 col-xs-12">
                                     <asp:Button ID="btn_cancelorch" Style="margin:1em; margin-right: 0.3em; "  CssClass="btn btn-danger pull-right" runat="server" Text="Cancel" OnClick="btn_cancelorch_Click" />
                                     <asp:Button ID="btn_orchadd" Style="margin:1em; margin-right: 0.3em; " CssClass="btn btn-primary pull-right"  runat="server" Text="<%$Resources:HomeView.aspx,Register %>" OnClick="btn_orchadd_Click" />
                                     <asp:Button ID="btn_updateorch" Style="margin:1em; margin-right: 0.3em; " CssClass="btn btn-success pull-right" Visible="false" runat="server" Text="Update" OnClick="btn_updateorch_Click"/>
@@ -116,7 +116,7 @@ where al.Name='Conductor'
                     <div class="row">
 
                         <div class="row">
-                            <div class="col-md-12 form-group" style="margin-bottom: 0px;">
+                            <div class="col-md-12 col-xs-12 form-group" style="margin-bottom: 0px;">
                                 <span class='input-group-addon'>
                                     <asp:Label runat="server" Style="padding: 5px;"><%= Resources.HomeView.aspx.Name %>:</asp:Label>
                                     <asp:TextBox ID="TextBox1_serach" class="form-control" Style="display: inline;" runat="server" AutoPostBack="True" OnTextChanged="serachTextValueChanged"></asp:TextBox>
@@ -125,7 +125,7 @@ where al.Name='Conductor'
 
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-md-12 col-xs-12">
                                 <asp:SqlDataSource ID="SqlDataSource1_allOrchestraInfo" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" DeleteCommand="delete from Core.Orchestra
 where ID=@ID"
                                     InsertCommand="insert into Core.Orchestra

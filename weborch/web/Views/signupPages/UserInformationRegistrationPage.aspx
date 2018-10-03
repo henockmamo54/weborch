@@ -12,18 +12,18 @@
 
             <h4>Sign Up</h4>
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-2 col-xs-2">
                     <ul class="list-group">
                         <a class="list-group-item list-group-item-action" href="TermsOfUsePage.aspx"><%= Resources.HomeView.aspx.AcceptTerms %></a>
                         <a class="list-group-item list-group-item-action active"><%= Resources.HomeView.aspx.UserInfo %></a>
                     </ul>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-10 col-xs-10">
 
-                    <div class="col-md-12 shadowedPanel" style="height: 220px; background-color: white;">
+                    <div class="col-md-12 col-xs-12 shadowedPanel" style="height: 220px; background-color: white;">
                         <div class="rwo">
                             <label><%= Resources.HomeView.aspx.WhatkindOfUserAreyou %></label>
-                            <div class="col-md-12 form-group">
+                            <div class="col-md-12 col-xs-12 form-group">
                                 <br />
                                 <%= Resources.HomeView.aspx.Individual %>
                                 <asp:CheckBox runat="server" ID="chk_Composer" Text="<%$Resources:HomeView.aspx,Composer %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
@@ -51,43 +51,43 @@
 
                     </div>
                     <br />
-                    <div runat="server" id="PersonInfoFormContainer" visible="false" style="background-color: white;" class="col-md-12 shadowedPanel">
+                    <div runat="server" id="PersonInfoFormContainer" visible="false" style="background-color: white;" class="col-md-12 col-xs-12 shadowedPanel">
                         <div class="row">
                             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                 <ContentTemplate>
-                                    <div class="col-md-12" style="padding: 0;">
-                                        <div class="col-md-6 form-group" style="padding: 0;">
+                                    <div class="col-md-12 col-xs-12" style="padding: 0;">
+                                        <div class="col-md-6 col-xs-6 form-group" style="padding: 0;">
                                             <div>
-                                                <div class="col-md-12">
+                                                <div class="col-md-12 col-xs-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Email %>*</div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Email %>*</div>
+                                                    <div class="col-md-6 col-xs-6">
                                                         <asp:TextBox ID="uemail" TextMode="Email" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                     <br />
 
                                                 </div>
-                                                <div class="col-md-12">
+                                                <div class="col-md-12 col-xs-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Password %>*</div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Password %>*</div>
+                                                    <div class="col-md-6 col-xs-6">
                                                         <asp:TextBox ID="upassword" TextMode="Password" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                     <br />
 
                                                 </div>
-                                                <div class="col-md-12">
+                                                <div class="col-md-12 col-xs-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Name %>*</div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Name %>*</div>
+                                                    <div class="col-md-6 col-xs-6">
                                                         <asp:TextBox ID="uname" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                     <br />
                                                 </div>
-                                                <div class="col-md-12">
+                                                <div class="col-md-12 col-xs-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Affiliation %>*</div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Affiliation %>*</div>
+                                                    <div class="col-md-6 col-xs-6">
 
                                                         <asp:DropDownList ID="DropDownList1_Affilation" runat="server" class="form-control" DataSourceID="SqlDataSource1_allOrchestra" DataTextField="OfficialName" DataValueField="ID" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_Affilation_SelectedIndexChanged"></asp:DropDownList>
                                                         <asp:SqlDataSource ID="SqlDataSource1_allOrchestra" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [OfficialName]='Other', [ID]=-1 FROM  core.[Orchestra]
@@ -99,10 +99,10 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                 </div>
 
 
-                                                <div class="col-md-12">
+                                                <div class="col-md-12 col-xs-12">
                                                     <br />
-                                                    <div class="col-md-4"></div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4 col-xs-4"></div>
+                                                    <div class="col-md-6 col-xs-6">
 
                                                         <asp:TextBox ID="uaffilation" runat="server" placeholder="Your Affilation" class="form-control"></asp:TextBox>
                                                     </div>
@@ -110,10 +110,10 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                 </div>
 
 
-                                                <div class="col-md-12">
+                                                <div class="col-md-12 col-xs-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Sex %>*</div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Sex %>*</div>
+                                                    <div class="col-md-6 col-xs-6">
 
                                                         <asp:DropDownList ID="DropDownList1_sex" runat="server" class="form-control">
                                                             <asp:ListItem>Male</asp:ListItem>
@@ -124,10 +124,10 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                     </div>
                                                     <br />
                                                 </div>
-                                                <div class="col-md-12">
+                                                <div class="col-md-12 col-xs-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Birthday %>*</div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Birthday %>*</div>
+                                                    <div class="col-md-6 col-xs-6">
                                                         <%--<asp:TextBox ID="userBirthDate" runat="server" ToolTip="dd/mm/yyyy" class="form-control" placeholder="dd/mm/yyyy"></asp:TextBox>--%>
                                                         <div class='input-group date' id='datetimepicker2' style="display: flex;">
                                                             <input type='text' class="form-control" runat="server" id="userBirthDate" style="display: inline-block; border-right-width: 0px;" />
@@ -138,26 +138,26 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                     </div>
                                                     <br />
                                                 </div>
-                                                <div class="col-md-12">
+                                                <div class="col-md-12 col-xs-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.ZipCode %></div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.ZipCode %></div>
+                                                    <div class="col-md-6 col-xs-6">
                                                         <asp:TextBox ID="uzipcode" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                     <br />
                                                 </div>
-                                                <div class="col-md-12">
+                                                <div class="col-md-12 col-xs-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Address %>*</div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Address %>*</div>
+                                                    <div class="col-md-6 col-xs-6">
                                                         <asp:TextBox ID="uaddress" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                     <br />
                                                 </div>
-                                                <div class="col-md-12">
+                                                <div class="col-md-12 col-xs-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.MobileNo %></div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.MobileNo %></div>
+                                                    <div class="col-md-6 col-xs-6">
                                                         
                                                         <asp:TextBox ID="umobileno1" runat="server" class="form-control" MaxLength="3" style="display: inline-block; width: 25%;"></asp:TextBox>
                                                         <asp:TextBox ID="umobileno2" runat="server" class="form-control" MaxLength="4" style="display: inline-block; width: 35%;"></asp:TextBox>
@@ -166,34 +166,34 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                     <br />
                                                 </div>
 
-                                                <div class="col-md-12">
+                                                <div class="col-md-12 col-xs-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.FacebookAddr %></div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.FacebookAddr %></div>
+                                                    <div class="col-md-6 col-xs-6">
                                                         <asp:TextBox ID="ufacebookadd" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                     <br />
                                                 </div>
-                                                <div class="col-md-12">
+                                                <div class="col-md-12 col-xs-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.TwitterAddr %></div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.TwitterAddr %></div>
+                                                    <div class="col-md-6 col-xs-6">
                                                         <asp:TextBox ID="utwitter" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                     <br />
                                                 </div>
-                                                <div class="col-md-12">
+                                                <div class="col-md-12 col-xs-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.KakaoTalkID %></div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.KakaoTalkID %></div>
+                                                    <div class="col-md-6 col-xs-6">
                                                         <asp:TextBox ID="ukakao" runat="server" class="form-control"></asp:TextBox>
                                                     </div>
                                                     <br />
                                                 </div>
-                                                <div class="col-md-12">
+                                                <div class="col-md-12 col-xs-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.MajorInstrument1 %></div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.MajorInstrument1 %></div>
+                                                    <div class="col-md-6 col-xs-6">
 
                                                         <asp:SqlDataSource ID="SqlDataSource3_instrumentlist" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="select 1 row, -1 as ID, 'None' as EnglishName, 'None' as KoreanName, 'None' as [Group] 
 union
@@ -204,10 +204,10 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                                     </div>
                                                     <br />
                                                 </div>
-                                                <div class="col-md-12">
+                                                <div class="col-md-12 col-xs-12">
                                                     <br />
-                                                    <div class="col-md-4"><%= Resources.HomeView.aspx.MajorInstrument2 %></div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.MajorInstrument2 %></div>
+                                                    <div class="col-md-6 col-xs-6">
                                                         <asp:DropDownList ID="DropDownList1_mjInst2" class="form-control" runat="server" DataSourceID="SqlDataSource3_instrumentlist" DataTextField="EnglishName" DataValueField="ID"></asp:DropDownList>
 
                                                         <%--<asp:TextBox ID="umajorinst2" runat="server" class="form-control"></asp:TextBox>--%>
@@ -218,33 +218,33 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                             </div>
                                         </div>
 
-                                        <div class="col-md-6 form-group" id="endorserdiv" style="padding: 0;">
+                                        <div class="col-md-6 col-xs-6 form-group" id="endorserdiv" style="padding: 0;">
 
 
-                                            <div class="col-md-12">
+                                            <div class="col-md-12 col-xs-12">
                                                 <br />
-                                                <div class="col-md-4"><%= Resources.HomeView.aspx.Photo1 %>*</div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Photo1 %>*</div>
+                                                <div class="col-md-6 col-xs-6">
                                                     <asp:FileUpload ID="FileUpload1" runat="server" Style="display: inline" />
                                                     <%--<asp:TextBox ID="uphoto1" runat="server" class="form-control"></asp:TextBox>--%>
                                                 </div>
                                                 <br />
                                             </div>
 
-                                            <div class="col-md-12">
+                                            <div class="col-md-12 col-xs-12">
                                                 <br />
-                                                <div class="col-md-4"><%= Resources.HomeView.aspx.Photo2 %></div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Photo2 %></div>
+                                                <div class="col-md-6 col-xs-6">
                                                     <asp:FileUpload ID="FileUpload2" runat="server" Style="display: inline" />
                                                     <%--<asp:TextBox ID="uphoto2" runat="server" class="form-control"></asp:TextBox>--%>
                                                 </div>
                                                 <br />
                                             </div>
 
-                                            <div class="col-md-12">
+                                            <div class="col-md-12 col-xs-12">
                                                 <br />
-                                                <div class="col-md-4"><%= Resources.HomeView.aspx.ProfilePage %>*</div>
-                                                <div class="col-md-8">
+                                                <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.ProfilePage %>*</div>
+                                                <div class="col-md-8 col-xs-8">
                                                     <asp:TextBox ID="uprofilepage" TextMode="MultiLine" Rows="3" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
@@ -252,10 +252,10 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                                 <br />
                                             </div>
 
-                                            <div class="col-md-12">
+                                            <div class="col-md-12 col-xs-12">
                                                 <br />
-                                                <div class="col-md-4"><%= Resources.HomeView.aspx.Repertory %>*</div>
-                                                <div class="col-md-8">
+                                                <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Repertory %>*</div>
+                                                <div class="col-md-8 col-xs-8">
                                                     <asp:TextBox TextMode="MultiLine" Rows="3" ID="urepertory" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                                 <br />
@@ -266,24 +266,24 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                             <br />
                                             <hr />
 
-                                            <div class="col-md-12">
-                                                <div class="col-md-4">
+                                            <div class="col-md-12 col-xs-12">
+                                                <div class="col-md-4 col-xs-4">
                                                     <asp:Label runat="server"><%= Resources.HomeView.aspx.Endorser %>:</asp:Label>
                                                 </div>
-                                                <%--<div class="col-md-4">
+                                                <%--<div class="col-md-4 col-xs-4">
 
                                                     <asp:DropDownList class="form-control" ID="DropDownList1_endorserlist" runat="server" DataSourceID="SqlDataSource1_endorserList" DataTextField="Name" DataValueField="ID"></asp:DropDownList>
                                                     <asp:SqlDataSource ID="SqlDataSource1_endorserList" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="SELECT [Name], [Email],  [ID] FROM Main.[Endorser]"></asp:SqlDataSource>
 
                                                 </div>--%>
-                                                <div class="col-md-4">
+                                                <div class="col-md-4 col-xs-4">
                                                     <%--<asp:Button ID="Button5" CssClass="btn btn-sm btn-warning" Style="margin-left: 3px !important;" runat="server" Text="<%$Resources:HomeView.aspx,Add %>" OnClick="btn_add_endorser_tolist" />--%>
                                                     <asp:Button ID="btn_add_Inst" CssClass="btn btn-sm btn-success" Style="margin-left: 3px !important;" runat="server" Text="<%$Resources:HomeView.aspx,Add %>" data-toggle="modal" data-target="#exampleModalLong" />
                                                 </div>
 
                                             </div>
 
-                                            <div class="row col-md-12 pull-right">
+                                            <div class="row col-md-12 col-xs-12 pull-right">
                                                 <asp:Repeater runat="server" ID="myendorsmentlist">
                                                     <ItemTemplate>
                                                         <tr style="margin-bottom: 3px;">
@@ -305,7 +305,7 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                         </div>
 
 
-                                        <div class="col-md-12 pull-right" style="text-align: center;">
+                                        <div class="col-md-12 col-xs-12 pull-right" style="text-align: center;">
                                             <asp:Button ID="Button1" CssClass="btn btn-danger " runat="server" Text="<%$Resources:HomeView.aspx,Cancel %>" OnClick="btn_cancel_click" />
                                             <asp:Button ID="Button2" CssClass="btn btn-success " runat="server" Text="<%$Resources:HomeView.aspx,Add %>" OnClick="btn_regPersonalInfo_click" />
                                         </div>
@@ -315,67 +315,67 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
 
                         </div>
                     </div>
-                    <div runat="server" id="CompanyInfoFormContainer" style="background-color: white;" visible="false" class="col-md-12 shadowedPanel">
+                    <div runat="server" id="CompanyInfoFormContainer" style="background-color: white;" visible="false" class="col-md-12 col-xs-12 shadowedPanel">
                         <div class="row">
-                            <div class=" row col-md-12 form-group">
+                            <div class=" row col-md-12 col-xs-12 form-group">
 
-                                <div class="col-md-6 ">
+                                <div class="col-md-6 col-xs-6 ">
                                     <div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 col-xs-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.Email %>*</div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Email %>*</div>
+                                            <div class="col-md-6 col-xs-6">
                                                 <asp:TextBox ID="oemail" TextMode="Email" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <br />
 
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 col-xs-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.Password %>*</div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Password %>*</div>
+                                            <div class="col-md-6 col-xs-6">
                                                 <asp:TextBox ID="opassword" TextMode="Password" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <br />
 
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 col-xs-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.MobileNo %></div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.MobileNo %></div>
+                                            <div class="col-md-6 col-xs-6">
                                                 <asp:TextBox ID="omibile" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <br />
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 col-xs-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.CompanyName %>*</div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.CompanyName %>*</div>
+                                            <div class="col-md-6 col-xs-6">
                                                 <asp:TextBox ID="ocompanyname" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <br />
 
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 col-xs-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.BussinessNo %></div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.BussinessNo %></div>
+                                            <div class="col-md-6 col-xs-6">
                                                 <asp:TextBox ID="obussinessno" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <br />
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 col-xs-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.ZipCode %></div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.ZipCode %></div>
+                                            <div class="col-md-6 col-xs-6">
                                                 <asp:TextBox ID="ozipcode" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <br />
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 col-xs-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.Address %></div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Address %></div>
+                                            <div class="col-md-6 col-xs-6">
                                                 <asp:TextBox ID="oaddress" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <br />
@@ -384,72 +384,72 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-6 col-xs-6">
                                     <div>
 
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 col-xs-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.PhoneNo %></div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.PhoneNo %></div>
+                                            <div class="col-md-6 col-xs-6">
                                                 <asp:TextBox ID="ophonenumber" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <br />
 
                                         </div>
 
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 col-xs-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.FaxNo %></div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.FaxNo %></div>
+                                            <div class="col-md-6 col-xs-6">
                                                 <asp:TextBox ID="ofaxnumber" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <br />
                                         </div>
 
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 col-xs-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.CEOName %></div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.CEOName %></div>
+                                            <div class="col-md-6 col-xs-6">
                                                 <asp:TextBox ID="oceoname" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <br />
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 col-xs-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.AdminEmail %>*</div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.AdminEmail %>*</div>
+                                            <div class="col-md-6 col-xs-6">
                                                 <asp:TextBox ID="oadminemail" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <br />
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 col-xs-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.AdminName %>*</div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.AdminName %>*</div>
+                                            <div class="col-md-6 col-xs-6">
                                                 <asp:TextBox ID="oadminname" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <br />
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 col-xs-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.AdminMobileNo %>:</div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.AdminMobileNo %>:</div>
+                                            <div class="col-md-6 col-xs-6">
                                                 <asp:TextBox ID="oadminmobno" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <br />
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 col-xs-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.CompanyHomeUrl %>:</div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.CompanyHomeUrl %>:</div>
+                                            <div class="col-md-6 col-xs-6">
                                                 <asp:TextBox ID="ocompanyurl" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <br />
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 col-xs-12">
                                             <br />
-                                            <div class="col-md-4"><%= Resources.HomeView.aspx.OtherInfo %>:</div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.OtherInfo %>:</div>
+                                            <div class="col-md-6 col-xs-6">
                                                 <asp:TextBox ID="ootherinof" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                             <br />
@@ -464,39 +464,39 @@ SELECT ROW_NUMBER() OVER(ORDER BY EnglishName ASC) AS Row, ID, EnglishName, Kore
 
                         </div>
 
-                        <div class="row col-md-12">
-                            <div class="col-md-12" runat="server" id="divforOrchestrainfo" visible="true">
+                        <div class="row col-md-12 col-xs-12">
+                            <div class="col-md-12 col-xs-12" runat="server" id="divforOrchestrainfo" visible="true">
 
                                 <h4><%= Resources.HomeView.aspx.Orchestradata %></h4>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-xs-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Name %>*</div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Name %>*</div>
+                                    <div class="col-md-8 col-xs-8">
                                         <asp:TextBox ID="txt_orchname" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-xs-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Alias %></div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Alias %></div>
+                                    <div class="col-md-8 col-xs-8">
                                         <asp:TextBox ID="txt_orchaliasname" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-xs-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.URL %></div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.URL %></div>
+                                    <div class="col-md-8 col-xs-8">
                                         <asp:TextBox ID="txt_orchurl" runat="server" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
 
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-xs-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Conductor %>*</div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Conductor %>*</div>
+                                    <div class="col-md-8 col-xs-8">
                                         <%--<asp:TextBox ID="txt_orchcondactername" runat="server" class="form-control"></asp:TextBox>--%>
                                         <asp:DropDownList ID="DropDownList2_conductor" runat="server" DataSourceID="SqlDataSource3_conductor" DataTextField="Name" DataValueField="ID" class="form-control"></asp:DropDownList>
                                         <asp:SqlDataSource ID="SqlDataSource3_conductor" runat="server" ConnectionString="<%$ ConnectionStrings:OrchestraDBConnectionString %>" SelectCommand="select ( isnull(FirstName,'') + ' '+ isnull(MiddleName,'') + ' '+ isnull(FamilyName,'')) as Name, ID
@@ -510,10 +510,10 @@ where al.Name like '%Conductor%'
                                     <br />
 
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 col-xs-4">
                                     <br />
-                                    <div class="col-md-4"><%= Resources.HomeView.aspx.Since %></div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.Since %></div>
+                                    <div class="col-md-8 col-xs-8">
                                         <asp:TextBox ID="txt_orchsince" runat="server" OnClick="dummybtnclick" class="form-control"></asp:TextBox>
                                     </div>
                                     <br />
@@ -524,7 +524,7 @@ where al.Name like '%Conductor%'
 
                         <br />
 
-                        <div class="col-md-12 pull-right" style="text-align: center;">
+                        <div class="col-md-12 col-xs-12 pull-right" style="text-align: center;">
                             <br />
                             <br />
                             <asp:Button ID="Button3" CssClass="btn btn-danger " runat="server" Text="<%$Resources:HomeView.aspx,Cancel %>" OnClick="btn_cancel_click" />
@@ -609,11 +609,11 @@ where al.Name like '%Conductor%'
             box-shadow: 2px 2px 2px 2px #f5f5f5;
         }
 
-        #endorserdiv .col-md-12 {
+        #endorserdiv .col-md-12 col-xs-12 {
             padding: 0 !important;
         }
 
-        #endorserdiv .col-md-4 {
+        #endorserdiv .col-md-4 col-xs-4 {
             padding: 0 !important;
         }
     </style>

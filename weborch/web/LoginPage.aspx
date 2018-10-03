@@ -5,7 +5,7 @@
     <script type="text/javascript">
 
         var x = document.getElementById("mastermaincontent");
-        x.className = "col-md-12"
+        x.className = "col-md-12 col-xs-12"
 
         var x = document.getElementById("masterNavigationBar");
         x.style.display = "none";
@@ -67,7 +67,7 @@
 
 
         var x = document.getElementById("mastermaincontent");
-        x.className = "col-md-12"
+        x.className = "col-md-12 col-xs-12"
 
         var x = document.getElementById("masterNavigationBar");
         x.style.display = "none";
