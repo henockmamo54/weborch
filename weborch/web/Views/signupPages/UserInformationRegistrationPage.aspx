@@ -160,8 +160,8 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                     <div class="col-md-6 col-xs-6">
                                                         
                                                         <asp:TextBox ID="umobileno1" runat="server" class="form-control" MaxLength="3" style="display: inline-block; width: 25%;"></asp:TextBox>
-                                                        <asp:TextBox ID="umobileno2" runat="server" class="form-control" MaxLength="4" style="display: inline-block; width: 35%;"></asp:TextBox>
-                                                        <asp:TextBox ID="umobileno3" runat="server" class="form-control" MaxLength="4" style="display: inline-block; width: 35%;"></asp:TextBox>
+                                                        <asp:TextBox ID="umobileno2" runat="server" class="form-control" MaxLength="4" style="display: inline-block; width: 30%;"></asp:TextBox>
+                                                        <asp:TextBox ID="umobileno3" runat="server" class="form-control" MaxLength="4" style="display: inline-block; width: 30%;"></asp:TextBox>
                                                     </div>
                                                     <br />
                                                 </div>
@@ -586,12 +586,12 @@ where al.Name like '%Conductor%'
         }
         function bindDateTime() {
             $('#datetimepicker2').datetimepicker({
-                format: 'DD/MM/YYYY'
+                format: 'MM/DD/YYYY'
             });
         }
         $(function () {
             $('#datetimepicker2').datetimepicker({
-                format: 'DD/MM/YYYY'
+                format: 'MM/DD/YYYY'
             });
         });
 
