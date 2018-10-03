@@ -20,27 +20,51 @@
                 </div>
                 <div class="col-md-10 col-xs-10">
 
-                    <div class="col-md-12 col-xs-12 shadowedPanel" style="height: 220px; background-color: white;">
-                        <div class="rwo">
-                            <label><%= Resources.HomeView.aspx.WhatkindOfUserAreyou %></label>
-                            <div class="col-md-12 col-xs-12 form-group">
-                                <br />
-                                <%= Resources.HomeView.aspx.Individual %>
-                                <asp:CheckBox runat="server" ID="chk_Composer" Text="<%$Resources:HomeView.aspx,Composer %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
-                                <asp:CheckBox runat="server" ID="chk_Conductor" Text="<%$Resources:HomeView.aspx,Conductor %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
-                                <asp:CheckBox runat="server" ID="chk_tp" Text="<%$Resources:HomeView.aspx,Teacher_Professor %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
-                                <asp:CheckBox runat="server" ID="chk_Student" Text="<%$Resources:HomeView.aspx,Student %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
-                                <asp:CheckBox runat="server" ID="chk_Audience" Text="<%$Resources:HomeView.aspx,Audience %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
-                                <asp:CheckBox runat="server" ID="chk_Player" Text="<%$Resources:HomeView.aspx,Player %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
-                                <asp:CheckBox runat="server" ID="chk_userOther" Text="<%$Resources:HomeView.aspx,Other %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
-                                <br />
-                                <br />
-                                <%= Resources.HomeView.aspx.Company %>
-                                <asp:CheckBox runat="server" ID="chk_Orchestra" Text="<%$Resources:HomeView.aspx,ConcertTeam %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
-                                <asp:CheckBox runat="server" ID="chk_Promoter" Text="<%$Resources:HomeView.aspx,Promoter %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
-                                <asp:CheckBox runat="server" ID="chk_Agent" Text="<%$Resources:HomeView.aspx,Agent %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
-                                <asp:CheckBox runat="server" ID="chk_shopOwner" Text="<%$Resources:HomeView.aspx,ShopOwner %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
-                                <asp:CheckBox runat="server" ID="chk_companyOther" Text="<%$Resources:HomeView.aspx,Other %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" />
+                    <div class="col-md-12 col-xs-12 shadowedPanel" style="background-color: white;   ">
+                        <div class="rwo" style=" padding-bottom: 10px;">
+                            <label><%= Resources.HomeView.aspx.WhatkindOfUserAreyou %>? Please click as many as you think you are!</label>
+                            <hr style="margin-top: 5px;" />
+
+                            <div class="row">
+
+                                <div class="col-md-6 col-xs-6 form-group">
+
+                                    <asp:CheckBox runat="server" ID="chk_Composer" Text="<%$Resources:HomeView.aspx,Composer %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+                                    <asp:CheckBox runat="server" ID="chk_Conductor" Text="<%$Resources:HomeView.aspx,Conductor %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+                                    <asp:CheckBox runat="server" ID="chk_tp" Text="<%$Resources:HomeView.aspx,Teacher_Professor %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+                                    <asp:CheckBox runat="server" ID="chk_Student" Text="<%$Resources:HomeView.aspx,Student %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+                                    <asp:CheckBox runat="server" ID="chk_Audience" Text="<%$Resources:HomeView.aspx,Audience %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+                                    <asp:CheckBox runat="server" ID="chk_Player" Text="<%$Resources:HomeView.aspx,Player %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+                                    <asp:CheckBox runat="server" ID="chk_userOther" Text="<%$Resources:HomeView.aspx,Other %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+
+                                    <%-- ================================================ --%>
+                                    <asp:CheckBox runat="server" ID="CheckBox1" Text="Pro Musician" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+                                    <asp:CheckBox runat="server" ID="CheckBox2" Text="Amature Musician" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+                                    <asp:CheckBox runat="server" ID="CheckBox3" Text="Reporter" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+                                    <asp:CheckBox runat="server" ID="CheckBox4" Text="Student" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+                                    <asp:CheckBox runat="server" ID="CheckBox5" Text="Classic Mania" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+                                    <asp:CheckBox runat="server" ID="CheckBox6" Text="Show Owner" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+                                    <asp:CheckBox runat="server" ID="CheckBox7" Text="Blogger" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+                                    <%-- ================================================ --%>
+
+                                </div>
+
+                                <div class="col-md-6 col-xs-6 form-group">     
+                                    <asp:CheckBox runat="server" ID="chk_Orchestra" Text="<%$Resources:HomeView.aspx,ConcertTeam %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+                                    <asp:CheckBox runat="server" ID="chk_Promoter" Text="<%$Resources:HomeView.aspx,Promoter %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+                                    <asp:CheckBox runat="server" ID="chk_Agent" Text="<%$Resources:HomeView.aspx,Agent %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+                                    <asp:CheckBox runat="server" ID="chk_shopOwner" Text="<%$Resources:HomeView.aspx,ShopOwner %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+                                    <asp:CheckBox runat="server" ID="chk_companyOther" Text="<%$Resources:HomeView.aspx,Other %>" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" Visible="false" /><br />
+                                    <%-- ================================================ --%>
+                                    
+                                    <asp:CheckBox runat="server" ID="CheckBox8" Text="Administrator of Performance Group" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+                                    <asp:CheckBox runat="server" ID="CheckBox9" Text="Administrator of Promotor" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+                                    <asp:CheckBox runat="server" ID="CheckBox10" Text="Administrator of Agent" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+                                    <asp:CheckBox runat="server" ID="CheckBox11" Text="Administrator of Organizer" Style="padding: 5px;" OnCheckedChanged="chk_boxChanged" AutoPostBack="true" /><br />
+
+                                    <%-- ================================================ --%>
+                                </div>
+
                             </div>
                             <div>
                                 <hr />
@@ -158,10 +182,10 @@ SELECT [OfficialName], [ID] FROM  core.[Orchestra]"></asp:SqlDataSource>
                                                     <br />
                                                     <div class="col-md-4 col-xs-4"><%= Resources.HomeView.aspx.MobileNo %></div>
                                                     <div class="col-md-6 col-xs-6">
-                                                        
-                                                        <asp:TextBox ID="umobileno1" runat="server" class="form-control" MaxLength="3" style="display: inline-block; width: 25%;"></asp:TextBox>
-                                                        <asp:TextBox ID="umobileno2" runat="server" class="form-control" MaxLength="4" style="display: inline-block; width: 30%;"></asp:TextBox>
-                                                        <asp:TextBox ID="umobileno3" runat="server" class="form-control" MaxLength="4" style="display: inline-block; width: 30%;"></asp:TextBox>
+
+                                                        <asp:TextBox ID="umobileno1" runat="server" class="form-control" MaxLength="3" Style="display: inline-block; width: 25%;"></asp:TextBox>
+                                                        <asp:TextBox ID="umobileno2" runat="server" class="form-control" MaxLength="4" Style="display: inline-block; width: 30%;"></asp:TextBox>
+                                                        <asp:TextBox ID="umobileno3" runat="server" class="form-control" MaxLength="4" Style="display: inline-block; width: 30%;"></asp:TextBox>
                                                     </div>
                                                     <br />
                                                 </div>
