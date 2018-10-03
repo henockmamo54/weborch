@@ -27,9 +27,9 @@
                             <div class="col-lg-3 col-sm-6 text-center" style="margin-bottom:1rem;padding-left: 5px; padding-right: 5px;" data-toggle="modal" data-target="#exampleModal<%#Eval("ID")%>">
                                 <div style="box-shadow: 0px 0px 5px 2px #d4d3d3; border-radius: 3px;">
                                 <div class="instrumentcontainer" >
-                                <img height="200" class="rounded-circle img-fluid d-block mx-auto" src="../Document/<%#Eval("PhotoLocation") %>"" alt="" style=" padding-top:5px;" >
+                                <img height="150" width="150" class="rounded-circle img-fluid d-block mx-auto" src="../Document/<%#Eval("PhotoLocation") %>"" alt="" style=" padding-top:5px;" >
                                 <h3  style="margin-top:5px;"><%#Eval("EnglishName")%></h3>
-                                <p ><%# Eval("Explanation").ToString().Length<40? "<br/><br/>":Eval("Explanation").ToString().Length>40?Eval("Explanation").ToString().Substring(0,40):Eval("Explanation").ToString() %></p>
+                                <p ><%# Eval("Explanation").ToString().Length<30? "<br/><br/>":Eval("Explanation").ToString().Length>30?Eval("Explanation").ToString().Substring(0,30):Eval("Explanation").ToString() %></p>
                                 </div>
                                 </div>
                             </div>
