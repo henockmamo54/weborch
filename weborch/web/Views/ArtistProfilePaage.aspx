@@ -133,6 +133,11 @@
 
     </asp:UpdatePanel>
 
+    <script type="text/javascript">
+        document.getElementById("artisttab").style.backgroundColor = "white";
+        document.getElementById("artisttab").style.borderBottom = "none";
+    </script>
+
     <style>
         .shadowedPanel {
             border: 1px solid transparent;

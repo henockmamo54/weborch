@@ -107,7 +107,7 @@
 
         <div class="container body-content" style="padding-left: 20px;">
 
-            <div class="navbar-outer">
+            <div class="navbar-outer"  id="masterNavigationBar" >
                 <div class="row ">
                     <div class="">
                         <%--<span style="width: 16.666666666666664% !important; padding-right: 15px; background: red; padding: 15px 15px; font-size: 18px; line-height: 20px;">--%>

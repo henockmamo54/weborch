@@ -138,6 +138,10 @@ where ID=@ID
     </div>
 
     <script type="text/javascript">
+
+        document.getElementById("instrumenttab").style.backgroundColor = "white";
+        document.getElementById("instrumenttab").style.borderBottom = "none";
+
         function myfunc(n) {
             return false;
         }

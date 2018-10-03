@@ -139,6 +139,10 @@ FROM   core.artist
     <script type="text/javascript">
 
 
+        document.getElementById("artisttab").style.backgroundColor = "white";
+        document.getElementById("artisttab").style.borderBottom = "none";
+
+
 
         function bindDateTime() {
             $('#datetimepicker2').datetimepicker({

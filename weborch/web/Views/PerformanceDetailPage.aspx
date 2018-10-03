@@ -357,6 +357,12 @@ left join(
     </style>
 
     <script type="text/javascript">
+
+
+        document.getElementById("performancetab").style.backgroundColor = "white";
+        document.getElementById("performancetab").style.borderBottom = "none";
+
+
         $(function () {
             $('#datetimepicker3').datetimepicker();
         });

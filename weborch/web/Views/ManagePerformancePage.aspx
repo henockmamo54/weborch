@@ -647,6 +647,11 @@ where ID=@ID">
 
 
     <script type="text/javascript">
+
+        document.getElementById("performancetab").style.backgroundColor = "white";
+        document.getElementById("performancetab").style.borderBottom = "none";
+
+
         $(function () {
             $('#datetimepicker2').datetimepicker({
                 format: 'DD/MM/YYYY'

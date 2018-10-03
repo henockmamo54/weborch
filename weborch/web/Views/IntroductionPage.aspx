@@ -23,6 +23,13 @@
         </ContentTemplate>
     </asp:UpdatePanel>
 
+    <script type="text/javascript">
+
+        document.getElementById("introductiontab").style.backgroundColor = "white";
+        document.getElementById("introductiontab").style.borderBottom = "none";
+
+    </script>
+
     <style>
         .shadowedPanel {
             border: 1px solid transparent;
