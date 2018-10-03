@@ -10,7 +10,7 @@
                 <div id="forAudience" runat="server">
                     <h3 style="display: inline-block;"><%= Resources.HomeView.aspx.ConcertTeamData %></h3>
                     <div class="row col-md-12" style="margin-bottom: 1rem; padding: 0px;">
-                        <div class="col-md-3 pull-right" style="padding: 0;">
+                        <div class="col-md-4 pull-right" style="padding: 0;">
                             <h5 style="display: inline-block;">Name: </h5>
                             <asp:TextBox AutoPostBack="true" ID="txtbox_namefilter" runat="server" CssClass="form-control" Style="width: 82%; display: inline-block;" OnTextChanged="filterOrchestraDataByName"></asp:TextBox>
                         </div>
@@ -25,14 +25,14 @@
 
                                 <div class="col-md-3" style="padding-right: 5px; padding-left: 5px;">
                                     <div class="orchContainer" style="background-color: white;">
-                                        <h4 style="color: #00796B; font-weight: 800;"><%#Eval("OfficialName") %></h4>
+                                        <h4 style="color: #00796B; font-weight: 800;"> <%#Eval("OfficialName").ToString().Length>10?Eval("OfficialName").ToString().Substring(0,10):Eval("OfficialName").ToString() %></h4>
                                         <h5 style="color: #00796B;">(<%#Eval("Alias") %>)</h5>
                                         <div style="font-size: 1.2rem; color: #4c4949; margin-left: 10px;">
 
                                             <span>Since: <%#Eval("Since") %></span>
                                             <br />
-                                            <span>Conductor: <%#Eval("ConductorName") %></span><br />
-                                            <span>Address: <%#Eval("Address").ToString().Length>20?Eval("Address").ToString().Substring(0,20):Eval("Address").ToString() %></span><br />
+                                            <span>Conductor: <%#Eval("ConductorName").ToString().Length>15?Eval("ConductorName").ToString().Substring(0,15):Eval("ConductorName").ToString() %></span><br />
+                                            <span>Address: <%#Eval("Address").ToString().Length>15?Eval("Address").ToString().Substring(0,15):Eval("Address").ToString() %></span><br />
                                             <span>ZipCode: <%#Eval("ZipCode") %></span><br />
                                             <span>TelNO: <%#Eval("TelNO") %></span><br />
                                             <span>FaxNo: <%#Eval("FaxNo") %></span><br />

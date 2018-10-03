@@ -106,10 +106,10 @@
         </div>--%>
         <div class="container body-content">
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-2"  id="mastersidemenu">
                     <ul class="list-group">
                         <a class="list-group-item list-group-item-action whitesmokeBG" runat="server" id="signinLink" visible="false" href="~/LoginPage"><span class=""><%= Resources.HomeView.aspx.SignIn %></span></a>
-                        <a class="list-group-item list-group-item-action" runat="server" id="signoutLink" visible="false" href="" onserverclick="signoutClicked"><%= Resources.HomeView.aspx.SignOut %></a>
+                        <a class="list-group-item list-group-item-action whitesmokeBG" runat="server" id="signoutLink" visible="false" href="" onserverclick="signoutClicked"><%= Resources.HomeView.aspx.SignOut %></a>
 
                         <%--<a class="list-group-item list-group-item-action active">
                             <a runat="server" id="signinLink" visible="false" href="~/LoginPage"><span class=""><%= Resources.HomeView.aspx.SignIn %></span></a>
@@ -119,7 +119,7 @@
                         <a class="list-group-item list-group-item-action  whitesmokeBG" href="#">Article</a>
                         <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Auditions</a>
                         <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Concours</a>
-                        <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Performance Group</a>
+                        <a class="list-group-item list-group-item-action whitesmokeBG" runat="server" href="~/Views/OrchestraView">Performance Group</a>
                         <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Repair Shop</a>
                         <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Music Shop</a>
                         <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Concert Venu</a>
@@ -128,7 +128,7 @@
                         <a class="list-group-item list-group-item-action whitesmokeBG" href="#">FAQ</a>
                     </ul>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-10" id="mastermaincontent">
                     <asp:ContentPlaceHolder ID="MainContent" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>

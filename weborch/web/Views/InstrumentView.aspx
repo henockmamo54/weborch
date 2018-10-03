@@ -12,7 +12,7 @@
                        <h3 style="display:inline-block;"><%= Resources.HomeView.aspx.Instrumentdata %></h3>
                     
                     <div class="row col-md-12" style="margin-bottom: 1rem;padding:0px;  ">
-                        <div class="col-md-3 pull-right" style="padding:0;">
+                        <div class="col-md-4 pull-right" style="padding:0;">
                             <h5 style="display: inline-block;">Name: </h5>
                             <asp:TextBox AutoPostBack="true" ID="txtbox_namefilter" runat="server" CssClass="form-control" Style="width: 82%; display: inline-block; " OnTextChanged="filterArtistDataByName"></asp:TextBox>
                         </div>
