@@ -235,5 +235,7 @@ where ID=@ID">
     </style>
     <script type="text/javascript">
         document.getElementById("performancetab").style.backgroundColor = "white";
+        document.getElementById("performancetab").style.borderBottom = "none";
+
     </script>
 </asp:Content>

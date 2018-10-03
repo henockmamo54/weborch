@@ -31,6 +31,15 @@ namespace web {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor artisttab;
         
         /// <summary>
+        /// instrumenttab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor instrumenttab;
+        
+        /// <summary>
         /// introductiontab control.
         /// </summary>
         /// <remarks>

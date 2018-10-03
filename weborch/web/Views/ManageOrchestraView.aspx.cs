@@ -84,12 +84,12 @@ namespace web
 
         protected void Button1_addorchestraDetail_Click(object sender, EventArgs e)
         {
-            Orchestra_Instrument_Artist obj = new Orchestra_Instrument_Artist();
-            obj.OrchestraID = int.Parse(DropDownList1_orchestralist.SelectedValue);
-            obj.InstrumentID = int.Parse(DropDownList3_instrumentlist.SelectedValue);
-            obj.ArtistID = int.Parse(DropDownList2_artistlist.SelectedValue);
+            //Orchestra_Instrument_Artist obj = new Orchestra_Instrument_Artist();
+            //obj.OrchestraID = int.Parse(DropDownList1_orchestralist.SelectedValue);
+            //obj.InstrumentID = int.Parse(DropDownList3_instrumentlist.SelectedValue);
+            //obj.ArtistID = int.Parse(DropDownList2_artistlist.SelectedValue);
 
-            if (oial.AddOrchestraInstrumentArtist(obj)) ListView2_orchestraInstrumentArtist.DataBind();
+            //if (oial.AddOrchestraInstrumentArtist(obj)) ListView2_orchestraInstrumentArtist.DataBind();
         }
 
         protected void DropDownList1_orchestralist_SelectedIndexChanged(object sender, EventArgs e)
