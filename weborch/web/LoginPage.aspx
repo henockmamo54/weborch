@@ -60,6 +60,12 @@
 
     <script type="text/javascript">
 
+        
+
+        document.getElementById("signuptab").style.backgroundColor = "rgb(255, 255, 255) ";
+        document.getElementById("signuptab").style.borderRight = "none";
+
+
         var x = document.getElementById("mastermaincontent");
         x.className = "col-md-12"
 

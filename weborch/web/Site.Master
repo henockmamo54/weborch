@@ -139,14 +139,20 @@
             <div class="row">
                 <div class="col-md-2 col-xs-2" id="mastersidemenu" style="padding-left: 0px;">
                     <ul class="list-group">
-                        <a class="list-group-item list-group-item-action whitesmokeBG" runat="server" id="signinLink" visible="false" href="~/LoginPage"><span class=""><%= Resources.HomeView.aspx.SignIn %></span></a>
+                        <%--<a class="list-group-item list-group-item-action whitesmokeBG" runat="server" id="A1" visible="false" href="~/LoginPage"><span class=""><%= Resources.HomeView.aspx.SignIn %></span></a>--%>
+
+                        <a runat="server" id="signinLink" visible="false">
+                            <a class="list-group-item list-group-item-action whitesmokeBG" runat="server" href="~/LoginPage" ><%= Resources.HomeView.aspx.SignIn %></a>
+                            <a class="list-group-item list-group-item-action whitesmokeBG" runat="server" id="signuptab" href="~/Views/signupPages/TermsOfUsePage"><%= Resources.HomeView.aspx.SignUp %></a>
+                        </a>
+                        
                         <a class="list-group-item list-group-item-action whitesmokeBG" runat="server" id="signoutLink" visible="false" href="" onserverclick="signoutClicked"><%= Resources.HomeView.aspx.SignOut %></a>
 
 
                         <a class="list-group-item list-group-item-action  whitesmokeBG" href="#">Article</a>
                         <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Auditions</a>
                         <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Concours</a>
-                        <a class="list-group-item list-group-item-action whitesmokeBG" runat="server" href="~/Views/OrchestraView">Performance Group</a>
+                        <a id="performancegrouptab" class="list-group-item list-group-item-action " style="background-color:whitesmoke;" runat="server" href="~/Views/OrchestraView">Performance Group</a>
                         <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Repair Shop</a>
                         <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Music Shop</a>
                         <a class="list-group-item list-group-item-action whitesmokeBG" href="#">Concert Venu</a>
@@ -179,7 +185,7 @@
     }
 
     .whitesmokeBG {
-        background-color: whitesmoke !important;
+        background-color: whitesmoke ;
     }
 
     .container {

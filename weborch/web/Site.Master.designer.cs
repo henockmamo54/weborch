@@ -58,6 +58,15 @@ namespace web {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor signinLink;
         
         /// <summary>
+        /// signuptab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor signuptab;
+        
+        /// <summary>
         /// signoutLink control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor signoutLink;
+        
+        /// <summary>
+        /// performancegrouptab control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor performancegrouptab;
         
         /// <summary>
         /// MainContent control.

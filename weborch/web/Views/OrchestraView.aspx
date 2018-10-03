@@ -31,7 +31,7 @@
 
                                             <span>Since: <%#Eval("Since") %></span>
                                             <br />
-                                            <span>Conductor: <%#Eval("ConductorName").ToString().Length>15?Eval("ConductorName").ToString().Substring(0,15):Eval("ConductorName").ToString() %></span><br />
+                                            <span>Conductor: <%#Eval("ConductorName").ToString().Length>12?Eval("ConductorName").ToString().Substring(0,12):Eval("ConductorName").ToString() %></span><br />
                                             <span>Address: <%#Eval("Address").ToString().Length>15?Eval("Address").ToString().Substring(0,15):Eval("Address").ToString() %></span><br />
                                             <span>ZipCode: <%#Eval("ZipCode") %></span><br />
                                             <span>TelNO: <%#Eval("TelNO") %></span><br />
@@ -112,6 +112,11 @@ ID=@ID"
 
     </div>
 
+    <script type="text/javascript">
+        document.getElementById("performancegrouptab").style.backgroundColor = "rgb(255, 255, 255) ";
+        document.getElementById("performancegrouptab").style.borderRight = "none";
+    </script>
+    
 
     <style>
         .orchContainer {

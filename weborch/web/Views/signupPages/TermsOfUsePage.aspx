@@ -272,4 +272,9 @@
             }
     </style>
 
+    <script type="text/javascript">
+        document.getElementById("signuptab").style.backgroundColor = "rgb(255, 255, 255) ";
+        document.getElementById("signuptab").style.borderRight = "none";
+    </script>
+
 </asp:Content>

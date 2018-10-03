@@ -595,6 +595,9 @@ where al.Name like '%Conductor%'
             });
         });
 
+        document.getElementById("signuptab").style.backgroundColor = "rgb(255, 255, 255) ";
+        document.getElementById("signuptab").style.borderRight = "none";
+
     </script>
 
     <style>
