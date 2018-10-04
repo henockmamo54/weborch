@@ -514,7 +514,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/03/2018 21:03:19</publishTime>
     </File>
     <File Include="Views/PerformancePage.aspx">
-      <publishTime>10/03/2018 21:03:26</publishTime>
+      <publishTime>10/03/2018 22:27:41</publishTime>
     </File>
     <File Include="Views/signupPages/TermsOfUsePage.aspx">
       <publishTime>10/03/2018 21:03:26</publishTime>

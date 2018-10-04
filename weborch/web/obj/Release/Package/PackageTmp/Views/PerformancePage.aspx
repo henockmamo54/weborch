@@ -26,8 +26,8 @@
                         <br />
 
                         <div class="row col-md-12 col-xs-12 ">
-                            <div class="col-md-3">
-                                <asp:Calendar runat="server" ID="dateselectorcalendar"  BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="200px" OnSelectionChanged="dateselectorcalendar_SelectionChanged">
+                            <div class="col-md-3 col-xs-3">
+                                <asp:Calendar runat="server" ID="dateselectorcalendar"  BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="250px" OnSelectionChanged="dateselectorcalendar_SelectionChanged">
                                     <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
                                     <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
                                     <OtherMonthDayStyle ForeColor="#999999" />
